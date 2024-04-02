@@ -64,6 +64,20 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      list_metadata_generation_runs_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("status") => list(any()),
+        optional("type") => list(any())
+      }
+
+  """
+  @type list_metadata_generation_runs_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_asset_input() :: %{
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
@@ -1212,6 +1226,29 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      cancel_metadata_generation_run_output() :: %{}
+
+  """
+  @type cancel_metadata_generation_run_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_metadata_generation_run_input() :: %{
+        optional("clientToken") => String.t(),
+        required("owningProjectIdentifier") => String.t(),
+        required("target") => metadata_generation_run_target(),
+        required("type") => list(any())
+      }
+
+  """
+  @type start_metadata_generation_run_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       asset_item_additional_attributes() :: %{
         "formsOutput" => list(form_output()()),
         "readOnlyFormsOutput" => list(form_output()())
@@ -1343,6 +1380,24 @@ defmodule AWS.DataZone do
 
   """
   @type get_subscription_request_details_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_metadata_generation_run_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
+        "domainId" => String.t(),
+        "id" => String.t(),
+        "owningProjectId" => String.t(),
+        "status" => list(any()),
+        "target" => metadata_generation_run_target(),
+        "type" => list(any())
+      }
+
+  """
+  @type get_metadata_generation_run_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1616,6 +1671,23 @@ defmodule AWS.DataZone do
 
   """
   @type create_form_type_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_metadata_generation_run_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
+        "domainId" => String.t(),
+        "id" => String.t(),
+        "owningProjectId" => String.t(),
+        "status" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type start_metadata_generation_run_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1895,6 +1967,19 @@ defmodule AWS.DataZone do
 
   """
   @type accept_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metadata_generation_run_target() :: %{
+        "identifier" => [String.t()],
+        "revision" => String.t(),
+        "type" => list(any())
+      }
+
+  """
+  @type metadata_generation_run_target() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2935,6 +3020,15 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      cancel_metadata_generation_run_input() :: %{}
+
+  """
+  @type cancel_metadata_generation_run_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_subscription_targets_output() :: %{
         "items" => list(subscription_target_summary()()),
         "nextToken" => String.t()
@@ -3562,6 +3656,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      list_metadata_generation_runs_output() :: %{
+        "items" => list(metadata_generation_run_item()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_metadata_generation_runs_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_project_input() :: %{
         optional("skipDeletionCheck") => [boolean()]
       }
@@ -3574,6 +3680,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       accept_choice() :: %{
+        "editedValue" => String.t(),
         "predictionChoice" => [integer()],
         "predictionTarget" => [String.t()]
       }
@@ -3592,6 +3699,24 @@ defmodule AWS.DataZone do
 
   """
   @type listing_revision() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metadata_generation_run_item() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
+        "domainId" => String.t(),
+        "id" => String.t(),
+        "owningProjectId" => String.t(),
+        "status" => list(any()),
+        "target" => metadata_generation_run_target(),
+        "type" => list(any())
+      }
+
+  """
+  @type metadata_generation_run_item() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4091,6 +4216,15 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      get_metadata_generation_run_input() :: %{}
+
+  """
+  @type get_metadata_generation_run_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_environment_profile_input() :: %{}
 
   """
@@ -4302,6 +4436,14 @@ defmodule AWS.DataZone do
           | conflict_exception()
 
   @type accept_subscription_request_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type cancel_metadata_generation_run_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -4691,6 +4833,13 @@ defmodule AWS.DataZone do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_metadata_generation_run_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_project_errors() ::
           throttling_exception()
           | validation_exception()
@@ -4800,6 +4949,13 @@ defmodule AWS.DataZone do
           | access_denied_exception()
           | internal_server_exception()
 
+  @type list_metadata_generation_runs_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type list_notifications_errors() ::
           validation_exception()
           | access_denied_exception()
@@ -4863,6 +5019,7 @@ defmodule AWS.DataZone do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | conflict_exception()
 
   @type reject_subscription_request_errors() ::
           throttling_exception()
@@ -4911,6 +5068,15 @@ defmodule AWS.DataZone do
           | resource_not_found_exception()
 
   @type start_data_source_run_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type start_metadata_generation_run_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -5090,6 +5256,47 @@ defmodule AWS.DataZone do
     meta = metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Cancels the metadata generation run.
+  """
+  @spec cancel_metadata_generation_run(
+          map(),
+          String.t(),
+          String.t(),
+          cancel_metadata_generation_run_input(),
+          list()
+        ) ::
+          {:ok, cancel_metadata_generation_run_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, cancel_metadata_generation_run_errors()}
+  def cancel_metadata_generation_run(
+        %Client{} = client,
+        domain_identifier,
+        identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/metadata-generation-runs/#{AWS.Util.encode_uri(identifier)}/cancel"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5422,6 +5629,11 @@ defmodule AWS.DataZone do
     )
   end
 
+  @doc """
+  Publishes a listing (a record of an asset at a given time) or removes a listing
+  from the
+  catalog.
+  """
   @spec create_listing_change_set(map(), String.t(), create_listing_change_set_input(), list()) ::
           {:ok, create_listing_change_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -5976,6 +6188,9 @@ defmodule AWS.DataZone do
     )
   end
 
+  @doc """
+  Deletes a listing (a record of an asset at a given time).
+  """
   @spec delete_listing(map(), String.t(), String.t(), delete_listing_input(), list()) ::
           {:ok, delete_listing_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6512,6 +6727,9 @@ defmodule AWS.DataZone do
     )
   end
 
+  @doc """
+  Gets a listing (a record of an asset at a given time).
+  """
   @spec get_listing(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_listing_output(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -6535,6 +6753,30 @@ defmodule AWS.DataZone do
       else
         query_params
       end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets a metadata generation run in Amazon DataZone.
+  """
+  @spec get_metadata_generation_run(map(), String.t(), String.t(), list()) ::
+          {:ok, get_metadata_generation_run_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_metadata_generation_run_errors()}
+  def get_metadata_generation_run(
+        %Client{} = client,
+        domain_identifier,
+        identifier,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/metadata-generation-runs/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -7270,6 +7512,67 @@ defmodule AWS.DataZone do
     query_params =
       if !is_nil(aws_account_id) do
         [{"awsAccountId", aws_account_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all metadata generation runs.
+  """
+  @spec list_metadata_generation_runs(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_metadata_generation_runs_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_metadata_generation_runs_errors()}
+  def list_metadata_generation_runs(
+        %Client{} = client,
+        domain_identifier,
+        max_results \\ nil,
+        next_token \\ nil,
+        status \\ nil,
+        type \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/metadata-generation-runs"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(type) do
+        [{"type", type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -8047,7 +8350,7 @@ defmodule AWS.DataZone do
   end
 
   @doc """
-  Searches listings in Amazon DataZone.
+  Searches listings (records of an asset at a given time) in Amazon DataZone.
   """
   @spec search_listings(map(), String.t(), search_listings_input(), list()) ::
           {:ok, search_listings_output(), any()}
@@ -8150,6 +8453,38 @@ defmodule AWS.DataZone do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/data-sources/#{AWS.Util.encode_uri(data_source_identifier)}/runs"
 
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Starts the metadata generation run.
+  """
+  @spec start_metadata_generation_run(
+          map(),
+          String.t(),
+          start_metadata_generation_run_input(),
+          list()
+        ) ::
+          {:ok, start_metadata_generation_run_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_metadata_generation_run_errors()}
+  def start_metadata_generation_run(%Client{} = client, domain_identifier, input, options \\ []) do
+    url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/metadata-generation-runs"
     headers = []
     query_params = []
 

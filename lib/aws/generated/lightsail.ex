@@ -738,7 +738,8 @@ defmodule AWS.Lightsail do
         "resourceType" => list(any()),
         "status" => String.t(),
         "supportCode" => String.t(),
-        "tags" => list(tag()())
+        "tags" => list(tag()()),
+        "viewerMinimumTlsProtocolVersion" => String.t()
       }
       
   """
@@ -1638,8 +1639,10 @@ defmodule AWS.Lightsail do
       create_distribution_request() :: %{
         optional("cacheBehaviorSettings") => cache_settings(),
         optional("cacheBehaviors") => list(cache_behavior_per_path()()),
+        optional("certificateName") => String.t(),
         optional("ipAddressType") => list(any()),
         optional("tags") => list(tag()()),
+        optional("viewerMinimumTlsProtocolVersion") => list(any()),
         required("bundleId") => String.t(),
         required("defaultCacheBehavior") => cache_behavior(),
         required("distributionName") => String.t(),
@@ -2634,9 +2637,12 @@ defmodule AWS.Lightsail do
       update_distribution_request() :: %{
         optional("cacheBehaviorSettings") => cache_settings(),
         optional("cacheBehaviors") => list(cache_behavior_per_path()()),
+        optional("certificateName") => String.t(),
         optional("defaultCacheBehavior") => cache_behavior(),
         optional("isEnabled") => boolean(),
         optional("origin") => input_origin(),
+        optional("useDefaultCertificate") => boolean(),
+        optional("viewerMinimumTlsProtocolVersion") => list(any()),
         required("distributionName") => String.t()
       }
       
@@ -3891,7 +3897,8 @@ defmodule AWS.Lightsail do
       input_origin() :: %{
         "name" => String.t(),
         "protocolPolicy" => list(any()),
-        "regionName" => list(any())
+        "regionName" => list(any()),
+        "responseTimeout" => integer()
       }
       
   """
@@ -4111,7 +4118,8 @@ defmodule AWS.Lightsail do
         "name" => String.t(),
         "protocolPolicy" => list(any()),
         "regionName" => list(any()),
-        "resourceType" => list(any())
+        "resourceType" => list(any()),
+        "responseTimeout" => integer()
       }
       
   """

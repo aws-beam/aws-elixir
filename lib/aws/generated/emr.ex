@@ -3849,7 +3849,7 @@ defmodule AWS.EMR do
   with these nodes, moves the data, and then terminates the nodes.
 
   For more information, see [graceful node
-  replacement](https://docs.aws.amazon.com/emr/latest/ManagementGuide/UsingEMR_UnhealthyNodeReplacement.html)
+  replacement](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-node-replacement.html)
   in the *Amazon EMR Management Guide*.
   """
   @spec set_unhealthy_node_replacement(map(), set_unhealthy_node_replacement_input(), list()) ::

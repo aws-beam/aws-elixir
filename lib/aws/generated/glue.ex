@@ -1565,6 +1565,8 @@ defmodule AWS.Glue do
       get_unfiltered_table_metadata_response() :: %{
         "AuthorizedColumns" => list(String.t()()),
         "CellFilters" => list(column_row_filter()()),
+        "IsMultiDialectView" => boolean(),
+        "IsProtected" => boolean(),
         "IsRegisteredWithLakeFormation" => boolean(),
         "Permissions" => list(list(any())()),
         "QueryAuthorizationId" => String.t(),
@@ -6302,6 +6304,20 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      view_definition() :: %{
+        "Definer" => String.t(),
+        "IsProtected" => boolean(),
+        "Representations" => list(view_representation()()),
+        "SubObjects" => list(String.t()())
+      }
+      
+  """
+  @type view_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_crawlers_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
@@ -9034,6 +9050,21 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      view_representation() :: %{
+        "Dialect" => list(any()),
+        "DialectVersion" => String.t(),
+        "IsStale" => boolean(),
+        "ViewExpandedText" => String.t(),
+        "ViewOriginalText" => String.t()
+      }
+      
+  """
+  @type view_representation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_job_from_source_control_request() :: %{
         optional("AuthStrategy") => list(any()),
         optional("AuthToken") => String.t(),
@@ -9508,6 +9539,7 @@ defmodule AWS.Glue do
         "DatabaseName" => String.t(),
         "Description" => String.t(),
         "FederatedTable" => federated_table(),
+        "IsMultiDialectView" => boolean(),
         "IsRegisteredWithLakeFormation" => boolean(),
         "LastAccessTime" => non_neg_integer(),
         "LastAnalyzedTime" => non_neg_integer(),
@@ -9521,6 +9553,7 @@ defmodule AWS.Glue do
         "TargetTable" => table_identifier(),
         "UpdateTime" => non_neg_integer(),
         "VersionId" => String.t(),
+        "ViewDefinition" => view_definition(),
         "ViewExpandedText" => String.t(),
         "ViewOriginalText" => String.t()
       }

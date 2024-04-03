@@ -76,7 +76,7 @@ parts =
     chunk = Enum.join(chunk)
 
     {:ok, nil, %{headers: headers, status_code: 200}} =
-      AWS.S3.upload_part(aws_client, bucket, filename, %{
+      AWS.S3.upload_part(client, bucket, filename, %{
         "Body" => chunk,
         "PartNumber" => i,
         "UploadId" => upload_id

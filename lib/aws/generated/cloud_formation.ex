@@ -3323,6 +3323,7 @@ defmodule AWS.CloudFormation do
         "LogicalResourceId" => String.t(),
         "ModuleInfo" => module_info(),
         "PhysicalResourceId" => String.t(),
+        "PolicyAction" => list(any()),
         "Replacement" => list(any()),
         "ResourceType" => String.t(),
         "Scope" => list(list(any())())
@@ -3818,7 +3819,7 @@ defmodule AWS.CloudFormation do
   [SetTypeConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html) to specify configuration properties for the extension. For more information, see
   [Configuring extensions at
   the account
-  level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration)
+  level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-private.html#registry-set-configuration)
   in the *CloudFormation User Guide*.
   """
   @spec activate_type(map(), activate_type_input(), list()) ::
@@ -3837,7 +3838,7 @@ defmodule AWS.CloudFormation do
   for the account and Region.
 
   For more information, see [Configuring extensions at the account
-  level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration)
+  level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-private.html#registry-set-configuration)
   in the *CloudFormation User Guide*.
   """
   @spec batch_describe_type_configurations(
@@ -5219,7 +5220,7 @@ defmodule AWS.CloudFormation do
   to specify
   configuration properties for the extension. For more information, see
   [Configuring extensions at the account
-  level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration)
+  level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-private.html#registry-set-configuration)
   in the *CloudFormation User Guide*.
   """
   @spec register_type(map(), register_type_input(), list()) ::
@@ -5299,7 +5300,7 @@ defmodule AWS.CloudFormation do
   of
   [DescribeType](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html). For more information, see [Configuring extensions at
   the account
-  level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration)
+  level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-private.html#registry-set-configuration)
   in the *CloudFormation User Guide*.
 
   It's strongly recommended that you use dynamic references to restrict sensitive

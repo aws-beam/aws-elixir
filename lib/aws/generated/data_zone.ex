@@ -174,6 +174,15 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      delete_time_series_data_points_output() :: %{}
+
+  """
+  @type delete_time_series_data_points_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_request() :: %{
         required("tags") => map()
       }
@@ -617,6 +626,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      list_time_series_data_points_output() :: %{
+        "items" => list(time_series_data_point_summary_form_output()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_time_series_data_points_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       domain_summary() :: %{
         "arn" => [String.t()],
         "createdAt" => non_neg_integer(),
@@ -840,6 +861,7 @@ defmodule AWS.DataZone do
         "formsOutput" => list(form_output()()),
         "glossaryTerms" => list(String.t()()),
         "id" => String.t(),
+        "latestTimeSeriesDataPointFormsOutput" => list(time_series_data_point_summary_form_output()()),
         "listing" => asset_listing_details(),
         "name" => String.t(),
         "owningProjectId" => String.t(),
@@ -911,6 +933,18 @@ defmodule AWS.DataZone do
 
   """
   @type user_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_time_series_data_points_input() :: %{
+        optional("clientToken") => String.t(),
+        required("formName") => String.t()
+      }
+
+  """
+  @type delete_time_series_data_points_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1047,6 +1081,18 @@ defmodule AWS.DataZone do
 
   """
   @type search_types_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      post_time_series_data_points_input() :: %{
+        optional("clientToken") => String.t(),
+        required("forms") => list(time_series_data_point_form_input()())
+      }
+
+  """
+  @type post_time_series_data_points_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1251,6 +1297,7 @@ defmodule AWS.DataZone do
 
       asset_item_additional_attributes() :: %{
         "formsOutput" => list(form_output()()),
+        "latestTimeSeriesDataPointFormsOutput" => list(time_series_data_point_summary_form_output()()),
         "readOnlyFormsOutput" => list(form_output()())
       }
 
@@ -1371,6 +1418,21 @@ defmodule AWS.DataZone do
 
   """
   @type delete_subscription_target_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_time_series_data_points_input() :: %{
+        optional("endedAt") => [non_neg_integer()],
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("startedAt") => [non_neg_integer()],
+        required("formName") => String.t()
+      }
+
+  """
+  @type list_time_series_data_points_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1598,6 +1660,21 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      time_series_data_point_form_input() :: %{
+        "content" => [String.t()],
+        "formName" => String.t(),
+        "timestamp" => [non_neg_integer()],
+        "typeIdentifier" => String.t(),
+        "typeRevision" => String.t()
+      }
+
+  """
+  @type time_series_data_point_form_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       search_output() :: %{
         "items" => list(list()()),
         "nextToken" => String.t(),
@@ -1749,6 +1826,7 @@ defmodule AWS.DataZone do
         "createdAt" => non_neg_integer(),
         "forms" => String.t(),
         "glossaryTerms" => list(detailed_glossary_term()()),
+        "latestTimeSeriesDataPointForms" => list(time_series_data_point_summary_form_output()()),
         "owningProjectId" => String.t()
       }
 
@@ -2035,7 +2113,8 @@ defmodule AWS.DataZone do
   ## Example:
 
       asset_listing_item_additional_attributes() :: %{
-        "forms" => String.t()
+        "forms" => String.t(),
+        "latestTimeSeriesDataPointForms" => list(time_series_data_point_summary_form_output()())
       }
 
   """
@@ -2350,6 +2429,22 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      time_series_data_point_form_output() :: %{
+        "content" => [String.t()],
+        "formName" => String.t(),
+        "id" => String.t(),
+        "timestamp" => [non_neg_integer()],
+        "typeIdentifier" => String.t(),
+        "typeRevision" => String.t()
+      }
+
+  """
+  @type time_series_data_point_form_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_subscription_request_input() :: %{}
 
   """
@@ -2382,6 +2477,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       glue_run_configuration_input() :: %{
+        "autoImportDataQualityResult" => [boolean()],
         "dataAccessRole" => [String.t()],
         "relationalFilterConfigurations" => list(relational_filter_configuration()())
       }
@@ -2738,6 +2834,7 @@ defmodule AWS.DataZone do
         "formsOutput" => list(form_output()()),
         "glossaryTerms" => list(String.t()()),
         "id" => String.t(),
+        "latestTimeSeriesDataPointFormsOutput" => list(time_series_data_point_summary_form_output()()),
         "listing" => asset_listing_details(),
         "name" => String.t(),
         "owningProjectId" => String.t(),
@@ -2761,6 +2858,21 @@ defmodule AWS.DataZone do
 
   """
   @type delete_project_membership_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_time_series_data_point_output() :: %{
+        "domainId" => String.t(),
+        "entityId" => String.t(),
+        "entityType" => list(any()),
+        "form" => time_series_data_point_form_output(),
+        "formName" => String.t()
+      }
+
+  """
+  @type get_time_series_data_point_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3753,6 +3865,36 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      time_series_data_point_summary_form_output() :: %{
+        "contentSummary" => [String.t()],
+        "formName" => String.t(),
+        "id" => String.t(),
+        "timestamp" => [non_neg_integer()],
+        "typeIdentifier" => String.t(),
+        "typeRevision" => String.t()
+      }
+
+  """
+  @type time_series_data_point_summary_form_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      post_time_series_data_points_output() :: %{
+        "domainId" => String.t(),
+        "entityId" => String.t(),
+        "entityType" => list(any()),
+        "forms" => list(time_series_data_point_form_output()())
+      }
+
+  """
+  @type post_time_series_data_points_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_subscription_grant_output() :: %{
         "assets" => list(subscribed_asset()()),
         "createdAt" => non_neg_integer(),
@@ -3776,6 +3918,7 @@ defmodule AWS.DataZone do
 
       glue_run_configuration_output() :: %{
         "accountId" => [String.t()],
+        "autoImportDataQualityResult" => [boolean()],
         "dataAccessRole" => [String.t()],
         "region" => [String.t()],
         "relationalFilterConfigurations" => list(relational_filter_configuration()())
@@ -4067,6 +4210,7 @@ defmodule AWS.DataZone do
         "formsOutput" => list(form_output()()),
         "glossaryTerms" => list(String.t()()),
         "id" => String.t(),
+        "latestTimeSeriesDataPointFormsOutput" => list(time_series_data_point_summary_form_output()()),
         "listing" => asset_listing_details(),
         "name" => String.t(),
         "owningProjectId" => String.t(),
@@ -4126,6 +4270,17 @@ defmodule AWS.DataZone do
 
   """
   @type delete_data_source_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_time_series_data_point_input() :: %{
+        required("formName") => String.t()
+      }
+
+  """
+  @type get_time_series_data_point_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4724,6 +4879,13 @@ defmodule AWS.DataZone do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type delete_time_series_data_points_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_asset_errors() ::
           throttling_exception()
           | validation_exception()
@@ -4875,6 +5037,13 @@ defmodule AWS.DataZone do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_time_series_data_point_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_user_profile_errors() ::
           validation_exception()
           | access_denied_exception()
@@ -5005,6 +5174,22 @@ defmodule AWS.DataZone do
 
   @type list_tags_for_resource_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type list_time_series_data_points_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type post_time_series_data_points_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type put_environment_blueprint_configuration_errors() ::
           validation_exception()
@@ -6418,6 +6603,55 @@ defmodule AWS.DataZone do
   end
 
   @doc """
+  Deletes the specified time series form for the specified asset.
+  """
+  @spec delete_time_series_data_points(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          delete_time_series_data_points_input(),
+          list()
+        ) ::
+          {:ok, delete_time_series_data_points_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_time_series_data_points_errors()}
+  def delete_time_series_data_points(
+        %Client{} = client,
+        domain_identifier,
+        entity_identifier,
+        entity_type,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/entities/#{AWS.Util.encode_uri(entity_type)}/#{AWS.Util.encode_uri(entity_identifier)}/time-series-data-points"
+
+    headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"},
+        {"formName", "formName"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Gets an Amazon DataZone asset.
   """
   @spec get_asset(map(), String.t(), String.t(), String.t() | nil, list()) ::
@@ -6883,6 +7117,48 @@ defmodule AWS.DataZone do
 
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets the existing data point for the asset.
+  """
+  @spec get_time_series_data_point(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          list()
+        ) ::
+          {:ok, get_time_series_data_point_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_time_series_data_point_errors()}
+  def get_time_series_data_point(
+        %Client{} = client,
+        domain_identifier,
+        entity_identifier,
+        entity_type,
+        identifier,
+        form_name,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/entities/#{AWS.Util.encode_uri(entity_type)}/#{AWS.Util.encode_uri(entity_identifier)}/time-series-data-points/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(form_name) do
+        [{"formName", form_name} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -8185,6 +8461,125 @@ defmodule AWS.DataZone do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists time series data points.
+  """
+  @spec list_time_series_data_points(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_time_series_data_points_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_time_series_data_points_errors()}
+  def list_time_series_data_points(
+        %Client{} = client,
+        domain_identifier,
+        entity_identifier,
+        entity_type,
+        ended_at \\ nil,
+        form_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        started_at \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/entities/#{AWS.Util.encode_uri(entity_type)}/#{AWS.Util.encode_uri(entity_identifier)}/time-series-data-points"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(started_at) do
+        [{"startedAt", started_at} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(form_name) do
+        [{"formName", form_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(ended_at) do
+        [{"endedAt", ended_at} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Posts time series data points to Amazon DataZone for the specified asset.
+  """
+  @spec post_time_series_data_points(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          post_time_series_data_points_input(),
+          list()
+        ) ::
+          {:ok, post_time_series_data_points_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, post_time_series_data_points_errors()}
+  def post_time_series_data_points(
+        %Client{} = client,
+        domain_identifier,
+        entity_identifier,
+        entity_type,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/entities/#{AWS.Util.encode_uri(entity_type)}/#{AWS.Util.encode_uri(entity_identifier)}/time-series-data-points"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """

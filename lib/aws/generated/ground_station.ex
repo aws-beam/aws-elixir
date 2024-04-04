@@ -219,7 +219,9 @@ defmodule AWS.GroundStation do
         "region" => [String.t()],
         "satelliteArn" => String.t(),
         "startTime" => [non_neg_integer()],
-        "tags" => map()
+        "tags" => map(),
+        "visibilityEndTime" => [non_neg_integer()],
+        "visibilityStartTime" => [non_neg_integer()]
       }
 
   """
@@ -672,7 +674,9 @@ defmodule AWS.GroundStation do
         "region" => [String.t()],
         "satelliteArn" => String.t(),
         "startTime" => [non_neg_integer()],
-        "tags" => map()
+        "tags" => map(),
+        "visibilityEndTime" => [non_neg_integer()],
+        "visibilityStartTime" => [non_neg_integer()]
       }
 
   """

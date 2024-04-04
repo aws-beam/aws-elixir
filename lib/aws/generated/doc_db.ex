@@ -465,6 +465,17 @@ defmodule AWS.DocDB do
 
   ## Example:
       
+      switchover_global_cluster_result() :: %{
+        "GlobalCluster" => global_cluster()
+      }
+      
+  """
+  @type switchover_global_cluster_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       cloudwatch_logs_export_configuration() :: %{
         "DisableLogTypes" => list(String.t()()),
         "EnableLogTypes" => list(String.t()())
@@ -1482,6 +1493,18 @@ defmodule AWS.DocDB do
       
   """
   @type describe_db_clusters_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      switchover_global_cluster_message() :: %{
+        required("GlobalClusterIdentifier") => String.t(),
+        required("TargetDbClusterIdentifier") => String.t()
+      }
+      
+  """
+  @type switchover_global_cluster_message() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2784,6 +2807,12 @@ defmodule AWS.DocDB do
           | db_cluster_not_found_fault()
           | invalid_db_cluster_state_fault()
 
+  @type switchover_global_cluster_errors() ::
+          global_cluster_not_found_fault()
+          | db_cluster_not_found_fault()
+          | invalid_db_cluster_state_fault()
+          | invalid_global_cluster_state_fault()
+
   def metadata do
     %{
       api_version: "2014-10-31",
@@ -3792,5 +3821,19 @@ defmodule AWS.DocDB do
     meta = metadata()
 
     Request.request_post(client, meta, "StopDBCluster", input, options)
+  end
+
+  @doc """
+  Switches over the specified secondary Amazon DocumentDB cluster to be the new
+  primary Amazon DocumentDB cluster in the global database cluster.
+  """
+  @spec switchover_global_cluster(map(), switchover_global_cluster_message(), list()) ::
+          {:ok, switchover_global_cluster_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, switchover_global_cluster_errors()}
+  def switchover_global_cluster(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "SwitchoverGlobalCluster", input, options)
   end
 end

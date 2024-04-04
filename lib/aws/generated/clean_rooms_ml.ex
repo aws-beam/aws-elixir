@@ -63,6 +63,7 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       audience_quality_metrics() :: %{
+        "recallMetric" => [float()],
         "relevanceMetrics" => list(relevance_metric()())
       }
 
@@ -708,7 +709,6 @@ defmodule AWS.CleanRoomsML do
         "createTime" => [non_neg_integer()],
         "description" => String.t(),
         "kmsKeyArn" => String.t(),
-        "metrics" => list(audience_model_metric()()),
         "name" => String.t(),
         "status" => list(any()),
         "statusDetails" => status_details(),
@@ -721,19 +721,6 @@ defmodule AWS.CleanRoomsML do
 
   """
   @type get_audience_model_response() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audience_model_metric() :: %{
-        "forTopKItemPredictions" => [integer()],
-        "type" => list(any()),
-        "value" => [float()]
-      }
-
-  """
-  @type audience_model_metric() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1082,8 +1069,7 @@ defmodule AWS.CleanRoomsML do
   end
 
   @doc """
-  Defines the information necessary to create a training dataset, or seed
-  audience.
+  Defines the information necessary to create a training dataset.
 
   In Clean Rooms ML, the `TrainingDataset` is metadata that points to a Glue
   table, which is read only during `AudienceModel` creation.

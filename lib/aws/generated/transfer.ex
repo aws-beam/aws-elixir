@@ -455,6 +455,7 @@ defmodule AWS.Transfer do
         optional("AccessRole") => String.t(),
         optional("As2Config") => as2_connector_config(),
         optional("LoggingRole") => String.t(),
+        optional("SecurityPolicyName") => String.t(),
         optional("SftpConfig") => sftp_connector_config(),
         optional("Url") => String.t(),
         required("ConnectorId") => String.t()
@@ -738,11 +739,14 @@ defmodule AWS.Transfer do
       
       described_security_policy() :: %{
         "Fips" => boolean(),
+        "Protocols" => list(list(any())()),
         "SecurityPolicyName" => String.t(),
         "SshCiphers" => list(String.t()()),
+        "SshHostKeyAlgorithms" => list(String.t()()),
         "SshKexs" => list(String.t()()),
         "SshMacs" => list(String.t()()),
-        "TlsCiphers" => list(String.t()())
+        "TlsCiphers" => list(String.t()()),
+        "Type" => list(any())
       }
       
   """
@@ -1605,6 +1609,7 @@ defmodule AWS.Transfer do
       create_connector_request() :: %{
         optional("As2Config") => as2_connector_config(),
         optional("LoggingRole") => String.t(),
+        optional("SecurityPolicyName") => String.t(),
         optional("SftpConfig") => sftp_connector_config(),
         optional("Tags") => list(tag()()),
         required("AccessRole") => String.t(),
@@ -2127,6 +2132,7 @@ defmodule AWS.Transfer do
         "As2Config" => as2_connector_config(),
         "ConnectorId" => String.t(),
         "LoggingRole" => String.t(),
+        "SecurityPolicyName" => String.t(),
         "ServiceManagedEgressIpAddresses" => list(String.t()()),
         "SftpConfig" => sftp_connector_config(),
         "Tags" => list(tag()()),
@@ -3023,13 +3029,14 @@ defmodule AWS.Transfer do
   end
 
   @doc """
-  Describes the security policy that is attached to your file transfer
-  protocol-enabled
-  server.
+  Describes the security policy that is attached to your server or SFTP connector.
 
   The response contains a description of the security policy's properties. For
   more
-  information about security policies, see [Working with security policies](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html).
+  information about security policies, see [Working with security policies for
+  servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html)
+  or [Working with security policies for SFTP
+  connectors](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies-connectors.html).
   """
   @spec describe_security_policy(map(), describe_security_policy_request(), list()) ::
           {:ok, describe_security_policy_response(), any()}
@@ -3257,9 +3264,14 @@ defmodule AWS.Transfer do
   end
 
   @doc """
-  Lists the security policies that are attached to your file transfer
-  protocol-enabled
-  servers.
+  Lists the security policies that are attached to your servers and SFTP
+  connectors.
+
+  For more information
+  about security policies, see [Working with security policies for
+  servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html)
+  or [Working with security policies for SFTP
+  connectors](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies-connectors.html).
   """
   @spec list_security_policies(map(), list_security_policies_request(), list()) ::
           {:ok, list_security_policies_response(), any()}

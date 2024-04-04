@@ -5,10 +5,12 @@ defmodule AWS.MedicalImaging do
   @moduledoc """
   This is the *AWS HealthImaging API Reference*.
 
-  AWS HealthImaging is a HIPAA-eligible service that helps health
-  care providers and their medical imaging ISV partners store, transform, and
-  apply machine learning to medical images. For
-  an introduction to the service, see the [
+  AWS HealthImaging is a HIPAA eligible service
+  that empowers healthcare providers, life science organizations, and their
+  software partners to store,
+  analyze, and share medical images in the cloud at petabyte scale. For an
+  introduction to the service, see the
+  [
   *AWS HealthImaging Developer Guide*
   ](https://docs.aws.amazon.com/healthimaging/latest/devguide/what-is.html).
 
@@ -16,17 +18,13 @@ defmodule AWS.MedicalImaging do
   programming language, as
   they take care of request authentication, serialization, and connection
   management. For more information,
-  see [Tools to build on AWS](http://aws.amazon.com/developer/tools).   For information about using HealthImaging API actions in one of the
-  language-specific AWS SDKs, refer to the
-  *See Also* link at the end of each section that describes an API action or data
-  type.
+  see [Tools to build on AWS](http://aws.amazon.com/developer/tools). 
 
   The following sections list AWS HealthImaging API actions categorized according
   to functionality. Links are
   provided to actions within this Reference, along with links back to
   corresponding sections in the
-  *AWS HealthImaging Developer Guide* where you can view console procedures and
-  CLI/SDK code examples.
+  *AWS HealthImaging Developer Guide* where you can view tested code examples.
 
   ## Data store actions
 
@@ -131,27 +129,18 @@ defmodule AWS.MedicalImaging do
 
     *
 
-  [TagResource](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_TagResource.html)  – See
-  [Tagging a data
-  store](https://docs.aws.amazon.com/healthimaging/latest/devguide/tag-list-untag-data-store.html)
-  and
-  [Tagging an image set](https://docs.aws.amazon.com/healthimaging/latest/devguide/tag-list-untag-image-set.html).
+  [TagResource](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_TagResource.html)  – See [Tagging a
+  resource](https://docs.aws.amazon.com/healthimaging/latest/devguide/tag-resource.html).
 
     *
 
-  [ListTagsForResource](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_ListTagsForResource.html)  – See
-  [Tagging a data
-  store](https://docs.aws.amazon.com/healthimaging/latest/devguide/tag-list-untag-data-store.html)
-  and
-  [Tagging an image set](https://docs.aws.amazon.com/healthimaging/latest/devguide/tag-list-untag-image-set.html).
+  [ListTagsForResource](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_ListTagsForResource.html)  – See [Listing tags for a
+  resource](https://docs.aws.amazon.com/healthimaging/latest/devguide/list-tag-resource.html).
 
     *
 
-  [UntagResource](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_UntagResource.html)  – See
-  [Tagging a data
-  store](https://docs.aws.amazon.com/healthimaging/latest/devguide/tag-list-untag-data-store.html)
-  and
-  [Tagging an image set](https://docs.aws.amazon.com/healthimaging/latest/devguide/tag-list-untag-image-set.html).
+  [UntagResource](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_UntagResource.html)  – See [Untagging a
+  resource](https://docs.aws.amazon.com/healthimaging/latest/devguide/untag-resource.html).
   """
 
   alias AWS.Client
@@ -441,7 +430,8 @@ defmodule AWS.MedicalImaging do
 
       search_image_sets_response() :: %{
         "imageSetsMetadataSummaries" => list(image_sets_metadata_summary()()),
-        "nextToken" => String.t()
+        "nextToken" => String.t(),
+        "sort" => sort()
       }
 
   """
@@ -596,6 +586,18 @@ defmodule AWS.MedicalImaging do
 
   ## Example:
 
+      sort() :: %{
+        "sortField" => list(any()),
+        "sortOrder" => list(any())
+      }
+
+  """
+  @type sort() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       d_i_c_o_m_tags() :: %{
         "DICOMAccessionNumber" => String.t(),
         "DICOMNumberOfStudyRelatedInstances" => integer(),
@@ -604,6 +606,10 @@ defmodule AWS.MedicalImaging do
         "DICOMPatientId" => String.t(),
         "DICOMPatientName" => String.t(),
         "DICOMPatientSex" => String.t(),
+        "DICOMSeriesBodyPart" => String.t(),
+        "DICOMSeriesInstanceUID" => String.t(),
+        "DICOMSeriesModality" => String.t(),
+        "DICOMSeriesNumber" => integer(),
         "DICOMStudyDate" => String.t(),
         "DICOMStudyDescription" => String.t(),
         "DICOMStudyId" => String.t(),
@@ -867,7 +873,8 @@ defmodule AWS.MedicalImaging do
   ## Example:
 
       search_criteria() :: %{
-        "filters" => list(search_filter()())
+        "filters" => list(search_filter()()),
+        "sort" => sort()
       }
 
   """
@@ -1190,6 +1197,14 @@ defmodule AWS.MedicalImaging do
 
   @doc """
   Get the import job properties to learn more about the job or job progress.
+
+  The `jobStatus` refers to the execution of the import job. Therefore, an import
+  job can return a `jobStatus` as
+  `COMPLETED` even if validation issues are discovered during the import process.
+  If a `jobStatus` returns
+  as `COMPLETED`, we still recommend you review the output manifests written to
+  S3, as they provide details on the success
+  or failure of individual P10 object imports.
   """
   @spec get_d_i_c_o_m_import_job(map(), String.t(), String.t(), list()) ::
           {:ok, get_d_i_c_o_m_import_job_response(), any()}

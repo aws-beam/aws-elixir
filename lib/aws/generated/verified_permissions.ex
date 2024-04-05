@@ -337,6 +337,17 @@ defmodule AWS.VerifiedPermissions do
 
   ## Example:
       
+      cognito_group_configuration_detail() :: %{
+        "groupEntityType" => String.t()
+      }
+      
+  """
+  @type cognito_group_configuration_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       static_policy_definition_item() :: %{
         "description" => String.t()
       }
@@ -449,6 +460,17 @@ defmodule AWS.VerifiedPermissions do
 
   ## Example:
       
+      update_cognito_group_configuration() :: %{
+        "groupEntityType" => String.t()
+      }
+      
+  """
+  @type update_cognito_group_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_policy_store_input() :: %{
         optional("description") => String.t(),
         required("policyStoreId") => String.t(),
@@ -501,6 +523,7 @@ defmodule AWS.VerifiedPermissions do
       
       cognito_user_pool_configuration_item() :: %{
         "clientIds" => list(String.t()()),
+        "groupConfiguration" => cognito_group_configuration_item(),
         "issuer" => String.t(),
         "userPoolArn" => String.t()
       }
@@ -609,6 +632,17 @@ defmodule AWS.VerifiedPermissions do
 
   ## Example:
       
+      cognito_group_configuration() :: %{
+        "groupEntityType" => String.t()
+      }
+      
+  """
+  @type cognito_group_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_policy_store_output() :: %{}
       
   """
@@ -629,6 +663,7 @@ defmodule AWS.VerifiedPermissions do
       
       cognito_user_pool_configuration_detail() :: %{
         "clientIds" => list(String.t()()),
+        "groupConfiguration" => cognito_group_configuration_detail(),
         "issuer" => String.t(),
         "userPoolArn" => String.t()
       }
@@ -735,6 +770,7 @@ defmodule AWS.VerifiedPermissions do
       
       cognito_user_pool_configuration() :: %{
         "clientIds" => list(String.t()()),
+        "groupConfiguration" => cognito_group_configuration(),
         "userPoolArn" => String.t()
       }
       
@@ -825,6 +861,7 @@ defmodule AWS.VerifiedPermissions do
       
       update_cognito_user_pool_configuration() :: %{
         "clientIds" => list(String.t()()),
+        "groupConfiguration" => update_cognito_group_configuration(),
         "userPoolArn" => String.t()
       }
       
@@ -852,7 +889,8 @@ defmodule AWS.VerifiedPermissions do
       is_authorized_with_token_output() :: %{
         "decision" => list(any()),
         "determiningPolicies" => list(determining_policy_item()()),
-        "errors" => list(evaluation_error_item()())
+        "errors" => list(evaluation_error_item()()),
+        "principal" => entity_identifier()
       }
       
   """
@@ -871,6 +909,17 @@ defmodule AWS.VerifiedPermissions do
       
   """
   @type create_policy_template_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cognito_group_configuration_item() :: %{
+        "groupEntityType" => String.t()
+      }
+      
+  """
+  @type cognito_group_configuration_item() :: %{String.t() => any()}
 
   @typedoc """
 

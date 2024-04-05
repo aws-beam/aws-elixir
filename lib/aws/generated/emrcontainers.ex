@@ -10,8 +10,8 @@ defmodule AWS.EMRcontainers do
   With this deployment option, you can focus on running analytics workloads while
   Amazon EMR on EKS builds, configures, and manages containers for open-source
   applications.
-  For more information about Amazon EMR on EKS concepts and tasks, see [What is shared
-  id="EMR-EKS"/>](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/emr-eks.html).
+  For more information about Amazon EMR on EKS concepts and tasks, see [What is Amazon EMR on
+  EKS](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/emr-eks.html).
 
   *Amazon EMR containers* is the API name for Amazon EMR on EKS. The
   `emr-containers` prefix is used in the following
@@ -482,6 +482,17 @@ defmodule AWS.EMRcontainers do
 
   ## Example:
 
+      e_k_s_request_throttled_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type e_k_s_request_throttled_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       endpoint() :: %{
         "arn" => String.t(),
         "certificateArn" => String.t(),
@@ -891,6 +902,7 @@ defmodule AWS.EMRcontainers do
         optional("containerProviderType") => list(any()),
         optional("createdAfter") => non_neg_integer(),
         optional("createdBefore") => non_neg_integer(),
+        optional("eksAccessEntryIntegrated") => boolean(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("states") => list(list(any())())
@@ -908,7 +920,10 @@ defmodule AWS.EMRcontainers do
           validation_exception() | internal_server_exception() | resource_not_found_exception()
 
   @type create_virtual_cluster_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          validation_exception()
+          | internal_server_exception()
+          | e_k_s_request_throttled_exception()
+          | resource_not_found_exception()
 
   @type delete_job_template_errors() :: validation_exception() | internal_server_exception()
 
@@ -1617,6 +1632,7 @@ defmodule AWS.EMRcontainers do
           String.t() | nil,
           String.t() | nil,
           String.t() | nil,
+          String.t() | nil,
           list()
         ) ::
           {:ok, list_virtual_clusters_response(), any()}
@@ -1628,6 +1644,7 @@ defmodule AWS.EMRcontainers do
         container_provider_type \\ nil,
         created_after \\ nil,
         created_before \\ nil,
+        eks_access_entry_integrated \\ nil,
         max_results \\ nil,
         next_token \\ nil,
         states \\ nil,
@@ -1654,6 +1671,13 @@ defmodule AWS.EMRcontainers do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(eks_access_entry_integrated) do
+        [{"eksAccessEntryIntegrated", eks_access_entry_integrated} | query_params]
       else
         query_params
       end

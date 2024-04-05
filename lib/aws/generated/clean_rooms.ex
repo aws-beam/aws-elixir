@@ -679,6 +679,20 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      schema_status_detail() :: %{
+        "analysisRuleType" => list(any()),
+        "configurations" => list(list(any())()),
+        "reasons" => list(schema_status_reason()()),
+        "status" => list(any())
+      }
+
+  """
+  @type schema_status_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_configured_table_association_input() :: %{
         optional("description") => String.t(),
         optional("roleArn") => String.t()
@@ -820,6 +834,18 @@ defmodule AWS.CleanRooms do
 
   """
   @type delete_member_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      schema_analysis_rule_request() :: %{
+        "name" => String.t(),
+        "type" => list(any())
+      }
+
+  """
+  @type schema_analysis_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1035,6 +1061,18 @@ defmodule AWS.CleanRooms do
 
   """
   @type update_configured_table_association_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_schema_analysis_rule_output() :: %{
+        "analysisRules" => list(analysis_rule()()),
+        "errors" => list(batch_get_schema_analysis_rule_error()())
+      }
+
+  """
+  @type batch_get_schema_analysis_rule_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1257,6 +1295,7 @@ defmodule AWS.CleanRooms do
         "description" => String.t(),
         "name" => String.t(),
         "partitionKeys" => list(column()()),
+        "schemaStatusDetails" => list(schema_status_detail()()),
         "type" => list(any()),
         "updateTime" => [non_neg_integer()]
       }
@@ -1723,6 +1762,18 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      schema_status_reason() :: %{
+        "code" => list(any()),
+        "message" => [String.t()]
+      }
+
+  """
+  @type schema_status_reason() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       protected_query_single_member_output() :: %{
         "accountId" => String.t()
       }
@@ -1763,6 +1814,17 @@ defmodule AWS.CleanRooms do
 
   """
   @type untag_resource_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_schema_analysis_rule_input() :: %{
+        required("schemaAnalysisRuleRequests") => list(schema_analysis_rule_request()())
+      }
+
+  """
+  @type batch_get_schema_analysis_rule_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1820,6 +1882,20 @@ defmodule AWS.CleanRooms do
 
   """
   @type get_analysis_template_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_schema_analysis_rule_error() :: %{
+        "code" => [String.t()],
+        "message" => [String.t()],
+        "name" => String.t(),
+        "type" => list(any())
+      }
+
+  """
+  @type batch_get_schema_analysis_rule_error() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2559,6 +2635,13 @@ defmodule AWS.CleanRooms do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type batch_get_schema_analysis_rule_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type create_analysis_template_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3047,6 +3130,45 @@ defmodule AWS.CleanRooms do
           | {:error, batch_get_schema_errors()}
   def batch_get_schema(%Client{} = client, collaboration_identifier, input, options \\ []) do
     url_path = "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/batch-schema"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves multiple analysis rule schemas.
+  """
+  @spec batch_get_schema_analysis_rule(
+          map(),
+          String.t(),
+          batch_get_schema_analysis_rule_input(),
+          list()
+        ) ::
+          {:ok, batch_get_schema_analysis_rule_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_get_schema_analysis_rule_errors()}
+  def batch_get_schema_analysis_rule(
+        %Client{} = client,
+        collaboration_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/batch-schema-analysis-rule"
+
     headers = []
     query_params = []
 

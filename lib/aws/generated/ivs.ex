@@ -57,55 +57,42 @@ defmodule AWS.Ivs do
 
   application/json
 
-  ## Resources
-
-  The following resources contain information about your IVS live stream (see [
-  Getting Started with
-  Amazon
-  IVS](https://docs.aws.amazon.com/ivs/latest/userguide/getting-started.html)):
+  ## Key Concepts
 
     *
 
-  **Channel** — Stores configuration data related to your
-  live stream. You first create a channel and then use the channel’s stream key to
-  start
-  your live stream. See the Channel endpoints for more information.
+  **Channel** — Stores configuration data related to your live stream. You first
+  create a channel and then use the channel’s stream key to start your live
+  stream.
 
     *
 
-  **Stream key** — An identifier assigned by Amazon IVS
-  when you create a channel, which is then used to authorize streaming. See the
-  StreamKey
-  endpoints for more information. *
-  ## Treat the stream key like
-  a secret, since it allows anyone to stream to the
+  **Stream key** — An identifier assigned by Amazon IVS when you create a channel,
+  which is then used to authorize streaming. *
+  ## Treat the stream key like a secret, since it allows anyone to stream to the
   channel.
   *
 
     *
 
-  **Playback key pair** — Video playback may be restricted
-  using playback-authorization tokens, which use public-key encryption. A playback
-  key pair
-  is the public-private pair of keys used to sign and validate the
-  playback-authorization
-  token. See the PlaybackKeyPair endpoints for more information.
+  **Playback key pair** — Video playback may be restricted using
+  playback-authorization tokens, which use public-key encryption. A playback key
+  pair is the public-private pair of keys used to sign and validate the
+  playback-authorization token.
 
     *
 
-  **Recording configuration** — Stores configuration
-  related to recording a live stream and where to store the recorded content.
-  Multiple
-  channels can reference the same recording configuration. See the Recording
-  Configuration
-  endpoints for more information.
+  **Recording configuration** — Stores configuration related to recording a live
+  stream and where to store the recorded content. Multiple channels can reference
+  the same recording configuration.
 
     *
 
-  **Playback restriction policy** — Restricts playback by
-  countries and/or origin sites. See the Playback Restriction Policy endpoints for
-  more
-  information.
+  **Playback restriction policy** — Restricts playback by countries and/or origin
+  sites.
+
+  For more information about your IVS live stream, also see [Getting Started with IVS Low-Latency
+  Streaming](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/getting-started.html).
 
   ## Tagging
 
@@ -300,7 +287,7 @@ defmodule AWS.Ivs do
   multiple channel ARN and viewer ID pairs
   simultaneously.
 
-  ## RecordingConfiguration Endpoints
+  ## Recording Configuration Endpoints
 
     *
 
@@ -365,7 +352,7 @@ defmodule AWS.Ivs do
   account are
   allowed.
 
-  ## StreamKey Endpoints
+  ## Stream Key Endpoints
 
     *
 
@@ -1381,6 +1368,7 @@ defmodule AWS.Ivs do
         "playbackUrl" => String.t(),
         "preset" => list(any()),
         "recordingConfigurationArn" => String.t(),
+        "srt" => srt(),
         "tags" => map(),
         "type" => list(any())
       }
@@ -1593,6 +1581,18 @@ defmodule AWS.Ivs do
 
   """
   @type stream_key_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      srt() :: %{
+        "endpoint" => String.t(),
+        "passphrase" => String.t()
+      }
+
+  """
+  @type srt() :: %{String.t() => any()}
 
   @typedoc """
 

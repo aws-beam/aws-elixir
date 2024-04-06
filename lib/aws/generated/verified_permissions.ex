@@ -140,6 +140,19 @@ defmodule AWS.VerifiedPermissions do
 
   ## Example:
       
+      batch_is_authorized_with_token_input_item() :: %{
+        "action" => action_identifier(),
+        "context" => list(),
+        "resource" => entity_identifier()
+      }
+      
+  """
+  @type batch_is_authorized_with_token_input_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_identity_source_input() :: %{
         optional("principalEntityType") => String.t(),
         required("identitySourceId") => String.t(),
@@ -314,6 +327,20 @@ defmodule AWS.VerifiedPermissions do
       
   """
   @type update_policy_store_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_is_authorized_with_token_output_item() :: %{
+        "decision" => list(any()),
+        "determiningPolicies" => list(determining_policy_item()()),
+        "errors" => list(evaluation_error_item()()),
+        "request" => batch_is_authorized_with_token_input_item()
+      }
+      
+  """
+  @type batch_is_authorized_with_token_output_item() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -530,6 +557,21 @@ defmodule AWS.VerifiedPermissions do
       
   """
   @type cognito_user_pool_configuration_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_is_authorized_with_token_input() :: %{
+        optional("accessToken") => String.t(),
+        optional("entities") => list(),
+        optional("identityToken") => String.t(),
+        required("policyStoreId") => String.t(),
+        required("requests") => list(batch_is_authorized_with_token_input_item()())
+      }
+      
+  """
+  @type batch_is_authorized_with_token_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1138,6 +1180,18 @@ defmodule AWS.VerifiedPermissions do
 
   ## Example:
       
+      batch_is_authorized_with_token_output() :: %{
+        "principal" => entity_identifier(),
+        "results" => list(batch_is_authorized_with_token_output_item()())
+      }
+      
+  """
+  @type batch_is_authorized_with_token_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_identity_sources_input() :: %{
         optional("filters") => list(identity_source_filter()()),
         optional("maxResults") => integer(),
@@ -1262,6 +1316,8 @@ defmodule AWS.VerifiedPermissions do
 
   @type batch_is_authorized_errors() :: resource_not_found_exception()
 
+  @type batch_is_authorized_with_token_errors() :: resource_not_found_exception()
+
   @type create_identity_source_errors() ::
           service_quota_exceeded_exception()
           | resource_not_found_exception()
@@ -1373,6 +1429,44 @@ defmodule AWS.VerifiedPermissions do
     meta = metadata()
 
     Request.request_post(client, meta, "BatchIsAuthorized", input, options)
+  end
+
+  @doc """
+  Makes a series of decisions about multiple authorization requests for one token.
+
+  The
+  principal in this request comes from an external identity source in the form of
+  an identity or
+  access token, formatted as a [JSON web token (JWT)](https://wikipedia.org/wiki/JSON_Web_Token). The information in
+  the parameters can also define
+  additional context that Verified Permissions can include in the evaluations.
+
+  The request is evaluated against all policies in the specified policy store that
+  match the
+  entities that you provide in the entities declaration and in the token. The
+  result of
+  the decisions is a series of `Allow` or `Deny` responses, along
+  with the IDs of the policies that produced each decision.
+
+  The `entities` of a `BatchIsAuthorizedWithToken` API request can
+  contain up to 100 resources and up to 99 user groups. The `requests` of a
+  `BatchIsAuthorizedWithToken` API request can contain up to 30
+  requests.
+
+  The `BatchIsAuthorizedWithToken` operation doesn't have its own
+  IAM permission. To authorize this operation for Amazon Web Services principals,
+  include the
+  permission `verifiedpermissions:IsAuthorizedWithToken` in their IAM
+  policies.
+  """
+  @spec batch_is_authorized_with_token(map(), batch_is_authorized_with_token_input(), list()) ::
+          {:ok, batch_is_authorized_with_token_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_is_authorized_with_token_errors()}
+  def batch_is_authorized_with_token(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchIsAuthorizedWithToken", input, options)
   end
 
   @doc """
@@ -1697,16 +1791,6 @@ defmodule AWS.VerifiedPermissions do
   either
   `Allow` or `Deny`, along with a list of the policies that
   resulted in the decision.
-
-  If you specify the `identityToken` parameter, then this operation
-  derives the principal from that token. You must not also include that principal
-  in
-  the `entities` parameter or the operation fails and reports a conflict
-  between the two entity sources.
-
-  If you provide only an `accessToken`, then you can include the entity
-  as part of the `entities` parameter to provide additional
-  attributes.
 
   At this time, Verified Permissions accepts tokens from only Amazon Cognito.
 

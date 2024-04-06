@@ -8496,6 +8496,7 @@ defmodule AWS.QuickSight do
         optional("DirectoryId") => String.t(),
         optional("EmailAddress") => String.t(),
         optional("FirstName") => String.t(),
+        optional("IAMIdentityCenterInstanceArn") => String.t(),
         optional("LastName") => String.t(),
         optional("ReaderGroup") => list(String.t()()),
         optional("Realm") => String.t(),

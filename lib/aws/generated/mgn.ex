@@ -4658,6 +4658,8 @@ defmodule AWS.Mgn do
 
   @doc """
   Updates multiple LaunchConfigurations by Source Server ID.
+
+  bootMode valid values are `LEGACY_BIOS | UEFI`
   """
   @spec update_launch_configuration(map(), update_launch_configuration_request(), list()) ::
           {:ok, launch_configuration(), any()}

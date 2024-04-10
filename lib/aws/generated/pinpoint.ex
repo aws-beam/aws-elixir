@@ -2052,6 +2052,7 @@ defmodule AWS.Pinpoint do
         "LastModifiedBy" => String.t(),
         "LastModifiedDate" => String.t(),
         "MessagesPerSecond" => integer(),
+        "OrchestrationSendingRoleArn" => String.t(),
         "Platform" => String.t(),
         "RoleArn" => String.t(),
         "Version" => integer()
@@ -4233,6 +4234,7 @@ defmodule AWS.Pinpoint do
         "Enabled" => boolean(),
         "FromAddress" => String.t(),
         "Identity" => String.t(),
+        "OrchestrationSendingRoleArn" => String.t(),
         "RoleArn" => String.t()
       }
 

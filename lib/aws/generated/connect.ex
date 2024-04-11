@@ -5181,6 +5181,7 @@ defmodule AWS.Connect do
         "EndAssociatedTasksAction" => end_associated_tasks_action_definition(),
         "EventBridgeAction" => event_bridge_action_definition(),
         "SendNotificationAction" => send_notification_action_definition(),
+        "SubmitAutoEvaluationAction" => submit_auto_evaluation_action_definition(),
         "TaskAction" => task_action_definition(),
         "UpdateCaseAction" => update_case_action_definition()
       }
@@ -8607,6 +8608,17 @@ defmodule AWS.Connect do
 
   """
   @type batch_disassociate_analytics_data_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      submit_auto_evaluation_action_definition() :: %{
+        "EvaluationFormId" => String.t()
+      }
+
+  """
+  @type submit_auto_evaluation_action_definition() :: %{String.t() => any()}
 
   @typedoc """
 

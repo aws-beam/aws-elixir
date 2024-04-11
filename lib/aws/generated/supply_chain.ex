@@ -128,6 +128,32 @@ defmodule AWS.SupplyChain do
 
   ## Example:
 
+      send_data_integration_event_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("eventTimestamp") => [non_neg_integer()],
+        required("data") => String.t(),
+        required("eventGroupId") => String.t(),
+        required("eventType") => list(any())
+      }
+
+  """
+  @type send_data_integration_event_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_data_integration_event_response() :: %{
+        "eventId" => String.t()
+      }
+
+  """
+  @type send_data_integration_event_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       service_quota_exceeded_exception() :: %{
         "message" => [String.t()]
       }
@@ -170,6 +196,15 @@ defmodule AWS.SupplyChain do
           | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | access_denied_exception()
+
+  @type send_data_integration_event_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   def metadata do
@@ -245,5 +280,39 @@ defmodule AWS.SupplyChain do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Send transactional data events with real-time data for analysis or monitoring.
+  """
+  @spec send_data_integration_event(
+          map(),
+          String.t(),
+          send_data_integration_event_request(),
+          list()
+        ) ::
+          {:ok, send_data_integration_event_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, send_data_integration_event_errors()}
+  def send_data_integration_event(%Client{} = client, instance_id, input, options \\ []) do
+    url_path =
+      "/api-data/data-integration/instance/#{AWS.Util.encode_uri(instance_id)}/data-integration-events"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

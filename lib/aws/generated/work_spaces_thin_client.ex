@@ -126,7 +126,6 @@ defmodule AWS.WorkSpacesThinClient do
         "pendingSoftwareSetId" => String.t(),
         "softwareSetUpdateMode" => list(any()),
         "softwareSetUpdateSchedule" => list(any()),
-        "tags" => embedded_tag(),
         "updatedAt" => non_neg_integer()
       }
 
@@ -182,18 +181,6 @@ defmodule AWS.WorkSpacesThinClient do
 
   ## Example:
 
-      internal_service_exception() :: %{
-        "message" => String.t(),
-        "retryAfterSeconds" => integer()
-      }
-
-  """
-  @type internal_service_exception() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-
       get_environment_response() :: %{
         "environment" => environment()
       }
@@ -222,6 +209,7 @@ defmodule AWS.WorkSpacesThinClient do
         "releasedAt" => non_neg_integer(),
         "software" => list(software()()),
         "supportedUntil" => non_neg_integer(),
+        "tags" => map(),
         "validationStatus" => list(any()),
         "version" => [String.t()]
       }
@@ -288,7 +276,7 @@ defmodule AWS.WorkSpacesThinClient do
         "softwareSetComplianceStatus" => list(any()),
         "softwareSetUpdateMode" => list(any()),
         "softwareSetUpdateSchedule" => list(any()),
-        "tags" => embedded_tag(),
+        "tags" => map(),
         "updatedAt" => non_neg_integer()
       }
 
@@ -438,7 +426,6 @@ defmodule AWS.WorkSpacesThinClient do
         "serialNumber" => [String.t()],
         "softwareSetUpdateSchedule" => list(any()),
         "status" => list(any()),
-        "tags" => embedded_tag(),
         "updatedAt" => non_neg_integer()
       }
 
@@ -479,18 +466,6 @@ defmodule AWS.WorkSpacesThinClient do
 
   """
   @type list_software_sets_response() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      embedded_tag() :: %{
-        "internalId" => [String.t()],
-        "resourceArn" => [String.t()]
-      }
-
-  """
-  @type embedded_tag() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -596,7 +571,7 @@ defmodule AWS.WorkSpacesThinClient do
         "softwareSetUpdateSchedule" => list(any()),
         "softwareSetUpdateStatus" => list(any()),
         "status" => list(any()),
-        "tags" => embedded_tag(),
+        "tags" => map(),
         "updatedAt" => non_neg_integer()
       }
 
@@ -759,13 +734,27 @@ defmodule AWS.WorkSpacesThinClient do
           | internal_server_exception()
 
   @type list_tags_for_resource_errors() ::
-          validation_exception() | resource_not_found_exception() | internal_service_exception()
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type tag_resource_errors() ::
-          validation_exception() | resource_not_found_exception() | internal_service_exception()
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type untag_resource_errors() ::
-          validation_exception() | resource_not_found_exception() | internal_service_exception()
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type update_device_errors() ::
           throttling_exception()

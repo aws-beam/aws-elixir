@@ -21,6 +21,12 @@ defmodule AWS.NetworkMonitor do
   These probes then monitor network traffic to help you identify where network
   issues might be affecting your traffic.
 
+  Before you begin, ensure the Amazon Web Services CLI is configured in the Amazon
+  Web Services Account where you will create the Network Monitor resource. Network
+  Monitor doesn’t support creation on cross-account resources, but you can create
+  a
+  Network Monitor in any subnet belonging to a VPC owned by your Account.
+
   For more information, see [Using Amazon CloudWatch Network Monitor](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/what-is-network-monitor.html)
   in the *Amazon CloudWatch User Guide*.
   """
@@ -597,6 +603,38 @@ defmodule AWS.NetworkMonitor do
   Within a monitor you'll create one or more probes that monitor network traffic
   between your source Amazon Web Services VPC subnets and your destination IP
   addresses. Each probe then aggregates and sends metrics to Amazon CloudWatch.
+
+  You can also create a monitor with probes using this command. For each probe,
+  you
+  define the following:
+
+    *
+
+  `source`—The subnet IDs where the probes will be created.
+
+    *
+
+  `destination`— The target destination IP address for the
+  probe.
+
+    *
+
+  `destinationPort`—Required only if the protocol is
+  `TCP`.
+
+    *
+
+  `protocol`—The communication protocol between the source and
+  destination. This will be either `TCP` or `ICMP`.
+
+    *
+
+  `packetSize`—The size of the packets. This must be a number between
+  `56` and `8500`.
+
+    *
+  (Optional) `tags` —Key-value pairs created and assigned to the
+  probe.
   """
   @spec create_monitor(map(), create_monitor_input(), list()) ::
           {:ok, create_monitor_output(), any()}
@@ -625,8 +663,12 @@ defmodule AWS.NetworkMonitor do
   @doc """
   Create a probe within a monitor.
 
-  Once you create a probe, and it begins monitoring your network traffic, you'll
-  incur billing charges for that probe.
+  Once you create a probe, and it begins monitoring your
+  network traffic, you'll incur billing charges for that probe. This action
+  requires the
+  `monitorName` parameter. Run `ListMonitors` to get a list of
+  monitor names. Note the name of the `monitorName` you want to create the
+  probe for.
   """
   @spec create_probe(map(), String.t(), create_probe_input(), list()) ::
           {:ok, create_probe_output(), any()}
@@ -654,6 +696,9 @@ defmodule AWS.NetworkMonitor do
 
   @doc """
   Deletes a specified monitor.
+
+  This action requires the `monitorName` parameter. Run
+  `ListMonitors` to get a list of monitor names.
   """
   @spec delete_monitor(map(), String.t(), delete_monitor_input(), list()) ::
           {:ok, delete_monitor_output(), any()}
@@ -680,9 +725,15 @@ defmodule AWS.NetworkMonitor do
   end
 
   @doc """
-  Deletes the specified monitor.
+  Deletes the specified probe.
 
-  Once a probe is deleted you'll no longer incur any billing fees for that probe.
+  Once a probe is deleted you'll no longer incur any billing
+  fees for that probe.
+
+  This action requires both the `monitorName` and `probeId`
+  parameters. Run `ListMonitors` to get a list of monitor names. Run
+  `GetMonitor` to get a list of probes and probe IDs. You can only delete a
+  single probe at a time using this action.
   """
   @spec delete_probe(map(), String.t(), String.t(), delete_probe_input(), list()) ::
           {:ok, delete_probe_output(), any()}
@@ -712,6 +763,9 @@ defmodule AWS.NetworkMonitor do
 
   @doc """
   Returns details about a specific monitor.
+
+  This action requires the `monitorName` parameter. Run
+  `ListMonitors` to get a list of monitor names.
   """
   @spec get_monitor(map(), String.t(), list()) ::
           {:ok, get_monitor_output(), any()}
@@ -730,7 +784,10 @@ defmodule AWS.NetworkMonitor do
   @doc """
   Returns the details about a probe.
 
-  You'll need both the `monitorName` and `probeId`.
+  This action requires both the
+  `monitorName` and `probeId` parameters. Run
+  `ListMonitors` to get a list of monitor names. Run
+  `GetMonitor` to get a list of probes and probe IDs.
   """
   @spec get_probe(map(), String.t(), String.t(), list()) ::
           {:ok, get_probe_output(), any()}
@@ -871,7 +928,10 @@ defmodule AWS.NetworkMonitor do
   @doc """
   Updates the `aggregationPeriod` for a monitor.
 
-  Monitors support an `aggregationPeriod` of either `30` or `60` seconds.
+  Monitors support an
+  `aggregationPeriod` of either `30` or `60` seconds.
+  This action requires the `monitorName` and `probeId` parameter.
+  Run `ListMonitors` to get a list of monitor names.
   """
   @spec update_monitor(map(), String.t(), update_monitor_input(), list()) ::
           {:ok, update_monitor_output(), any()}
@@ -903,6 +963,38 @@ defmodule AWS.NetworkMonitor do
   This action requires both the `monitorName` and `probeId` parameters. Run
   `ListMonitors` to get a list of monitor names. Run `GetMonitor` to get a list of
   probes and probe IDs.
+
+  You can update the following para create a monitor with probes using this
+  command. For
+  each probe, you define the following:
+
+    *
+
+  `state`—The state of the probe.
+
+    *
+
+  `destination`— The target destination IP address for the
+  probe.
+
+    *
+
+  `destinationPort`—Required only if the protocol is
+  `TCP`.
+
+    *
+
+  `protocol`—The communication protocol between the source and
+  destination. This will be either `TCP` or `ICMP`.
+
+    *
+
+  `packetSize`—The size of the packets. This must be a number between
+  `56` and `8500`.
+
+    *
+  (Optional) `tags` —Key-value pairs created and assigned to the
+  probe.
   """
   @spec update_probe(map(), String.t(), String.t(), update_probe_input(), list()) ::
           {:ok, update_probe_output(), any()}

@@ -8,24 +8,26 @@ defmodule AWS.QConnect do
   **Powered by Amazon Bedrock**: Amazon Web Services implements [automated abuse detection](https://docs.aws.amazon.com/bedrock/latest/userguide/abuse-detection.html).
 
   Because Amazon Q in Connect is built on Amazon Bedrock, users can take full
-  advantage of the controls implemented in Amazon Bedrock to enforce safety,
-  security, and the
-  responsible use of artificial intelligence (AI).
+  advantage of
+  the controls implemented in Amazon Bedrock to enforce safety, security, and the
+  responsible use of
+  artificial intelligence (AI).
 
   Amazon Q in Connect is a generative AI customer service assistant. It is an
-  LLM-enhanced evolution
-  of Amazon Connect Wisdom that delivers real-time recommendations to help contact
-  center
-  agents resolve customer issues quickly and accurately.
+  LLM-enhanced
+  evolution of Amazon Connect Wisdom that delivers real-time recommendations to
+  help contact
+  center agents resolve customer issues quickly and accurately.
 
-  Amazon Q automatically detects customer intent during calls and chats using
-  conversational analytics and natural language understanding (NLU). It then
-  provides agents
-  with immediate, real-time generative responses and suggested actions, and links
-  to relevant
-  documents and articles. Agents can also query Amazon Q directly using natural
-  language or
-  keywords to answer customer requests.
+  Amazon Q in Connect automatically detects customer intent during calls and chats
+  using conversational
+  analytics and natural language understanding (NLU). It then provides agents with
+  immediate,
+  real-time generative responses and suggested actions, and links to relevant
+  documents and
+  articles. Agents can also query Amazon Q in Connect directly using natural
+  language or keywords to answer
+  customer requests.
 
   Use the Amazon Q in Connect APIs to create an assistant and a knowledge base,
   for example, or
@@ -234,6 +236,18 @@ defmodule AWS.QConnect do
 
   """
   @type quick_response_filter_field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_condition() :: %{
+        "key" => String.t(),
+        "value" => String.t()
+      }
+
+  """
+  @type tag_condition() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -560,6 +574,7 @@ defmodule AWS.QConnect do
       create_session_request() :: %{
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
+        optional("tagFilter") => list(),
         optional("tags") => map(),
         required("name") => String.t()
       }
@@ -916,6 +931,18 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      update_session_request() :: %{
+        optional("description") => String.t(),
+        optional("tagFilter") => list()
+      }
+
+  """
+  @type update_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       search_sessions_response() :: %{
         optional("nextToken") => String.t(),
         required("sessionSummaries") => list(session_summary()())
@@ -1144,6 +1171,7 @@ defmodule AWS.QConnect do
         "name" => String.t(),
         "sessionArn" => String.t(),
         "sessionId" => String.t(),
+        "tagFilter" => list(),
         "tags" => map()
       }
 
@@ -1524,6 +1552,17 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      update_session_response() :: %{
+        "session" => session_data()
+      }
+
+  """
+  @type update_session_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       notify_recommendations_received_request() :: %{
         required("recommendationIds") => list(String.t()())
       }
@@ -1882,7 +1921,10 @@ defmodule AWS.QConnect do
           | conflict_exception()
 
   @type create_session_errors() ::
-          validation_exception() | resource_not_found_exception() | conflict_exception()
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type delete_assistant_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
@@ -2009,6 +2051,9 @@ defmodule AWS.QConnect do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type update_session_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
   def metadata do
     %{
       api_version: "2020-10-19",
@@ -2090,12 +2135,11 @@ defmodule AWS.QConnect do
   end
 
   @doc """
-  Creates Amazon Q content.
+  Creates Amazon Q in Connect content.
 
   Before to calling this API, use
   [StartContentUpload](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_StartContentUpload.html)
-  to
-  upload an asset.
+  to upload an asset.
   """
   @spec create_content(map(), String.t(), create_content_request(), list()) ::
           {:ok, create_content_response(), any()}
@@ -2176,7 +2220,7 @@ defmodule AWS.QConnect do
   end
 
   @doc """
-  Creates an Amazon Q quick response.
+  Creates an Amazon Q in Connect quick response.
   """
   @spec create_quick_response(map(), String.t(), create_quick_response_request(), list()) ::
           {:ok, create_quick_response_response(), any()}
@@ -2206,9 +2250,9 @@ defmodule AWS.QConnect do
   Creates a session.
 
   A session is a contextual container used for generating
-  recommendations. Amazon Connect creates a new Amazon Q session for each contact
-  on which
-  Amazon Q is enabled.
+  recommendations. Amazon Connect creates a new Amazon Q in Connect session for
+  each contact on which
+  Amazon Q in Connect is enabled.
   """
   @spec create_session(map(), String.t(), create_session_request(), list()) ::
           {:ok, create_session_response(), any()}
@@ -2580,9 +2624,18 @@ defmodule AWS.QConnect do
   end
 
   @doc """
-  Retrieves recommendations for the specified session.
 
-  To avoid retrieving the same
+  This API will be discontinued starting June 1, 2024.
+
+  To receive generative responses
+  after March 1, 2024, you will need to create a new Assistant in the Amazon
+  Connect
+  console and integrate the Amazon Q in Connect JavaScript library
+  (amazon-q-connectjs) into
+  your applications.
+
+  Retrieves recommendations for the specified session. To avoid retrieving the
+  same
   recommendations in subsequent calls, use
   [NotifyRecommendationsReceived](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_NotifyRecommendationsReceived.html). This API supports long-polling behavior with the
   `waitTimeSeconds` parameter. Short poll is the default behavior and only returns
@@ -2936,7 +2989,8 @@ defmodule AWS.QConnect do
   @doc """
   Provides feedback against the specified assistant for the specified target.
 
-  This API only supports generative targets.
+  This API only
+  supports generative targets.
   """
   @spec put_feedback(map(), String.t(), put_feedback_request(), list()) ::
           {:ok, put_feedback_response(), any()}
@@ -2953,9 +3007,18 @@ defmodule AWS.QConnect do
   end
 
   @doc """
-  Performs a manual search against the specified assistant.
 
-  To retrieve recommendations for
+  This API will be discontinued starting June 1, 2024.
+
+  To receive generative responses
+  after March 1, 2024, you will need to create a new Assistant in the Amazon
+  Connect
+  console and integrate the Amazon Q in Connect JavaScript library
+  (amazon-q-connectjs) into
+  your applications.
+
+  Performs a manual search against the specified assistant. To retrieve
+  recommendations for
   an assistant, use
   [GetRecommendations](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetRecommendations.html).
   """
@@ -3057,7 +3120,8 @@ defmodule AWS.QConnect do
   end
 
   @doc """
-  Searches existing Amazon Q quick responses in an Amazon Q knowledge base.
+  Searches existing Amazon Q in Connect quick responses in an Amazon Q in Connect
+  knowledge base.
   """
   @spec search_quick_responses(map(), String.t(), search_quick_responses_request(), list()) ::
           {:ok, search_quick_responses_response(), any()}
@@ -3129,10 +3193,13 @@ defmodule AWS.QConnect do
   request to the returned URL with your file, making sure to include the required
   headers. Then
   use
-  [CreateContent](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_CreateContent.html) to finalize the content creation process or
+  [CreateContent](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_CreateContent.html) to
+  finalize the content creation process or
   [UpdateContent](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_UpdateContent.html)
-  to modify an existing resource. You can only upload content to a
-  knowledge base of type CUSTOM.
+  to
+  modify an existing resource. You can only upload content to a knowledge base of
+  type
+  CUSTOM.
   """
   @spec start_content_upload(map(), String.t(), start_content_upload_request(), list()) ::
           {:ok, start_content_upload_response(), any()}
@@ -3159,17 +3226,19 @@ defmodule AWS.QConnect do
   end
 
   @doc """
-  Start an asynchronous job to import Amazon Q resources from an uploaded source
-  file.
+  Start an asynchronous job to import Amazon Q in Connect resources from an
+  uploaded source file.
 
   Before calling this API, use
   [StartContentUpload](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html) to
   upload an asset that contains the resource data.
 
     *
-  For importing Amazon Q quick responses, you need to upload a csv file including
-  the quick responses. For information about how to format the csv file for
-  importing quick responses, see [Import quick
+  For importing Amazon Q in Connect quick responses, you need to upload a csv file
+  including the
+  quick responses. For information about how to format the csv file for importing
+  quick
+  responses, see [Import quick
   responses](https://docs.aws.amazon.com/console/connect/quick-responses/add-data).
   """
   @spec start_import_job(map(), String.t(), start_import_job_request(), list()) ::
@@ -3289,8 +3358,8 @@ defmodule AWS.QConnect do
 
   This is only supported for knowledge bases
   of type EXTERNAL. Include a single variable in `${variable}` format; this
-  interpolated by Amazon Q using ingested content. For example, if you ingest a
-  Salesforce
+  interpolated by Amazon Q in Connect using ingested content. For example, if you
+  ingest a Salesforce
   article, it has an `Id` value, and you can set the template URI to
   `https://myInstanceName.lightning.force.com/lightning/r/Knowledge__kav/*${Id}*/view`.
   """
@@ -3329,7 +3398,7 @@ defmodule AWS.QConnect do
   end
 
   @doc """
-  Updates an existing Amazon Q quick response.
+  Updates an existing Amazon Q in Connect quick response.
   """
   @spec update_quick_response(
           map(),
@@ -3350,6 +3419,40 @@ defmodule AWS.QConnect do
       ) do
     url_path =
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/quickResponses/#{AWS.Util.encode_uri(quick_response_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a session.
+
+  A session is a contextual container used for generating recommendations.
+  Amazon Connect updates the existing Amazon Q in Connect session for each contact
+  on which Amazon Q in Connect
+  is enabled.
+  """
+  @spec update_session(map(), String.t(), String.t(), update_session_request(), list()) ::
+          {:ok, update_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_session_errors()}
+  def update_session(%Client{} = client, assistant_id, session_id, input, options \\ []) do
+    url_path =
+      "/assistants/#{AWS.Util.encode_uri(assistant_id)}/sessions/#{AWS.Util.encode_uri(session_id)}"
 
     headers = []
     query_params = []

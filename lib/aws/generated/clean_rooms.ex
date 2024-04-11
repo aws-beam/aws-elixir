@@ -273,7 +273,8 @@ defmodule AWS.CleanRooms do
         "name" => String.t(),
         "schema" => analysis_schema(),
         "source" => list(),
-        "updateTime" => [non_neg_integer()]
+        "updateTime" => [non_neg_integer()],
+        "validations" => list(analysis_template_validation_status_detail()())
       }
 
   """
@@ -443,6 +444,19 @@ defmodule AWS.CleanRooms do
 
   """
   @type update_configured_table_analysis_rule_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      analysis_template_validation_status_detail() :: %{
+        "reasons" => list(analysis_template_validation_status_reason()()),
+        "status" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type analysis_template_validation_status_detail() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1866,7 +1880,8 @@ defmodule AWS.CleanRooms do
         "name" => String.t(),
         "schema" => analysis_schema(),
         "source" => list(),
-        "updateTime" => [non_neg_integer()]
+        "updateTime" => [non_neg_integer()],
+        "validations" => list(analysis_template_validation_status_detail()())
       }
 
   """
@@ -2371,6 +2386,17 @@ defmodule AWS.CleanRooms do
 
   """
   @type get_collaboration_analysis_template_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      analysis_template_validation_status_reason() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type analysis_template_validation_status_reason() :: %{String.t() => any()}
 
   @typedoc """
 

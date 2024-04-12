@@ -15,8 +15,8 @@ defmodule AWS.Batch do
   and managing required infrastructure.
   At the same time, it also adopts a familiar batch computing software approach.
   You can use Batch to efficiently
-  provision resources d, and work toward eliminating capacity constraints,
-  reducing your overall compute costs, and
+  provision resources, and work toward eliminating capacity constraints, reducing
+  your overall compute costs, and
   delivering results more quickly.
 
   As a fully managed service, Batch can run batch computing workloads of any
@@ -396,6 +396,21 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      attempt_task_container_details() :: %{
+        "exitCode" => integer(),
+        "logStreamName" => String.t(),
+        "name" => String.t(),
+        "networkInterfaces" => list(network_interface()()),
+        "reason" => String.t()
+      }
+
+  """
+  @type attempt_task_container_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_scheduling_policies_response() :: %{
         "schedulingPolicies" => list(scheduling_policy_detail()())
       }
@@ -524,6 +539,19 @@ defmodule AWS.Batch do
 
   """
   @type mount_point() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attempt_ecs_task_details() :: %{
+        "containerInstanceArn" => String.t(),
+        "containers" => list(attempt_task_container_details()()),
+        "taskArn" => String.t()
+      }
+
+  """
+  @type attempt_ecs_task_details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -736,7 +764,8 @@ defmodule AWS.Batch do
         "container" => attempt_container_detail(),
         "startedAt" => float(),
         "statusReason" => String.t(),
-        "stoppedAt" => float()
+        "stoppedAt" => float(),
+        "taskProperties" => list(attempt_ecs_task_details()())
       }
 
   """
@@ -1339,6 +1368,7 @@ defmodule AWS.Batch do
 
       eks_attempt_container_detail() :: %{
         "exitCode" => integer(),
+        "name" => String.t(),
         "reason" => String.t()
       }
 

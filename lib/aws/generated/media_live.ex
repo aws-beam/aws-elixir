@@ -35,6 +35,15 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      delete_cloud_watch_alarm_template_group_request() :: %{}
+
+  """
+  @type delete_cloud_watch_alarm_template_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       archive_s3_settings() :: %{
         "CannedAcl" => list(any())
       }
@@ -73,10 +82,47 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      update_cloud_watch_alarm_template_group_response() :: %{
+        "Arn" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t(),
+        "Id" => String.t(),
+        "ModifiedAt" => non_neg_integer(),
+        "Name" => String.t(),
+        "Tags" => map()
+      }
+
+  """
+  @type update_cloud_watch_alarm_template_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_channel_request() :: %{}
 
   """
   @type delete_channel_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      event_bridge_rule_template_summary() :: %{
+        "Arn" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t(),
+        "EventTargetCount" => integer(),
+        "EventType" => list(any()),
+        "GroupId" => String.t(),
+        "Id" => String.t(),
+        "ModifiedAt" => non_neg_integer(),
+        "Name" => String.t(),
+        "Tags" => map()
+      }
+
+  """
+  @type event_bridge_rule_template_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -112,6 +158,20 @@ defmodule AWS.MediaLive do
 
   """
   @type list_input_security_groups_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_event_bridge_rule_templates_request() :: %{
+        optional("GroupIdentifier") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SignalMapIdentifier") => String.t()
+      }
+
+  """
+  @type list_event_bridge_rule_templates_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -188,6 +248,27 @@ defmodule AWS.MediaLive do
 
   """
   @type scte20_source_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_cloud_watch_alarm_template_request() :: %{}
+
+  """
+  @type delete_cloud_watch_alarm_template_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_signal_maps_response() :: %{
+        "NextToken" => String.t(),
+        "SignalMaps" => list(signal_map_summary()())
+      }
+
+  """
+  @type list_signal_maps_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -431,6 +512,15 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      get_signal_map_request() :: %{}
+
+  """
+  @type get_signal_map_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       audio_only_hls_settings() :: %{
         "AudioGroupId" => String.t(),
         "AudioOnlyImage" => input_location(),
@@ -466,6 +556,28 @@ defmodule AWS.MediaLive do
 
   """
   @type multiplex_program_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_cloud_watch_alarm_template_request() :: %{
+        optional("ComparisonOperator") => list(any()),
+        optional("DatapointsToAlarm") => integer(),
+        optional("Description") => String.t(),
+        optional("EvaluationPeriods") => integer(),
+        optional("GroupIdentifier") => String.t(),
+        optional("MetricName") => String.t(),
+        optional("Name") => String.t(),
+        optional("Period") => integer(),
+        optional("Statistic") => list(any()),
+        optional("TargetResourceType") => list(any()),
+        optional("Threshold") => float(),
+        optional("TreatMissingData") => list(any())
+      }
+
+  """
+  @type update_cloud_watch_alarm_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -553,6 +665,19 @@ defmodule AWS.MediaLive do
 
   """
   @type multiplex_output_destination() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      monitor_deployment() :: %{
+        "DetailsUri" => String.t(),
+        "ErrorMessage" => String.t(),
+        "Status" => list(any())
+      }
+
+  """
+  @type monitor_deployment() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -761,6 +886,23 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      get_event_bridge_rule_template_group_response() :: %{
+        "Arn" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t(),
+        "Id" => String.t(),
+        "ModifiedAt" => non_neg_integer(),
+        "Name" => String.t(),
+        "Tags" => map()
+      }
+
+  """
+  @type get_event_bridge_rule_template_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       multiplex_program() :: %{
         "ChannelId" => String.t(),
         "MultiplexProgramSettings" => multiplex_program_settings(),
@@ -872,6 +1014,24 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      event_bridge_rule_template_group_summary() :: %{
+        "Arn" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t(),
+        "Id" => String.t(),
+        "ModifiedAt" => non_neg_integer(),
+        "Name" => String.t(),
+        "Tags" => map(),
+        "TemplateCount" => integer()
+      }
+
+  """
+  @type event_bridge_rule_template_group_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       audio_codec_settings() :: %{
         "AacSettings" => aac_settings(),
         "Ac3Settings" => ac3_settings(),
@@ -884,6 +1044,33 @@ defmodule AWS.MediaLive do
 
   """
   @type audio_codec_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_cloud_watch_alarm_template_response() :: %{
+        "Arn" => String.t(),
+        "ComparisonOperator" => list(any()),
+        "CreatedAt" => non_neg_integer(),
+        "DatapointsToAlarm" => integer(),
+        "Description" => String.t(),
+        "EvaluationPeriods" => integer(),
+        "GroupId" => String.t(),
+        "Id" => String.t(),
+        "MetricName" => String.t(),
+        "ModifiedAt" => non_neg_integer(),
+        "Name" => String.t(),
+        "Period" => integer(),
+        "Statistic" => list(any()),
+        "Tags" => map(),
+        "TargetResourceType" => list(any()),
+        "Threshold" => float(),
+        "TreatMissingData" => list(any())
+      }
+
+  """
+  @type update_cloud_watch_alarm_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -943,12 +1130,41 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      delete_signal_map_request() :: %{}
+
+  """
+  @type delete_signal_map_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       update_input_security_group_response() :: %{
         "SecurityGroup" => input_security_group()
       }
 
   """
   @type update_input_security_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_event_bridge_rule_template_response() :: %{
+        "Arn" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t(),
+        "EventTargets" => list(event_bridge_rule_template_target()()),
+        "EventType" => list(any()),
+        "GroupId" => String.t(),
+        "Id" => String.t(),
+        "ModifiedAt" => non_neg_integer(),
+        "Name" => String.t(),
+        "Tags" => map()
+      }
+
+  """
+  @type create_event_bridge_rule_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1169,6 +1385,36 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      update_event_bridge_rule_template_group_response() :: %{
+        "Arn" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t(),
+        "Id" => String.t(),
+        "ModifiedAt" => non_neg_integer(),
+        "Name" => String.t(),
+        "Tags" => map()
+      }
+
+  """
+  @type update_event_bridge_rule_template_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_event_bridge_rule_template_group_request() :: %{
+        optional("Description") => String.t(),
+        optional("Tags") => map(),
+        required("Name") => String.t()
+      }
+
+  """
+  @type create_event_bridge_rule_template_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       udp_container_settings() :: %{
         "M2tsSettings" => m2ts_settings()
       }
@@ -1218,6 +1464,33 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      create_cloud_watch_alarm_template_response() :: %{
+        "Arn" => String.t(),
+        "ComparisonOperator" => list(any()),
+        "CreatedAt" => non_neg_integer(),
+        "DatapointsToAlarm" => integer(),
+        "Description" => String.t(),
+        "EvaluationPeriods" => integer(),
+        "GroupId" => String.t(),
+        "Id" => String.t(),
+        "MetricName" => String.t(),
+        "ModifiedAt" => non_neg_integer(),
+        "Name" => String.t(),
+        "Period" => integer(),
+        "Statistic" => list(any()),
+        "Tags" => map(),
+        "TargetResourceType" => list(any()),
+        "Threshold" => float(),
+        "TreatMissingData" => list(any())
+      }
+
+  """
+  @type create_cloud_watch_alarm_template_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       input_channel_level() :: %{
         "Gain" => integer(),
         "InputChannel" => integer()
@@ -1257,6 +1530,18 @@ defmodule AWS.MediaLive do
 
   """
   @type embedded_plus_scte20_destination_settings() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_cloud_watch_alarm_template_groups_response() :: %{
+        "CloudWatchAlarmTemplateGroups" => list(cloud_watch_alarm_template_group_summary()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_cloud_watch_alarm_template_groups_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1304,6 +1589,17 @@ defmodule AWS.MediaLive do
 
   """
   @type input_device_configurable_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_bridge_rule_template_target() :: %{
+        "Arn" => String.t()
+      }
+
+  """
+  @type event_bridge_rule_template_target() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1377,6 +1673,17 @@ defmodule AWS.MediaLive do
 
   """
   @type create_input_security_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_monitor_deployment_request() :: %{
+        optional("DryRun") => boolean()
+      }
+
+  """
+  @type start_monitor_deployment_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1713,6 +2020,23 @@ defmodule AWS.MediaLive do
 
   """
   @type ms_smooth_group_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_cloud_watch_alarm_template_group_response() :: %{
+        "Arn" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t(),
+        "Id" => String.t(),
+        "ModifiedAt" => non_neg_integer(),
+        "Name" => String.t(),
+        "Tags" => map()
+      }
+
+  """
+  @type get_cloud_watch_alarm_template_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2079,6 +2403,15 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      get_cloud_watch_alarm_template_group_request() :: %{}
+
+  """
+  @type get_cloud_watch_alarm_template_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       batch_stop_request() :: %{
         optional("ChannelIds") => list(String.t()()),
         optional("MultiplexIds") => list(String.t()())
@@ -2086,6 +2419,15 @@ defmodule AWS.MediaLive do
 
   """
   @type batch_stop_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_event_bridge_rule_template_group_request() :: %{}
+
+  """
+  @type get_event_bridge_rule_template_group_request() :: %{}
 
   @typedoc """
 
@@ -2332,6 +2674,33 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      get_cloud_watch_alarm_template_response() :: %{
+        "Arn" => String.t(),
+        "ComparisonOperator" => list(any()),
+        "CreatedAt" => non_neg_integer(),
+        "DatapointsToAlarm" => integer(),
+        "Description" => String.t(),
+        "EvaluationPeriods" => integer(),
+        "GroupId" => String.t(),
+        "Id" => String.t(),
+        "MetricName" => String.t(),
+        "ModifiedAt" => non_neg_integer(),
+        "Name" => String.t(),
+        "Period" => integer(),
+        "Statistic" => list(any()),
+        "Tags" => map(),
+        "TargetResourceType" => list(any()),
+        "Threshold" => float(),
+        "TreatMissingData" => list(any())
+      }
+
+  """
+  @type get_cloud_watch_alarm_template_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       input_loss_behavior() :: %{
         "BlackFrameMsec" => integer(),
         "InputLossImageColor" => String.t(),
@@ -2410,6 +2779,34 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      create_signal_map_response() :: %{
+        "Arn" => String.t(),
+        "CloudWatchAlarmTemplateGroupIds" => list(String.t()()),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t(),
+        "DiscoveryEntryPointArn" => String.t(),
+        "ErrorMessage" => String.t(),
+        "EventBridgeRuleTemplateGroupIds" => list(String.t()()),
+        "FailedMediaResourceMap" => map(),
+        "Id" => String.t(),
+        "LastDiscoveredAt" => non_neg_integer(),
+        "LastSuccessfulMonitorDeployment" => successful_monitor_deployment(),
+        "MediaResourceMap" => map(),
+        "ModifiedAt" => non_neg_integer(),
+        "MonitorChangesPendingDeployment" => boolean(),
+        "MonitorDeployment" => monitor_deployment(),
+        "Name" => String.t(),
+        "Status" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type create_signal_map_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       not_found_exception() :: %{
         "Message" => String.t()
       }
@@ -2427,6 +2824,17 @@ defmodule AWS.MediaLive do
 
   """
   @type start_timecode() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_cloud_watch_alarm_template_group_request() :: %{
+        optional("Description") => String.t()
+      }
+
+  """
+  @type update_cloud_watch_alarm_template_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2514,6 +2922,18 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      media_resource_neighbor() :: %{
+        "Arn" => String.t(),
+        "Name" => String.t()
+      }
+
+  """
+  @type media_resource_neighbor() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_channel_request() :: %{
         optional("CdiInputSpecification") => cdi_input_specification(),
         optional("ChannelClass") => list(any()),
@@ -2538,12 +2958,49 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      start_delete_monitor_deployment_response() :: %{
+        "Arn" => String.t(),
+        "CloudWatchAlarmTemplateGroupIds" => list(String.t()()),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t(),
+        "DiscoveryEntryPointArn" => String.t(),
+        "ErrorMessage" => String.t(),
+        "EventBridgeRuleTemplateGroupIds" => list(String.t()()),
+        "FailedMediaResourceMap" => map(),
+        "Id" => String.t(),
+        "LastDiscoveredAt" => non_neg_integer(),
+        "LastSuccessfulMonitorDeployment" => successful_monitor_deployment(),
+        "MediaResourceMap" => map(),
+        "ModifiedAt" => non_neg_integer(),
+        "MonitorChangesPendingDeployment" => boolean(),
+        "MonitorDeployment" => monitor_deployment(),
+        "Name" => String.t(),
+        "Status" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type start_delete_monitor_deployment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       motion_graphics_settings() :: %{
         "HtmlMotionGraphicsSettings" => html_motion_graphics_settings()
       }
 
   """
   @type motion_graphics_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_event_bridge_rule_template_group_request() :: %{}
+
+  """
+  @type delete_event_bridge_rule_template_group_request() :: %{}
 
   @typedoc """
 
@@ -2843,6 +3300,15 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      delete_event_bridge_rule_template_request() :: %{}
+
+  """
+  @type delete_event_bridge_rule_template_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       html_motion_graphics_settings() :: %{}
 
   """
@@ -2859,6 +3325,15 @@ defmodule AWS.MediaLive do
 
   """
   @type list_channels_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_delete_monitor_deployment_request() :: %{}
+
+  """
+  @type start_delete_monitor_deployment_request() :: %{}
 
   @typedoc """
 
@@ -3165,6 +3640,43 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      get_signal_map_response() :: %{
+        "Arn" => String.t(),
+        "CloudWatchAlarmTemplateGroupIds" => list(String.t()()),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t(),
+        "DiscoveryEntryPointArn" => String.t(),
+        "ErrorMessage" => String.t(),
+        "EventBridgeRuleTemplateGroupIds" => list(String.t()()),
+        "FailedMediaResourceMap" => map(),
+        "Id" => String.t(),
+        "LastDiscoveredAt" => non_neg_integer(),
+        "LastSuccessfulMonitorDeployment" => successful_monitor_deployment(),
+        "MediaResourceMap" => map(),
+        "ModifiedAt" => non_neg_integer(),
+        "MonitorChangesPendingDeployment" => boolean(),
+        "MonitorDeployment" => monitor_deployment(),
+        "Name" => String.t(),
+        "Status" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type get_signal_map_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_cloud_watch_alarm_template_request() :: %{}
+
+  """
+  @type get_cloud_watch_alarm_template_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       describe_input_device_thumbnail_response() :: %{
         "Body" => binary(),
         "ContentLength" => float(),
@@ -3383,6 +3895,22 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      create_signal_map_request() :: %{
+        optional("CloudWatchAlarmTemplateGroupIdentifiers") => list(String.t()()),
+        optional("Description") => String.t(),
+        optional("EventBridgeRuleTemplateGroupIdentifiers") => list(String.t()()),
+        optional("Tags") => map(),
+        required("DiscoveryEntryPointArn") => String.t(),
+        required("Name") => String.t()
+      }
+
+  """
+  @type create_signal_map_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_multiplex_request() :: %{}
 
   """
@@ -3539,12 +4067,44 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      create_event_bridge_rule_template_group_response() :: %{
+        "Arn" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t(),
+        "Id" => String.t(),
+        "ModifiedAt" => non_neg_integer(),
+        "Name" => String.t(),
+        "Tags" => map()
+      }
+
+  """
+  @type create_event_bridge_rule_template_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       failover_condition() :: %{
         "FailoverConditionSettings" => failover_condition_settings()
       }
 
   """
   @type failover_condition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_event_bridge_rule_template_request() :: %{
+        optional("Description") => String.t(),
+        optional("EventTargets") => list(event_bridge_rule_template_target()()),
+        optional("EventType") => list(any()),
+        optional("GroupIdentifier") => String.t(),
+        optional("Name") => String.t()
+      }
+
+  """
+  @type update_event_bridge_rule_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3692,6 +4252,18 @@ defmodule AWS.MediaLive do
 
   """
   @type hls_timed_metadata_schedule_action_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      successful_monitor_deployment() :: %{
+        "DetailsUri" => String.t(),
+        "Status" => list(any())
+      }
+
+  """
+  @type successful_monitor_deployment() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3849,6 +4421,43 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      update_event_bridge_rule_template_response() :: %{
+        "Arn" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t(),
+        "EventTargets" => list(event_bridge_rule_template_target()()),
+        "EventType" => list(any()),
+        "GroupId" => String.t(),
+        "Id" => String.t(),
+        "ModifiedAt" => non_neg_integer(),
+        "Name" => String.t(),
+        "Tags" => map()
+      }
+
+  """
+  @type update_event_bridge_rule_template_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_cloud_watch_alarm_template_group_response() :: %{
+        "Arn" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t(),
+        "Id" => String.t(),
+        "ModifiedAt" => non_neg_integer(),
+        "Name" => String.t(),
+        "Tags" => map()
+      }
+
+  """
+  @type create_cloud_watch_alarm_template_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       multiplex() :: %{
         "Arn" => String.t(),
         "AvailabilityZones" => list(String.t()()),
@@ -3915,6 +4524,17 @@ defmodule AWS.MediaLive do
 
   """
   @type accept_input_device_transfer_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_event_bridge_rule_template_group_request() :: %{
+        optional("Description") => String.t()
+      }
+
+  """
+  @type update_event_bridge_rule_template_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4034,6 +4654,30 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      list_cloud_watch_alarm_templates_response() :: %{
+        "CloudWatchAlarmTemplates" => list(cloud_watch_alarm_template_summary()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_cloud_watch_alarm_templates_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_event_bridge_rule_template_groups_response() :: %{
+        "EventBridgeRuleTemplateGroups" => list(event_bridge_rule_template_group_summary()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_event_bridge_rule_template_groups_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       reject_input_device_transfer_response() :: %{}
 
   """
@@ -4063,6 +4707,55 @@ defmodule AWS.MediaLive do
 
   """
   @type create_multiplex_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_event_bridge_rule_template_groups_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SignalMapIdentifier") => String.t()
+      }
+
+  """
+  @type list_event_bridge_rule_template_groups_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_resource() :: %{
+        "Destinations" => list(media_resource_neighbor()()),
+        "Name" => String.t(),
+        "Sources" => list(media_resource_neighbor()())
+      }
+
+  """
+  @type media_resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_cloud_watch_alarm_template_request() :: %{
+        optional("DatapointsToAlarm") => integer(),
+        optional("Description") => String.t(),
+        optional("Tags") => map(),
+        required("ComparisonOperator") => list(any()),
+        required("EvaluationPeriods") => integer(),
+        required("GroupIdentifier") => String.t(),
+        required("MetricName") => String.t(),
+        required("Name") => String.t(),
+        required("Period") => integer(),
+        required("Statistic") => list(any()),
+        required("TargetResourceType") => list(any()),
+        required("Threshold") => float(),
+        required("TreatMissingData") => list(any())
+      }
+
+  """
+  @type create_cloud_watch_alarm_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4471,10 +5164,31 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      list_event_bridge_rule_templates_response() :: %{
+        "EventBridgeRuleTemplates" => list(event_bridge_rule_template_summary()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_event_bridge_rule_templates_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       rtmp_caption_info_destination_settings() :: %{}
 
   """
   @type rtmp_caption_info_destination_settings() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_event_bridge_rule_template_request() :: %{}
+
+  """
+  @type get_event_bridge_rule_template_request() :: %{}
 
   @typedoc """
 
@@ -4547,6 +5261,26 @@ defmodule AWS.MediaLive do
 
   """
   @type reject_input_device_transfer_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_event_bridge_rule_template_response() :: %{
+        "Arn" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t(),
+        "EventTargets" => list(event_bridge_rule_template_target()()),
+        "EventType" => list(any()),
+        "GroupId" => String.t(),
+        "Id" => String.t(),
+        "ModifiedAt" => non_neg_integer(),
+        "Name" => String.t(),
+        "Tags" => map()
+      }
+
+  """
+  @type get_event_bridge_rule_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4646,6 +5380,34 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      start_monitor_deployment_response() :: %{
+        "Arn" => String.t(),
+        "CloudWatchAlarmTemplateGroupIds" => list(String.t()()),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t(),
+        "DiscoveryEntryPointArn" => String.t(),
+        "ErrorMessage" => String.t(),
+        "EventBridgeRuleTemplateGroupIds" => list(String.t()()),
+        "FailedMediaResourceMap" => map(),
+        "Id" => String.t(),
+        "LastDiscoveredAt" => non_neg_integer(),
+        "LastSuccessfulMonitorDeployment" => successful_monitor_deployment(),
+        "MediaResourceMap" => map(),
+        "ModifiedAt" => non_neg_integer(),
+        "MonitorChangesPendingDeployment" => boolean(),
+        "MonitorDeployment" => monitor_deployment(),
+        "Name" => String.t(),
+        "Status" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type start_monitor_deployment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_multiplexes_response() :: %{
         "Multiplexes" => list(multiplex_summary()()),
         "NextToken" => String.t()
@@ -4674,6 +5436,20 @@ defmodule AWS.MediaLive do
 
   """
   @type list_multiplexes_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_cloud_watch_alarm_template_groups_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("Scope") => String.t(),
+        optional("SignalMapIdentifier") => String.t()
+      }
+
+  """
+  @type list_cloud_watch_alarm_template_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4834,6 +5610,22 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      create_event_bridge_rule_template_request() :: %{
+        optional("Description") => String.t(),
+        optional("EventTargets") => list(event_bridge_rule_template_target()()),
+        optional("Tags") => map(),
+        required("EventType") => list(any()),
+        required("GroupIdentifier") => String.t(),
+        required("Name") => String.t()
+      }
+
+  """
+  @type create_event_bridge_rule_template_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       video_black_failover_settings() :: %{
         "BlackDetectThreshold" => float(),
         "VideoBlackThresholdMsec" => integer()
@@ -4927,6 +5719,48 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      start_update_signal_map_response() :: %{
+        "Arn" => String.t(),
+        "CloudWatchAlarmTemplateGroupIds" => list(String.t()()),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t(),
+        "DiscoveryEntryPointArn" => String.t(),
+        "ErrorMessage" => String.t(),
+        "EventBridgeRuleTemplateGroupIds" => list(String.t()()),
+        "FailedMediaResourceMap" => map(),
+        "Id" => String.t(),
+        "LastDiscoveredAt" => non_neg_integer(),
+        "LastSuccessfulMonitorDeployment" => successful_monitor_deployment(),
+        "MediaResourceMap" => map(),
+        "ModifiedAt" => non_neg_integer(),
+        "MonitorChangesPendingDeployment" => boolean(),
+        "MonitorDeployment" => monitor_deployment(),
+        "Name" => String.t(),
+        "Status" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type start_update_signal_map_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_signal_maps_request() :: %{
+        optional("CloudWatchAlarmTemplateGroupIdentifier") => String.t(),
+        optional("EventBridgeRuleTemplateGroupIdentifier") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_signal_maps_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       input_device_hd_settings() :: %{
         "ActiveInput" => list(any()),
         "ConfiguredInput" => list(any()),
@@ -5003,10 +5837,55 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      cloud_watch_alarm_template_summary() :: %{
+        "Arn" => String.t(),
+        "ComparisonOperator" => list(any()),
+        "CreatedAt" => non_neg_integer(),
+        "DatapointsToAlarm" => integer(),
+        "Description" => String.t(),
+        "EvaluationPeriods" => integer(),
+        "GroupId" => String.t(),
+        "Id" => String.t(),
+        "MetricName" => String.t(),
+        "ModifiedAt" => non_neg_integer(),
+        "Name" => String.t(),
+        "Period" => integer(),
+        "Statistic" => list(any()),
+        "Tags" => map(),
+        "TargetResourceType" => list(any()),
+        "Threshold" => float(),
+        "TreatMissingData" => list(any())
+      }
+
+  """
+  @type cloud_watch_alarm_template_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       stop_input_device_response() :: %{}
 
   """
   @type stop_input_device_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_alarm_template_group_summary() :: %{
+        "Arn" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t(),
+        "Id" => String.t(),
+        "ModifiedAt" => non_neg_integer(),
+        "Name" => String.t(),
+        "Tags" => map(),
+        "TemplateCount" => integer()
+      }
+
+  """
+  @type cloud_watch_alarm_template_group_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5081,12 +5960,44 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      signal_map_summary() :: %{
+        "Arn" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t(),
+        "Id" => String.t(),
+        "ModifiedAt" => non_neg_integer(),
+        "MonitorDeploymentStatus" => list(any()),
+        "Name" => String.t(),
+        "Status" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type signal_map_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       media_package_output_destination_settings() :: %{
         "ChannelId" => String.t()
       }
 
   """
   @type media_package_output_destination_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_cloud_watch_alarm_template_group_request() :: %{
+        optional("Description") => String.t(),
+        optional("Tags") => map(),
+        required("Name") => String.t()
+      }
+
+  """
+  @type create_cloud_watch_alarm_template_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5109,6 +6020,21 @@ defmodule AWS.MediaLive do
 
   """
   @type describe_offering_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_cloud_watch_alarm_templates_request() :: %{
+        optional("GroupIdentifier") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("Scope") => String.t(),
+        optional("SignalMapIdentifier") => String.t()
+      }
+
+  """
+  @type list_cloud_watch_alarm_templates_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5333,6 +6259,22 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      start_update_signal_map_request() :: %{
+        optional("CloudWatchAlarmTemplateGroupIdentifiers") => list(String.t()()),
+        optional("Description") => String.t(),
+        optional("DiscoveryEntryPointArn") => String.t(),
+        optional("EventBridgeRuleTemplateGroupIdentifiers") => list(String.t()()),
+        optional("ForceRediscovery") => boolean(),
+        optional("Name") => String.t()
+      }
+
+  """
+  @type start_update_signal_map_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_reservation_response() :: %{
         "Reservation" => reservation()
       }
@@ -5446,6 +6388,38 @@ defmodule AWS.MediaLive do
           | forbidden_exception()
           | bad_gateway_exception()
 
+  @type create_cloud_watch_alarm_template_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type create_cloud_watch_alarm_template_group_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type create_event_bridge_rule_template_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type create_event_bridge_rule_template_group_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
   @type create_input_errors() ::
           bad_request_exception()
           | gateway_timeout_exception()
@@ -5490,6 +6464,14 @@ defmodule AWS.MediaLive do
           | forbidden_exception()
           | bad_gateway_exception()
 
+  @type create_signal_map_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
   @type create_tags_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
@@ -5505,6 +6487,38 @@ defmodule AWS.MediaLive do
           | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+
+  @type delete_cloud_watch_alarm_template_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type delete_cloud_watch_alarm_template_group_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type delete_event_bridge_rule_template_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type delete_event_bridge_rule_template_group_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
 
   @type delete_input_errors() ::
           bad_request_exception()
@@ -5563,6 +6577,14 @@ defmodule AWS.MediaLive do
           | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+
+  @type delete_signal_map_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
 
   @type delete_tags_errors() ::
           bad_request_exception()
@@ -5678,6 +6700,41 @@ defmodule AWS.MediaLive do
           | forbidden_exception()
           | bad_gateway_exception()
 
+  @type get_cloud_watch_alarm_template_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type get_cloud_watch_alarm_template_group_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type get_event_bridge_rule_template_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type get_event_bridge_rule_template_group_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type get_signal_map_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
   @type list_channels_errors() ::
           bad_request_exception()
           | gateway_timeout_exception()
@@ -5685,6 +6742,34 @@ defmodule AWS.MediaLive do
           | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+
+  @type list_cloud_watch_alarm_template_groups_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type list_cloud_watch_alarm_templates_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type list_event_bridge_rule_template_groups_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type list_event_bridge_rule_templates_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
 
   @type list_input_device_transfers_errors() ::
           bad_request_exception()
@@ -5752,6 +6837,13 @@ defmodule AWS.MediaLive do
           | forbidden_exception()
           | bad_gateway_exception()
 
+  @type list_signal_maps_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
   @type list_tags_for_resource_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
@@ -5809,6 +6901,14 @@ defmodule AWS.MediaLive do
           | forbidden_exception()
           | bad_gateway_exception()
 
+  @type start_delete_monitor_deployment_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
   @type start_input_device_errors() ::
           bad_request_exception()
           | gateway_timeout_exception()
@@ -5829,6 +6929,14 @@ defmodule AWS.MediaLive do
           | forbidden_exception()
           | bad_gateway_exception()
 
+  @type start_monitor_deployment_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
   @type start_multiplex_errors() ::
           bad_request_exception()
           | gateway_timeout_exception()
@@ -5838,6 +6946,14 @@ defmodule AWS.MediaLive do
           | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+
+  @type start_update_signal_map_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
 
   @type stop_channel_errors() ::
           bad_request_exception()
@@ -5908,6 +7024,38 @@ defmodule AWS.MediaLive do
           | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+
+  @type update_cloud_watch_alarm_template_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type update_cloud_watch_alarm_template_group_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type update_event_bridge_rule_template_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type update_event_bridge_rule_template_group_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
 
   @type update_input_errors() ::
           bad_request_exception()
@@ -6204,6 +7352,135 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
+  Creates a cloudwatch alarm template to dynamically generate cloudwatch metric
+  alarms on targeted resource types.
+  """
+  @spec create_cloud_watch_alarm_template(
+          map(),
+          create_cloud_watch_alarm_template_request(),
+          list()
+        ) ::
+          {:ok, create_cloud_watch_alarm_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_cloud_watch_alarm_template_errors()}
+  def create_cloud_watch_alarm_template(%Client{} = client, input, options \\ []) do
+    url_path = "/prod/cloudwatch-alarm-templates"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a cloudwatch alarm template group to group your cloudwatch alarm
+  templates and to attach to signal maps for dynamically creating alarms.
+  """
+  @spec create_cloud_watch_alarm_template_group(
+          map(),
+          create_cloud_watch_alarm_template_group_request(),
+          list()
+        ) ::
+          {:ok, create_cloud_watch_alarm_template_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_cloud_watch_alarm_template_group_errors()}
+  def create_cloud_watch_alarm_template_group(%Client{} = client, input, options \\ []) do
+    url_path = "/prod/cloudwatch-alarm-template-groups"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates an eventbridge rule template to monitor events and send notifications to
+  your targeted resources.
+  """
+  @spec create_event_bridge_rule_template(
+          map(),
+          create_event_bridge_rule_template_request(),
+          list()
+        ) ::
+          {:ok, create_event_bridge_rule_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_event_bridge_rule_template_errors()}
+  def create_event_bridge_rule_template(%Client{} = client, input, options \\ []) do
+    url_path = "/prod/eventbridge-rule-templates"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates an eventbridge rule template group to group your eventbridge rule
+  templates and to attach to signal maps for dynamically creating notification
+  rules.
+  """
+  @spec create_event_bridge_rule_template_group(
+          map(),
+          create_event_bridge_rule_template_group_request(),
+          list()
+        ) ::
+          {:ok, create_event_bridge_rule_template_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_event_bridge_rule_template_group_errors()}
+  def create_event_bridge_rule_template_group(%Client{} = client, input, options \\ []) do
+    url_path = "/prod/eventbridge-rule-template-groups"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Create an input
   """
   @spec create_input(map(), create_input_request(), list()) ::
@@ -6339,6 +7616,36 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
+  Initiates the creation of a new signal map.
+
+  Will discover a new mediaResourceMap based on the provided
+  discoveryEntryPointArn.
+  """
+  @spec create_signal_map(map(), create_signal_map_request(), list()) ::
+          {:ok, create_signal_map_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_signal_map_errors()}
+  def create_signal_map(%Client{} = client, input, options \\ []) do
+    url_path = "/prod/signal-maps"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Create tags for a resource
   """
   @spec create_tags(map(), String.t(), create_tags_request(), list()) ::
@@ -6391,6 +7698,150 @@ defmodule AWS.MediaLive do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Deletes a cloudwatch alarm template.
+  """
+  @spec delete_cloud_watch_alarm_template(
+          map(),
+          String.t(),
+          delete_cloud_watch_alarm_template_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_cloud_watch_alarm_template_errors()}
+  def delete_cloud_watch_alarm_template(%Client{} = client, identifier, input, options \\ []) do
+    url_path = "/prod/cloudwatch-alarm-templates/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes a cloudwatch alarm template group.
+
+  You must detach this group from all signal maps and ensure its existing
+  templates are moved to another group or deleted.
+  """
+  @spec delete_cloud_watch_alarm_template_group(
+          map(),
+          String.t(),
+          delete_cloud_watch_alarm_template_group_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_cloud_watch_alarm_template_group_errors()}
+  def delete_cloud_watch_alarm_template_group(
+        %Client{} = client,
+        identifier,
+        input,
+        options \\ []
+      ) do
+    url_path = "/prod/cloudwatch-alarm-template-groups/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes an eventbridge rule template.
+  """
+  @spec delete_event_bridge_rule_template(
+          map(),
+          String.t(),
+          delete_event_bridge_rule_template_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_event_bridge_rule_template_errors()}
+  def delete_event_bridge_rule_template(%Client{} = client, identifier, input, options \\ []) do
+    url_path = "/prod/eventbridge-rule-templates/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes an eventbridge rule template group.
+
+  You must detach this group from all signal maps and ensure its existing
+  templates are moved to another group or deleted.
+  """
+  @spec delete_event_bridge_rule_template_group(
+          map(),
+          String.t(),
+          delete_event_bridge_rule_template_group_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_event_bridge_rule_template_group_errors()}
+  def delete_event_bridge_rule_template_group(
+        %Client{} = client,
+        identifier,
+        input,
+        options \\ []
+      ) do
+    url_path = "/prod/eventbridge-rule-template-groups/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
     )
   end
 
@@ -6579,6 +8030,33 @@ defmodule AWS.MediaLive do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Deletes the specified signal map.
+  """
+  @spec delete_signal_map(map(), String.t(), delete_signal_map_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_signal_map_errors()}
+  def delete_signal_map(%Client{} = client, identifier, input, options \\ []) do
+    url_path = "/prod/signal-maps/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
     )
   end
 
@@ -6881,6 +8359,91 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
+  Retrieves the specified cloudwatch alarm template.
+  """
+  @spec get_cloud_watch_alarm_template(map(), String.t(), list()) ::
+          {:ok, get_cloud_watch_alarm_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_cloud_watch_alarm_template_errors()}
+  def get_cloud_watch_alarm_template(%Client{} = client, identifier, options \\ []) do
+    url_path = "/prod/cloudwatch-alarm-templates/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the specified cloudwatch alarm template group.
+  """
+  @spec get_cloud_watch_alarm_template_group(map(), String.t(), list()) ::
+          {:ok, get_cloud_watch_alarm_template_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_cloud_watch_alarm_template_group_errors()}
+  def get_cloud_watch_alarm_template_group(%Client{} = client, identifier, options \\ []) do
+    url_path = "/prod/cloudwatch-alarm-template-groups/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the specified eventbridge rule template.
+  """
+  @spec get_event_bridge_rule_template(map(), String.t(), list()) ::
+          {:ok, get_event_bridge_rule_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_event_bridge_rule_template_errors()}
+  def get_event_bridge_rule_template(%Client{} = client, identifier, options \\ []) do
+    url_path = "/prod/eventbridge-rule-templates/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the specified eventbridge rule template group.
+  """
+  @spec get_event_bridge_rule_template_group(map(), String.t(), list()) ::
+          {:ok, get_event_bridge_rule_template_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_event_bridge_rule_template_group_errors()}
+  def get_event_bridge_rule_template_group(%Client{} = client, identifier, options \\ []) do
+    url_path = "/prod/eventbridge-rule-template-groups/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the specified signal map.
+  """
+  @spec get_signal_map(map(), String.t(), list()) ::
+          {:ok, get_signal_map_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_signal_map_errors()}
+  def get_signal_map(%Client{} = client, identifier, options \\ []) do
+    url_path = "/prod/signal-maps/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Produces list of channels that have been created
   """
   @spec list_channels(map(), String.t() | nil, String.t() | nil, list()) ::
@@ -6902,6 +8465,242 @@ defmodule AWS.MediaLive do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists cloudwatch alarm template groups.
+  """
+  @spec list_cloud_watch_alarm_template_groups(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_cloud_watch_alarm_template_groups_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_cloud_watch_alarm_template_groups_errors()}
+  def list_cloud_watch_alarm_template_groups(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        scope \\ nil,
+        signal_map_identifier \\ nil,
+        options \\ []
+      ) do
+    url_path = "/prod/cloudwatch-alarm-template-groups"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(signal_map_identifier) do
+        [{"signalMapIdentifier", signal_map_identifier} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(scope) do
+        [{"scope", scope} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists cloudwatch alarm templates.
+  """
+  @spec list_cloud_watch_alarm_templates(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_cloud_watch_alarm_templates_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_cloud_watch_alarm_templates_errors()}
+  def list_cloud_watch_alarm_templates(
+        %Client{} = client,
+        group_identifier \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        scope \\ nil,
+        signal_map_identifier \\ nil,
+        options \\ []
+      ) do
+    url_path = "/prod/cloudwatch-alarm-templates"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(signal_map_identifier) do
+        [{"signalMapIdentifier", signal_map_identifier} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(scope) do
+        [{"scope", scope} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(group_identifier) do
+        [{"groupIdentifier", group_identifier} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists eventbridge rule template groups.
+  """
+  @spec list_event_bridge_rule_template_groups(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_event_bridge_rule_template_groups_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_event_bridge_rule_template_groups_errors()}
+  def list_event_bridge_rule_template_groups(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        signal_map_identifier \\ nil,
+        options \\ []
+      ) do
+    url_path = "/prod/eventbridge-rule-template-groups"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(signal_map_identifier) do
+        [{"signalMapIdentifier", signal_map_identifier} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists eventbridge rule templates.
+  """
+  @spec list_event_bridge_rule_templates(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_event_bridge_rule_templates_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_event_bridge_rule_templates_errors()}
+  def list_event_bridge_rule_templates(
+        %Client{} = client,
+        group_identifier \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        signal_map_identifier \\ nil,
+        options \\ []
+      ) do
+    url_path = "/prod/eventbridge-rule-templates"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(signal_map_identifier) do
+        [{"signalMapIdentifier", signal_map_identifier} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(group_identifier) do
+        [{"groupIdentifier", group_identifier} | query_params]
       else
         query_params
       end
@@ -7369,6 +9168,71 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
+  Lists signal maps.
+  """
+  @spec list_signal_maps(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_signal_maps_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_signal_maps_errors()}
+  def list_signal_maps(
+        %Client{} = client,
+        cloud_watch_alarm_template_group_identifier \\ nil,
+        event_bridge_rule_template_group_identifier \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/prod/signal-maps"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(event_bridge_rule_template_group_identifier) do
+        [
+          {"eventBridgeRuleTemplateGroupIdentifier", event_bridge_rule_template_group_identifier}
+          | query_params
+        ]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(cloud_watch_alarm_template_group_identifier) do
+        [
+          {"cloudWatchAlarmTemplateGroupIdentifier", cloud_watch_alarm_template_group_identifier}
+          | query_params
+        ]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Produces list of tags that have been created for a resource
   """
   @spec list_tags_for_resource(map(), String.t(), list()) ::
@@ -7530,6 +9394,38 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
+  Initiates a deployment to delete the monitor of the specified signal map.
+  """
+  @spec start_delete_monitor_deployment(
+          map(),
+          String.t(),
+          start_delete_monitor_deployment_request(),
+          list()
+        ) ::
+          {:ok, start_delete_monitor_deployment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_delete_monitor_deployment_errors()}
+  def start_delete_monitor_deployment(%Client{} = client, identifier, input, options \\ []) do
+    url_path = "/prod/signal-maps/#{AWS.Util.encode_uri(identifier)}/monitor-deployment"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Start an input device that is attached to a MediaConnect flow.
 
   (There is no need to start a device that is attached to a MediaLive input;
@@ -7607,6 +9503,33 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
+  Initiates a deployment to deploy the latest monitor of the specified signal map.
+  """
+  @spec start_monitor_deployment(map(), String.t(), start_monitor_deployment_request(), list()) ::
+          {:ok, start_monitor_deployment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_monitor_deployment_errors()}
+  def start_monitor_deployment(%Client{} = client, identifier, input, options \\ []) do
+    url_path = "/prod/signal-maps/#{AWS.Util.encode_uri(identifier)}/monitor-deployment"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Start (run) the multiplex.
 
   Starting the multiplex does not start the channels. You must explicitly start
@@ -7627,6 +9550,35 @@ defmodule AWS.MediaLive do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Initiates an update for the specified signal map.
+
+  Will discover a new signal map if a changed discoveryEntryPointArn is provided.
+  """
+  @spec start_update_signal_map(map(), String.t(), start_update_signal_map_request(), list()) ::
+          {:ok, start_update_signal_map_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_update_signal_map_errors()}
+  def start_update_signal_map(%Client{} = client, identifier, input, options \\ []) do
+    url_path = "/prod/signal-maps/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
       url_path,
       query_params,
       headers,
@@ -7801,6 +9753,144 @@ defmodule AWS.MediaLive do
     meta = metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Updates the specified cloudwatch alarm template.
+  """
+  @spec update_cloud_watch_alarm_template(
+          map(),
+          String.t(),
+          update_cloud_watch_alarm_template_request(),
+          list()
+        ) ::
+          {:ok, update_cloud_watch_alarm_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_cloud_watch_alarm_template_errors()}
+  def update_cloud_watch_alarm_template(%Client{} = client, identifier, input, options \\ []) do
+    url_path = "/prod/cloudwatch-alarm-templates/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the specified cloudwatch alarm template group.
+  """
+  @spec update_cloud_watch_alarm_template_group(
+          map(),
+          String.t(),
+          update_cloud_watch_alarm_template_group_request(),
+          list()
+        ) ::
+          {:ok, update_cloud_watch_alarm_template_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_cloud_watch_alarm_template_group_errors()}
+  def update_cloud_watch_alarm_template_group(
+        %Client{} = client,
+        identifier,
+        input,
+        options \\ []
+      ) do
+    url_path = "/prod/cloudwatch-alarm-template-groups/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the specified eventbridge rule template.
+  """
+  @spec update_event_bridge_rule_template(
+          map(),
+          String.t(),
+          update_event_bridge_rule_template_request(),
+          list()
+        ) ::
+          {:ok, update_event_bridge_rule_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_event_bridge_rule_template_errors()}
+  def update_event_bridge_rule_template(%Client{} = client, identifier, input, options \\ []) do
+    url_path = "/prod/eventbridge-rule-templates/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the specified eventbridge rule template group.
+  """
+  @spec update_event_bridge_rule_template_group(
+          map(),
+          String.t(),
+          update_event_bridge_rule_template_group_request(),
+          list()
+        ) ::
+          {:ok, update_event_bridge_rule_template_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_event_bridge_rule_template_group_errors()}
+  def update_event_bridge_rule_template_group(
+        %Client{} = client,
+        identifier,
+        input,
+        options \\ []
+      ) do
+    url_path = "/prod/eventbridge-rule-template-groups/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

@@ -1126,6 +1126,7 @@ defmodule AWS.Omics do
       create_sequence_store_request() :: %{
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
+        optional("eTagAlgorithmFamily") => String.t(),
         optional("fallbackLocation") => String.t(),
         optional("sseConfig") => sse_config(),
         optional("tags") => map(),
@@ -1394,9 +1395,11 @@ defmodule AWS.Omics do
         "arn" => String.t(),
         "creationTime" => [non_neg_integer()],
         "description" => String.t(),
+        "eTagAlgorithmFamily" => String.t(),
         "fallbackLocation" => String.t(),
         "id" => String.t(),
         "name" => String.t(),
+        "s3Access" => sequence_store_s3_access(),
         "sseConfig" => sse_config()
       }
 
@@ -1887,6 +1890,7 @@ defmodule AWS.Omics do
         "arn" => String.t(),
         "creationTime" => [non_neg_integer()],
         "description" => String.t(),
+        "eTagAlgorithmFamily" => String.t(),
         "fallbackLocation" => String.t(),
         "id" => String.t(),
         "name" => String.t(),
@@ -2031,6 +2035,18 @@ defmodule AWS.Omics do
 
   """
   @type list_read_set_export_jobs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sequence_store_s3_access() :: %{
+        "s3AccessPointArn" => String.t(),
+        "s3Uri" => String.t()
+      }
+
+  """
+  @type sequence_store_s3_access() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2786,6 +2802,7 @@ defmodule AWS.Omics do
       file_information() :: %{
         "contentLength" => [float()],
         "partSize" => [float()],
+        "s3Access" => read_set_s3_access(),
         "totalParts" => [integer()]
       }
 
@@ -3066,6 +3083,17 @@ defmodule AWS.Omics do
 
   ## Example:
 
+      read_set_s3_access() :: %{
+        "s3Uri" => String.t()
+      }
+
+  """
+  @type read_set_s3_access() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_run_group_request() :: %{
         optional("maxCpus") => [integer()],
         optional("maxDuration") => [integer()],
@@ -3121,6 +3149,7 @@ defmodule AWS.Omics do
         "arn" => String.t(),
         "creationTime" => [non_neg_integer()],
         "description" => String.t(),
+        "eTagAlgorithmFamily" => String.t(),
         "fallbackLocation" => String.t(),
         "id" => String.t(),
         "name" => String.t(),
@@ -3893,7 +3922,6 @@ defmodule AWS.Omics do
   end
 
   @doc """
-
   Stops a multipart upload.
   """
   @spec abort_multipart_read_set_upload(
@@ -4076,7 +4104,6 @@ defmodule AWS.Omics do
   end
 
   @doc """
-
   Concludes a multipart upload once you have uploaded all the components.
   """
   @spec complete_multipart_read_set_upload(
@@ -4178,7 +4205,6 @@ defmodule AWS.Omics do
   end
 
   @doc """
-
   Begins a multipart read set upload.
   """
   @spec create_multipart_read_set_upload(
@@ -5220,11 +5246,10 @@ defmodule AWS.Omics do
   end
 
   @doc """
-
   Lists multipart read set uploads and for in progress uploads.
 
   Once the upload is completed, a read set is created and the upload will no
-  longer be returned in the respone.
+  longer be returned in the response.
   """
   @spec list_multipart_read_set_uploads(
           map(),
@@ -5366,7 +5391,6 @@ defmodule AWS.Omics do
   end
 
   @doc """
-
   This operation will list all parts in a requested multipart upload for a
   sequence store.
   """
@@ -6345,11 +6369,10 @@ defmodule AWS.Omics do
   end
 
   @doc """
-
   This operation uploads a specific part of a read set.
 
-  If you upload a new part using a previously used part number, the previously
-  uploaded part will be overwritten.
+  If you upload a new part using a previously used part number,
+  the previously uploaded part will be overwritten.
   """
   @spec upload_read_set_part(
           map(),

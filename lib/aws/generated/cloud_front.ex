@@ -11,7 +11,7 @@ defmodule AWS.CloudFront do
   who need detailed information about CloudFront API actions, data types, and
   errors. For
   detailed information about CloudFront features, see the
-  *Amazon CloudFront Developer Guide*.
+  [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html).
   """
 
   alias AWS.Client
@@ -6451,6 +6451,7 @@ defmodule AWS.CloudFront do
 
   @type create_key_value_store_errors() ::
           entity_limit_exceeded()
+          | unsupported_operation()
           | entity_size_limit_exceeded()
           | entity_already_exists()
           | invalid_argument()
@@ -6587,6 +6588,7 @@ defmodule AWS.CloudFront do
   @type delete_key_value_store_errors() ::
           cannot_delete_entity_while_in_use()
           | precondition_failed()
+          | unsupported_operation()
           | access_denied()
           | entity_not_found()
           | invalid_if_match_version()
@@ -6643,7 +6645,7 @@ defmodule AWS.CloudFront do
   @type describe_function_errors() :: no_such_function_exists() | unsupported_operation()
 
   @type describe_key_value_store_errors() ::
-          invalid_argument() | access_denied() | entity_not_found()
+          unsupported_operation() | invalid_argument() | access_denied() | entity_not_found()
 
   @type get_cache_policy_errors() :: no_such_cache_policy() | access_denied()
 
@@ -6758,7 +6760,8 @@ defmodule AWS.CloudFront do
 
   @type list_key_groups_errors() :: invalid_argument()
 
-  @type list_key_value_stores_errors() :: invalid_argument() | access_denied()
+  @type list_key_value_stores_errors() ::
+          unsupported_operation() | invalid_argument() | access_denied()
 
   @type list_origin_access_controls_errors() :: invalid_argument()
 
@@ -7006,6 +7009,7 @@ defmodule AWS.CloudFront do
 
   @type update_key_value_store_errors() ::
           precondition_failed()
+          | unsupported_operation()
           | invalid_argument()
           | access_denied()
           | entity_not_found()
@@ -7563,6 +7567,9 @@ defmodule AWS.CloudFront do
 
   @doc """
   Create a new invalidation.
+
+  For more information, see [Invalidating files](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html)
+  in the *Amazon CloudFront Developer Guide*.
   """
   @spec create_invalidation(map(), String.t(), create_invalidation_request(), list()) ::
           {:ok, create_invalidation_result(), any()}
@@ -7646,10 +7653,10 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Specifies the Key Value Store resource to add to your account.
+  Specifies the key value store resource to add to your account.
 
-  In your account, the Key Value Store names must be unique. You can also import
-  Key Value Store data in JSON format from an S3 bucket by providing a valid
+  In your account, the key value store names must be unique. You can also import
+  key value store data in JSON format from an S3 bucket by providing a valid
   `ImportSource` that you own.
   """
   @spec create_key_value_store(map(), create_key_value_store_request(), list()) ::
@@ -8367,7 +8374,7 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Specifies the Key Value Store to delete.
+  Specifies the key value store to delete.
   """
   @spec delete_key_value_store(map(), String.t(), delete_key_value_store_request(), list()) ::
           {:ok, nil, any()}
@@ -8792,7 +8799,7 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Specifies the Key Value Store and its configuration.
+  Specifies the key value store and its configuration.
   """
   @spec describe_key_value_store(map(), String.t(), list()) ::
           {:ok, describe_key_value_store_result(), any()}
@@ -10377,7 +10384,7 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Specifies the Key Value Stores to list.
+  Specifies the key value stores to list.
   """
   @spec list_key_value_stores(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_key_value_stores_result(), any()}
@@ -11319,7 +11326,7 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Specifies the Key Value Store to update.
+  Specifies the key value store to update.
   """
   @spec update_key_value_store(map(), String.t(), update_key_value_store_request(), list()) ::
           {:ok, update_key_value_store_result(), any()}

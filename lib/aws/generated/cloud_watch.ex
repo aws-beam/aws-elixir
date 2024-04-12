@@ -549,6 +549,7 @@ defmodule AWS.CloudWatch do
       put_anomaly_detector_input() :: %{
         optional("Configuration") => anomaly_detector_configuration(),
         optional("Dimensions") => list(dimension()()),
+        optional("MetricCharacteristics") => metric_characteristics(),
         optional("MetricMathAnomalyDetector") => metric_math_anomaly_detector(),
         optional("MetricName") => String.t(),
         optional("Namespace") => String.t(),
@@ -808,6 +809,17 @@ defmodule AWS.CloudWatch do
       
   """
   @type single_metric_anomaly_detector() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      metric_characteristics() :: %{
+        "PeriodicSpikes" => boolean()
+      }
+      
+  """
+  @type metric_characteristics() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1379,6 +1391,7 @@ defmodule AWS.CloudWatch do
       anomaly_detector() :: %{
         "Configuration" => anomaly_detector_configuration(),
         "Dimensions" => list(dimension()()),
+        "MetricCharacteristics" => metric_characteristics(),
         "MetricMathAnomalyDetector" => metric_math_anomaly_detector(),
         "MetricName" => String.t(),
         "Namespace" => String.t(),

@@ -1536,6 +1536,17 @@ defmodule AWS.IAM do
 
   ## Example:
       
+      open_id_idp_communication_error_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type open_id_idp_communication_error_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       open_id_connect_provider_list_entry() :: %{
         "Arn" => String.t()
       }
@@ -3967,7 +3978,7 @@ defmodule AWS.IAM do
       create_open_id_connect_provider_request() :: %{
         optional("ClientIDList") => list(String.t()()),
         optional("Tags") => list(tag()()),
-        required("ThumbprintList") => list(String.t()()),
+        optional("ThumbprintList") => list(String.t()()),
         required("Url") => String.t()
       }
       
@@ -4113,6 +4124,7 @@ defmodule AWS.IAM do
           limit_exceeded_exception()
           | concurrent_modification_exception()
           | invalid_input_exception()
+          | open_id_idp_communication_error_exception()
           | service_failure_exception()
           | entity_already_exists_exception()
 
@@ -5634,9 +5646,8 @@ defmodule AWS.IAM do
   resource clean up (`DeleteInstanceProfile`)
 
   Make sure that you do not have any Amazon EC2 instances running with the role
-  you
-  are about to delete. Deleting a role or instance profile that is associated with
-  a
+  you are
+  about to delete. Deleting a role or instance profile that is associated with a
   running instance will break any applications running on the instance.
   """
   @spec delete_role(map(), delete_role_request(), list()) ::
@@ -8164,13 +8175,15 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Removes the specified IAM role from the specified EC2 instance profile.
+  Removes the specified IAM role from the specified Amazon EC2 instance profile.
 
   Make sure that you do not have any Amazon EC2 instances running with the role
-  you
-  are about to remove from the instance profile. Removing a role from an instance
-  profile that is associated with a running instance might break any applications
-  running on the instance.
+  you are
+  about to remove from the instance profile. Removing a role from an instance
+  profile
+  that is associated with a running instance might break any applications running
+  on
+  the instance.
 
   For more information about roles, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the
   *IAM User Guide*. For more information about instance profiles,

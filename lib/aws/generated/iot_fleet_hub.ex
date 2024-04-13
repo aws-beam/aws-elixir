@@ -3,11 +3,8 @@
 
 defmodule AWS.IoTFleetHub do
   @moduledoc """
-  With Fleet Hub for AWS IoT Device Management you can build stand-alone web
+  With Fleet Hub for IoT Device Management you can build stand-alone web
   applications for monitoring the health of your device fleets.
-
-  Fleet Hub for AWS IoT Device Management is in public preview and is subject to
-  change.
   """
 
   alias AWS.Client
@@ -338,10 +335,16 @@ defmodule AWS.IoTFleetHub do
   end
 
   @doc """
-  Creates a Fleet Hub for AWS IoT Device Management web application.
+  Creates a Fleet Hub for IoT Device Management web application.
 
-  Fleet Hub for AWS IoT Device Management is in public preview and is subject to
-  change.
+  When creating a Fleet Hub application, you must create an organization instance
+  of
+  IAM Identity Center if you don't already have one. The Fleet Hub application you
+  create must also be in
+  the same Amazon Web Services Region of the organization instance of IAM Identity
+  Center. For more information see [Enabling IAM Identity
+  Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/get-set-up-for-idc.html)
+  and [Organization instances of IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/organization-instances-identity-center.html).
   """
   @spec create_application(map(), create_application_request(), list()) ::
           {:ok, create_application_response(), any()}
@@ -368,10 +371,7 @@ defmodule AWS.IoTFleetHub do
   end
 
   @doc """
-  Deletes a Fleet Hub for AWS IoT Device Management web application.
-
-  Fleet Hub for AWS IoT Device Management is in public preview and is subject to
-  change.
+  Deletes a Fleet Hub for IoT Device Management web application.
   """
   @spec delete_application(map(), String.t(), delete_application_request(), list()) ::
           {:ok, delete_application_response(), any()}
@@ -403,11 +403,7 @@ defmodule AWS.IoTFleetHub do
   end
 
   @doc """
-  Gets information about a Fleet Hub for AWS IoT Device Management web
-  application.
-
-  Fleet Hub for AWS IoT Device Management is in public preview and is subject to
-  change.
+  Gets information about a Fleet Hub for IoT Device Management web application.
   """
   @spec describe_application(map(), String.t(), list()) ::
           {:ok, describe_application_response(), any()}
@@ -424,11 +420,8 @@ defmodule AWS.IoTFleetHub do
   end
 
   @doc """
-  Gets a list of Fleet Hub for AWS IoT Device Management web applications for the
+  Gets a list of Fleet Hub for IoT Device Management web applications for the
   current account.
-
-  Fleet Hub for AWS IoT Device Management is in public preview and is subject to
-  change.
   """
   @spec list_applications(map(), String.t() | nil, list()) ::
           {:ok, list_applications_response(), any()}
@@ -453,9 +446,6 @@ defmodule AWS.IoTFleetHub do
 
   @doc """
   Lists the tags for the specified resource.
-
-  Fleet Hub for AWS IoT Device Management is in public preview and is subject to
-  change.
   """
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -475,9 +465,6 @@ defmodule AWS.IoTFleetHub do
   Adds to or modifies the tags of the specified resource.
 
   Tags are metadata which can be used to manage a resource.
-
-  Fleet Hub for AWS IoT Device Management is in public preview and is subject to
-  change.
   """
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
@@ -505,9 +492,6 @@ defmodule AWS.IoTFleetHub do
 
   @doc """
   Removes the specified tags (metadata) from the resource.
-
-  Fleet Hub for AWS IoT Device Management is in public preview and is subject to
-  change.
   """
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
@@ -539,11 +523,7 @@ defmodule AWS.IoTFleetHub do
   end
 
   @doc """
-  Updates information about a Fleet Hub for a AWS IoT Device Management web
-  application.
-
-  Fleet Hub for AWS IoT Device Management is in public preview and is subject to
-  change.
+  Updates information about a Fleet Hub for IoT Device Management web application.
   """
   @spec update_application(map(), String.t(), update_application_request(), list()) ::
           {:ok, update_application_response(), any()}

@@ -3580,9 +3580,11 @@ defmodule AWS.Glue do
       
       get_unfiltered_table_metadata_request() :: %{
         optional("AuditContext") => audit_context(),
+        optional("ParentResourceArn") => String.t(),
         optional("Permissions") => list(list(any())()),
         optional("QuerySessionContext") => query_session_context(),
         optional("Region") => String.t(),
+        optional("RootResourceArn") => String.t(),
         optional("SupportedDialect") => supported_dialect(),
         required("CatalogId") => String.t(),
         required("DatabaseName") => String.t(),
@@ -13775,8 +13777,8 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Retrieves table metadata from the Data Catalog that contains unfiltered
-  metadata.
+  Allows a third-party analytical engine to retrieve unfiltered table metadata
+  from the Data Catalog.
 
   For IAM authorization, the public IAM action associated with this API is
   `glue:GetTable`.

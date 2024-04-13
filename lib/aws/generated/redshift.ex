@@ -3716,6 +3716,7 @@ defmodule AWS.Redshift do
         "ClusterCreateTime" => non_neg_integer(),
         "Port" => integer(),
         "NodeType" => String.t(),
+        "SnapshotArn" => String.t(),
         "MaintenanceTrackName" => String.t(),
         "ElapsedTimeInSeconds" => float(),
         "MasterUsername" => String.t(),

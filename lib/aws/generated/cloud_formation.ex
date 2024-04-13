@@ -704,8 +704,12 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       resource_target_definition() :: %{
+        "AfterValue" => String.t(),
         "Attribute" => list(any()),
+        "AttributeChangeType" => list(any()),
+        "BeforeValue" => String.t(),
         "Name" => String.t(),
+        "Path" => String.t(),
         "RequiresRecreation" => list(any())
       }
       
@@ -2527,6 +2531,7 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       describe_change_set_input() :: %{
+        optional("IncludePropertyValues") => boolean(),
         optional("NextToken") => String.t(),
         optional("StackName") => String.t(),
         required("ChangeSetName") => String.t()
@@ -3318,6 +3323,8 @@ defmodule AWS.CloudFormation do
       
       resource_change() :: %{
         "Action" => list(any()),
+        "AfterContext" => String.t(),
+        "BeforeContext" => String.t(),
         "ChangeSetId" => String.t(),
         "Details" => list(resource_change_detail()()),
         "LogicalResourceId" => String.t(),

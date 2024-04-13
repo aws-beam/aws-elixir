@@ -229,6 +229,18 @@ defmodule AWS.HealthLake do
 
   ## Example:
       
+      error_cause() :: %{
+        "ErrorCategory" => list(any()),
+        "ErrorMessage" => String.t()
+      }
+      
+  """
+  @type error_cause() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       conflict_exception() :: %{
         "Message" => String.t()
       }
@@ -324,6 +336,7 @@ defmodule AWS.HealthLake do
         "DatastoreName" => String.t(),
         "DatastoreStatus" => list(any()),
         "DatastoreTypeVersion" => list(any()),
+        "ErrorCause" => error_cause(),
         "IdentityProviderConfiguration" => identity_provider_configuration(),
         "PreloadDataConfig" => preload_data_config(),
         "SseConfiguration" => sse_configuration()

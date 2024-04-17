@@ -153,6 +153,22 @@ defmodule AWS.M2 do
 
   ## Example:
 
+      job_step() :: %{
+        "procStepName" => [String.t()],
+        "procStepNumber" => integer(),
+        "stepCondCode" => [String.t()],
+        "stepName" => [String.t()],
+        "stepNumber" => integer(),
+        "stepRestartable" => boolean()
+      }
+
+  """
+  @type job_step() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_data_set_import_task_response() :: %{
         required("taskId") => String.t()
       }
@@ -186,6 +202,20 @@ defmodule AWS.M2 do
 
   """
   @type delete_application_from_environment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      job_step_restart_marker() :: %{
+        "fromProcStep" => [String.t()],
+        "fromStep" => [String.t()],
+        "toProcStep" => [String.t()],
+        "toStep" => [String.t()]
+      }
+
+  """
+  @type job_step_restart_marker() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -424,6 +454,18 @@ defmodule AWS.M2 do
 
   ## Example:
 
+      restart_batch_job_identifier() :: %{
+        "executionId" => String.t(),
+        "jobStepRestartMarker" => job_step_restart_marker()
+      }
+
+  """
+  @type restart_batch_job_identifier() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       script_batch_job_identifier() :: %{
         "scriptName" => [String.t()]
       }
@@ -474,6 +516,15 @@ defmodule AWS.M2 do
 
   """
   @type high_availability_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_batch_job_restart_points_request() :: %{}
+
+  """
+  @type list_batch_job_restart_points_request() :: %{}
 
   @typedoc """
 
@@ -807,6 +858,17 @@ defmodule AWS.M2 do
 
   ## Example:
 
+      list_batch_job_restart_points_response() :: %{
+        "batchJobSteps" => list(job_step()())
+      }
+
+  """
+  @type list_batch_job_restart_points_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_signed_bluinsights_url_response() :: %{
         "signedBiUrl" => [String.t()]
       }
@@ -942,6 +1004,7 @@ defmodule AWS.M2 do
         optional("endTime") => non_neg_integer(),
         optional("jobId") => String.t(),
         optional("jobName") => String.t(),
+        optional("jobStepRestartMarker") => job_step_restart_marker(),
         optional("jobType") => String.t(),
         optional("jobUser") => String.t(),
         optional("returnCode") => [String.t()],
@@ -1561,6 +1624,14 @@ defmodule AWS.M2 do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type list_batch_job_restart_points_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type list_data_set_import_history_errors() ::
           throttling_exception()
@@ -2337,6 +2408,32 @@ defmodule AWS.M2 do
       else
         query_params
       end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all the job steps for JCL files to restart a batch job.
+
+  This is only applicable for Micro Focus engine with versions 8.0.6 and above.
+  """
+  @spec list_batch_job_restart_points(map(), String.t(), String.t(), list()) ::
+          {:ok, list_batch_job_restart_points_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_batch_job_restart_points_errors()}
+  def list_batch_job_restart_points(
+        %Client{} = client,
+        application_id,
+        execution_id,
+        options \\ []
+      ) do
+    url_path =
+      "/applications/#{AWS.Util.encode_uri(application_id)}/batch-job-executions/#{AWS.Util.encode_uri(execution_id)}/steps"
+
+    headers = []
+    query_params = []
 
     meta = metadata()
 

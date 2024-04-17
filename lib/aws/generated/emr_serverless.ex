@@ -72,6 +72,7 @@ defmodule AWS.EMRServerless do
       worker_resource_config() :: %{
         "cpu" => String.t(),
         "disk" => String.t(),
+        "diskType" => String.t(),
         "memory" => String.t()
       }
 

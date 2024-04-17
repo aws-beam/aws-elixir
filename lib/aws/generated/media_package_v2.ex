@@ -90,6 +90,7 @@ defmodule AWS.MediaPackageV2 do
 
       create_origin_endpoint_request() :: %{
         optional("ClientToken") => String.t(),
+        optional("DashManifests") => list(create_dash_manifest_configuration()()),
         optional("Description") => String.t(),
         optional("HlsManifests") => list(create_hls_manifest_configuration()()),
         optional("LowLatencyHlsManifests") => list(create_low_latency_hls_manifest_configuration()()),
@@ -142,6 +143,18 @@ defmodule AWS.MediaPackageV2 do
 
   ## Example:
 
+      list_dash_manifest_configuration() :: %{
+        "ManifestName" => String.t(),
+        "Url" => [String.t()]
+      }
+
+  """
+  @type list_dash_manifest_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       channel_group_list_configuration() :: %{
         "Arn" => [String.t()],
         "ChannelGroupName" => [String.t()],
@@ -185,6 +198,7 @@ defmodule AWS.MediaPackageV2 do
         "ChannelName" => String.t(),
         "ContainerType" => list(any()),
         "CreatedAt" => [non_neg_integer()],
+        "DashManifests" => list(get_dash_manifest_configuration()()),
         "Description" => String.t(),
         "ETag" => String.t(),
         "HlsManifests" => list(get_hls_manifest_configuration()()),
@@ -219,7 +233,29 @@ defmodule AWS.MediaPackageV2 do
 
   ## Example:
 
+      create_dash_manifest_configuration() :: %{
+        "DrmSignaling" => list(any()),
+        "FilterConfiguration" => filter_configuration(),
+        "ManifestName" => String.t(),
+        "ManifestWindowSeconds" => [integer()],
+        "MinBufferTimeSeconds" => [integer()],
+        "MinUpdatePeriodSeconds" => [integer()],
+        "PeriodTriggers" => list(list(any())()),
+        "ScteDash" => scte_dash(),
+        "SegmentTemplateFormat" => list(any()),
+        "SuggestedPresentationDelaySeconds" => [integer()],
+        "UtcTiming" => dash_utc_timing()
+      }
+
+  """
+  @type create_dash_manifest_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_origin_endpoint_request() :: %{
+        optional("DashManifests") => list(create_dash_manifest_configuration()()),
         optional("Description") => String.t(),
         optional("ETag") => String.t(),
         optional("HlsManifests") => list(create_hls_manifest_configuration()()),
@@ -251,6 +287,18 @@ defmodule AWS.MediaPackageV2 do
 
   """
   @type put_origin_endpoint_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dash_utc_timing() :: %{
+        "TimingMode" => list(any()),
+        "TimingSource" => [String.t()]
+      }
+
+  """
+  @type dash_utc_timing() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -568,6 +616,28 @@ defmodule AWS.MediaPackageV2 do
 
   ## Example:
 
+      get_dash_manifest_configuration() :: %{
+        "DrmSignaling" => list(any()),
+        "FilterConfiguration" => filter_configuration(),
+        "ManifestName" => String.t(),
+        "ManifestWindowSeconds" => [integer()],
+        "MinBufferTimeSeconds" => [integer()],
+        "MinUpdatePeriodSeconds" => [integer()],
+        "PeriodTriggers" => list(list(any())()),
+        "ScteDash" => scte_dash(),
+        "SegmentTemplateFormat" => list(any()),
+        "SuggestedPresentationDelaySeconds" => [integer()],
+        "Url" => [String.t()],
+        "UtcTiming" => dash_utc_timing()
+      }
+
+  """
+  @type get_dash_manifest_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_channels_response() :: %{
         "Items" => list(channel_list_configuration()()),
         "NextToken" => [String.t()]
@@ -637,6 +707,17 @@ defmodule AWS.MediaPackageV2 do
 
   """
   @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scte_dash() :: %{
+        "AdMarkerDash" => list(any())
+      }
+
+  """
+  @type scte_dash() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -806,6 +887,7 @@ defmodule AWS.MediaPackageV2 do
         "ChannelName" => String.t(),
         "ContainerType" => list(any()),
         "CreatedAt" => [non_neg_integer()],
+        "DashManifests" => list(list_dash_manifest_configuration()()),
         "Description" => String.t(),
         "HlsManifests" => list(list_hls_manifest_configuration()()),
         "LowLatencyHlsManifests" => list(list_low_latency_hls_manifest_configuration()()),
@@ -887,6 +969,7 @@ defmodule AWS.MediaPackageV2 do
         "ChannelName" => String.t(),
         "ContainerType" => list(any()),
         "CreatedAt" => [non_neg_integer()],
+        "DashManifests" => list(get_dash_manifest_configuration()()),
         "Description" => String.t(),
         "ETag" => String.t(),
         "HlsManifests" => list(get_hls_manifest_configuration()()),
@@ -949,6 +1032,7 @@ defmodule AWS.MediaPackageV2 do
         "ChannelName" => String.t(),
         "ContainerType" => list(any()),
         "CreatedAt" => [non_neg_integer()],
+        "DashManifests" => list(get_dash_manifest_configuration()()),
         "Description" => String.t(),
         "ETag" => String.t(),
         "HlsManifests" => list(get_hls_manifest_configuration()()),

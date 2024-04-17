@@ -149,6 +149,7 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       lens_review() :: %{
+        "JiraConfiguration" => jira_selected_question_configuration(),
         "LensAlias" => String.t(),
         "LensArn" => String.t(),
         "LensName" => String.t(),
@@ -253,6 +254,36 @@ defmodule AWS.WellArchitected do
 
   ## Example:
 
+      workload_jira_configuration_output() :: %{
+        "IssueManagementStatus" => list(any()),
+        "IssueManagementType" => list(any()),
+        "JiraProjectKey" => String.t(),
+        "StatusMessage" => String.t()
+      }
+
+  """
+  @type workload_jira_configuration_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      account_jira_configuration_output() :: %{
+        "IntegrationStatus" => list(any()),
+        "IssueManagementStatus" => list(any()),
+        "IssueManagementType" => list(any()),
+        "JiraProjectKey" => String.t(),
+        "StatusMessage" => String.t(),
+        "Subdomain" => String.t()
+      }
+
+  """
+  @type account_jira_configuration_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_lens_review_output() :: %{
         "LensReview" => lens_review(),
         "MilestoneNumber" => integer(),
@@ -274,6 +305,17 @@ defmodule AWS.WellArchitected do
 
   """
   @type list_workloads_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      jira_selected_question_configuration() :: %{
+        "SelectedPillars" => list(selected_pillar()())
+      }
+
+  """
+  @type jira_selected_question_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -457,6 +499,18 @@ defmodule AWS.WellArchitected do
 
   """
   @type list_lens_shares_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_integration_input() :: %{
+        required("ClientRequestToken") => String.t(),
+        required("IntegratingService") => list(any())
+      }
+
+  """
+  @type update_integration_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -682,6 +736,7 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       update_lens_review_input() :: %{
+        optional("JiraConfiguration") => jira_selected_question_configuration(),
         optional("LensNotes") => String.t(),
         optional("PillarNotes") => map()
       }
@@ -905,6 +960,19 @@ defmodule AWS.WellArchitected do
 
   ## Example:
 
+      workload_jira_configuration_input() :: %{
+        "IssueManagementStatus" => list(any()),
+        "IssueManagementType" => list(any()),
+        "JiraProjectKey" => String.t()
+      }
+
+  """
+  @type workload_jira_configuration_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_workload_share_input() :: %{
         required("PermissionType") => list(any())
       }
@@ -966,6 +1034,7 @@ defmodule AWS.WellArchitected do
         "Industry" => String.t(),
         "IndustryType" => String.t(),
         "IsReviewOwnerUpdateAcknowledged" => boolean(),
+        "JiraConfiguration" => workload_jira_configuration_output(),
         "Lenses" => list(String.t()()),
         "NonAwsRegions" => list(String.t()()),
         "Notes" => String.t(),
@@ -1056,6 +1125,7 @@ defmodule AWS.WellArchitected do
         "HelpfulResourceUrl" => String.t(),
         "ImprovementPlanUrl" => String.t(),
         "IsApplicable" => boolean(),
+        "JiraConfiguration" => jira_configuration(),
         "Notes" => String.t(),
         "PillarId" => String.t(),
         "QuestionDescription" => String.t(),
@@ -1633,6 +1703,18 @@ defmodule AWS.WellArchitected do
 
   ## Example:
 
+      selected_pillar() :: %{
+        "PillarId" => String.t(),
+        "SelectedQuestionIds" => list(String.t()())
+      }
+
+  """
+  @type selected_pillar() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_profile_input() :: %{
         optional("ProfileVersion") => String.t()
       }
@@ -1831,6 +1913,7 @@ defmodule AWS.WellArchitected do
 
       update_global_settings_input() :: %{
         optional("DiscoveryIntegrationStatus") => list(any()),
+        optional("JiraConfiguration") => account_jira_configuration_input(),
         optional("OrganizationSharingStatus") => list(any())
       }
 
@@ -1856,6 +1939,7 @@ defmodule AWS.WellArchitected do
       improvement_summary() :: %{
         "ImprovementPlanUrl" => String.t(),
         "ImprovementPlans" => list(choice_improvement_plan()()),
+        "JiraConfiguration" => jira_configuration(),
         "PillarId" => String.t(),
         "QuestionId" => String.t(),
         "QuestionTitle" => String.t(),
@@ -1931,6 +2015,20 @@ defmodule AWS.WellArchitected do
 
   ## Example:
 
+      account_jira_configuration_input() :: %{
+        "IntegrationStatus" => list(any()),
+        "IssueManagementStatus" => list(any()),
+        "IssueManagementType" => list(any()),
+        "JiraProjectKey" => String.t()
+      }
+
+  """
+  @type account_jira_configuration_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception() :: %{
         "Fields" => list(validation_exception_field()()),
         "Message" => String.t(),
@@ -1986,6 +2084,7 @@ defmodule AWS.WellArchitected do
         optional("DiscoveryConfig") => workload_discovery_config(),
         optional("Industry") => String.t(),
         optional("IndustryType") => String.t(),
+        optional("JiraConfiguration") => workload_jira_configuration_input(),
         optional("NonAwsRegions") => list(String.t()()),
         optional("Notes") => String.t(),
         optional("PillarPriorities") => list(String.t()()),
@@ -2076,6 +2175,18 @@ defmodule AWS.WellArchitected do
 
   """
   @type create_profile_share_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      jira_configuration() :: %{
+        "JiraIssueUrl" => String.t(),
+        "LastSyncedTime" => non_neg_integer()
+      }
+
+  """
+  @type jira_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2212,6 +2323,19 @@ defmodule AWS.WellArchitected do
 
   """
   @type check_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_global_settings_output() :: %{
+        "DiscoveryIntegrationStatus" => list(any()),
+        "JiraConfiguration" => account_jira_configuration_output(),
+        "OrganizationSharingStatus" => list(any())
+      }
+
+  """
+  @type get_global_settings_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2379,6 +2503,7 @@ defmodule AWS.WellArchitected do
         optional("Industry") => String.t(),
         optional("IndustryType") => String.t(),
         optional("IsReviewOwnerUpdateAcknowledged") => boolean(),
+        optional("JiraConfiguration") => workload_jira_configuration_input(),
         optional("NonAwsRegions") => list(String.t()()),
         optional("Notes") => String.t(),
         optional("PillarPriorities") => list(String.t()()),
@@ -2499,6 +2624,7 @@ defmodule AWS.WellArchitected do
         "ChoiceAnswerSummaries" => list(choice_answer_summary()()),
         "Choices" => list(choice()()),
         "IsApplicable" => boolean(),
+        "JiraConfiguration" => jira_configuration(),
         "PillarId" => String.t(),
         "QuestionId" => String.t(),
         "QuestionTitle" => String.t(),
@@ -2779,6 +2905,12 @@ defmodule AWS.WellArchitected do
           | internal_server_exception()
           | conflict_exception()
 
+  @type get_global_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type get_lens_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3006,6 +3138,14 @@ defmodule AWS.WellArchitected do
           | internal_server_exception()
           | conflict_exception()
 
+  @type update_integration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type update_lens_review_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3075,6 +3215,7 @@ defmodule AWS.WellArchitected do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -3083,6 +3224,7 @@ defmodule AWS.WellArchitected do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -4056,6 +4198,23 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
+  Global settings for all workloads.
+  """
+  @spec get_global_settings(map(), list()) ::
+          {:ok, get_global_settings_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_global_settings_errors()}
+  def get_global_settings(%Client{} = client, options \\ []) do
+    url_path = "/global-settings"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Get an existing lens.
   """
   @spec get_lens(map(), String.t(), String.t() | nil, list()) ::
@@ -4488,7 +4647,7 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
-  List lens review improvements.
+  List the improvements of a particular lens review.
   """
   @spec list_lens_review_improvements(
           map(),
@@ -5423,7 +5582,7 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
-  Updates whether the Amazon Web Services account is opted into organization
+  Update whether the Amazon Web Services account is opted into organization
   sharing and discovery integration features.
   """
   @spec update_global_settings(map(), update_global_settings_input(), list()) ::
@@ -5441,6 +5600,33 @@ defmodule AWS.WellArchitected do
       client,
       meta,
       :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Update integration features.
+  """
+  @spec update_integration(map(), String.t(), update_integration_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_integration_errors()}
+  def update_integration(%Client{} = client, workload_id, input, options \\ []) do
+    url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/updateIntegration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       headers,

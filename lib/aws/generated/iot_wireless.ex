@@ -2076,6 +2076,7 @@ defmodule AWS.IoTWireless do
         "FPort" => integer(),
         "Frequency" => integer(),
         "Gateways" => list(lo_ra_w_a_n_gateway_metadata()()),
+        "PublicGateways" => list(lo_ra_w_a_n_public_gateway_metadata()()),
         "Timestamp" => String.t()
       }
 
@@ -3140,6 +3141,22 @@ defmodule AWS.IoTWireless do
 
   """
   @type create_wireless_gateway_task_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lo_ra_w_a_n_public_gateway_metadata() :: %{
+        "DlAllowed" => boolean(),
+        "Id" => String.t(),
+        "ProviderNetId" => String.t(),
+        "RfRegion" => String.t(),
+        "Rssi" => float(),
+        "Snr" => float()
+      }
+
+  """
+  @type lo_ra_w_a_n_public_gateway_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5561,6 +5578,19 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Provisions a wireless gateway.
+
+  When provisioning a wireless gateway, you might run into duplication errors
+  for the following reasons.
+
+    
+  If you specify a `GatewayEui` value that already exists.
+
+    
+  If you used a `ClientRequestToken` with the same parameters
+  within the last 10 minutes.
+
+  To avoid this error, make sure that you use unique identifiers and parameters
+  for each request within the specified time period.
   """
   @spec create_wireless_gateway(map(), create_wireless_gateway_request(), list()) ::
           {:ok, create_wireless_gateway_response(), any()}
@@ -5915,6 +5945,19 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Deletes a wireless gateway.
+
+  When deleting a wireless gateway, you might run into duplication errors
+  for the following reasons.
+
+    
+  If you specify a `GatewayEui` value that already exists.
+
+    
+  If you used a `ClientRequestToken` with the same parameters
+  within the last 10 minutes.
+
+  To avoid this error, make sure that you use unique identifiers and parameters
+  for each request within the specified time period.
   """
   @spec delete_wireless_gateway(map(), String.t(), delete_wireless_gateway_request(), list()) ::
           {:ok, delete_wireless_gateway_response(), any()}
@@ -6399,7 +6442,7 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
-  Get the metric configuration status for this account.
+  Get the metric configuration status for this AWS account.
   """
   @spec get_metric_configuration(map(), list()) ::
           {:ok, get_metric_configuration_response(), any()}
@@ -6416,7 +6459,7 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
-  Get metrics.
+  Get the summary metrics for this AWS account.
   """
   @spec get_metrics(map(), get_metrics_request(), list()) ::
           {:ok, get_metrics_response(), any()}
@@ -8248,7 +8291,7 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
-  Update the metric configuration.
+  Update the summary metric configuration.
   """
   @spec update_metric_configuration(map(), update_metric_configuration_request(), list()) ::
           {:ok, update_metric_configuration_response(), any()}

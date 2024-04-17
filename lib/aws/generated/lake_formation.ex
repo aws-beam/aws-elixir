@@ -368,7 +368,8 @@ defmodule AWS.LakeFormation do
       update_lake_formation_identity_center_configuration_request() :: %{
         optional("ApplicationStatus") => list(any()),
         optional("CatalogId") => String.t(),
-        optional("ExternalFiltering") => external_filtering_configuration()
+        optional("ExternalFiltering") => external_filtering_configuration(),
+        optional("ShareRecipients") => list(data_lake_principal()())
       }
 
   """
@@ -390,7 +391,8 @@ defmodule AWS.LakeFormation do
       create_lake_formation_identity_center_configuration_request() :: %{
         optional("CatalogId") => String.t(),
         optional("ExternalFiltering") => external_filtering_configuration(),
-        optional("InstanceArn") => String.t()
+        optional("InstanceArn") => String.t(),
+        optional("ShareRecipients") => list(data_lake_principal()())
       }
 
   """
@@ -1227,7 +1229,9 @@ defmodule AWS.LakeFormation do
         "ApplicationArn" => String.t(),
         "CatalogId" => String.t(),
         "ExternalFiltering" => external_filtering_configuration(),
-        "InstanceArn" => String.t()
+        "InstanceArn" => String.t(),
+        "ResourceShare" => String.t(),
+        "ShareRecipients" => list(data_lake_principal()())
       }
 
   """

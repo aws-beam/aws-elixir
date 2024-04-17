@@ -202,6 +202,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       create_agent_request() :: %{
+        optional("agentResourceRoleArn") => String.t(),
         optional("clientToken") => String.t(),
         optional("customerEncryptionKeyArn") => String.t(),
         optional("description") => String.t(),
@@ -210,8 +211,7 @@ defmodule AWS.BedrockAgent do
         optional("instruction") => String.t(),
         optional("promptOverrideConfiguration") => prompt_override_configuration(),
         optional("tags") => map(),
-        required("agentName") => String.t(),
-        required("agentResourceRoleArn") => String.t()
+        required("agentName") => String.t()
       }
 
   """
@@ -2034,12 +2034,12 @@ defmodule AWS.BedrockAgent do
 
       *
 
-  `agentResourceRoleArn` – The ARN of the role with permissions to create an
-  agent.
+  `agentResourceRoleArn` – The Amazon Resource Name (ARN) of the role with
+  permissions to invoke API operations on an agent.
 
       *
-  (Optional) `customerEncryptionKeyArn` – The ARN of a KMS key to encrypt the
-  creation of the agent.
+  (Optional) `customerEncryptionKeyArn` – The Amazon Resource Name (ARN) of a KMS
+  key to encrypt the creation of the agent.
 
       *
   (Optional) `idleSessionTTLinSeconds` – Specify the number of seconds for which
@@ -2161,8 +2161,8 @@ defmodule AWS.BedrockAgent do
   Provide the `name` and an optional `description`.
 
     *
-  Provide the ARN with permissions to create a knowledge base in the `roleArn`
-  field.
+  Provide the Amazon Resource Name (ARN) with permissions to create a knowledge
+  base in the `roleArn` field.
 
     *
   Provide the embedding model to use in the `embeddingModelArn` field in the

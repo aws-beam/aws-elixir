@@ -99,7 +99,8 @@ defmodule AWS.EntityResolution do
   ## Example:
 
       get_match_id_output() :: %{
-        "matchId" => [String.t()]
+        "matchId" => [String.t()],
+        "matchRule" => [String.t()]
       }
 
   """
@@ -147,6 +148,20 @@ defmodule AWS.EntityResolution do
 
   ## Example:
 
+      add_policy_statement_input() :: %{
+        optional("condition") => String.t(),
+        required("action") => list(String.t()()),
+        required("effect") => list(any()),
+        required("principal") => list(String.t()())
+      }
+
+  """
+  @type add_policy_statement_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_schema_mapping_input() :: %{
         optional("description") => String.t(),
         required("mappedInputFields") => list(schema_input_attribute()())
@@ -154,6 +169,15 @@ defmodule AWS.EntityResolution do
 
   """
   @type update_schema_mapping_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_policy_input() :: %{}
+
+  """
+  @type get_policy_input() :: %{}
 
   @typedoc """
 
@@ -247,6 +271,31 @@ defmodule AWS.EntityResolution do
 
   ## Example:
 
+      put_policy_input() :: %{
+        optional("token") => String.t(),
+        required("policy") => String.t()
+      }
+
+  """
+  @type put_policy_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_policy_output() :: %{
+        "arn" => String.t(),
+        "policy" => String.t(),
+        "token" => String.t()
+      }
+
+  """
+  @type put_policy_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_id_mapping_jobs_input() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t()
@@ -263,6 +312,30 @@ defmodule AWS.EntityResolution do
 
   """
   @type delete_id_mapping_workflow_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_id_namespaces_output() :: %{
+        "idNamespaceSummaries" => list(id_namespace_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_id_namespaces_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      id_namespace_id_mapping_workflow_properties() :: %{
+        "idMappingType" => list(any()),
+        "providerProperties" => namespace_provider_properties()
+      }
+
+  """
+  @type id_namespace_id_mapping_workflow_properties() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -356,6 +429,18 @@ defmodule AWS.EntityResolution do
 
   ## Example:
 
+      list_id_namespaces_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_id_namespaces_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_schema_mapping_output() :: %{
         "createdAt" => [non_neg_integer()],
         "description" => String.t(),
@@ -430,10 +515,48 @@ defmodule AWS.EntityResolution do
 
   ## Example:
 
+      namespace_provider_properties() :: %{
+        "providerConfiguration" => [any()],
+        "providerServiceArn" => String.t()
+      }
+
+  """
+  @type namespace_provider_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_schema_mapping_input() :: %{}
 
   """
   @type get_schema_mapping_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      job_output_source() :: %{
+        "KMSArn" => String.t(),
+        "outputS3Path" => String.t(),
+        "roleArn" => String.t()
+      }
+
+  """
+  @type job_output_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      provider_id_name_space_configuration() :: %{
+        "description" => [String.t()],
+        "providerSourceConfigurationDefinition" => [any()],
+        "providerTargetConfigurationDefinition" => [any()]
+      }
+
+  """
+  @type provider_id_name_space_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -472,6 +595,15 @@ defmodule AWS.EntityResolution do
 
   ## Example:
 
+      delete_id_namespace_input() :: %{}
+
+  """
+  @type delete_id_namespace_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_id_mapping_workflows_output() :: %{
         "nextToken" => String.t(),
         "workflowSummaries" => list(id_mapping_workflow_summary()())
@@ -499,10 +631,10 @@ defmodule AWS.EntityResolution do
 
       create_id_mapping_workflow_input() :: %{
         optional("description") => String.t(),
+        optional("outputSourceConfig") => list(id_mapping_workflow_output_source()()),
         optional("tags") => map(),
         required("idMappingTechniques") => id_mapping_techniques(),
         required("inputSourceConfig") => list(id_mapping_workflow_input_source()()),
-        required("outputSourceConfig") => list(id_mapping_workflow_output_source()()),
         required("roleArn") => String.t(),
         required("workflowName") => String.t()
       }
@@ -575,6 +707,7 @@ defmodule AWS.EntityResolution do
         "errorDetails" => error_details(),
         "jobId" => String.t(),
         "metrics" => id_mapping_job_metrics(),
+        "outputSourceConfig" => list(id_mapping_job_output_source()()),
         "startTime" => [non_neg_integer()],
         "status" => list(any())
       }
@@ -586,10 +719,26 @@ defmodule AWS.EntityResolution do
 
   ## Example:
 
-      start_id_mapping_job_input() :: %{}
+      provider_schema_attribute() :: %{
+        "fieldName" => String.t(),
+        "hashing" => [boolean()],
+        "subType" => String.t(),
+        "type" => list(any())
+      }
 
   """
-  @type start_id_mapping_job_input() :: %{}
+  @type provider_schema_attribute() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_id_mapping_job_input() :: %{
+        optional("outputSourceConfig") => list(id_mapping_job_output_source()())
+      }
+
+  """
+  @type start_id_mapping_job_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -654,12 +803,34 @@ defmodule AWS.EntityResolution do
 
   ## Example:
 
+      get_id_namespace_input() :: %{}
+
+  """
+  @type get_id_namespace_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_input() :: %{
         required("tags") => map()
       }
 
   """
   @type tag_resource_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_policy_statement_output() :: %{
+        "arn" => String.t(),
+        "policy" => String.t(),
+        "token" => String.t()
+      }
+
+  """
+  @type delete_policy_statement_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -739,9 +910,9 @@ defmodule AWS.EntityResolution do
 
       update_id_mapping_workflow_input() :: %{
         optional("description") => String.t(),
+        optional("outputSourceConfig") => list(id_mapping_workflow_output_source()()),
         required("idMappingTechniques") => id_mapping_techniques(),
         required("inputSourceConfig") => list(id_mapping_workflow_input_source()()),
-        required("outputSourceConfig") => list(id_mapping_workflow_output_source()()),
         required("roleArn") => String.t()
       }
 
@@ -767,6 +938,26 @@ defmodule AWS.EntityResolution do
 
   ## Example:
 
+      get_id_namespace_output() :: %{
+        "createdAt" => [non_neg_integer()],
+        "description" => String.t(),
+        "idMappingWorkflowProperties" => list(id_namespace_id_mapping_workflow_properties()()),
+        "idNamespaceArn" => String.t(),
+        "idNamespaceName" => String.t(),
+        "inputSourceConfig" => list(id_namespace_input_source()()),
+        "roleArn" => String.t(),
+        "tags" => map(),
+        "type" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type get_id_namespace_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_schema_mapping_input() :: %{
         optional("description") => String.t(),
         optional("tags") => map(),
@@ -776,6 +967,23 @@ defmodule AWS.EntityResolution do
 
   """
   @type create_schema_mapping_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_id_namespace_input() :: %{
+        optional("description") => String.t(),
+        optional("idMappingWorkflowProperties") => list(id_namespace_id_mapping_workflow_properties()()),
+        optional("inputSourceConfig") => list(id_namespace_input_source()()),
+        optional("roleArn") => String.t(),
+        optional("tags") => map(),
+        required("idNamespaceName") => String.t(),
+        required("type") => list(any())
+      }
+
+  """
+  @type create_id_namespace_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -804,6 +1012,20 @@ defmodule AWS.EntityResolution do
 
   ## Example:
 
+      update_id_namespace_input() :: %{
+        optional("description") => String.t(),
+        optional("idMappingWorkflowProperties") => list(id_namespace_id_mapping_workflow_properties()()),
+        optional("inputSourceConfig") => list(id_namespace_input_source()()),
+        optional("roleArn") => String.t()
+      }
+
+  """
+  @type update_id_namespace_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       untag_resource_input() :: %{
         required("tagKeys") => list(String.t()())
       }
@@ -815,10 +1037,30 @@ defmodule AWS.EntityResolution do
 
   ## Example:
 
+      delete_policy_statement_input() :: %{}
+
+  """
+  @type delete_policy_statement_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_matching_job_input() :: %{}
 
   """
   @type get_matching_job_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_id_namespace_output() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type delete_id_namespace_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -846,10 +1088,13 @@ defmodule AWS.EntityResolution do
 
       get_provider_service_output() :: %{
         "anonymizedOutput" => [boolean()],
+        "providerComponentSchema" => provider_component_schema(),
         "providerConfigurationDefinition" => [any()],
         "providerEndpointConfiguration" => list(),
         "providerEntityOutputDefinition" => [any()],
+        "providerIdNameSpaceConfiguration" => provider_id_name_space_configuration(),
         "providerIntermediateDataAccessConfiguration" => provider_intermediate_data_access_configuration(),
+        "providerJobConfiguration" => [any()],
         "providerName" => String.t(),
         "providerServiceArn" => String.t(),
         "providerServiceDisplayName" => String.t(),
@@ -868,6 +1113,19 @@ defmodule AWS.EntityResolution do
 
   """
   @type untag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      add_policy_statement_output() :: %{
+        "arn" => String.t(),
+        "policy" => String.t(),
+        "token" => String.t()
+      }
+
+  """
+  @type add_policy_statement_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -936,8 +1194,50 @@ defmodule AWS.EntityResolution do
 
   ## Example:
 
+      provider_component_schema() :: %{
+        "providerSchemaAttributes" => list(provider_schema_attribute()()),
+        "schemas" => list(list([String.t()]())())
+      }
+
+  """
+  @type provider_component_schema() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      id_mapping_job_output_source() :: %{
+        "KMSArn" => String.t(),
+        "outputS3Path" => String.t(),
+        "roleArn" => String.t()
+      }
+
+  """
+  @type id_mapping_job_output_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      id_namespace_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "description" => String.t(),
+        "idNamespaceArn" => String.t(),
+        "idNamespaceName" => String.t(),
+        "type" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type id_namespace_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_id_mapping_job_output() :: %{
-        "jobId" => String.t()
+        "jobId" => String.t(),
+        "outputSourceConfig" => list(id_mapping_job_output_source()())
       }
 
   """
@@ -983,6 +1283,18 @@ defmodule AWS.EntityResolution do
 
   ## Example:
 
+      id_namespace_input_source() :: %{
+        "inputSourceARN" => [String.t()],
+        "schemaName" => String.t()
+      }
+
+  """
+  @type id_namespace_input_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       provider_marketplace_configuration() :: %{
         "assetId" => [String.t()],
         "dataSetId" => [String.t()],
@@ -1002,6 +1314,7 @@ defmodule AWS.EntityResolution do
         "errorDetails" => error_details(),
         "jobId" => String.t(),
         "metrics" => job_metrics(),
+        "outputSourceConfig" => list(job_output_source()()),
         "startTime" => [non_neg_integer()],
         "status" => list(any())
       }
@@ -1025,9 +1338,49 @@ defmodule AWS.EntityResolution do
 
   ## Example:
 
+      create_id_namespace_output() :: %{
+        "createdAt" => [non_neg_integer()],
+        "description" => String.t(),
+        "idMappingWorkflowProperties" => list(id_namespace_id_mapping_workflow_properties()()),
+        "idNamespaceArn" => String.t(),
+        "idNamespaceName" => String.t(),
+        "inputSourceConfig" => list(id_namespace_input_source()()),
+        "roleArn" => String.t(),
+        "tags" => map(),
+        "type" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type create_id_namespace_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_id_namespace_output() :: %{
+        "createdAt" => [non_neg_integer()],
+        "description" => String.t(),
+        "idMappingWorkflowProperties" => list(id_namespace_id_mapping_workflow_properties()()),
+        "idNamespaceArn" => String.t(),
+        "idNamespaceName" => String.t(),
+        "inputSourceConfig" => list(id_namespace_input_source()()),
+        "roleArn" => String.t(),
+        "type" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type update_id_namespace_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       id_mapping_workflow_input_source() :: %{
         "inputSourceARN" => [String.t()],
-        "schemaName" => String.t()
+        "schemaName" => String.t(),
+        "type" => list(any())
       }
 
   """
@@ -1038,6 +1391,7 @@ defmodule AWS.EntityResolution do
   ## Example:
 
       get_match_id_input() :: %{
+        optional("applyNormalization") => [boolean()],
         required("record") => map()
       }
 
@@ -1088,7 +1442,36 @@ defmodule AWS.EntityResolution do
   """
   @type list_provider_services_output() :: %{String.t() => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      get_policy_output() :: %{
+        "arn" => String.t(),
+        "policy" => String.t(),
+        "token" => String.t()
+      }
+
+  """
+  @type get_policy_output() :: %{String.t() => any()}
+
+  @type add_policy_statement_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type create_id_mapping_workflow_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | exceeds_limit_exception()
+
+  @type create_id_namespace_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -1117,12 +1500,28 @@ defmodule AWS.EntityResolution do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | conflict_exception()
+
+  @type delete_id_namespace_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
 
   @type delete_matching_workflow_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | conflict_exception()
+
+  @type delete_policy_statement_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type delete_schema_mapping_errors() ::
           throttling_exception()
@@ -1145,6 +1544,13 @@ defmodule AWS.EntityResolution do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_id_namespace_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_match_id_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1160,6 +1566,13 @@ defmodule AWS.EntityResolution do
           | resource_not_found_exception()
 
   @type get_matching_workflow_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_policy_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -1193,6 +1606,12 @@ defmodule AWS.EntityResolution do
           | access_denied_exception()
           | internal_server_exception()
 
+  @type list_id_namespaces_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type list_matching_jobs_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1221,6 +1640,14 @@ defmodule AWS.EntityResolution do
   @type list_tags_for_resource_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
 
+  @type put_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type start_id_mapping_job_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1245,6 +1672,13 @@ defmodule AWS.EntityResolution do
   @type untag_resource_errors() :: internal_server_exception() | resource_not_found_exception()
 
   @type update_id_mapping_workflow_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_id_namespace_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -1282,6 +1716,36 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
+  Adds a policy statement object.
+
+  To retrieve a list of existing policy statements, use
+  the `GetPolicy` API.
+  """
+  @spec add_policy_statement(map(), String.t(), String.t(), add_policy_statement_input(), list()) ::
+          {:ok, add_policy_statement_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, add_policy_statement_errors()}
+  def add_policy_statement(%Client{} = client, arn, statement_id, input, options \\ []) do
+    url_path = "/policies/#{AWS.Util.encode_uri(arn)}/#{AWS.Util.encode_uri(statement_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates an `IdMappingWorkflow` object which stores the configuration of the
   data processing job to be run.
 
@@ -1295,6 +1759,38 @@ defmodule AWS.EntityResolution do
           | {:error, create_id_mapping_workflow_errors()}
   def create_id_mapping_workflow(%Client{} = client, input, options \\ []) do
     url_path = "/idmappingworkflows"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates an ID namespace object which will help customers provide metadata
+  explaining
+  their dataset and how to use it.
+
+  Each ID namespace must have a unique name. To modify an
+  existing ID namespace, use the `UpdateIdNamespace` API.
+  """
+  @spec create_id_namespace(map(), create_id_namespace_input(), list()) ::
+          {:ok, create_id_namespace_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_id_namespace_errors()}
+  def create_id_namespace(%Client{} = client, input, options \\ []) do
+    url_path = "/idnamespaces"
     headers = []
     query_params = []
 
@@ -1407,6 +1903,33 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
+  Deletes the `IdNamespace` with a given name.
+  """
+  @spec delete_id_namespace(map(), String.t(), delete_id_namespace_input(), list()) ::
+          {:ok, delete_id_namespace_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_id_namespace_errors()}
+  def delete_id_namespace(%Client{} = client, id_namespace_name, input, options \\ []) do
+    url_path = "/idnamespaces/#{AWS.Util.encode_uri(id_namespace_name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes the `MatchingWorkflow` with a given name.
 
   This operation will succeed
@@ -1418,6 +1941,39 @@ defmodule AWS.EntityResolution do
           | {:error, delete_matching_workflow_errors()}
   def delete_matching_workflow(%Client{} = client, workflow_name, input, options \\ []) do
     url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes the policy statement.
+  """
+  @spec delete_policy_statement(
+          map(),
+          String.t(),
+          String.t(),
+          delete_policy_statement_input(),
+          list()
+        ) ::
+          {:ok, delete_policy_statement_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_policy_statement_errors()}
+  def delete_policy_statement(%Client{} = client, arn, statement_id, input, options \\ []) do
+    url_path = "/policies/#{AWS.Util.encode_uri(arn)}/#{AWS.Util.encode_uri(statement_id)}"
     headers = []
     query_params = []
 
@@ -1508,6 +2064,23 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
+  Returns the `IdNamespace` with a given name, if it exists.
+  """
+  @spec get_id_namespace(map(), String.t(), list()) ::
+          {:ok, get_id_namespace_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_id_namespace_errors()}
+  def get_id_namespace(%Client{} = client, id_namespace_name, options \\ []) do
+    url_path = "/idnamespaces/#{AWS.Util.encode_uri(id_namespace_name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns the corresponding Match ID of a customer record if the record has been
   processed.
   """
@@ -1565,6 +2138,23 @@ defmodule AWS.EntityResolution do
           | {:error, get_matching_workflow_errors()}
   def get_matching_workflow(%Client{} = client, workflow_name, options \\ []) do
     url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns the resource-based policy.
+  """
+  @spec get_policy(map(), String.t(), list()) ::
+          {:ok, get_policy_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_policy_errors()}
+  def get_policy(%Client{} = client, arn, options \\ []) do
+    url_path = "/policies/#{AWS.Util.encode_uri(arn)}"
     headers = []
     query_params = []
 
@@ -1666,6 +2256,37 @@ defmodule AWS.EntityResolution do
         options \\ []
       ) do
     url_path = "/idmappingworkflows"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of all ID namespaces.
+  """
+  @spec list_id_namespaces(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_id_namespaces_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_id_namespaces_errors()}
+  def list_id_namespaces(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/idnamespaces"
     headers = []
     query_params = []
 
@@ -1871,6 +2492,23 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
+  Updates the resource-based policy.
+  """
+  @spec put_policy(map(), String.t(), put_policy_input(), list()) ::
+          {:ok, put_policy_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_policy_errors()}
+  def put_policy(%Client{} = client, arn, input, options \\ []) do
+    url_path = "/policies/#{AWS.Util.encode_uri(arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
   Starts the `IdMappingJob` of a workflow.
 
   The workflow must have previously
@@ -2022,6 +2660,23 @@ defmodule AWS.EntityResolution do
           | {:error, update_id_mapping_workflow_errors()}
   def update_id_mapping_workflow(%Client{} = client, workflow_name, input, options \\ []) do
     url_path = "/idmappingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Updates an existing ID namespace.
+  """
+  @spec update_id_namespace(map(), String.t(), update_id_namespace_input(), list()) ::
+          {:ok, update_id_namespace_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_id_namespace_errors()}
+  def update_id_namespace(%Client{} = client, id_namespace_name, input, options \\ []) do
+    url_path = "/idnamespaces/#{AWS.Util.encode_uri(id_namespace_name)}"
     headers = []
     query_params = []
 

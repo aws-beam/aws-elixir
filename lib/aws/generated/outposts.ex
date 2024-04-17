@@ -32,6 +32,19 @@ defmodule AWS.Outposts do
 
   ## Example:
 
+      get_outpost_supported_instance_types_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("OrderId") => String.t()
+      }
+
+  """
+  @type get_outpost_supported_instance_types_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_outpost_instance_types_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
@@ -121,6 +134,18 @@ defmodule AWS.Outposts do
 
   ## Example:
 
+      list_capacity_tasks_output() :: %{
+        "CapacityTasks" => list(capacity_task_summary()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_capacity_tasks_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_connection_response() :: %{
         "ConnectionDetails" => connection_details(),
         "ConnectionId" => String.t()
@@ -128,6 +153,18 @@ defmodule AWS.Outposts do
 
   """
   @type get_connection_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_outpost_supported_instance_types_output() :: %{
+        "InstanceTypes" => list(instance_type_item()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type get_outpost_supported_instance_types_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -352,6 +389,15 @@ defmodule AWS.Outposts do
 
   ## Example:
 
+      get_capacity_task_input() :: %{}
+
+  """
+  @type get_capacity_task_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       conflict_exception() :: %{
         "Message" => String.t(),
         "ResourceId" => String.t(),
@@ -463,6 +509,18 @@ defmodule AWS.Outposts do
 
   ## Example:
 
+      instance_type_capacity() :: %{
+        "Count" => integer(),
+        "InstanceType" => String.t()
+      }
+
+  """
+  @type instance_type_capacity() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_outpost_output() :: %{
         "Outpost" => outpost()
       }
@@ -521,6 +579,15 @@ defmodule AWS.Outposts do
 
   ## Example:
 
+      cancel_capacity_task_output() :: %{}
+
+  """
+  @type cancel_capacity_task_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       ec2_capacity() :: %{
         "Family" => String.t(),
         "MaxSize" => String.t(),
@@ -534,6 +601,26 @@ defmodule AWS.Outposts do
 
   ## Example:
 
+      start_capacity_task_output() :: %{
+        "CapacityTaskId" => String.t(),
+        "CapacityTaskStatus" => list(any()),
+        "CompletionDate" => non_neg_integer(),
+        "CreationDate" => non_neg_integer(),
+        "DryRun" => boolean(),
+        "Failed" => capacity_task_failure(),
+        "LastModifiedDate" => non_neg_integer(),
+        "OrderId" => String.t(),
+        "OutpostId" => String.t(),
+        "RequestedInstancePools" => list(instance_type_capacity()())
+      }
+
+  """
+  @type start_capacity_task_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_sites_output() :: %{
         "NextToken" => String.t(),
         "Sites" => list(site()())
@@ -541,6 +628,19 @@ defmodule AWS.Outposts do
 
   """
   @type list_sites_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_capacity_task_input() :: %{
+        optional("DryRun") => boolean(),
+        required("InstancePools") => list(instance_type_capacity()()),
+        required("OrderId") => String.t()
+      }
+
+  """
+  @type start_capacity_task_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -569,6 +669,18 @@ defmodule AWS.Outposts do
 
   """
   @type cancel_order_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      capacity_task_failure() :: %{
+        "Reason" => String.t(),
+        "Type" => list(any())
+      }
+
+  """
+  @type capacity_task_failure() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -760,6 +872,20 @@ defmodule AWS.Outposts do
 
   ## Example:
 
+      list_capacity_tasks_input() :: %{
+        optional("CapacityTaskStatusFilter") => list(list(any())()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("OutpostIdentifierFilter") => String.t()
+      }
+
+  """
+  @type list_capacity_tasks_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_outpost_output() :: %{
         "Outpost" => outpost()
       }
@@ -896,6 +1022,23 @@ defmodule AWS.Outposts do
 
   ## Example:
 
+      capacity_task_summary() :: %{
+        "CapacityTaskId" => String.t(),
+        "CapacityTaskStatus" => list(any()),
+        "CompletionDate" => non_neg_integer(),
+        "CreationDate" => non_neg_integer(),
+        "LastModifiedDate" => non_neg_integer(),
+        "OrderId" => String.t(),
+        "OutpostId" => String.t()
+      }
+
+  """
+  @type capacity_task_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_catalog_items_output() :: %{
         "CatalogItems" => list(catalog_item()()),
         "NextToken" => String.t()
@@ -937,6 +1080,15 @@ defmodule AWS.Outposts do
 
   ## Example:
 
+      cancel_capacity_task_input() :: %{}
+
+  """
+  @type cancel_capacity_task_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       shipment_information() :: %{
         "ShipmentCarrier" => list(any()),
         "ShipmentTrackingNumber" => String.t()
@@ -944,6 +1096,26 @@ defmodule AWS.Outposts do
 
   """
   @type shipment_information() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_capacity_task_output() :: %{
+        "CapacityTaskId" => String.t(),
+        "CapacityTaskStatus" => list(any()),
+        "CompletionDate" => non_neg_integer(),
+        "CreationDate" => non_neg_integer(),
+        "DryRun" => boolean(),
+        "Failed" => capacity_task_failure(),
+        "LastModifiedDate" => non_neg_integer(),
+        "OrderId" => String.t(),
+        "OutpostId" => String.t(),
+        "RequestedInstancePools" => list(instance_type_capacity()())
+      }
+
+  """
+  @type get_capacity_task_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -961,6 +1133,13 @@ defmodule AWS.Outposts do
 
   """
   @type create_outpost_input() :: %{String.t() => any()}
+
+  @type cancel_capacity_task_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | not_found_exception()
+          | conflict_exception()
 
   @type cancel_order_errors() ::
           validation_exception()
@@ -1006,6 +1185,12 @@ defmodule AWS.Outposts do
           | not_found_exception()
           | conflict_exception()
 
+  @type get_capacity_task_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | not_found_exception()
+
   @type get_catalog_item_errors() ::
           validation_exception() | internal_server_exception() | not_found_exception()
 
@@ -1030,6 +1215,12 @@ defmodule AWS.Outposts do
           | internal_server_exception()
           | not_found_exception()
 
+  @type get_outpost_supported_instance_types_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | not_found_exception()
+
   @type get_site_errors() ::
           validation_exception()
           | access_denied_exception()
@@ -1043,6 +1234,12 @@ defmodule AWS.Outposts do
           | not_found_exception()
 
   @type list_assets_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | not_found_exception()
+
+  @type list_capacity_tasks_errors() ::
           validation_exception()
           | access_denied_exception()
           | internal_server_exception()
@@ -1065,6 +1262,13 @@ defmodule AWS.Outposts do
 
   @type list_tags_for_resource_errors() ::
           validation_exception() | internal_server_exception() | not_found_exception()
+
+  @type start_capacity_task_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | not_found_exception()
+          | conflict_exception()
 
   @type start_connection_errors() ::
           validation_exception()
@@ -1119,6 +1323,41 @@ defmodule AWS.Outposts do
       signing_name: "outposts",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Cancels the capacity task.
+  """
+  @spec cancel_capacity_task(map(), String.t(), String.t(), cancel_capacity_task_input(), list()) ::
+          {:ok, cancel_capacity_task_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, cancel_capacity_task_errors()}
+  def cancel_capacity_task(
+        %Client{} = client,
+        capacity_task_id,
+        outpost_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/outposts/#{AWS.Util.encode_uri(outpost_identifier)}/capacity/#{AWS.Util.encode_uri(capacity_task_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1286,6 +1525,25 @@ defmodule AWS.Outposts do
   end
 
   @doc """
+  Gets details of the specified capacity task.
+  """
+  @spec get_capacity_task(map(), String.t(), String.t(), list()) ::
+          {:ok, get_capacity_task_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_capacity_task_errors()}
+  def get_capacity_task(%Client{} = client, capacity_task_id, outpost_identifier, options \\ []) do
+    url_path =
+      "/outposts/#{AWS.Util.encode_uri(outpost_identifier)}/capacity/#{AWS.Util.encode_uri(capacity_task_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets information about the specified catalog item.
   """
   @spec get_catalog_item(map(), String.t(), list()) ::
@@ -1405,6 +1663,64 @@ defmodule AWS.Outposts do
   end
 
   @doc """
+  Gets the instance types that an
+  Outpost can support in `InstanceTypeCapacity`.
+
+  This will generally include instance types that
+  are not currently configured and therefore cannot be launched with the current
+  Outpost
+  capacity configuration.
+  """
+  @spec get_outpost_supported_instance_types(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t(),
+          list()
+        ) ::
+          {:ok, get_outpost_supported_instance_types_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_outpost_supported_instance_types_errors()}
+  def get_outpost_supported_instance_types(
+        %Client{} = client,
+        outpost_identifier,
+        max_results \\ nil,
+        next_token \\ nil,
+        order_id,
+        options \\ []
+      ) do
+    url_path = "/outposts/#{AWS.Util.encode_uri(outpost_identifier)}/supportedInstanceTypes"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(order_id) do
+        [{"OrderId", order_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets information about the specified Outpost site.
   """
   @spec get_site(map(), String.t(), list()) ::
@@ -1503,6 +1819,71 @@ defmodule AWS.Outposts do
     query_params =
       if !is_nil(host_id_filter) do
         [{"HostIdFilter", host_id_filter} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the capacity tasks for your Amazon Web Services account.
+
+  Use filters to return specific results. If you specify multiple filters, the
+  results include only the resources that match
+  all of the specified filters. For a filter where you can specify multiple
+  values, the results include
+  items that match any of the values that you specify for the filter.
+  """
+  @spec list_capacity_tasks(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_capacity_tasks_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_capacity_tasks_errors()}
+  def list_capacity_tasks(
+        %Client{} = client,
+        capacity_task_status_filter \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        outpost_identifier_filter \\ nil,
+        options \\ []
+      ) do
+    url_path = "/capacity/tasks"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(outpost_identifier_filter) do
+        [{"OutpostIdentifierFilter", outpost_identifier_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(capacity_task_status_filter) do
+        [{"CapacityTaskStatusFilter", capacity_task_status_filter} | query_params]
       else
         query_params
       end
@@ -1802,6 +2183,35 @@ defmodule AWS.Outposts do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Starts the specified capacity task.
+
+  You can have one active capacity task for an order.
+  """
+  @spec start_capacity_task(map(), String.t(), start_capacity_task_input(), list()) ::
+          {:ok, start_capacity_task_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_capacity_task_errors()}
+  def start_capacity_task(%Client{} = client, outpost_identifier, input, options \\ []) do
+    url_path = "/outposts/#{AWS.Util.encode_uri(outpost_identifier)}/capacity"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

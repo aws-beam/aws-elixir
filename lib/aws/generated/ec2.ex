@@ -27866,6 +27866,12 @@ defmodule AWS.EC2 do
   `cancelled_terminating` state. Otherwise, the Spot Fleet request enters
   the `cancelled_running` state and the instances continue to run until they
   are interrupted or you terminate them manually.
+
+  ## Restrictions
+
+    *
+  You can delete up to 100 fleets in a single request. If you exceed the specified
+  number, no fleets are deleted.
   """
   @spec cancel_spot_fleet_requests(map(), cancel_spot_fleet_requests_request(), list()) ::
           {:ok, cancel_spot_fleet_requests_response(), any()}
@@ -30208,21 +30214,27 @@ defmodule AWS.EC2 do
   continue to run until they are interrupted or you terminate them manually.
 
   For `instant` fleets, EC2 Fleet must terminate the instances when the fleet is
-  deleted. A deleted `instant` fleet with running instances is not
-  supported.
+  deleted. Up to 1000 instances can be terminated in a single request to delete
+  `instant` fleets. A deleted `instant` fleet with running instances
+  is not supported.
 
   ## Restrictions
 
     *
-  You can delete up to 25 `instant` fleets in a single request. If you exceed this
-  number, no `instant` fleets are deleted and an error is returned. There is no
-  restriction on the number of fleets of type `maintain` or `request` that can be
-  deleted
-  in a single request.
+  You can delete up to 25 fleets of type `instant` in a single
+  request.
 
     *
-  Up to 1000 instances can be terminated in a single request to delete
-  `instant` fleets.
+  You can delete up to 100 fleets of type `maintain` or
+  `request` in a single request.
+
+    *
+  You can delete up to 125 fleets in a single request, provided you do not exceed
+  the quota for each fleet type, as specified above.
+
+    *
+  If you exceed the specified number of fleets to delete, no fleets are
+  deleted.
 
   For more information, see [Delete an EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#delete-fleet)
   in the *Amazon EC2 User Guide*.
@@ -32595,11 +32607,10 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Returns a list of all instance types offered.
+  Lists the instance types that are offered for the specified location.
 
-  The results can be filtered by location (Region or Availability
-  Zone). If no location is specified, the instance types offered in the current
-  Region are returned.
+  If no location is specified, the default
+  is to list the instance types that are offered in the current Region.
   """
   @spec describe_instance_type_offerings(
           map(),
@@ -32615,10 +32626,10 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Describes the details of the instance types that are offered in a location.
+  Describes the specified instance types.
 
-  The results can be filtered by the
-  attributes of the instance types.
+  By default, all instance types for the current Region are described.
+  Alternatively, you can filter the results.
   """
   @spec describe_instance_types(map(), describe_instance_types_request(), list()) ::
           {:ok, describe_instance_types_result(), any()}
@@ -35888,6 +35899,9 @@ defmodule AWS.EC2 do
   troubleshooting.
 
   The returned content is Base64-encoded.
+
+  For more information, see [Instance console output](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/troubleshoot-unreachable-instance.html#instance-console-console-output)
+  in the *Amazon EC2 User Guide*.
   """
   @spec get_console_screenshot(map(), get_console_screenshot_request(), list()) ::
           {:ok, get_console_screenshot_result(), any()}
@@ -37463,8 +37477,9 @@ defmodule AWS.EC2 do
   the specified Amazon Web Services Region.
 
   To remove a parameter's account-level default setting, specify
-  `no-preference`. At instance launch, the value will come from the
-  AMI, or from the launch parameter if specified. For more information, see [Order of precedence for instance metadata
+  `no-preference`. If an account-level setting is cleared with
+  `no-preference`, then the instance launch considers the other
+  instance metadata settings. For more information, see [Order of precedence for instance metadata
   options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html#instance-metadata-options-order-of-precedence)
   in the
   *Amazon EC2 User Guide*.

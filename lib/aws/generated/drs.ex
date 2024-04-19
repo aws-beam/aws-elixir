@@ -142,7 +142,8 @@ defmodule AWS.Drs do
       source_cloud_properties() :: %{
         "originAccountID" => String.t(),
         "originAvailabilityZone" => String.t(),
-        "originRegion" => String.t()
+        "originRegion" => String.t(),
+        "sourceOutpostArn" => String.t()
       }
 
   """
@@ -1017,7 +1018,8 @@ defmodule AWS.Drs do
         "etaDateTime" => String.t(),
         "lagDuration" => String.t(),
         "replicatedDisks" => list(recovery_instance_data_replication_info_replicated_disk()()),
-        "stagingAvailabilityZone" => String.t()
+        "stagingAvailabilityZone" => String.t(),
+        "stagingOutpostArn" => String.t()
       }
 
   """
@@ -1091,7 +1093,8 @@ defmodule AWS.Drs do
         "etaDateTime" => String.t(),
         "lagDuration" => String.t(),
         "replicatedDisks" => list(data_replication_info_replicated_disk()()),
-        "stagingAvailabilityZone" => String.t()
+        "stagingAvailabilityZone" => String.t(),
+        "stagingOutpostArn" => String.t()
       }
 
   """
@@ -1626,6 +1629,7 @@ defmodule AWS.Drs do
         "pointInTimeSnapshotDateTime" => String.t(),
         "recoveryInstanceID" => String.t(),
         "recoveryInstanceProperties" => recovery_instance_properties(),
+        "sourceOutpostArn" => String.t(),
         "sourceServerID" => String.t(),
         "tags" => map()
       }

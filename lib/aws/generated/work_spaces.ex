@@ -112,6 +112,17 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      delete_account_link_invitation_result() :: %{
+        "AccountLink" => account_link()
+      }
+      
+  """
+  @type delete_account_link_invitation_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       restore_workspace_result() :: %{}
       
   """
@@ -408,6 +419,17 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      accept_account_link_invitation_result() :: %{
+        "AccountLink" => account_link()
+      }
+      
+  """
+  @type accept_account_link_invitation_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       resource_unavailable_exception() :: %{
         "ResourceId" => String.t(),
         "message" => String.t()
@@ -697,6 +719,17 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      create_account_link_invitation_result() :: %{
+        "AccountLink" => account_link()
+      }
+      
+  """
+  @type create_account_link_invitation_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       client_properties() :: %{
         "LogUploadEnabled" => list(any()),
         "ReconnectEnabled" => list(any())
@@ -721,6 +754,18 @@ defmodule AWS.WorkSpaces do
       
   """
   @type workspace_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_account_link_invitation_request() :: %{
+        optional("ClientToken") => String.t(),
+        required("TargetAccountId") => String.t()
+      }
+      
+  """
+  @type create_account_link_invitation_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -760,6 +805,18 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      delete_account_link_invitation_request() :: %{
+        optional("ClientToken") => String.t(),
+        required("LinkId") => String.t()
+      }
+      
+  """
+  @type delete_account_link_invitation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       rebuild_workspaces_result() :: %{
         "FailedRequests" => list(failed_workspace_change_request()())
       }
@@ -777,6 +834,19 @@ defmodule AWS.WorkSpaces do
       
   """
   @type create_workspace_bundle_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_account_links_request() :: %{
+        optional("LinkStatusFilter") => list(list(any())()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type list_account_links_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -871,6 +941,18 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      get_account_link_request() :: %{
+        optional("LinkId") => String.t(),
+        optional("LinkedAccountId") => String.t()
+      }
+      
+  """
+  @type get_account_link_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_standby_workspaces_request() :: %{
         required("PrimaryRegion") => String.t(),
         required("StandbyWorkspaces") => list(standby_workspace()())
@@ -939,6 +1021,17 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      conflict_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       resource_not_found_exception() :: %{
         "ResourceId" => String.t(),
         "message" => String.t()
@@ -946,6 +1039,18 @@ defmodule AWS.WorkSpaces do
       
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      accept_account_link_invitation_request() :: %{
+        optional("ClientToken") => String.t(),
+        required("LinkId") => String.t()
+      }
+      
+  """
+  @type accept_account_link_invitation_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1171,6 +1276,20 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      account_link() :: %{
+        "AccountLinkId" => String.t(),
+        "AccountLinkStatus" => list(any()),
+        "SourceAccountId" => String.t(),
+        "TargetAccountId" => String.t()
+      }
+      
+  """
+  @type account_link() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       resource_limit_exceeded_exception() :: %{
         "message" => String.t()
       }
@@ -1211,6 +1330,18 @@ defmodule AWS.WorkSpaces do
       
   """
   @type describe_connection_alias_permissions_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reject_account_link_invitation_request() :: %{
+        optional("ClientToken") => String.t(),
+        required("LinkId") => String.t()
+      }
+      
+  """
+  @type reject_account_link_invitation_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1315,6 +1446,17 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      get_account_link_result() :: %{
+        "AccountLink" => account_link()
+      }
+      
+  """
+  @type get_account_link_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_application_associations_result() :: %{
         "Associations" => list(application_resource_association()()),
         "NextToken" => String.t()
@@ -1389,6 +1531,18 @@ defmodule AWS.WorkSpaces do
       
   """
   @type workspace_access_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_account_links_result() :: %{
+        "AccountLinks" => list(account_link()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type list_account_links_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1716,6 +1870,17 @@ defmodule AWS.WorkSpaces do
       
   """
   @type create_tags_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2075,6 +2240,17 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      validation_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       workspace_directory() :: %{
         "Alias" => String.t(),
         "CertificateBasedAuthProperties" => certificate_based_auth_properties(),
@@ -2151,6 +2327,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       describe_account_result() :: %{
+        "DedicatedTenancyAccountType" => list(any()),
         "DedicatedTenancyManagementCidrRange" => String.t(),
         "DedicatedTenancySupport" => list(any())
       }
@@ -2639,6 +2816,17 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      reject_account_link_invitation_result() :: %{
+        "AccountLink" => account_link()
+      }
+      
+  """
+  @type reject_account_link_invitation_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_applications_result() :: %{
         "Applications" => list(work_space_application()()),
         "NextToken" => String.t()
@@ -2743,6 +2931,13 @@ defmodule AWS.WorkSpaces do
   """
   @type migrate_workspace_result() :: %{String.t() => any()}
 
+  @type accept_account_link_invitation_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type associate_connection_alias_errors() ::
           operation_not_supported_exception()
           | resource_associated_exception()
@@ -2786,6 +2981,12 @@ defmodule AWS.WorkSpaces do
           | resource_limit_exceeded_exception()
           | resource_not_found_exception()
           | resource_unavailable_exception()
+
+  @type create_account_link_invitation_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
 
   @type create_connect_client_add_in_errors() ::
           resource_already_exists_exception()
@@ -2849,6 +3050,13 @@ defmodule AWS.WorkSpaces do
 
   @type create_workspaces_errors() ::
           invalid_parameter_values_exception() | resource_limit_exceeded_exception()
+
+  @type delete_account_link_invitation_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type delete_client_branding_errors() ::
           access_denied_exception()
@@ -3009,6 +3217,12 @@ defmodule AWS.WorkSpaces do
           | resource_not_found_exception()
           | resource_in_use_exception()
 
+  @type get_account_link_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type import_client_branding_errors() ::
           access_denied_exception()
           | invalid_parameter_values_exception()
@@ -3022,6 +3236,9 @@ defmodule AWS.WorkSpaces do
           | invalid_parameter_values_exception()
           | resource_limit_exceeded_exception()
           | resource_not_found_exception()
+
+  @type list_account_links_errors() ::
+          validation_exception() | access_denied_exception() | internal_server_exception()
 
   @type list_available_management_cidr_ranges_errors() ::
           access_denied_exception() | invalid_parameter_values_exception()
@@ -3101,6 +3318,13 @@ defmodule AWS.WorkSpaces do
           | resource_not_found_exception()
           | unsupported_network_configuration_exception()
 
+  @type reject_account_link_invitation_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type restore_workspace_errors() ::
           operation_not_supported_exception()
           | access_denied_exception()
@@ -3161,6 +3385,22 @@ defmodule AWS.WorkSpaces do
       signing_name: "workspaces",
       target_prefix: "WorkspacesService"
     }
+  end
+
+  @doc """
+  Accepts the account link invitation.
+
+  There's currently no unlinking capability after you accept the account linking
+  invitation.
+  """
+  @spec accept_account_link_invitation(map(), accept_account_link_invitation_request(), list()) ::
+          {:ok, accept_account_link_invitation_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, accept_account_link_invitation_errors()}
+  def accept_account_link_invitation(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "AcceptAccountLinkInvitation", input, options)
   end
 
   @doc """
@@ -3256,6 +3496,19 @@ defmodule AWS.WorkSpaces do
     meta = metadata()
 
     Request.request_post(client, meta, "CopyWorkspaceImage", input, options)
+  end
+
+  @doc """
+  Creates the account link invitation.
+  """
+  @spec create_account_link_invitation(map(), create_account_link_invitation_request(), list()) ::
+          {:ok, create_account_link_invitation_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_account_link_invitation_errors()}
+  def create_account_link_invitation(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAccountLinkInvitation", input, options)
   end
 
   @doc """
@@ -3442,6 +3695,19 @@ defmodule AWS.WorkSpaces do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateWorkspaces", input, options)
+  end
+
+  @doc """
+  Deletes the account link invitation.
+  """
+  @spec delete_account_link_invitation(map(), delete_account_link_invitation_request(), list()) ::
+          {:ok, delete_account_link_invitation_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_account_link_invitation_errors()}
+  def delete_account_link_invitation(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAccountLinkInvitation", input, options)
   end
 
   @doc """
@@ -4005,6 +4271,19 @@ defmodule AWS.WorkSpaces do
   end
 
   @doc """
+  Retrieves account link information.
+  """
+  @spec get_account_link(map(), get_account_link_request(), list()) ::
+          {:ok, get_account_link_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_account_link_errors()}
+  def get_account_link(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAccountLink", input, options)
+  end
+
+  @doc """
   Imports client branding.
 
   Client branding allows you to customize your WorkSpace's client
@@ -4064,6 +4343,19 @@ defmodule AWS.WorkSpaces do
     meta = metadata()
 
     Request.request_post(client, meta, "ImportWorkspaceImage", input, options)
+  end
+
+  @doc """
+  Lists all account links.
+  """
+  @spec list_account_links(map(), list_account_links_request(), list()) ::
+          {:ok, list_account_links_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_account_links_errors()}
+  def list_account_links(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAccountLinks", input, options)
   end
 
   @doc """
@@ -4346,6 +4638,19 @@ defmodule AWS.WorkSpaces do
     meta = metadata()
 
     Request.request_post(client, meta, "RegisterWorkspaceDirectory", input, options)
+  end
+
+  @doc """
+  Rejects the account link invitation.
+  """
+  @spec reject_account_link_invitation(map(), reject_account_link_invitation_request(), list()) ::
+          {:ok, reject_account_link_invitation_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, reject_account_link_invitation_errors()}
+  def reject_account_link_invitation(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "RejectAccountLinkInvitation", input, options)
   end
 
   @doc """

@@ -233,6 +233,7 @@ defmodule AWS.EMRServerless do
       monitoring_configuration() :: %{
         "cloudWatchLoggingConfiguration" => cloud_watch_logging_configuration(),
         "managedPersistenceMonitoringConfiguration" => managed_persistence_monitoring_configuration(),
+        "prometheusMonitoringConfiguration" => prometheus_monitoring_configuration(),
         "s3MonitoringConfiguration" => s3_monitoring_configuration()
       }
 
@@ -307,6 +308,17 @@ defmodule AWS.EMRServerless do
 
   """
   @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      prometheus_monitoring_configuration() :: %{
+        "remoteWriteUrl" => String.t()
+      }
+
+  """
+  @type prometheus_monitoring_configuration() :: %{String.t() => any()}
 
   @typedoc """
 

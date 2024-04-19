@@ -229,6 +229,7 @@ defmodule AWS.GuardDuty do
         "Country" => country(),
         "GeoLocation" => geo_location(),
         "IpAddressV4" => String.t(),
+        "IpAddressV6" => String.t(),
         "Organization" => organization()
       }
 
@@ -2993,7 +2994,8 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       local_ip_details() :: %{
-        "IpAddressV4" => String.t()
+        "IpAddressV4" => String.t(),
+        "IpAddressV6" => String.t()
       }
 
   """

@@ -251,6 +251,17 @@ defmodule AWS.RolesAnywhere do
 
   ## Example:
 
+      delete_attribute_mapping_response() :: %{
+        "profile" => profile_detail()
+      }
+
+  """
+  @type delete_attribute_mapping_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_profile_request() :: %{
         optional("durationSeconds") => [integer()],
         optional("enabled") => [boolean()],
@@ -275,6 +286,17 @@ defmodule AWS.RolesAnywhere do
 
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mapping_rule() :: %{
+        "specifier" => [String.t()]
+      }
+
+  """
+  @type mapping_rule() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -325,6 +347,18 @@ defmodule AWS.RolesAnywhere do
 
   ## Example:
 
+      attribute_mapping() :: %{
+        "certificateField" => String.t(),
+        "mappingRules" => list(mapping_rule()())
+      }
+
+  """
+  @type attribute_mapping() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_tags_for_resource_response() :: %{
         optional("tags") => list(tag()())
       }
@@ -337,6 +371,7 @@ defmodule AWS.RolesAnywhere do
   ## Example:
 
       profile_detail() :: %{
+        "attributeMappings" => list(attribute_mapping()()),
         "createdAt" => [non_neg_integer()],
         "createdBy" => [String.t()],
         "durationSeconds" => [integer()],
@@ -358,6 +393,18 @@ defmodule AWS.RolesAnywhere do
 
   ## Example:
 
+      delete_attribute_mapping_request() :: %{
+        optional("specifiers") => list([String.t()]()),
+        required("certificateField") => String.t()
+      }
+
+  """
+  @type delete_attribute_mapping_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       scalar_subject_request() :: %{}
 
   """
@@ -374,6 +421,17 @@ defmodule AWS.RolesAnywhere do
 
   """
   @type source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_attribute_mapping_response() :: %{
+        "profile" => profile_detail()
+      }
+
+  """
+  @type put_attribute_mapping_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -601,9 +659,24 @@ defmodule AWS.RolesAnywhere do
   """
   @type notification_setting_detail() :: %{String.t() => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      put_attribute_mapping_request() :: %{
+        required("certificateField") => String.t(),
+        required("mappingRules") => list(mapping_rule()())
+      }
+
+  """
+  @type put_attribute_mapping_request() :: %{String.t() => any()}
+
   @type create_profile_errors() :: validation_exception() | access_denied_exception()
 
   @type create_trust_anchor_errors() :: validation_exception() | access_denied_exception()
+
+  @type delete_attribute_mapping_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
 
   @type delete_crl_errors() :: access_denied_exception() | resource_not_found_exception()
 
@@ -645,6 +718,9 @@ defmodule AWS.RolesAnywhere do
           validation_exception() | access_denied_exception() | resource_not_found_exception()
 
   @type list_trust_anchors_errors() :: validation_exception() | access_denied_exception()
+
+  @type put_attribute_mapping_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
 
   @type put_notification_settings_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
@@ -751,6 +827,39 @@ defmodule AWS.RolesAnywhere do
       input,
       options,
       201
+    )
+  end
+
+  @doc """
+  Delete an entry from the attribute mapping rules enforced by a given profile.
+  """
+  @spec delete_attribute_mapping(map(), String.t(), delete_attribute_mapping_request(), list()) ::
+          {:ok, delete_attribute_mapping_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_attribute_mapping_errors()}
+  def delete_attribute_mapping(%Client{} = client, profile_id, input, options \\ []) do
+    url_path = "/profiles/#{AWS.Util.encode_uri(profile_id)}/mappings"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"certificateField", "certificateField"},
+        {"specifiers", "specifiers"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
     )
   end
 
@@ -1320,6 +1429,27 @@ defmodule AWS.RolesAnywhere do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Put an entry in the attribute mapping rules that will be enforced by a given
+  profile.
+
+  A mapping specifies a certificate field and one or more specifiers that have
+  contextual meanings.
+  """
+  @spec put_attribute_mapping(map(), String.t(), put_attribute_mapping_request(), list()) ::
+          {:ok, put_attribute_mapping_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_attribute_mapping_errors()}
+  def put_attribute_mapping(%Client{} = client, profile_id, input, options \\ []) do
+    url_path = "/profiles/#{AWS.Util.encode_uri(profile_id)}/mappings"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """

@@ -1571,6 +1571,7 @@ defmodule AWS.Glue do
         "Permissions" => list(list(any())()),
         "QueryAuthorizationId" => String.t(),
         "ResourceArn" => String.t(),
+        "RowFilter" => String.t(),
         "Table" => table()
       }
       

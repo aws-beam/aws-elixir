@@ -200,6 +200,40 @@ defmodule AWS.InternetMonitor do
 
   ## Example:
 
+      client_location() :: %{
+        "ASName" => [String.t()],
+        "ASNumber" => [float()],
+        "City" => [String.t()],
+        "Country" => [String.t()],
+        "Latitude" => [float()],
+        "Longitude" => [float()],
+        "Metro" => [String.t()],
+        "Subdivision" => [String.t()]
+      }
+
+  """
+  @type client_location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_internet_events_input() :: %{
+        optional("EndTime") => [non_neg_integer()],
+        optional("EventStatus") => [String.t()],
+        optional("EventType") => [String.t()],
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t()],
+        optional("StartTime") => [non_neg_integer()]
+      }
+
+  """
+  @type list_internet_events_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       too_many_requests_exception() :: %{
         "message" => [String.t()]
       }
@@ -303,6 +337,15 @@ defmodule AWS.InternetMonitor do
 
   ## Example:
 
+      get_internet_event_input() :: %{}
+
+  """
+  @type get_internet_event_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       internet_measurements_log_delivery() :: %{
         "S3Config" => s3_config()
       }
@@ -335,6 +378,23 @@ defmodule AWS.InternetMonitor do
 
   """
   @type s3_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_internet_event_output() :: %{
+        "ClientLocation" => client_location(),
+        "EndedAt" => [non_neg_integer()],
+        "EventArn" => String.t(),
+        "EventId" => String.t(),
+        "EventStatus" => String.t(),
+        "EventType" => String.t(),
+        "StartedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type get_internet_event_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -684,6 +744,35 @@ defmodule AWS.InternetMonitor do
 
   ## Example:
 
+      list_internet_events_output() :: %{
+        "InternetEvents" => list(internet_event_summary()()),
+        "NextToken" => [String.t()]
+      }
+
+  """
+  @type list_internet_events_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internet_event_summary() :: %{
+        "ClientLocation" => client_location(),
+        "EndedAt" => [non_neg_integer()],
+        "EventArn" => String.t(),
+        "EventId" => String.t(),
+        "EventStatus" => String.t(),
+        "EventType" => String.t(),
+        "StartedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type internet_event_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_query_input() :: %{
         optional("FilterParameters") => list(filter_parameter()()),
         optional("LinkedAccountId") => String.t(),
@@ -745,6 +834,12 @@ defmodule AWS.InternetMonitor do
           | access_denied_exception()
           | internal_server_exception()
 
+  @type get_internet_event_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type get_monitor_errors() ::
           throttling_exception()
           | validation_exception()
@@ -766,6 +861,12 @@ defmodule AWS.InternetMonitor do
           | internal_server_exception()
 
   @type list_health_events_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_internet_events_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -912,7 +1013,7 @@ defmodule AWS.InternetMonitor do
   end
 
   @doc """
-  Gets information the Amazon CloudWatch Internet Monitor has created and stored
+  Gets information that Amazon CloudWatch Internet Monitor has created and stored
   about a health event for a specified monitor.
 
   This information includes the impacted locations,
@@ -948,6 +1049,34 @@ defmodule AWS.InternetMonitor do
       else
         query_params
       end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets information that Amazon CloudWatch Internet Monitor has generated about an
+  internet event.
+
+  Internet Monitor displays information about
+  recent global health events, called internet events, on a global outages map
+  that is available to all Amazon Web Services
+  customers.
+
+  The information returned here includes the impacted location,
+  when the event started and (if the event is over) ended, the type of event
+  (`PERFORMANCE` or `AVAILABILITY`),
+  and the status (`ACTIVE` or `RESOLVED`).
+  """
+  @spec get_internet_event(map(), String.t(), list()) ::
+          {:ok, get_internet_event_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_internet_event_errors()}
+  def get_internet_event(%Client{} = client, event_id, options \\ []) do
+    url_path = "/v20210603/InternetEvents/#{AWS.Util.encode_uri(event_id)}"
+    headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -1083,7 +1212,8 @@ defmodule AWS.InternetMonitor do
   @doc """
   Lists all health events for a monitor in Amazon CloudWatch Internet Monitor.
 
-  Returns information for health events including the event start and end time and
+  Returns information for health events including the event start and end times,
+  and
   the status.
 
   Health events that have start times during the time frame that is requested are
@@ -1142,6 +1272,98 @@ defmodule AWS.InternetMonitor do
     query_params =
       if !is_nil(linked_account_id) do
         [{"LinkedAccountId", linked_account_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(event_status) do
+        [{"EventStatus", event_status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(end_time) do
+        [{"EndTime", end_time} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists internet events that cause performance or availability issues for client
+  locations.
+
+  Amazon CloudWatch Internet Monitor displays information about
+  recent global health events, called internet events, on a global outages map
+  that is available to all Amazon Web Services
+  customers.
+
+  You can constrain the list of internet events returned by providing a start time
+  and end time to define a total
+  time frame for events you want to list. Both start time and end time specify the
+  time when an event started. End time
+  is optional. If you don't include it, the default end time is the current time.
+
+  You can also limit the events returned to a specific status
+  (`ACTIVE` or `RESOLVED`) or type (`PERFORMANCE` or `AVAILABILITY`).
+  """
+  @spec list_internet_events(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_internet_events_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_internet_events_errors()}
+  def list_internet_events(
+        %Client{} = client,
+        end_time \\ nil,
+        event_status \\ nil,
+        event_type \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        start_time \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v20210603/InternetEvents"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(start_time) do
+        [{"StartTime", start_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"InternetEventMaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(event_type) do
+        [{"EventType", event_type} | query_params]
       else
         query_params
       end

@@ -316,6 +316,17 @@ defmodule AWS.Personalize do
 
   ## Example:
       
+      auto_training_config() :: %{
+        "schedulingExpression" => String.t()
+      }
+      
+  """
+  @type auto_training_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_dataset_response() :: %{
         "datasetArn" => String.t()
       }
@@ -367,6 +378,7 @@ defmodule AWS.Personalize do
       create_solution_request() :: %{
         optional("eventType") => String.t(),
         optional("performAutoML") => boolean(),
+        optional("performAutoTraining") => boolean(),
         optional("performHPO") => boolean(),
         optional("recipeArn") => String.t(),
         optional("solutionConfig") => solution_config(),
@@ -471,6 +483,7 @@ defmodule AWS.Personalize do
         "latestSolutionVersion" => solution_version_summary(),
         "name" => String.t(),
         "performAutoML" => boolean(),
+        "performAutoTraining" => boolean(),
         "performHPO" => boolean(),
         "recipeArn" => String.t(),
         "solutionArn" => String.t(),
@@ -747,7 +760,8 @@ defmodule AWS.Personalize do
       
       campaign_config() :: %{
         "enableMetadataWithRecommendations" => boolean(),
-        "itemExplorationConfig" => map()
+        "itemExplorationConfig" => map(),
+        "syncWithLatestSolutionVersion" => boolean()
       }
       
   """
@@ -1065,6 +1079,7 @@ defmodule AWS.Personalize do
         "status" => String.t(),
         "trainingHours" => float(),
         "trainingMode" => list(any()),
+        "trainingType" => list(any()),
         "tunedHPOParams" => tuned_h_p_o_params()
       }
       
@@ -1303,7 +1318,9 @@ defmodule AWS.Personalize do
         "failureReason" => String.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
         "solutionVersionArn" => String.t(),
-        "status" => String.t()
+        "status" => String.t(),
+        "trainingMode" => list(any()),
+        "trainingType" => list(any())
       }
       
   """
@@ -2112,6 +2129,7 @@ defmodule AWS.Personalize do
       solution_config() :: %{
         "algorithmHyperParameters" => map(),
         "autoMLConfig" => auto_ml_config(),
+        "autoTrainingConfig" => auto_training_config(),
         "eventValueThreshold" => String.t(),
         "featureTransformationParameters" => map(),
         "hpoConfig" => h_p_o_config(),
@@ -2952,9 +2970,14 @@ defmodule AWS.Personalize do
   end
 
   @doc """
-  Creates a campaign that deploys a solution version.
 
-  When a client calls the
+  You incur campaign costs while it is active.
+
+  To avoid unnecessary costs, make sure to delete the campaign when you are
+  finished. For information about campaign
+  costs, see [Amazon Personalize pricing](https://aws.amazon.com/personalize/pricing/).
+
+  Creates a campaign that deploys a solution version. When a client calls the
   [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html)  and
   [GetPersonalizedRanking](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetPersonalizedRanking.html)
 
@@ -3508,30 +3531,49 @@ defmodule AWS.Personalize do
   end
 
   @doc """
-  Creates the configuration for training a model.
 
-  A trained model is known as
-  a solution version. After the configuration is created, you train the model
-  (create a solution version)
+  After you create a solution, you can’t change its configuration.
+
+  By default, all new solutions use automatic training. With automatic training,
+  you incur training costs while
+  your solution is active. You can't stop automatic training for a solution. To
+  avoid unnecessary costs, make sure to delete the solution when you are finished.
+  For information about training
+  costs, see [Amazon Personalize pricing](https://aws.amazon.com/personalize/pricing/).
+
+  Creates the configuration for training a model (creating a solution version).
+  This configuration
+  includes the recipe to use for model training and optional training
+  configuration, such as columns to use
+  in training and feature transformation parameters. For more information about
+  configuring a solution, see [Creating and configuring a solution](https://docs.aws.amazon.com/personalize/latest/dg/customizing-solution-config.html).
+
+  By default, new solutions use automatic training to create solution versions
+  every 7 days. You can change the training frequency.
+  Automatic solution version creation starts one hour after the solution is
+  ACTIVE. If you manually create a solution version within
+  the hour, the solution skips the first automatic training. For more information,
+  see [Configuring automatic training](https://docs.aws.amazon.com/personalize/latest/dg/solution-config-auto-training.html).
+
+  To turn off automatic training, set `performAutoTraining` to false. If you turn
+  off automatic training, you must manually create a solution version
   by calling the
-  [CreateSolutionVersion](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html) operation. Every time you call
-  `CreateSolutionVersion`, a new version of the solution is created.
+  [CreateSolutionVersion](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html) operation.
 
-  After creating a solution version, you check its accuracy by calling
+  After training starts, you can
+  get the solution version's Amazon Resource Name (ARN) with the
+  [ListSolutionVersions](https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html)
+  API operation.
+  To get its status, use the
+  [DescribeSolutionVersion](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html). 
+  After training completes you can evaluate model accuracy by calling
   [GetSolutionMetrics](https://docs.aws.amazon.com/personalize/latest/dg/API_GetSolutionMetrics.html).
-  When you are satisfied with the version, you
+  When you are satisfied with the solution version, you
   deploy it using
   [CreateCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html). The campaign provides recommendations
   to a client through the
   [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html)
   API.
-
-  To train a model, Amazon Personalize requires training data and a recipe. The
-  training data
-  comes from the dataset group that you provide in the request. A recipe specifies
-  the training algorithm and a feature transformation. You can specify one of the
-  predefined
-  recipes provided by Amazon Personalize.
 
   Amazon Personalize doesn't support configuring the `hpoObjective`
   for solution hyperparameter optimization at this time.
@@ -3547,8 +3589,9 @@ defmodule AWS.Personalize do
   DELETE PENDING > DELETE IN_PROGRESS
 
   To get the status of the solution, call
-  [DescribeSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html). Wait
-  until the status shows as ACTIVE before calling `CreateSolutionVersion`.
+  [DescribeSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html). If you use
+  manual training, the status must be ACTIVE before you call
+  `CreateSolutionVersion`.
 
   ## Related APIs
 
@@ -4406,7 +4449,7 @@ defmodule AWS.Personalize do
   end
 
   @doc """
-  Returns a list of solutions that use the given dataset group.
+  Returns a list of solutions in a given dataset group.
 
   When a dataset group is not specified, all the solutions associated with the
   account are listed.
@@ -4516,9 +4559,9 @@ defmodule AWS.Personalize do
   end
 
   @doc """
-  Remove
-  [tags](https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html)
-  that are attached to a resource.
+  Removes the specified tags that are attached to a resource.
+
+  For more information, see [Removing tags from Amazon Personalize resources](https://docs.aws.amazon.com/personalize/latest/dg/tags-remove.html).
   """
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
@@ -4534,7 +4577,21 @@ defmodule AWS.Personalize do
 
   Updates a campaign to deploy a retrained solution version with an existing
   campaign, change your campaign's `minProvisionedTPS`,
-  or modify your campaign's configuration, such as the exploration configuration.
+  or modify your campaign's configuration.
+
+  For example, you can set `enableMetadataWithRecommendations` to true for an
+  existing campaign.
+
+  To update a campaign to start automatically using the latest solution version,
+  specify the following:
+
+    *
+  For the `SolutionVersionArn` parameter, specify the Amazon Resource Name (ARN)
+  of your solution in
+  `SolutionArn/$LATEST` format.
+
+    *
+  In the `campaignConfig`, set `syncWithLatestSolutionVersion` to `true`.
 
   To update a campaign, the campaign status must be ACTIVE or CREATE FAILED.
   Check the campaign status using the

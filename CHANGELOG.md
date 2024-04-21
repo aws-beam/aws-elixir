@@ -1,5 +1,12 @@
 # Change Log
 
+## [v0.14.1] - 2024-04-21
+- Implement automatic retries
+- Fix typo on S3 multipart upload doc
+- Fix API Gateway Management API to include Stage on all endpoints
+- Update generated code to include auto-generated types and specs for everything
+- Move to new version of aws-codegen (aws-codegen/issues/103) which uses aws-sdk-go-v2
+
 ## [v0.14.1] - 2024-02-16
 - Fix endpoints for global AWS services
 

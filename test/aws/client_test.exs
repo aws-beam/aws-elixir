@@ -74,6 +74,52 @@ defmodule AWS.ClientTest do
       # Bypass should not assert on the request having been completed.
       Bypass.pass(bypass)
     end
+
+    test "retries failed requests", %{client: client, bypass: bypass} do
+      # Setup a Counter
+      counter = :counters.new(1, [:atomics])
+
+      Bypass.expect(bypass, "GET", "/timeout", fn conn ->
+        # Increase counter
+        :counters.add(counter, 1, 1)
+        # Return 500 so we force a retry from AWS.Client
+        Plug.Conn.resp(conn, 500, "")
+      end)
+
+      assert {:ok, %{status_code: 500}} =
+               AWS.Client.request(client, :get, "#{url(bypass)}timeout", "", [],
+                 # Enable retries
+                 enable_retries?: true
+               )
+
+      # Assert 1 request + 10 (default max_retries value) retries was made
+      assert :counters.get(counter, 1) == 1 + 10
+    end
+
+    test "retries failed requests with retry_opts", %{client: client, bypass: bypass} do
+      # Setup a Counter
+      counter = :counters.new(1, [:atomics])
+
+      Bypass.expect(bypass, "GET", "/timeout", fn conn ->
+        # Increase counter
+        :counters.add(counter, 1, 1)
+        # Return 500 so we force a retry from AWS.Client
+        Plug.Conn.resp(conn, 500, "")
+      end)
+
+      max_retries = 2
+
+      assert {:ok, %{status_code: 500}} =
+               AWS.Client.request(client, :get, "#{url(bypass)}timeout", "", [],
+                 # Enable retries
+                 enable_retries?: true,
+                 # Set retry  options
+                 retry_opts: [max_retries: max_retries, base_sleep_time: 10, cap_sleep_time: 1000]
+               )
+
+      # Assert 1st request + N retries was made
+      assert :counters.get(counter, 1) == 1 + max_retries
+    end
   end
 
   defp url(bypass), do: "http://localhost:#{bypass.port}/"

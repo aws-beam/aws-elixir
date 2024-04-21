@@ -1,6 +1,6 @@
 # Change Log
 
-## [v0.14.1] - 2024-04-21
+## [v1.0.0] - 2024-04-21
 - Implement automatic retries
 - Fix typo on S3 multipart upload doc
 - Fix API Gateway Management API to include Stage on all endpoints

@@ -1904,6 +1904,20 @@ defmodule AWS.Transfer do
 
   ## Example:
       
+      start_directory_listing_request() :: %{
+        optional("MaxItems") => integer(),
+        required("ConnectorId") => String.t(),
+        required("OutputDirectoryPath") => String.t(),
+        required("RemoteDirectoryPath") => String.t()
+      }
+      
+  """
+  @type start_directory_listing_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       listed_certificate() :: %{
         "ActiveDate" => non_neg_integer(),
         "Arn" => String.t(),
@@ -2046,6 +2060,18 @@ defmodule AWS.Transfer do
       
   """
   @type delete_ssh_public_key_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_directory_listing_response() :: %{
+        "ListingId" => String.t(),
+        "OutputFileName" => String.t()
+      }
+      
+  """
+  @type start_directory_listing_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2513,6 +2539,13 @@ defmodule AWS.Transfer do
           throttling_exception()
           | internal_service_error()
           | access_denied_exception()
+          | service_unavailable_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
+  @type start_directory_listing_errors() ::
+          throttling_exception()
+          | internal_service_error()
           | service_unavailable_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
@@ -3362,6 +3395,76 @@ defmodule AWS.Transfer do
   end
 
   @doc """
+  Retrieves a list of the contents of a directory from a remote SFTP server.
+
+  You specify the
+  connector ID, the output path, and the remote directory path. You can also
+  specify the
+  optional `MaxItems` value to control the maximum number of items that are listed
+  from the remote directory. This API returns a list of all files and directories
+  in the remote
+  directory (up to the maximum value), but does not return files or folders in
+  sub-directories.
+  That is, it only returns a list of files and directories one-level deep.
+
+  After you receive the listing file, you can provide the files that you want to
+  transfer to
+  the `RetrieveFilePaths` parameter of the `StartFileTransfer` API
+  call.
+
+  The naming convention for the output file is
+
+  ```
+
+  *connector-ID*-*listing-ID*.json
+  ```
+
+  . The
+  output file contains the following information:
+
+    *
+
+  `filePath`: the complete path of a remote file, relative to the directory
+  of the listing request for your SFTP connector on the remote server.
+
+    *
+
+  `modifiedTimestamp`: the last time the file was modified, in UTC time
+  format. This field is optional. If the remote file attributes don't contain a
+  timestamp,
+  it is omitted from the file listing.
+
+    *
+
+  `size`: the size of the file, in bytes. This field is optional. If the
+  remote file attributes don't contain a file size, it is omitted from the file
+  listing.
+
+    *
+
+  `path`: the complete path of a remote directory, relative to the directory
+  of the listing request for your SFTP connector on the remote server.
+
+    *
+
+  `truncated`: a flag indicating whether the list output contains all of the
+  items contained in the remote directory or not. If your `Truncated` output
+  value is true, you can increase the value provided in the optional `max-items`
+  input attribute to be able to list more items (up to the maximum allowed list
+  size of
+  10,000 items).
+  """
+  @spec start_directory_listing(map(), start_directory_listing_request(), list()) ::
+          {:ok, start_directory_listing_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_directory_listing_errors()}
+  def start_directory_listing(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartDirectoryListing", input, options)
+  end
+
+  @doc """
   Begins a file transfer between local Amazon Web Services storage and a remote
   AS2 or SFTP server.
 
@@ -3379,7 +3482,7 @@ defmodule AWS.Transfer do
 
       *
   If you are transferring file from a partner's SFTP server to Amazon Web Services
-  storage, you specify one or more `RetreiveFilePaths` to identify the files
+  storage, you specify one or more `RetrieveFilePaths` to identify the files
   you want to transfer, and a `LocalDirectoryPath` to specify the destination
   folder.
 

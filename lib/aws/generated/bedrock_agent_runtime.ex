@@ -13,6 +13,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      function_invocation_input() :: %{
+        "actionGroup" => [String.t()],
+        "function" => [String.t()],
+        "parameters" => list(function_parameter()())
+      }
+
+  """
+  @type function_invocation_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       rationale() :: %{
         "text" => String.t(),
         "traceId" => String.t()
@@ -20,6 +33,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type rationale() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      api_request_body() :: %{
+        "content" => map()
+      }
+
+  """
+  @type api_request_body() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -47,6 +71,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type bad_gateway_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      function_parameter() :: %{
+        "name" => [String.t()],
+        "type" => [String.t()],
+        "value" => [String.t()]
+      }
+
+  """
+  @type function_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -127,6 +164,7 @@ defmodule AWS.BedrockAgentRuntime do
       action_group_invocation_input() :: %{
         "actionGroupName" => String.t(),
         "apiPath" => String.t(),
+        "function" => String.t(),
         "parameters" => list(parameter()()),
         "requestBody" => request_body(),
         "verb" => String.t()
@@ -159,6 +197,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type retrieval_result_location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      api_parameter() :: %{
+        "name" => [String.t()],
+        "type" => [String.t()],
+        "value" => [String.t()]
+      }
+
+  """
+  @type api_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -223,6 +274,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      content_body() :: %{
+        "body" => [String.t()]
+      }
+
+  """
+  @type content_body() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       knowledge_base_retrieve_and_generate_configuration() :: %{
         "generationConfiguration" => generation_configuration(),
         "knowledgeBaseId" => String.t(),
@@ -272,6 +334,20 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type pre_processing_parsed_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      function_result() :: %{
+        "actionGroup" => [String.t()],
+        "function" => [String.t()],
+        "responseBody" => map(),
+        "responseState" => list(any())
+      }
+
+  """
+  @type function_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -332,6 +408,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      return_control_payload() :: %{
+        "invocationId" => [String.t()],
+        "invocationInputs" => list(list()())
+      }
+
+  """
+  @type return_control_payload() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       text_response_part() :: %{
         "span" => span(),
         "text" => [String.t()]
@@ -358,7 +446,9 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       session_state() :: %{
+        "invocationId" => [String.t()],
         "promptSessionAttributes" => map(),
+        "returnControlInvocationResults" => list(list()()),
         "sessionAttributes" => map()
       }
 
@@ -394,6 +484,21 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      api_invocation_input() :: %{
+        "actionGroup" => [String.t()],
+        "apiPath" => String.t(),
+        "httpMethod" => [String.t()],
+        "parameters" => list(api_parameter()()),
+        "requestBody" => api_request_body()
+      }
+
+  """
+  @type api_invocation_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       retrieve_and_generate_input() :: %{
         "text" => [String.t()]
       }
@@ -423,6 +528,22 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type final_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      api_result() :: %{
+        "actionGroup" => [String.t()],
+        "apiPath" => String.t(),
+        "httpMethod" => [String.t()],
+        "httpStatusCode" => [integer()],
+        "responseBody" => map(),
+        "responseState" => list(any())
+      }
+
+  """
+  @type api_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -495,6 +616,7 @@ defmodule AWS.BedrockAgentRuntime do
       trace_part() :: %{
         "agentAliasId" => String.t(),
         "agentId" => String.t(),
+        "agentVersion" => String.t(),
         "sessionId" => String.t(),
         "trace" => list()
       }
@@ -534,6 +656,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type generation_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      property_parameters() :: %{
+        "properties" => list(parameter()())
+      }
+
+  """
+  @type property_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -621,8 +754,8 @@ defmodule AWS.BedrockAgentRuntime do
       invoke_agent_request() :: %{
         optional("enableTrace") => [boolean()],
         optional("endSession") => [boolean()],
-        optional("sessionState") => session_state(),
-        required("inputText") => String.t()
+        optional("inputText") => String.t(),
+        optional("sessionState") => session_state()
       }
 
   """
@@ -754,6 +887,8 @@ defmodule AWS.BedrockAgentRuntime do
   @doc """
   Sends a prompt for the agent to process and respond to.
 
+  Use return control event type for function calling.
+
   The CLI doesn't support `InvokeAgent`.
 
     *
@@ -770,7 +905,11 @@ defmodule AWS.BedrockAgentRuntime do
   End a conversation by setting `endSession` to `true`.
 
     *
-  Include attributes for the session or prompt in the `sessionState` object.
+  In the `sessionState` object, you can include attributes for the session or
+  prompt or parameters returned from the action group.
+
+    *
+  Use return control event type for function calling.
 
   The response is returned in the `bytes` field of the `chunk` object.
 

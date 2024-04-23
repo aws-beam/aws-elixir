@@ -56,6 +56,7 @@ defmodule AWS.BedrockAgent do
         optional("actionGroupState") => list(any()),
         optional("apiSchema") => list(),
         optional("description") => String.t(),
+        optional("functionSchema") => list(),
         optional("parentActionGroupSignature") => list(any()),
         required("actionGroupName") => String.t()
       }
@@ -280,6 +281,19 @@ defmodule AWS.BedrockAgent do
 
   """
   @type update_knowledge_base_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      parameter_detail() :: %{
+        "description" => String.t(),
+        "required" => [boolean()],
+        "type" => list(any())
+      }
+
+  """
+  @type parameter_detail() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -588,6 +602,19 @@ defmodule AWS.BedrockAgent do
 
   """
   @type knowledge_base() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bedrockagent_function() :: %{
+        "description" => String.t(),
+        "name" => String.t(),
+        "parameters" => map()
+      }
+
+  """
+  @type bedrockagent_function() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1089,6 +1116,7 @@ defmodule AWS.BedrockAgent do
         optional("apiSchema") => list(),
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
+        optional("functionSchema") => list(),
         optional("parentActionGroupSignature") => list(any()),
         required("actionGroupName") => String.t()
       }
@@ -1174,6 +1202,7 @@ defmodule AWS.BedrockAgent do
         "clientToken" => String.t(),
         "createdAt" => non_neg_integer(),
         "description" => String.t(),
+        "functionSchema" => list(),
         "parentActionSignature" => list(any()),
         "updatedAt" => non_neg_integer()
       }

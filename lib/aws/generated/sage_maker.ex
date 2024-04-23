@@ -14779,10 +14779,14 @@ defmodule AWS.SageMaker do
   ## Example:
       
       default_space_settings() :: %{
+        "CustomFileSystemConfigs" => list(list()()),
+        "CustomPosixUserConfig" => custom_posix_user_config(),
         "ExecutionRole" => String.t(),
+        "JupyterLabAppSettings" => jupyter_lab_app_settings(),
         "JupyterServerAppSettings" => jupyter_server_app_settings(),
         "KernelGatewayAppSettings" => kernel_gateway_app_settings(),
-        "SecurityGroups" => list(String.t()())
+        "SecurityGroups" => list(String.t()()),
+        "SpaceStorageSettings" => default_space_storage_settings()
       }
       
   """

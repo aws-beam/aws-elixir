@@ -116,6 +116,7 @@ defmodule AWS.BedrockAgent do
 
       create_data_source_request() :: %{
         optional("clientToken") => String.t(),
+        optional("dataDeletionPolicy") => list(any()),
         optional("description") => String.t(),
         optional("serverSideEncryptionConfiguration") => server_side_encryption_configuration(),
         optional("vectorIngestionConfiguration") => vector_ingestion_configuration(),
@@ -1344,6 +1345,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       update_data_source_request() :: %{
+        optional("dataDeletionPolicy") => list(any()),
         optional("description") => String.t(),
         optional("serverSideEncryptionConfiguration") => server_side_encryption_configuration(),
         optional("vectorIngestionConfiguration") => vector_ingestion_configuration(),
@@ -1539,9 +1541,11 @@ defmodule AWS.BedrockAgent do
 
       data_source() :: %{
         "createdAt" => non_neg_integer(),
+        "dataDeletionPolicy" => list(any()),
         "dataSourceConfiguration" => data_source_configuration(),
         "dataSourceId" => String.t(),
         "description" => String.t(),
+        "failureReasons" => list(String.t()()),
         "knowledgeBaseId" => String.t(),
         "name" => String.t(),
         "serverSideEncryptionConfiguration" => server_side_encryption_configuration(),
@@ -1659,6 +1663,7 @@ defmodule AWS.BedrockAgent do
 
       s3_data_source_configuration() :: %{
         "bucketArn" => String.t(),
+        "bucketOwnerAccountId" => String.t(),
         "inclusionPrefixes" => list(String.t()())
       }
 

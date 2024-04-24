@@ -1952,6 +1952,7 @@ defmodule AWS.EC2 do
       image_attribute() :: %{
         "BlockDeviceMappings" => list(block_device_mapping()()),
         "BootMode" => attribute_value(),
+        "DeregistrationProtection" => attribute_value(),
         "Description" => attribute_value(),
         "ImageId" => String.t(),
         "ImdsSupport" => attribute_value(),
@@ -5733,6 +5734,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      disable_image_deregistration_protection_request() :: %{
+        optional("DryRun") => boolean(),
+        required("ImageId") => String.t()
+      }
+      
+  """
+  @type disable_image_deregistration_protection_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_spot_datafeed_subscription_request() :: %{
         optional("DryRun") => boolean()
       }
@@ -8019,6 +8032,17 @@ defmodule AWS.EC2 do
       
   """
   @type certificate_authentication_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_image_deregistration_protection_result() :: %{
+        "Return" => String.t()
+      }
+      
+  """
+  @type disable_image_deregistration_protection_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -14616,6 +14640,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      enable_image_deregistration_protection_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("WithCooldown") => boolean(),
+        required("ImageId") => String.t()
+      }
+      
+  """
+  @type enable_image_deregistration_protection_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       modify_ipam_scope_result() :: %{
         "IpamScope" => ipam_scope()
       }
@@ -17634,37 +17671,39 @@ defmodule AWS.EC2 do
   ## Example:
       
       image() :: %{
-        "Architecture" => list(any()),
-        "BlockDeviceMappings" => list(block_device_mapping()()),
-        "BootMode" => list(any()),
+        "SriovNetSupport" => String.t(),
+        "RootDeviceName" => String.t(),
+        "ProductCodes" => list(product_code()()),
+        "Tags" => list(tag()()),
         "CreationDate" => String.t(),
-        "DeprecationTime" => String.t(),
-        "Description" => String.t(),
+        "OwnerId" => String.t(),
+        "ImageId" => String.t(),
+        "BlockDeviceMappings" => list(block_device_mapping()()),
+        "TpmSupport" => list(any()),
+        "Public" => boolean(),
+        "LastLaunchedTime" => String.t(),
+        "ImageLocation" => String.t(),
+        "RamdiskId" => String.t(),
+        "PlatformDetails" => String.t(),
+        "KernelId" => String.t(),
+        "ImageType" => list(any()),
+        "StateReason" => state_reason(),
+        "State" => list(any()),
+        "UsageOperation" => String.t(),
         "EnaSupport" => boolean(),
         "Hypervisor" => list(any()),
-        "ImageId" => String.t(),
-        "ImageLocation" => String.t(),
-        "ImageOwnerAlias" => String.t(),
-        "ImageType" => list(any()),
-        "ImdsSupport" => list(any()),
-        "KernelId" => String.t(),
-        "Name" => String.t(),
-        "OwnerId" => String.t(),
-        "Platform" => list(any()),
-        "PlatformDetails" => String.t(),
-        "ProductCodes" => list(product_code()()),
-        "Public" => boolean(),
-        "RamdiskId" => String.t(),
-        "RootDeviceName" => String.t(),
-        "RootDeviceType" => list(any()),
+        "VirtualizationType" => list(any()),
         "SourceInstanceId" => String.t(),
-        "SriovNetSupport" => String.t(),
-        "State" => list(any()),
-        "StateReason" => state_reason(),
-        "Tags" => list(tag()()),
-        "TpmSupport" => list(any()),
-        "UsageOperation" => String.t(),
-        "VirtualizationType" => list(any())
+        "RootDeviceType" => list(any()),
+        "BootMode" => list(any()),
+        "DeregistrationProtection" => String.t(),
+        "Architecture" => list(any()),
+        "Name" => String.t(),
+        "Description" => String.t(),
+        "ImdsSupport" => list(any()),
+        "ImageOwnerAlias" => String.t(),
+        "DeprecationTime" => String.t(),
+        "Platform" => list(any())
       }
       
   """
@@ -20347,6 +20386,17 @@ defmodule AWS.EC2 do
       
   """
   @type delete_network_interface_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_image_deregistration_protection_result() :: %{
+        "Return" => String.t()
+      }
+      
+  """
+  @type enable_image_deregistration_protection_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -28280,9 +28330,9 @@ defmodule AWS.EC2 do
 
     *
 
-  `ipv6-preferred-lease-time` - A value (in seconds, minutes, hours, or years) for
-  how frequently a running instance with an IPv6 assigned to it goes through
-  DHCPv6 lease renewal.
+  `ipv6-address-preferred-lease-time` - A value (in seconds, minutes, hours, or
+  years) for how frequently a running instance with an IPv6 assigned to it goes
+  through DHCPv6 lease renewal.
   Acceptable values are between 140 and 2147483647 seconds (approximately 68
   years). If no value is entered, the default lease time is 140 seconds. If you
   use long-term addressing for EC2 instances, you can increase the lease time and
@@ -28639,11 +28689,11 @@ defmodule AWS.EC2 do
   in the
   *Amazon Elastic Compute Cloud User Guide*.
 
-  If you want to clone an existing launch template as the basis for creating a new
-  launch template, you can use the Amazon EC2 console. The API, SDKs, and CLI do
-  not support
-  cloning a template. For more information, see [Create a launch template from an existing launch
-  template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template-from-existing-launch-template)
+  To clone an existing launch template as the basis for a new launch template, use
+  the
+  Amazon EC2 console. The API, SDKs, and CLI do not support cloning a template.
+  For more
+  information, see [Create a launch template from an existing launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template-from-existing-launch-template)
   in the
   *Amazon Elastic Compute Cloud User Guide*.
   """
@@ -28659,18 +28709,20 @@ defmodule AWS.EC2 do
   @doc """
   Creates a new version of a launch template.
 
-  You can specify an existing version of
-  launch template from which to base the new version.
+  You must specify an existing launch
+  template, either by name or ID. You can determine whether the new version
+  inherits
+  parameters from a source version, and add or overwrite parameters as needed.
 
   Launch template versions are numbered in the order in which they are created.
   You
-  cannot specify, change, or replace the numbering of launch template versions.
+  can't specify, change, or replace the numbering of launch template versions.
 
   Launch templates are immutable; after you create a launch template, you can't
   modify
   it. Instead, you can create a new version of the launch template that includes
-  any
-  changes you require.
+  the
+  changes that you require.
 
   For more information, see [Modify a launch template (manage launch template versions)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions)
   in the
@@ -32331,6 +32383,9 @@ defmodule AWS.EC2 do
   the AMI ID
   cannot be found.
 
+  We strongly recommend using only paginated requests. Unpaginated requests are
+  susceptible to throttling and timeouts.
+
   The order of the elements in the response, including those within nested
   structures, might vary. Applications should not assume the elements appear in a
   particular order.
@@ -32671,6 +32726,9 @@ defmodule AWS.EC2 do
   and
   specify only instance IDs that are in an unaffected zone, the call works
   normally.
+
+  We strongly recommend using only paginated requests. Unpaginated requests are
+  susceptible to throttling and timeouts.
 
   The order of the elements in the response, including those within nested
   structures, might vary. Applications should not assume the elements appear in a
@@ -33177,6 +33235,9 @@ defmodule AWS.EC2 do
   you use pagination or one of the following filters: `group-id`,
   `mac-address`, `private-dns-name`, `private-ip-address`,
   `private-dns-name`, `subnet-id`, or `vpc-id`.
+
+  We strongly recommend using only paginated requests. Unpaginated requests are
+  susceptible to throttling and timeouts.
   """
   @spec describe_network_interfaces(map(), describe_network_interfaces_request(), list()) ::
           {:ok, describe_network_interfaces_result(), any()}
@@ -33625,6 +33686,9 @@ defmodule AWS.EC2 do
   For more information about EBS snapshots, see [Amazon EBS
   snapshots](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-snapshots.html)
   in the *Amazon EBS User Guide*.
+
+  We strongly recommend using only paginated requests. Unpaginated requests are
+  susceptible to throttling and timeouts.
   """
   @spec describe_snapshots(map(), describe_snapshots_request(), list()) ::
           {:ok, describe_snapshots_result(), any()}
@@ -33837,6 +33901,9 @@ defmodule AWS.EC2 do
   For more information about tags, see [Tag your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html)
   in the
   *Amazon Elastic Compute Cloud User Guide*.
+
+  We strongly recommend using only paginated requests. Unpaginated requests are
+  susceptible to throttling and timeouts.
 
   The order of the elements in the response, including those within nested
   structures, might vary. Applications should not assume the elements appear in a
@@ -34263,6 +34330,9 @@ defmodule AWS.EC2 do
   [Pagination](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination).   For more information about EBS volumes, see [Amazon EBS
   volumes](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes.html) in
   the *Amazon EBS User Guide*.
+
+  We strongly recommend using only paginated requests. Unpaginated requests are
+  susceptible to throttling and timeouts.
 
   The order of the elements in the response, including those within nested
   structures, might vary. Applications should not assume the elements appear in a
@@ -34836,6 +34906,35 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "DisableImageDeprecation", input, options)
+  end
+
+  @doc """
+  Disables deregistration protection for an AMI.
+
+  When deregistration protection is disabled,
+  the AMI can be deregistered.
+
+  If you chose to include a 24-hour cooldown period when you enabled
+  deregistration
+  protection for the AMI, then, when you disable deregistration protection, you
+  won’t
+  immediately be able to deregister the AMI.
+
+  For more information, see [Protect an AMI from
+  deregistration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/deregister-ami.html#ami-deregistration-protection)
+  in the *Amazon EC2 User Guide*.
+  """
+  @spec disable_image_deregistration_protection(
+          map(),
+          disable_image_deregistration_protection_request(),
+          list()
+        ) ::
+          {:ok, disable_image_deregistration_protection_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def disable_image_deregistration_protection(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisableImageDeregistrationProtection", input, options)
   end
 
   @doc """
@@ -35480,6 +35579,33 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "EnableImageDeprecation", input, options)
+  end
+
+  @doc """
+  Enables deregistration protection for an AMI.
+
+  When deregistration protection is enabled,
+  the AMI can't be deregistered.
+
+  To allow the AMI to be deregistered, you must first disable deregistration
+  protection
+  using `DisableImageDeregistrationProtection`.
+
+  For more information, see [Protect an AMI from
+  deregistration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/deregister-ami.html#ami-deregistration-protection)
+  in the *Amazon EC2 User Guide*.
+  """
+  @spec enable_image_deregistration_protection(
+          map(),
+          enable_image_deregistration_protection_request(),
+          list()
+        ) ::
+          {:ok, enable_image_deregistration_protection_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def enable_image_deregistration_protection(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnableImageDeregistrationProtection", input, options)
   end
 
   @doc """

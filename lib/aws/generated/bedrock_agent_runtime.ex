@@ -49,6 +49,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      external_source() :: %{
+        "byteContent" => byte_content_doc(),
+        "s3Location" => s3_object_doc(),
+        "sourceType" => list(any())
+      }
+
+  """
+  @type external_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       inference_configuration() :: %{
         "maximumLength" => integer(),
         "stopSequences" => list([String.t()]()),
@@ -71,6 +84,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type bad_gateway_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_object_doc() :: %{
+        "uri" => String.t()
+      }
+
+  """
+  @type s3_object_doc() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -241,6 +265,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       retrieve_and_generate_configuration() :: %{
+        "externalSourcesConfiguration" => external_sources_retrieve_and_generate_configuration(),
         "knowledgeBaseConfiguration" => knowledge_base_retrieve_and_generate_configuration(),
         "type" => list(any())
       }
@@ -484,6 +509,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      external_sources_retrieve_and_generate_configuration() :: %{
+        "generationConfiguration" => external_sources_generation_configuration(),
+        "modelArn" => String.t(),
+        "sources" => list(external_source()())
+      }
+
+  """
+  @type external_sources_retrieve_and_generate_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       api_invocation_input() :: %{
         "actionGroup" => [String.t()],
         "apiPath" => String.t(),
@@ -544,6 +582,30 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type api_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      byte_content_doc() :: %{
+        "contentType" => String.t(),
+        "data" => binary(),
+        "identifier" => String.t()
+      }
+
+  """
+  @type byte_content_doc() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      external_sources_generation_configuration() :: %{
+        "promptTemplate" => prompt_template()
+      }
+
+  """
+  @type external_sources_generation_configuration() :: %{String.t() => any()}
 
   @typedoc """
 

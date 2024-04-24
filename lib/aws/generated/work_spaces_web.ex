@@ -884,6 +884,8 @@ defmodule AWS.WorkSpacesWeb do
         optional("clientToken") => String.t(),
         optional("customerManagedKey") => String.t(),
         optional("displayName") => String.t(),
+        optional("instanceType") => String.t(),
+        optional("maxConcurrentSessions") => integer(),
         optional("tags") => list(tag()())
       }
 
@@ -1342,7 +1344,9 @@ defmodule AWS.WorkSpacesWeb do
 
       update_portal_request() :: %{
         optional("authenticationType") => String.t(),
-        optional("displayName") => String.t()
+        optional("displayName") => String.t(),
+        optional("instanceType") => String.t(),
+        optional("maxConcurrentSessions") => integer()
       }
 
   """
@@ -1353,8 +1357,10 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       ip_access_settings() :: %{
+        "additionalEncryptionContext" => map(),
         "associatedPortalArns" => list(String.t()()),
         "creationDate" => non_neg_integer(),
+        "customerManagedKey" => String.t(),
         "description" => String.t(),
         "displayName" => String.t(),
         "ipAccessSettingsArn" => String.t(),
@@ -1464,7 +1470,9 @@ defmodule AWS.WorkSpacesWeb do
         "browserType" => String.t(),
         "creationDate" => non_neg_integer(),
         "displayName" => String.t(),
+        "instanceType" => String.t(),
         "ipAccessSettingsArn" => String.t(),
+        "maxConcurrentSessions" => integer(),
         "networkSettingsArn" => String.t(),
         "portalArn" => String.t(),
         "portalEndpoint" => String.t(),
@@ -1504,9 +1512,11 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       user_settings() :: %{
+        "additionalEncryptionContext" => map(),
         "associatedPortalArns" => list(String.t()()),
         "cookieSynchronizationConfiguration" => cookie_synchronization_configuration(),
         "copyAllowed" => String.t(),
+        "customerManagedKey" => String.t(),
         "disconnectTimeoutInMinutes" => integer(),
         "downloadAllowed" => String.t(),
         "idleDisconnectTimeoutInMinutes" => integer(),
@@ -1597,9 +1607,11 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       browser_settings() :: %{
+        "additionalEncryptionContext" => map(),
         "associatedPortalArns" => list(String.t()()),
         "browserPolicy" => String.t(),
-        "browserSettingsArn" => String.t()
+        "browserSettingsArn" => String.t(),
+        "customerManagedKey" => String.t()
       }
 
   """
@@ -1692,12 +1704,16 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       portal() :: %{
+        "additionalEncryptionContext" => map(),
         "authenticationType" => String.t(),
         "browserSettingsArn" => String.t(),
         "browserType" => String.t(),
         "creationDate" => non_neg_integer(),
+        "customerManagedKey" => String.t(),
         "displayName" => String.t(),
+        "instanceType" => String.t(),
         "ipAccessSettingsArn" => String.t(),
+        "maxConcurrentSessions" => integer(),
         "networkSettingsArn" => String.t(),
         "portalArn" => String.t(),
         "portalEndpoint" => String.t(),
@@ -2136,6 +2152,7 @@ defmodule AWS.WorkSpacesWeb do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 

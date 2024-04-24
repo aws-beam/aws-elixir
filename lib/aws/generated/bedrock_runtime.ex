@@ -3,7 +3,7 @@
 
 defmodule AWS.BedrockRuntime do
   @moduledoc """
-  Describes the API operations for running inference using Bedrock models.
+  Describes the API operations for running inference using Amazon Bedrock models.
   """
 
   alias AWS.Client
@@ -38,6 +38,9 @@ defmodule AWS.BedrockRuntime do
       invoke_model_request() :: %{
         optional("accept") => String.t(),
         optional("contentType") => String.t(),
+        optional("guardrailIdentifier") => String.t(),
+        optional("guardrailVersion") => String.t(),
+        optional("trace") => list(any()),
         required("body") => binary()
       }
 
@@ -63,6 +66,9 @@ defmodule AWS.BedrockRuntime do
       invoke_model_with_response_stream_request() :: %{
         optional("accept") => String.t(),
         optional("contentType") => String.t(),
+        optional("guardrailIdentifier") => String.t(),
+        optional("guardrailVersion") => String.t(),
+        optional("trace") => list(any()),
         required("body") => binary()
       }
 
@@ -223,16 +229,15 @@ defmodule AWS.BedrockRuntime do
   end
 
   @doc """
-  Invokes the specified Bedrock model to run inference using the input provided in
-  the request body.
+  Invokes the specified Amazon Bedrock model to run inference using the prompt and
+  inference parameters provided in the request body.
 
-  You use InvokeModel to run inference for text models, image models, and
-  embedding models.
+  You use model inference to generate text, images, and embeddings.
 
-  For more information, see [Run inference](https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html)
-  in the Bedrock User Guide.
+  For example code, see *Invoke model code examples* in the *Amazon Bedrock User
+  Guide*.
 
-  For example requests, see Examples (after the Errors section).
+  This operation requires permission for the `bedrock:InvokeModel` action.
   """
   @spec invoke_model(map(), String.t(), invoke_model_request(), list()) ::
           {:ok, invoke_model_response(), any()}
@@ -244,7 +249,10 @@ defmodule AWS.BedrockRuntime do
     {headers, input} =
       [
         {"accept", "Accept"},
-        {"contentType", "Content-Type"}
+        {"contentType", "Content-Type"},
+        {"guardrailIdentifier", "X-Amzn-Bedrock-GuardrailIdentifier"},
+        {"guardrailVersion", "X-Amzn-Bedrock-GuardrailVersion"},
+        {"trace", "X-Amzn-Bedrock-Trace"}
       ]
       |> Request.build_params(input)
 
@@ -273,14 +281,22 @@ defmodule AWS.BedrockRuntime do
   end
 
   @doc """
-  Invoke the specified Bedrock model to run inference using the input provided.
+  Invoke the specified Amazon Bedrock model to run inference using the prompt and
+  inference parameters provided in the request body.
 
-  Return the response in a stream.
+  The response is returned in a stream.
 
-  For more information, see [Run inference](https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html)
-  in the Bedrock User Guide.
+  To see if a model supports streaming, call
+  [GetFoundationModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetFoundationModel.html)
+  and check the `responseStreamingSupported` field in the response.
 
-  For an example request and response, see Examples (after the Errors section).
+  The CLI doesn't support `InvokeModelWithResponseStream`.
+
+  For example code, see *Invoke model with streaming code
+  example* in the *Amazon Bedrock User Guide*.
+
+  This operation requires permissions to perform the
+  `bedrock:InvokeModelWithResponseStream` action.
   """
   @spec invoke_model_with_response_stream(
           map(),
@@ -297,7 +313,10 @@ defmodule AWS.BedrockRuntime do
     {headers, input} =
       [
         {"accept", "X-Amzn-Bedrock-Accept"},
-        {"contentType", "Content-Type"}
+        {"contentType", "Content-Type"},
+        {"guardrailIdentifier", "X-Amzn-Bedrock-GuardrailIdentifier"},
+        {"guardrailVersion", "X-Amzn-Bedrock-GuardrailVersion"},
+        {"trace", "X-Amzn-Bedrock-Trace"}
       ]
       |> Request.build_params(input)
 

@@ -3,7 +3,8 @@
 
 defmodule AWS.Bedrock do
   @moduledoc """
-  Describes the API operations for creating and managing Amazon Bedrock models.
+  Describes the API operations for creating, managing, fine-turning, and
+  evaluating Amazon Bedrock models.
   """
 
   alias AWS.Client
@@ -61,6 +62,29 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      get_evaluation_job_response() :: %{
+        "creationTime" => non_neg_integer(),
+        "customerEncryptionKeyId" => String.t(),
+        "evaluationConfig" => list(),
+        "failureMessages" => list(String.t()()),
+        "inferenceConfig" => list(),
+        "jobArn" => String.t(),
+        "jobDescription" => String.t(),
+        "jobName" => String.t(),
+        "jobType" => list(any()),
+        "lastModifiedTime" => non_neg_integer(),
+        "outputDataConfig" => evaluation_output_data_config(),
+        "roleArn" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type get_evaluation_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       foundation_model_summary() :: %{
         "customizationsSupported" => list(list(any())()),
         "inferenceTypesSupported" => list(list(any())()),
@@ -93,10 +117,39 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      delete_guardrail_request() :: %{
+        optional("guardrailVersion") => String.t()
+      }
+
+  """
+  @type delete_guardrail_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_custom_model_response() :: %{}
 
   """
   @type delete_custom_model_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_evaluation_job_request() :: %{}
+
+  """
+  @type get_evaluation_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_evaluation_job_response() :: %{}
+
+  """
+  @type stop_evaluation_job_response() :: %{}
 
   @typedoc """
 
@@ -122,6 +175,33 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      get_guardrail_response() :: %{
+        "blockedInputMessaging" => String.t(),
+        "blockedOutputsMessaging" => String.t(),
+        "contentPolicy" => guardrail_content_policy(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t(),
+        "failureRecommendations" => list(String.t()()),
+        "guardrailArn" => String.t(),
+        "guardrailId" => String.t(),
+        "kmsKeyArn" => String.t(),
+        "name" => String.t(),
+        "sensitiveInformationPolicy" => guardrail_sensitive_information_policy(),
+        "status" => list(any()),
+        "statusReasons" => list(String.t()()),
+        "topicPolicy" => guardrail_topic_policy(),
+        "updatedAt" => non_neg_integer(),
+        "version" => String.t(),
+        "wordPolicy" => guardrail_word_policy()
+      }
+
+  """
+  @type get_guardrail_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       foundation_model_details() :: %{
         "customizationsSupported" => list(list(any())()),
         "inferenceTypesSupported" => list(list(any())()),
@@ -142,10 +222,138 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      guardrail_topic_policy_config() :: %{
+        "topicsConfig" => list(guardrail_topic_config()())
+      }
+
+  """
+  @type guardrail_topic_policy_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_guardrail_request() :: %{
+        optional("clientRequestToken") => String.t(),
+        optional("contentPolicyConfig") => guardrail_content_policy_config(),
+        optional("description") => String.t(),
+        optional("kmsKeyId") => String.t(),
+        optional("sensitiveInformationPolicyConfig") => guardrail_sensitive_information_policy_config(),
+        optional("tags") => list(tag()()),
+        optional("topicPolicyConfig") => guardrail_topic_policy_config(),
+        optional("wordPolicyConfig") => guardrail_word_policy_config(),
+        required("blockedInputMessaging") => String.t(),
+        required("blockedOutputsMessaging") => String.t(),
+        required("name") => String.t()
+      }
+
+  """
+  @type create_guardrail_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_summary() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer(),
+        "version" => String.t()
+      }
+
+  """
+  @type guardrail_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       untag_resource_response() :: %{}
 
   """
   @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_word_policy() :: %{
+        "managedWordLists" => list(guardrail_managed_words()()),
+        "words" => list(guardrail_word()())
+      }
+
+  """
+  @type guardrail_word_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_evaluation_jobs_request() :: %{
+        optional("creationTimeAfter") => non_neg_integer(),
+        optional("creationTimeBefore") => non_neg_integer(),
+        optional("maxResults") => integer(),
+        optional("nameContains") => String.t(),
+        optional("nextToken") => String.t(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any()),
+        optional("statusEquals") => list(any())
+      }
+
+  """
+  @type list_evaluation_jobs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_evaluation_config() :: %{
+        "datasetMetricConfigs" => list(evaluation_dataset_metric_config()())
+      }
+
+  """
+  @type automated_evaluation_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_topic_config() :: %{
+        "definition" => String.t(),
+        "examples" => list(String.t()()),
+        "name" => String.t(),
+        "type" => list(any())
+      }
+
+  """
+  @type guardrail_topic_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      human_workflow_config() :: %{
+        "flowDefinitionArn" => String.t(),
+        "instructions" => String.t()
+      }
+
+  """
+  @type human_workflow_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_content_policy() :: %{
+        "filters" => list(guardrail_content_filter()())
+      }
+
+  """
+  @type guardrail_content_policy() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -183,6 +391,29 @@ defmodule AWS.Bedrock do
 
   """
   @type list_provisioned_model_throughputs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_guardrail_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "guardrailArn" => String.t(),
+        "guardrailId" => String.t(),
+        "version" => String.t()
+      }
+
+  """
+  @type create_guardrail_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_evaluation_job_request() :: %{}
+
+  """
+  @type stop_evaluation_job_request() :: %{}
 
   @typedoc """
 
@@ -262,6 +493,28 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      guardrail_managed_words_config() :: %{
+        "type" => list(any())
+      }
+
+  """
+  @type guardrail_managed_words_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_word() :: %{
+        "text" => [String.t()]
+      }
+
+  """
+  @type guardrail_word() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_provisioned_model_throughput_response() :: %{
         "commitmentDuration" => list(any()),
         "commitmentExpirationTime" => non_neg_integer(),
@@ -325,6 +578,31 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      guardrail_content_filter_config() :: %{
+        "inputStrength" => list(any()),
+        "outputStrength" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type guardrail_content_filter_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_guardrails_response() :: %{
+        "guardrails" => list(guardrail_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_guardrails_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag() :: %{
         "key" => String.t(),
         "value" => String.t()
@@ -341,6 +619,32 @@ defmodule AWS.Bedrock do
 
   """
   @type delete_provisioned_model_throughput_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_dataset_metric_config() :: %{
+        "dataset" => evaluation_dataset(),
+        "metricNames" => list(String.t()()),
+        "taskType" => list(any())
+      }
+
+  """
+  @type evaluation_dataset_metric_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_content_filter() :: %{
+        "inputStrength" => list(any()),
+        "outputStrength" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type guardrail_content_filter() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -416,6 +720,39 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      guardrail_managed_words() :: %{
+        "type" => list(any())
+      }
+
+  """
+  @type guardrail_managed_words() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_content_policy_config() :: %{
+        "filtersConfig" => list(guardrail_content_filter_config()())
+      }
+
+  """
+  @type guardrail_content_policy_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_output_data_config() :: %{
+        "s3Uri" => String.t()
+      }
+
+  """
+  @type evaluation_output_data_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_provisioned_model_throughput_request() :: %{
         optional("clientRequestToken") => String.t(),
         optional("commitmentDuration") => list(any()),
@@ -439,6 +776,18 @@ defmodule AWS.Bedrock do
 
   """
   @type vpc_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_pii_entity() :: %{
+        "action" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type guardrail_pii_entity() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -475,6 +824,25 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      update_guardrail_request() :: %{
+        optional("contentPolicyConfig") => guardrail_content_policy_config(),
+        optional("description") => String.t(),
+        optional("kmsKeyId") => String.t(),
+        optional("sensitiveInformationPolicyConfig") => guardrail_sensitive_information_policy_config(),
+        optional("topicPolicyConfig") => guardrail_topic_policy_config(),
+        optional("wordPolicyConfig") => guardrail_word_policy_config(),
+        required("blockedInputMessaging") => String.t(),
+        required("blockedOutputsMessaging") => String.t(),
+        required("name") => String.t()
+      }
+
+  """
+  @type update_guardrail_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_custom_model_request() :: %{}
 
   """
@@ -488,6 +856,19 @@ defmodule AWS.Bedrock do
 
   """
   @type get_model_customization_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      human_evaluation_custom_metric() :: %{
+        "description" => String.t(),
+        "name" => String.t(),
+        "ratingMethod" => String.t()
+      }
+
+  """
+  @type human_evaluation_custom_metric() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -516,6 +897,29 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      guardrail_word_config() :: %{
+        "text" => [String.t()]
+      }
+
+  """
+  @type guardrail_word_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_sensitive_information_policy() :: %{
+        "piiEntities" => list(guardrail_pii_entity()()),
+        "regexes" => list(guardrail_regex()())
+      }
+
+  """
+  @type guardrail_sensitive_information_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       foundation_model_lifecycle() :: %{
         "status" => list(any())
       }
@@ -538,6 +942,15 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      delete_guardrail_response() :: %{}
+
+  """
+  @type delete_guardrail_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       validation_data_config() :: %{
         "validators" => list(validator()())
       }
@@ -553,6 +966,20 @@ defmodule AWS.Bedrock do
 
   """
   @type update_provisioned_model_throughput_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_regex_config() :: %{
+        "action" => list(any()),
+        "description" => [String.t()],
+        "name" => [String.t()],
+        "pattern" => [String.t()]
+      }
+
+  """
+  @type guardrail_regex_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -636,6 +1063,37 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      create_evaluation_job_request() :: %{
+        optional("clientRequestToken") => String.t(),
+        optional("customerEncryptionKeyId") => String.t(),
+        optional("jobDescription") => String.t(),
+        optional("jobTags") => list(tag()()),
+        required("evaluationConfig") => list(),
+        required("inferenceConfig") => list(),
+        required("jobName") => String.t(),
+        required("outputDataConfig") => evaluation_output_data_config(),
+        required("roleArn") => String.t()
+      }
+
+  """
+  @type create_evaluation_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_word_policy_config() :: %{
+        "managedWordListsConfig" => list(guardrail_managed_words_config()()),
+        "wordsConfig" => list(guardrail_word_config()())
+      }
+
+  """
+  @type guardrail_word_policy_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validator_metric() :: %{
         "validationLoss" => float()
       }
@@ -647,10 +1105,46 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      list_evaluation_jobs_response() :: %{
+        "jobSummaries" => list(evaluation_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_evaluation_jobs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_sensitive_information_policy_config() :: %{
+        "piiEntitiesConfig" => list(guardrail_pii_entity_config()()),
+        "regexesConfig" => list(guardrail_regex_config()())
+      }
+
+  """
+  @type guardrail_sensitive_information_policy_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       stop_model_customization_job_request() :: %{}
 
   """
   @type stop_model_customization_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_guardrail_version_response() :: %{
+        "guardrailId" => String.t(),
+        "version" => String.t()
+      }
+
+  """
+  @type create_guardrail_version_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -682,6 +1176,30 @@ defmodule AWS.Bedrock do
 
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_pii_entity_config() :: %{
+        "action" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type guardrail_pii_entity_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_dataset() :: %{
+        "datasetLocation" => list(),
+        "name" => String.t()
+      }
+
+  """
+  @type evaluation_dataset() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -741,6 +1259,17 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      guardrail_topic_policy() :: %{
+        "topics" => list(guardrail_topic()())
+      }
+
+  """
+  @type guardrail_topic_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       output_data_config() :: %{
         "s3Uri" => String.t()
       }
@@ -758,6 +1287,31 @@ defmodule AWS.Bedrock do
 
   """
   @type get_model_invocation_logging_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_guardrail_version_request() :: %{
+        optional("clientRequestToken") => String.t(),
+        optional("description") => String.t()
+      }
+
+  """
+  @type create_guardrail_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_guardrails_request() :: %{
+        optional("guardrailIdentifier") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_guardrails_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -783,12 +1337,80 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      guardrail_regex() :: %{
+        "action" => list(any()),
+        "description" => [String.t()],
+        "name" => [String.t()],
+        "pattern" => [String.t()]
+      }
+
+  """
+  @type guardrail_regex() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_evaluation_job_response() :: %{
+        "jobArn" => String.t()
+      }
+
+  """
+  @type create_evaluation_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_guardrail_response() :: %{
+        "guardrailArn" => String.t(),
+        "guardrailId" => String.t(),
+        "updatedAt" => non_neg_integer(),
+        "version" => String.t()
+      }
+
+  """
+  @type update_guardrail_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_summary() :: %{
+        "creationTime" => non_neg_integer(),
+        "evaluationTaskTypes" => list(list(any())()),
+        "jobArn" => String.t(),
+        "jobName" => String.t(),
+        "jobType" => list(any()),
+        "modelIdentifiers" => list(String.t()()),
+        "status" => list(any())
+      }
+
+  """
+  @type evaluation_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       training_data_config() :: %{
         "s3Uri" => String.t()
       }
 
   """
   @type training_data_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_bedrock_model() :: %{
+        "inferenceParams" => String.t(),
+        "modelIdentifier" => String.t()
+      }
+
+  """
+  @type evaluation_bedrock_model() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -819,6 +1441,17 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      get_guardrail_request() :: %{
+        optional("guardrailVersion") => String.t()
+      }
+
+  """
+  @type get_guardrail_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_foundation_model_response() :: %{
         "modelDetails" => foundation_model_details()
       }
@@ -837,6 +1470,61 @@ defmodule AWS.Bedrock do
 
   """
   @type too_many_tags_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_topic() :: %{
+        "definition" => String.t(),
+        "examples" => list(String.t()()),
+        "name" => String.t(),
+        "type" => list(any())
+      }
+
+  """
+  @type guardrail_topic() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      human_evaluation_config() :: %{
+        "customMetrics" => list(human_evaluation_custom_metric()()),
+        "datasetMetricConfigs" => list(evaluation_dataset_metric_config()()),
+        "humanWorkflowConfig" => human_workflow_config()
+      }
+
+  """
+  @type human_evaluation_config() :: %{String.t() => any()}
+
+  @type create_evaluation_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_guardrail_errors() ::
+          too_many_tags_exception()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_guardrail_version_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type create_model_customization_job_errors() ::
           too_many_tags_exception()
@@ -865,6 +1553,14 @@ defmodule AWS.Bedrock do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type delete_guardrail_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type delete_model_invocation_logging_configuration_errors() ::
           throttling_exception() | access_denied_exception() | internal_server_exception()
 
@@ -883,7 +1579,21 @@ defmodule AWS.Bedrock do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_evaluation_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_foundation_model_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_guardrail_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -913,11 +1623,24 @@ defmodule AWS.Bedrock do
           | access_denied_exception()
           | internal_server_exception()
 
+  @type list_evaluation_jobs_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type list_foundation_models_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+
+  @type list_guardrails_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type list_model_customization_jobs_errors() ::
           throttling_exception()
@@ -944,6 +1667,14 @@ defmodule AWS.Bedrock do
           | access_denied_exception()
           | internal_server_exception()
 
+  @type stop_evaluation_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type stop_model_customization_job_errors() ::
           throttling_exception()
           | validation_exception()
@@ -966,6 +1697,15 @@ defmodule AWS.Bedrock do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type update_guardrail_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type update_provisioned_model_throughput_errors() ::
           throttling_exception()
@@ -990,16 +1730,148 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  API operation for creating and managing Amazon Bedrock automatic model
+  evaluation jobs and model evaluation jobs that use human workers.
+
+  To learn more about the requirements for creating a model evaluation job see,
+  [Model evaluations](https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation.html).
+  """
+  @spec create_evaluation_job(map(), create_evaluation_job_request(), list()) ::
+          {:ok, create_evaluation_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_evaluation_job_errors()}
+  def create_evaluation_job(%Client{} = client, input, options \\ []) do
+    url_path = "/evaluation-jobs"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Creates a guardrail to block topics and to filter out harmful content.
+
+    *
+  Specify a `name` and optional `description`.
+
+    *
+  Specify messages for when the guardrail successfully blocks a prompt or a model
+  response in the `blockedInputMessaging` and `blockedOutputsMessaging` fields.
+
+    *
+  Specify topics for the guardrail to deny in the `topicPolicyConfig` object. Each
+  [GuardrailTopicConfig](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailTopicConfig.html) object in the `topicsConfig` list pertains to one topic.
+
+      *
+  Give a `name` and `description` so that the guardrail can properly identify the
+  topic.
+
+      *
+  Specify `DENY` in the `type` field.
+
+      *
+  (Optional) Provide up to five prompts that you would categorize as belonging to
+  the topic in the `examples` list.
+
+    *
+  Specify filter strengths for the harmful categories defined in Amazon Bedrock in
+  the `contentPolicyConfig` object. Each
+  [GuardrailContentFilterConfig](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html)
+  object in the `filtersConfig` list pertains to a harmful category. For more
+  information, see [Content filters](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-filters).
+  For more information about the fields in a content filter, see
+  [GuardrailContentFilterConfig](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html). 
+      *
+  Specify the category in the `type` field.
+
+      *
+  Specify the strength of the filter for prompts in the `inputStrength` field and
+  for model responses in the `strength` field of the
+  [GuardrailContentFilterConfig](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html).
+
+    *
+  (Optional) For security, include the ARN of a KMS key in the `kmsKeyId` field.
+
+    *
+  (Optional) Attach any tags to the guardrail in the `tags` object. For more
+  information, see [Tag resources](https://docs.aws.amazon.com/bedrock/latest/userguide/tagging).
+  """
+  @spec create_guardrail(map(), create_guardrail_request(), list()) ::
+          {:ok, create_guardrail_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_guardrail_errors()}
+  def create_guardrail(%Client{} = client, input, options \\ []) do
+    url_path = "/guardrails"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Creates a version of the guardrail.
+
+  Use this API to create a snapshot of the
+  guardrail when you are satisfied with a configuration, or to compare the
+  configuration with another version.
+  """
+  @spec create_guardrail_version(map(), String.t(), create_guardrail_version_request(), list()) ::
+          {:ok, create_guardrail_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_guardrail_version_errors()}
+  def create_guardrail_version(%Client{} = client, guardrail_identifier, input, options \\ []) do
+    url_path = "/guardrails/#{AWS.Util.encode_uri(guardrail_identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Creates a fine-tuning job to customize a base model.
 
   You specify the base foundation model and the location of the training data.
   After the model-customization job completes successfully, your custom model
-  resource will be ready to use. Training data
-  contains input and output text for each record in a JSONL format. Optionally,
-  you can specify validation data
-  in the same format as the training data. Amazon Bedrock returns validation loss
-  metrics and output generations
-  after the job completes.
+  resource will be ready to use. Amazon Bedrock returns validation loss metrics
+  and output generations after the job completes.
+
+  For information on the format of training and validation data, see [Prepare the datasets](https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-prepare.html).
 
   Model-customization jobs are asynchronous and the completion time depends on the
   base model and the training/validation data size.
@@ -1007,7 +1879,7 @@ defmodule AWS.Bedrock do
   job status.
 
   For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
-  in the Bedrock User Guide.
+  in the Amazon Bedrock User Guide.
   """
   @spec create_model_customization_job(map(), create_model_customization_job_request(), list()) ::
           {:ok, create_model_customization_job_response(), any()}
@@ -1034,11 +1906,12 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Creates a provisioned throughput with dedicated capacity for a foundation model
-  or a fine-tuned model.
+  Creates dedicated throughput for a base or custom model with the model units and
+  for the duration that you specify.
 
-  For more information, see [Provisioned throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html)
-  in the Bedrock User Guide.
+  For pricing details, see [Amazon Bedrock Pricing](http://aws.amazon.com/bedrock/pricing/). For more information, see
+  [Provisioned Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html)
+  in the Amazon Bedrock User Guide.
   """
   @spec create_provisioned_model_throughput(
           map(),
@@ -1072,7 +1945,7 @@ defmodule AWS.Bedrock do
   Deletes a custom model that you created earlier.
 
   For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
-  in the Bedrock User Guide.
+  in the Amazon Bedrock User Guide.
   """
   @spec delete_custom_model(map(), String.t(), delete_custom_model_request(), list()) ::
           {:ok, delete_custom_model_response(), any()}
@@ -1095,6 +1968,47 @@ defmodule AWS.Bedrock do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Deletes a guardrail.
+
+    *
+  To delete a guardrail, only specify the ARN of the guardrail in the
+  `guardrailIdentifier` field. If you delete a guardrail, all of its versions will
+  be deleted.
+
+    *
+  To delete a version of a guardrail, specify the ARN of the guardrail in the
+  `guardrailIdentifier` field and the version in the `guardrailVersion` field.
+  """
+  @spec delete_guardrail(map(), String.t(), delete_guardrail_request(), list()) ::
+          {:ok, delete_guardrail_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_guardrail_errors()}
+  def delete_guardrail(%Client{} = client, guardrail_identifier, input, options \\ []) do
+    url_path = "/guardrails/#{AWS.Util.encode_uri(guardrail_identifier)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"guardrailVersion", "guardrailVersion"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
     )
   end
 
@@ -1130,10 +2044,11 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Deletes a provisioned throughput.
+  Deletes a Provisioned Throughput.
 
-  For more information, see [Provisioned throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html)
-  in the Bedrock User Guide.
+  You can't delete a Provisioned Throughput before the commitment term is over.
+  For more information, see [Provisioned Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html)
+  in the Amazon Bedrock User Guide.
   """
   @spec delete_provisioned_model_throughput(
           map(),
@@ -1172,7 +2087,7 @@ defmodule AWS.Bedrock do
   @doc """
   Get the properties associated with a Amazon Bedrock custom model that you have
   created.For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
-  in the Bedrock User Guide.
+  in the Amazon Bedrock User Guide.
   """
   @spec get_custom_model(map(), String.t(), list()) ::
           {:ok, get_custom_model_response(), any()}
@@ -1180,6 +2095,26 @@ defmodule AWS.Bedrock do
           | {:error, get_custom_model_errors()}
   def get_custom_model(%Client{} = client, model_identifier, options \\ []) do
     url_path = "/custom-models/#{AWS.Util.encode_uri(model_identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the properties associated with a model evaluation job, including the
+  status of the job.
+
+  For more information, see [Model evaluations](https://docs.aws.amazon.com/bedrock/latest/userguide/latest/userguide/model-evaluation.html).
+  """
+  @spec get_evaluation_job(map(), String.t(), list()) ::
+          {:ok, get_evaluation_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_evaluation_job_errors()}
+  def get_evaluation_job(%Client{} = client, job_identifier, options \\ []) do
+    url_path = "/evaluation-jobs/#{AWS.Util.encode_uri(job_identifier)}"
     headers = []
     query_params = []
 
@@ -1206,11 +2141,43 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Gets details about a guardrail.
+
+  If you don't specify a version, the response returns details for the `DRAFT`
+  version.
+  """
+  @spec get_guardrail(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_guardrail_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_guardrail_errors()}
+  def get_guardrail(
+        %Client{} = client,
+        guardrail_identifier,
+        guardrail_version \\ nil,
+        options \\ []
+      ) do
+    url_path = "/guardrails/#{AWS.Util.encode_uri(guardrail_identifier)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(guardrail_version) do
+        [{"guardrailVersion", guardrail_version} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves the properties associated with a model-customization job, including
   the status of the job.
 
   For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
-  in the Bedrock User Guide.
+  in the Amazon Bedrock User Guide.
   """
   @spec get_model_customization_job(map(), String.t(), list()) ::
           {:ok, get_model_customization_job_response(), any()}
@@ -1244,10 +2211,10 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Get details for a provisioned throughput.
+  Returns details for a Provisioned Throughput.
 
-  For more information, see [Provisioned throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html)
-  in the Bedrock User Guide.
+  For more information, see [Provisioned Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html)
+  in the Amazon Bedrock User Guide.
   """
   @spec get_provisioned_model_throughput(map(), String.t(), list()) ::
           {:ok, get_provisioned_model_throughput_response(), any()}
@@ -1268,7 +2235,7 @@ defmodule AWS.Bedrock do
   `CreateModelCustomizationJob` operation.
 
   For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
-  in the Bedrock User Guide.
+  in the Amazon Bedrock User Guide.
   """
   @spec list_custom_models(
           map(),
@@ -1372,10 +2339,106 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  List of Amazon Bedrock foundation models that you can use.
+  Lists model evaluation jobs.
+  """
+  @spec list_evaluation_jobs(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_evaluation_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_evaluation_jobs_errors()}
+  def list_evaluation_jobs(
+        %Client{} = client,
+        creation_time_after \\ nil,
+        creation_time_before \\ nil,
+        max_results \\ nil,
+        name_contains \\ nil,
+        next_token \\ nil,
+        sort_by \\ nil,
+        sort_order \\ nil,
+        status_equals \\ nil,
+        options \\ []
+      ) do
+    url_path = "/evaluation-jobs"
+    headers = []
+    query_params = []
 
-  For more information, see [Foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/foundation-models.html)
-  in the Bedrock User Guide.
+    query_params =
+      if !is_nil(status_equals) do
+        [{"statusEquals", status_equals} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort_order) do
+        [{"sortOrder", sort_order} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort_by) do
+        [{"sortBy", sort_by} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(name_contains) do
+        [{"nameContains", name_contains} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(creation_time_before) do
+        [{"creationTimeBefore", creation_time_before} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(creation_time_after) do
+        [{"creationTimeAfter", creation_time_after} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists Amazon Bedrock foundation models that you can use.
+
+  You can filter the results with the request parameters. For more information,
+  see [Foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/foundation-models.html)
+  in the Amazon Bedrock User Guide.
   """
   @spec list_foundation_models(
           map(),
@@ -1434,13 +2497,66 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Lists details about all the guardrails in an account.
+
+  To list the `DRAFT` version of all your guardrails, don't specify the
+  `guardrailIdentifier` field. To list all versions of a guardrail, specify the
+  ARN of the guardrail in the `guardrailIdentifier` field.
+
+  You can set the maximum number of results to return in a response in the
+  `maxResults` field. If there are more results than the number you set, the
+  response returns a `nextToken` that you can send in another `ListGuardrails`
+  request to see the next batch of results.
+  """
+  @spec list_guardrails(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_guardrails_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_guardrails_errors()}
+  def list_guardrails(
+        %Client{} = client,
+        guardrail_identifier \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/guardrails"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(guardrail_identifier) do
+        [{"guardrailIdentifier", guardrail_identifier} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns a list of model customization jobs that you have submitted.
 
   You can filter the jobs to return based on
   one or more criteria.
 
   For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
-  in the Bedrock User Guide.
+  in the Amazon Bedrock User Guide.
   """
   @spec list_model_customization_jobs(
           map(),
@@ -1535,10 +2651,10 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  List the provisioned capacities.
+  Lists the Provisioned Throughputs in the account.
 
-  For more information, see [Provisioned throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html)
-  in the Bedrock User Guide.
+  For more information, see [Provisioned Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html)
+  in the Amazon Bedrock User Guide.
   """
   @spec list_provisioned_model_throughputs(
           map(),
@@ -1644,8 +2760,8 @@ defmodule AWS.Bedrock do
   @doc """
   List the tags associated with the specified resource.
 
-  For more information, see [Tagging resources](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html)
-  in the Bedrock User Guide.
+  For more information, see [Tagging resources](https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html) in
+  the Amazon Bedrock User Guide.
   """
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1693,10 +2809,37 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Stops an in progress model evaluation job.
+  """
+  @spec stop_evaluation_job(map(), String.t(), stop_evaluation_job_request(), list()) ::
+          {:ok, stop_evaluation_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, stop_evaluation_job_errors()}
+  def stop_evaluation_job(%Client{} = client, job_identifier, input, options \\ []) do
+    url_path = "/evaluation-job/#{AWS.Util.encode_uri(job_identifier)}/stop"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Stops an active model customization job.
 
   For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
-  in the Bedrock User Guide.
+  in the Amazon Bedrock User Guide.
   """
   @spec stop_model_customization_job(
           map(),
@@ -1730,8 +2873,8 @@ defmodule AWS.Bedrock do
   @doc """
   Associate tags with a resource.
 
-  For more information, see [Tagging resources](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html)
-  in the Bedrock User Guide.
+  For more information, see [Tagging resources](https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html) in
+  the Amazon Bedrock User Guide.
   """
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
@@ -1760,8 +2903,8 @@ defmodule AWS.Bedrock do
   @doc """
   Remove one or more tags from a resource.
 
-  For more information, see [Tagging resources](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html)
-  in the Bedrock User Guide.
+  For more information, see [Tagging resources](https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html) in
+  the Amazon Bedrock User Guide.
   """
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
@@ -1788,10 +2931,72 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Update a provisioned throughput.
+  Updates a guardrail with the values you specify.
 
-  For more information, see [Provisioned throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html)
-  in the Bedrock User Guide.
+    *
+  Specify a `name` and optional `description`.
+
+    *
+  Specify messages for when the guardrail successfully blocks a prompt or a model
+  response in the `blockedInputMessaging` and `blockedOutputsMessaging` fields.
+
+    *
+  Specify topics for the guardrail to deny in the `topicPolicyConfig` object. Each
+  [GuardrailTopicConfig](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailTopicConfig.html) object in the `topicsConfig` list pertains to one topic.
+
+      *
+  Give a `name` and `description` so that the guardrail can properly identify the
+  topic.
+
+      *
+  Specify `DENY` in the `type` field.
+
+      *
+  (Optional) Provide up to five prompts that you would categorize as belonging to
+  the topic in the `examples` list.
+
+    *
+  Specify filter strengths for the harmful categories defined in Amazon Bedrock in
+  the `contentPolicyConfig` object. Each
+  [GuardrailContentFilterConfig](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html)
+  object in the `filtersConfig` list pertains to a harmful category. For more
+  information, see [Content filters](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-filters).
+  For more information about the fields in a content filter, see
+  [GuardrailContentFilterConfig](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html). 
+      *
+  Specify the category in the `type` field.
+
+      *
+  Specify the strength of the filter for prompts in the `inputStrength` field and
+  for model responses in the `strength` field of the
+  [GuardrailContentFilterConfig](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html).
+
+    *
+  (Optional) For security, include the ARN of a KMS key in the `kmsKeyId` field.
+
+    *
+  (Optional) Attach any tags to the guardrail in the `tags` object. For more
+  information, see [Tag resources](https://docs.aws.amazon.com/bedrock/latest/userguide/tagging).
+  """
+  @spec update_guardrail(map(), String.t(), update_guardrail_request(), list()) ::
+          {:ok, update_guardrail_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_guardrail_errors()}
+  def update_guardrail(%Client{} = client, guardrail_identifier, input, options \\ []) do
+    url_path = "/guardrails/#{AWS.Util.encode_uri(guardrail_identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+  end
+
+  @doc """
+  Updates the name or associated model for a Provisioned Throughput.
+
+  For more information, see [Provisioned Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html)
+  in the Amazon Bedrock User Guide.
   """
   @spec update_provisioned_model_throughput(
           map(),

@@ -39,6 +39,17 @@ defmodule AWS.EMRcontainers do
 
   ## Example:
 
+      encryption_configuration() :: %{
+        "inTransitEncryptionConfiguration" => in_transit_encryption_configuration()
+      }
+
+  """
+  @type encryption_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_request() :: %{
         required("tags") => map()
       }
@@ -81,6 +92,20 @@ defmodule AWS.EMRcontainers do
 
   """
   @type delete_job_template_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_security_configurations_request() :: %{
+        optional("createdAfter") => non_neg_integer(),
+        optional("createdBefore") => non_neg_integer(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_security_configurations_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -157,6 +182,20 @@ defmodule AWS.EMRcontainers do
 
   """
   @type list_job_runs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_security_configuration_request() :: %{
+        optional("tags") => map(),
+        required("clientToken") => String.t(),
+        required("name") => String.t(),
+        required("securityConfigurationData") => security_configuration_data()
+      }
+
+  """
+  @type create_security_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -256,12 +295,25 @@ defmodule AWS.EMRcontainers do
 
   ## Example:
 
+      secure_namespace_info() :: %{
+        "clusterId" => String.t(),
+        "namespace" => String.t()
+      }
+
+  """
+  @type secure_namespace_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       virtual_cluster() :: %{
         "arn" => String.t(),
         "containerProvider" => container_provider(),
         "createdAt" => non_neg_integer(),
         "id" => String.t(),
         "name" => String.t(),
+        "securityConfigurationId" => String.t(),
         "state" => list(any()),
         "tags" => map()
       }
@@ -469,6 +521,19 @@ defmodule AWS.EMRcontainers do
 
   ## Example:
 
+      create_security_configuration_response() :: %{
+        "arn" => String.t(),
+        "id" => String.t(),
+        "name" => String.t()
+      }
+
+  """
+  @type create_security_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       container_provider() :: %{
         "id" => String.t(),
         "info" => list(),
@@ -590,6 +655,7 @@ defmodule AWS.EMRcontainers do
   ## Example:
 
       create_virtual_cluster_request() :: %{
+        optional("securityConfigurationId") => String.t(),
         optional("tags") => map(),
         required("clientToken") => String.t(),
         required("containerProvider") => container_provider(),
@@ -641,6 +707,30 @@ defmodule AWS.EMRcontainers do
 
   ## Example:
 
+      in_transit_encryption_configuration() :: %{
+        "tlsCertificateConfiguration" => t_l_s_certificate_configuration()
+      }
+
+  """
+  @type in_transit_encryption_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      t_l_s_certificate_configuration() :: %{
+        "certificateProviderType" => list(any()),
+        "privateCertificateSecretArn" => String.t(),
+        "publicCertificateSecretArn" => String.t()
+      }
+
+  """
+  @type t_l_s_certificate_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_job_template_request() :: %{
         optional("kmsKeyArn") => String.t(),
         optional("tags") => map(),
@@ -669,6 +759,34 @@ defmodule AWS.EMRcontainers do
 
   """
   @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      security_configuration() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "securityConfigurationData" => security_configuration_data(),
+        "tags" => map()
+      }
+
+  """
+  @type security_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_security_configuration_response() :: %{
+        "securityConfiguration" => security_configuration()
+      }
+
+  """
+  @type describe_security_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -733,6 +851,17 @@ defmodule AWS.EMRcontainers do
 
   """
   @type list_managed_endpoints_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      security_configuration_data() :: %{
+        "authorizationConfiguration" => authorization_configuration()
+      }
+
+  """
+  @type security_configuration_data() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -808,6 +937,18 @@ defmodule AWS.EMRcontainers do
 
   ## Example:
 
+      list_security_configurations_response() :: %{
+        "nextToken" => String.t(),
+        "securityConfigurations" => list(security_configuration()())
+      }
+
+  """
+  @type list_security_configurations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_virtual_cluster_response() :: %{
         "virtualCluster" => virtual_cluster()
       }
@@ -840,6 +981,15 @@ defmodule AWS.EMRcontainers do
 
   ## Example:
 
+      describe_security_configuration_request() :: %{}
+
+  """
+  @type describe_security_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_job_templates_response() :: %{
         "nextToken" => String.t(),
         "templates" => list(job_template()())
@@ -863,6 +1013,18 @@ defmodule AWS.EMRcontainers do
 
   ## Example:
 
+      authorization_configuration() :: %{
+        "encryptionConfiguration" => encryption_configuration(),
+        "lakeFormationConfiguration" => lake_formation_configuration()
+      }
+
+  """
+  @type authorization_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_virtual_clusters_response() :: %{
         "nextToken" => String.t(),
         "virtualClusters" => list(virtual_cluster()())
@@ -879,6 +1041,19 @@ defmodule AWS.EMRcontainers do
 
   """
   @type delete_virtual_cluster_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      lake_formation_configuration() :: %{
+        "authorizedSessionTagValue" => String.t(),
+        "queryEngineRoleArn" => String.t(),
+        "secureNamespaceInfo" => secure_namespace_info()
+      }
+
+  """
+  @type lake_formation_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -919,6 +1094,9 @@ defmodule AWS.EMRcontainers do
   @type create_managed_endpoint_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
 
+  @type create_security_configuration_errors() ::
+          validation_exception() | internal_server_exception()
+
   @type create_virtual_cluster_errors() ::
           validation_exception()
           | internal_server_exception()
@@ -940,6 +1118,9 @@ defmodule AWS.EMRcontainers do
   @type describe_managed_endpoint_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
 
+  @type describe_security_configuration_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
   @type describe_virtual_cluster_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
 
@@ -954,6 +1135,9 @@ defmodule AWS.EMRcontainers do
   @type list_job_templates_errors() :: validation_exception() | internal_server_exception()
 
   @type list_managed_endpoints_errors() :: validation_exception() | internal_server_exception()
+
+  @type list_security_configurations_errors() ::
+          validation_exception() | internal_server_exception()
 
   @type list_tags_for_resource_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
@@ -1063,6 +1247,40 @@ defmodule AWS.EMRcontainers do
           | {:error, create_managed_endpoint_errors()}
   def create_managed_endpoint(%Client{} = client, virtual_cluster_id, input, options \\ []) do
     url_path = "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_id)}/endpoints"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a security configuration.
+
+  Security configurations in Amazon EMR on EKS are
+  templates for different security setups. You can use security configurations to
+  configure
+  the Lake Formation integration setup. You can also create a security
+  configuration
+  to re-use a security setup each time you create a virtual cluster.
+  """
+  @spec create_security_configuration(map(), create_security_configuration_request(), list()) ::
+          {:ok, create_security_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_security_configuration_errors()}
+  def create_security_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/securityconfigurations"
     headers = []
     query_params = []
 
@@ -1286,6 +1504,32 @@ defmodule AWS.EMRcontainers do
     url_path =
       "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_id)}/endpoints/#{AWS.Util.encode_uri(id)}"
 
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Displays detailed information about a specified security configuration.
+
+  Security
+  configurations in Amazon EMR on EKS are templates for different security setups.
+  You
+  can use security configurations to configure the Lake Formation integration
+  setup.
+  You can also create a security configuration to re-use a security setup each
+  time you
+  create a virtual cluster.
+  """
+  @spec describe_security_configuration(map(), String.t(), list()) ::
+          {:ok, describe_security_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_security_configuration_errors()}
+  def describe_security_configuration(%Client{} = client, id, options \\ []) do
+    url_path = "/securityconfigurations/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -1560,6 +1804,73 @@ defmodule AWS.EMRcontainers do
       else
         query_params
       end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(created_before) do
+        [{"createdBefore", created_before} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(created_after) do
+        [{"createdAfter", created_after} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists security configurations based on a set of parameters.
+
+  Security configurations in
+  Amazon EMR on EKS are templates for different security setups. You can use
+  security
+  configurations to configure the Lake Formation integration setup. You can also
+  create a security configuration to re-use a security setup each time you create
+  a virtual
+  cluster.
+  """
+  @spec list_security_configurations(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_security_configurations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_security_configurations_errors()}
+  def list_security_configurations(
+        %Client{} = client,
+        created_after \\ nil,
+        created_before \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/securityconfigurations"
+    headers = []
+    query_params = []
 
     query_params =
       if !is_nil(next_token) do

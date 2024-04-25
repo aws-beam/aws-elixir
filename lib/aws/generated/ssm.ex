@@ -71,6 +71,17 @@ defmodule AWS.SSM do
 
   ## Example:
       
+      invalid_instance_property_filter_value() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type invalid_instance_property_filter_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_maintenance_window_execution_task_invocation_request() :: %{
         required("InvocationId") => String.t(),
         required("TaskId") => String.t(),
@@ -606,6 +617,18 @@ defmodule AWS.SSM do
       
   """
   @type put_parameter_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_property_filter() :: %{
+        "key" => list(any()),
+        "valueSet" => list(String.t()())
+      }
+      
+  """
+  @type instance_property_filter() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3889,6 +3912,18 @@ defmodule AWS.SSM do
 
   ## Example:
       
+      describe_instance_properties_result() :: %{
+        "InstanceProperties" => list(instance_property()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type describe_instance_properties_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       parameters_filter() :: %{
         "Key" => list(any()),
         "Values" => list(String.t()())
@@ -4566,6 +4601,20 @@ defmodule AWS.SSM do
 
   ## Example:
       
+      describe_instance_properties_request() :: %{
+        optional("FiltersWithOperator") => list(instance_property_string_filter()()),
+        optional("InstancePropertyFilterList") => list(instance_property_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type describe_instance_properties_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_effective_instance_associations_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -4960,6 +5009,19 @@ defmodule AWS.SSM do
 
   ## Example:
       
+      instance_property_string_filter() :: %{
+        "Key" => String.t(),
+        "Operator" => list(any()),
+        "Values" => list(String.t()())
+      }
+      
+  """
+  @type instance_property_string_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       invalid_inventory_group_exception() :: %{
         "Message" => String.t()
       }
@@ -5202,6 +5264,42 @@ defmodule AWS.SSM do
       
   """
   @type invalid_output_location() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_property() :: %{
+        "ActivationId" => String.t(),
+        "AgentVersion" => String.t(),
+        "Architecture" => String.t(),
+        "AssociationOverview" => instance_aggregated_association_overview(),
+        "AssociationStatus" => String.t(),
+        "ComputerName" => String.t(),
+        "IPAddress" => String.t(),
+        "IamRole" => String.t(),
+        "InstanceId" => String.t(),
+        "InstanceRole" => String.t(),
+        "InstanceState" => String.t(),
+        "InstanceType" => String.t(),
+        "KeyName" => String.t(),
+        "LastAssociationExecutionDate" => non_neg_integer(),
+        "LastPingDateTime" => non_neg_integer(),
+        "LastSuccessfulAssociationExecutionDate" => non_neg_integer(),
+        "LaunchTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "PingStatus" => list(any()),
+        "PlatformName" => String.t(),
+        "PlatformType" => list(any()),
+        "PlatformVersion" => String.t(),
+        "RegistrationDate" => non_neg_integer(),
+        "ResourceType" => String.t(),
+        "SourceId" => String.t(),
+        "SourceType" => list(any())
+      }
+      
+  """
+  @type instance_property() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -7903,6 +8001,15 @@ defmodule AWS.SSM do
           | invalid_instance_id()
           | internal_server_error()
 
+  @type describe_instance_properties_errors() ::
+          invalid_next_token()
+          | invalid_filter_key()
+          | invalid_instance_id()
+          | internal_server_error()
+          | invalid_activation_id()
+          | invalid_document()
+          | invalid_instance_property_filter_value()
+
   @type describe_inventory_deletions_errors() ::
           invalid_next_token() | internal_server_error() | invalid_deletion_id_exception()
 
@@ -9336,6 +9443,20 @@ defmodule AWS.SSM do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeInstancePatches", input, options)
+  end
+
+  @doc """
+  An API operation used by the Systems Manager console to display information
+  about Systems Manager managed nodes.
+  """
+  @spec describe_instance_properties(map(), describe_instance_properties_request(), list()) ::
+          {:ok, describe_instance_properties_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_instance_properties_errors()}
+  def describe_instance_properties(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeInstanceProperties", input, options)
   end
 
   @doc """

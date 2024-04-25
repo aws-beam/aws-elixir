@@ -6979,6 +6979,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       modify_network_interface_attribute_request() :: %{
+        optional("AssociatePublicIpAddress") => boolean(),
         optional("Attachment") => network_interface_attachment_changes(),
         optional("ConnectionTrackingSpecification") => connection_tracking_specification_request(),
         optional("Description") => attribute_value(),
@@ -9992,6 +9993,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_network_interface_attribute_result() :: %{
+        "AssociatePublicIpAddress" => boolean(),
         "Attachment" => network_interface_attachment(),
         "Description" => attribute_value(),
         "Groups" => list(group_identifier()()),

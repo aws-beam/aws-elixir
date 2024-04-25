@@ -137,6 +137,17 @@ defmodule AWS.EntityResolution do
 
   ## Example:
 
+      deleted_unique_id() :: %{
+        "uniqueId" => String.t()
+      }
+
+  """
+  @type deleted_unique_id() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_id_mapping_workflow_output() :: %{
         "message" => [String.t()]
       }
@@ -527,6 +538,20 @@ defmodule AWS.EntityResolution do
 
   ## Example:
 
+      batch_delete_unique_id_output() :: %{
+        "deleted" => list(deleted_unique_id()()),
+        "disconnectedUniqueIds" => list(String.t()()),
+        "errors" => list(delete_unique_id_error()()),
+        "status" => list(any())
+      }
+
+  """
+  @type batch_delete_unique_id_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_schema_mapping_input() :: %{}
 
   """
@@ -557,6 +582,18 @@ defmodule AWS.EntityResolution do
 
   """
   @type provider_id_name_space_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_unique_id_input() :: %{
+        optional("inputSource") => [String.t()],
+        required("uniqueIds") => list(String.t()())
+      }
+
+  """
+  @type batch_delete_unique_id_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -996,6 +1033,18 @@ defmodule AWS.EntityResolution do
 
   """
   @type provider_intermediate_data_access_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_unique_id_error() :: %{
+        "errorType" => list(any()),
+        "uniqueId" => String.t()
+      }
+
+  """
+  @type delete_unique_id_error() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1463,6 +1512,9 @@ defmodule AWS.EntityResolution do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type batch_delete_unique_id_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
   @type create_id_mapping_workflow_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1736,6 +1788,40 @@ defmodule AWS.EntityResolution do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes multiple unique IDs in a matching workflow.
+  """
+  @spec batch_delete_unique_id(map(), String.t(), batch_delete_unique_id_input(), list()) ::
+          {:ok, batch_delete_unique_id_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_delete_unique_id_errors()}
+  def batch_delete_unique_id(%Client{} = client, workflow_name, input, options \\ []) do
+    url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}/uniqueids"
+
+    {headers, input} =
+      [
+        {"inputSource", "inputSource"},
+        {"uniqueIds", "uniqueIds"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
       url_path,
       query_params,
       headers,

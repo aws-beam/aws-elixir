@@ -116,6 +116,19 @@ defmodule AWS.DataSync do
 
   ## Example:
       
+      task_schedule_details() :: %{
+        "DisabledBy" => list(any()),
+        "DisabledReason" => String.t(),
+        "StatusUpdateTime" => non_neg_integer()
+      }
+      
+  """
+  @type task_schedule_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       tag_resource_request() :: %{
         required("ResourceArn") => String.t(),
         required("Tags") => list(tag_list_entry()())
@@ -465,7 +478,8 @@ defmodule AWS.DataSync do
   ## Example:
       
       task_schedule() :: %{
-        "ScheduleExpression" => String.t()
+        "ScheduleExpression" => String.t(),
+        "Status" => list(any())
       }
       
   """
@@ -1124,6 +1138,7 @@ defmodule AWS.DataSync do
         "Name" => String.t(),
         "Options" => options(),
         "Schedule" => task_schedule(),
+        "ScheduleDetails" => task_schedule_details(),
         "SourceLocationArn" => String.t(),
         "SourceNetworkInterfaceArns" => list(String.t()()),
         "Status" => list(any()),
@@ -2765,14 +2780,11 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Configures a transfer task, which defines where and how DataSync moves your
+  Configures a *task*, which defines where and how DataSync transfers your
   data.
 
-  A task includes a source location, destination location, and the options for how
-  and
-  when you want to transfer your data (such as bandwidth limits, scheduling, among
-  other
-  options).
+  A task includes a source location, destination location, and transfer options
+  (such as bandwidth limits, scheduling, and more).
 
   If you're planning to transfer data to or from an Amazon S3 location, review
   [how DataSync can affect your S3 request
@@ -3080,7 +3092,8 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Provides information about an DataSync transfer task.
+  Provides information about a *task*, which defines where and how DataSync
+  transfers your data.
   """
   @spec describe_task(map(), describe_task_request(), list()) ::
           {:ok, describe_task_response(), any()}
@@ -3483,7 +3496,8 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Updates the configuration of an DataSync transfer task.
+  Updates the configuration of a *task*, which defines where and how DataSync
+  transfers your data.
   """
   @spec update_task(map(), update_task_request(), list()) ::
           {:ok, update_task_response(), any()}

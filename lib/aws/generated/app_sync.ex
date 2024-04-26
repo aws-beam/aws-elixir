@@ -1963,7 +1963,6 @@ defmodule AWS.AppSync do
 
       update_graphql_api_request() :: %{
         optional("additionalAuthenticationProviders") => list(additional_authentication_provider()()),
-        optional("authenticationType") => list(any()),
         optional("enhancedMetricsConfig") => enhanced_metrics_config(),
         optional("introspectionConfig") => list(any()),
         optional("lambdaAuthorizerConfig") => lambda_authorizer_config(),
@@ -1975,6 +1974,7 @@ defmodule AWS.AppSync do
         optional("resolverCountLimit") => integer(),
         optional("userPoolConfig") => user_pool_config(),
         optional("xrayEnabled") => boolean(),
+        required("authenticationType") => list(any()),
         required("name") => String.t()
       }
 

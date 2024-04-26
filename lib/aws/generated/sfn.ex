@@ -1356,6 +1356,18 @@ defmodule AWS.SFN do
 
   ## Example:
       
+      validate_state_machine_definition_output() :: %{
+        "diagnostics" => list(validate_state_machine_definition_diagnostic()()),
+        "result" => list(any())
+      }
+      
+  """
+  @type validate_state_machine_definition_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_state_machine_input() :: %{
         optional("definition") => String.t(),
         optional("loggingConfiguration") => logging_configuration(),
@@ -1628,6 +1640,18 @@ defmodule AWS.SFN do
 
   ## Example:
       
+      validate_state_machine_definition_input() :: %{
+        optional("type") => list(any()),
+        required("definition") => String.t()
+      }
+      
+  """
+  @type validate_state_machine_definition_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       send_task_success_input() :: %{
         required("output") => String.t(),
         required("taskToken") => String.t()
@@ -1846,6 +1870,20 @@ defmodule AWS.SFN do
       
   """
   @type delete_state_machine_version_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validate_state_machine_definition_diagnostic() :: %{
+        "code" => String.t(),
+        "location" => String.t(),
+        "message" => String.t(),
+        "severity" => list(any())
+      }
+      
+  """
+  @type validate_state_machine_definition_diagnostic() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2127,6 +2165,7 @@ defmodule AWS.SFN do
 
   @type redrive_execution_errors() ::
           invalid_arn()
+          | validation_exception()
           | execution_limit_exceeded()
           | execution_not_redrivable()
           | execution_does_not_exist()
@@ -2189,6 +2228,8 @@ defmodule AWS.SFN do
           | validation_exception()
           | conflict_exception()
           | resource_not_found()
+
+  @type validate_state_machine_definition_errors() :: validation_exception()
 
   def metadata do
     %{
@@ -3402,5 +3443,45 @@ defmodule AWS.SFN do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateStateMachineAlias", input, options)
+  end
+
+  @doc """
+  Validates the syntax of a state machine definition.
+
+  You can validate that a state machine definition is correct without
+  creating a state machine resource. Step Functions will implicitly perform the
+  same
+  syntax check when you invoke `CreateStateMachine` and
+  `UpdateStateMachine`. State machine definitions are specified using a
+  JSON-based, structured language. For more information on Amazon States Language
+  see [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html)
+  (ASL).
+
+  Suggested uses for `ValidateStateMachineDefinition`:
+
+    *
+  Integrate automated checks into your code review or Continuous Integration
+  (CI) process to validate state machine definitions before starting
+  deployments.
+
+    *
+  Run the validation from a Git pre-commit hook to check your state machine
+  definitions before committing them to your source repository.
+
+  Errors found in the state machine definition will be returned in the response as
+  a list of **diagnostic elements**, rather than raise an exception.
+  """
+  @spec validate_state_machine_definition(
+          map(),
+          validate_state_machine_definition_input(),
+          list()
+        ) ::
+          {:ok, validate_state_machine_definition_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, validate_state_machine_definition_errors()}
+  def validate_state_machine_definition(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ValidateStateMachineDefinition", input, options)
   end
 end

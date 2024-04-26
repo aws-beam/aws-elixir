@@ -1481,6 +1481,7 @@ defmodule AWS.IVSRealTime do
           | access_denied_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | conflict_exception()
 
   def metadata do
     %{

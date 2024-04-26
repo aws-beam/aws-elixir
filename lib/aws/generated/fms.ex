@@ -59,6 +59,23 @@ defmodule AWS.FMS do
 
   ## Example:
       
+      network_acl_entry() :: %{
+        "CidrBlock" => String.t(),
+        "Egress" => boolean(),
+        "IcmpTypeCode" => network_acl_icmp_type_code(),
+        "Ipv6CidrBlock" => String.t(),
+        "PortRange" => network_acl_port_range(),
+        "Protocol" => String.t(),
+        "RuleAction" => list(any())
+      }
+      
+  """
+  @type network_acl_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_protection_status_response() :: %{
         "AdminAccountId" => String.t(),
         "Data" => String.t(),
@@ -68,6 +85,20 @@ defmodule AWS.FMS do
       
   """
   @type get_protection_status_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      network_acl_entry_set() :: %{
+        "FirstEntries" => list(network_acl_entry()()),
+        "ForceRemediateForFirstEntries" => boolean(),
+        "ForceRemediateForLastEntries" => boolean(),
+        "LastEntries" => list(network_acl_entry()())
+      }
+      
+  """
+  @type network_acl_entry_set() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -254,6 +285,21 @@ defmodule AWS.FMS do
       
   """
   @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_network_acl_entries_violation() :: %{
+        "CurrentAssociatedNetworkAcl" => String.t(),
+        "EntryViolations" => list(entry_violation()()),
+        "Subnet" => String.t(),
+        "SubnetAvailabilityZone" => String.t(),
+        "Vpc" => String.t()
+      }
+      
+  """
+  @type invalid_network_acl_entries_violation() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -476,6 +522,18 @@ defmodule AWS.FMS do
       
   """
   @type ec2_create_route_action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      network_acl_icmp_type_code() :: %{
+        "Code" => integer(),
+        "Type" => integer()
+      }
+      
+  """
+  @type network_acl_icmp_type_code() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -732,6 +790,20 @@ defmodule AWS.FMS do
 
   ## Example:
       
+      delete_network_acl_entries_action() :: %{
+        "Description" => String.t(),
+        "FMSCanRemediate" => boolean(),
+        "NetworkAclEntriesToBeDeleted" => list(entry_description()()),
+        "NetworkAclId" => action_target()
+      }
+      
+  """
+  @type delete_network_acl_entries_action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       associate_third_party_firewall_request() :: %{
         required("ThirdPartyFirewall") => list(any())
       }
@@ -744,6 +816,9 @@ defmodule AWS.FMS do
   ## Example:
       
       remediation_action() :: %{
+        "CreateNetworkAclAction" => create_network_acl_action(),
+        "CreateNetworkAclEntriesAction" => create_network_acl_entries_action(),
+        "DeleteNetworkAclEntriesAction" => delete_network_acl_entries_action(),
         "Description" => String.t(),
         "EC2AssociateRouteTableAction" => ec2_associate_route_table_action(),
         "EC2CopyRouteTableAction" => ec2_copy_route_table_action(),
@@ -752,7 +827,8 @@ defmodule AWS.FMS do
         "EC2DeleteRouteAction" => ec2_delete_route_action(),
         "EC2ReplaceRouteAction" => ec2_replace_route_action(),
         "EC2ReplaceRouteTableAssociationAction" => ec2_replace_route_table_association_action(),
-        "FMSPolicyUpdateFirewallCreationConfigAction" => f_m_s_policy_update_firewall_creation_config_action()
+        "FMSPolicyUpdateFirewallCreationConfigAction" => f_m_s_policy_update_firewall_creation_config_action(),
+        "ReplaceNetworkAclAssociationAction" => replace_network_acl_association_action()
       }
       
   """
@@ -834,6 +910,20 @@ defmodule AWS.FMS do
 
   ## Example:
       
+      replace_network_acl_association_action() :: %{
+        "AssociationId" => action_target(),
+        "Description" => String.t(),
+        "FMSCanRemediate" => boolean(),
+        "NetworkAclId" => action_target()
+      }
+      
+  """
+  @type replace_network_acl_association_action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       apps_list_data_summary() :: %{
         "AppsList" => list(app()()),
         "ListArn" => String.t(),
@@ -868,6 +958,7 @@ defmodule AWS.FMS do
         "DnsRuleGroupPriorityConflictViolation" => dns_rule_group_priority_conflict_violation(),
         "FirewallSubnetIsOutOfScopeViolation" => firewall_subnet_is_out_of_scope_violation(),
         "FirewallSubnetMissingVPCEndpointViolation" => firewall_subnet_missing_vpcendpoint_violation(),
+        "InvalidNetworkAclEntriesViolation" => invalid_network_acl_entries_violation(),
         "NetworkFirewallBlackHoleRouteDetectedViolation" => network_firewall_black_hole_route_detected_violation(),
         "NetworkFirewallInternetTrafficNotInspectedViolation" => network_firewall_internet_traffic_not_inspected_violation(),
         "NetworkFirewallInvalidRouteConfigurationViolation" => network_firewall_invalid_route_configuration_violation(),
@@ -925,6 +1016,19 @@ defmodule AWS.FMS do
       
   """
   @type remediation_action_with_order() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      entry_description() :: %{
+        "EntryDetail" => network_acl_entry(),
+        "EntryRuleNumber" => integer(),
+        "EntryType" => list(any())
+      }
+      
+  """
+  @type entry_description() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1013,6 +1117,22 @@ defmodule AWS.FMS do
       
   """
   @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      entry_violation() :: %{
+        "ActualEvaluationOrder" => String.t(),
+        "EntriesWithConflicts" => list(entry_description()()),
+        "EntryAtExpectedEvaluationOrder" => entry_description(),
+        "EntryViolationReasons" => list(list(any())()),
+        "ExpectedEntry" => entry_description(),
+        "ExpectedEvaluationOrder" => String.t()
+      }
+      
+  """
+  @type entry_violation() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1157,6 +1277,20 @@ defmodule AWS.FMS do
 
   ## Example:
       
+      create_network_acl_entries_action() :: %{
+        "Description" => String.t(),
+        "FMSCanRemediate" => boolean(),
+        "NetworkAclEntriesToBeCreated" => list(entry_description()()),
+        "NetworkAclId" => action_target()
+      }
+      
+  """
+  @type create_network_acl_entries_action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_compliance_status_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -1225,6 +1359,19 @@ defmodule AWS.FMS do
       
   """
   @type action_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_network_acl_action() :: %{
+        "Description" => String.t(),
+        "FMSCanRemediate" => boolean(),
+        "Vpc" => action_target()
+      }
+      
+  """
+  @type create_network_acl_action() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1387,6 +1534,7 @@ defmodule AWS.FMS do
   ## Example:
       
       policy_option() :: %{
+        "NetworkAclCommonPolicy" => network_acl_common_policy(),
         "NetworkFirewallPolicy" => network_firewall_policy(),
         "ThirdPartyFirewallPolicy" => third_party_firewall_policy()
       }
@@ -1516,6 +1664,18 @@ defmodule AWS.FMS do
       
   """
   @type put_resource_set_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      network_acl_port_range() :: %{
+        "From" => integer(),
+        "To" => integer()
+      }
+      
+  """
+  @type network_acl_port_range() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1801,6 +1961,17 @@ defmodule AWS.FMS do
       
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      network_acl_common_policy() :: %{
+        "NetworkAclEntrySet" => network_acl_entry_set()
+      }
+      
+  """
+  @type network_acl_common_policy() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2517,7 +2688,7 @@ defmodule AWS.FMS do
   @doc """
   Returns information about the specified account's administrative scope.
 
-  The admistrative scope defines the resources that an Firewall Manager
+  The administrative scope defines the resources that an Firewall Manager
   administrator can manage.
   """
   @spec get_admin_scope(map(), get_admin_scope_request(), list()) ::
@@ -2549,31 +2720,8 @@ defmodule AWS.FMS do
   Details
   include resources that are in and out of compliance with the specified policy.
 
-    *
-  Resources are
-  considered noncompliant for WAF and Shield Advanced policies if the specified
-  policy has
-  not been applied to them.
-
-    *
-  Resources are considered noncompliant for security group policies if
-  they are in scope of the policy, they violate one or more of the policy rules,
-  and remediation
-  is disabled or not possible.
-
-    *
-  Resources are considered noncompliant for Network Firewall policies
-  if a firewall is missing in the VPC, if the firewall endpoint isn't set up in an
-  expected Availability Zone and subnet,
-  if a subnet created by the Firewall Manager doesn't have the expected route
-  table,
-  and for modifications to a firewall policy that violate the Firewall Manager
-  policy's rules.
-
-    *
-  Resources are considered noncompliant for DNS Firewall policies
-  if a DNS Firewall rule group is missing from the rule group associations for the
-  VPC.
+  The reasons for resources being considered compliant depend on the Firewall
+  Manager policy type.
   """
   @spec get_compliance_detail(map(), get_compliance_detail_request(), list()) ::
           {:ok, get_compliance_detail_response(), any()}
@@ -2948,6 +3096,11 @@ defmodule AWS.FMS do
 
     *
 
+  **WAF policy** - This policy applies WAF web ACL
+  protections to specified accounts and resources.
+
+    *
+
   **Shield Advanced policy** - This policy applies Shield Advanced
   protection to specified accounts and resources.
 
@@ -2957,6 +3110,13 @@ defmodule AWS.FMS do
   control over security groups that are in use throughout your organization in
   Organizations and lets you enforce a baseline set of rules across your
   organization.
+
+    *
+
+  **Network ACL policy** - This type of policy gives you
+  control over the network ACLs that are in use throughout your organization in
+  Organizations and lets you enforce a baseline set of first and last network ACL
+  rules across your organization.
 
     *
 

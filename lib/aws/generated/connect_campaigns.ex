@@ -14,6 +14,7 @@ defmodule AWS.ConnectCampaigns do
   ## Example:
 
       answer_machine_detection_config() :: %{
+        "awaitAnswerMachinePrompt" => [boolean()],
         "enableAnswerMachineDetection" => [boolean()]
       }
 

@@ -230,6 +230,17 @@ defmodule AWS.CodePipeline do
 
   ## Example:
       
+      unable_to_rollback_stage_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type unable_to_rollback_stage_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       invalid_blocker_declaration_exception() :: %{
         "message" => String.t()
       }
@@ -578,11 +589,14 @@ defmodule AWS.CodePipeline do
       
       pipeline_execution_summary() :: %{
         "executionMode" => list(any()),
+        "executionType" => list(any()),
         "lastUpdateTime" => non_neg_integer(),
         "pipelineExecutionId" => String.t(),
+        "rollbackMetadata" => pipeline_rollback_metadata(),
         "sourceRevisions" => list(source_revision()()),
         "startTime" => non_neg_integer(),
         "status" => list(any()),
+        "statusSummary" => String.t(),
         "stopTrigger" => stop_execution_trigger(),
         "trigger" => execution_trigger()
       }
@@ -631,9 +645,11 @@ defmodule AWS.CodePipeline do
       pipeline_execution() :: %{
         "artifactRevisions" => list(artifact_revision()()),
         "executionMode" => list(any()),
+        "executionType" => list(any()),
         "pipelineExecutionId" => String.t(),
         "pipelineName" => String.t(),
         "pipelineVersion" => integer(),
+        "rollbackMetadata" => pipeline_rollback_metadata(),
         "status" => list(any()),
         "statusSummary" => String.t(),
         "trigger" => execution_trigger(),
@@ -702,6 +718,17 @@ defmodule AWS.CodePipeline do
       
   """
   @type get_pipeline_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      failure_conditions() :: %{
+        "result" => list(any())
+      }
+      
+  """
+  @type failure_conditions() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -849,6 +876,17 @@ defmodule AWS.CodePipeline do
 
   ## Example:
       
+      pipeline_rollback_metadata() :: %{
+        "rollbackTargetPipelineExecutionId" => String.t()
+      }
+      
+  """
+  @type pipeline_rollback_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       invalid_arn_exception() :: %{
         "message" => String.t()
       }
@@ -866,6 +904,17 @@ defmodule AWS.CodePipeline do
       
   """
   @type update_pipeline_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      pipeline_execution_filter() :: %{
+        "succeededInStage" => succeeded_in_stage_filter()
+      }
+      
+  """
+  @type pipeline_execution_filter() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1185,6 +1234,17 @@ defmodule AWS.CodePipeline do
       
   """
   @type action_type_artifact_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rollback_stage_output() :: %{
+        "pipelineExecutionId" => String.t()
+      }
+      
+  """
+  @type rollback_stage_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1633,6 +1693,17 @@ defmodule AWS.CodePipeline do
 
   ## Example:
       
+      succeeded_in_stage_filter() :: %{
+        "stageName" => String.t()
+      }
+      
+  """
+  @type succeeded_in_stage_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       pipeline_metadata() :: %{
         "created" => non_neg_integer(),
         "pipelineArn" => String.t(),
@@ -1854,6 +1925,17 @@ defmodule AWS.CodePipeline do
 
   ## Example:
       
+      pipeline_execution_outdated_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type pipeline_execution_outdated_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       poll_for_third_party_jobs_output() :: %{
         "jobs" => list(third_party_job()())
       }
@@ -1924,6 +2006,19 @@ defmodule AWS.CodePipeline do
       
   """
   @type pipeline_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rollback_stage_input() :: %{
+        required("pipelineName") => String.t(),
+        required("stageName") => String.t(),
+        required("targetPipelineExecutionId") => String.t()
+      }
+      
+  """
+  @type rollback_stage_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2045,7 +2140,8 @@ defmodule AWS.CodePipeline do
       stage_declaration() :: %{
         "actions" => list(action_declaration()()),
         "blockers" => list(blocker_declaration()()),
-        "name" => String.t()
+        "name" => String.t(),
+        "onFailure" => failure_conditions()
       }
       
   """
@@ -2086,7 +2182,8 @@ defmodule AWS.CodePipeline do
       
       stage_execution() :: %{
         "pipelineExecutionId" => String.t(),
-        "status" => list(any())
+        "status" => list(any()),
+        "type" => list(any())
       }
       
   """
@@ -2516,6 +2613,7 @@ defmodule AWS.CodePipeline do
   ## Example:
       
       list_pipeline_executions_input() :: %{
+        optional("filter") => pipeline_execution_filter(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("pipelineName") => String.t()
@@ -2696,6 +2794,15 @@ defmodule AWS.CodePipeline do
           | conflict_exception()
           | not_latest_pipeline_execution_exception()
           | stage_not_found_exception()
+
+  @type rollback_stage_errors() ::
+          pipeline_not_found_exception()
+          | pipeline_execution_outdated_exception()
+          | validation_exception()
+          | pipeline_execution_not_found_exception()
+          | conflict_exception()
+          | stage_not_found_exception()
+          | unable_to_rollback_stage_exception()
 
   @type start_pipeline_execution_errors() ::
           pipeline_not_found_exception()
@@ -3335,6 +3442,19 @@ defmodule AWS.CodePipeline do
     meta = metadata()
 
     Request.request_post(client, meta, "RetryStageExecution", input, options)
+  end
+
+  @doc """
+  Rolls back a stage execution.
+  """
+  @spec rollback_stage(map(), rollback_stage_input(), list()) ::
+          {:ok, rollback_stage_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, rollback_stage_errors()}
+  def rollback_stage(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "RollbackStage", input, options)
   end
 
   @doc """

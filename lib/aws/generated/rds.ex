@@ -3927,6 +3927,7 @@ defmodule AWS.RDS do
         "Image" => custom_db_engine_version_a_m_i(),
         "DefaultCharacterSet" => character_set(),
         "CreateTime" => non_neg_integer(),
+        "SupportsLimitlessDatabase" => boolean(),
         "SupportsIntegrations" => boolean(),
         "SupportedEngineModes" => list(String.t()()),
         "ExportableLogTypes" => list(String.t()()),
@@ -6497,6 +6498,7 @@ defmodule AWS.RDS do
         "SupportsBabelfish" => boolean(),
         "SupportsGlobalDatabases" => boolean(),
         "SupportsIntegrations" => boolean(),
+        "SupportsLimitlessDatabase" => boolean(),
         "SupportsLocalWriteForwarding" => boolean(),
         "SupportsParallelQuery" => boolean()
       }

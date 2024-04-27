@@ -53,6 +53,7 @@ defmodule AWS.OAM do
         "Id" => [String.t()],
         "Label" => [String.t()],
         "LabelTemplate" => [String.t()],
+        "LinkConfiguration" => link_configuration(),
         "ResourceTypes" => list([String.t()]()),
         "SinkArn" => [String.t()],
         "Tags" => map()
@@ -71,6 +72,28 @@ defmodule AWS.OAM do
 
   """
   @type delete_link_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_configuration() :: %{
+        "Filter" => String.t()
+      }
+
+  """
+  @type metric_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      log_group_configuration() :: %{
+        "Filter" => String.t()
+      }
+
+  """
+  @type log_group_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -194,6 +217,7 @@ defmodule AWS.OAM do
   ## Example:
 
       create_link_input() :: %{
+        optional("LinkConfiguration") => link_configuration(),
         optional("Tags") => map(),
         required("LabelTemplate") => String.t(),
         required("ResourceTypes") => list(list(any())()),
@@ -269,6 +293,7 @@ defmodule AWS.OAM do
   ## Example:
 
       update_link_input() :: %{
+        optional("LinkConfiguration") => link_configuration(),
         required("Identifier") => String.t(),
         required("ResourceTypes") => list(list(any())())
       }
@@ -321,6 +346,7 @@ defmodule AWS.OAM do
         "Id" => [String.t()],
         "Label" => [String.t()],
         "LabelTemplate" => [String.t()],
+        "LinkConfiguration" => link_configuration(),
         "ResourceTypes" => list([String.t()]()),
         "SinkArn" => [String.t()],
         "Tags" => map()
@@ -328,6 +354,18 @@ defmodule AWS.OAM do
 
   """
   @type create_link_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      link_configuration() :: %{
+        "LogGroupConfiguration" => log_group_configuration(),
+        "MetricConfiguration" => metric_configuration()
+      }
+
+  """
+  @type link_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -497,6 +535,7 @@ defmodule AWS.OAM do
         "Id" => [String.t()],
         "Label" => [String.t()],
         "LabelTemplate" => String.t(),
+        "LinkConfiguration" => link_configuration(),
         "ResourceTypes" => list([String.t()]()),
         "SinkArn" => [String.t()],
         "Tags" => map()
@@ -627,6 +666,12 @@ defmodule AWS.OAM do
   Creates a link between a source account and a sink that you have created in a
   monitoring account.
 
+  After the link is created,
+  data is sent from the source account to the monitoring account. When you create
+  a link, you can optionally specify filters
+  that specify which metric namespaces and which log groups are shared from the
+  source account to the monitoring account.
+
   Before you create a link, you must create a sink in the monitoring account and
   create a
   sink policy in that account. The sink policy must permit the source account to
@@ -681,8 +726,8 @@ defmodule AWS.OAM do
   For more information, see
   [PutSinkPolicy](https://docs.aws.amazon.com/OAM/latest/APIReference/API_PutSinkPolicy.html).
 
-  Each account can contain one sink. If you delete a sink, you can then create a
-  new one in that account.
+  Each account can contain one sink per Region. If you delete a sink, you can then
+  create a new one in that Region.
   """
   @spec create_sink(map(), create_sink_input(), list()) ::
           {:ok, create_sink_output(), any()}
@@ -1115,6 +1160,10 @@ defmodule AWS.OAM do
   monitoring account sink.
 
   You can't change the sink or change the monitoring account with this operation.
+
+  When you update a link, you can optionally specify filters
+  that specify which metric namespaces and which log groups are shared from the
+  source account to the monitoring account.
 
   To update the list of tags associated with the sink, use
   [TagResource](https://docs.aws.amazon.com/OAM/latest/APIReference/API_TagResource.html).

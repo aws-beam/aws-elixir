@@ -58,6 +58,7 @@ defmodule AWS.Transcribe do
   ## Example:
       
       call_analytics_job_summary() :: %{
+        "CallAnalyticsJobDetails" => call_analytics_job_details(),
         "CallAnalyticsJobName" => String.t(),
         "CallAnalyticsJobStatus" => list(any()),
         "CompletionTime" => non_neg_integer(),
@@ -451,6 +452,7 @@ defmodule AWS.Transcribe do
   ## Example:
       
       call_analytics_job() :: %{
+        "CallAnalyticsJobDetails" => call_analytics_job_details(),
         "CallAnalyticsJobName" => String.t(),
         "CallAnalyticsJobStatus" => list(any()),
         "ChannelDefinitions" => list(channel_definition()()),
@@ -519,6 +521,17 @@ defmodule AWS.Transcribe do
       
   """
   @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      call_analytics_job_details() :: %{
+        "Skipped" => list(call_analytics_skipped_feature()())
+      }
+      
+  """
+  @type call_analytics_job_details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -882,6 +895,19 @@ defmodule AWS.Transcribe do
       
   """
   @type not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      call_analytics_skipped_feature() :: %{
+        "Feature" => list(any()),
+        "Message" => String.t(),
+        "ReasonCode" => list(any())
+      }
+      
+  """
+  @type call_analytics_skipped_feature() :: %{String.t() => any()}
 
   @typedoc """
 

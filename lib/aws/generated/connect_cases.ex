@@ -219,7 +219,10 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       get_template_response() :: %{
+        optional("createdTime") => non_neg_integer(),
+        optional("deleted") => boolean(),
         optional("description") => String.t(),
+        optional("lastModifiedTime") => non_neg_integer(),
         optional("layoutConfiguration") => layout_configuration(),
         optional("requiredFields") => list(required_field()()),
         optional("tags") => map(),
@@ -242,6 +245,15 @@ defmodule AWS.ConnectCases do
 
   """
   @type batch_put_field_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_field_request() :: %{}
+
+  """
+  @type delete_field_request() :: %{}
 
   @typedoc """
 
@@ -380,6 +392,15 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
+      delete_layout_response() :: %{}
+
+  """
+  @type delete_layout_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       search_cases_response_item() :: %{
         "caseId" => String.t(),
         "fields" => list(field_value()()),
@@ -432,6 +453,15 @@ defmodule AWS.ConnectCases do
 
   """
   @type empty_field_value() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_template_request() :: %{}
+
+  """
+  @type delete_template_request() :: %{}
 
   @typedoc """
 
@@ -830,6 +860,15 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
+      delete_field_response() :: %{}
+
+  """
+  @type delete_field_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_layout_request() :: %{}
 
   """
@@ -988,6 +1027,9 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       get_layout_response() :: %{
+        optional("createdTime") => non_neg_integer(),
+        optional("deleted") => boolean(),
+        optional("lastModifiedTime") => non_neg_integer(),
         optional("tags") => map(),
         required("content") => list(),
         required("layoutArn") => String.t(),
@@ -1055,12 +1097,30 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
+      delete_template_response() :: %{}
+
+  """
+  @type delete_template_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       field_identifier() :: %{
         "id" => String.t()
       }
 
   """
   @type field_identifier() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_layout_request() :: %{}
+
+  """
+  @type delete_layout_request() :: %{}
 
   @typedoc """
 
@@ -1105,9 +1165,12 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       get_field_response() :: %{
+        "createdTime" => non_neg_integer(),
+        "deleted" => boolean(),
         "description" => String.t(),
         "fieldArn" => String.t(),
         "fieldId" => String.t(),
+        "lastModifiedTime" => non_neg_integer(),
         "name" => String.t(),
         "namespace" => String.t(),
         "tags" => map(),
@@ -1282,6 +1345,31 @@ defmodule AWS.ConnectCases do
           | conflict_exception()
 
   @type delete_domain_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_field_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_layout_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_template_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -1769,6 +1857,182 @@ defmodule AWS.ConnectCases do
           | {:error, delete_domain_errors()}
   def delete_domain(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a field from a cases template.
+
+  You can delete up to 100 fields per domain.
+
+  After a field is deleted:
+
+    *
+  You can still retrieve the field by calling `BatchGetField`.
+
+    *
+  You cannot update a deleted field by calling `UpdateField`; it throws a
+  `ValidationException`.
+
+    *
+  Deleted fields are not included in the `ListFields` response.
+
+    *
+  Calling `CreateCase` with a deleted field throws a `ValidationException`
+  denoting
+  which field IDs in the request have been deleted.
+
+    *
+  Calling `GetCase` with a deleted field ID returns the deleted field's value if
+  one
+  exists.
+
+    *
+  Calling `UpdateCase` with a deleted field ID throws a `ValidationException` if
+  the
+  case does not already contain a value for the deleted field. Otherwise it
+  succeeds,
+  allowing you to update or remove (using `emptyValue: {}`) the field's value from
+  the
+  case.
+
+    *
+
+  `GetTemplate` does not return field IDs for deleted fields.
+
+    *
+
+  `GetLayout` does not return field IDs for deleted fields.
+
+    *
+  Calling `SearchCases` with the deleted field ID as a filter returns any cases
+  that
+  have a value for the deleted field that matches the filter criteria.
+
+    *
+  Calling `SearchCases` with a `searchTerm` value that matches a deleted field's
+  value on a
+  case returns the case in the response.
+
+    *
+  Calling `BatchPutFieldOptions` with a deleted field ID throw a
+  `ValidationException`.
+
+    *
+  Calling `GetCaseEventConfiguration` does not return field IDs for deleted
+  fields.
+  """
+  @spec delete_field(map(), String.t(), String.t(), delete_field_request(), list()) ::
+          {:ok, delete_field_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_field_errors()}
+  def delete_field(%Client{} = client, domain_id, field_id, input, options \\ []) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_id)}/fields/#{AWS.Util.encode_uri(field_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a layout from a cases template.
+
+  You can delete up to 100 layouts per domain.
+
+  After a layout is deleted:
+
+    *
+  You can still retrieve the layout by calling `GetLayout`.
+
+    *
+  You cannot update a deleted layout by calling `UpdateLayout`; it throws a
+  `ValidationException`.
+
+    *
+  Deleted layouts are not included in the `ListLayouts` response.
+  """
+  @spec delete_layout(map(), String.t(), String.t(), delete_layout_request(), list()) ::
+          {:ok, delete_layout_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_layout_errors()}
+  def delete_layout(%Client{} = client, domain_id, layout_id, input, options \\ []) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_id)}/layouts/#{AWS.Util.encode_uri(layout_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a cases template.
+
+  You can delete up to 100 templates per domain.
+
+  After a cases template is deleted:
+
+    *
+  You can still retrieve the template by calling `GetTemplate`.
+
+    *
+  You cannot update the template.
+
+    *
+  You cannot create a case by using the deleted template.
+
+    *
+  Deleted templates are not included in the `ListTemplates` response.
+  """
+  @spec delete_template(map(), String.t(), String.t(), delete_template_request(), list()) ::
+          {:ok, delete_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_template_errors()}
+  def delete_template(%Client{} = client, domain_id, template_id, input, options \\ []) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_id)}/templates/#{AWS.Util.encode_uri(template_id)}"
+
     headers = []
     query_params = []
 

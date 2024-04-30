@@ -13,6 +13,18 @@ defmodule AWS.TrustedAdvisor do
 
   ## Example:
 
+      recommendation_resource_exclusion() :: %{
+        "arn" => String.t(),
+        "isExcluded" => [boolean()]
+      }
+
+  """
+  @type recommendation_resource_exclusion() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       recommendation_pillar_specific_aggregates() :: %{
         "costOptimizing" => recommendation_cost_optimizing_aggregates()
       }
@@ -89,6 +101,17 @@ defmodule AWS.TrustedAdvisor do
 
   """
   @type update_recommendation_lifecycle_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_recommendation_resource_exclusion_request() :: %{
+        required("recommendationResourceExclusions") => list(recommendation_resource_exclusion()())
+      }
+
+  """
+  @type batch_update_recommendation_resource_exclusion_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -251,6 +274,17 @@ defmodule AWS.TrustedAdvisor do
 
   ## Example:
 
+      batch_update_recommendation_resource_exclusion_response() :: %{
+        "batchUpdateRecommendationResourceExclusionErrors" => list(update_recommendation_resource_exclusion_error()())
+      }
+
+  """
+  @type batch_update_recommendation_resource_exclusion_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       access_denied_exception() :: %{
         "message" => [String.t()]
       }
@@ -263,6 +297,7 @@ defmodule AWS.TrustedAdvisor do
   ## Example:
 
       list_recommendation_resources_request() :: %{
+        optional("exclusionStatus") => list(any()),
         optional("maxResults") => [integer()],
         optional("nextToken") => [String.t()],
         optional("regionCode") => [String.t()],
@@ -336,6 +371,7 @@ defmodule AWS.TrustedAdvisor do
 
       list_organization_recommendation_resources_request() :: %{
         optional("affectedAccountId") => String.t(),
+        optional("exclusionStatus") => list(any()),
         optional("maxResults") => [integer()],
         optional("nextToken") => [String.t()],
         optional("regionCode") => [String.t()],
@@ -411,10 +447,24 @@ defmodule AWS.TrustedAdvisor do
 
   ## Example:
 
+      update_recommendation_resource_exclusion_error() :: %{
+        "arn" => String.t(),
+        "errorCode" => [String.t()],
+        "errorMessage" => [String.t()]
+      }
+
+  """
+  @type update_recommendation_resource_exclusion_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       organization_recommendation_resource_summary() :: %{
         "accountId" => String.t(),
         "arn" => String.t(),
         "awsResourceId" => [String.t()],
+        "exclusionStatus" => list(any()),
         "id" => [String.t()],
         "lastUpdatedAt" => [non_neg_integer()],
         "metadata" => map(),
@@ -499,6 +549,7 @@ defmodule AWS.TrustedAdvisor do
       recommendation_resource_summary() :: %{
         "arn" => String.t(),
         "awsResourceId" => [String.t()],
+        "exclusionStatus" => list(any()),
         "id" => [String.t()],
         "lastUpdatedAt" => [non_neg_integer()],
         "metadata" => map(),
@@ -529,6 +580,13 @@ defmodule AWS.TrustedAdvisor do
 
   """
   @type list_recommendations_request() :: %{String.t() => any()}
+
+  @type batch_update_recommendation_resource_exclusion_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
 
   @type get_organization_recommendation_errors() ::
           throttling_exception()
@@ -612,6 +670,27 @@ defmodule AWS.TrustedAdvisor do
       signing_name: "trustedadvisor",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Update one or more exclusion status for a list of recommendation resources
+  """
+  @spec batch_update_recommendation_resource_exclusion(
+          map(),
+          batch_update_recommendation_resource_exclusion_request(),
+          list()
+        ) ::
+          {:ok, batch_update_recommendation_resource_exclusion_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_update_recommendation_resource_exclusion_errors()}
+  def batch_update_recommendation_resource_exclusion(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/batch-update-recommendation-resource-exclusion"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -806,6 +885,7 @@ defmodule AWS.TrustedAdvisor do
           String.t() | nil,
           String.t() | nil,
           String.t() | nil,
+          String.t() | nil,
           list()
         ) ::
           {:ok, list_organization_recommendation_resources_response(), any()}
@@ -815,6 +895,7 @@ defmodule AWS.TrustedAdvisor do
         %Client{} = client,
         organization_recommendation_identifier,
         affected_account_id \\ nil,
+        exclusion_status \\ nil,
         max_results \\ nil,
         next_token \\ nil,
         region_code \\ nil,
@@ -851,6 +932,13 @@ defmodule AWS.TrustedAdvisor do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(exclusion_status) do
+        [{"exclusionStatus", exclusion_status} | query_params]
       else
         query_params
       end
@@ -993,6 +1081,7 @@ defmodule AWS.TrustedAdvisor do
           String.t() | nil,
           String.t() | nil,
           String.t() | nil,
+          String.t() | nil,
           list()
         ) ::
           {:ok, list_recommendation_resources_response(), any()}
@@ -1001,6 +1090,7 @@ defmodule AWS.TrustedAdvisor do
   def list_recommendation_resources(
         %Client{} = client,
         recommendation_identifier,
+        exclusion_status \\ nil,
         max_results \\ nil,
         next_token \\ nil,
         region_code \\ nil,
@@ -1035,6 +1125,13 @@ defmodule AWS.TrustedAdvisor do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(exclusion_status) do
+        [{"exclusionStatus", exclusion_status} | query_params]
       else
         query_params
       end
@@ -1158,7 +1255,7 @@ defmodule AWS.TrustedAdvisor do
   end
 
   @doc """
-  Update the lifecyle of a Recommendation within an Organization.
+  Update the lifecycle of a Recommendation within an Organization.
 
   This API only supports prioritized
   recommendations.

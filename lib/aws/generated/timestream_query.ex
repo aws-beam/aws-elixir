@@ -25,6 +25,15 @@ defmodule AWS.TimestreamQuery do
 
   ## Example:
       
+      describe_account_settings_request() :: %{}
+      
+  """
+  @type describe_account_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       scheduled_query_description() :: %{
         "Arn" => String.t(),
         "CreationTime" => non_neg_integer(),
@@ -117,6 +126,18 @@ defmodule AWS.TimestreamQuery do
       
   """
   @type multi_measure_attribute_mapping() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_account_settings_response() :: %{
+        "MaxQueryTCU" => integer(),
+        "QueryPricingModel" => list(any())
+      }
+      
+  """
+  @type update_account_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -411,6 +432,18 @@ defmodule AWS.TimestreamQuery do
 
   ## Example:
       
+      update_account_settings_request() :: %{
+        optional("MaxQueryTCU") => integer(),
+        optional("QueryPricingModel") => list(any())
+      }
+      
+  """
+  @type update_account_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       execute_scheduled_query_request() :: %{
         optional("ClientToken") => String.t(),
         required("InvocationTime") => non_neg_integer(),
@@ -622,6 +655,18 @@ defmodule AWS.TimestreamQuery do
 
   ## Example:
       
+      describe_account_settings_response() :: %{
+        "MaxQueryTCU" => integer(),
+        "QueryPricingModel" => list(any())
+      }
+      
+  """
+  @type describe_account_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       type() :: %{
         "ArrayColumnInfo" => column_info(),
         "RowColumnInfo" => list(column_info()()),
@@ -762,6 +807,7 @@ defmodule AWS.TimestreamQuery do
       
       execution_stats() :: %{
         "BytesMetered" => float(),
+        "CumulativeBytesScanned" => float(),
         "DataWrites" => float(),
         "ExecutionTimeInMillis" => float(),
         "QueryResultRows" => float(),
@@ -793,6 +839,12 @@ defmodule AWS.TimestreamQuery do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | invalid_endpoint_exception()
+
+  @type describe_account_settings_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
           | invalid_endpoint_exception()
 
   @type describe_endpoints_errors() ::
@@ -854,6 +906,13 @@ defmodule AWS.TimestreamQuery do
           throttling_exception()
           | validation_exception()
           | resource_not_found_exception()
+          | invalid_endpoint_exception()
+
+  @type update_account_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
           | invalid_endpoint_exception()
 
   @type update_scheduled_query_errors() ::
@@ -932,6 +991,22 @@ defmodule AWS.TimestreamQuery do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteScheduledQuery", input, options)
+  end
+
+  @doc """
+  Describes the settings for your account that include the query pricing model and
+  the configured maximum TCUs the service can use for your query workload.
+
+  You're charged only for the duration of compute units used for your workloads.
+  """
+  @spec describe_account_settings(map(), describe_account_settings_request(), list()) ::
+          {:ok, describe_account_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_account_settings_errors()}
+  def describe_account_settings(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeAccountSettings", input, options)
   end
 
   @doc """
@@ -1123,6 +1198,26 @@ defmodule AWS.TimestreamQuery do
     meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
+  end
+
+  @doc """
+  Transitions your account to use TCUs for query pricing and modifies the maximum
+  query compute units that you've configured.
+
+  If you reduce the value of `MaxQueryTCU` to a desired configuration, the new
+  value can take up to 24 hours to be effective.
+
+  After you've transitioned your account to use TCUs for query pricing, you can't
+  transition to using bytes scanned for query pricing.
+  """
+  @spec update_account_settings(map(), update_account_settings_request(), list()) ::
+          {:ok, update_account_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_account_settings_errors()}
+  def update_account_settings(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateAccountSettings", input, options)
   end
 
   @doc """

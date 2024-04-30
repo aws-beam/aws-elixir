@@ -264,7 +264,8 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       update_configuration_request() :: %{
-        required("ecrConfiguration") => ecr_configuration()
+        optional("ec2Configuration") => ec2_configuration(),
+        optional("ecrConfiguration") => ecr_configuration()
       }
 
   """
@@ -532,6 +533,17 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      ec2_configuration() :: %{
+        "scanMode" => String.t()
+      }
+
+  """
+  @type ec2_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       resource_state() :: %{
         "ec2" => state(),
         "ecr" => state(),
@@ -541,6 +553,17 @@ defmodule AWS.Inspector2 do
 
   """
   @type resource_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ec2_configuration_state() :: %{
+        "scanModeState" => ec2_scan_mode_state()
+      }
+
+  """
+  @type ec2_configuration_state() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1161,6 +1184,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       get_configuration_response() :: %{
+        optional("ec2Configuration") => ec2_configuration_state(),
         optional("ecrConfiguration") => ecr_configuration_state()
       }
 
@@ -1875,6 +1899,7 @@ defmodule AWS.Inspector2 do
         "resourceId" => String.t(),
         "resourceMetadata" => resource_scan_metadata(),
         "resourceType" => String.t(),
+        "scanMode" => String.t(),
         "scanStatus" => scan_status(),
         "scanType" => String.t()
       }
@@ -2742,6 +2767,7 @@ defmodule AWS.Inspector2 do
         "lastScannedAt" => list(coverage_date_filter()()),
         "resourceId" => list(coverage_string_filter()()),
         "resourceType" => list(coverage_string_filter()()),
+        "scanMode" => list(coverage_string_filter()()),
         "scanStatusCode" => list(coverage_string_filter()()),
         "scanStatusReason" => list(coverage_string_filter()()),
         "scanType" => list(coverage_string_filter()())
@@ -3319,6 +3345,18 @@ defmodule AWS.Inspector2 do
 
   """
   @type aws_lambda_function_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ec2_scan_mode_state() :: %{
+        "scanMode" => String.t(),
+        "scanModeStatus" => String.t()
+      }
+
+  """
+  @type ec2_scan_mode_state() :: %{String.t() => any()}
 
   @typedoc """
 

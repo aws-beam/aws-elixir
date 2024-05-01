@@ -14,15 +14,16 @@ defmodule AWS.PinpointSMSVoiceV2 do
   your recipients across multiple messaging channels. The Amazon Pinpoint SMS and
   Voice, version 2 API provides programmatic access to options that are unique to
   the SMS
-  and voice channels and supplements the resources provided by the Amazon Pinpoint
+  and voice channels. Amazon Pinpoint SMS and Voice, version 2 resources such as
+  phone numbers, sender IDs, and opt-out lists can be used by the Amazon Pinpoint
   API.
 
-  If you're new to Amazon Pinpoint, it's also helpful to review the [
-  Amazon Pinpoint Developer
-  Guide](https://docs.aws.amazon.com/pinpoint/latest/developerguide/welcome.html).
+  If you're new to Amazon Pinpoint SMS, it's also helpful to review the [
+  Amazon Pinpoint SMS User
+  Guide](https://docs.aws.amazon.com/sms-voice/latest/userguide/what-is-service.html).
   The *Amazon Pinpoint
   Developer Guide* provides tutorials, code samples, and procedures that
-  demonstrate how to use Amazon Pinpoint features programmatically and how to
+  demonstrate how to use Amazon Pinpoint SMS features programmatically and how to
   integrate
   Amazon Pinpoint functionality into mobile apps and other types of applications.
   The guide also provides key information, such as Amazon Pinpoint integration
@@ -517,6 +518,18 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      update_protect_configuration_request() :: %{
+        optional("DeletionProtectionEnabled") => [boolean()],
+        required("ProtectConfigurationId") => String.t()
+      }
+      
+  """
+  @type update_protect_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       registration_association_filter() :: %{
         "Name" => String.t(),
         "Values" => list(String.t()())
@@ -541,6 +554,20 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      disassociate_protect_configuration_result() :: %{
+        "ConfigurationSetArn" => [String.t()],
+        "ConfigurationSetName" => String.t(),
+        "ProtectConfigurationArn" => String.t(),
+        "ProtectConfigurationId" => String.t()
+      }
+      
+  """
+  @type disassociate_protect_configuration_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       registration_denied_reason_information() :: %{
         "DocumentationLink" => [String.t()],
         "DocumentationTitle" => [String.t()],
@@ -551,6 +578,17 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type registration_denied_reason_information() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      protect_configuration_country_rule_set_information() :: %{
+        "ProtectStatus" => String.t()
+      }
+      
+  """
+  @type protect_configuration_country_rule_set_information() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -686,6 +724,17 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      delete_protect_configuration_request() :: %{
+        required("ProtectConfigurationId") => String.t()
+      }
+      
+  """
+  @type delete_protect_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_event_destination_request() :: %{
         required("ConfigurationSetName") => String.t(),
         required("EventDestinationName") => String.t()
@@ -698,13 +747,28 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      associate_protect_configuration_result() :: %{
+        "ConfigurationSetArn" => [String.t()],
+        "ConfigurationSetName" => String.t(),
+        "ProtectConfigurationArn" => String.t(),
+        "ProtectConfigurationId" => String.t()
+      }
+      
+  """
+  @type associate_protect_configuration_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       configuration_set_information() :: %{
         "ConfigurationSetArn" => [String.t()],
         "ConfigurationSetName" => String.t(),
         "CreatedTimestamp" => [non_neg_integer()],
         "DefaultMessageType" => String.t(),
         "DefaultSenderId" => String.t(),
-        "EventDestinations" => list(event_destination()())
+        "EventDestinations" => list(event_destination()()),
+        "ProtectConfigurationId" => String.t()
       }
       
   """
@@ -904,6 +968,15 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      delete_media_message_spend_limit_override_request() :: %{}
+      
+  """
+  @type delete_media_message_spend_limit_override_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_configuration_set_request() :: %{
         required("ConfigurationSetName") => String.t()
       }
@@ -1040,6 +1113,20 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      describe_protect_configurations_request() :: %{
+        optional("Filters") => list(protect_configuration_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("ProtectConfigurationIds") => list(String.t()())
+      }
+      
+  """
+  @type describe_protect_configurations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_event_destination_request() :: %{
         optional("CloudWatchLogsDestination") => cloud_watch_logs_destination(),
         optional("Enabled") => [boolean()],
@@ -1052,6 +1139,20 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type update_event_destination_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_protect_configuration_country_rule_set_result() :: %{
+        "CountryRuleSet" => map(),
+        "NumberCapability" => String.t(),
+        "ProtectConfigurationArn" => String.t(),
+        "ProtectConfigurationId" => String.t()
+      }
+      
+  """
+  @type update_protect_configuration_country_rule_set_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1090,6 +1191,19 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type set_voice_message_spend_limit_override_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_protect_configuration_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("DeletionProtectionEnabled") => [boolean()],
+        optional("Tags") => list(tag()())
+      }
+      
+  """
+  @type create_protect_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1134,6 +1248,18 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type registration_field_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_account_default_protect_configuration_result() :: %{
+        "DefaultProtectConfigurationArn" => String.t(),
+        "DefaultProtectConfigurationId" => String.t()
+      }
+      
+  """
+  @type delete_account_default_protect_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1230,6 +1356,19 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      update_protect_configuration_country_rule_set_request() :: %{
+        required("CountryRuleSetUpdates") => map(),
+        required("NumberCapability") => String.t(),
+        required("ProtectConfigurationId") => String.t()
+      }
+      
+  """
+  @type update_protect_configuration_country_rule_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_registration_result() :: %{
         "AdditionalAttributes" => map(),
         "ApprovedVersionNumber" => float(),
@@ -1269,6 +1408,18 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type delete_event_destination_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      protect_configuration_filter() :: %{
+        "Name" => String.t(),
+        "Values" => list(String.t()())
+      }
+      
+  """
+  @type protect_configuration_filter() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1400,6 +1551,17 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      send_media_message_result() :: %{
+        "MessageId" => [String.t()]
+      }
+      
+  """
+  @type send_media_message_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       select_option_description() :: %{
         "Description" => [String.t()],
         "Option" => [String.t()],
@@ -1490,6 +1652,22 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type request_phone_number_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_protect_configuration_result() :: %{
+        "AccountDefault" => [boolean()],
+        "CreatedTimestamp" => [non_neg_integer()],
+        "DeletionProtectionEnabled" => [boolean()],
+        "ProtectConfigurationArn" => String.t(),
+        "ProtectConfigurationId" => String.t(),
+        "Tags" => list(tag()())
+      }
+      
+  """
+  @type create_protect_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1764,6 +1942,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         optional("MaxPricePerMinute") => String.t(),
         optional("MessageBody") => String.t(),
         optional("MessageBodyTextType") => String.t(),
+        optional("ProtectConfigurationId") => String.t(),
         optional("TimeToLive") => integer(),
         optional("VoiceId") => String.t(),
         required("DestinationPhoneNumber") => String.t(),
@@ -1772,6 +1951,18 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type send_voice_message_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_account_default_protect_configuration_result() :: %{
+        "DefaultProtectConfigurationArn" => String.t(),
+        "DefaultProtectConfigurationId" => String.t()
+      }
+      
+  """
+  @type set_account_default_protect_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1857,6 +2048,18 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      disassociate_protect_configuration_request() :: %{
+        required("ConfigurationSetName") => String.t(),
+        required("ProtectConfigurationId") => String.t()
+      }
+      
+  """
+  @type disassociate_protect_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       send_text_message_result() :: %{
         "MessageId" => [String.t()]
       }
@@ -1922,6 +2125,18 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      associate_protect_configuration_request() :: %{
+        required("ConfigurationSetName") => String.t(),
+        required("ProtectConfigurationId") => String.t()
+      }
+      
+  """
+  @type associate_protect_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       sender_id_and_country() :: %{
         "IsoCountryCode" => String.t(),
         "SenderId" => String.t()
@@ -1980,6 +2195,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         optional("MessageBody") => String.t(),
         optional("MessageType") => String.t(),
         optional("OriginationIdentity") => String.t(),
+        optional("ProtectConfigurationId") => String.t(),
         optional("TimeToLive") => integer(),
         required("DestinationPhoneNumber") => String.t()
       }
@@ -1998,6 +2214,20 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type describe_sender_ids_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_protect_configuration_country_rule_set_result() :: %{
+        "CountryRuleSet" => map(),
+        "NumberCapability" => String.t(),
+        "ProtectConfigurationArn" => String.t(),
+        "ProtectConfigurationId" => String.t()
+      }
+      
+  """
+  @type get_protect_configuration_country_rule_set_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2192,6 +2422,21 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      update_protect_configuration_result() :: %{
+        "AccountDefault" => [boolean()],
+        "CreatedTimestamp" => [non_neg_integer()],
+        "DeletionProtectionEnabled" => [boolean()],
+        "ProtectConfigurationArn" => String.t(),
+        "ProtectConfigurationId" => String.t()
+      }
+      
+  """
+  @type update_protect_configuration_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       throttling_exception() :: %{
         "Message" => [String.t()]
       }
@@ -2283,6 +2528,29 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      describe_protect_configurations_result() :: %{
+        "NextToken" => String.t(),
+        "ProtectConfigurations" => list(protect_configuration_information()())
+      }
+      
+  """
+  @type describe_protect_configurations_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_account_default_protect_configuration_request() :: %{
+        required("ProtectConfigurationId") => String.t()
+      }
+      
+  """
+  @type set_account_default_protect_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_registration_request() :: %{
         required("RegistrationId") => String.t()
       }
@@ -2366,6 +2634,15 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      delete_account_default_protect_configuration_request() :: %{}
+      
+  """
+  @type delete_account_default_protect_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_configuration_sets_result() :: %{
         "ConfigurationSets" => list(configuration_set_information()()),
         "NextToken" => String.t()
@@ -2401,6 +2678,17 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type delete_registration_attachment_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_media_message_spend_limit_override_result() :: %{
+        "MonthlyLimit" => float()
+      }
+      
+  """
+  @type set_media_message_spend_limit_override_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2488,6 +2776,21 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      protect_configuration_information() :: %{
+        "AccountDefault" => [boolean()],
+        "CreatedTimestamp" => [non_neg_integer()],
+        "DeletionProtectionEnabled" => [boolean()],
+        "ProtectConfigurationArn" => String.t(),
+        "ProtectConfigurationId" => String.t()
+      }
+      
+  """
+  @type protect_configuration_information() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       set_default_sender_id_result() :: %{
         "ConfigurationSetArn" => [String.t()],
         "ConfigurationSetName" => String.t(),
@@ -2496,6 +2799,18 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type set_default_sender_id_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_protect_configuration_country_rule_set_request() :: %{
+        required("NumberCapability") => String.t(),
+        required("ProtectConfigurationId") => String.t()
+      }
+      
+  """
+  @type get_protect_configuration_country_rule_set_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2510,6 +2825,17 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type registration_version_information() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_media_message_spend_limit_override_result() :: %{
+        "MonthlyLimit" => float()
+      }
+      
+  """
+  @type delete_media_message_spend_limit_override_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2617,6 +2943,17 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type delete_text_message_spend_limit_override_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_media_message_spend_limit_override_request() :: %{
+        required("MonthlyLimit") => float()
+      }
+      
+  """
+  @type set_media_message_spend_limit_override_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2758,6 +3095,41 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      send_media_message_request() :: %{
+        optional("ConfigurationSetName") => String.t(),
+        optional("Context") => map(),
+        optional("DryRun") => [boolean()],
+        optional("MaxPrice") => String.t(),
+        optional("MediaUrls") => list(String.t()()),
+        optional("MessageBody") => String.t(),
+        optional("ProtectConfigurationId") => String.t(),
+        optional("TimeToLive") => integer(),
+        required("DestinationPhoneNumber") => String.t(),
+        required("OriginationIdentity") => String.t()
+      }
+      
+  """
+  @type send_media_message_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_protect_configuration_result() :: %{
+        "AccountDefault" => [boolean()],
+        "CreatedTimestamp" => [non_neg_integer()],
+        "DeletionProtectionEnabled" => [boolean()],
+        "ProtectConfigurationArn" => String.t(),
+        "ProtectConfigurationId" => String.t()
+      }
+      
+  """
+  @type delete_protect_configuration_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_keyword_result() :: %{
         "Keyword" => String.t(),
         "KeywordAction" => String.t(),
@@ -2775,6 +3147,14 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type associate_protect_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -2811,6 +3191,13 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type create_protect_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
 
   @type create_registration_errors() ::
           throttling_exception()
@@ -2854,6 +3241,13 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | service_quota_exceeded_exception()
           | conflict_exception()
 
+  @type delete_account_default_protect_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type delete_configuration_set_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2890,6 +3284,12 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type delete_media_message_spend_limit_override_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type delete_opt_out_list_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2907,6 +3307,14 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | conflict_exception()
 
   @type delete_pool_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_protect_configuration_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -3012,6 +3420,13 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type describe_protect_configurations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type describe_registration_attachments_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3086,6 +3501,14 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type disassociate_protect_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type discard_registration_version_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3093,6 +3516,13 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type get_protect_configuration_country_rule_set_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type list_pool_origination_identities_errors() ::
           throttling_exception()
@@ -3181,6 +3611,15 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type send_media_message_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type send_text_message_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3199,6 +3638,13 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type set_account_default_protect_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type set_default_message_type_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3212,6 +3658,12 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type set_media_message_spend_limit_override_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
 
   @type set_text_message_spend_limit_override_errors() ::
           throttling_exception()
@@ -3272,6 +3724,20 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type update_protect_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_protect_configuration_country_rule_set_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type update_sender_id_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3321,6 +3787,25 @@ defmodule AWS.PinpointSMSVoiceV2 do
     meta = metadata()
 
     Request.request_post(client, meta, "AssociateOriginationIdentity", input, options)
+  end
+
+  @doc """
+  Associate a protect configuration with a configuration set.
+
+  This replaces the
+  configuration sets current protect configuration. A configuration set can
+  only be associated with one protect configuration at a time. A protect
+  configuration can
+  be associated with multiple configuration sets.
+  """
+  @spec associate_protect_configuration(map(), associate_protect_configuration_request(), list()) ::
+          {:ok, associate_protect_configuration_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, associate_protect_configuration_errors()}
+  def associate_protect_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateProtectConfiguration", input, options)
   end
 
   @doc """
@@ -3434,6 +3919,24 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+  Create a new protect configuration.
+
+  By default all country rule sets for each capability are set to `ALLOW`. Update
+  the country rule sets using `UpdateProtectConfigurationCountryRuleSet`. A
+  protect configurations name is stored as a Tag with the key set to `Name` and
+  value as the name of the protect configuration.
+  """
+  @spec create_protect_configuration(map(), create_protect_configuration_request(), list()) ::
+          {:ok, create_protect_configuration_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_protect_configuration_errors()}
+  def create_protect_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateProtectConfiguration", input, options)
+  end
+
+  @doc """
   Creates a new registration based on the **RegistrationType** field.
   """
   @spec create_registration(map(), create_registration_request(), list()) ::
@@ -3512,6 +4015,23 @@ defmodule AWS.PinpointSMSVoiceV2 do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateVerifiedDestinationNumber", input, options)
+  end
+
+  @doc """
+  Removes the current account default protect configuration.
+  """
+  @spec delete_account_default_protect_configuration(
+          map(),
+          delete_account_default_protect_configuration_request(),
+          list()
+        ) ::
+          {:ok, delete_account_default_protect_configuration_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_account_default_protect_configuration_errors()}
+  def delete_account_default_protect_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAccountDefaultProtectConfiguration", input, options)
   end
 
   @doc """
@@ -3617,6 +4137,29 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+  Deletes an account-level monthly spending limit override for sending multimedia
+  messages (MMS).
+
+  Deleting a spend limit override will set the `EnforcedLimit` to equal the
+  `MaxLimit`, which is controlled by Amazon Web Services. For more
+  information on spend limits (quotas) see [Quotas for Server Migration Service](https://docs.aws.amazon.com/sms-voice/latest/userguide/quotas.html)
+  in the *Server Migration Service User Guide*.
+  """
+  @spec delete_media_message_spend_limit_override(
+          map(),
+          delete_media_message_spend_limit_override_request(),
+          list()
+        ) ::
+          {:ok, delete_media_message_spend_limit_override_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_media_message_spend_limit_override_errors()}
+  def delete_media_message_spend_limit_override(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteMediaMessageSpendLimitOverride", input, options)
+  end
+
+  @doc """
   Deletes an existing opt-out list.
 
   All opted out phone numbers in the opt-out list are
@@ -3680,6 +4223,23 @@ defmodule AWS.PinpointSMSVoiceV2 do
     meta = metadata()
 
     Request.request_post(client, meta, "DeletePool", input, options)
+  end
+
+  @doc """
+  Permanently delete the protect configuration.
+
+  The protect configuration must have deletion protection disabled and must not be
+  associated as the account default protect configuration or associated with a
+  configuration set.
+  """
+  @spec delete_protect_configuration(map(), delete_protect_configuration_request(), list()) ::
+          {:ok, delete_protect_configuration_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_protect_configuration_errors()}
+  def delete_protect_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteProtectConfiguration", input, options)
   end
 
   @doc """
@@ -3992,6 +4552,21 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+  Retrieves the protect configurations that match any of filters.
+
+  If a filter isn’t provided then all protect configurations are returned.
+  """
+  @spec describe_protect_configurations(map(), describe_protect_configurations_request(), list()) ::
+          {:ok, describe_protect_configurations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_protect_configurations_errors()}
+  def describe_protect_configurations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeProtectConfigurations", input, options)
+  end
+
+  @doc """
   Retrieves the specified registration attachments or all registration attachments
   associated with your Amazon Web Services account.
   """
@@ -4197,6 +4772,23 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+  Disassociate a protect configuration from a configuration set.
+  """
+  @spec disassociate_protect_configuration(
+          map(),
+          disassociate_protect_configuration_request(),
+          list()
+        ) ::
+          {:ok, disassociate_protect_configuration_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disassociate_protect_configuration_errors()}
+  def disassociate_protect_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateProtectConfiguration", input, options)
+  end
+
+  @doc """
   Discard the current version of the registration.
   """
   @spec discard_registration_version(map(), discard_registration_version_request(), list()) ::
@@ -4207,6 +4799,24 @@ defmodule AWS.PinpointSMSVoiceV2 do
     meta = metadata()
 
     Request.request_post(client, meta, "DiscardRegistrationVersion", input, options)
+  end
+
+  @doc """
+  Retrieve the CountryRuleSet for the specified NumberCapability from a protect
+  configuration.
+  """
+  @spec get_protect_configuration_country_rule_set(
+          map(),
+          get_protect_configuration_country_rule_set_request(),
+          list()
+        ) ::
+          {:ok, get_protect_configuration_country_rule_set_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_protect_configuration_country_rule_set_errors()}
+  def get_protect_configuration_country_rule_set(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetProtectConfigurationCountryRuleSet", input, options)
   end
 
   @doc """
@@ -4402,6 +5012,20 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+  Creates a new multimedia message (MMS) and sends it to a recipient's phone
+  number.
+  """
+  @spec send_media_message(map(), send_media_message_request(), list()) ::
+          {:ok, send_media_message_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, send_media_message_errors()}
+  def send_media_message(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "SendMediaMessage", input, options)
+  end
+
+  @doc """
   Creates a new text message and sends it to a recipient's phone number.
 
   SMS throughput limits are measured in Message Parts per Second (MPS). Your MPS
@@ -4438,6 +5062,27 @@ defmodule AWS.PinpointSMSVoiceV2 do
     meta = metadata()
 
     Request.request_post(client, meta, "SendVoiceMessage", input, options)
+  end
+
+  @doc """
+  Set a protect configuration as your account default.
+
+  You can only have one account
+  default protect configuration at a time. The current account default protect
+  configuration is replaced with the provided protect configuration.
+  """
+  @spec set_account_default_protect_configuration(
+          map(),
+          set_account_default_protect_configuration_request(),
+          list()
+        ) ::
+          {:ok, set_account_default_protect_configuration_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, set_account_default_protect_configuration_errors()}
+  def set_account_default_protect_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "SetAccountDefaultProtectConfiguration", input, options)
   end
 
   @doc """
@@ -4480,6 +5125,27 @@ defmodule AWS.PinpointSMSVoiceV2 do
     meta = metadata()
 
     Request.request_post(client, meta, "SetDefaultSenderId", input, options)
+  end
+
+  @doc """
+  Sets an account level monthly spend limit override for sending MMS messages.
+
+  The
+  requested spend limit must be less than or equal to the `MaxLimit`, which is
+  set by Amazon Web Services.
+  """
+  @spec set_media_message_spend_limit_override(
+          map(),
+          set_media_message_spend_limit_override_request(),
+          list()
+        ) ::
+          {:ok, set_media_message_spend_limit_override_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, set_media_message_spend_limit_override_errors()}
+  def set_media_message_spend_limit_override(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "SetMediaMessageSpendLimitOverride", input, options)
   end
 
   @doc """
@@ -4640,6 +5306,40 @@ defmodule AWS.PinpointSMSVoiceV2 do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdatePool", input, options)
+  end
+
+  @doc """
+  Update the setting for an existing protect configuration.
+  """
+  @spec update_protect_configuration(map(), update_protect_configuration_request(), list()) ::
+          {:ok, update_protect_configuration_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_protect_configuration_errors()}
+  def update_protect_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateProtectConfiguration", input, options)
+  end
+
+  @doc """
+  Update a country rule set to `ALLOW` or `BLOCK` messages to be sent to the
+  specified destination counties.
+
+  You can update one or multiple countries at a time. The updates are only applied
+  to the specified NumberCapability type.
+  """
+  @spec update_protect_configuration_country_rule_set(
+          map(),
+          update_protect_configuration_country_rule_set_request(),
+          list()
+        ) ::
+          {:ok, update_protect_configuration_country_rule_set_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_protect_configuration_country_rule_set_errors()}
+  def update_protect_configuration_country_rule_set(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateProtectConfigurationCountryRuleSet", input, options)
   end
 
   @doc """

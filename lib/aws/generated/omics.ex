@@ -654,6 +654,7 @@ defmodule AWS.Omics do
         "ownerId" => [String.t()],
         "principalSubscriber" => [String.t()],
         "resourceArn" => [String.t()],
+        "resourceId" => [String.t()],
         "shareId" => [String.t()],
         "shareName" => String.t(),
         "status" => String.t(),
@@ -852,6 +853,7 @@ defmodule AWS.Omics do
         "status" => String.t(),
         "stopTime" => non_neg_integer(),
         "storageCapacity" => [integer()],
+        "storageType" => String.t(),
         "workflowId" => String.t()
       }
 
@@ -1061,7 +1063,8 @@ defmodule AWS.Omics do
 
       get_workflow_request() :: %{
         optional("export") => list(String.t()()),
-        optional("type") => String.t()
+        optional("type") => String.t(),
+        optional("workflowOwnerId") => String.t()
       }
 
   """
@@ -1876,7 +1879,8 @@ defmodule AWS.Omics do
 
       filter() :: %{
         "resourceArns" => list([String.t()]()),
-        "status" => list(String.t()())
+        "status" => list(String.t()()),
+        "type" => list(String.t()())
       }
 
   """
@@ -2637,8 +2641,10 @@ defmodule AWS.Omics do
         optional("runGroupId") => String.t(),
         optional("runId") => String.t(),
         optional("storageCapacity") => [integer()],
+        optional("storageType") => String.t(),
         optional("tags") => map(),
         optional("workflowId") => String.t(),
+        optional("workflowOwnerId") => String.t(),
         optional("workflowType") => String.t(),
         required("requestId") => String.t(),
         required("roleArn") => String.t()
@@ -2890,9 +2896,11 @@ defmodule AWS.Omics do
         "statusMessage" => String.t(),
         "stopTime" => non_neg_integer(),
         "storageCapacity" => [integer()],
+        "storageType" => String.t(),
         "tags" => map(),
         "uuid" => String.t(),
         "workflowId" => String.t(),
+        "workflowOwnerId" => String.t(),
         "workflowType" => String.t()
       }
 
@@ -3963,8 +3971,7 @@ defmodule AWS.Omics do
   end
 
   @doc """
-
-  Accepts a share for an analytics store.
+  Accept a resource share request.
   """
   @spec accept_share(map(), String.t(), accept_share_request(), list()) ::
           {:ok, accept_share_response(), any()}
@@ -4323,10 +4330,22 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Creates a cross-account shared resource.
 
-  Creates a share offer that can be accepted outside the account by a subscriber.
+  The resource owner makes an offer to share the resource
+  with the principal subscriber (an AWS user with a different account than the
+  resource owner).
 
-  The share is created by the owner and accepted by the principal subscriber.
+  The following resources support cross-account sharing:
+
+    *
+  Healthomics variant stores
+
+    *
+  Healthomics annotation stores
+
+    *
+  Private workflows
   """
   @spec create_share(map(), create_share_request(), list()) ::
           {:ok, create_share_response(), any()}
@@ -4614,8 +4633,11 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Deletes a resource share.
 
-  Deletes a share of an analytics store.
+  If you are the resource owner, the subscriber will no longer have
+  access to the shared resource. If you are the subscriber, this operation deletes
+  your access to the share.
   """
   @spec delete_share(map(), String.t(), delete_share_request(), list()) ::
           {:ok, delete_share_response(), any()}
@@ -4984,6 +5006,8 @@ defmodule AWS.Omics do
 
   @doc """
   Gets information about a workflow run.
+
+  If a workflow is shared with you, you cannot export information about the run.
   """
   @spec get_run(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_run_response(), any()}
@@ -5058,8 +5082,7 @@ defmodule AWS.Omics do
   end
 
   @doc """
-
-  Retrieves the metadata for a share.
+  Retrieves the metadata for the specified resource share.
   """
   @spec get_share(map(), String.t(), list()) ::
           {:ok, get_share_response(), any()}
@@ -5111,15 +5134,38 @@ defmodule AWS.Omics do
 
   @doc """
   Gets information about a workflow.
+
+  If a workflow is shared with you, you cannot export the workflow.
   """
-  @spec get_workflow(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_workflow(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
           {:ok, get_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_workflow_errors()}
-  def get_workflow(%Client{} = client, id, export \\ nil, type \\ nil, options \\ []) do
+  def get_workflow(
+        %Client{} = client,
+        id,
+        export \\ nil,
+        type \\ nil,
+        workflow_owner_id \\ nil,
+        options \\ []
+      ) do
     url_path = "/workflow/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(workflow_owner_id) do
+        [{"workflowOwnerId", workflow_owner_id} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(type) do
@@ -5773,8 +5819,10 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Retrieves the resource shares associated with an account.
 
-  Lists all shares associated with an account.
+  Use the filter parameter to
+  retrieve a specific subset of the shares.
   """
   @spec list_shares(map(), list_shares_request(), list()) ::
           {:ok, list_shares_response(), any()}
@@ -6102,11 +6150,20 @@ defmodule AWS.Omics do
   To duplicate a run, specify the run's ID and a role ARN. The
   remaining parameters are copied from the previous run.
 
+  StartRun will not support re-run for a workflow that is shared with you.
+
   The total number of runs in your account is subject to a quota per Region. To
   avoid
   needing to delete runs manually, you can set the retention mode to `REMOVE`.
   Runs with this setting are deleted automatically when the run quoata is
   exceeded.
+
+  By default, the run uses STATIC storage. For STATIC storage, set the
+  `storageCapacity` field.
+  You can set the storage type to DYNAMIC. You do not set `storageCapacity`,
+  because HealthOmics dynamically scales the storage up or down as required.
+  For more information about static and dynamic storage, see [Running workflows](https://docs.aws.amazon.com/omics/latest/dev/Using-workflows.html)
+  in the *AWS HealthOmics User Guide*.
   """
   @spec start_run(map(), start_run_request(), list()) ::
           {:ok, start_run_response(), any()}

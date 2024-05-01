@@ -271,7 +271,8 @@ defmodule AWS.FMS do
   ## Example:
       
       stateful_engine_options() :: %{
-        "RuleOrder" => list(any())
+        "RuleOrder" => list(any()),
+        "StreamExceptionPolicy" => list(any())
       }
       
   """

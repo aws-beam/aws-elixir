@@ -489,6 +489,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      update_s_p_i_c_e_capacity_configuration_request() :: %{
+        required("PurchaseMode") => list(any())
+      }
+
+  """
+  @type update_s_p_i_c_e_capacity_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       asset_bundle_import_job_summary() :: %{
         "Arn" => String.t(),
         "AssetBundleImportJobId" => String.t(),
@@ -1600,6 +1611,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       gauge_chart_configuration() :: %{
+        "ColorConfiguration" => gauge_chart_color_configuration(),
         "DataLabels" => data_label_options(),
         "FieldWells" => gauge_chart_field_wells(),
         "GaugeChartOptions" => gauge_chart_options(),
@@ -2903,6 +2915,18 @@ defmodule AWS.QuickSight do
 
   """
   @type line_chart_field_wells() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gauge_chart_color_configuration() :: %{
+        "BackgroundColor" => String.t(),
+        "ForegroundColor" => String.t()
+      }
+
+  """
+  @type gauge_chart_color_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -8548,18 +8572,21 @@ defmodule AWS.QuickSight do
       create_account_subscription_request() :: %{
         optional("ActiveDirectoryName") => String.t(),
         optional("AdminGroup") => list(String.t()()),
+        optional("AdminProGroup") => list(String.t()()),
         optional("AuthorGroup") => list(String.t()()),
+        optional("AuthorProGroup") => list(String.t()()),
         optional("ContactNumber") => String.t(),
         optional("DirectoryId") => String.t(),
+        optional("Edition") => list(any()),
         optional("EmailAddress") => String.t(),
         optional("FirstName") => String.t(),
         optional("IAMIdentityCenterInstanceArn") => String.t(),
         optional("LastName") => String.t(),
         optional("ReaderGroup") => list(String.t()()),
+        optional("ReaderProGroup") => list(String.t()()),
         optional("Realm") => String.t(),
         required("AccountName") => String.t(),
         required("AuthenticationMethod") => list(any()),
-        required("Edition") => list(any()),
         required("NotificationEmail") => String.t()
       }
 
@@ -9385,6 +9412,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      registered_user_generative_qn_a_embedding_configuration() :: %{
+        "InitialTopicId" => String.t()
+      }
+
+  """
+  @type registered_user_generative_qn_a_embedding_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       column_tooltip_item() :: %{
         "Aggregation" => aggregation_function(),
         "Column" => column_identifier(),
@@ -9964,6 +10002,7 @@ defmodule AWS.QuickSight do
       registered_user_embedding_experience_configuration() :: %{
         "Dashboard" => registered_user_dashboard_embedding_configuration(),
         "DashboardVisual" => registered_user_dashboard_visual_embedding_configuration(),
+        "GenerativeQnA" => registered_user_generative_qn_a_embedding_configuration(),
         "QSearchBar" => registered_user_q_search_bar_embedding_configuration(),
         "QuickSightConsole" => registered_user_quick_sight_console_embedding_configuration()
       }
@@ -10998,7 +11037,8 @@ defmodule AWS.QuickSight do
       topic_summary() :: %{
         "Arn" => String.t(),
         "Name" => String.t(),
-        "TopicId" => String.t()
+        "TopicId" => String.t(),
+        "UserExperienceVersion" => list(any())
       }
 
   """
@@ -11255,6 +11295,18 @@ defmodule AWS.QuickSight do
 
   """
   @type update_data_source_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_s_p_i_c_e_capacity_configuration_response() :: %{
+        "RequestId" => String.t(),
+        "Status" => integer()
+      }
+
+  """
+  @type update_s_p_i_c_e_capacity_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -12395,6 +12447,7 @@ defmodule AWS.QuickSight do
       anonymous_user_embedding_experience_configuration() :: %{
         "Dashboard" => anonymous_user_dashboard_embedding_configuration(),
         "DashboardVisual" => anonymous_user_dashboard_visual_embedding_configuration(),
+        "GenerativeQnA" => anonymous_user_generative_qn_a_embedding_configuration(),
         "QSearchBar" => anonymous_user_q_search_bar_embedding_configuration()
       }
 
@@ -14721,6 +14774,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      anonymous_user_generative_qn_a_embedding_configuration() :: %{
+        "InitialTopicId" => String.t()
+      }
+
+  """
+  @type anonymous_user_generative_qn_a_embedding_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       custom_values_configuration() :: %{
         "CustomValues" => custom_parameter_values(),
         "IncludeNullValue" => boolean()
@@ -16305,6 +16369,13 @@ defmodule AWS.QuickSight do
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | resource_unavailable_exception()
+          | internal_failure_exception()
+
+  @type update_s_p_i_c_e_capacity_configuration_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
           | internal_failure_exception()
 
   @type update_template_errors() ::
@@ -22530,6 +22601,43 @@ defmodule AWS.QuickSight do
     meta = metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Updates the SPICE capacity configuration for a Amazon QuickSight account.
+  """
+  @spec update_s_p_i_c_e_capacity_configuration(
+          map(),
+          String.t(),
+          update_s_p_i_c_e_capacity_configuration_request(),
+          list()
+        ) ::
+          {:ok, update_s_p_i_c_e_capacity_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_s_p_i_c_e_capacity_configuration_errors()}
+  def update_s_p_i_c_e_capacity_configuration(
+        %Client{} = client,
+        aws_account_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/spice-capacity-configuration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

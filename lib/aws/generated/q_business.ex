@@ -3,10 +3,9 @@
 
 defmodule AWS.QBusiness do
   @moduledoc """
+  This is the *Amazon Q Business* API Reference.
 
-  Amazon Q is in preview release and is subject to change.
-
-  This is the *Amazon Q Business* API Reference. Amazon Q Business is a fully
+  Amazon Q Business is a fully
   managed, generative-AI powered enterprise chat assistant that you can deploy
   within your
   organization. Amazon Q Business enhances employee productivity by supporting key
@@ -166,6 +165,17 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      auth_challenge_response_event() :: %{
+        "responseMap" => map()
+      }
+
+  """
+  @type auth_challenge_response_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       data_source_vpc_configuration() :: %{
         "securityGroupIds" => list(String.t()()),
         "subnetIds" => list(String.t()())
@@ -235,6 +245,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       plugin() :: %{
+        "buildStatus" => list(any()),
         "createdAt" => non_neg_integer(),
         "displayName" => String.t(),
         "pluginId" => String.t(),
@@ -289,6 +300,37 @@ defmodule AWS.QBusiness do
 
   """
   @type create_data_source_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      action_review_event() :: %{
+        "conversationId" => String.t(),
+        "payload" => map(),
+        "payloadFieldNameSeparator" => String.t(),
+        "pluginId" => String.t(),
+        "pluginType" => list(any()),
+        "systemMessageId" => String.t(),
+        "userMessageId" => String.t()
+      }
+
+  """
+  @type action_review_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      text_output_event() :: %{
+        "conversationId" => String.t(),
+        "systemMessage" => String.t(),
+        "systemMessageId" => String.t(),
+        "userMessageId" => String.t()
+      }
+
+  """
+  @type text_output_event() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -378,6 +420,20 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      failed_attachment_event() :: %{
+        "attachment" => attachment_output(),
+        "conversationId" => String.t(),
+        "systemMessageId" => String.t(),
+        "userMessageId" => String.t()
+      }
+
+  """
+  @type failed_attachment_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       principal_user() :: %{
         "access" => list(any()),
         "id" => String.t(),
@@ -397,6 +453,17 @@ defmodule AWS.QBusiness do
 
   """
   @type delete_document() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auth_challenge_request_event() :: %{
+        "authorizationUrl" => String.t()
+      }
+
+  """
+  @type auth_challenge_request_event() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -463,6 +530,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       create_plugin_response() :: %{
+        "buildStatus" => list(any()),
         "pluginArn" => String.t(),
         "pluginId" => String.t()
       }
@@ -507,6 +575,15 @@ defmodule AWS.QBusiness do
 
   """
   @type create_retriever_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      no_auth_configuration() :: %{}
+
+  """
+  @type no_auth_configuration() :: %{}
 
   @typedoc """
 
@@ -594,6 +671,17 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      text_input_event() :: %{
+        "userMessage" => String.t()
+      }
+
+  """
+  @type text_input_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       user_alias() :: %{
         "dataSourceId" => String.t(),
         "indexId" => String.t(),
@@ -667,10 +755,11 @@ defmodule AWS.QBusiness do
 
       create_plugin_request() :: %{
         optional("clientToken") => String.t(),
+        optional("customPluginConfiguration") => custom_plugin_configuration(),
+        optional("serverUrl") => String.t(),
         optional("tags") => list(tag()()),
         required("authConfiguration") => list(),
         required("displayName") => String.t(),
-        required("serverUrl") => String.t(),
         required("type") => list(any())
       }
 
@@ -681,8 +770,24 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      metadata_event() :: %{
+        "conversationId" => String.t(),
+        "finalTextMessage" => String.t(),
+        "sourceAttributions" => list(source_attribution()()),
+        "systemMessageId" => String.t(),
+        "userMessageId" => String.t()
+      }
+
+  """
+  @type metadata_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       chat_sync_output() :: %{
         "actionReview" => action_review(),
+        "authChallengeRequest" => auth_challenge_request(),
         "conversationId" => String.t(),
         "failedAttachments" => list(attachment_output()()),
         "sourceAttributions" => list(source_attribution()()),
@@ -967,6 +1072,7 @@ defmodule AWS.QBusiness do
         optional("actionExecution") => action_execution(),
         optional("attachments") => list(attachment_input()()),
         optional("attributeFilter") => attribute_filter(),
+        optional("authChallengeResponse") => auth_challenge_response(),
         optional("chatMode") => list(any()),
         optional("chatModeConfiguration") => list(),
         optional("clientToken") => String.t(),
@@ -1065,8 +1171,22 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      custom_plugin_configuration() :: %{
+        "apiSchema" => list(),
+        "apiSchemaType" => list(any()),
+        "description" => String.t()
+      }
+
+  """
+  @type custom_plugin_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_web_experience_request() :: %{
         optional("authenticationConfiguration") => list(),
+        optional("roleArn") => String.t(),
         optional("samplePromptsControlMode") => list(any()),
         optional("subtitle") => String.t(),
         optional("title") => String.t(),
@@ -1204,9 +1324,9 @@ defmodule AWS.QBusiness do
         optional("description") => String.t(),
         optional("encryptionConfiguration") => encryption_configuration(),
         optional("identityCenterInstanceArn") => String.t(),
+        optional("roleArn") => String.t(),
         optional("tags") => list(tag()()),
-        required("displayName") => String.t(),
-        required("roleArn") => String.t()
+        required("displayName") => String.t()
       }
 
   """
@@ -1218,7 +1338,8 @@ defmodule AWS.QBusiness do
 
       text_segment() :: %{
         "beginOffset" => integer(),
-        "endOffset" => integer()
+        "endOffset" => integer(),
+        "snippetExcerpt" => snippet_excerpt()
       }
 
   """
@@ -1231,7 +1352,9 @@ defmodule AWS.QBusiness do
       get_plugin_response() :: %{
         "applicationId" => String.t(),
         "authConfiguration" => list(),
+        "buildStatus" => list(any()),
         "createdAt" => non_neg_integer(),
+        "customPluginConfiguration" => custom_plugin_configuration(),
         "displayName" => String.t(),
         "pluginArn" => String.t(),
         "pluginId" => String.t(),
@@ -1319,6 +1442,17 @@ defmodule AWS.QBusiness do
 
   """
   @type list_documents_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      chat_output() :: %{
+        "outputStream" => list()
+      }
+
+  """
+  @type chat_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1463,10 +1597,24 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      action_execution_event() :: %{
+        "payload" => map(),
+        "payloadFieldNameSeparator" => String.t(),
+        "pluginId" => String.t()
+      }
+
+  """
+  @type action_execution_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_application_request() :: %{
         optional("attachmentsConfiguration") => attachments_configuration(),
         optional("description") => String.t(),
         optional("displayName") => String.t(),
+        optional("identityCenterInstanceArn") => String.t(),
         optional("roleArn") => String.t()
       }
 
@@ -1587,6 +1735,17 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      auth_challenge_request() :: %{
+        "authorizationUrl" => String.t()
+      }
+
+  """
+  @type auth_challenge_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_chat_controls_configuration_request() :: %{}
 
   """
@@ -1624,6 +1783,7 @@ defmodule AWS.QBusiness do
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
         optional("tags") => list(tag()()),
+        optional("type") => list(any()),
         required("displayName") => String.t()
       }
 
@@ -1636,6 +1796,7 @@ defmodule AWS.QBusiness do
 
       update_plugin_request() :: %{
         optional("authConfiguration") => list(),
+        optional("customPluginConfiguration") => custom_plugin_configuration(),
         optional("displayName") => String.t(),
         optional("serverUrl") => String.t(),
         optional("state") => list(any())
@@ -1689,6 +1850,30 @@ defmodule AWS.QBusiness do
 
   """
   @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration_event() :: %{
+        "attributeFilter" => attribute_filter(),
+        "chatMode" => list(any()),
+        "chatModeConfiguration" => list()
+      }
+
+  """
+  @type configuration_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auth_challenge_response() :: %{
+        "responseMap" => map()
+      }
+
+  """
+  @type auth_challenge_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1748,6 +1933,22 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      chat_input() :: %{
+        optional("clientToken") => String.t(),
+        optional("conversationId") => String.t(),
+        optional("inputStream") => list(),
+        optional("parentMessageId") => String.t(),
+        optional("userGroups") => list(String.t()()),
+        optional("userId") => String.t()
+      }
+
+  """
+  @type chat_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_chat_controls_configuration_request() :: %{
         optional("blockedPhrasesConfigurationUpdate") => blocked_phrases_configuration_update(),
         optional("clientToken") => String.t(),
@@ -1787,7 +1988,9 @@ defmodule AWS.QBusiness do
   ## Example:
 
       action_review_payload_field() :: %{
+        "allowedFormat" => String.t(),
         "allowedValues" => list(action_review_payload_field_allowed_value()()),
+        "displayDescription" => String.t(),
         "displayName" => String.t(),
         "displayOrder" => integer(),
         "required" => [boolean()],
@@ -2036,6 +2239,17 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      attachment_input_event() :: %{
+        "attachment" => attachment_input()
+      }
+
+  """
+  @type attachment_input_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_plugin_request() :: %{}
 
   """
@@ -2052,6 +2266,17 @@ defmodule AWS.QBusiness do
 
   """
   @type create_index_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      snippet_excerpt() :: %{
+        "text" => String.t()
+      }
+
+  """
+  @type snippet_excerpt() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2317,6 +2542,15 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      end_of_input_event() :: %{}
+
+  """
+  @type end_of_input_event() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       saml_configuration() :: %{
         "metadataXML" => String.t(),
         "roleArn" => String.t(),
@@ -2425,6 +2659,7 @@ defmodule AWS.QBusiness do
         "indexId" => String.t(),
         "indexStatistics" => index_statistics(),
         "status" => list(any()),
+        "type" => list(any()),
         "updatedAt" => non_neg_integer()
       }
 
@@ -2465,6 +2700,15 @@ defmodule AWS.QBusiness do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type chat_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | license_not_found_exception()
 
   @type chat_sync_errors() ::
           throttling_exception()
@@ -2983,6 +3227,42 @@ defmodule AWS.QBusiness do
   end
 
   @doc """
+  Starts or continues a streaming Amazon Q Business conversation.
+  """
+  @spec chat(map(), String.t(), chat_input(), list()) ::
+          {:ok, chat_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, chat_errors()}
+  def chat(%Client{} = client, application_id, input, options \\ []) do
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/conversations"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"},
+        {"conversationId", "conversationId"},
+        {"parentMessageId", "parentMessageId"},
+        {"userGroups", "userGroups"},
+        {"userId", "userId"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Starts or continues a non-streaming Amazon Q Business conversation.
   """
   @spec chat_sync(map(), String.t(), chat_sync_input(), list()) ::
@@ -3017,6 +3297,14 @@ defmodule AWS.QBusiness do
 
   @doc """
   Creates an Amazon Q Business application.
+
+  There are new tiers for Amazon Q Business. Not all features in Amazon Q Business
+  Pro are
+  also available in Amazon Q Business Lite. For information on what's included in
+  Amazon Q Business Lite and what's included in
+  Amazon Q Business Pro, see [Amazon Q Business tiers](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/what-is.html#tiers).
+  You must use the Amazon Q Business console to assign subscription tiers to
+  users.
   """
   @spec create_application(map(), create_application_request(), list()) ::
           {:ok, create_application_response(), any()}

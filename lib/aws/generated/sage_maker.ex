@@ -6131,6 +6131,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      session_chaining_config() :: %{
+        "EnableSessionTagChaining" => boolean()
+      }
+      
+  """
+  @type session_chaining_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_data_quality_job_definition_request() :: %{
         optional("DataQualityBaselineConfig") => data_quality_baseline_config(),
         optional("NetworkConfig") => monitoring_network_config(),
@@ -8949,6 +8960,7 @@ defmodule AWS.SageMaker do
         optional("ProfilerRuleConfigurations") => list(profiler_rule_configuration()()),
         optional("RemoteDebugConfig") => remote_debug_config(),
         optional("RetryStrategy") => retry_strategy(),
+        optional("SessionChainingConfig") => session_chaining_config(),
         optional("Tags") => list(tag()()),
         optional("TensorBoardOutputConfig") => tensor_board_output_config(),
         optional("VpcConfig") => vpc_config(),

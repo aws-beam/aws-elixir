@@ -3642,7 +3642,13 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Updates one or more phone numbers.
+  Updates phone number product types, calling names, or phone number names.
+
+  You can update one attribute at a time for each
+  `UpdatePhoneNumberRequestItem`. For example, you can update the product type,
+  the calling name, or phone name.
+
+  You cannot have a duplicate `phoneNumberId` in a request.
   """
   @spec batch_update_phone_number(map(), batch_update_phone_number_request(), list()) ::
           {:ok, batch_update_phone_number_response(), any()}
@@ -4688,6 +4694,10 @@ defmodule AWS.ChimeSDKVoice do
 
   @doc """
   Gets the Alexa Skill configuration for the SIP media application.
+
+  Due to changes made by the Amazon Alexa service, this API is no longer available
+  for use. For more information, refer to
+  the [Alexa Smart Properties](https://developer.amazon.com/en-US/alexa/alexasmartproperties) page.
   """
   @spec get_sip_media_application_alexa_skill_configuration(map(), String.t(), list()) ::
           {:ok, get_sip_media_application_alexa_skill_configuration_response(), any()}
@@ -5526,6 +5536,10 @@ defmodule AWS.ChimeSDKVoice do
 
   @doc """
   Updates the Alexa Skill configuration for the SIP media application.
+
+  Due to changes made by the Amazon Alexa service, this API is no longer available
+  for use. For more information, refer to
+  the [Alexa Smart Properties](https://developer.amazon.com/en-US/alexa/alexasmartproperties) page.
   """
   @spec put_sip_media_application_alexa_skill_configuration(
           map(),
@@ -6136,12 +6150,13 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
-  Updates phone number details, such as product type or calling name, for the
+  Updates phone number details, such as product type, calling name, or phone
+  number name for the
   specified phone number ID.
 
   You can update one phone number detail at a time. For
-  example, you can update either the product type or the calling name in one
-  action.
+  example, you can update either the product type, calling name, or phone number
+  name in one action.
 
   For numbers outside the U.S., you must use the Amazon Chime SDK SIP Media
   Application Dial-In product type.

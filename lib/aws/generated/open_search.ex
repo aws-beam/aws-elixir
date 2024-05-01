@@ -1841,6 +1841,7 @@ defmodule AWS.OpenSearch do
         "Created" => boolean(),
         "Deleted" => boolean(),
         "DomainEndpointOptions" => domain_endpoint_options(),
+        "DomainEndpointV2HostedZoneId" => String.t(),
         "DomainId" => String.t(),
         "DomainName" => String.t(),
         "DomainProcessingStatus" => list(any()),

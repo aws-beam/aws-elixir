@@ -1689,6 +1689,10 @@ defmodule AWS.Signer do
   `StartSigningJob` operation.
 
     *
+  You must ensure the S3 buckets are from the same Region as the signing profile.
+  Cross-Region signing isn't supported.
+
+    *
   You must also specify a request token that identifies your request to Signer.
 
   You can call the `DescribeSigningJob` and the `ListSigningJobs` actions after

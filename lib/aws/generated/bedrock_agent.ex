@@ -261,6 +261,19 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      mongo_db_atlas_field_mapping() :: %{
+        "metadataField" => String.t(),
+        "textField" => String.t(),
+        "vectorField" => String.t()
+      }
+
+  """
+  @type mongo_db_atlas_field_mapping() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_agent_knowledge_base_response() :: %{
         "agentKnowledgeBase" => agent_knowledge_base()
       }
@@ -779,6 +792,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       storage_configuration() :: %{
+        "mongoDbAtlasConfiguration" => mongo_db_atlas_configuration(),
         "opensearchServerlessConfiguration" => open_search_serverless_configuration(),
         "pineconeConfiguration" => pinecone_configuration(),
         "rdsConfiguration" => rds_configuration(),
@@ -1647,6 +1661,23 @@ defmodule AWS.BedrockAgent do
 
   """
   @type delete_agent_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mongo_db_atlas_configuration() :: %{
+        "collectionName" => String.t(),
+        "credentialsSecretArn" => String.t(),
+        "databaseName" => String.t(),
+        "endpoint" => String.t(),
+        "endpointServiceName" => String.t(),
+        "fieldMapping" => mongo_db_atlas_field_mapping(),
+        "vectorIndexName" => String.t()
+      }
+
+  """
+  @type mongo_db_atlas_configuration() :: %{String.t() => any()}
 
   @typedoc """
 

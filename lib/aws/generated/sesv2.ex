@@ -5264,38 +5264,28 @@ defmodule AWS.SESv2 do
   @doc """
   Lists the contacts present in a specific contact list.
   """
-  @spec list_contacts(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_contacts(map(), String.t(), list_contacts_request(), list()) ::
           {:ok, list_contacts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_contacts_errors()}
-  def list_contacts(
-        %Client{} = client,
-        contact_list_name,
-        next_token \\ nil,
-        page_size \\ nil,
-        options \\ []
-      ) do
-    url_path = "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}/contacts"
+  def list_contacts(%Client{} = client, contact_list_name, input, options \\ []) do
+    url_path = "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}/contacts/list"
     headers = []
     query_params = []
 
-    query_params =
-      if !is_nil(page_size) do
-        [{"PageSize", page_size} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5604,32 +5594,28 @@ defmodule AWS.SESv2 do
   @doc """
   Lists all of the import jobs.
   """
-  @spec list_import_jobs(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_import_jobs(map(), list_import_jobs_request(), list()) ::
           {:ok, list_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_import_jobs_errors()}
-  def list_import_jobs(%Client{} = client, next_token \\ nil, page_size \\ nil, options \\ []) do
-    url_path = "/v2/email/import-jobs"
+  def list_import_jobs(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/email/import-jobs/list"
     headers = []
     query_params = []
 
-    query_params =
-      if !is_nil(page_size) do
-        [{"PageSize", page_size} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"NextToken", next_token} | query_params]
-      else
-        query_params
-      end
-
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

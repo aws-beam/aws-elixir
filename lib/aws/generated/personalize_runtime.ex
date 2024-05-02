@@ -124,6 +124,7 @@ defmodule AWS.PersonalizeRuntime do
         "itemId" => String.t(),
         "metadata" => map(),
         "promotionName" => String.t(),
+        "reason" => list(String.t()()),
         "score" => float()
       }
 

@@ -31099,8 +31099,10 @@ defmodule AWS.EC2 do
   @doc """
   Deletes the specified transit gateway route table.
 
-  You must disassociate the route table from any
-  transit gateway route tables before you can delete it.
+  If there are any route tables associated with
+  the transit gateway route table, you must first run `DisassociateRouteTable`
+  before you can delete the transit gateway route table. This removes any route
+  tables associated with the transit gateway route table.
   """
   @spec delete_transit_gateway_route_table(
           map(),

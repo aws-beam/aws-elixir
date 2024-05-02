@@ -15235,15 +15235,19 @@ defmodule AWS.SecurityHub do
 
   @doc """
 
-  `UpdateFindings` is deprecated.
+  `UpdateFindings` is a deprecated operation.
 
   Instead of `UpdateFindings`, use
-  `BatchUpdateFindings`.
+  the `BatchUpdateFindings` operation.
 
   Updates the `Note` and `RecordState` of the Security Hub-aggregated
   findings that the filter attributes specify. Any member account that can view
   the finding
   also sees the update to the finding.
+
+  Finding updates made with `UpdateFindings` might not be persisted if the same
+  finding is later updated by the
+  finding provider through the `BatchImportFindings` operation.
   """
   @spec update_findings(map(), update_findings_request(), list()) ::
           {:ok, update_findings_response(), any()}

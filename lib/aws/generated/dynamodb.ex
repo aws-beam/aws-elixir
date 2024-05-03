@@ -55,6 +55,7 @@ defmodule AWS.DynamoDB do
         "LatestStreamArn" => String.t(),
         "LatestStreamLabel" => String.t(),
         "LocalSecondaryIndexes" => list(local_secondary_index_description()()),
+        "OnDemandThroughput" => on_demand_throughput(),
         "ProvisionedThroughput" => provisioned_throughput_description(),
         "Replicas" => list(replica_description()()),
         "RestoreSummary" => restore_summary(),
@@ -326,6 +327,7 @@ defmodule AWS.DynamoDB do
       create_replication_group_member_action() :: %{
         "GlobalSecondaryIndexes" => list(replica_global_secondary_index()()),
         "KMSMasterKeyId" => String.t(),
+        "OnDemandThroughputOverride" => on_demand_throughput_override(),
         "ProvisionedThroughputOverride" => provisioned_throughput_override(),
         "RegionName" => String.t(),
         "TableClassOverride" => list(any())
@@ -369,6 +371,18 @@ defmodule AWS.DynamoDB do
       
   """
   @type get_resource_policy_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      on_demand_throughput() :: %{
+        "MaxReadRequestUnits" => float(),
+        "MaxWriteRequestUnits" => float()
+      }
+      
+  """
+  @type on_demand_throughput() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -609,6 +623,7 @@ defmodule AWS.DynamoDB do
         optional("DeletionProtectionEnabled") => boolean(),
         optional("GlobalSecondaryIndexes") => list(global_secondary_index()()),
         optional("LocalSecondaryIndexes") => list(local_secondary_index()()),
+        optional("OnDemandThroughput") => on_demand_throughput(),
         optional("ProvisionedThroughput") => provisioned_throughput(),
         optional("ResourcePolicy") => String.t(),
         optional("SSESpecification") => sse_specification(),
@@ -691,6 +706,7 @@ defmodule AWS.DynamoDB do
         "BillingMode" => list(any()),
         "GlobalSecondaryIndexes" => list(global_secondary_index()()),
         "KeySchema" => list(key_schema_element()()),
+        "OnDemandThroughput" => on_demand_throughput(),
         "ProvisionedThroughput" => provisioned_throughput(),
         "SSESpecification" => sse_specification(),
         "TableName" => String.t()
@@ -900,6 +916,17 @@ defmodule AWS.DynamoDB do
       
   """
   @type transaction_canceled_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      on_demand_throughput_override() :: %{
+        "MaxReadRequestUnits" => float()
+      }
+      
+  """
+  @type on_demand_throughput_override() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1204,6 +1231,7 @@ defmodule AWS.DynamoDB do
       
       replica_global_secondary_index() :: %{
         "IndexName" => String.t(),
+        "OnDemandThroughputOverride" => on_demand_throughput_override(),
         "ProvisionedThroughputOverride" => provisioned_throughput_override()
       }
       
@@ -1253,6 +1281,7 @@ defmodule AWS.DynamoDB do
         "BillingMode" => list(any()),
         "ItemCount" => float(),
         "KeySchema" => list(key_schema_element()()),
+        "OnDemandThroughput" => on_demand_throughput(),
         "ProvisionedThroughput" => provisioned_throughput(),
         "TableArn" => String.t(),
         "TableCreationDateTime" => non_neg_integer(),
@@ -1420,6 +1449,7 @@ defmodule AWS.DynamoDB do
       create_global_secondary_index_action() :: %{
         "IndexName" => String.t(),
         "KeySchema" => list(key_schema_element()()),
+        "OnDemandThroughput" => on_demand_throughput(),
         "Projection" => projection(),
         "ProvisionedThroughput" => provisioned_throughput()
       }
@@ -1647,6 +1677,7 @@ defmodule AWS.DynamoDB do
       update_replication_group_member_action() :: %{
         "GlobalSecondaryIndexes" => list(replica_global_secondary_index()()),
         "KMSMasterKeyId" => String.t(),
+        "OnDemandThroughputOverride" => on_demand_throughput_override(),
         "ProvisionedThroughputOverride" => provisioned_throughput_override(),
         "RegionName" => String.t(),
         "TableClassOverride" => list(any())
@@ -2245,6 +2276,7 @@ defmodule AWS.DynamoDB do
         "IndexStatus" => list(any()),
         "ItemCount" => float(),
         "KeySchema" => list(key_schema_element()()),
+        "OnDemandThroughput" => on_demand_throughput(),
         "Projection" => projection(),
         "ProvisionedThroughput" => provisioned_throughput_description()
       }
@@ -2259,6 +2291,7 @@ defmodule AWS.DynamoDB do
       global_secondary_index_info() :: %{
         "IndexName" => String.t(),
         "KeySchema" => list(key_schema_element()()),
+        "OnDemandThroughput" => on_demand_throughput(),
         "Projection" => projection(),
         "ProvisionedThroughput" => provisioned_throughput()
       }
@@ -2304,6 +2337,7 @@ defmodule AWS.DynamoDB do
       
       replica_global_secondary_index_description() :: %{
         "IndexName" => String.t(),
+        "OnDemandThroughputOverride" => on_demand_throughput_override(),
         "ProvisionedThroughputOverride" => provisioned_throughput_override()
       }
       
@@ -2490,6 +2524,7 @@ defmodule AWS.DynamoDB do
       global_secondary_index() :: %{
         "IndexName" => String.t(),
         "KeySchema" => list(key_schema_element()()),
+        "OnDemandThroughput" => on_demand_throughput(),
         "Projection" => projection(),
         "ProvisionedThroughput" => provisioned_throughput()
       }
@@ -2505,6 +2540,7 @@ defmodule AWS.DynamoDB do
         optional("BillingModeOverride") => list(any()),
         optional("GlobalSecondaryIndexOverride") => list(global_secondary_index()()),
         optional("LocalSecondaryIndexOverride") => list(local_secondary_index()()),
+        optional("OnDemandThroughputOverride") => on_demand_throughput(),
         optional("ProvisionedThroughputOverride") => provisioned_throughput(),
         optional("RestoreDateTime") => non_neg_integer(),
         optional("SSESpecificationOverride") => sse_specification(),
@@ -2536,6 +2572,7 @@ defmodule AWS.DynamoDB do
         optional("BillingModeOverride") => list(any()),
         optional("GlobalSecondaryIndexOverride") => list(global_secondary_index()()),
         optional("LocalSecondaryIndexOverride") => list(local_secondary_index()()),
+        optional("OnDemandThroughputOverride") => on_demand_throughput(),
         optional("ProvisionedThroughputOverride") => provisioned_throughput(),
         optional("SSESpecificationOverride") => sse_specification(),
         required("BackupArn") => String.t(),
@@ -2625,6 +2662,7 @@ defmodule AWS.DynamoDB do
       replica_description() :: %{
         "GlobalSecondaryIndexes" => list(replica_global_secondary_index_description()()),
         "KMSMasterKeyId" => String.t(),
+        "OnDemandThroughputOverride" => on_demand_throughput_override(),
         "ProvisionedThroughputOverride" => provisioned_throughput_override(),
         "RegionName" => String.t(),
         "ReplicaInaccessibleDateTime" => non_neg_integer(),
@@ -2736,6 +2774,7 @@ defmodule AWS.DynamoDB do
       
       update_global_secondary_index_action() :: %{
         "IndexName" => String.t(),
+        "OnDemandThroughput" => on_demand_throughput(),
         "ProvisionedThroughput" => provisioned_throughput()
       }
       
@@ -3001,6 +3040,7 @@ defmodule AWS.DynamoDB do
         optional("BillingMode") => list(any()),
         optional("DeletionProtectionEnabled") => boolean(),
         optional("GlobalSecondaryIndexUpdates") => list(global_secondary_index_update()()),
+        optional("OnDemandThroughput") => on_demand_throughput(),
         optional("ProvisionedThroughput") => provisioned_throughput(),
         optional("ReplicaUpdates") => list(replication_group_update()()),
         optional("SSESpecification") => sse_specification(),
@@ -4613,11 +4653,11 @@ defmodule AWS.DynamoDB do
   seconds, and then retry the `GetResourcePolicy` request.
 
   After a `GetResourcePolicy` request returns a policy created using the
-  `PutResourcePolicy` request, you can assume the policy will start getting
-  applied in the authorization of requests to the resource. Because this process
-  is eventually consistent, it will take some time to apply the policy to all
-  requests to a resource. Policies that you attach while creating a table using
-  the `CreateTable` request will always be applied to all requests for that table.
+  `PutResourcePolicy` request, the policy will be applied in the authorization of
+  requests to the resource. Because this process is eventually consistent, it will
+  take some time to apply the policy to all requests to a resource. Policies that
+  you attach while creating a table using the `CreateTable` request will always be
+  applied to all requests for that table.
   """
   @spec get_resource_policy(map(), get_resource_policy_input(), list()) ::
           {:ok, get_resource_policy_output(), any()}
@@ -4832,7 +4872,7 @@ defmodule AWS.DynamoDB do
 
   `PutResourcePolicy` is an idempotent operation; running it multiple times on the
   same resource using the same policy document will return the same revision ID.
-  If you specify an `ExpectedRevisionId` which doesn't match the current policy's
+  If you specify an `ExpectedRevisionId` that doesn't match the current policy's
   `RevisionId`, the `PolicyNotFoundException` will be returned.
 
   `PutResourcePolicy` is an asynchronous operation. If you issue a

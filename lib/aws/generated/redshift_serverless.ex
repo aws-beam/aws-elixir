@@ -131,6 +131,18 @@ defmodule AWS.RedshiftServerless do
 
   ## Example:
       
+      scheduled_action_association() :: %{
+        "namespaceName" => String.t(),
+        "scheduledActionName" => String.t()
+      }
+      
+  """
+  @type scheduled_action_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_table_restore_status_request() :: %{
         required("tableRestoreRequestId") => [String.t()]
       }
@@ -843,7 +855,7 @@ defmodule AWS.RedshiftServerless do
       
       list_scheduled_actions_response() :: %{
         "nextToken" => String.t(),
-        "scheduledActions" => list(String.t()())
+        "scheduledActions" => list(scheduled_action_association()())
       }
       
   """

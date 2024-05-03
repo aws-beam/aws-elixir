@@ -10141,6 +10141,20 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      get_instance_tpm_ek_pub_request() :: %{
+        optional("DryRun") => boolean(),
+        required("InstanceId") => String.t(),
+        required("KeyFormat") => list(any()),
+        required("KeyType") => list(any())
+      }
+      
+  """
+  @type get_instance_tpm_ek_pub_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_replace_root_volume_tasks_request() :: %{
         optional("DryRun") => boolean(),
         optional("Filters") => list(filter()()),
@@ -25887,6 +25901,20 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      get_instance_tpm_ek_pub_result() :: %{
+        "InstanceId" => String.t(),
+        "KeyFormat" => list(any()),
+        "KeyType" => list(any()),
+        "KeyValue" => String.t()
+      }
+      
+  """
+  @type get_instance_tpm_ek_pub_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       dns_options() :: %{
         "DnsRecordIpType" => list(any()),
         "PrivateDnsOnlyForInboundResolverEndpoint" => boolean()
@@ -36217,6 +36245,19 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "GetInstanceMetadataDefaults", input, options)
+  end
+
+  @doc """
+  Gets the public endorsement key associated with the Nitro Trusted
+  Platform Module (NitroTPM) for the specified instance.
+  """
+  @spec get_instance_tpm_ek_pub(map(), get_instance_tpm_ek_pub_request(), list()) ::
+          {:ok, get_instance_tpm_ek_pub_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def get_instance_tpm_ek_pub(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetInstanceTpmEkPub", input, options)
   end
 
   @doc """

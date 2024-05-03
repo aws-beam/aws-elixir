@@ -28,6 +28,26 @@ defmodule AWS.Personalize do
 
   ## Example:
       
+      data_deletion_job() :: %{
+        "creationDateTime" => non_neg_integer(),
+        "dataDeletionJobArn" => String.t(),
+        "dataSource" => data_source(),
+        "datasetGroupArn" => String.t(),
+        "failureReason" => String.t(),
+        "jobName" => String.t(),
+        "lastUpdatedDateTime" => non_neg_integer(),
+        "numDeleted" => integer(),
+        "roleArn" => String.t(),
+        "status" => String.t()
+      }
+      
+  """
+  @type data_deletion_job() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_event_tracker_request() :: %{
         optional("tags") => list(tag()()),
         required("datasetGroupArn") => String.t(),
@@ -188,6 +208,19 @@ defmodule AWS.Personalize do
       
   """
   @type list_batch_inference_jobs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_data_deletion_jobs_request() :: %{
+        optional("datasetGroupArn") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+      
+  """
+  @type list_data_deletion_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -420,6 +453,17 @@ defmodule AWS.Personalize do
       
   """
   @type delete_schema_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_data_deletion_job_response() :: %{
+        "dataDeletionJobArn" => String.t()
+      }
+      
+  """
+  @type create_data_deletion_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -766,6 +810,29 @@ defmodule AWS.Personalize do
       
   """
   @type campaign_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_data_deletion_job_response() :: %{
+        "dataDeletionJob" => data_deletion_job()
+      }
+      
+  """
+  @type describe_data_deletion_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_data_deletion_jobs_response() :: %{
+        "dataDeletionJobs" => list(data_deletion_job_summary()()),
+        "nextToken" => String.t()
+      }
+      
+  """
+  @type list_data_deletion_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1682,6 +1749,21 @@ defmodule AWS.Personalize do
 
   ## Example:
       
+      create_data_deletion_job_request() :: %{
+        optional("tags") => list(tag()()),
+        required("dataSource") => data_source(),
+        required("datasetGroupArn") => String.t(),
+        required("jobName") => String.t(),
+        required("roleArn") => String.t()
+      }
+      
+  """
+  @type create_data_deletion_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_recommender_response() :: %{
         "recommenderArn" => String.t()
       }
@@ -1801,6 +1883,23 @@ defmodule AWS.Personalize do
       
   """
   @type create_batch_segment_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_deletion_job_summary() :: %{
+        "creationDateTime" => non_neg_integer(),
+        "dataDeletionJobArn" => String.t(),
+        "datasetGroupArn" => String.t(),
+        "failureReason" => String.t(),
+        "jobName" => String.t(),
+        "lastUpdatedDateTime" => non_neg_integer(),
+        "status" => String.t()
+      }
+      
+  """
+  @type data_deletion_job_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2398,6 +2497,17 @@ defmodule AWS.Personalize do
 
   ## Example:
       
+      describe_data_deletion_job_request() :: %{
+        required("dataDeletionJobArn") => String.t()
+      }
+      
+  """
+  @type describe_data_deletion_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       dataset_export_job_output() :: %{
         "s3DataDestination" => s3_data_config()
       }
@@ -2662,6 +2772,14 @@ defmodule AWS.Personalize do
           | resource_not_found_exception()
           | resource_in_use_exception()
 
+  @type create_data_deletion_job_errors() ::
+          too_many_tags_exception()
+          | resource_already_exists_exception()
+          | limit_exceeded_exception()
+          | invalid_input_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+
   @type create_dataset_errors() ::
           too_many_tags_exception()
           | resource_already_exists_exception()
@@ -2780,6 +2898,9 @@ defmodule AWS.Personalize do
 
   @type describe_campaign_errors() :: invalid_input_exception() | resource_not_found_exception()
 
+  @type describe_data_deletion_job_errors() ::
+          invalid_input_exception() | resource_not_found_exception()
+
   @type describe_dataset_errors() :: invalid_input_exception() | resource_not_found_exception()
 
   @type describe_dataset_export_job_errors() ::
@@ -2824,6 +2945,9 @@ defmodule AWS.Personalize do
           invalid_input_exception() | invalid_next_token_exception()
 
   @type list_campaigns_errors() :: invalid_input_exception() | invalid_next_token_exception()
+
+  @type list_data_deletion_jobs_errors() ::
+          invalid_input_exception() | invalid_next_token_exception()
 
   @type list_dataset_export_jobs_errors() ::
           invalid_input_exception() | invalid_next_token_exception()
@@ -3056,6 +3180,71 @@ defmodule AWS.Personalize do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateCampaign", input, options)
+  end
+
+  @doc """
+  Creates a batch job that deletes all
+  references to specific users from an Amazon Personalize dataset group in
+  batches.
+
+  You specify the users to delete in a CSV file of userIds in
+  an Amazon S3 bucket. After a job completes, Amazon Personalize no longer trains
+  on the users’ data and no longer considers the users when generating user
+  segments.
+  For more information about creating a data deletion job, see [Deleting users](https://docs.aws.amazon.com/personalize/latest/dg/delete-records.html).
+
+    *
+  Your input file must be a CSV file with a single USER_ID column that lists the
+  users IDs. For more information
+  about preparing the CSV file, see [Preparing your data deletion file and uploading it to Amazon
+  S3](https://docs.aws.amazon.com/personalize/latest/dg/prepare-deletion-input-file.html).
+
+    *
+  To give Amazon Personalize permission to access your input CSV file of userIds,
+  you must specify an IAM service role that has permission to
+  read from the data source. This role
+  needs `GetObject` and `ListBucket` permissions for the bucket and its content.
+  These permissions are the same as importing data. For information on granting
+  access to your Amazon S3
+  bucket, see [Giving Amazon Personalize Access to Amazon S3
+  Resources](https://docs.aws.amazon.com/personalize/latest/dg/granting-personalize-s3-access.html).
+
+  After you create a job, it can take up to a day to delete all references to the
+  users from datasets and models. Until the job completes,
+  Amazon Personalize continues to use the data when training. And if you use a
+  User Segmentation recipe, the users might appear in user segments.
+
+  ## Status
+
+  A data deletion job can have one of the following statuses:
+
+    *
+  PENDING > IN_PROGRESS > COMPLETED -or- FAILED
+
+  To get the status of the data deletion job, call
+  [DescribeDataDeletionJob](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataDeletionJob.html) API operation and specify the Amazon Resource Name
+  (ARN) of the job. If the status is FAILED, the response
+  includes a `failureReason` key, which describes why the job
+  failed.
+
+  ## Related APIs
+
+    *
+
+  [ListDataDeletionJobs](https://docs.aws.amazon.com/personalize/latest/dg/API_ListDataDeletionJobs.html)
+
+    *
+
+  [DescribeDataDeletionJob](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataDeletionJob.html)
+  """
+  @spec create_data_deletion_job(map(), create_data_deletion_job_request(), list()) ::
+          {:ok, create_data_deletion_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_data_deletion_job_errors()}
+  def create_data_deletion_job(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateDataDeletionJob", input, options)
   end
 
   @doc """
@@ -3941,6 +4130,21 @@ defmodule AWS.Personalize do
   end
 
   @doc """
+  Describes the data deletion job created by
+  [CreateDataDeletionJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataDeletionJob.html),
+  including the job status.
+  """
+  @spec describe_data_deletion_job(map(), describe_data_deletion_job_request(), list()) ::
+          {:ok, describe_data_deletion_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_data_deletion_job_errors()}
+  def describe_data_deletion_job(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDataDeletionJob", input, options)
+  end
+
+  @doc """
   Describes the given dataset.
 
   For more information on datasets, see
@@ -4237,6 +4441,27 @@ defmodule AWS.Personalize do
     meta = metadata()
 
     Request.request_post(client, meta, "ListCampaigns", input, options)
+  end
+
+  @doc """
+  Returns a list of data deletion jobs for a dataset group ordered by creation
+  time,
+  with the most recent first.
+
+  When
+  a dataset group is not specified, all the data deletion jobs associated with
+  the account are listed. The response provides the properties for each
+  job, including the Amazon Resource Name (ARN). For more
+  information on data deletion jobs, see [Deleting users](https://docs.aws.amazon.com/personalize/latest/dg/delete-records.html).
+  """
+  @spec list_data_deletion_jobs(map(), list_data_deletion_jobs_request(), list()) ::
+          {:ok, list_data_deletion_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_data_deletion_jobs_errors()}
+  def list_data_deletion_jobs(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDataDeletionJobs", input, options)
   end
 
   @doc """

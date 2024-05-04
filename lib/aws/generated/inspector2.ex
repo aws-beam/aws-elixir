@@ -2578,6 +2578,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       get_cis_scan_report_request() :: %{
+        optional("reportFormat") => list(any()),
         optional("targetAccounts") => list(String.t()()),
         required("scanArn") => String.t()
       }
@@ -3743,6 +3744,7 @@ defmodule AWS.Inspector2 do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | resource_not_found_exception()
 
   @type get_cis_scan_result_details_errors() ::
           throttling_exception()

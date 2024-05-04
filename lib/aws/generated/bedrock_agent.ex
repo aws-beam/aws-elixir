@@ -1057,7 +1057,8 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       agent_alias_routing_configuration_list_item() :: %{
-        "agentVersion" => String.t()
+        "agentVersion" => String.t(),
+        "provisionedThroughput" => String.t()
       }
 
   """
@@ -1091,6 +1092,7 @@ defmodule AWS.BedrockAgent do
         "clientToken" => String.t(),
         "createdAt" => non_neg_integer(),
         "description" => String.t(),
+        "failureReasons" => list(String.t()()),
         "routingConfiguration" => list(agent_alias_routing_configuration_list_item()()),
         "updatedAt" => non_neg_integer()
       }

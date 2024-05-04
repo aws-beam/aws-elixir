@@ -3450,11 +3450,8 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Updates some parameters of an existing object storage location that DataSync
-  accesses for a transfer.
-
-  For information about creating a self-managed object storage
-  location, see [Creating a location for object storage](https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html).
+  Updates some parameters of an existing DataSync location for an object
+  storage system.
   """
   @spec update_location_object_storage(map(), update_location_object_storage_request(), list()) ::
           {:ok, update_location_object_storage_response(), any()}

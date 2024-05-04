@@ -46,6 +46,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      delete_attached_file_request() :: %{
+        required("AssociatedResourceArn") => String.t()
+      }
+
+  """
+  @type delete_attached_file_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       contact_filter() :: %{
         "ContactStates" => list(list(any())())
       }
@@ -918,6 +929,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      upload_url_metadata() :: %{
+        "HeadersToInclude" => map(),
+        "Url" => String.t(),
+        "UrlExpiry" => String.t()
+      }
+
+  """
+  @type upload_url_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       real_time_contact_analysis_transcript_item_with_content() :: %{
         "CharacterOffsets" => real_time_contact_analysis_character_interval(),
         "Content" => String.t(),
@@ -1099,6 +1123,26 @@ defmodule AWS.Connect do
 
   """
   @type meeting() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attached_file() :: %{
+        "AssociatedResourceArn" => String.t(),
+        "CreatedBy" => list(),
+        "CreationTime" => String.t(),
+        "FileArn" => String.t(),
+        "FileId" => String.t(),
+        "FileName" => String.t(),
+        "FileSizeInBytes" => float(),
+        "FileStatus" => list(any()),
+        "FileUseCaseType" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type attached_file() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1365,6 +1409,15 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      delete_attached_file_response() :: %{}
+
+  """
+  @type delete_attached_file_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       hours_of_operation() :: %{
         "Config" => list(hours_of_operation_config()()),
         "Description" => String.t(),
@@ -1616,6 +1669,19 @@ defmodule AWS.Connect do
 
   """
   @type user_search_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attached_file_error() :: %{
+        "ErrorCode" => String.t(),
+        "ErrorMessage" => String.t(),
+        "FileId" => String.t()
+      }
+
+  """
+  @type attached_file_error() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2134,6 +2200,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      download_url_metadata() :: %{
+        "Url" => String.t(),
+        "UrlExpiry" => String.t()
+      }
+
+  """
+  @type download_url_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       suspend_contact_recording_response() :: %{}
 
   """
@@ -2158,6 +2236,15 @@ defmodule AWS.Connect do
 
   """
   @type disassociate_queue_quick_connects_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      complete_attached_file_upload_response() :: %{}
+
+  """
+  @type complete_attached_file_upload_response() :: %{}
 
   @typedoc """
 
@@ -2514,6 +2601,30 @@ defmodule AWS.Connect do
 
   """
   @type metric_result_v2() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_attached_file_metadata_response() :: %{
+        "Errors" => list(attached_file_error()()),
+        "Files" => list(attached_file()())
+      }
+
+  """
+  @type batch_get_attached_file_metadata_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_attached_file_request() :: %{
+        optional("UrlExpiryInSeconds") => integer(),
+        required("AssociatedResourceArn") => String.t()
+      }
+
+  """
+  @type get_attached_file_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3391,7 +3502,8 @@ defmodule AWS.Connect do
   ## Example:
 
       invalid_request_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t(),
+        "Reason" => list()
       }
 
   """
@@ -3584,6 +3696,18 @@ defmodule AWS.Connect do
 
   """
   @type security_profiles_search_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_attached_file_metadata_request() :: %{
+        required("AssociatedResourceArn") => String.t(),
+        required("FileIds") => list(String.t()())
+      }
+
+  """
+  @type batch_get_attached_file_metadata_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3922,6 +4046,27 @@ defmodule AWS.Connect do
 
   """
   @type describe_view_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_attached_file_response() :: %{
+        "AssociatedResourceArn" => String.t(),
+        "CreatedBy" => list(),
+        "CreationTime" => String.t(),
+        "DownloadUrlMetadata" => download_url_metadata(),
+        "FileArn" => String.t(),
+        "FileId" => String.t(),
+        "FileName" => String.t(),
+        "FileSizeInBytes" => float(),
+        "FileStatus" => list(any()),
+        "FileUseCaseType" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type get_attached_file_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6992,6 +7137,22 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      start_attached_file_upload_response() :: %{
+        "CreatedBy" => list(),
+        "CreationTime" => String.t(),
+        "FileArn" => String.t(),
+        "FileId" => String.t(),
+        "FileStatus" => list(any()),
+        "UploadUrlMetadata" => upload_url_metadata()
+      }
+
+  """
+  @type start_attached_file_upload_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_view_response() :: %{}
 
   """
@@ -7282,6 +7443,17 @@ defmodule AWS.Connect do
 
   """
   @type get_traffic_distribution_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      complete_attached_file_upload_request() :: %{
+        required("AssociatedResourceArn") => String.t()
+      }
+
+  """
+  @type complete_attached_file_upload_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -7608,6 +7780,24 @@ defmodule AWS.Connect do
 
   """
   @type hours_of_operation_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_attached_file_upload_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("CreatedBy") => list(),
+        optional("Tags") => map(),
+        optional("UrlExpiryInSeconds") => integer(),
+        required("AssociatedResourceArn") => String.t(),
+        required("FileName") => String.t(),
+        required("FileSizeInBytes") => float(),
+        required("FileUseCaseType") => list(any())
+      }
+
+  """
+  @type start_attached_file_upload_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -8940,6 +9130,13 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type batch_get_attached_file_metadata_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type batch_get_flow_association_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
@@ -8961,6 +9158,13 @@ defmodule AWS.Connect do
           | idempotency_exception()
           | invalid_parameter_exception()
           | access_denied_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type complete_attached_file_upload_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
 
@@ -9180,6 +9384,13 @@ defmodule AWS.Connect do
           resource_conflict_exception()
           | throttling_exception()
           | invalid_parameter_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type delete_attached_file_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
 
@@ -9608,6 +9819,13 @@ defmodule AWS.Connect do
   @type dismiss_user_contact_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type get_attached_file_errors() ::
+          throttling_exception()
           | access_denied_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
@@ -10139,6 +10357,14 @@ defmodule AWS.Connect do
           | access_denied_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type start_attached_file_upload_errors() ::
+          resource_conflict_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | invalid_request_exception()
           | internal_service_exception()
 
   @type start_chat_contact_errors() ::
@@ -11132,6 +11358,47 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Allows you to retrieve metadata about multiple attached files on an associated
+  resource.
+
+  Each attached file provided in the input list must be associated with the input
+  AssociatedResourceArn.
+  """
+  @spec batch_get_attached_file_metadata(
+          map(),
+          String.t(),
+          batch_get_attached_file_metadata_request(),
+          list()
+        ) ::
+          {:ok, batch_get_attached_file_metadata_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_get_attached_file_metadata_errors()}
+  def batch_get_attached_file_metadata(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/attached-files/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"AssociatedResourceArn", "associatedResourceArn"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieve the flow associations for the given resources.
   """
   @spec batch_get_flow_association(
@@ -11247,6 +11514,54 @@ defmodule AWS.Connect do
     url_path = "/phone-number/claim"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Allows you to confirm that the attached file has been uploaded using the
+  pre-signed URL
+  provided in the StartAttachedFileUpload API.
+  """
+  @spec complete_attached_file_upload(
+          map(),
+          String.t(),
+          String.t(),
+          complete_attached_file_upload_request(),
+          list()
+        ) ::
+          {:ok, complete_attached_file_upload_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, complete_attached_file_upload_errors()}
+  def complete_attached_file_upload(
+        %Client{} = client,
+        file_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/attached-files/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(file_id)}"
+
+    headers = []
+
+    {query_params, input} =
+      [
+        {"AssociatedResourceArn", "associatedResourceArn"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 
@@ -11920,6 +12235,49 @@ defmodule AWS.Connect do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes an attached file along with the underlying S3 Object.
+
+  The attached file is **permanently deleted** if S3 bucket
+  versioning is not enabled.
+  """
+  @spec delete_attached_file(
+          map(),
+          String.t(),
+          String.t(),
+          delete_attached_file_request(),
+          list()
+        ) ::
+          {:ok, delete_attached_file_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_attached_file_errors()}
+  def delete_attached_file(%Client{} = client, file_id, instance_id, input, options \\ []) do
+    url_path =
+      "/attached-files/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(file_id)}"
+
+    headers = []
+
+    {query_params, input} =
+      [
+        {"AssociatedResourceArn", "associatedResourceArn"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
       url_path,
       query_params,
       headers,
@@ -13942,6 +14300,51 @@ defmodule AWS.Connect do
       options,
       200
     )
+  end
+
+  @doc """
+  Provides a pre-signed URL for download of an approved attached file.
+
+  This API also returns
+  metadata about the attached file. It will only return a downloadURL if the
+  status of the attached
+  file is `APPROVED`.
+  """
+  @spec get_attached_file(map(), String.t(), String.t(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_attached_file_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_attached_file_errors()}
+  def get_attached_file(
+        %Client{} = client,
+        file_id,
+        instance_id,
+        associated_resource_arn,
+        url_expiry_in_seconds \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/attached-files/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(file_id)}"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(url_expiry_in_seconds) do
+        [{"urlExpiryInSeconds", url_expiry_in_seconds} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(associated_resource_arn) do
+        [{"associatedResourceArn", associated_resource_arn} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -16969,6 +17372,35 @@ defmodule AWS.Connect do
       options,
       200
     )
+  end
+
+  @doc """
+  Provides a pre-signed Amazon S3 URL in response for uploading your content.
+
+  You may only use this API to upload attachments to a [Connect Case](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html).
+  """
+  @spec start_attached_file_upload(
+          map(),
+          String.t(),
+          start_attached_file_upload_request(),
+          list()
+        ) ::
+          {:ok, start_attached_file_upload_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_attached_file_upload_errors()}
+  def start_attached_file_upload(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/attached-files/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"AssociatedResourceArn", "associatedResourceArn"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """

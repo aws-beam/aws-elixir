@@ -271,6 +271,17 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
+      file_filter() :: %{
+        "fileArn" => String.t()
+      }
+
+  """
+  @type file_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       comment_filter() :: %{}
 
   """
@@ -1112,6 +1123,17 @@ defmodule AWS.ConnectCases do
 
   """
   @type field_identifier() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      file_content() :: %{
+        "fileArn" => String.t()
+      }
+
+  """
+  @type file_content() :: %{String.t() => any()}
 
   @typedoc """
 

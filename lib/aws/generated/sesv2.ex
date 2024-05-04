@@ -3170,6 +3170,7 @@ defmodule AWS.SESv2 do
 
       bulk_email_entry() :: %{
         optional("ReplacementEmailContent") => replacement_email_content(),
+        optional("ReplacementHeaders") => list(message_header()()),
         optional("ReplacementTags") => list(message_tag()()),
         required("Destination") => destination()
       }

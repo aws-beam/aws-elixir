@@ -81,6 +81,18 @@ defmodule AWS.Budgets do
 
   ## Example:
       
+      tag_resource_request() :: %{
+        required("ResourceARN") => String.t(),
+        required("ResourceTags") => list(resource_tag()())
+      }
+      
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_budgets_response() :: %{
         "Budgets" => list(budget()()),
         "NextToken" => String.t()
@@ -167,6 +179,15 @@ defmodule AWS.Budgets do
 
   ## Example:
       
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       update_subscriber_response() :: %{}
       
   """
@@ -192,6 +213,18 @@ defmodule AWS.Budgets do
       
   """
   @type create_subscriber_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("ResourceARN") => String.t(),
+        required("ResourceTagKeys") => list(String.t()())
+      }
+      
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -424,6 +457,17 @@ defmodule AWS.Budgets do
 
   ## Example:
       
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       ssm_action_definition() :: %{
         "ActionSubType" => list(any()),
         "InstanceIds" => list(String.t()()),
@@ -501,6 +545,17 @@ defmodule AWS.Budgets do
 
   ## Example:
       
+      list_tags_for_resource_response() :: %{
+        "ResourceTags" => list(resource_tag()())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       auto_adjust_data() :: %{
         "AutoAdjustType" => list(any()),
         "HistoricalOptions" => historical_options(),
@@ -539,6 +594,7 @@ defmodule AWS.Budgets do
   ## Example:
       
       create_budget_action_request() :: %{
+        optional("ResourceTags") => list(resource_tag()()),
         required("AccountId") => String.t(),
         required("ActionThreshold") => action_threshold(),
         required("ActionType") => list(any()),
@@ -605,6 +661,18 @@ defmodule AWS.Budgets do
       
   """
   @type update_notification_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
+  """
+  @type resource_tag() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -685,6 +753,15 @@ defmodule AWS.Budgets do
 
   ## Example:
       
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       historical_options() :: %{
         "BudgetAdjustmentPeriod" => integer(),
         "LookBackAvailablePeriods" => integer()
@@ -699,6 +776,7 @@ defmodule AWS.Budgets do
       
       create_budget_request() :: %{
         optional("NotificationsWithSubscribers") => list(notification_with_subscribers()()),
+        optional("ResourceTags") => list(resource_tag()()),
         required("AccountId") => String.t(),
         required("Budget") => budget()
       }
@@ -728,6 +806,17 @@ defmodule AWS.Budgets do
       
   """
   @type delete_notification_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("ResourceARN") => String.t()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1053,6 +1142,7 @@ defmodule AWS.Budgets do
           | throttling_exception()
           | invalid_parameter_exception()
           | access_denied_exception()
+          | service_quota_exceeded_exception()
 
   @type create_budget_action_errors() ::
           internal_error_exception()
@@ -1062,6 +1152,7 @@ defmodule AWS.Budgets do
           | invalid_parameter_exception()
           | access_denied_exception()
           | not_found_exception()
+          | service_quota_exceeded_exception()
 
   @type create_notification_errors() ::
           internal_error_exception()
@@ -1196,6 +1287,28 @@ defmodule AWS.Budgets do
           internal_error_exception()
           | throttling_exception()
           | resource_locked_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | not_found_exception()
+
+  @type list_tags_for_resource_errors() ::
+          internal_error_exception()
+          | throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | not_found_exception()
+
+  @type tag_resource_errors() ::
+          internal_error_exception()
+          | throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | service_quota_exceeded_exception()
+
+  @type untag_resource_errors() ::
+          internal_error_exception()
+          | throttling_exception()
           | invalid_parameter_exception()
           | access_denied_exception()
           | not_found_exception()
@@ -1460,7 +1573,6 @@ defmodule AWS.Budgets do
   end
 
   @doc """
-
   Lists the budget names and notifications that are associated with an account.
   """
   @spec describe_budget_notifications_for_account(
@@ -1560,6 +1672,45 @@ defmodule AWS.Budgets do
     meta = metadata()
 
     Request.request_post(client, meta, "ExecuteBudgetAction", input, options)
+  end
+
+  @doc """
+  Lists tags associated with a budget or budget action resource.
+  """
+  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_tags_for_resource_errors()}
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
+  end
+
+  @doc """
+  Creates tags for a budget or budget action resource.
+  """
+  @spec tag_resource(map(), tag_resource_request(), list()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_resource_errors()}
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
+  end
+
+  @doc """
+  Deletes tags associated with a budget or budget action resource.
+  """
+  @spec untag_resource(map(), untag_resource_request(), list()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_resource_errors()}
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """

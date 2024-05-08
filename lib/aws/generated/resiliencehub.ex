@@ -918,6 +918,18 @@ defmodule AWS.Resiliencehub do
 
   ## Example:
 
+      resource_identifier() :: %{
+        "logicalResourceId" => logical_resource_id(),
+        "resourceType" => String.t()
+      }
+
+  """
+  @type resource_identifier() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_resiliency_policy_request() :: %{
         optional("clientToken") => String.t(),
         optional("dataLocationConstraint") => String.t(),
@@ -1340,6 +1352,21 @@ defmodule AWS.Resiliencehub do
 
   ## Example:
 
+      resource_drift() :: %{
+        "appArn" => String.t(),
+        "appVersion" => String.t(),
+        "diffType" => String.t(),
+        "referenceId" => String.t(),
+        "resourceIdentifier" => resource_identifier()
+      }
+
+  """
+  @type resource_drift() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       app_assessment_summary() :: %{
         "appArn" => String.t(),
         "appVersion" => String.t(),
@@ -1384,6 +1411,18 @@ defmodule AWS.Resiliencehub do
 
   """
   @type delete_app_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_app_assessment_resource_drifts_response() :: %{
+        "nextToken" => String.t(),
+        "resourceDrifts" => list(resource_drift()())
+      }
+
+  """
+  @type list_app_assessment_resource_drifts_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1694,13 +1733,13 @@ defmodule AWS.Resiliencehub do
   ## Example:
 
       list_recommendation_templates_request() :: %{
+        optional("assessmentArn") => String.t(),
         optional("maxResults") => integer(),
         optional("name") => String.t(),
         optional("nextToken") => String.t(),
         optional("recommendationTemplateArn") => String.t(),
         optional("reverseOrder") => boolean(),
-        optional("status") => list(String.t()()),
-        required("assessmentArn") => String.t()
+        optional("status") => list(String.t()())
       }
 
   """
@@ -2008,6 +2047,19 @@ defmodule AWS.Resiliencehub do
 
   """
   @type delete_recommendation_template_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_app_assessment_resource_drifts_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("assessmentArn") => String.t()
+      }
+
+  """
+  @type list_app_assessment_resource_drifts_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2371,6 +2423,12 @@ defmodule AWS.Resiliencehub do
           | access_denied_exception()
           | internal_server_exception()
 
+  @type list_app_assessment_resource_drifts_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type list_app_assessments_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2670,13 +2728,14 @@ defmodule AWS.Resiliencehub do
   An Resilience Hub application is a
   collection of Amazon Web Services resources structured to prevent and recover
   Amazon Web Services application disruptions. To describe a Resilience Hub
-  application, you provide an
-  application name, resources from one or more CloudFormation stacks, Resource
-  Groups, Terraform state files, AppRegistry applications, and an appropriate
+  application,
+  you provide an application name, resources from one or more CloudFormation
+  stacks, Resource Groups, Terraform state files, AppRegistry applications, and an
+  appropriate
   resiliency policy. In addition, you can also add resources that are located on
   Amazon Elastic Kubernetes Service (Amazon EKS) clusters as optional resources.
-  For more information
-  about the number of resources supported per application, see [Service quotas](https://docs.aws.amazon.com/general/latest/gr/resiliencehub.html#limits_resiliencehub).
+  For more information about the number of resources supported per application,
+  see [Service quotas](https://docs.aws.amazon.com/general/latest/gr/resiliencehub.html#limits_resiliencehub).
 
   After you create an Resilience Hub application, you publish it so that you can
   run a resiliency
@@ -3462,6 +3521,38 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
+  Indicates the list of resource drifts that were detected while running an
+  assessment.
+  """
+  @spec list_app_assessment_resource_drifts(
+          map(),
+          list_app_assessment_resource_drifts_request(),
+          list()
+        ) ::
+          {:ok, list_app_assessment_resource_drifts_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_app_assessment_resource_drifts_errors()}
+  def list_app_assessment_resource_drifts(%Client{} = client, input, options \\ []) do
+    url_path = "/list-app-assessment-resource-drifts"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Lists the assessments for an Resilience Hub application.
 
   You can use request parameters to
@@ -3868,7 +3959,7 @@ defmodule AWS.Resiliencehub do
   """
   @spec list_recommendation_templates(
           map(),
-          String.t(),
+          String.t() | nil,
           String.t() | nil,
           String.t() | nil,
           String.t() | nil,
@@ -3882,7 +3973,7 @@ defmodule AWS.Resiliencehub do
           | {:error, list_recommendation_templates_errors()}
   def list_recommendation_templates(
         %Client{} = client,
-        assessment_arn,
+        assessment_arn \\ nil,
         max_results \\ nil,
         name \\ nil,
         next_token \\ nil,

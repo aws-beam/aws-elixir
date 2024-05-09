@@ -18165,6 +18165,7 @@ defmodule AWS.EC2 do
         "NitroEnclavesSupport" => list(any()),
         "NitroTpmInfo" => nitro_tpm_info(),
         "NitroTpmSupport" => list(any()),
+        "PhcSupport" => list(any()),
         "PlacementGroupInfo" => placement_group_info(),
         "ProcessorInfo" => processor_info(),
         "SupportedBootModes" => list(list(any())()),

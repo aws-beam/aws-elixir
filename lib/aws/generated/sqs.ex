@@ -6,19 +6,20 @@ defmodule AWS.SQS do
   Welcome to the *Amazon SQS API Reference*.
 
   Amazon SQS is a reliable, highly-scalable hosted queue for storing messages as
-  they
-  travel between applications or microservices. Amazon SQS moves data between
-  distributed
-  application components and helps you decouple these components.
+  they travel
+  between applications or microservices. Amazon SQS moves data between distributed
+  application
+  components and helps you decouple these components.
 
   For information on the permissions you need to use this API, see [Identity and access
   management](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-authentication-and-access-control.html)
   in the *Amazon SQS Developer
   Guide.*
 
-  You can use [Amazon Web Services SDKs](http://aws.amazon.com/tools/#sdk) to access Amazon SQS using your favorite
-  programming language. The SDKs
-  perform tasks such as the following automatically:
+  You can use [Amazon Web Services SDKs](http://aws.amazon.com/tools/#sdk) to access
+  Amazon SQS using your favorite programming language. The SDKs perform tasks such
+  as the
+  following automatically:
 
     *
   Cryptographically sign your service requests
@@ -33,7 +34,7 @@ defmodule AWS.SQS do
 
     *
 
-  [Amazon SQS Product Page](http://aws.amazon.com/sqs/) 
+  [Amazon SQS Product Page](http://aws.amazon.com/sqs/)
 
     *
 
@@ -41,8 +42,7 @@ defmodule AWS.SQS do
 
       *
 
-  [Making API
-  Requests](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html)
+  [Making API Requests](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html)
 
       *
 
@@ -712,6 +712,7 @@ defmodule AWS.SQS do
         optional("AttributeNames") => list(list(any())()),
         optional("MaxNumberOfMessages") => integer(),
         optional("MessageAttributeNames") => list(String.t()()),
+        optional("MessageSystemAttributeNames") => list(list(any())()),
         optional("ReceiveRequestAttemptId") => String.t(),
         optional("VisibilityTimeout") => integer(),
         optional("WaitTimeSeconds") => integer(),
@@ -1217,8 +1218,8 @@ defmodule AWS.SQS do
   information
   about these permissions, see [Allow Developers to Write Messages to a Shared
   Queue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-writing-an-sqs-policy.html#write-messages-to-shared-queue)
-  in the
-  *Amazon SQS Developer Guide*.
+  in the *Amazon SQS
+  Developer Guide*.
 
     
 
@@ -1233,26 +1234,25 @@ defmodule AWS.SQS do
   to upload your
   policy. For more information, see [Using Custom Policies with the Amazon SQS Access Policy
   Language](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html)
-  in the *Amazon SQS Developer
-  Guide*.
+  in
+  the *Amazon SQS Developer Guide*.
 
     
-  An Amazon SQS policy can have a maximum of seven actions per
-  statement.
+  An Amazon SQS policy can have a maximum of seven actions per statement.
 
     
-  To remove the ability to change queue permissions, you must deny
-  permission to the `AddPermission`, `RemovePermission`,
-  and `SetQueueAttributes` actions in your IAM policy.
+  To remove the ability to change queue permissions, you must deny permission to
+  the `AddPermission`, `RemovePermission`, and `SetQueueAttributes` actions in
+  your IAM policy.
 
     
-  Amazon SQS `AddPermission` does not support adding a
-  non-account principal.
+  Amazon SQS `AddPermission` does not support adding a non-account
+  principal.
 
-  Cross-account permissions don't apply to this action. For more information, see
-  [Grant cross-account permissions to a role and a username](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
-  in the
-  *Amazon SQS Developer Guide*.
+  Cross-account permissions don't apply to this action. For more information,
+  see [Grant cross-account permissions to a role and a
+  username](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
+  in the *Amazon SQS Developer Guide*.
   """
   @spec add_permission(map(), add_permission_request(), list()) ::
           {:ok, nil, any()}
@@ -1281,9 +1281,6 @@ defmodule AWS.SQS do
   queue is the dead-letter queue (DLQ), while the destination queue can be the
   original source queue (from which the messages were driven to the
   dead-letter-queue), or a custom destination queue.
-
-    
-  Currently, only standard queues are supported.
 
     
   Only one active message movement task is supported per queue at any given
@@ -1330,36 +1327,28 @@ defmodule AWS.SQS do
     3.
   Deleted from the queue.
 
-  A message is considered to be *stored* after it is sent to a queue
-  by a producer, but not yet received from the queue by a consumer (that is,
-  between
-  states 1 and 2). There is no limit to the number of stored messages. A message
-  is
-  considered to be *in flight* after it is received from a queue by a
+  A message is considered to be *stored* after it is sent to a queue by a
+  producer, but not yet received from the queue by a consumer (that is, between
+  states 1 and 2). There is no limit to the number of stored messages.
+  A message is considered to be *in flight* after it is received from a queue by a
   consumer, but not yet deleted from the queue (that is, between states 2 and 3).
-  There is
-  a limit to the number of in flight messages.
+  There is a limit to the number of in flight messages.
 
-  Limits that apply to in flight messages are unrelated to the
-  *unlimited* number of stored messages.
+  Limits that apply to in flight messages are unrelated to the *unlimited* number
+  of stored messages.
 
   For most standard queues (depending on queue traffic and message backlog), there
-  can
-  be a maximum of approximately 120,000 in flight messages (received from a queue
-  by a
-  consumer, but not yet deleted from the queue). If you reach this limit, Amazon
-  SQS
-  returns the `OverLimit` error message. To avoid reaching the limit, you
-  should delete messages from the queue after they're processed. You can also
-  increase the
-  number of queues you use to process your messages. To request a limit increase,
-  [file a support request](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-sqs).
+  can be a maximum of approximately 120,000 in flight messages (received from a
+  queue by a consumer, but not yet deleted from the queue).
+  If you reach this limit, Amazon SQS returns the `OverLimit` error message.
+  To avoid reaching the limit, you should delete messages from the queue after
+  they're processed. You can also increase the number of queues you use to process
+  your messages.
+  To request a limit increase, [file a support request](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-sqs).
 
   For FIFO queues, there can be a maximum of 20,000 in flight messages (received
-  from a
-  queue by a consumer, but not yet deleted from the queue). If you reach this
-  limit,
-  Amazon SQS returns no error messages.
+  from a queue by a consumer, but not yet deleted from the queue). If you reach
+  this limit, Amazon SQS returns no error messages.
 
   If you attempt to set the `VisibilityTimeout` to a value greater than
   the maximum time left, Amazon SQS returns an error. Amazon SQS doesn't
@@ -1411,8 +1400,7 @@ defmodule AWS.SQS do
 
   Because the batch request can result in a combination of successful and
   unsuccessful actions, you should check for batch errors even when the call
-  returns
-  an HTTP status code of `200`.
+  returns an HTTP status code of `200`.
   """
   @spec change_message_visibility_batch(map(), change_message_visibility_batch_request(), list()) ::
           {:ok, change_message_visibility_batch_result(), any()}
@@ -1427,12 +1415,12 @@ defmodule AWS.SQS do
   @doc """
   Creates a new standard or FIFO queue.
 
-  You can pass one or more attributes in the
-  request. Keep the following in mind:
+  You can pass one or more attributes in
+  the request. Keep the following in mind:
 
     *
-  If you don't specify the `FifoQueue` attribute, Amazon SQS creates
-  a standard queue.
+  If you don't specify the `FifoQueue` attribute, Amazon SQS creates a standard
+  queue.
 
   You can't change the queue type after you create it and you can't convert
   an existing standard queue into a FIFO queue. You must either create a new
@@ -1487,10 +1475,10 @@ defmodule AWS.SQS do
   If the queue name, attribute names, or attribute values don't match an
   existing queue, `CreateQueue` returns an error.
 
-  Cross-account permissions don't apply to this action. For more information, see
-  [Grant cross-account permissions to a role and a username](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
-  in the
-  *Amazon SQS Developer Guide*.
+  Cross-account permissions don't apply to this action. For more information,
+  see [Grant cross-account permissions to a role and a
+  username](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
+  in the *Amazon SQS Developer Guide*.
   """
   @spec create_queue(map(), create_queue_request(), list()) ::
           {:ok, create_queue_result(), any()}
@@ -1521,15 +1509,14 @@ defmodule AWS.SQS do
   recently received `ReceiptHandle` for the message (otherwise, the request
   succeeds, but the message will not be deleted).
 
-  For standard queues, it is possible to receive a message even after you delete
-  it.
-  This might happen on rare occasions if one of the servers which stores a copy of
-  the
-  message is unavailable when you send the request to delete the message. The copy
-  remains on the server and might be returned to you during a subsequent receive
-  request. You should ensure that your application is idempotent, so that
-  receiving a
-  message more than once does not cause issues.
+  For standard queues, it is possible to receive a message even after you
+  delete it. This might happen on rare occasions if one of the servers which
+  stores a
+  copy of the message is unavailable when you send the request to delete the
+  message.
+  The copy remains on the server and might be returned to you during a subsequent
+  receive request. You should ensure that your application is idempotent, so that
+  receiving a message more than once does not cause issues.
   """
   @spec delete_message(map(), delete_message_request(), list()) ::
           {:ok, nil, any()}
@@ -1556,8 +1543,7 @@ defmodule AWS.SQS do
 
   Because the batch request can result in a combination of successful and
   unsuccessful actions, you should check for batch errors even when the call
-  returns
-  an HTTP status code of `200`.
+  returns an HTTP status code of `200`.
   """
   @spec delete_message_batch(map(), delete_message_batch_request(), list()) ::
           {:ok, delete_message_batch_result(), any()}
@@ -1593,10 +1579,10 @@ defmodule AWS.SQS do
   queue
   with the same name.
 
-  Cross-account permissions don't apply to this action. For more information, see
-  [Grant cross-account permissions to a role and a username](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
-  in the
-  *Amazon SQS Developer Guide*.
+  Cross-account permissions don't apply to this action. For more information,
+  see [Grant cross-account permissions to a role and a
+  username](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
+  in the *Amazon SQS Developer Guide*.
 
   The delete operation uses the HTTP `GET` verb.
   """
@@ -1615,8 +1601,7 @@ defmodule AWS.SQS do
 
   To determine whether a queue is
   [FIFO](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html),
-  you can check whether `QueueName` ends with the
-  `.fifo` suffix.
+  you can check whether `QueueName` ends with the `.fifo` suffix.
   """
   @spec get_queue_attributes(map(), get_queue_attributes_request(), list()) ::
           {:ok, get_queue_attributes_result(), any()}
@@ -1644,8 +1629,8 @@ defmodule AWS.SQS do
   ```
 
   or see [Allow Developers to Write Messages to a Shared Queue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-writing-an-sqs-policy.html#write-messages-to-shared-queue)
-  in the
-  *Amazon SQS Developer Guide*.
+  in the *Amazon SQS
+  Developer Guide*.
   """
   @spec get_queue_url(map(), get_queue_url_request(), list()) ::
           {:ok, get_queue_url_result(), any()}
@@ -1697,9 +1682,6 @@ defmodule AWS.SQS do
   dead-letter-queue), or a custom destination queue.
 
     
-  Currently, only standard queues are supported.
-
-    
   Only one active message movement task is supported per queue at any given
   time.
   """
@@ -1716,16 +1698,14 @@ defmodule AWS.SQS do
   @doc """
   List all cost allocation tags added to the specified Amazon SQS queue.
 
-  For an
-  overview, see [Tagging Your Amazon SQS
+  For an overview, see [Tagging Your Amazon SQS
   Queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html)
-  in the *Amazon SQS Developer
-  Guide*.
+  in the *Amazon SQS Developer Guide*.
 
-  Cross-account permissions don't apply to this action. For more information, see
-  [Grant cross-account permissions to a role and a username](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
-  in the
-  *Amazon SQS Developer Guide*.
+  Cross-account permissions don't apply to this action. For more information,
+  see [Grant cross-account permissions to a role and a
+  username](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
+  in the *Amazon SQS Developer Guide*.
   """
   @spec list_queue_tags(map(), list_queue_tags_request(), list()) ::
           {:ok, list_queue_tags_result(), any()}
@@ -1753,10 +1733,10 @@ defmodule AWS.SQS do
   Use `NextToken` as a parameter in your next request to
   `listQueues` to receive the next page of results.
 
-  Cross-account permissions don't apply to this action. For more information, see
-  [Grant cross-account permissions to a role and a username](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
-  in the
-  *Amazon SQS Developer Guide*.
+  Cross-account permissions don't apply to this action. For more information,
+  see [Grant cross-account permissions to a role and a
+  username](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
+  in the *Amazon SQS Developer Guide*.
   """
   @spec list_queues(map(), list_queues_request(), list()) ::
           {:ok, list_queues_result(), any()}
@@ -1847,10 +1827,10 @@ defmodule AWS.SQS do
 
   You can provide the `VisibilityTimeout` parameter in your request. The
   parameter is applied to the messages that Amazon SQS returns in the response. If
-  you
-  don't include the parameter, the overall visibility timeout for the queue is
-  used for
-  the returned messages. For more information, see [Visibility Timeout](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html)
+  you don't
+  include the parameter, the overall visibility timeout for the queue is used for
+  the
+  returned messages. For more information, see [Visibility Timeout](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html)
   in the *Amazon SQS Developer
   Guide*.
 
@@ -1882,15 +1862,15 @@ defmodule AWS.SQS do
   Only the owner of a queue can remove permissions from it.
 
     
-  Cross-account permissions don't apply to this action. For more
-  information, see [Grant cross-account permissions to a role and a username](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
-  in the
-  *Amazon SQS Developer Guide*.
+  Cross-account permissions don't apply to this action. For more information,
+  see [Grant cross-account permissions to a role and a
+  username](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
+  in the *Amazon SQS Developer Guide*.
 
     
-  To remove the ability to change queue permissions, you must deny
-  permission to the `AddPermission`, `RemovePermission`,
-  and `SetQueueAttributes` actions in your IAM policy.
+  To remove the ability to change queue permissions, you must deny permission to
+  the `AddPermission`, `RemovePermission`, and `SetQueueAttributes` actions in
+  your IAM policy.
   """
   @spec remove_permission(map(), remove_permission_request(), list()) ::
           {:ok, nil, any()}
@@ -1906,12 +1886,10 @@ defmodule AWS.SQS do
   Delivers a message to the specified queue.
 
   A message can include only XML, JSON, and unformatted text. The following
-  Unicode
-  characters are allowed:
+  Unicode characters are allowed:
 
-  `#x9` | `#xA` | `#xD` | `#x20` to
-  `#xD7FF` | `#xE000` to `#xFFFD` |
-  `#x10000` to `#x10FFFF`
+  `#x9` | `#xA` | `#xD` | `#x20` to `#xD7FF` | `#xE000` to `#xFFFD` | `#x10000` to
+  `#x10FFFF`
 
   Any characters not included in this list will be rejected. For more information,
   see the [W3C specification for characters](http://www.w3.org/TR/REC-xml/#charsets).
@@ -1939,16 +1917,13 @@ defmodule AWS.SQS do
   `SendMessage`.
   ```
 
-  For a FIFO queue, multiple messages within a single batch are enqueued in
-  the order they are sent.
+  For a FIFO queue, multiple messages within a single batch are enqueued
+  in the order they are sent.
 
   The result of sending each message is reported individually in the response.
-  Because
-  the batch request can result in a combination of successful and unsuccessful
-  actions,
-  you should check for batch errors even when the call returns an HTTP status code
-  of
-  `200`.
+  Because the batch request can result in a combination of successful and
+  unsuccessful actions, you should check for batch errors even when the call
+  returns an HTTP status code of `200`.
 
   The maximum allowed individual message size and the maximum total payload size
   (the
@@ -1957,18 +1932,16 @@ defmodule AWS.SQS do
   bytes).
 
   A message can include only XML, JSON, and unformatted text. The following
-  Unicode
-  characters are allowed:
+  Unicode characters are allowed:
 
-  `#x9` | `#xA` | `#xD` | `#x20` to
-  `#xD7FF` | `#xE000` to `#xFFFD` |
-  `#x10000` to `#x10FFFF`
+  `#x9` | `#xA` | `#xD` | `#x20` to `#xD7FF` | `#xE000` to `#xFFFD` | `#x10000` to
+  `#x10FFFF`
 
   Any characters not included in this list will be rejected. For more information,
   see the [W3C specification for characters](http://www.w3.org/TR/REC-xml/#charsets).
 
-  If you don't specify the `DelaySeconds` parameter for an entry, Amazon SQS
-  uses the default value for the queue.
+  If you don't specify the `DelaySeconds` parameter for an entry, Amazon SQS uses
+  the default value for the queue.
   """
   @spec send_message_batch(map(), send_message_batch_request(), list()) ::
           {:ok, send_message_batch_result(), any()}
@@ -1981,32 +1954,33 @@ defmodule AWS.SQS do
   end
 
   @doc """
-  Sets the value of one or more queue attributes.
+  Sets the value of one or more queue attributes, like a policy.
 
   When you change a queue's attributes,
   the change can take up to 60 seconds for most of the attributes to propagate
   throughout
   the Amazon SQS system. Changes made to the `MessageRetentionPeriod` attribute
-  can take up to 15 minutes and will impact existing messages in the queue
-  potentially
-  causing them to be expired and deleted if the `MessageRetentionPeriod` is
-  reduced below the age of existing messages.
+  can
+  take up to 15 minutes and will impact existing messages in the queue potentially
+  causing
+  them to be expired and deleted if the `MessageRetentionPeriod` is reduced
+  below the age of existing messages.
 
     
-  In the future, new attributes might be added. If you write code that calls
-  this action, we recommend that you structure your code so that it can handle
-  new attributes gracefully.
+  In the future, new attributes might be added. If you write code that calls this
+  action, we recommend that you structure your code so that it can handle new
+  attributes gracefully.
 
     
-  Cross-account permissions don't apply to this action. For more
-  information, see [Grant cross-account permissions to a role and a username](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
-  in the
-  *Amazon SQS Developer Guide*.
+  Cross-account permissions don't apply to this action. For more information,
+  see [Grant cross-account permissions to a role and a
+  username](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
+  in the *Amazon SQS Developer Guide*.
 
     
-  To remove the ability to change queue permissions, you must deny
-  permission to the `AddPermission`, `RemovePermission`,
-  and `SetQueueAttributes` actions in your IAM policy.
+  To remove the ability to change queue permissions, you must deny permission to
+  the `AddPermission`, `RemovePermission`, and `SetQueueAttributes` actions in
+  your IAM policy.
   """
   @spec set_queue_attributes(map(), set_queue_attributes_request(), list()) ::
           {:ok, nil, any()}
@@ -2036,10 +2010,6 @@ defmodule AWS.SQS do
   were driven to the dead-letter-queue), or a custom destination queue.
 
     
-  Currently, only standard queues support redrive. FIFO queues don't support
-  redrive.
-
-    
   Only one active message movement task is supported per queue at any given
   time.
   """
@@ -2056,11 +2026,9 @@ defmodule AWS.SQS do
   @doc """
   Add cost allocation tags to the specified Amazon SQS queue.
 
-  For an overview, see
-  [Tagging Your Amazon SQS
+  For an overview, see [Tagging Your Amazon SQS
   Queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html)
-  in the *Amazon SQS Developer
-  Guide*.
+  in the *Amazon SQS Developer Guide*.
 
   When you use queue tags, keep the following guidelines in mind:
 
@@ -2078,14 +2046,14 @@ defmodule AWS.SQS do
   A new tag with a key identical to that of an existing tag overwrites the
   existing tag.
 
-  For a full list of tag restrictions, see [Quotas related to queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-limits.html#limits-queues)
-  in the *Amazon SQS Developer
-  Guide*.
+  For a full list of tag restrictions, see
+  [Quotas related to queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-limits.html#limits-queues)
+  in the *Amazon SQS Developer Guide*.
 
-  Cross-account permissions don't apply to this action. For more information, see
-  [Grant cross-account permissions to a role and a username](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
-  in the
-  *Amazon SQS Developer Guide*.
+  Cross-account permissions don't apply to this action. For more information,
+  see [Grant cross-account permissions to a role and a
+  username](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
+  in the *Amazon SQS Developer Guide*.
   """
   @spec tag_queue(map(), tag_queue_request(), list()) ::
           {:ok, nil, any()}
@@ -2100,16 +2068,14 @@ defmodule AWS.SQS do
   @doc """
   Remove cost allocation tags from the specified Amazon SQS queue.
 
-  For an overview, see
-  [Tagging Your Amazon SQS
+  For an overview, see [Tagging Your Amazon SQS
   Queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html)
-  in the *Amazon SQS Developer
-  Guide*.
+  in the *Amazon SQS Developer Guide*.
 
-  Cross-account permissions don't apply to this action. For more information, see
-  [Grant cross-account permissions to a role and a username](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
-  in the
-  *Amazon SQS Developer Guide*.
+  Cross-account permissions don't apply to this action. For more information,
+  see [Grant cross-account permissions to a role and a
+  username](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name)
+  in the *Amazon SQS Developer Guide*.
   """
   @spec untag_queue(map(), untag_queue_request(), list()) ::
           {:ok, nil, any()}

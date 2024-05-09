@@ -3133,7 +3133,7 @@ defmodule AWS.FMS do
 
   **Third-party firewall policy** - This policy applies third-party firewall
   protections. Third-party firewalls are available by subscription through the
-  Amazon Web Services Marketplace console at [Amazon Web Services Marketplace](https://aws.amazon.com/marketplace).
+  Amazon Web Services Marketplace console at [Amazon Web Services Marketplace](http://aws.amazon.com/marketplace).
 
       *
 

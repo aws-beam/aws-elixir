@@ -49,6 +49,20 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      text_inference_config() :: %{
+        "maxTokens" => integer(),
+        "stopSequences" => list([String.t()]()),
+        "temperature" => float(),
+        "topP" => float()
+      }
+
+  """
+  @type text_inference_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       external_source() :: %{
         "byteContent" => byte_content_doc(),
         "s3Location" => s3_object_doc(),
@@ -139,6 +153,7 @@ defmodule AWS.BedrockAgentRuntime do
 
       retrieve_and_generate_response() :: %{
         "citations" => list(citation()()),
+        "guardrailAction" => list(any()),
         "output" => retrieve_and_generate_output(),
         "sessionId" => String.t()
       }
@@ -601,6 +616,9 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       external_sources_generation_configuration() :: %{
+        "additionalModelRequestFields" => map(),
+        "guardrailConfiguration" => guardrail_configuration(),
+        "inferenceConfig" => inference_config(),
         "promptTemplate" => prompt_template()
       }
 
@@ -712,7 +730,21 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      inference_config() :: %{
+        "textInferenceConfig" => text_inference_config()
+      }
+
+  """
+  @type inference_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       generation_configuration() :: %{
+        "additionalModelRequestFields" => map(),
+        "guardrailConfiguration" => guardrail_configuration(),
+        "inferenceConfig" => inference_config(),
         "promptTemplate" => prompt_template()
       }
 
@@ -784,6 +816,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type action_group_invocation_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_configuration() :: %{
+        "guardrailId" => [String.t()],
+        "guardrailVersion" => [String.t()]
+      }
+
+  """
+  @type guardrail_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -947,11 +991,11 @@ defmodule AWS.BedrockAgentRuntime do
   end
 
   @doc """
-  Sends a prompt for the agent to process and respond to.
-
-  Use return control event type for function calling.
 
   The CLI doesn't support `InvokeAgent`.
+
+  Sends a prompt for the agent to process and respond to. Note the following
+  fields for the request:
 
     *
   To continue the same conversation with an agent, use the same `sessionId` value
@@ -968,10 +1012,8 @@ defmodule AWS.BedrockAgentRuntime do
 
     *
   In the `sessionState` object, you can include attributes for the session or
-  prompt or parameters returned from the action group.
-
-    *
-  Use return control event type for function calling.
+  prompt or, if you configured an action group to return control, results from
+  invocation of the action group.
 
   The response is returned in the `bytes` field of the `chunk` object.
 
@@ -981,6 +1023,10 @@ defmodule AWS.BedrockAgentRuntime do
     *
   If you set `enableTrace` to `true` in the request, you can trace the agent's
   steps and reasoning process that led it to the response.
+
+    *
+  If the action predicted was configured to return control, the response returns
+  parameters for the action, elicited from the user, in the `returnControl` field.
 
     *
   Errors are also surfaced in the response.

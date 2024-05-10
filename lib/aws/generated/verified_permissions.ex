@@ -347,8 +347,10 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       policy_item() :: %{
+        "actions" => list(action_identifier()()),
         "createdDate" => non_neg_integer(),
         "definition" => list(),
+        "effect" => list(any()),
         "lastUpdatedDate" => non_neg_integer(),
         "policyId" => String.t(),
         "policyStoreId" => String.t(),
@@ -1085,7 +1087,9 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       create_policy_output() :: %{
+        "actions" => list(action_identifier()()),
         "createdDate" => non_neg_integer(),
+        "effect" => list(any()),
         "lastUpdatedDate" => non_neg_integer(),
         "policyId" => String.t(),
         "policyStoreId" => String.t(),
@@ -1221,7 +1225,9 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       update_policy_output() :: %{
+        "actions" => list(action_identifier()()),
         "createdDate" => non_neg_integer(),
+        "effect" => list(any()),
         "lastUpdatedDate" => non_neg_integer(),
         "policyId" => String.t(),
         "policyStoreId" => String.t(),
@@ -1301,8 +1307,10 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       get_policy_output() :: %{
+        "actions" => list(action_identifier()()),
         "createdDate" => non_neg_integer(),
         "definition" => list(),
+        "effect" => list(any()),
         "lastUpdatedDate" => non_neg_integer(),
         "policyId" => String.t(),
         "policyStoreId" => String.t(),

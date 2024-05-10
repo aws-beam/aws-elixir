@@ -518,6 +518,7 @@ defmodule AWS.Pinpoint do
 
       email_template_request() :: %{
         "DefaultSubstitutions" => String.t(),
+        "Headers" => list(message_header()()),
         "HtmlPart" => String.t(),
         "RecommenderId" => String.t(),
         "Subject" => String.t(),
@@ -2492,6 +2493,18 @@ defmodule AWS.Pinpoint do
 
   ## Example:
 
+      message_header() :: %{
+        "Name" => String.t(),
+        "Value" => String.t()
+      }
+
+  """
+  @type message_header() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_campaign_response() :: %{
         "CampaignResponse" => campaign_response()
       }
@@ -3929,6 +3942,7 @@ defmodule AWS.Pinpoint do
         "Arn" => String.t(),
         "CreationDate" => String.t(),
         "DefaultSubstitutions" => String.t(),
+        "Headers" => list(message_header()()),
         "HtmlPart" => String.t(),
         "LastModifiedDate" => String.t(),
         "RecommenderId" => String.t(),
@@ -4535,6 +4549,7 @@ defmodule AWS.Pinpoint do
       campaign_email_message() :: %{
         "Body" => String.t(),
         "FromAddress" => String.t(),
+        "Headers" => list(message_header()()),
         "HtmlBody" => String.t(),
         "Title" => String.t()
       }
@@ -4944,6 +4959,7 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       simple_email() :: %{
+        "Headers" => list(message_header()()),
         "HtmlPart" => simple_email_part(),
         "Subject" => simple_email_part(),
         "TextPart" => simple_email_part()

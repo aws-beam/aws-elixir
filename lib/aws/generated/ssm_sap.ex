@@ -62,6 +62,17 @@ defmodule AWS.SsmSap do
 
   ## Example:
 
+      start_application_output() :: %{
+        "OperationId" => String.t()
+      }
+
+  """
+  @type start_application_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_request() :: %{
         required("tags") => map()
       }
@@ -89,6 +100,17 @@ defmodule AWS.SsmSap do
 
   """
   @type database() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_application_output() :: %{
+        "OperationId" => String.t()
+      }
+
+  """
+  @type stop_application_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -198,6 +220,18 @@ defmodule AWS.SsmSap do
 
   ## Example:
 
+      list_operation_events_output() :: %{
+        "NextToken" => String.t(),
+        "OperationEvents" => list(operation_event()())
+      }
+
+  """
+  @type list_operation_events_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       component_summary() :: %{
         "ApplicationId" => String.t(),
         "Arn" => String.t(),
@@ -240,6 +274,19 @@ defmodule AWS.SsmSap do
 
   ## Example:
 
+      stop_application_input() :: %{
+        optional("IncludeEc2InstanceShutdown") => [boolean()],
+        optional("StopConnectedEntity") => list(any()),
+        required("ApplicationId") => String.t()
+      }
+
+  """
+  @type stop_application_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_databases_input() :: %{
         optional("ApplicationId") => String.t(),
         optional("ComponentId") => String.t(),
@@ -249,6 +296,20 @@ defmodule AWS.SsmSap do
 
   """
   @type list_databases_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_operation_events_input() :: %{
+        optional("Filters") => list(filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("OperationId") => String.t()
+      }
+
+  """
+  @type list_operation_events_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -503,6 +564,21 @@ defmodule AWS.SsmSap do
 
   ## Example:
 
+      operation_event() :: %{
+        "Description" => [String.t()],
+        "Resource" => resource(),
+        "Status" => list(any()),
+        "StatusMessage" => [String.t()],
+        "Timestamp" => [non_neg_integer()]
+      }
+
+  """
+  @type operation_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       filter() :: %{
         "Name" => String.t(),
         "Operator" => list(any()),
@@ -527,6 +603,17 @@ defmodule AWS.SsmSap do
 
   """
   @type host() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_application_input() :: %{
+        required("ApplicationId") => String.t()
+      }
+
+  """
+  @type start_application_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -744,6 +831,18 @@ defmodule AWS.SsmSap do
   """
   @type register_application_input() :: %{String.t() => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      resource() :: %{
+        "ResourceArn" => String.t(),
+        "ResourceType" => String.t()
+      }
+
+  """
+  @type resource() :: %{String.t() => any()}
+
   @type delete_resource_permission_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
 
@@ -774,6 +873,8 @@ defmodule AWS.SsmSap do
   @type list_databases_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
 
+  @type list_operation_events_errors() :: validation_exception() | internal_server_exception()
+
   @type list_operations_errors() :: validation_exception() | internal_server_exception()
 
   @type list_tags_for_resource_errors() ::
@@ -788,12 +889,24 @@ defmodule AWS.SsmSap do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type start_application_errors() ::
+          validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type start_application_refresh_errors() ::
           validation_exception()
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
           | unauthorized_exception()
+
+  @type stop_application_errors() ::
+          validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type tag_resource_errors() ::
           validation_exception() | resource_not_found_exception() | conflict_exception()
@@ -1105,6 +1218,37 @@ defmodule AWS.SsmSap do
   end
 
   @doc """
+  Returns a list of operations events.
+
+  Available parameters include `OperationID`, as well as optional parameters
+  `MaxResults`, `NextToken`, and
+  `Filters`.
+  """
+  @spec list_operation_events(map(), list_operation_events_input(), list()) ::
+          {:ok, list_operation_events_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_operation_events_errors()}
+  def list_operation_events(%Client{} = client, input, options \\ []) do
+    url_path = "/list-operation-events"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Lists the operations performed by AWS Systems Manager for SAP.
   """
   @spec list_operations(map(), list_operations_input(), list()) ::
@@ -1220,6 +1364,35 @@ defmodule AWS.SsmSap do
   end
 
   @doc """
+  Request is an operation which starts an application.
+
+  Parameter `ApplicationId` is required.
+  """
+  @spec start_application(map(), start_application_input(), list()) ::
+          {:ok, start_application_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_application_errors()}
+  def start_application(%Client{} = client, input, options \\ []) do
+    url_path = "/start-application"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Refreshes a registered application.
   """
   @spec start_application_refresh(map(), start_application_refresh_input(), list()) ::
@@ -1228,6 +1401,37 @@ defmodule AWS.SsmSap do
           | {:error, start_application_refresh_errors()}
   def start_application_refresh(%Client{} = client, input, options \\ []) do
     url_path = "/start-application-refresh"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Request is an operation to stop an application.
+
+  Parameter `ApplicationId` is required.
+  Parameters `StopConnectedEntity` and
+  `IncludeEc2InstanceShutdown` are optional.
+  """
+  @spec stop_application(map(), stop_application_input(), list()) ::
+          {:ok, stop_application_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, stop_application_errors()}
+  def stop_application(%Client{} = client, input, options \\ []) do
+    url_path = "/stop-application"
     headers = []
     query_params = []
 

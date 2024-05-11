@@ -138,10 +138,13 @@ defmodule AWS.GreengrassV2 do
 
   ## Example:
 
-      get_component_version_artifact_request() :: %{}
+      get_component_version_artifact_request() :: %{
+        optional("iotEndpointType") => list(any()),
+        optional("s3EndpointType") => list(any())
+      }
 
   """
-  @type get_component_version_artifact_request() :: %{}
+  @type get_component_version_artifact_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1721,34 +1724,11 @@ defmodule AWS.GreengrassV2 do
   operation to
   migrate Lambda functions from IoT Greengrass V1 to IoT Greengrass V2.
 
-  This function only accepts Lambda functions that use the following runtimes:
-
-      *
-  Python 2.7 – `python2.7`
-
-      *
-  Python 3.7 – `python3.7`
-
-      *
-  Python 3.8 – `python3.8`
-
-      *
-  Python 3.9 – `python3.9`
-
-      *
-  Java 8 – `java8`
-
-      *
-  Java 11 – `java11`
-
-      *
-  Node.js 10 – `nodejs10.x`
-
-      *
-  Node.js 12 – `nodejs12.x`
-
-      *
-  Node.js 14 – `nodejs14.x`
+  This function accepts Lambda functions in all supported versions of Python,
+  Node.js,
+  and Java runtimes. IoT Greengrass doesn't apply any additional restrictions on
+  deprecated Lambda
+  runtime versions.
 
   To create a component from a Lambda function, specify `lambdaFunction` when
   you call this operation.
@@ -2021,16 +2001,45 @@ defmodule AWS.GreengrassV2 do
   artifact to
   install.
   """
-  @spec get_component_version_artifact(map(), String.t(), String.t(), list()) ::
+  @spec get_component_version_artifact(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
           {:ok, get_component_version_artifact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_component_version_artifact_errors()}
-  def get_component_version_artifact(%Client{} = client, arn, artifact_name, options \\ []) do
+  def get_component_version_artifact(
+        %Client{} = client,
+        arn,
+        artifact_name,
+        s3_endpoint_type \\ nil,
+        iot_endpoint_type \\ nil,
+        options \\ []
+      ) do
     url_path =
       "/greengrass/v2/components/#{AWS.Util.encode_uri(arn)}/artifacts/#{AWS.Util.encode_multi_segment_uri(artifact_name)}"
 
     headers = []
+
+    headers =
+      if !is_nil(iot_endpoint_type) do
+        [{"x-amz-iot-endpoint-type", iot_endpoint_type} | headers]
+      else
+        headers
+      end
+
     query_params = []
+
+    query_params =
+      if !is_nil(s3_endpoint_type) do
+        [{"s3EndpointType", s3_endpoint_type} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 

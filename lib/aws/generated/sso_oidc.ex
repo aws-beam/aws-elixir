@@ -93,6 +93,7 @@ defmodule AWS.SSOOIDC do
 
       create_token_request() :: %{
         optional("code") => String.t(),
+        optional("codeVerifier") => String.t(),
         optional("deviceCode") => String.t(),
         optional("redirectUri") => String.t(),
         optional("refreshToken") => String.t(),
@@ -127,6 +128,7 @@ defmodule AWS.SSOOIDC do
       create_token_with_iam_request() :: %{
         optional("assertion") => String.t(),
         optional("code") => String.t(),
+        optional("codeVerifier") => String.t(),
         optional("redirectUri") => String.t(),
         optional("refreshToken") => String.t(),
         optional("requestedTokenType") => String.t(),
@@ -221,6 +223,18 @@ defmodule AWS.SSOOIDC do
 
   ## Example:
 
+      invalid_redirect_uri_exception() :: %{
+        "error" => String.t(),
+        "error_description" => String.t()
+      }
+
+  """
+  @type invalid_redirect_uri_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invalid_request_exception() :: %{
         "error" => String.t(),
         "error_description" => String.t()
@@ -260,6 +274,10 @@ defmodule AWS.SSOOIDC do
   ## Example:
 
       register_client_request() :: %{
+        optional("entitledApplicationArn") => String.t(),
+        optional("grantTypes") => list(String.t()()),
+        optional("issuerUrl") => String.t(),
+        optional("redirectUris") => list(String.t()()),
         optional("scopes") => list(String.t()()),
         required("clientName") => String.t(),
         required("clientType") => String.t()
@@ -377,8 +395,10 @@ defmodule AWS.SSOOIDC do
           | access_denied_exception()
 
   @type register_client_errors() ::
-          invalid_scope_exception()
+          unsupported_grant_type_exception()
+          | invalid_scope_exception()
           | invalid_request_exception()
+          | invalid_redirect_uri_exception()
           | invalid_client_metadata_exception()
           | internal_server_exception()
 
@@ -442,7 +462,8 @@ defmodule AWS.SSOOIDC do
   authenticated using IAM entities.
 
   The access token can be used to fetch short-term credentials
-  for the assigned AWS accounts or to access application APIs using `bearer`
+  for the assigned Amazon Web Services accounts or to access application APIs
+  using `bearer`
   authentication.
   """
   @spec create_token_with_iam(map(), create_token_with_iam_request(), list()) ::

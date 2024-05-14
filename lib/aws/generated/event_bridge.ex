@@ -4,24 +4,23 @@
 defmodule AWS.EventBridge do
   @moduledoc """
   Amazon EventBridge helps you to respond to state changes in your Amazon Web
-  Services resources.
+  Services
+  resources.
 
-  When your
-  resources change state, they automatically send events to an event stream. You
-  can create
-  rules that match selected events in the stream and route them to targets to take
-  action. You
-  can also use rules to take action on a predetermined schedule. For example, you
-  can configure
-  rules to:
-
-    *
-  Automatically invoke an Lambda function to update DNS entries when an event
-  notifies you that Amazon EC2 instance enters the running state.
+  When your resources change state, they automatically send events to an event
+  stream. You can create rules that match selected events in the stream and route
+  them to
+  targets to take action. You can also use rules to take action on a predetermined
+  schedule. For
+  example, you can configure rules to:
 
     *
-  Direct specific API records from CloudTrail to an Amazon Kinesis data stream for
-  detailed analysis of potential security or availability risks.
+  Automatically invoke an Lambda function to update DNS entries when an
+  event notifies you that Amazon EC2 instance enters the running state.
+
+    *
+  Direct specific API records from CloudTrail to an Amazon Kinesis
+  data stream for detailed analysis of potential security or availability risks.
 
     *
   Periodically invoke a built-in target to create a snapshot of an Amazon EBS
@@ -90,7 +89,10 @@ defmodule AWS.EventBridge do
   ## Example:
       
       create_event_bus_request() :: %{
+        optional("DeadLetterConfig") => dead_letter_config(),
+        optional("Description") => String.t(),
         optional("EventSourceName") => String.t(),
+        optional("KmsKeyIdentifier") => String.t(),
         optional("Tags") => list(tag()()),
         required("Name") => String.t()
       }
@@ -551,7 +553,10 @@ defmodule AWS.EventBridge do
   ## Example:
       
       create_event_bus_response() :: %{
-        "EventBusArn" => String.t()
+        "DeadLetterConfig" => dead_letter_config(),
+        "Description" => String.t(),
+        "EventBusArn" => String.t(),
+        "KmsKeyIdentifier" => String.t()
       }
       
   """
@@ -1704,6 +1709,11 @@ defmodule AWS.EventBridge do
       
       describe_event_bus_response() :: %{
         "Arn" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "DeadLetterConfig" => dead_letter_config(),
+        "Description" => String.t(),
+        "KmsKeyIdentifier" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t(),
         "Policy" => String.t()
       }
@@ -1760,6 +1770,20 @@ defmodule AWS.EventBridge do
       
   """
   @type update_api_destination_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_event_bus_request() :: %{
+        optional("DeadLetterConfig") => dead_letter_config(),
+        optional("Description") => String.t(),
+        optional("KmsKeyIdentifier") => String.t(),
+        optional("Name") => String.t()
+      }
+      
+  """
+  @type update_event_bus_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2259,6 +2283,9 @@ defmodule AWS.EventBridge do
       
       event_bus() :: %{
         "Arn" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t(),
         "Policy" => String.t()
       }
@@ -2345,6 +2372,21 @@ defmodule AWS.EventBridge do
       
   """
   @type list_rule_names_by_target_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_event_bus_response() :: %{
+        "Arn" => String.t(),
+        "DeadLetterConfig" => dead_letter_config(),
+        "Description" => String.t(),
+        "KmsKeyIdentifier" => String.t(),
+        "Name" => String.t()
+      }
+      
+  """
+  @type update_event_bus_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2647,6 +2689,12 @@ defmodule AWS.EventBridge do
           | internal_exception()
           | resource_not_found_exception()
 
+  @type update_event_bus_errors() ::
+          concurrent_modification_exception()
+          | internal_exception()
+          | operation_disabled_exception()
+          | resource_not_found_exception()
+
   def metadata do
     %{
       api_version: "2015-10-07",
@@ -2700,7 +2748,8 @@ defmodule AWS.EventBridge do
   endpoints.
 
   For more information, see [API destinations](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-destinations.html)
-  in the *EventBridge User Guide*.
+  in the
+  *EventBridge User Guide*.
   """
   @spec create_api_destination(map(), create_api_destination_request(), list()) ::
           {:ok, create_api_destination_response(), any()}
@@ -2723,6 +2772,46 @@ defmodule AWS.EventBridge do
   archive, all events are sent to the archive except replayed events. Replayed
   events are not
   sent to an archive.
+
+  Archives and schema discovery are not supported for event buses encrypted using
+  a
+  customer managed key. EventBridge returns an error if:
+
+    
+  You call
+
+  ```
+
+  [CreateArchive](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateArchive.html)   ```
+
+  on an event bus set to use a customer managed key for encryption.
+
+    
+  You call
+
+  ```
+
+  [CreateDiscoverer](https://docs.aws.amazon.com/eventbridge/latest/schema-reference/v1-discoverers.html#CreateDiscoverer)
+
+  ```
+
+  on an event bus set to use a customer managed key for encryption.
+
+    
+  You call
+
+  ```
+
+  [UpdatedEventBus](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_UpdatedEventBus.html)   ```
+
+  to set a customer managed key on an event bus with an archives or schema
+  discovery enabled.
+
+  To enable archives or schema discovery on an event bus, choose to
+  use an Amazon Web Services owned key. For more information, see [Data encryption
+  in
+  EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-encryption.html)
+  in the *Amazon EventBridge User Guide*.
   """
   @spec create_archive(map(), create_archive_request(), list()) ::
           {:ok, create_archive_response(), any()}
@@ -2753,13 +2842,16 @@ defmodule AWS.EventBridge do
   @doc """
   Creates a global endpoint.
 
-  Global endpoints improve your application's availability by making it
-  regional-fault tolerant. To do this, you define a primary and secondary Region
-  with event buses in each Region. You also create a Amazon Route 53 health check
-  that will tell EventBridge to route events to the secondary Region when an
-  "unhealthy" state
-  is encountered and events will be routed back to the primary Region when the
-  health check reports a "healthy" state.
+  Global endpoints improve your application's availability by
+  making it regional-fault tolerant. To do this, you define a primary and
+  secondary Region with
+  event buses in each Region. You also create a Amazon Route 53 health check that
+  will
+  tell EventBridge to route events to the secondary Region when an "unhealthy"
+  state is
+  encountered and events will be routed back to the primary Region when the health
+  check reports
+  a "healthy" state.
   """
   @spec create_endpoint(map(), create_endpoint_request(), list()) ::
           {:ok, create_endpoint_response(), any()}
@@ -2796,20 +2888,22 @@ defmodule AWS.EventBridge do
   Amazon Web Services customers.
 
   Each partner event source can be used by one Amazon Web Services account to
-  create a matching partner
-  event bus in that Amazon Web Services account. A SaaS partner must create one
-  partner event source for each
-  Amazon Web Services account that wants to receive those event types.
+  create a
+  matching partner event bus in that Amazon Web Services account. A SaaS partner
+  must create one
+  partner event source for each Amazon Web Services account that wants to receive
+  those event
+  types.
 
   A partner event source creates events based on resources within the SaaS
   partner's service
   or application.
 
   An Amazon Web Services account that creates a partner event bus that matches the
-  partner event source can
-  use that event bus to receive events from the partner, and then process them
-  using Amazon Web Services Events
-  rules and targets.
+  partner
+  event source can use that event bus to receive events from the partner, and then
+  process them
+  using Amazon Web Services Events rules and targets.
 
   Partner event source names follow this format:
 
@@ -2831,17 +2925,17 @@ defmodule AWS.EventBridge do
 
     *
 
-  *event_name* is determined by the partner, and should uniquely identify
-  an event-generating resource within the partner system.
+  *event_name* is determined by the partner, and should uniquely
+  identify an event-generating resource within the partner system.
 
-  The *event_name* must be unique across all Amazon Web Services customers. This
-  is because the event source is a shared resource
-  between the partner and customer accounts, and each partner event source unique
-  in the partner account.
+  The *event_name* must be unique across all Amazon Web Services
+  customers. This is because the event source is a shared resource between the
+  partner and
+  customer accounts, and each partner event source unique in the partner account.
 
-  The combination of
-  *event_namespace* and *event_name* should help Amazon Web Services
-  customers decide whether to create an event bus to receive these events.
+  The combination of *event_namespace* and
+  *event_name* should help Amazon Web Services customers decide whether to
+  create an event bus to receive these events.
   """
   @spec create_partner_event_source(map(), create_partner_event_source_request(), list()) ::
           {:ok, create_partner_event_source_response(), any()}
@@ -2936,9 +3030,11 @@ defmodule AWS.EventBridge do
   @doc """
   Delete an existing global endpoint.
 
-  For more information about global endpoints, see [Making applications Regional-fault tolerant with global endpoints and event
-  replication](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html)
-  in the *Amazon EventBridge User Guide*.
+  For more information about global endpoints, see
+  [Making applications Regional-fault tolerant with global endpoints and event replication](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html)
+  in the *
+  *Amazon EventBridge User Guide*
+  *.
   """
   @spec delete_endpoint(map(), delete_endpoint_request(), list()) ::
           {:ok, delete_endpoint_response(), any()}
@@ -3004,12 +3100,13 @@ defmodule AWS.EventBridge do
   returned.
 
   Managed rules are rules created and managed by another Amazon Web Services
-  service on your behalf. These
-  rules are created by those other Amazon Web Services services to support
-  functionality in those services. You
-  can delete these rules using the `Force` option, but you should do so only if
-  you
-  are sure the other service is not still using that rule.
+  service on your
+  behalf. These rules are created by those other Amazon Web Services services to
+  support
+  functionality in those services. You can delete these rules using the `Force`
+  option, but you should do so only if you are sure the other service is not still
+  using that
+  rule.
   """
   @spec delete_rule(map(), delete_rule_request(), list()) ::
           {:ok, nil, any()}
@@ -3063,9 +3160,13 @@ defmodule AWS.EventBridge do
   @doc """
   Get the information about an existing global endpoint.
 
-  For more information about global endpoints, see [Making applications Regional-fault tolerant with global endpoints and event
+  For more information about global
+  endpoints, see [Making applications Regional-fault tolerant with global endpoints and event
   replication](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html)
-  in the *Amazon EventBridge User Guide*.
+  in the
+  *
+  *Amazon EventBridge User Guide*
+  *.
   """
   @spec describe_endpoint(map(), describe_endpoint_request(), list()) ::
           {:ok, describe_endpoint_response(), any()}
@@ -3080,12 +3181,11 @@ defmodule AWS.EventBridge do
   @doc """
   Displays details about an event bus in your account.
 
-  This can include the external Amazon Web Services
-  accounts that are permitted to write events to your default event bus, and the
-  associated
-  policy. For custom event buses and partner event buses, it displays the name,
-  ARN, policy,
-  state, and creation time.
+  This can include the external Amazon Web Services accounts that are permitted to
+  write events to your default event bus, and the
+  associated policy. For custom event buses and partner event buses, it displays
+  the name, ARN,
+  policy, state, and creation time.
 
   To enable your account to receive events from other accounts on its default
   event bus,
@@ -3126,8 +3226,8 @@ defmodule AWS.EventBridge do
   Amazon Web Services customers do not use this operation. Instead, Amazon Web
   Services customers can use
   [DescribeEventSource](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DescribeEventSource.html)
-  to see details about a partner event source that is
-  shared with them.
+  to see details about a partner event source that is shared with
+  them.
   """
   @spec describe_partner_event_source(map(), describe_partner_event_source_request(), list()) ::
           {:ok, describe_partner_event_source_response(), any()}
@@ -3266,9 +3366,13 @@ defmodule AWS.EventBridge do
   @doc """
   List the global endpoints associated with this account.
 
-  For more information about global endpoints, see [Making applications Regional-fault tolerant with global endpoints and event
+  For more information about global
+  endpoints, see [Making applications Regional-fault tolerant with global endpoints and event
   replication](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html)
-  in the *Amazon EventBridge User Guide*.
+  in the
+  *
+  *Amazon EventBridge User Guide*
+  *.
   """
   @spec list_endpoints(map(), list_endpoints_request(), list()) ::
           {:ok, list_endpoints_response(), any()}
@@ -3297,8 +3401,8 @@ defmodule AWS.EventBridge do
 
   @doc """
   You can use this to see all the partner event sources that have been shared with
-  your Amazon Web Services
-  account.
+  your
+  Amazon Web Services account.
 
   For more information about partner event sources, see
   [CreateEventBus](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateEventBus.html).
@@ -3315,11 +3419,10 @@ defmodule AWS.EventBridge do
 
   @doc """
   An SaaS partner can use this operation to display the Amazon Web Services
-  account ID that a particular
-  partner event source name is associated with.
+  account ID that a
+  particular partner event source name is associated with.
 
-  This operation is not used by Amazon Web Services
-  customers.
+  This operation is not used by Amazon Web Services customers.
   """
   @spec list_partner_event_source_accounts(
           map(),
@@ -3389,8 +3492,8 @@ defmodule AWS.EventBridge do
   @doc """
   Lists your Amazon EventBridge rules.
 
-  You can either list all the rules or you can provide
-  a prefix to match to the rule names.
+  You can either list all the rules or you can
+  provide a prefix to match to the rule names.
 
   The maximum number of results per page for requests is 100.
 
@@ -3444,15 +3547,19 @@ defmodule AWS.EventBridge do
   Sends custom events to Amazon EventBridge so that they can be matched to rules.
 
   The maximum size for a PutEvents event entry is 256 KB. Entry size is calculated
-  including the event and any necessary characters and keys of the JSON
-  representation of the event.
-  To learn more, see
-  [Calculating PutEvents event entry size](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-putevent-size.html)
-  in the *Amazon EventBridge User Guide*
+  including
+  the event and any necessary characters and keys of the JSON representation of
+  the event. To
+  learn more, see [Calculating PutEvents event entry size](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-putevent-size.html)
+  in the *
+  *Amazon EventBridge User Guide*
+  *
 
-  PutEvents accepts the data in JSON format. For the JSON number
-  (integer) data type, the constraints are: a minimum value of
-  -9,223,372,036,854,775,808 and a maximum value of 9,223,372,036,854,775,807.
+  PutEvents accepts the data in JSON format. For the JSON number (integer) data
+  type, the
+  constraints are: a minimum value of -9,223,372,036,854,775,808 and a maximum
+  value of
+  9,223,372,036,854,775,807.
 
   PutEvents will only process nested JSON up to 1100 levels deep.
   """
@@ -3469,11 +3576,11 @@ defmodule AWS.EventBridge do
   @doc """
   This is used by SaaS partners to write events to a customer's partner event bus.
 
-  Amazon Web Services
-  customers do not use this operation.
+  Amazon Web Services customers do not use this operation.
 
-  For information on calculating event batch size, see
-  [Calculating EventBridge PutEvents event entry size](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-putevent-size.html)
+  For information on calculating event batch size, see [Calculating EventBridge PutEvents event
+  entry
+  size](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-putevent-size.html)
   in the *EventBridge User Guide*.
   """
   @spec put_partner_events(map(), put_partner_events_request(), list()) ::
@@ -3488,13 +3595,11 @@ defmodule AWS.EventBridge do
 
   @doc """
   Running `PutPermission` permits the specified Amazon Web Services account or
-  Amazon Web Services organization
-  to put events to the specified *event bus*.
+  Amazon Web Services organization to put events to the specified *event
+  bus*.
 
-  Amazon EventBridge (CloudWatch
-  Events) rules in your account are triggered by these events arriving to an event
-  bus in your
-  account.
+  Amazon EventBridge (CloudWatch Events) rules in your account are
+  triggered by these events arriving to an event bus in your account.
 
   For another account to send events to your account, that external account must
   have an
@@ -3504,17 +3609,17 @@ defmodule AWS.EventBridge do
   run
   `PutPermission` once for each of these accounts. Or, if all the accounts are
   members of the same Amazon Web Services organization, you can run
-  `PutPermission` once specifying
-  `Principal` as "*" and specifying the Amazon Web Services organization ID in
-  `Condition`, to grant permissions to all accounts in that organization.
+  `PutPermission`
+  once specifying `Principal` as "*" and specifying the Amazon Web Services
+  organization ID in `Condition`, to grant permissions to all accounts in that
+  organization.
 
   If you grant permissions using an organization, then accounts in that
   organization must
   specify a `RoleArn` with proper permissions when they use `PutTarget` to
   add your account's event bus as a target. For more information, see [Sending and Receiving Events Between Amazon Web Services
   Accounts](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html)
-  in the *Amazon EventBridge User
-  Guide*.
+  in the *Amazon EventBridge User Guide*.
 
   The permission policy on the event bus cannot exceed 10 KB in size.
   """
@@ -3534,14 +3639,13 @@ defmodule AWS.EventBridge do
   Rules are enabled by default, or based on value of
   the state. You can disable a rule using
   [DisableRule](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DisableRule.html).   A single rule watches for events from a single event bus. Events generated by
-  Amazon Web Services services
-  go to your account's default event bus. Events generated by SaaS partner
-  services or
-  applications go to the matching partner event bus. If you have custom
-  applications or
-  services, you can specify whether their events go to your default event bus or a
-  custom event
-  bus that you have created. For more information, see
+  Amazon Web Services services go to your account's default event bus. Events
+  generated by SaaS partner
+  services or applications go to the matching partner event bus. If you have
+  custom applications
+  or services, you can specify whether their events go to your default event bus
+  or a custom
+  event bus that you have created. For more information, see
   [CreateEventBus](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateEventBus.html).
 
   If you are updating an existing rule, the rule is replaced with what you specify
@@ -3577,12 +3681,12 @@ defmodule AWS.EventBridge do
   [UntagResource](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_UntagResource.html).
 
   Most services in Amazon Web Services treat : or / as the same character in
-  Amazon Resource Names (ARNs).
-  However, EventBridge uses an exact match in event patterns and rules. Be sure to
-  use the
-  correct ARN characters when creating event patterns so that they match the ARN
-  syntax in the
-  event you want to match.
+  Amazon Resource
+  Names (ARNs). However, EventBridge uses an exact match in event patterns and
+  rules. Be sure to
+  use the correct ARN characters when creating event patterns so that they match
+  the ARN syntax
+  in the event you want to match.
 
   In EventBridge, it is possible to create rules that lead to infinite loops,
   where a rule
@@ -3628,7 +3732,9 @@ defmodule AWS.EventBridge do
   Each rule can have up to five (5) targets associated with it at one time.
 
   For a list of services you can configure as targets for events, see [EventBridge targets](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-targets.html)
-  in the *Amazon EventBridge User Guide*.
+  in the *
+  *Amazon EventBridge User Guide*
+  *.
 
   Creating rules with built-in targets is supported only in the Amazon Web
   Services Management Console. The
@@ -3648,64 +3754,63 @@ defmodule AWS.EventBridge do
 
     *
 
-  ```
-  Amazon EC2 TerminateInstances API
-  call
-  ```
+  `Amazon EC2 TerminateInstances API call`
 
   For some target types, `PutTargets` provides target-specific parameters. If the
   target is a Kinesis data stream, you can optionally specify which shard the
-  event goes to by
-  using the `KinesisParameters` argument. To invoke a command on multiple EC2
-  instances with one rule, you can use the `RunCommandParameters` field.
+  event
+  goes to by using the `KinesisParameters` argument. To invoke a command on
+  multiple
+  EC2 instances with one rule, you can use the `RunCommandParameters` field.
 
   To be able to make API calls against the resources that you own, Amazon
   EventBridge
   needs the appropriate permissions:
 
     *
-  For Lambda and Amazon SNS
-  resources, EventBridge relies on resource-based policies.
+  For Lambda and Amazon SNS resources, EventBridge relies
+  on resource-based policies.
 
     *
-  For EC2 instances, Kinesis Data Streams,
-  Step Functions state machines and API Gateway APIs, EventBridge relies on
-  IAM roles that you specify in the `RoleARN` argument in `PutTargets`.
+  For EC2 instances, Kinesis Data Streams, Step Functions state machines and
+  API Gateway APIs, EventBridge relies on IAM roles that you specify in the
+  `RoleARN` argument in `PutTargets`.
 
   For more information, see [Authentication and Access
   Control](https://docs.aws.amazon.com/eventbridge/latest/userguide/auth-and-access-control-eventbridge.html)
-  in the *Amazon EventBridge User Guide*.
+  in the *
+  *Amazon EventBridge User Guide*
+  *.
 
   If another Amazon Web Services account is in the same region and has granted you
-  permission (using
-  `PutPermission`), you can send events to that account. Set that account's event
-  bus as a target of the rules in your account. To send the matched events to the
-  other account,
-  specify that account's event bus as the `Arn` value when you run
+  permission
+  (using `PutPermission`), you can send events to that account. Set that account's
+  event bus as a target of the rules in your account. To send the matched events
+  to the other
+  account, specify that account's event bus as the `Arn` value when you run
   `PutTargets`. If your account sends events to another account, your account is
   charged for each sent event. Each event sent to another account is charged as a
   custom event.
   The account receiving the event is not charged. For more information, see
-  [Amazon EventBridge Pricing](http://aws.amazon.com/eventbridge/pricing/).
+  [Amazon EventBridge Pricing](http://aws.amazon.com/eventbridge/pricing/). 
 
   `Input`, `InputPath`, and `InputTransformer` are not
   available with `PutTarget` if the target is an event bus of a different Amazon
-  Web Services
-  account.
+  Web Services account.
 
   If you are setting the event bus of another account as the target, and that
   account
   granted permission to your account through an organization instead of directly
   by the account
   ID, then you must specify a `RoleArn` with proper permissions in the
-  `Target` structure. For more information, see [Sending and Receiving Events Between Amazon Web Services
+  `Target` structure. For more information, see [Sending and
+  Receiving Events Between Amazon Web Services
   Accounts](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html)
-  in the *Amazon EventBridge User
-  Guide*.
+  in the *Amazon EventBridge User Guide*.
 
-  If you have an IAM role on a cross-account event bus target,
-  a `PutTargets` call without a role on the same target (same `Id` and `Arn`) will
-  not remove the role.
+  If you have an IAM role on a cross-account event bus target, a `PutTargets`
+  call without a role on the same target (same `Id` and `Arn`) will not
+  remove the role.
 
   For more information about enabling cross-account events, see
   [PutPermission](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutPermission.html).
@@ -3763,12 +3868,12 @@ defmodule AWS.EventBridge do
 
   @doc """
   Revokes the permission of another Amazon Web Services account to be able to put
-  events to the specified
-  event bus.
+  events to
+  the specified event bus.
 
-  Specify the account to revoke by the `StatementId` value that you
-  associated with the account when you granted it permission with `PutPermission`.
-  You can find the `StatementId` by using
+  Specify the account to revoke by the `StatementId` value
+  that you associated with the account when you granted it permission with
+  `PutPermission`. You can find the `StatementId` by using
   [DescribeEventBus](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DescribeEventBus.html).
   """
   @spec remove_permission(map(), remove_permission_request(), list()) ::
@@ -3851,8 +3956,8 @@ defmodule AWS.EventBridge do
   values. In EventBridge, rules and event buses can be tagged.
 
   Tags don't have any semantic meaning to Amazon Web Services and are interpreted
-  strictly as strings of
-  characters.
+  strictly as
+  strings of characters.
 
   You can use the `TagResource` action with a resource that already has tags. If
   you specify a new tag key, this tag is appended to the list of tags associated
@@ -3877,12 +3982,12 @@ defmodule AWS.EventBridge do
   Tests whether the specified event pattern matches the provided event.
 
   Most services in Amazon Web Services treat : or / as the same character in
-  Amazon Resource Names (ARNs).
-  However, EventBridge uses an exact match in event patterns and rules. Be sure to
-  use the
-  correct ARN characters when creating event patterns so that they match the ARN
-  syntax in the
-  event you want to match.
+  Amazon Resource
+  Names (ARNs). However, EventBridge uses an exact match in event patterns and
+  rules. Be
+  sure to use the correct ARN characters when creating event patterns so that they
+  match the ARN
+  syntax in the event you want to match.
   """
   @spec test_event_pattern(map(), test_event_pattern_request(), list()) ::
           {:ok, test_event_pattern_response(), any()}
@@ -3954,7 +4059,10 @@ defmodule AWS.EventBridge do
 
   For more information about global endpoints, see [Making applications Regional-fault tolerant with global endpoints and event
   replication](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html)
-  in the *Amazon EventBridge User Guide*.
+  in
+  the *
+  *Amazon EventBridge User Guide*
+  *.
   """
   @spec update_endpoint(map(), update_endpoint_request(), list()) ::
           {:ok, update_endpoint_response(), any()}
@@ -3964,5 +4072,18 @@ defmodule AWS.EventBridge do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateEndpoint", input, options)
+  end
+
+  @doc """
+  Updates the specified event bus.
+  """
+  @spec update_event_bus(map(), update_event_bus_request(), list()) ::
+          {:ok, update_event_bus_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_event_bus_errors()}
+  def update_event_bus(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateEventBus", input, options)
   end
 end

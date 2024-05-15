@@ -498,6 +498,21 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      search_contact_flow_modules_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SearchCriteria") => contact_flow_module_search_criteria(),
+        optional("SearchFilter") => contact_flow_module_search_filter(),
+        required("InstanceId") => String.t()
+      }
+
+  """
+  @type search_contact_flow_modules_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_phone_numbers_summary() :: %{
         "InstanceId" => String.t(),
         "PhoneNumber" => String.t(),
@@ -532,6 +547,22 @@ defmodule AWS.Connect do
 
   """
   @type describe_user_hierarchy_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      contact_flow_search_criteria() :: %{
+        "AndConditions" => list(contact_flow_search_criteria()()),
+        "OrConditions" => list(contact_flow_search_criteria()()),
+        "StateCondition" => list(any()),
+        "StatusCondition" => list(any()),
+        "StringCondition" => string_condition(),
+        "TypeCondition" => list(any())
+      }
+
+  """
+  @type contact_flow_search_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -642,6 +673,17 @@ defmodule AWS.Connect do
 
   """
   @type deactivate_evaluation_form_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      contact_flow_search_filter() :: %{
+        "TagFilter" => control_plane_tag_filter()
+      }
+
+  """
+  @type contact_flow_search_filter() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -903,6 +945,7 @@ defmodule AWS.Connect do
 
       create_contact_flow_request() :: %{
         optional("Description") => String.t(),
+        optional("Status") => list(any()),
         optional("Tags") => map(),
         required("Content") => String.t(),
         required("Name") => String.t(),
@@ -1342,6 +1385,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      search_contact_flow_modules_response() :: %{
+        "ApproximateTotalCount" => float(),
+        "ContactFlowModules" => list(contact_flow_module()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type search_contact_flow_modules_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_vocabulary_request() :: %{}
 
   """
@@ -1727,6 +1783,19 @@ defmodule AWS.Connect do
 
   """
   @type contact_flow_not_published_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      contact_flow_module_search_criteria() :: %{
+        "AndConditions" => list(contact_flow_module_search_criteria()()),
+        "OrConditions" => list(contact_flow_module_search_criteria()()),
+        "StringCondition" => string_condition()
+      }
+
+  """
+  @type contact_flow_module_search_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2739,6 +2808,7 @@ defmodule AWS.Connect do
       contact_flow_summary() :: %{
         "Arn" => String.t(),
         "ContactFlowState" => list(any()),
+        "ContactFlowStatus" => list(any()),
         "ContactFlowType" => list(any()),
         "Id" => String.t(),
         "Name" => String.t()
@@ -5544,6 +5614,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      contact_flow_module_search_filter() :: %{
+        "TagFilter" => control_plane_tag_filter()
+      }
+
+  """
+  @type contact_flow_module_search_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_routing_profile_queues_response() :: %{
         "LastModifiedRegion" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
@@ -6660,6 +6741,7 @@ defmodule AWS.Connect do
         "Id" => String.t(),
         "Name" => String.t(),
         "State" => list(any()),
+        "Status" => list(any()),
         "Tags" => map(),
         "Type" => list(any())
       }
@@ -7109,6 +7191,21 @@ defmodule AWS.Connect do
 
   """
   @type assign_contact_category_action_definition() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      search_contact_flows_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SearchCriteria") => contact_flow_search_criteria(),
+        optional("SearchFilter") => contact_flow_search_filter(),
+        required("InstanceId") => String.t()
+      }
+
+  """
+  @type search_contact_flows_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -7747,6 +7844,19 @@ defmodule AWS.Connect do
 
   """
   @type quick_connect() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_contact_flows_response() :: %{
+        "ApproximateTotalCount" => float(),
+        "ContactFlows" => list(contact_flow()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type search_contact_flows_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -10273,6 +10383,20 @@ defmodule AWS.Connect do
           throttling_exception()
           | invalid_parameter_exception()
           | access_denied_exception()
+          | internal_service_exception()
+
+  @type search_contact_flow_modules_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type search_contact_flows_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
           | internal_service_exception()
 
   @type search_contacts_errors() ::
@@ -13232,6 +13356,17 @@ defmodule AWS.Connect do
 
   You can also create and update flows using the [Amazon Connect Flow
   language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
+
+  Use the `$SAVED` alias in the request to describe the `SAVED` content
+  of a Flow. For example, `arn:aws:.../contact-flow/{id}:$SAVED`. Once a contact
+  flow is
+  published, `$SAVED` needs to be supplied to view saved content that has not been
+  published.
+
+  In the response, **Status** indicates the flow status as either
+  `SAVED` or `PUBLISHED`. The `PUBLISHED` status will initiate
+  validation on the content. `SAVED` does not initiate validation of the content.
+  `SAVED` | `PUBLISHED`
   """
   @spec describe_contact_flow(map(), String.t(), String.t(), list()) ::
           {:ok, describe_contact_flow_response(), any()}
@@ -13251,6 +13386,12 @@ defmodule AWS.Connect do
 
   @doc """
   Describes the specified flow module.
+
+  Use the `$SAVED` alias in the request to describe the `SAVED` content
+  of a Flow. For example, `arn:aws:.../contact-flow/{id}:$SAVED`. Once a contact
+  flow is
+  published, `$SAVED` needs to be supplied to view saved content that has not been
+  published.
   """
   @spec describe_contact_flow_module(map(), String.t(), String.t(), list()) ::
           {:ok, describe_contact_flow_module_response(), any()}
@@ -17024,6 +17165,62 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Searches the flow modules in an Amazon Connect instance, with optional
+  filtering.
+  """
+  @spec search_contact_flow_modules(map(), search_contact_flow_modules_request(), list()) ::
+          {:ok, search_contact_flow_modules_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, search_contact_flow_modules_errors()}
+  def search_contact_flow_modules(%Client{} = client, input, options \\ []) do
+    url_path = "/search-contact-flow-modules"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Searches the contact flows in an Amazon Connect instance, with optional
+  filtering.
+  """
+  @spec search_contact_flows(map(), search_contact_flows_request(), list()) ::
+          {:ok, search_contact_flows_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, search_contact_flows_errors()}
+  def search_contact_flows(%Client{} = client, input, options \\ []) do
+    url_path = "/search-contact-flows"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Searches contacts in an Amazon Connect instance.
   """
   @spec search_contacts(map(), search_contacts_request(), list()) ::
@@ -18268,6 +18465,12 @@ defmodule AWS.Connect do
 
   You can also create and update flows using the [Amazon Connect Flow
   language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
+
+  Use the `$SAVED` alias in the request to describe the `SAVED` content
+  of a Flow. For example, `arn:aws:.../contact-flow/{id}:$SAVED`. Once a contact
+  flow is
+  published, `$SAVED` needs to be supplied to view saved content that has not been
+  published.
   """
   @spec update_contact_flow_content(
           map(),
@@ -18350,6 +18553,12 @@ defmodule AWS.Connect do
 
   @doc """
   Updates specified flow module for the specified Amazon Connect instance.
+
+  Use the `$SAVED` alias in the request to describe the `SAVED` content
+  of a Flow. For example, `arn:aws:.../contact-flow/{id}:$SAVED`. Once a contact
+  flow is
+  published, `$SAVED` needs to be supplied to view saved content that has not been
+  published.
   """
   @spec update_contact_flow_module_content(
           map(),

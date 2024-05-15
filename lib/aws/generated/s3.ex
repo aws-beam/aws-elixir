@@ -4480,8 +4480,7 @@ defmodule AWS.S3 do
           {:ok, complete_multipart_upload_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def complete_multipart_upload(%Client{} = client, bucket, key, input, options \\ []) do
-    url_path =
-      "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?x-id=CompleteMultipartUpload"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}"
 
     {headers, input} =
       [
@@ -5290,8 +5289,7 @@ defmodule AWS.S3 do
           {:ok, create_multipart_upload_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def create_multipart_upload(%Client{} = client, bucket, key, input, options \\ []) do
-    url_path =
-      "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?uploads&x-id=CreateMultipartUpload"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?uploads"
 
     {headers, input} =
       [
@@ -6816,7 +6814,7 @@ defmodule AWS.S3 do
           {:ok, delete_objects_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def delete_objects(%Client{} = client, bucket, input, options \\ []) do
-    url_path = "/#{AWS.Util.encode_uri(bucket)}?delete&x-id=DeleteObjects"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?delete"
 
     {headers, input} =
       [
@@ -14118,8 +14116,7 @@ defmodule AWS.S3 do
           | {:error, {:unexpected_response, any()}}
           | {:error, restore_object_errors()}
   def restore_object(%Client{} = client, bucket, key, input, options \\ []) do
-    url_path =
-      "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?restore&x-id=RestoreObject"
+    url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?restore"
 
     {headers, input} =
       [
@@ -14305,7 +14302,7 @@ defmodule AWS.S3 do
           | {:error, {:unexpected_response, any()}}
   def select_object_content(%Client{} = client, bucket, key, input, options \\ []) do
     url_path =
-      "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?select&select-type=2&x-id=SelectObjectContent"
+      "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?select&select-type=2"
 
     {headers, input} =
       [
@@ -14922,7 +14919,7 @@ defmodule AWS.S3 do
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
   def write_get_object_response(%Client{} = client, input, options \\ []) do
-    url_path = "/WriteGetObjectResponse?x-id=WriteGetObjectResponse"
+    url_path = "/WriteGetObjectResponse"
 
     {headers, input} =
       [

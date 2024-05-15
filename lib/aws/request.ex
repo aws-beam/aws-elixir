@@ -199,7 +199,7 @@ defmodule AWS.Request do
         endpoint_fun.(build_options)
 
       %{global?: true, endpoint: endpoint} ->
-        endpoint = resolve_endpoint_sufix(endpoint)
+        endpoint = resolve_endpoint_suffix(endpoint)
 
         region =
           if metadata.credential_scope != nil do
@@ -218,7 +218,7 @@ defmodule AWS.Request do
         )
 
       %{endpoint: endpoint} ->
-        endpoint = resolve_endpoint_sufix(endpoint)
+        endpoint = resolve_endpoint_suffix(endpoint)
 
         build_final_endpoint(
           [
@@ -231,11 +231,11 @@ defmodule AWS.Request do
     end
   end
 
-  defp resolve_endpoint_sufix({:keep_prefixes, sufix}) when is_binary(sufix) do
-    sufix
+  defp resolve_endpoint_suffix({:keep_prefixes, suffix}) when is_binary(suffix) do
+    suffix
   end
 
-  defp resolve_endpoint_sufix(nil), do: Client.default_endpoint()
+  defp resolve_endpoint_suffix(nil), do: Client.default_endpoint()
 
   defp build_final_endpoint(parts, options) do
     parts =

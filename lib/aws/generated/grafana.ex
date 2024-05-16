@@ -97,6 +97,18 @@ defmodule AWS.Grafana do
 
   ## Example:
 
+      list_workspace_service_accounts_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_workspace_service_accounts_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_workspace_authentication_response() :: %{
         required("authentication") => authentication_description()
       }
@@ -164,6 +176,19 @@ defmodule AWS.Grafana do
 
   ## Example:
 
+      delete_workspace_service_account_token_response() :: %{
+        "serviceAccountId" => [String.t()],
+        "tokenId" => [String.t()],
+        "workspaceId" => String.t()
+      }
+
+  """
+  @type delete_workspace_service_account_token_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       untag_resource_request() :: %{
         required("tagKeys") => list(String.t()())
       }
@@ -208,6 +233,20 @@ defmodule AWS.Grafana do
 
   ## Example:
 
+      service_account_summary() :: %{
+        "grafanaRole" => String.t(),
+        "id" => [String.t()],
+        "isDisabled" => [String.t()],
+        "name" => [String.t()]
+      }
+
+  """
+  @type service_account_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       authentication_description() :: %{
         "awsSso" => aws_sso_authentication(),
         "providers" => list(String.t()()),
@@ -216,6 +255,18 @@ defmodule AWS.Grafana do
 
   """
   @type authentication_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_workspace_service_account_response() :: %{
+        "serviceAccountId" => [String.t()],
+        "workspaceId" => String.t()
+      }
+
+  """
+  @type delete_workspace_service_account_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -321,6 +372,19 @@ defmodule AWS.Grafana do
 
   ## Example:
 
+      create_workspace_service_account_token_response() :: %{
+        "serviceAccountId" => [String.t()],
+        "serviceAccountToken" => service_account_token_summary_with_key(),
+        "workspaceId" => String.t()
+      }
+
+  """
+  @type create_workspace_service_account_token_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       authentication_summary() :: %{
         "providers" => list(String.t()()),
         "samlConfigurationStatus" => String.t()
@@ -339,6 +403,20 @@ defmodule AWS.Grafana do
 
   """
   @type associate_license_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_workspace_service_account_response() :: %{
+        "grafanaRole" => String.t(),
+        "id" => [String.t()],
+        "name" => [String.t()],
+        "workspaceId" => String.t()
+      }
+
+  """
+  @type create_workspace_service_account_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -385,6 +463,21 @@ defmodule AWS.Grafana do
 
   ## Example:
 
+      service_account_token_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "expiresAt" => [non_neg_integer()],
+        "id" => [String.t()],
+        "lastUsedAt" => [non_neg_integer()],
+        "name" => [String.t()]
+      }
+
+  """
+  @type service_account_token_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_workspace_response() :: %{
         required("workspace") => workspace_description()
       }
@@ -403,6 +496,20 @@ defmodule AWS.Grafana do
 
   """
   @type list_versions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_workspace_service_account_tokens_response() :: %{
+        "nextToken" => String.t(),
+        "serviceAccountId" => [String.t()],
+        "serviceAccountTokens" => list(service_account_token_summary()()),
+        "workspaceId" => String.t()
+      }
+
+  """
+  @type list_workspace_service_account_tokens_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -568,6 +675,24 @@ defmodule AWS.Grafana do
 
   ## Example:
 
+      delete_workspace_service_account_request() :: %{}
+
+  """
+  @type delete_workspace_service_account_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_workspace_service_account_token_request() :: %{}
+
+  """
+  @type delete_workspace_service_account_token_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       permission_entry() :: %{
         "role" => String.t(),
         "user" => user()
@@ -702,6 +827,18 @@ defmodule AWS.Grafana do
 
   ## Example:
 
+      list_workspace_service_account_tokens_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_workspace_service_account_tokens_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       role_values() :: %{
         "admin" => list(String.t()()),
         "editor" => list(String.t()())
@@ -725,12 +862,37 @@ defmodule AWS.Grafana do
 
   ## Example:
 
+      create_workspace_service_account_request() :: %{
+        required("grafanaRole") => String.t(),
+        required("name") => String.t()
+      }
+
+  """
+  @type create_workspace_service_account_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_permissions_request() :: %{
         required("updateInstructionBatch") => list(update_instruction()())
       }
 
   """
   @type update_permissions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_account_token_summary_with_key() :: %{
+        "id" => [String.t()],
+        "key" => String.t(),
+        "name" => [String.t()]
+      }
+
+  """
+  @type service_account_token_summary_with_key() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -752,6 +914,31 @@ defmodule AWS.Grafana do
 
   """
   @type disassociate_license_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_workspace_service_accounts_response() :: %{
+        "nextToken" => String.t(),
+        "serviceAccounts" => list(service_account_summary()()),
+        "workspaceId" => String.t()
+      }
+
+  """
+  @type list_workspace_service_accounts_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_workspace_service_account_token_request() :: %{
+        required("name") => String.t(),
+        required("secondsToLive") => [integer()]
+      }
+
+  """
+  @type create_workspace_service_account_token_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -819,6 +1006,24 @@ defmodule AWS.Grafana do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type create_workspace_service_account_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_workspace_service_account_token_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type delete_workspace_errors() ::
           throttling_exception()
           | validation_exception()
@@ -828,6 +1033,22 @@ defmodule AWS.Grafana do
           | conflict_exception()
 
   @type delete_workspace_api_key_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_workspace_service_account_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_workspace_service_account_token_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -848,6 +1069,7 @@ defmodule AWS.Grafana do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | conflict_exception()
 
   @type describe_workspace_configuration_errors() ::
           throttling_exception()
@@ -882,6 +1104,22 @@ defmodule AWS.Grafana do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type list_workspace_service_account_tokens_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type list_workspace_service_accounts_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type list_workspaces_errors() ::
           throttling_exception() | access_denied_exception() | internal_server_exception()
@@ -949,7 +1187,9 @@ defmodule AWS.Grafana do
   @doc """
   Assigns a Grafana Enterprise license to a workspace.
 
-  Upgrading to Grafana Enterprise
+  To upgrade, you must use
+  `ENTERPRISE` for the `licenseType`, and pass in a valid
+  Grafana Labs token for the `grafanaToken`. Upgrading to Grafana Enterprise
   incurs additional fees. For more information, see [Upgrade a workspace to Grafana
   Enterprise](https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html).
   """
@@ -1026,6 +1266,9 @@ defmodule AWS.Grafana do
   requests sent to the workspace's HTTP API. See
   [https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html](https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html)
   for available APIs and example requests.
+
+  In workspaces compatible with Grafana version 9 or above, use workspace service
+  accounts instead of API keys. API keys will be removed in a future release.
   """
   @spec create_workspace_api_key(map(), String.t(), create_workspace_api_key_request(), list()) ::
           {:ok, create_workspace_api_key_response(), any()}
@@ -1033,6 +1276,112 @@ defmodule AWS.Grafana do
           | {:error, create_workspace_api_key_errors()}
   def create_workspace_api_key(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/apikeys"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a service account for the workspace.
+
+  A service account can be used to call
+  Grafana HTTP APIs, and run automated workloads. After creating the service
+  account with
+  the correct `GrafanaRole` for your use case, use
+  `CreateWorkspaceServiceAccountToken` to create a token that can be used to
+  authenticate and authorize Grafana HTTP API calls.
+
+  You can only create service accounts for workspaces that are compatible with
+  Grafana
+  version 9 and above.
+
+  For more information about service accounts, see [Service accounts](https://docs.aws.amazon.com/grafana/latest/userguide/service-accounts.html)
+  in
+  the *Amazon Managed Grafana User Guide*.
+
+  For more information about the Grafana HTTP APIs, see [Using Grafana HTTP APIs](https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html)
+  in the *Amazon Managed Grafana User Guide*.
+  """
+  @spec create_workspace_service_account(
+          map(),
+          String.t(),
+          create_workspace_service_account_request(),
+          list()
+        ) ::
+          {:ok, create_workspace_service_account_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_workspace_service_account_errors()}
+  def create_workspace_service_account(%Client{} = client, workspace_id, input, options \\ []) do
+    url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/serviceaccounts"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a token that can be used to authenticate and authorize Grafana HTTP API
+  operations for the given [workspace service account](https://docs.aws.amazon.com/grafana/latest/userguide/service-accounts.html).
+
+  The service account acts as a user for the API operations, and
+  defines the permissions that are used by the API.
+
+  When you create the service account token, you will receive a key that is used
+  when calling Grafana APIs. Do not lose this key, as it will not be retrievable
+  again.
+
+  If you do lose the key, you can delete the token and recreate it to receive a
+  new key. This will disable the initial key.
+
+  Service accounts are only available for workspaces that are compatible with
+  Grafana
+  version 9 and above.
+  """
+  @spec create_workspace_service_account_token(
+          map(),
+          String.t(),
+          String.t(),
+          create_workspace_service_account_token_request(),
+          list()
+        ) ::
+          {:ok, create_workspace_service_account_token_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_workspace_service_account_token_errors()}
+  def create_workspace_service_account_token(
+        %Client{} = client,
+        service_account_id,
+        workspace_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/serviceaccounts/#{AWS.Util.encode_uri(service_account_id)}/tokens"
+
     headers = []
     query_params = []
 
@@ -1080,6 +1429,9 @@ defmodule AWS.Grafana do
 
   @doc """
   Deletes a Grafana API key for the workspace.
+
+  In workspaces compatible with Grafana version 9 or above, use workspace service
+  accounts instead of API keys. API keys will be removed in a future release.
   """
   @spec delete_workspace_api_key(
           map(),
@@ -1094,6 +1446,109 @@ defmodule AWS.Grafana do
   def delete_workspace_api_key(%Client{} = client, key_name, workspace_id, input, options \\ []) do
     url_path =
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/apikeys/#{AWS.Util.encode_uri(key_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a workspace service account from the workspace.
+
+  This will delete any tokens created for the service account, as well. If the
+  tokens
+  are currently in use, the will fail to authenticate / authorize after they are
+  deleted.
+
+  Service accounts are only available for workspaces that are compatible with
+  Grafana
+  version 9 and above.
+  """
+  @spec delete_workspace_service_account(
+          map(),
+          String.t(),
+          String.t(),
+          delete_workspace_service_account_request(),
+          list()
+        ) ::
+          {:ok, delete_workspace_service_account_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_workspace_service_account_errors()}
+  def delete_workspace_service_account(
+        %Client{} = client,
+        service_account_id,
+        workspace_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/serviceaccounts/#{AWS.Util.encode_uri(service_account_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a token for the workspace service account.
+
+  This will disable the key associated with the token. If any automation is
+  currently
+  using the key, it will no longer be authenticated or authorized to perform
+  actions with
+  the Grafana HTTP APIs.
+
+  Service accounts are only available for workspaces that are compatible with
+  Grafana
+  version 9 and above.
+  """
+  @spec delete_workspace_service_account_token(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          delete_workspace_service_account_token_request(),
+          list()
+        ) ::
+          {:ok, delete_workspace_service_account_token_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_workspace_service_account_token_errors()}
+  def delete_workspace_service_account_token(
+        %Client{} = client,
+        service_account_id,
+        token_id,
+        workspace_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/serviceaccounts/#{AWS.Util.encode_uri(service_account_id)}/tokens/#{AWS.Util.encode_uri(token_id)}"
 
     headers = []
     query_params = []
@@ -1329,6 +1784,107 @@ defmodule AWS.Grafana do
       else
         query_params
       end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of tokens for a workspace service account.
+
+  This does not return the key for each token. You cannot access keys after they
+  are created. To create a new key, delete the token and recreate it.
+
+  Service accounts are only available for workspaces that are compatible with
+  Grafana
+  version 9 and above.
+  """
+  @spec list_workspace_service_account_tokens(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_workspace_service_account_tokens_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_workspace_service_account_tokens_errors()}
+  def list_workspace_service_account_tokens(
+        %Client{} = client,
+        service_account_id,
+        workspace_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/serviceaccounts/#{AWS.Util.encode_uri(service_account_id)}/tokens"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of service accounts for a workspace.
+
+  Service accounts are only available for workspaces that are compatible with
+  Grafana
+  version 9 and above.
+  """
+  @spec list_workspace_service_accounts(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_workspace_service_accounts_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_workspace_service_accounts_errors()}
+  def list_workspace_service_accounts(
+        %Client{} = client,
+        workspace_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/serviceaccounts"
+    headers = []
+    query_params = []
 
     query_params =
       if !is_nil(next_token) do

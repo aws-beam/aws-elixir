@@ -1449,9 +1449,11 @@ defmodule AWS.CodeBuild do
         optional("baseCapacity") => integer(),
         optional("computeType") => list(any()),
         optional("environmentType") => list(any()),
+        optional("fleetServiceRole") => String.t(),
         optional("overflowBehavior") => list(any()),
         optional("scalingConfiguration") => scaling_configuration_input(),
         optional("tags") => list(tag()()),
+        optional("vpcConfig") => vpc_config(),
         required("arn") => String.t()
       }
       
@@ -1463,9 +1465,11 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       create_fleet_input() :: %{
+        optional("fleetServiceRole") => String.t(),
         optional("overflowBehavior") => list(any()),
         optional("scalingConfiguration") => scaling_configuration_input(),
         optional("tags") => list(tag()()),
+        optional("vpcConfig") => vpc_config(),
         required("baseCapacity") => integer(),
         required("computeType") => list(any()),
         required("environmentType") => list(any()),
@@ -2134,13 +2138,15 @@ defmodule AWS.CodeBuild do
         "computeType" => list(any()),
         "created" => non_neg_integer(),
         "environmentType" => list(any()),
+        "fleetServiceRole" => String.t(),
         "id" => String.t(),
         "lastModified" => non_neg_integer(),
         "name" => String.t(),
         "overflowBehavior" => list(any()),
         "scalingConfiguration" => scaling_configuration_output(),
         "status" => fleet_status(),
-        "tags" => list(tag()())
+        "tags" => list(tag()()),
+        "vpcConfig" => vpc_config()
       }
       
   """

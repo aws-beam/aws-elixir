@@ -173,6 +173,7 @@ defmodule AWS.MedicalImaging do
   ## Example:
 
       start_d_i_c_o_m_import_job_request() :: %{
+        optional("inputOwnerAccountId") => String.t(),
         optional("jobName") => String.t(),
         required("clientToken") => String.t(),
         required("dataAccessRoleArn") => String.t(),
@@ -1519,13 +1520,14 @@ defmodule AWS.MedicalImaging do
   @doc """
   Search image sets based on defined input attributes.
 
-  `SearchImageSets` accepts a single search
-  query parameter and returns a paginated response of all image sets that have the
-  matching criteria. All range queries must be input as `(lowerBound,
-  upperBound)`.
+  `SearchImageSets` accepts a single search query parameter and returns a
+  paginated
+  response of all image sets that have the matching criteria. All date range
+  queries must be input
+  as `(lowerBound, upperBound)`.
 
-  `SearchImageSets` uses the `updatedAt` field for sorting
-  in decreasing order from latest to oldest.
+  By default, `SearchImageSets` uses the `updatedAt` field for sorting
+  in descending order from newest to oldest.
   """
   @spec search_image_sets(map(), String.t(), search_image_sets_request(), list()) ::
           {:ok, search_image_sets_response(), any()}

@@ -1913,6 +1913,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      s3_presign() :: %{
+        "IamPolicyConstraints" => iam_policy_constraints()
+      }
+      
+  """
+  @type s3_presign() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       annotation_consolidation_config() :: %{
         "AnnotationConsolidationLambdaArn" => String.t()
       }
@@ -7753,6 +7764,7 @@ defmodule AWS.SageMaker do
         optional("Description") => String.t(),
         optional("MemberDefinitions") => list(member_definition()()),
         optional("NotificationConfiguration") => notification_configuration(),
+        optional("WorkerAccessConfiguration") => worker_access_configuration(),
         required("WorkteamName") => String.t()
       }
       
@@ -8585,6 +8597,7 @@ defmodule AWS.SageMaker do
         "NotificationConfiguration" => notification_configuration(),
         "ProductListingIds" => list(String.t()()),
         "SubDomain" => String.t(),
+        "WorkerAccessConfiguration" => worker_access_configuration(),
         "WorkforceArn" => String.t(),
         "WorkteamArn" => String.t(),
         "WorkteamName" => String.t()
@@ -12371,6 +12384,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      iam_policy_constraints() :: %{
+        "SourceIp" => list(any()),
+        "VpcSourceIp" => list(any())
+      }
+      
+  """
+  @type iam_policy_constraints() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_association_response() :: %{
         "DestinationArn" => String.t(),
         "SourceArn" => String.t()
@@ -12456,6 +12481,7 @@ defmodule AWS.SageMaker do
       create_workteam_request() :: %{
         optional("NotificationConfiguration") => notification_configuration(),
         optional("Tags") => list(tag()()),
+        optional("WorkerAccessConfiguration") => worker_access_configuration(),
         optional("WorkforceName") => String.t(),
         required("Description") => String.t(),
         required("MemberDefinitions") => list(member_definition()()),
@@ -13762,6 +13788,17 @@ defmodule AWS.SageMaker do
       
   """
   @type create_context_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      worker_access_configuration() :: %{
+        "S3Presign" => s3_presign()
+      }
+      
+  """
+  @type worker_access_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -18197,7 +18234,7 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Creates a space used for real time collaboration in a domain.
+  Creates a private space or a space used for real time collaboration in a domain.
   """
   @spec create_space(map(), create_space_request(), list()) ::
           {:ok, create_space_response(), any()}

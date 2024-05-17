@@ -11963,7 +11963,7 @@ defmodule AWS.Connect do
 
   For more information about prompts, such as supported file types and
   maximum length, see [Create prompts](https://docs.aws.amazon.com/connect/latest/adminguide/prompts.html) in
-  the *Amazon Connect Administrator's
+  the *Amazon Connect Administrator
   Guide*.
   """
   @spec create_prompt(map(), String.t(), create_prompt_request(), list()) ::
@@ -14683,7 +14683,7 @@ defmodule AWS.Connect do
   For a description of the historical metrics that are supported by
   `GetMetricDataV2` and `GetMetricData`, see [Historical metrics
   definitions](https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html)
-  in the *Amazon Connect Administrator's Guide*.
+  in the *Amazon Connect Administrator Guide*.
   """
   @spec get_metric_data_v2(map(), get_metric_data_v2_request(), list()) ::
           {:ok, get_metric_data_v2_response(), any()}

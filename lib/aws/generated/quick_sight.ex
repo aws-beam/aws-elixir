@@ -3416,6 +3416,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      update_key_registration_request() :: %{
+        required("KeyRegistration") => list(registered_customer_managed_key()())
+      }
+
+  """
+  @type update_key_registration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       reference_line_static_data_configuration() :: %{
         "Value" => float()
       }
@@ -4158,6 +4169,20 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      describe_key_registration_response() :: %{
+        "AwsAccountId" => String.t(),
+        "KeyRegistration" => list(registered_customer_managed_key()()),
+        "RequestId" => String.t(),
+        "Status" => integer()
+      }
+
+  """
+  @type describe_key_registration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       word_cloud_chart_configuration() :: %{
         "CategoryLabelOptions" => chart_axis_label_options(),
         "FieldWells" => word_cloud_field_wells(),
@@ -4761,6 +4786,18 @@ defmodule AWS.QuickSight do
 
   """
   @type maria_db_parameters() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      registered_customer_managed_key() :: %{
+        "DefaultKey" => boolean(),
+        "KeyArn" => String.t()
+      }
+
+  """
+  @type registered_customer_managed_key() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -7040,6 +7077,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      describe_key_registration_request() :: %{
+        optional("DefaultKeyOnly") => boolean()
+      }
+
+  """
+  @type describe_key_registration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       data_set_summary() :: %{
         "Arn" => String.t(),
         "ColumnLevelPermissionRulesApplied" => boolean(),
@@ -7882,6 +7930,19 @@ defmodule AWS.QuickSight do
 
   """
   @type date_time_dataset_parameter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_key_registration_response() :: %{
+        "FailedKeyRegistration" => list(failed_key_registration_entry()()),
+        "RequestId" => String.t(),
+        "SuccessfulKeyRegistration" => list(successful_key_registration_entry()())
+      }
+
+  """
+  @type update_key_registration_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -10741,6 +10802,20 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      failed_key_registration_entry() :: %{
+        "KeyArn" => String.t(),
+        "Message" => String.t(),
+        "SenderFault" => boolean(),
+        "StatusCode" => integer()
+      }
+
+  """
+  @type failed_key_registration_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       calculated_measure_field() :: %{
         "Expression" => String.t(),
         "FieldId" => String.t()
@@ -11195,6 +11270,18 @@ defmodule AWS.QuickSight do
 
   """
   @type pivot_table_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      successful_key_registration_entry() :: %{
+        "KeyArn" => String.t(),
+        "StatusCode" => integer()
+      }
+
+  """
+  @type successful_key_registration_entry() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -15637,6 +15724,12 @@ defmodule AWS.QuickSight do
           | resource_not_found_exception()
           | internal_failure_exception()
 
+  @type describe_key_registration_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+
   @type describe_namespace_errors() ::
           throttling_exception()
           | access_denied_exception()
@@ -16343,6 +16436,12 @@ defmodule AWS.QuickSight do
           | access_denied_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type update_key_registration_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
           | internal_failure_exception()
 
   @type update_public_sharing_settings_errors() ::
@@ -19302,6 +19401,35 @@ defmodule AWS.QuickSight do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/ip-restriction"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Describes all customer managed key registrations in a Amazon QuickSight account.
+  """
+  @spec describe_key_registration(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, describe_key_registration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_key_registration_errors()}
+  def describe_key_registration(
+        %Client{} = client,
+        aws_account_id,
+        default_key_only \\ nil,
+        options \\ []
+      ) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/key-registration"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(default_key_only) do
+        [{"default-key-only", default_key_only} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -22485,6 +22613,33 @@ defmodule AWS.QuickSight do
           | {:error, update_ip_restriction_errors()}
   def update_ip_restriction(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/ip-restriction"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a customer managed key in a Amazon QuickSight account.
+  """
+  @spec update_key_registration(map(), String.t(), update_key_registration_request(), list()) ::
+          {:ok, update_key_registration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_key_registration_errors()}
+  def update_key_registration(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/key-registration"
     headers = []
     query_params = []
 

@@ -2179,6 +2179,7 @@ defmodule AWS.Kafka do
   ## Example:
 
       mutable_cluster_info() :: %{
+        "BrokerCountUpdateInfo" => broker_count_update_info(),
         "BrokerEBSVolumeInfo" => list(broker_ebs_volume_info()()),
         "ClientAuthentication" => client_authentication(),
         "ConfigurationInfo" => configuration_info(),
@@ -2390,6 +2391,18 @@ defmodule AWS.Kafka do
 
   """
   @type cluster_operation_v2() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      broker_count_update_info() :: %{
+        "CreatedBrokerIds" => list(float()()),
+        "DeletedBrokerIds" => list(float()())
+      }
+
+  """
+  @type broker_count_update_info() :: %{String.t() => any()}
 
   @typedoc """
 

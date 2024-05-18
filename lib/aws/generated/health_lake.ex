@@ -658,6 +658,7 @@ defmodule AWS.HealthLake do
       credential_scope: nil,
       endpoint_prefix: "healthlake",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "HealthLake",
       signature_version: "v4",

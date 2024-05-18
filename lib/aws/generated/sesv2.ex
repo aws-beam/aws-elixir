@@ -3790,6 +3790,7 @@ defmodule AWS.SESv2 do
       credential_scope: nil,
       endpoint_prefix: "email",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "SESv2",
       signature_version: "v4",

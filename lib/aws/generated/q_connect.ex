@@ -2061,6 +2061,7 @@ defmodule AWS.QConnect do
       credential_scope: nil,
       endpoint_prefix: "wisdom",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "QConnect",
       signature_version: "v4",

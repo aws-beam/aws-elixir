@@ -4566,6 +4566,7 @@ defmodule AWS.Config do
       credential_scope: nil,
       endpoint_prefix: "config",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Config Service",
       signature_version: "v4",

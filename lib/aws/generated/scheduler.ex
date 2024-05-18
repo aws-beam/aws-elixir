@@ -720,6 +720,7 @@ defmodule AWS.Scheduler do
       credential_scope: nil,
       endpoint_prefix: "scheduler",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Scheduler",
       signature_version: "v4",

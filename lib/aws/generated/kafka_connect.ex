@@ -1314,6 +1314,7 @@ defmodule AWS.KafkaConnect do
       credential_scope: nil,
       endpoint_prefix: "kafkaconnect",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "KafkaConnect",
       signature_version: "v4",

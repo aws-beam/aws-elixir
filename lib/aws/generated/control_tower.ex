@@ -1209,6 +1209,7 @@ defmodule AWS.ControlTower do
       credential_scope: nil,
       endpoint_prefix: "controltower",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "ControlTower",
       signature_version: "v4",

@@ -733,6 +733,7 @@ defmodule AWS.PI do
       credential_scope: nil,
       endpoint_prefix: "pi",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "PI",
       signature_version: "v4",

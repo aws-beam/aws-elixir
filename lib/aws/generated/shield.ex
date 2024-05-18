@@ -1537,6 +1537,7 @@ defmodule AWS.Shield do
       credential_scope: "us-east-1",
       endpoint_prefix: "shield",
       global?: true,
+      hostname: "shield.us-east-1.amazonaws.com",
       protocol: "json",
       service_id: "Shield",
       signature_version: "v4",

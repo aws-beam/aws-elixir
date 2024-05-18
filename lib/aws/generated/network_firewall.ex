@@ -2168,6 +2168,7 @@ defmodule AWS.NetworkFirewall do
       credential_scope: nil,
       endpoint_prefix: "network-firewall",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Network Firewall",
       signature_version: "v4",

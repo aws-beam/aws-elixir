@@ -3639,6 +3639,7 @@ defmodule AWS.ECS do
       credential_scope: nil,
       endpoint_prefix: "ecs",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "ECS",
       signature_version: "v4",

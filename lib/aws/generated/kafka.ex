@@ -2881,6 +2881,7 @@ defmodule AWS.Kafka do
       credential_scope: nil,
       endpoint_prefix: "kafka",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Kafka",
       signature_version: "v4",

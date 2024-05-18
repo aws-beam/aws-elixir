@@ -235,6 +235,7 @@ defmodule AWS.MarketplaceDeployment do
       credential_scope: nil,
       endpoint_prefix: "deployment-marketplace",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Marketplace Deployment",
       signature_version: "v4",

@@ -438,6 +438,7 @@ defmodule AWS.Repostspace do
       credential_scope: nil,
       endpoint_prefix: "repostspace",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "repostspace",
       signature_version: "v4",

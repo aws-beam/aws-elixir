@@ -1273,6 +1273,7 @@ defmodule AWS.ChimeSDKIdentity do
       credential_scope: nil,
       endpoint_prefix: "identity-chime",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Chime SDK Identity",
       signature_version: "v4",

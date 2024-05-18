@@ -670,6 +670,7 @@ defmodule AWS.SnowDeviceManagement do
       credential_scope: nil,
       endpoint_prefix: "snow-device-management",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Snow Device Management",
       signature_version: "v4",

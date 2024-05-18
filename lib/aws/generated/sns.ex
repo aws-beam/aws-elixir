@@ -1708,6 +1708,7 @@ defmodule AWS.SNS do
       credential_scope: nil,
       endpoint_prefix: "sns",
       global?: false,
+      hostname: nil,
       protocol: "query",
       service_id: "SNS",
       signature_version: "v4",

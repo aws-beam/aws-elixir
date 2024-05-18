@@ -1742,6 +1742,7 @@ defmodule AWS.PinpointEmail do
       credential_scope: nil,
       endpoint_prefix: "email",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Pinpoint Email",
       signature_version: "v4",

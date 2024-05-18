@@ -3648,6 +3648,7 @@ defmodule AWS.NetworkManager do
       credential_scope: "us-west-2",
       endpoint_prefix: "networkmanager",
       global?: true,
+      hostname: "networkmanager.us-west-2.amazonaws.com",
       protocol: "rest-json",
       service_id: "NetworkManager",
       signature_version: "v4",

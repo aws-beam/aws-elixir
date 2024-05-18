@@ -2090,6 +2090,7 @@ defmodule AWS.ComputeOptimizer do
       credential_scope: nil,
       endpoint_prefix: "compute-optimizer",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Compute Optimizer",
       signature_version: "v4",

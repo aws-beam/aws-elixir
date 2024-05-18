@@ -1023,6 +1023,7 @@ defmodule AWS.Signer do
       credential_scope: nil,
       endpoint_prefix: "signer",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "signer",
       signature_version: "v4",

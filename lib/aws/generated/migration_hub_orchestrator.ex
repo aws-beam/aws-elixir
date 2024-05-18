@@ -1366,6 +1366,7 @@ defmodule AWS.MigrationHubOrchestrator do
       credential_scope: nil,
       endpoint_prefix: "migrationhub-orchestrator",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "MigrationHubOrchestrator",
       signature_version: "v4",

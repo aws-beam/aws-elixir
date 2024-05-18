@@ -739,6 +739,7 @@ defmodule AWS.ACM do
       credential_scope: nil,
       endpoint_prefix: "acm",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "ACM",
       signature_version: "v4",

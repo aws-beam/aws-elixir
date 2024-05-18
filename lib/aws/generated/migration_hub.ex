@@ -813,6 +813,7 @@ defmodule AWS.MigrationHub do
       credential_scope: nil,
       endpoint_prefix: "mgh",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Migration Hub",
       signature_version: "v4",

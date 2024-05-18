@@ -326,6 +326,7 @@ defmodule AWS.IoTFleetHub do
       credential_scope: nil,
       endpoint_prefix: "api.fleethub.iot",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "IoTFleetHub",
       signature_version: "v4",

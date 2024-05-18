@@ -6543,6 +6543,7 @@ defmodule AWS.Redshift do
       credential_scope: nil,
       endpoint_prefix: "redshift",
       global?: false,
+      hostname: nil,
       protocol: "query",
       service_id: "Redshift",
       signature_version: "v4",

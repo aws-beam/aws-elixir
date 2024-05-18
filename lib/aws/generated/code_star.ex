@@ -951,6 +951,7 @@ defmodule AWS.CodeStar do
       credential_scope: nil,
       endpoint_prefix: "codestar",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "CodeStar",
       signature_version: "v4",

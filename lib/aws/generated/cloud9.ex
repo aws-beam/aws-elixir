@@ -656,6 +656,7 @@ defmodule AWS.Cloud9 do
       credential_scope: nil,
       endpoint_prefix: "cloud9",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Cloud9",
       signature_version: "v4",

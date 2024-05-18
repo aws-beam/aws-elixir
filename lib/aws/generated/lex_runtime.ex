@@ -500,6 +500,7 @@ defmodule AWS.LexRuntime do
       credential_scope: nil,
       endpoint_prefix: "runtime.lex",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Lex Runtime Service",
       signature_version: "v4",

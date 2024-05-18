@@ -310,6 +310,7 @@ defmodule AWS.CloudFrontKeyValueStore do
       credential_scope: nil,
       endpoint_prefix: "cloudfront-keyvaluestore",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "CloudFront KeyValueStore",
       signature_version: "v4",

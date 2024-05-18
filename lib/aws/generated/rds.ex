@@ -8902,6 +8902,7 @@ defmodule AWS.RDS do
       credential_scope: nil,
       endpoint_prefix: "rds",
       global?: false,
+      hostname: nil,
       protocol: "query",
       service_id: "RDS",
       signature_version: "v4",

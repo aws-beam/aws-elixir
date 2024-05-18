@@ -551,6 +551,7 @@ defmodule AWS.Savingsplans do
       credential_scope: "us-east-1",
       endpoint_prefix: "savingsplans",
       global?: true,
+      hostname: "savingsplans.amazonaws.com",
       protocol: "rest-json",
       service_id: "savingsplans",
       signature_version: "v4",

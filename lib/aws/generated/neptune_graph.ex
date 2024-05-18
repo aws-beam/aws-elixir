@@ -1255,6 +1255,7 @@ defmodule AWS.NeptuneGraph do
       credential_scope: nil,
       endpoint_prefix: "neptune-graph",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Neptune Graph",
       signature_version: "v4",

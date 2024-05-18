@@ -2747,6 +2747,7 @@ defmodule AWS.CloudWatchLogs do
       credential_scope: nil,
       endpoint_prefix: "logs",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "CloudWatch Logs",
       signature_version: "v4",

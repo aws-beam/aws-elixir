@@ -1139,6 +1139,7 @@ defmodule AWS.Schemas do
       credential_scope: nil,
       endpoint_prefix: "schemas",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "schemas",
       signature_version: "v4",

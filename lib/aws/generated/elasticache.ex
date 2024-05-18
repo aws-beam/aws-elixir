@@ -4393,6 +4393,7 @@ defmodule AWS.ElastiCache do
       credential_scope: nil,
       endpoint_prefix: "elasticache",
       global?: false,
+      hostname: nil,
       protocol: "query",
       service_id: "ElastiCache",
       signature_version: "v4",

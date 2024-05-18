@@ -1274,6 +1274,7 @@ defmodule AWS.MachineLearning do
       credential_scope: nil,
       endpoint_prefix: "machinelearning",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Machine Learning",
       signature_version: "v4",

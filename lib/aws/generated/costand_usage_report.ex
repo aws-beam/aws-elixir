@@ -314,6 +314,7 @@ defmodule AWS.CostandUsageReport do
       credential_scope: nil,
       endpoint_prefix: "cur",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Cost and Usage Report Service",
       signature_version: "v4",

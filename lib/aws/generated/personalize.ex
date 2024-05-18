@@ -3029,6 +3029,7 @@ defmodule AWS.Personalize do
       credential_scope: nil,
       endpoint_prefix: "personalize",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Personalize",
       signature_version: "v4",

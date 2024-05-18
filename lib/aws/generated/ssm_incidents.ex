@@ -1457,6 +1457,7 @@ defmodule AWS.SSMIncidents do
       credential_scope: nil,
       endpoint_prefix: "ssm-incidents",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "SSM Incidents",
       signature_version: "v4",

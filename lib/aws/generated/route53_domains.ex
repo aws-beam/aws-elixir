@@ -1274,6 +1274,7 @@ defmodule AWS.Route53Domains do
       credential_scope: nil,
       endpoint_prefix: "route53domains",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Route 53 Domains",
       signature_version: "v4",

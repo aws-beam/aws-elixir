@@ -1122,6 +1122,7 @@ defmodule AWS.TimestreamWrite do
       credential_scope: nil,
       endpoint_prefix: "ingest.timestream",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Timestream Write",
       signature_version: "v4",

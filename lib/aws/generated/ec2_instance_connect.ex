@@ -237,6 +237,7 @@ defmodule AWS.EC2InstanceConnect do
       credential_scope: nil,
       endpoint_prefix: "ec2-instance-connect",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "EC2 Instance Connect",
       signature_version: "v4",

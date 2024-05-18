@@ -895,6 +895,7 @@ defmodule AWS.ResourceGroups do
       credential_scope: nil,
       endpoint_prefix: "resource-groups",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Resource Groups",
       signature_version: "v4",

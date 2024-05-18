@@ -10968,6 +10968,7 @@ defmodule AWS.Connect do
       credential_scope: nil,
       endpoint_prefix: "connect",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Connect",
       signature_version: "v4",

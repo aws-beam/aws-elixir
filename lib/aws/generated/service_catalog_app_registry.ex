@@ -932,6 +932,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
       credential_scope: nil,
       endpoint_prefix: "servicecatalog-appregistry",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Service Catalog AppRegistry",
       signature_version: "v4",

@@ -1724,6 +1724,7 @@ defmodule AWS.XRay do
       credential_scope: nil,
       endpoint_prefix: "xray",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "XRay",
       signature_version: "v4",

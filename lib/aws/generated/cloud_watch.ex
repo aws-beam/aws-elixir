@@ -1743,6 +1743,7 @@ defmodule AWS.CloudWatch do
       credential_scope: nil,
       endpoint_prefix: "monitoring",
       global?: false,
+      hostname: nil,
       protocol: "query",
       service_id: "CloudWatch",
       signature_version: "v4",

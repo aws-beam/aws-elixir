@@ -12575,6 +12575,7 @@ defmodule AWS.SecurityHub do
       credential_scope: nil,
       endpoint_prefix: "securityhub",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "SecurityHub",
       signature_version: "v4",

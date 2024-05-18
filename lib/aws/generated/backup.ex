@@ -3575,6 +3575,7 @@ defmodule AWS.Backup do
       credential_scope: nil,
       endpoint_prefix: "backup",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Backup",
       signature_version: "v4",

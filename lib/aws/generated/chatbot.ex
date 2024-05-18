@@ -1128,6 +1128,7 @@ defmodule AWS.Chatbot do
       credential_scope: nil,
       endpoint_prefix: "chatbot",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "chatbot",
       signature_version: "v4",

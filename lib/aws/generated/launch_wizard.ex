@@ -391,6 +391,7 @@ defmodule AWS.LaunchWizard do
       credential_scope: nil,
       endpoint_prefix: "launchwizard",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Launch Wizard",
       signature_version: "v4",

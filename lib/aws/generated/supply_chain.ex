@@ -214,6 +214,7 @@ defmodule AWS.SupplyChain do
       credential_scope: nil,
       endpoint_prefix: "scn",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "SupplyChain",
       signature_version: "v4",

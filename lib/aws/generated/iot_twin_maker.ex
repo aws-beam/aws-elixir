@@ -2357,6 +2357,7 @@ defmodule AWS.IoTTwinMaker do
       credential_scope: nil,
       endpoint_prefix: "iottwinmaker",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "IoTTwinMaker",
       signature_version: "v4",

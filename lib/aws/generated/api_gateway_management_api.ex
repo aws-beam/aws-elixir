@@ -126,6 +126,7 @@ defmodule AWS.ApiGatewayManagementApi do
       credential_scope: nil,
       endpoint_prefix: "execute-api",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "ApiGatewayManagementApi",
       signature_version: "v4",

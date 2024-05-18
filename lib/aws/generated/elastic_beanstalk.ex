@@ -2092,6 +2092,7 @@ defmodule AWS.ElasticBeanstalk do
       credential_scope: nil,
       endpoint_prefix: "elasticbeanstalk",
       global?: false,
+      hostname: nil,
       protocol: "query",
       service_id: "Elastic Beanstalk",
       signature_version: "v4",

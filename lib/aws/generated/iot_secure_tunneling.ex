@@ -324,6 +324,7 @@ defmodule AWS.IoTSecureTunneling do
       credential_scope: nil,
       endpoint_prefix: "api.tunneling.iot",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "IoTSecureTunneling",
       signature_version: "v4",

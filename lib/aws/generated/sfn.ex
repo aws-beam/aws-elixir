@@ -2238,6 +2238,7 @@ defmodule AWS.SFN do
       credential_scope: nil,
       endpoint_prefix: "states",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "SFN",
       signature_version: "v4",

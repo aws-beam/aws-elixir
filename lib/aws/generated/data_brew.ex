@@ -2031,6 +2031,7 @@ defmodule AWS.DataBrew do
       credential_scope: nil,
       endpoint_prefix: "databrew",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "DataBrew",
       signature_version: "v4",

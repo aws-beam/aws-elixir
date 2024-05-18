@@ -1513,6 +1513,7 @@ defmodule AWS.AmplifyBackend do
       credential_scope: nil,
       endpoint_prefix: "amplifybackend",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "AmplifyBackend",
       signature_version: "v4",

@@ -3356,6 +3356,7 @@ defmodule AWS.FraudDetector do
       credential_scope: nil,
       endpoint_prefix: "frauddetector",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "FraudDetector",
       signature_version: "v4",

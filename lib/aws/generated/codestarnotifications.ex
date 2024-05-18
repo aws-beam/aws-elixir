@@ -633,6 +633,7 @@ defmodule AWS.Codestarnotifications do
       credential_scope: nil,
       endpoint_prefix: "codestar-notifications",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "codestar notifications",
       signature_version: "v4",

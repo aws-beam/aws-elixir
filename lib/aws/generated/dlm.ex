@@ -666,6 +666,7 @@ defmodule AWS.DLM do
       credential_scope: nil,
       endpoint_prefix: "dlm",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "DLM",
       signature_version: "v4",

@@ -4759,6 +4759,7 @@ defmodule AWS.IAM do
       credential_scope: "us-east-1",
       endpoint_prefix: "iam",
       global?: true,
+      hostname: "iam.amazonaws.com",
       protocol: "query",
       service_id: "IAM",
       signature_version: "v4",

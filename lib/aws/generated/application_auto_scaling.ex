@@ -870,6 +870,7 @@ defmodule AWS.ApplicationAutoScaling do
       credential_scope: nil,
       endpoint_prefix: "application-autoscaling",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Application Auto Scaling",
       signature_version: "v4",

@@ -127,6 +127,7 @@ defmodule AWS.MarketplaceEntitlement do
       credential_scope: nil,
       endpoint_prefix: "entitlement.marketplace",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Marketplace Entitlement Service",
       signature_version: "v4",

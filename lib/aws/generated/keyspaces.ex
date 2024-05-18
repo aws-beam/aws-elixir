@@ -880,6 +880,7 @@ defmodule AWS.Keyspaces do
       credential_scope: nil,
       endpoint_prefix: "cassandra",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Keyspaces",
       signature_version: "v4",

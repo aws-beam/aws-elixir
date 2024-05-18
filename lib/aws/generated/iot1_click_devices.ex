@@ -495,6 +495,7 @@ defmodule AWS.IoT1ClickDevices do
       credential_scope: nil,
       endpoint_prefix: "devices.iot1click",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "IoT 1Click Devices Service",
       signature_version: "v4",

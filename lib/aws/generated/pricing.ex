@@ -365,6 +365,7 @@ defmodule AWS.Pricing do
       credential_scope: nil,
       endpoint_prefix: "api.pricing",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Pricing",
       signature_version: "v4",

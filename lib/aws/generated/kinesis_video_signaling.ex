@@ -163,6 +163,7 @@ defmodule AWS.KinesisVideoSignaling do
       credential_scope: nil,
       endpoint_prefix: "kinesisvideo",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Kinesis Video Signaling",
       signature_version: "v4",

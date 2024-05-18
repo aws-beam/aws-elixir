@@ -2488,6 +2488,7 @@ defmodule AWS.FMS do
       credential_scope: nil,
       endpoint_prefix: "fms",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "FMS",
       signature_version: "v4",

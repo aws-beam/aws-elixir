@@ -928,6 +928,7 @@ defmodule AWS.SsmSap do
       credential_scope: nil,
       endpoint_prefix: "ssm-sap",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Ssm Sap",
       signature_version: "v4",

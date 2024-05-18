@@ -2184,6 +2184,7 @@ defmodule AWS.VPCLattice do
       credential_scope: nil,
       endpoint_prefix: "vpc-lattice",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "VPC Lattice",
       signature_version: "v4",

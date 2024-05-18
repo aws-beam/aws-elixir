@@ -2048,6 +2048,7 @@ defmodule AWS.Batch do
       credential_scope: nil,
       endpoint_prefix: "batch",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Batch",
       signature_version: "v4",

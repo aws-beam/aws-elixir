@@ -742,6 +742,7 @@ defmodule AWS.SimSpaceWeaver do
       credential_scope: nil,
       endpoint_prefix: "simspaceweaver",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "SimSpaceWeaver",
       signature_version: "v4",

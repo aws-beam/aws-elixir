@@ -3381,6 +3381,7 @@ defmodule AWS.WAFRegional do
       credential_scope: nil,
       endpoint_prefix: "waf-regional",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "WAF Regional",
       signature_version: "v4",

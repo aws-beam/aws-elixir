@@ -3688,6 +3688,7 @@ defmodule AWS.Neptune do
       credential_scope: nil,
       endpoint_prefix: "rds",
       global?: false,
+      hostname: nil,
       protocol: "query",
       service_id: "Neptune",
       signature_version: "v4",

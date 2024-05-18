@@ -462,6 +462,7 @@ defmodule AWS.BackupStorage do
       credential_scope: nil,
       endpoint_prefix: "backupstorage",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "BackupStorage",
       signature_version: "v4",

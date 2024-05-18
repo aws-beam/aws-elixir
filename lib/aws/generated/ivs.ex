@@ -1845,6 +1845,7 @@ defmodule AWS.Ivs do
       credential_scope: nil,
       endpoint_prefix: "ivs",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "ivs",
       signature_version: "v4",

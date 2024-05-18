@@ -10881,6 +10881,7 @@ defmodule AWS.IoT do
       credential_scope: nil,
       endpoint_prefix: "iot",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "IoT",
       signature_version: "v4",

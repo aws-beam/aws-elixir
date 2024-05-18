@@ -1721,6 +1721,7 @@ defmodule AWS.Bedrock do
       credential_scope: nil,
       endpoint_prefix: "bedrock",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Bedrock",
       signature_version: "v4",

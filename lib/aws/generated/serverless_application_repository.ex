@@ -754,6 +754,7 @@ defmodule AWS.ServerlessApplicationRepository do
       credential_scope: nil,
       endpoint_prefix: "serverlessrepo",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "ServerlessApplicationRepository",
       signature_version: "v4",

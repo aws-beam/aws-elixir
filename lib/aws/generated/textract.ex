@@ -1795,6 +1795,7 @@ defmodule AWS.Textract do
       credential_scope: nil,
       endpoint_prefix: "textract",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Textract",
       signature_version: "v4",

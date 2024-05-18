@@ -583,6 +583,7 @@ defmodule AWS.IotDeviceAdvisor do
       credential_scope: nil,
       endpoint_prefix: "api.iotdeviceadvisor",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "IotDeviceAdvisor",
       signature_version: "v4",

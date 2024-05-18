@@ -399,6 +399,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
       credential_scope: nil,
       endpoint_prefix: "tagging",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Resource Groups Tagging API",
       signature_version: "v4",

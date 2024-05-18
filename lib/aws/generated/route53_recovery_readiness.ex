@@ -1190,6 +1190,7 @@ defmodule AWS.Route53RecoveryReadiness do
       credential_scope: nil,
       endpoint_prefix: "route53-recovery-readiness",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Route53 Recovery Readiness",
       signature_version: "v4",

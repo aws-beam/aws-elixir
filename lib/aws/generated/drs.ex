@@ -2452,6 +2452,7 @@ defmodule AWS.Drs do
       credential_scope: nil,
       endpoint_prefix: "drs",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "drs",
       signature_version: "v4",

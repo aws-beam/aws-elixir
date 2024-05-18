@@ -1521,6 +1521,7 @@ defmodule AWS.MarketplaceCatalog do
       credential_scope: nil,
       endpoint_prefix: "catalog.marketplace",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Marketplace Catalog",
       signature_version: "v4",

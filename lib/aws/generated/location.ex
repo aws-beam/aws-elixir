@@ -2623,6 +2623,7 @@ defmodule AWS.Location do
       credential_scope: nil,
       endpoint_prefix: "geo",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Location",
       signature_version: "v4",

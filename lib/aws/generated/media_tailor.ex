@@ -1835,6 +1835,7 @@ defmodule AWS.MediaTailor do
       credential_scope: nil,
       endpoint_prefix: "api.mediatailor",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "MediaTailor",
       signature_version: "v4",

@@ -2850,6 +2850,7 @@ defmodule AWS.CodePipeline do
       credential_scope: nil,
       endpoint_prefix: "codepipeline",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "CodePipeline",
       signature_version: "v4",

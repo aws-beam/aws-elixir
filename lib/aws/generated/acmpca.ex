@@ -1182,6 +1182,7 @@ defmodule AWS.ACMPCA do
       credential_scope: nil,
       endpoint_prefix: "acm-pca",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "ACM PCA",
       signature_version: "v4",

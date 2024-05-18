@@ -910,6 +910,7 @@ defmodule AWS.BackupGateway do
       credential_scope: nil,
       endpoint_prefix: "backup-gateway",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Backup Gateway",
       signature_version: "v4",

@@ -302,6 +302,7 @@ defmodule AWS.ApplicationCostProfiler do
       credential_scope: nil,
       endpoint_prefix: "application-cost-profiler",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "ApplicationCostProfiler",
       signature_version: "v4",

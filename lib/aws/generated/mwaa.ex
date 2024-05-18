@@ -617,6 +617,7 @@ defmodule AWS.MWAA do
       credential_scope: nil,
       endpoint_prefix: "airflow",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "MWAA",
       signature_version: "v4",

@@ -292,6 +292,7 @@ defmodule AWS.ElasticInference do
       credential_scope: nil,
       endpoint_prefix: "api.elastic-inference",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Elastic Inference",
       signature_version: "v4",

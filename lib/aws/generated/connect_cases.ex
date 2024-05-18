@@ -1563,6 +1563,7 @@ defmodule AWS.ConnectCases do
       credential_scope: nil,
       endpoint_prefix: "cases",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "ConnectCases",
       signature_version: "v4",

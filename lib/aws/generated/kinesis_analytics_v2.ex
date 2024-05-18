@@ -2646,6 +2646,7 @@ defmodule AWS.KinesisAnalyticsV2 do
       credential_scope: nil,
       endpoint_prefix: "kinesisanalytics",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Kinesis Analytics V2",
       signature_version: "v4",

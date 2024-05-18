@@ -4748,6 +4748,7 @@ defmodule AWS.GameLift do
       credential_scope: nil,
       endpoint_prefix: "gamelift",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "GameLift",
       signature_version: "v4",

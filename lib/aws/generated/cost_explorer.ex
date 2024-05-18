@@ -2698,6 +2698,7 @@ defmodule AWS.CostExplorer do
       credential_scope: "us-east-1",
       endpoint_prefix: "ce",
       global?: true,
+      hostname: "ce.us-east-1.amazonaws.com",
       protocol: "json",
       service_id: "Cost Explorer",
       signature_version: "v4",

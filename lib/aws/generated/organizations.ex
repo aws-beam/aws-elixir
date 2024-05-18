@@ -2530,6 +2530,7 @@ defmodule AWS.Organizations do
       credential_scope: "us-east-1",
       endpoint_prefix: "organizations",
       global?: true,
+      hostname: "organizations.us-east-1.amazonaws.com",
       protocol: "json",
       service_id: "Organizations",
       signature_version: "v4",

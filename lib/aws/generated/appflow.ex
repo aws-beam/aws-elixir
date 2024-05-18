@@ -2931,6 +2931,7 @@ defmodule AWS.Appflow do
       credential_scope: nil,
       endpoint_prefix: "appflow",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Appflow",
       signature_version: "v4",

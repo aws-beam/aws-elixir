@@ -2510,6 +2510,7 @@ defmodule AWS.Neptunedata do
       credential_scope: nil,
       endpoint_prefix: "neptune-db",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "neptunedata",
       signature_version: "v4",

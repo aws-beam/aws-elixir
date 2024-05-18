@@ -1407,6 +1407,7 @@ defmodule AWS.SecurityLake do
       credential_scope: nil,
       endpoint_prefix: "securitylake",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "SecurityLake",
       signature_version: "v4",

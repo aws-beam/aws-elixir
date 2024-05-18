@@ -1637,6 +1637,7 @@ defmodule AWS.Inspector do
       credential_scope: nil,
       endpoint_prefix: "inspector",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Inspector",
       signature_version: "v4",

@@ -3085,6 +3085,7 @@ defmodule AWS.Directory do
       credential_scope: nil,
       endpoint_prefix: "ds",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Directory Service",
       signature_version: "v4",

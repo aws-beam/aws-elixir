@@ -1739,6 +1739,7 @@ defmodule AWS.M2 do
       credential_scope: nil,
       endpoint_prefix: "m2",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "m2",
       signature_version: "v4",

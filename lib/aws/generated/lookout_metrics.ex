@@ -1813,6 +1813,7 @@ defmodule AWS.LookoutMetrics do
       credential_scope: nil,
       endpoint_prefix: "lookoutmetrics",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "LookoutMetrics",
       signature_version: "v4",

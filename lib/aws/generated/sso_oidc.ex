@@ -416,6 +416,7 @@ defmodule AWS.SSOOIDC do
       credential_scope: nil,
       endpoint_prefix: "oidc",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "SSO OIDC",
       signature_version: "v4",

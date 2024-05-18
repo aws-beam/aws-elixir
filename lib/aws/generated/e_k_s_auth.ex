@@ -203,6 +203,7 @@ defmodule AWS.EKSAuth do
       credential_scope: nil,
       endpoint_prefix: "eks-auth",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "EKS Auth",
       signature_version: "v4",

@@ -454,6 +454,7 @@ defmodule AWS.MarketplaceMetering do
       credential_scope: nil,
       endpoint_prefix: "metering.marketplace",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Marketplace Metering",
       signature_version: "v4",

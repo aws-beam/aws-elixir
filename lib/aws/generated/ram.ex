@@ -1757,6 +1757,7 @@ defmodule AWS.RAM do
       credential_scope: nil,
       endpoint_prefix: "ram",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "RAM",
       signature_version: "v4",

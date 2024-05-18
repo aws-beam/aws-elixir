@@ -1079,6 +1079,7 @@ defmodule AWS.SecretsManager do
       credential_scope: nil,
       endpoint_prefix: "secretsmanager",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Secrets Manager",
       signature_version: "v4",

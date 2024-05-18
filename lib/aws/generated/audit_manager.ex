@@ -2704,6 +2704,7 @@ defmodule AWS.AuditManager do
       credential_scope: nil,
       endpoint_prefix: "auditmanager",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "AuditManager",
       signature_version: "v4",

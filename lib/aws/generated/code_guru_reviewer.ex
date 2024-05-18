@@ -901,6 +901,7 @@ defmodule AWS.CodeGuruReviewer do
       credential_scope: nil,
       endpoint_prefix: "codeguru-reviewer",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "CodeGuru Reviewer",
       signature_version: "v4",

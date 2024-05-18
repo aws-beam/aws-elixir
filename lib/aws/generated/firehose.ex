@@ -1751,6 +1751,7 @@ defmodule AWS.Firehose do
       credential_scope: nil,
       endpoint_prefix: "firehose",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Firehose",
       signature_version: "v4",

@@ -3098,6 +3098,7 @@ defmodule AWS.CleanRooms do
       credential_scope: nil,
       endpoint_prefix: "cleanrooms",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "CleanRooms",
       signature_version: "v4",

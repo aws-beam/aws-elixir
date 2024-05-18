@@ -1406,6 +1406,7 @@ defmodule AWS.ElasticLoadBalancing do
       credential_scope: nil,
       endpoint_prefix: "elasticloadbalancing",
       global?: false,
+      hostname: nil,
       protocol: "query",
       service_id: "Elastic Load Balancing",
       signature_version: "v4",

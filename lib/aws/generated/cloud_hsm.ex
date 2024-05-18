@@ -670,6 +670,7 @@ defmodule AWS.CloudHSM do
       credential_scope: nil,
       endpoint_prefix: "cloudhsm",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "CloudHSM",
       signature_version: "v4",

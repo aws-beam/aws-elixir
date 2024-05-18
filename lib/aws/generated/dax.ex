@@ -1223,6 +1223,7 @@ defmodule AWS.DAX do
       credential_scope: nil,
       endpoint_prefix: "dax",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "DAX",
       signature_version: "v4",

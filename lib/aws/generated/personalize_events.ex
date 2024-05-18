@@ -215,6 +215,7 @@ defmodule AWS.PersonalizeEvents do
       credential_scope: nil,
       endpoint_prefix: "personalize-events",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Personalize Events",
       signature_version: "v4",

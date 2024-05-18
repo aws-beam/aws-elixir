@@ -543,6 +543,7 @@ defmodule AWS.RedshiftData do
       credential_scope: nil,
       endpoint_prefix: "redshift-data",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Redshift Data",
       signature_version: "v4",

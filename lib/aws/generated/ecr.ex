@@ -2423,6 +2423,7 @@ defmodule AWS.ECR do
       credential_scope: nil,
       endpoint_prefix: "api.ecr",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "ECR",
       signature_version: "v4",

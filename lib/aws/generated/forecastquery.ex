@@ -160,6 +160,7 @@ defmodule AWS.Forecastquery do
       credential_scope: nil,
       endpoint_prefix: "forecastquery",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "forecastquery",
       signature_version: "v4",

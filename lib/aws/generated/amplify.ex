@@ -1511,6 +1511,7 @@ defmodule AWS.Amplify do
       credential_scope: nil,
       endpoint_prefix: "amplify",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Amplify",
       signature_version: "v4",

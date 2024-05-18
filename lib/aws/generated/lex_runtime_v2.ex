@@ -722,6 +722,7 @@ defmodule AWS.LexRuntimeV2 do
       credential_scope: nil,
       endpoint_prefix: "runtime-v2-lex",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Lex Runtime V2",
       signature_version: "v4",

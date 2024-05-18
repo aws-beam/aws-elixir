@@ -1158,6 +1158,7 @@ defmodule AWS.LookoutVision do
       credential_scope: nil,
       endpoint_prefix: "lookoutvision",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "LookoutVision",
       signature_version: "v4",

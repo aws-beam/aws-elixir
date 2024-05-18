@@ -1020,6 +1020,7 @@ defmodule AWS.CodeGuruProfiler do
       credential_scope: nil,
       endpoint_prefix: "codeguru-profiler",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "CodeGuruProfiler",
       signature_version: "v4",

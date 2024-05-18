@@ -1309,6 +1309,7 @@ defmodule AWS.Kinesis do
       credential_scope: nil,
       endpoint_prefix: "kinesis",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Kinesis",
       signature_version: "v4",

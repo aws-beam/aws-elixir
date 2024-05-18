@@ -6935,6 +6935,7 @@ defmodule AWS.LexModelsV2 do
       credential_scope: nil,
       endpoint_prefix: "models-v2-lex",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Lex Models V2",
       signature_version: "v4",

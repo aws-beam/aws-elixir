@@ -1608,6 +1608,7 @@ defmodule AWS.CodeCatalyst do
       credential_scope: nil,
       endpoint_prefix: "codecatalyst",
       global?: true,
+      hostname: "codecatalyst.global.api.aws",
       protocol: "rest-json",
       service_id: "CodeCatalyst",
       signature_version: nil,

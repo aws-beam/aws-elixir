@@ -2068,6 +2068,7 @@ defmodule AWS.WorkDocs do
       credential_scope: nil,
       endpoint_prefix: "workdocs",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "WorkDocs",
       signature_version: "v4",

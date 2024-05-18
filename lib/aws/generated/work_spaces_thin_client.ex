@@ -784,6 +784,7 @@ defmodule AWS.WorkSpacesThinClient do
       credential_scope: nil,
       endpoint_prefix: "thinclient",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "WorkSpaces Thin Client",
       signature_version: "v4",

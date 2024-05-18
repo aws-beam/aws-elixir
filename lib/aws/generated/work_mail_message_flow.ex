@@ -136,6 +136,7 @@ defmodule AWS.WorkMailMessageFlow do
       credential_scope: nil,
       endpoint_prefix: "workmailmessageflow",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "WorkMailMessageFlow",
       signature_version: "v4",

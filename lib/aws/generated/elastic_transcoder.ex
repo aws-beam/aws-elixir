@@ -1119,6 +1119,7 @@ defmodule AWS.ElasticTranscoder do
       credential_scope: nil,
       endpoint_prefix: "elastictranscoder",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Elastic Transcoder",
       signature_version: "v4",

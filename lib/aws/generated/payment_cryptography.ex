@@ -1036,6 +1036,7 @@ defmodule AWS.PaymentCryptography do
       credential_scope: nil,
       endpoint_prefix: "controlplane.payment-cryptography",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Payment Cryptography",
       signature_version: "v4",

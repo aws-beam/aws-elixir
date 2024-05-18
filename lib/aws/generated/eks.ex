@@ -2823,6 +2823,7 @@ defmodule AWS.EKS do
       credential_scope: nil,
       endpoint_prefix: "eks",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "EKS",
       signature_version: "v4",

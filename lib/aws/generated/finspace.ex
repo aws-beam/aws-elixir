@@ -2454,6 +2454,7 @@ defmodule AWS.Finspace do
       credential_scope: nil,
       endpoint_prefix: "finspace",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "finspace",
       signature_version: "v4",

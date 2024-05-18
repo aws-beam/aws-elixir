@@ -3080,6 +3080,7 @@ defmodule AWS.AppStream do
       credential_scope: nil,
       endpoint_prefix: "appstream2",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "AppStream",
       signature_version: "v4",

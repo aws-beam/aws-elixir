@@ -2745,6 +2745,7 @@ defmodule AWS.RoboMaker do
       credential_scope: nil,
       endpoint_prefix: "robomaker",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "RoboMaker",
       signature_version: "v4",

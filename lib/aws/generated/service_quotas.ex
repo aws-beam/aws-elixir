@@ -962,6 +962,7 @@ defmodule AWS.ServiceQuotas do
       credential_scope: nil,
       endpoint_prefix: "servicequotas",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Service Quotas",
       signature_version: "v4",

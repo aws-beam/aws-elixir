@@ -1725,6 +1725,7 @@ defmodule AWS.IoTEvents do
       credential_scope: nil,
       endpoint_prefix: "iotevents",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "IoT Events",
       signature_version: "v4",

@@ -3134,6 +3134,7 @@ defmodule AWS.QBusiness do
       credential_scope: nil,
       endpoint_prefix: "qbusiness",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "QBusiness",
       signature_version: "v4",

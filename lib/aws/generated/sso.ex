@@ -228,6 +228,7 @@ defmodule AWS.SSO do
       credential_scope: nil,
       endpoint_prefix: "portal.sso",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "SSO",
       signature_version: "v4",

@@ -1242,6 +1242,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
       credential_scope: nil,
       endpoint_prefix: "refactor-spaces",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Migration Hub Refactor Spaces",
       signature_version: "v4",

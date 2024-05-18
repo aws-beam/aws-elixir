@@ -927,6 +927,7 @@ defmodule AWS.CognitoIdentity do
       credential_scope: nil,
       endpoint_prefix: "cognito-identity",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Cognito Identity",
       signature_version: "v4",

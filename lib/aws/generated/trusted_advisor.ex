@@ -664,6 +664,7 @@ defmodule AWS.TrustedAdvisor do
       credential_scope: nil,
       endpoint_prefix: "trustedadvisor",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "TrustedAdvisor",
       signature_version: "v4",

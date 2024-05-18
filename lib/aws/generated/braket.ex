@@ -838,6 +838,7 @@ defmodule AWS.Braket do
       credential_scope: nil,
       endpoint_prefix: nil,
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Braket",
       signature_version: "v4",

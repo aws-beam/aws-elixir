@@ -1303,6 +1303,7 @@ defmodule AWS.CloudSearch do
       credential_scope: nil,
       endpoint_prefix: "cloudsearch",
       global?: false,
+      hostname: nil,
       protocol: "query",
       service_id: "CloudSearch",
       signature_version: "v4",

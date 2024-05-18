@@ -571,6 +571,7 @@ defmodule AWS.ARCZonalShift do
       credential_scope: nil,
       endpoint_prefix: "arc-zonal-shift",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "ARC Zonal Shift",
       signature_version: "v4",

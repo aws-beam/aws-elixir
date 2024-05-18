@@ -2485,6 +2485,7 @@ defmodule AWS.IoTFleetWise do
       credential_scope: nil,
       endpoint_prefix: "iotfleetwise",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "IoTFleetWise",
       signature_version: "v4",

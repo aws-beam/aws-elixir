@@ -221,6 +221,7 @@ defmodule AWS.MediaStoreData do
       credential_scope: nil,
       endpoint_prefix: "data.mediastore",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "MediaStore Data",
       signature_version: "v4",

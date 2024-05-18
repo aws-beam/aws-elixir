@@ -2457,6 +2457,7 @@ defmodule AWS.DataSync do
       credential_scope: nil,
       endpoint_prefix: "datasync",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "DataSync",
       signature_version: "v4",

@@ -438,6 +438,7 @@ defmodule AWS.STS do
       credential_scope: nil,
       endpoint_prefix: "sts",
       global?: false,
+      hostname: nil,
       protocol: "query",
       service_id: "STS",
       signature_version: "v4",

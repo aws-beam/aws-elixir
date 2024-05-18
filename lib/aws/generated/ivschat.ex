@@ -956,6 +956,7 @@ defmodule AWS.Ivschat do
       credential_scope: nil,
       endpoint_prefix: "ivschat",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "ivschat",
       signature_version: "v4",

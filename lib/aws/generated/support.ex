@@ -897,6 +897,7 @@ defmodule AWS.Support do
       credential_scope: nil,
       endpoint_prefix: "support",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Support",
       signature_version: "v4",

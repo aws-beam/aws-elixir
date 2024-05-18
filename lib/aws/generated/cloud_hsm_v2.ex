@@ -665,6 +665,7 @@ defmodule AWS.CloudHSMV2 do
       credential_scope: nil,
       endpoint_prefix: "cloudhsmv2",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "CloudHSM V2",
       signature_version: "v4",

@@ -7203,6 +7203,7 @@ defmodule AWS.Lightsail do
       credential_scope: nil,
       endpoint_prefix: "lightsail",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Lightsail",
       signature_version: "v4",

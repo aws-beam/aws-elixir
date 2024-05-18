@@ -3656,6 +3656,7 @@ defmodule AWS.DynamoDB do
       credential_scope: nil,
       endpoint_prefix: "dynamodb",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "DynamoDB",
       signature_version: "v4",

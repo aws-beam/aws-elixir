@@ -4256,6 +4256,7 @@ defmodule AWS.GuardDuty do
       credential_scope: nil,
       endpoint_prefix: "guardduty",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "GuardDuty",
       signature_version: "v4",

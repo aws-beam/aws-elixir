@@ -1370,6 +1370,7 @@ defmodule AWS.ServiceDiscovery do
       credential_scope: nil,
       endpoint_prefix: "servicediscovery",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "ServiceDiscovery",
       signature_version: "v4",

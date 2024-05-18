@@ -4397,6 +4397,7 @@ defmodule AWS.Comprehend do
       credential_scope: nil,
       endpoint_prefix: "comprehend",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Comprehend",
       signature_version: "v4",

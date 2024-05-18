@@ -3379,6 +3379,7 @@ defmodule AWS.WorkSpaces do
       credential_scope: nil,
       endpoint_prefix: "workspaces",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "WorkSpaces",
       signature_version: "v4",

@@ -1654,6 +1654,7 @@ defmodule AWS.OpenSearchServerless do
       credential_scope: nil,
       endpoint_prefix: "aoss",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "OpenSearchServerless",
       signature_version: "v4",

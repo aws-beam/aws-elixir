@@ -1887,6 +1887,7 @@ defmodule AWS.LexModelBuilding do
       credential_scope: nil,
       endpoint_prefix: "models.lex",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Lex Model Building Service",
       signature_version: "v4",

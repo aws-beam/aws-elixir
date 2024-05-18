@@ -2859,6 +2859,7 @@ defmodule AWS.Mgn do
       credential_scope: nil,
       endpoint_prefix: "mgn",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "mgn",
       signature_version: "v4",

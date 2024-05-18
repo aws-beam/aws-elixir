@@ -3271,6 +3271,7 @@ defmodule AWS.APIGateway do
       credential_scope: nil,
       endpoint_prefix: "apigateway",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "API Gateway",
       signature_version: "v4",

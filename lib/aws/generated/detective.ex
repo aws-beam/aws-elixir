@@ -1275,6 +1275,7 @@ defmodule AWS.Detective do
       credential_scope: nil,
       endpoint_prefix: "api.detective",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Detective",
       signature_version: "v4",

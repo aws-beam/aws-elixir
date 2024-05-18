@@ -2238,6 +2238,7 @@ defmodule AWS.Nimble do
       credential_scope: nil,
       endpoint_prefix: "nimble",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "nimble",
       signature_version: "v4",

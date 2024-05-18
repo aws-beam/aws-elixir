@@ -821,6 +821,7 @@ defmodule AWS.DataPipeline do
       credential_scope: nil,
       endpoint_prefix: "datapipeline",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Data Pipeline",
       signature_version: "v4",

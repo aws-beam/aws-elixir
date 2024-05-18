@@ -1446,6 +1446,7 @@ defmodule AWS.MigrationHubStrategy do
       credential_scope: nil,
       endpoint_prefix: "migrationhub-strategy",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "MigrationHubStrategy",
       signature_version: "v4",

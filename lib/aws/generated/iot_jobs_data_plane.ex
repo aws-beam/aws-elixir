@@ -291,6 +291,7 @@ defmodule AWS.IoTJobsDataPlane do
       credential_scope: nil,
       endpoint_prefix: "data.jobs.iot",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "IoT Jobs Data Plane",
       signature_version: "v4",

@@ -3225,6 +3225,7 @@ defmodule AWS.DeviceFarm do
       credential_scope: nil,
       endpoint_prefix: "devicefarm",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Device Farm",
       signature_version: "v4",

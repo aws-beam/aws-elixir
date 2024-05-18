@@ -323,6 +323,7 @@ defmodule AWS.SageMakerA2IRuntime do
       credential_scope: nil,
       endpoint_prefix: "a2i-runtime.sagemaker",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "SageMaker A2I Runtime",
       signature_version: "v4",

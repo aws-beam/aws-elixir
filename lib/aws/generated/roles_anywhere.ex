@@ -753,6 +753,7 @@ defmodule AWS.RolesAnywhere do
       credential_scope: nil,
       endpoint_prefix: "rolesanywhere",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "RolesAnywhere",
       signature_version: "v4",

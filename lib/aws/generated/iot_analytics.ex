@@ -2032,6 +2032,7 @@ defmodule AWS.IoTAnalytics do
       credential_scope: nil,
       endpoint_prefix: "iotanalytics",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "IoTAnalytics",
       signature_version: "v4",

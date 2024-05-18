@@ -3378,6 +3378,7 @@ defmodule AWS.FSx do
       credential_scope: nil,
       endpoint_prefix: "fsx",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "FSx",
       signature_version: "v4",

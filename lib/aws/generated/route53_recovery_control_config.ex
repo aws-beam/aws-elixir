@@ -940,6 +940,7 @@ defmodule AWS.Route53RecoveryControlConfig do
       credential_scope: nil,
       endpoint_prefix: "route53-recovery-control-config",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Route53 Recovery Control Config",
       signature_version: "v4",

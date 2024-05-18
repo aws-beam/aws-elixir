@@ -381,6 +381,7 @@ defmodule AWS.IoTDataPlane do
       credential_scope: nil,
       endpoint_prefix: "data-ats.iot",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "IoT Data Plane",
       signature_version: "v4",

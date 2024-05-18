@@ -855,6 +855,7 @@ defmodule AWS.EMRServerless do
       credential_scope: nil,
       endpoint_prefix: "emr-serverless",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "EMR Serverless",
       signature_version: "v4",

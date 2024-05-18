@@ -5130,6 +5130,7 @@ defmodule AWS.DatabaseMigration do
       credential_scope: nil,
       endpoint_prefix: "dms",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Database Migration Service",
       signature_version: "v4",

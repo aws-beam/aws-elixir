@@ -1240,6 +1240,7 @@ defmodule AWS.ECRPUBLIC do
       credential_scope: nil,
       endpoint_prefix: "api.ecr-public",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "ECR PUBLIC",
       signature_version: "v4",

@@ -164,6 +164,7 @@ defmodule AWS.CloudTrailData do
       credential_scope: nil,
       endpoint_prefix: "cloudtrail-data",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "CloudTrail Data",
       signature_version: "v4",

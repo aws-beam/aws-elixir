@@ -1073,6 +1073,7 @@ defmodule AWS.B2bi do
       credential_scope: nil,
       endpoint_prefix: "b2bi",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "b2bi",
       signature_version: "v4",

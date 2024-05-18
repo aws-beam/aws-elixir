@@ -1046,6 +1046,7 @@ defmodule AWS.Synthetics do
       credential_scope: nil,
       endpoint_prefix: "synthetics",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "synthetics",
       signature_version: "v4",

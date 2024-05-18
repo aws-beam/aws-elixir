@@ -1889,6 +1889,7 @@ defmodule AWS.Evidently do
       credential_scope: nil,
       endpoint_prefix: "evidently",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Evidently",
       signature_version: "v4",

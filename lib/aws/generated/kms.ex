@@ -2521,6 +2521,7 @@ defmodule AWS.KMS do
       credential_scope: nil,
       endpoint_prefix: "kms",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "KMS",
       signature_version: "v4",

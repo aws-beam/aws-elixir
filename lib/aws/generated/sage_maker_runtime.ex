@@ -234,6 +234,7 @@ defmodule AWS.SageMakerRuntime do
       credential_scope: nil,
       endpoint_prefix: "runtime.sagemaker",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "SageMaker Runtime",
       signature_version: "v4",

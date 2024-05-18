@@ -345,6 +345,7 @@ defmodule AWS.Route53RecoveryCluster do
       credential_scope: nil,
       endpoint_prefix: "route53-recovery-cluster",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Route53 Recovery Cluster",
       signature_version: "v4",

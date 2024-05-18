@@ -1274,6 +1274,7 @@ defmodule AWS.ApplicationInsights do
       credential_scope: nil,
       endpoint_prefix: "applicationinsights",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Application Insights",
       signature_version: "v4",

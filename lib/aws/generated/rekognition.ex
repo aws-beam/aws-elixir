@@ -5170,6 +5170,7 @@ defmodule AWS.Rekognition do
       credential_scope: nil,
       endpoint_prefix: "rekognition",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Rekognition",
       signature_version: "v4",

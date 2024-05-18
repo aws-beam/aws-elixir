@@ -3689,6 +3689,7 @@ defmodule AWS.S3Control do
       credential_scope: nil,
       endpoint_prefix: "s3-control",
       global?: false,
+      hostname: nil,
       protocol: "rest-xml",
       service_id: "S3 Control",
       signature_version: "v4",

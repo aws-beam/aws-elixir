@@ -897,6 +897,7 @@ defmodule AWS.ResourceExplorer2 do
       credential_scope: nil,
       endpoint_prefix: "resource-explorer-2",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Resource Explorer 2",
       signature_version: "v4",

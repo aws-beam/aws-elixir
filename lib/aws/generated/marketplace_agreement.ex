@@ -598,6 +598,7 @@ defmodule AWS.MarketplaceAgreement do
       credential_scope: nil,
       endpoint_prefix: "agreement-marketplace",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Marketplace Agreement",
       signature_version: "v4",

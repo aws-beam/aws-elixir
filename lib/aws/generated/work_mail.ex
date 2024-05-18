@@ -3382,6 +3382,7 @@ defmodule AWS.WorkMail do
       credential_scope: nil,
       endpoint_prefix: "workmail",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "WorkMail",
       signature_version: "v4",

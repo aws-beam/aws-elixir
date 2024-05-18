@@ -354,6 +354,7 @@ defmodule AWS.QLDBSession do
       credential_scope: nil,
       endpoint_prefix: "session.qldb",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "QLDB Session",
       signature_version: "v4",

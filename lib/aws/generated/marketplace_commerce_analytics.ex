@@ -87,6 +87,7 @@ defmodule AWS.MarketplaceCommerceAnalytics do
       credential_scope: nil,
       endpoint_prefix: "marketplacecommerceanalytics",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Marketplace Commerce Analytics",
       signature_version: "v4",

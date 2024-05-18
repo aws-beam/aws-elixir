@@ -140,6 +140,7 @@ defmodule AWS.FreeTier do
       credential_scope: nil,
       endpoint_prefix: "freetier",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "FreeTier",
       signature_version: "v4",

@@ -16587,6 +16587,7 @@ defmodule AWS.QuickSight do
       credential_scope: nil,
       endpoint_prefix: "quicksight",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "QuickSight",
       signature_version: "v4",

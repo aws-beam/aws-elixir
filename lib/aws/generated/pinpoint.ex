@@ -7047,6 +7047,7 @@ defmodule AWS.Pinpoint do
       credential_scope: nil,
       endpoint_prefix: "pinpoint",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Pinpoint",
       signature_version: "v4",

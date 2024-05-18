@@ -363,6 +363,7 @@ defmodule AWS.Account do
       credential_scope: "us-east-1",
       endpoint_prefix: "account",
       global?: true,
+      hostname: "account.us-east-1.amazonaws.com",
       protocol: "rest-json",
       service_id: "Account",
       signature_version: "v4",

@@ -1323,6 +1323,7 @@ defmodule AWS.EFS do
       credential_scope: nil,
       endpoint_prefix: "elasticfilesystem",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "EFS",
       signature_version: "v4",

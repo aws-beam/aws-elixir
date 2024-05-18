@@ -3243,6 +3243,7 @@ defmodule AWS.WellArchitected do
       credential_scope: nil,
       endpoint_prefix: "wellarchitected",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "WellArchitected",
       signature_version: "v4",

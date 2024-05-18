@@ -713,6 +713,7 @@ defmodule AWS.DocDBElastic do
       credential_scope: nil,
       endpoint_prefix: "docdb-elastic",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "DocDB Elastic",
       signature_version: "v4",

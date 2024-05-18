@@ -1322,6 +1322,7 @@ defmodule AWS.CodeStarConnections do
       credential_scope: nil,
       endpoint_prefix: "codestar-connections",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "CodeStar connections",
       signature_version: "v4",

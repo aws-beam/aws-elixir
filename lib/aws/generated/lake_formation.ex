@@ -43,6 +43,15 @@ defmodule AWS.LakeFormation do
 
   ## Example:
 
+      get_data_lake_principal_request() :: %{}
+
+  """
+  @type get_data_lake_principal_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_permissions_response() :: %{
         "NextToken" => String.t(),
         "PrincipalResourcePermissions" => list(principal_resource_permissions()())
@@ -1980,6 +1989,17 @@ defmodule AWS.LakeFormation do
 
   ## Example:
 
+      get_data_lake_principal_response() :: %{
+        "Identity" => String.t()
+      }
+
+  """
+  @type get_data_lake_principal_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_data_cells_filter_response() :: %{
         "DataCellsFilter" => data_cells_filter()
       }
@@ -2274,6 +2294,9 @@ defmodule AWS.LakeFormation do
           | operation_timeout_exception()
           | entity_not_found_exception()
 
+  @type get_data_lake_principal_errors() ::
+          access_denied_exception() | internal_service_exception() | operation_timeout_exception()
+
   @type get_data_lake_settings_errors() ::
           invalid_input_exception() | internal_service_exception() | entity_not_found_exception()
 
@@ -2491,6 +2514,7 @@ defmodule AWS.LakeFormation do
       credential_scope: nil,
       endpoint_prefix: "lakeformation",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "LakeFormation",
       signature_version: "v4",
@@ -3120,6 +3144,33 @@ defmodule AWS.LakeFormation do
           | {:error, get_data_cells_filter_errors()}
   def get_data_cells_filter(%Client{} = client, input, options \\ []) do
     url_path = "/GetDataCellsFilter"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns the identity of the invoking principal.
+  """
+  @spec get_data_lake_principal(map(), get_data_lake_principal_request(), list()) ::
+          {:ok, get_data_lake_principal_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_data_lake_principal_errors()}
+  def get_data_lake_principal(%Client{} = client, input, options \\ []) do
+    url_path = "/GetDataLakePrincipal"
     headers = []
     query_params = []
 

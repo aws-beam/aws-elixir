@@ -563,6 +563,7 @@ defmodule AWS.TimestreamInfluxDB do
       credential_scope: nil,
       endpoint_prefix: "timestream-influxdb",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Timestream InfluxDB",
       signature_version: "v4",

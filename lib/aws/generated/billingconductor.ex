@@ -1793,6 +1793,7 @@ defmodule AWS.Billingconductor do
       credential_scope: "us-east-1",
       endpoint_prefix: "billingconductor",
       global?: true,
+      hostname: "billingconductor.us-east-1.amazonaws.com",
       protocol: "rest-json",
       service_id: "billingconductor",
       signature_version: "v4",

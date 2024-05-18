@@ -1352,6 +1352,7 @@ defmodule AWS.MTurk do
       credential_scope: nil,
       endpoint_prefix: "mturk-requester",
       global?: true,
+      hostname: nil,
       protocol: "json",
       service_id: "MTurk",
       signature_version: "v4",

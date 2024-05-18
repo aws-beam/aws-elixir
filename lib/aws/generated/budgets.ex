@@ -1351,6 +1351,7 @@ defmodule AWS.Budgets do
       credential_scope: "us-east-1",
       endpoint_prefix: "budgets",
       global?: true,
+      hostname: "budgets.amazonaws.com",
       protocol: "json",
       service_id: "Budgets",
       signature_version: "v4",

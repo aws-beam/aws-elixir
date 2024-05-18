@@ -4130,6 +4130,7 @@ defmodule AWS.S3 do
       credential_scope: nil,
       endpoint_prefix: "s3",
       global?: false,
+      hostname: nil,
       protocol: "rest-xml",
       service_id: "S3",
       signature_version: "v4",

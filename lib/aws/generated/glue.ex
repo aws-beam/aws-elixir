@@ -11741,6 +11741,7 @@ defmodule AWS.Glue do
       credential_scope: nil,
       endpoint_prefix: "glue",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Glue",
       signature_version: "v4",

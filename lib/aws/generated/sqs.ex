@@ -1199,6 +1199,7 @@ defmodule AWS.SQS do
       credential_scope: nil,
       endpoint_prefix: "sqs",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "SQS",
       signature_version: "v4",

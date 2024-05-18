@@ -403,6 +403,7 @@ defmodule AWS.EBS do
       credential_scope: nil,
       endpoint_prefix: "ebs",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "EBS",
       signature_version: "v4",

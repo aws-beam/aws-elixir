@@ -7085,6 +7085,7 @@ defmodule AWS.CloudFront do
       credential_scope: "us-east-1",
       endpoint_prefix: "cloudfront",
       global?: true,
+      hostname: "cloudfront.amazonaws.com",
       protocol: "rest-xml",
       service_id: "CloudFront",
       signature_version: "v4",

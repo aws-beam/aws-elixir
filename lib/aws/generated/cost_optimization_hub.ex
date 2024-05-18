@@ -967,6 +967,7 @@ defmodule AWS.CostOptimizationHub do
       credential_scope: nil,
       endpoint_prefix: "cost-optimization-hub",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Cost Optimization Hub",
       signature_version: "v4",

@@ -4846,6 +4846,7 @@ defmodule AWS.Deadline do
       credential_scope: nil,
       endpoint_prefix: "deadline",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "deadline",
       signature_version: "v4",

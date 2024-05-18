@@ -631,6 +631,7 @@ defmodule AWS.BCMDataExports do
       credential_scope: nil,
       endpoint_prefix: "bcm-data-exports",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "BCM Data Exports",
       signature_version: "v4",

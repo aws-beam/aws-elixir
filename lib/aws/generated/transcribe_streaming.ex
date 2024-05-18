@@ -617,6 +617,7 @@ defmodule AWS.TranscribeStreaming do
       credential_scope: nil,
       endpoint_prefix: "transcribestreaming",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Transcribe Streaming",
       signature_version: "v4",

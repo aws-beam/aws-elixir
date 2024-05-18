@@ -3787,6 +3787,7 @@ defmodule AWS.CloudFormation do
       credential_scope: nil,
       endpoint_prefix: "cloudformation",
       global?: false,
+      hostname: nil,
       protocol: "query",
       service_id: "CloudFormation",
       signature_version: "v4",

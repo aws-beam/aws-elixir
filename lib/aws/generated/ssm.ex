@@ -8481,6 +8481,7 @@ defmodule AWS.SSM do
       credential_scope: nil,
       endpoint_prefix: "ssm",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "SSM",
       signature_version: "v4",

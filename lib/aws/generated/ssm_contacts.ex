@@ -1728,6 +1728,7 @@ defmodule AWS.SSMContacts do
       credential_scope: nil,
       endpoint_prefix: "ssm-contacts",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "SSM Contacts",
       signature_version: "v4",

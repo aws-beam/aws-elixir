@@ -2933,6 +2933,7 @@ defmodule AWS.AppMesh do
       credential_scope: nil,
       endpoint_prefix: "appmesh",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "App Mesh",
       signature_version: "v4",

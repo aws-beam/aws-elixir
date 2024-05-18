@@ -2423,6 +2423,7 @@ defmodule AWS.CodeBuild do
       credential_scope: nil,
       endpoint_prefix: "codebuild",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "CodeBuild",
       signature_version: "v4",

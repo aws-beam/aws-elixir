@@ -2027,6 +2027,7 @@ defmodule AWS.DirectConnect do
       credential_scope: nil,
       endpoint_prefix: "directconnect",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Direct Connect",
       signature_version: "v4",

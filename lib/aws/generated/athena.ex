@@ -2812,6 +2812,7 @@ defmodule AWS.Athena do
       credential_scope: nil,
       endpoint_prefix: "athena",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Athena",
       signature_version: "v4",

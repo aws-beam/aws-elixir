@@ -1322,6 +1322,7 @@ defmodule AWS.Fis do
       credential_scope: nil,
       endpoint_prefix: "fis",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "fis",
       signature_version: "v4",

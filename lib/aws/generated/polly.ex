@@ -603,6 +603,7 @@ defmodule AWS.Polly do
       credential_scope: nil,
       endpoint_prefix: "polly",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Polly",
       signature_version: "v4",

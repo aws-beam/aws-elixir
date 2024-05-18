@@ -1317,6 +1317,7 @@ defmodule AWS.Outposts do
       credential_scope: nil,
       endpoint_prefix: "outposts",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Outposts",
       signature_version: "v4",

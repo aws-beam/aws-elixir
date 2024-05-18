@@ -3633,6 +3633,7 @@ defmodule AWS.ServiceCatalog do
       credential_scope: nil,
       endpoint_prefix: "servicecatalog",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Service Catalog",
       signature_version: "v4",

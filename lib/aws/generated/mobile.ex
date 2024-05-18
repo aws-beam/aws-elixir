@@ -450,6 +450,7 @@ defmodule AWS.Mobile do
       credential_scope: nil,
       endpoint_prefix: "mobile",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Mobile",
       signature_version: "v4",

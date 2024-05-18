@@ -171,6 +171,7 @@ defmodule AWS.PersonalizeRuntime do
       credential_scope: nil,
       endpoint_prefix: "personalize-runtime",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Personalize Runtime",
       signature_version: "v4",

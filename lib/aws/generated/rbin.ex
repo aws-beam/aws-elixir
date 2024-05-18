@@ -483,6 +483,7 @@ defmodule AWS.Rbin do
       credential_scope: nil,
       endpoint_prefix: "rbin",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "rbin",
       signature_version: "v4",

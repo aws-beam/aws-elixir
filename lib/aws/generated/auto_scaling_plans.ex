@@ -491,6 +491,7 @@ defmodule AWS.AutoScalingPlans do
       credential_scope: nil,
       endpoint_prefix: "autoscaling-plans",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Auto Scaling Plans",
       signature_version: "v4",

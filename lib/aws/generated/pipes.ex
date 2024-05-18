@@ -1306,6 +1306,7 @@ defmodule AWS.Pipes do
       credential_scope: nil,
       endpoint_prefix: "pipes",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Pipes",
       signature_version: "v4",

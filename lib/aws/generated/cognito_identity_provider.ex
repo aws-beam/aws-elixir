@@ -4998,6 +4998,7 @@ defmodule AWS.CognitoIdentityProvider do
       credential_scope: nil,
       endpoint_prefix: "cognito-idp",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Cognito Identity Provider",
       signature_version: "v4",

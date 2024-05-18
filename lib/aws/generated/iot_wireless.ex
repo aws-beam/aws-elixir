@@ -5180,6 +5180,7 @@ defmodule AWS.IoTWireless do
       credential_scope: nil,
       endpoint_prefix: "api.iotwireless",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "IoT Wireless",
       signature_version: "v4",

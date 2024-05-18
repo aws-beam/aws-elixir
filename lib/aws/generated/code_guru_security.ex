@@ -760,6 +760,7 @@ defmodule AWS.CodeGuruSecurity do
       credential_scope: nil,
       endpoint_prefix: "codeguru-security",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "CodeGuru Security",
       signature_version: "v4",

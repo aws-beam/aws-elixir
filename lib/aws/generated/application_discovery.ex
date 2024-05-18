@@ -1495,6 +1495,7 @@ defmodule AWS.ApplicationDiscovery do
       credential_scope: nil,
       endpoint_prefix: "discovery",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Application Discovery Service",
       signature_version: "v4",

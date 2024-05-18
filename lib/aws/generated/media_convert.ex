@@ -3954,6 +3954,7 @@ defmodule AWS.MediaConvert do
       credential_scope: nil,
       endpoint_prefix: "mediaconvert",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "MediaConvert",
       signature_version: "v4",

@@ -530,6 +530,7 @@ defmodule AWS.ConnectParticipant do
       credential_scope: nil,
       endpoint_prefix: "participant.connect",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "ConnectParticipant",
       signature_version: "v4",

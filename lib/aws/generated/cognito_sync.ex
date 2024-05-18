@@ -783,6 +783,7 @@ defmodule AWS.CognitoSync do
       credential_scope: nil,
       endpoint_prefix: "cognito-sync",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Cognito Sync",
       signature_version: "v4",

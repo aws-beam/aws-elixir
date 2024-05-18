@@ -1528,6 +1528,7 @@ defmodule AWS.GroundStation do
       credential_scope: nil,
       endpoint_prefix: "groundstation",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "GroundStation",
       signature_version: "v4",

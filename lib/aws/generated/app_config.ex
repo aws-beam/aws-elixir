@@ -1391,6 +1391,7 @@ defmodule AWS.AppConfig do
       credential_scope: nil,
       endpoint_prefix: "appconfig",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "AppConfig",
       signature_version: "v4",

@@ -2820,6 +2820,7 @@ defmodule AWS.DocDB do
       credential_scope: nil,
       endpoint_prefix: "rds",
       global?: false,
+      hostname: nil,
       protocol: "query",
       service_id: "DocDB",
       signature_version: "v4",

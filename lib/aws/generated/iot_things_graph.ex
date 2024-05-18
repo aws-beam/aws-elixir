@@ -1362,6 +1362,7 @@ defmodule AWS.IoTThingsGraph do
       credential_scope: nil,
       endpoint_prefix: "iotthingsgraph",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "IoTThingsGraph",
       signature_version: "v4",

@@ -733,6 +733,7 @@ defmodule AWS.ManagedBlockchainQuery do
       credential_scope: nil,
       endpoint_prefix: "managedblockchain-query",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "ManagedBlockchain Query",
       signature_version: "v4",

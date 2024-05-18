@@ -254,6 +254,7 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
       credential_scope: nil,
       endpoint_prefix: "featurestore-runtime.sagemaker",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "SageMaker FeatureStore Runtime",
       signature_version: "v4",

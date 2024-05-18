@@ -654,6 +654,7 @@ defmodule AWS.OAM do
       credential_scope: nil,
       endpoint_prefix: "oam",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "OAM",
       signature_version: "v4",

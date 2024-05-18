@@ -1832,6 +1832,7 @@ defmodule AWS.Wisdom do
       credential_scope: nil,
       endpoint_prefix: "wisdom",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Wisdom",
       signature_version: "v4",

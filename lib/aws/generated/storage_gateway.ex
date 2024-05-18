@@ -3181,6 +3181,7 @@ defmodule AWS.StorageGateway do
       credential_scope: nil,
       endpoint_prefix: "storagegateway",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Storage Gateway",
       signature_version: "v4",

@@ -601,6 +601,7 @@ defmodule AWS.CloudControl do
       credential_scope: nil,
       endpoint_prefix: "cloudcontrolapi",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "CloudControl",
       signature_version: "v4",

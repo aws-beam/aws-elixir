@@ -2461,6 +2461,7 @@ defmodule AWS.OpsWorks do
       credential_scope: nil,
       endpoint_prefix: "opsworks",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "OpsWorks",
       signature_version: "v4",

@@ -2695,6 +2695,7 @@ defmodule AWS.AppSync do
       credential_scope: nil,
       endpoint_prefix: "appsync",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "AppSync",
       signature_version: "v4",

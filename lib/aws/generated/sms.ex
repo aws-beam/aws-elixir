@@ -1639,6 +1639,7 @@ defmodule AWS.SMS do
       credential_scope: nil,
       endpoint_prefix: "sms",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "SMS",
       signature_version: "v4",

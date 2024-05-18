@@ -3632,6 +3632,7 @@ defmodule AWS.WAFV2 do
       credential_scope: nil,
       endpoint_prefix: "wafv2",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "WAFV2",
       signature_version: "v4",

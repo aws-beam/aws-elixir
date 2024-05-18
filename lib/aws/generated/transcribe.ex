@@ -1908,6 +1908,7 @@ defmodule AWS.Transcribe do
       credential_scope: nil,
       endpoint_prefix: "transcribe",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Transcribe",
       signature_version: "v4",

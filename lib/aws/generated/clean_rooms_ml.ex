@@ -997,6 +997,7 @@ defmodule AWS.CleanRoomsML do
       credential_scope: nil,
       endpoint_prefix: "cleanrooms-ml",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "CleanRoomsML",
       signature_version: "v4",

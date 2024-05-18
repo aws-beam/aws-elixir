@@ -1727,6 +1727,7 @@ defmodule AWS.AmplifyUIBuilder do
       credential_scope: nil,
       endpoint_prefix: "amplifyuibuilder",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "AmplifyUIBuilder",
       signature_version: "v4",

@@ -5378,6 +5378,7 @@ defmodule AWS.DataZone do
       credential_scope: nil,
       endpoint_prefix: "datazone",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "DataZone",
       signature_version: "v4",

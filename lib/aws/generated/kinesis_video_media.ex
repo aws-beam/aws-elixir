@@ -125,6 +125,7 @@ defmodule AWS.KinesisVideoMedia do
       credential_scope: nil,
       endpoint_prefix: "kinesisvideo",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Kinesis Video Media",
       signature_version: "v4",

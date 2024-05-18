@@ -3255,6 +3255,7 @@ defmodule AWS.WAF do
       credential_scope: "us-east-1",
       endpoint_prefix: "waf",
       global?: true,
+      hostname: "waf.amazonaws.com",
       protocol: "json",
       service_id: "WAF",
       signature_version: "v4",

@@ -1911,6 +1911,7 @@ defmodule AWS.DataExchange do
       credential_scope: nil,
       endpoint_prefix: "dataexchange",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "DataExchange",
       signature_version: "v4",

@@ -1392,6 +1392,7 @@ defmodule AWS.Finspacedata do
       credential_scope: nil,
       endpoint_prefix: "finspace-api",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "finspace data",
       signature_version: "v4",

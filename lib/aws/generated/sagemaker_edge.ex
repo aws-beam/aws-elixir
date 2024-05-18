@@ -199,6 +199,7 @@ defmodule AWS.SagemakerEdge do
       credential_scope: nil,
       endpoint_prefix: "edge.sagemaker",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Sagemaker Edge",
       signature_version: "v4",

@@ -1153,6 +1153,7 @@ defmodule AWS.Mq do
       credential_scope: nil,
       endpoint_prefix: "mq",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "mq",
       signature_version: "v4",

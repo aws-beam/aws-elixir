@@ -1700,6 +1700,7 @@ defmodule AWS.Panorama do
       credential_scope: nil,
       endpoint_prefix: "panorama",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Panorama",
       signature_version: "v4",

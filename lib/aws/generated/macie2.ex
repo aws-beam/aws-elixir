@@ -4426,6 +4426,7 @@ defmodule AWS.Macie2 do
       credential_scope: nil,
       endpoint_prefix: "macie2",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Macie2",
       signature_version: "v4",

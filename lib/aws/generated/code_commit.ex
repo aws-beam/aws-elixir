@@ -6502,6 +6502,7 @@ defmodule AWS.CodeCommit do
       credential_scope: nil,
       endpoint_prefix: "codecommit",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "CodeCommit",
       signature_version: "v4",

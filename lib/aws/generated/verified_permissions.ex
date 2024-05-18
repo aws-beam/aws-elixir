@@ -1392,6 +1392,7 @@ defmodule AWS.VerifiedPermissions do
       credential_scope: nil,
       endpoint_prefix: "verifiedpermissions",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "VerifiedPermissions",
       signature_version: "v4",

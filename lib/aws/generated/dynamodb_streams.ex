@@ -309,6 +309,7 @@ defmodule AWS.DynamoDBStreams do
       credential_scope: nil,
       endpoint_prefix: "streams.dynamodb",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "DynamoDB Streams",
       signature_version: "v4",

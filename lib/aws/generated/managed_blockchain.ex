@@ -1466,6 +1466,7 @@ defmodule AWS.ManagedBlockchain do
       credential_scope: nil,
       endpoint_prefix: "managedblockchain",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "ManagedBlockchain",
       signature_version: "v4",

@@ -3576,6 +3576,7 @@ defmodule AWS.CodeDeploy do
       credential_scope: nil,
       endpoint_prefix: "codedeploy",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "CodeDeploy",
       signature_version: "v4",

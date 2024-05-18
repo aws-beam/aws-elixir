@@ -1659,6 +1659,7 @@ defmodule AWS.AppRunner do
       credential_scope: nil,
       endpoint_prefix: "apprunner",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "AppRunner",
       signature_version: "v4",

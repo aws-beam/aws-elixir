@@ -1333,6 +1333,7 @@ defmodule AWS.PcaConnectorAd do
       credential_scope: nil,
       endpoint_prefix: "pca-connector-ad",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Pca Connector Ad",
       signature_version: "v4",

@@ -784,6 +784,17 @@ defmodule AWS.Transfer do
 
   ## Example:
       
+      cfn_user_properties() :: %{
+        "SshPublicKeys" => list(String.t()())
+      }
+      
+  """
+  @type cfn_user_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       custom_step_details() :: %{
         "Name" => String.t(),
         "SourceFileLocation" => String.t(),
@@ -2664,6 +2675,7 @@ defmodule AWS.Transfer do
       credential_scope: nil,
       endpoint_prefix: "transfer",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Transfer",
       signature_version: "v4",

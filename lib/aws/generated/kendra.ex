@@ -4416,6 +4416,7 @@ defmodule AWS.Kendra do
       credential_scope: nil,
       endpoint_prefix: "kendra",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "kendra",
       signature_version: "v4",

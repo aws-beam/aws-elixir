@@ -3967,6 +3967,7 @@ defmodule AWS.Proton do
       credential_scope: nil,
       endpoint_prefix: "proton",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Proton",
       signature_version: "v4",

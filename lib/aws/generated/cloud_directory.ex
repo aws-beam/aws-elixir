@@ -3909,6 +3909,7 @@ defmodule AWS.CloudDirectory do
       credential_scope: nil,
       endpoint_prefix: "clouddirectory",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "CloudDirectory",
       signature_version: "v4",

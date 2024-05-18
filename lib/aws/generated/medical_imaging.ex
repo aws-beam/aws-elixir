@@ -1073,6 +1073,7 @@ defmodule AWS.MedicalImaging do
       credential_scope: nil,
       endpoint_prefix: "medical-imaging",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Medical Imaging",
       signature_version: "v4",

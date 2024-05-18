@@ -1098,6 +1098,7 @@ defmodule AWS.Amp do
       credential_scope: nil,
       endpoint_prefix: "aps",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "amp",
       signature_version: "v4",

@@ -2753,6 +2753,7 @@ defmodule AWS.CustomerProfiles do
       credential_scope: nil,
       endpoint_prefix: "profile",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Customer Profiles",
       signature_version: "v4",

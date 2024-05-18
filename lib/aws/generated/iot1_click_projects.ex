@@ -572,6 +572,7 @@ defmodule AWS.IoT1ClickProjects do
       credential_scope: nil,
       endpoint_prefix: "projects.iot1click",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "IoT 1Click Projects",
       signature_version: "v4",

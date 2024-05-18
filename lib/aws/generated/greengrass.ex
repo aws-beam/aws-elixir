@@ -2974,6 +2974,7 @@ defmodule AWS.Greengrass do
       credential_scope: nil,
       endpoint_prefix: "greengrass",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Greengrass",
       signature_version: "v4",

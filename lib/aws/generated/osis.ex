@@ -716,6 +716,7 @@ defmodule AWS.OSIS do
       credential_scope: nil,
       endpoint_prefix: "osis",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "OSIS",
       signature_version: "v4",

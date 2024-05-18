@@ -2382,6 +2382,7 @@ defmodule AWS.MemoryDB do
       credential_scope: nil,
       endpoint_prefix: "memory-db",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "MemoryDB",
       signature_version: "v4",

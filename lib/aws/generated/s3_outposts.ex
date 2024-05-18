@@ -301,6 +301,7 @@ defmodule AWS.S3Outposts do
       credential_scope: nil,
       endpoint_prefix: "s3-outposts",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "S3Outposts",
       signature_version: "v4",

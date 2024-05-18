@@ -429,6 +429,7 @@ defmodule AWS.KendraRanking do
       credential_scope: nil,
       endpoint_prefix: "kendra-ranking",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Kendra Ranking",
       signature_version: "v4",

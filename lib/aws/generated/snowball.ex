@@ -1365,6 +1365,7 @@ defmodule AWS.Snowball do
       credential_scope: nil,
       endpoint_prefix: "snowball",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Snowball",
       signature_version: "v4",

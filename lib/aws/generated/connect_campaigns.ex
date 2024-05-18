@@ -843,6 +843,7 @@ defmodule AWS.ConnectCampaigns do
       credential_scope: nil,
       endpoint_prefix: "connect-campaigns",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "ConnectCampaigns",
       signature_version: "v4",

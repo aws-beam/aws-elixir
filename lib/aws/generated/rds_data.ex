@@ -560,6 +560,7 @@ defmodule AWS.RDSData do
       credential_scope: nil,
       endpoint_prefix: "rds-data",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "RDS Data",
       signature_version: "v4",

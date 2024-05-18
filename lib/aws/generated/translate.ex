@@ -1056,6 +1056,7 @@ defmodule AWS.Translate do
       credential_scope: nil,
       endpoint_prefix: "translate",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Translate",
       signature_version: "v4",

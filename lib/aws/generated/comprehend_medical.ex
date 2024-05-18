@@ -1251,6 +1251,7 @@ defmodule AWS.ComprehendMedical do
       credential_scope: nil,
       endpoint_prefix: "comprehendmedical",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "ComprehendMedical",
       signature_version: "v4",

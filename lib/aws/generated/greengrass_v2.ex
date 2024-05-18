@@ -1516,6 +1516,7 @@ defmodule AWS.GreengrassV2 do
       credential_scope: nil,
       endpoint_prefix: "greengrass",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "GreengrassV2",
       signature_version: "v4",

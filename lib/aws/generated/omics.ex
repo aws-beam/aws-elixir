@@ -3921,6 +3921,7 @@ defmodule AWS.Omics do
       credential_scope: nil,
       endpoint_prefix: "omics",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Omics",
       signature_version: "v4",

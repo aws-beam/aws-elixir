@@ -1028,6 +1028,7 @@ defmodule AWS.PrivateNetworks do
       credential_scope: nil,
       endpoint_prefix: "private-networks",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "PrivateNetworks",
       signature_version: "v4",

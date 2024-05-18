@@ -1490,6 +1490,7 @@ defmodule AWS.IVSRealTime do
       credential_scope: nil,
       endpoint_prefix: "ivsrealtime",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "IVS RealTime",
       signature_version: "v4",

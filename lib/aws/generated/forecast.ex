@@ -2668,6 +2668,7 @@ defmodule AWS.Forecast do
       credential_scope: nil,
       endpoint_prefix: "forecast",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "forecast",
       signature_version: "v4",

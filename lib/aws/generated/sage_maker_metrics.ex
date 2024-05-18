@@ -72,6 +72,7 @@ defmodule AWS.SageMakerMetrics do
       credential_scope: nil,
       endpoint_prefix: "metrics.sagemaker",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "SageMaker Metrics",
       signature_version: "v4",

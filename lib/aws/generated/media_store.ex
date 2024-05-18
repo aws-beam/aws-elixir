@@ -682,6 +682,7 @@ defmodule AWS.MediaStore do
       credential_scope: nil,
       endpoint_prefix: "mediastore",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "MediaStore",
       signature_version: "v4",

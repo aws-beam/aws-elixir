@@ -886,6 +886,7 @@ defmodule AWS.ChimeSDKMeetings do
       credential_scope: nil,
       endpoint_prefix: "meetings-chime",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Chime SDK Meetings",
       signature_version: "v4",

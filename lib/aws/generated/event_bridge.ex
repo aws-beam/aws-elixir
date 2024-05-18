@@ -2702,6 +2702,7 @@ defmodule AWS.EventBridge do
       credential_scope: nil,
       endpoint_prefix: "events",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "EventBridge",
       signature_version: "v4",

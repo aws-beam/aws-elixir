@@ -273,6 +273,7 @@ defmodule AWS.CloudSearchDomain do
       credential_scope: nil,
       endpoint_prefix: "cloudsearchdomain",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "CloudSearch Domain",
       signature_version: "v4",

@@ -26767,6 +26767,7 @@ defmodule AWS.EC2 do
       credential_scope: nil,
       endpoint_prefix: "ec2",
       global?: false,
+      hostname: nil,
       protocol: "ec2",
       service_id: "EC2",
       signature_version: "v4",

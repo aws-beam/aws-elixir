@@ -2048,6 +2048,7 @@ defmodule AWS.BedrockAgent do
       credential_scope: nil,
       endpoint_prefix: "bedrock-agent",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Bedrock Agent",
       signature_version: "v4",

@@ -7123,6 +7123,7 @@ defmodule AWS.MediaLive do
       credential_scope: nil,
       endpoint_prefix: "medialive",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "MediaLive",
       signature_version: "v4",

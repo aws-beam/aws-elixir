@@ -886,6 +886,7 @@ defmodule AWS.MediaPackageVod do
       credential_scope: nil,
       endpoint_prefix: "mediapackage-vod",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "MediaPackage Vod",
       signature_version: "v4",

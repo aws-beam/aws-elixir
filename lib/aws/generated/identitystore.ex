@@ -839,6 +839,7 @@ defmodule AWS.Identitystore do
       credential_scope: nil,
       endpoint_prefix: "identitystore",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "identitystore",
       signature_version: "v4",

@@ -3098,6 +3098,7 @@ defmodule AWS.Lambda do
       credential_scope: nil,
       endpoint_prefix: "lambda",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Lambda",
       signature_version: "v4",

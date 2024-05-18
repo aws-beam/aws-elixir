@@ -2163,6 +2163,7 @@ defmodule AWS.RedshiftServerless do
       credential_scope: nil,
       endpoint_prefix: "redshift-serverless",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Redshift Serverless",
       signature_version: "v4",

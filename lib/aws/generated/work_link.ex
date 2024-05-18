@@ -1145,6 +1145,7 @@ defmodule AWS.WorkLink do
       credential_scope: nil,
       endpoint_prefix: "worklink",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "WorkLink",
       signature_version: "v4",

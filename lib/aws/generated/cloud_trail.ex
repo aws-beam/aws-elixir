@@ -3234,6 +3234,7 @@ defmodule AWS.CloudTrail do
       credential_scope: nil,
       endpoint_prefix: "cloudtrail",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "CloudTrail",
       signature_version: "v4",

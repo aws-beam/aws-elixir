@@ -73,6 +73,7 @@ defmodule AWS.KinesisVideoWebRTCStorage do
       credential_scope: nil,
       endpoint_prefix: "kinesisvideo",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Kinesis Video WebRTC Storage",
       signature_version: "v4",

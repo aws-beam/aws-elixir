@@ -2610,6 +2610,7 @@ defmodule AWS.SES do
       credential_scope: nil,
       endpoint_prefix: "email",
       global?: false,
+      hostname: nil,
       protocol: "query",
       service_id: "SES",
       signature_version: "v4",

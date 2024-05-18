@@ -414,6 +414,7 @@ defmodule AWS.PinpointSMSVoice do
       credential_scope: nil,
       endpoint_prefix: "sms-voice.pinpoint",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Pinpoint SMS Voice",
       signature_version: "v4",

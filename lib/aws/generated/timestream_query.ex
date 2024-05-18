@@ -930,6 +930,7 @@ defmodule AWS.TimestreamQuery do
       credential_scope: nil,
       endpoint_prefix: "query.timestream",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Timestream Query",
       signature_version: "v4",

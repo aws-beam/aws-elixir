@@ -1256,6 +1256,7 @@ defmodule AWS.Glacier do
       credential_scope: nil,
       endpoint_prefix: "glacier",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Glacier",
       signature_version: "v4",

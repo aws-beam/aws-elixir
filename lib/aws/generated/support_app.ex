@@ -448,6 +448,7 @@ defmodule AWS.SupportApp do
       credential_scope: nil,
       endpoint_prefix: "supportapp",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Support App",
       signature_version: "v4",

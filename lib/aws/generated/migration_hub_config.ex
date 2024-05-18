@@ -257,6 +257,7 @@ defmodule AWS.MigrationHubConfig do
       credential_scope: nil,
       endpoint_prefix: "migrationhub-config",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "MigrationHub Config",
       signature_version: "v4",

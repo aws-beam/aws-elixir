@@ -3519,6 +3519,7 @@ defmodule AWS.ChimeSDKVoice do
       credential_scope: nil,
       endpoint_prefix: "voice-chime",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Chime SDK Voice",
       signature_version: "v4",

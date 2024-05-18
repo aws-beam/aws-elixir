@@ -1391,6 +1391,7 @@ defmodule AWS.SageMakerGeospatial do
       credential_scope: nil,
       endpoint_prefix: "sagemaker-geospatial",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "SageMaker Geospatial",
       signature_version: "v4",

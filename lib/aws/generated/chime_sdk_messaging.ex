@@ -2185,6 +2185,7 @@ defmodule AWS.ChimeSDKMessaging do
       credential_scope: nil,
       endpoint_prefix: "messaging-chime",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Chime SDK Messaging",
       signature_version: "v4",

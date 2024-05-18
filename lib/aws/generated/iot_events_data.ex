@@ -883,6 +883,7 @@ defmodule AWS.IoTEventsData do
       credential_scope: nil,
       endpoint_prefix: "data.iotevents",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "IoT Events Data",
       signature_version: "v4",

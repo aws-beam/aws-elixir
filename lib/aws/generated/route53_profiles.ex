@@ -694,6 +694,7 @@ defmodule AWS.Route53Profiles do
       credential_scope: nil,
       endpoint_prefix: "route53profiles",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Route53Profiles",
       signature_version: "v4",

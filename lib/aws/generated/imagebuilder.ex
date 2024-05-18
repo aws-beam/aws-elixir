@@ -4283,6 +4283,7 @@ defmodule AWS.Imagebuilder do
       credential_scope: nil,
       endpoint_prefix: "imagebuilder",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "imagebuilder",
       signature_version: "v4",

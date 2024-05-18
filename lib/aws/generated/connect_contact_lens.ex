@@ -205,6 +205,7 @@ defmodule AWS.ConnectContactLens do
       credential_scope: nil,
       endpoint_prefix: "contact-lens",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Connect Contact Lens",
       signature_version: "v4",

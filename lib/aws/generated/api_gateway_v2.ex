@@ -2550,6 +2550,7 @@ defmodule AWS.ApiGatewayV2 do
       credential_scope: nil,
       endpoint_prefix: "apigateway",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "ApiGatewayV2",
       signature_version: "v4",

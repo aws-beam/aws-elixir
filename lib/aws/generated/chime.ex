@@ -7140,6 +7140,7 @@ defmodule AWS.Chime do
       credential_scope: "us-east-1",
       endpoint_prefix: "chime",
       global?: true,
+      hostname: "chime.us-east-1.amazonaws.com",
       protocol: "rest-json",
       service_id: "Chime",
       signature_version: "v4",

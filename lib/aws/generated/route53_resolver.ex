@@ -2812,6 +2812,7 @@ defmodule AWS.Route53Resolver do
       credential_scope: nil,
       endpoint_prefix: "route53resolver",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Route53Resolver",
       signature_version: "v4",

@@ -914,6 +914,7 @@ defmodule AWS.PaymentCryptographyData do
       credential_scope: nil,
       endpoint_prefix: "dataplane.payment-cryptography",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Payment Cryptography Data",
       signature_version: "v4",

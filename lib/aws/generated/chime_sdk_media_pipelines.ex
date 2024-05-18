@@ -2075,6 +2075,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       credential_scope: nil,
       endpoint_prefix: "media-pipelines-chime",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Chime SDK Media Pipelines",
       signature_version: "v4",

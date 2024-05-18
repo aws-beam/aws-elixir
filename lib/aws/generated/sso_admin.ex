@@ -2883,6 +2883,7 @@ defmodule AWS.SSOAdmin do
       credential_scope: nil,
       endpoint_prefix: "sso",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "SSO Admin",
       signature_version: "v4",

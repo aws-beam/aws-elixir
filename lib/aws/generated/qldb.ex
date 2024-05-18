@@ -730,6 +730,7 @@ defmodule AWS.QLDB do
       credential_scope: nil,
       endpoint_prefix: "qldb",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "QLDB",
       signature_version: "v4",

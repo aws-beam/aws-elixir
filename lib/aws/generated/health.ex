@@ -739,6 +739,7 @@ defmodule AWS.Health do
       credential_scope: "us-east-1",
       endpoint_prefix: "health",
       global?: true,
+      hostname: "global.health.amazonaws.com",
       protocol: "json",
       service_id: "Health",
       signature_version: "v4",

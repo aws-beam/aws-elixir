@@ -2287,6 +2287,7 @@ defmodule AWS.SWF do
       credential_scope: nil,
       endpoint_prefix: "swf",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "SWF",
       signature_version: "v4",

@@ -2274,6 +2274,7 @@ defmodule AWS.LookoutEquipment do
       credential_scope: nil,
       endpoint_prefix: "lookoutequipment",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "LookoutEquipment",
       signature_version: "v4",

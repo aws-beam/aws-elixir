@@ -1417,6 +1417,7 @@ defmodule AWS.VoiceID do
       credential_scope: nil,
       endpoint_prefix: "voiceid",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Voice ID",
       signature_version: "v4",

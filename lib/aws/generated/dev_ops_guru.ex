@@ -2303,6 +2303,7 @@ defmodule AWS.DevOpsGuru do
       credential_scope: nil,
       endpoint_prefix: "devops-guru",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "DevOps Guru",
       signature_version: "v4",

@@ -928,6 +928,7 @@ defmodule AWS.InternetMonitor do
       credential_scope: nil,
       endpoint_prefix: "internetmonitor",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "InternetMonitor",
       signature_version: "v4",

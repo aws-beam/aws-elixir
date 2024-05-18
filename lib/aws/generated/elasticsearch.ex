@@ -2730,6 +2730,7 @@ defmodule AWS.Elasticsearch do
       credential_scope: nil,
       endpoint_prefix: "es",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Elasticsearch Service",
       signature_version: "v4",

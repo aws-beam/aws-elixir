@@ -1176,6 +1176,7 @@ defmodule AWS.Grafana do
       credential_scope: nil,
       endpoint_prefix: "grafana",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "grafana",
       signature_version: "v4",

@@ -589,6 +589,7 @@ defmodule AWS.NetworkMonitor do
       credential_scope: nil,
       endpoint_prefix: "networkmonitor",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "NetworkMonitor",
       signature_version: "v4",

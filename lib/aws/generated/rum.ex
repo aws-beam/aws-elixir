@@ -843,6 +843,7 @@ defmodule AWS.RUM do
       credential_scope: nil,
       endpoint_prefix: "rum",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "RUM",
       signature_version: "v4",

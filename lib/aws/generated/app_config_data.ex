@@ -202,6 +202,7 @@ defmodule AWS.AppConfigData do
       credential_scope: nil,
       endpoint_prefix: "appconfigdata",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "AppConfigData",
       signature_version: "v4",

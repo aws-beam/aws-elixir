@@ -982,6 +982,7 @@ defmodule AWS.BedrockAgentRuntime do
       credential_scope: nil,
       endpoint_prefix: "bedrock-agent-runtime",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Bedrock Agent Runtime",
       signature_version: "v4",

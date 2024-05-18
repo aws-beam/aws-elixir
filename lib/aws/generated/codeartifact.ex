@@ -2548,6 +2548,7 @@ defmodule AWS.Codeartifact do
       credential_scope: nil,
       endpoint_prefix: "codeartifact",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "codeartifact",
       signature_version: "v4",

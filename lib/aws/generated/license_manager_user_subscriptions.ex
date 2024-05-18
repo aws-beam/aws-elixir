@@ -580,6 +580,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       credential_scope: nil,
       endpoint_prefix: "license-manager-user-subscriptions",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "License Manager User Subscriptions",
       signature_version: "v4",

@@ -2509,6 +2509,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
       credential_scope: nil,
       endpoint_prefix: "elasticloadbalancing",
       global?: false,
+      hostname: nil,
       protocol: "query",
       service_id: "Elastic Load Balancing v2",
       signature_version: "v4",

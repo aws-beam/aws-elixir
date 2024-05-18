@@ -3760,6 +3760,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       credential_scope: nil,
       endpoint_prefix: "sms-voice",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Pinpoint SMS Voice V2",
       signature_version: "v4",

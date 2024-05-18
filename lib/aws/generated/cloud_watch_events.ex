@@ -2384,6 +2384,7 @@ defmodule AWS.CloudWatchEvents do
       credential_scope: nil,
       endpoint_prefix: "events",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "CloudWatch Events",
       signature_version: "v4",

@@ -16792,6 +16792,7 @@ defmodule AWS.SageMaker do
       credential_scope: nil,
       endpoint_prefix: "api.sagemaker",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "SageMaker",
       signature_version: "v4",

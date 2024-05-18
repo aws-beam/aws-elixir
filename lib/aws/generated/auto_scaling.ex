@@ -2728,6 +2728,7 @@ defmodule AWS.AutoScaling do
       credential_scope: nil,
       endpoint_prefix: "autoscaling",
       global?: false,
+      hostname: nil,
       protocol: "query",
       service_id: "Auto Scaling",
       signature_version: "v4",

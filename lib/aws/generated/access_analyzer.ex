@@ -1936,6 +1936,7 @@ defmodule AWS.AccessAnalyzer do
       credential_scope: nil,
       endpoint_prefix: "access-analyzer",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "AccessAnalyzer",
       signature_version: "v4",

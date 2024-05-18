@@ -1319,6 +1319,7 @@ defmodule AWS.CodeConnections do
       credential_scope: nil,
       endpoint_prefix: "codeconnections",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "CodeConnections",
       signature_version: "v4",

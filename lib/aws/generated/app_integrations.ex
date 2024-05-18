@@ -938,6 +938,7 @@ defmodule AWS.AppIntegrations do
       credential_scope: nil,
       endpoint_prefix: "app-integrations",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "AppIntegrations",
       signature_version: "v4",

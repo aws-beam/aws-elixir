@@ -1490,6 +1490,7 @@ defmodule AWS.Tnb do
       credential_scope: nil,
       endpoint_prefix: "tnb",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "tnb",
       signature_version: "v4",

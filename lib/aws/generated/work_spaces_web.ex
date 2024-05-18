@@ -2185,6 +2185,7 @@ defmodule AWS.WorkSpacesWeb do
       credential_scope: nil,
       endpoint_prefix: "workspaces-web",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "WorkSpaces Web",
       signature_version: "v4",

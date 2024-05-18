@@ -1217,6 +1217,7 @@ defmodule AWS.MediaPackageV2 do
       credential_scope: nil,
       endpoint_prefix: "mediapackagev2",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "MediaPackageV2",
       signature_version: "v4",

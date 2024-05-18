@@ -223,6 +223,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
       credential_scope: nil,
       endpoint_prefix: "license-manager-linux-subscriptions",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "License Manager Linux Subscriptions",
       signature_version: "v4",

@@ -2646,6 +2646,7 @@ defmodule AWS.Resiliencehub do
       credential_scope: nil,
       endpoint_prefix: "resiliencehub",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "resiliencehub",
       signature_version: "v4",

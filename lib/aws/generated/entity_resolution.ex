@@ -1759,6 +1759,7 @@ defmodule AWS.EntityResolution do
       credential_scope: nil,
       endpoint_prefix: "entityresolution",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "EntityResolution",
       signature_version: "v4",

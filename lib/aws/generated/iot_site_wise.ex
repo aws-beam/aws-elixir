@@ -4335,6 +4335,7 @@ defmodule AWS.IoTSiteWise do
       credential_scope: nil,
       endpoint_prefix: "iotsitewise",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "IoTSiteWise",
       signature_version: "v4",

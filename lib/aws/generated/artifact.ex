@@ -373,6 +373,7 @@ defmodule AWS.Artifact do
       credential_scope: nil,
       endpoint_prefix: "artifact",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Artifact",
       signature_version: "v4",

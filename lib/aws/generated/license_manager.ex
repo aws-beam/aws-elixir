@@ -2471,6 +2471,7 @@ defmodule AWS.LicenseManager do
       credential_scope: nil,
       endpoint_prefix: "license-manager",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "License Manager",
       signature_version: "v4",

@@ -2869,6 +2869,7 @@ defmodule AWS.MediaConnect do
       credential_scope: nil,
       endpoint_prefix: "mediaconnect",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "MediaConnect",
       signature_version: "v4",

@@ -2904,6 +2904,7 @@ defmodule AWS.EMR do
       credential_scope: nil,
       endpoint_prefix: "elasticmapreduce",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "EMR",
       signature_version: "v4",

@@ -1160,6 +1160,7 @@ defmodule AWS.EMRcontainers do
       credential_scope: nil,
       endpoint_prefix: "emr-containers",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "EMR containers",
       signature_version: "v4",

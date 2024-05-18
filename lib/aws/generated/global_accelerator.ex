@@ -2276,6 +2276,7 @@ defmodule AWS.GlobalAccelerator do
       credential_scope: nil,
       endpoint_prefix: "globalaccelerator",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Global Accelerator",
       signature_version: "v4",

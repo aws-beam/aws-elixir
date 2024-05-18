@@ -3314,6 +3314,7 @@ defmodule AWS.Route53 do
       credential_scope: "us-east-1",
       endpoint_prefix: "route53",
       global?: true,
+      hostname: "route53.amazonaws.com",
       protocol: "rest-xml",
       service_id: "Route 53",
       signature_version: "v4",

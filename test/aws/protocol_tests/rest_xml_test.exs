@@ -19,6 +19,7 @@ defmodule AWS.ProtocolTests.RestXMLTest do
       credential_scope: nil,
       endpoint_prefix: "foo",
       global?: false,
+      hostname: nil,
       protocol: "rest-xml",
       service_id: "Foo",
       signature_version: "v4",

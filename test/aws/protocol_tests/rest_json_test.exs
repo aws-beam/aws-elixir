@@ -19,6 +19,7 @@ defmodule AWS.ProtocolTests.RestJSONTest do
       credential_scope: nil,
       endpoint_prefix: "foo",
       global?: false,
+      hostname: nil,
       protocol: "rest-json",
       service_id: "Foo",
       signature_version: "v4",

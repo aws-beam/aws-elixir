@@ -1,5 +1,8 @@
 # Change Log
 
+## [v1.0.1] - 2024-05-21
+- Fix correct hostname for global endpoints
+
 ## [v1.0.0] - 2024-04-21
 - Implement automatic retries
 - Fix typo on S3 multipart upload doc

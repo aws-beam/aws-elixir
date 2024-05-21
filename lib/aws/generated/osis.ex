@@ -123,6 +123,7 @@ defmodule AWS.OSIS do
       pipeline() :: %{
         "BufferOptions" => buffer_options(),
         "CreatedAt" => non_neg_integer(),
+        "Destinations" => list(pipeline_destination()()),
         "EncryptionAtRestOptions" => encryption_at_rest_options(),
         "IngestEndpointUrls" => list(String.t()()),
         "LastUpdatedAt" => non_neg_integer(),
@@ -152,6 +153,17 @@ defmodule AWS.OSIS do
 
   """
   @type start_pipeline_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disabled_operation_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type disabled_operation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -303,10 +315,12 @@ defmodule AWS.OSIS do
 
   ## Example:
 
-      get_pipeline_blueprint_request() :: %{}
+      get_pipeline_blueprint_request() :: %{
+        optional("Format") => String.t()
+      }
 
   """
-  @type get_pipeline_blueprint_request() :: %{}
+  @type get_pipeline_blueprint_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -322,7 +336,8 @@ defmodule AWS.OSIS do
   ## Example:
 
       get_pipeline_blueprint_response() :: %{
-        "Blueprint" => pipeline_blueprint()
+        "Blueprint" => pipeline_blueprint(),
+        "Format" => String.t()
       }
 
   """
@@ -343,6 +358,7 @@ defmodule AWS.OSIS do
 
       pipeline_summary() :: %{
         "CreatedAt" => non_neg_integer(),
+        "Destinations" => list(pipeline_destination()()),
         "LastUpdatedAt" => non_neg_integer(),
         "MaxUnits" => integer(),
         "MinUnits" => integer(),
@@ -397,7 +413,11 @@ defmodule AWS.OSIS do
 
       pipeline_blueprint() :: %{
         "BlueprintName" => String.t(),
-        "PipelineConfigurationBody" => String.t()
+        "DisplayDescription" => String.t(),
+        "DisplayName" => String.t(),
+        "PipelineConfigurationBody" => String.t(),
+        "Service" => String.t(),
+        "UseCase" => String.t()
       }
 
   """
@@ -420,7 +440,11 @@ defmodule AWS.OSIS do
   ## Example:
 
       pipeline_blueprint_summary() :: %{
-        "BlueprintName" => String.t()
+        "BlueprintName" => String.t(),
+        "DisplayDescription" => String.t(),
+        "DisplayName" => String.t(),
+        "Service" => String.t(),
+        "UseCase" => String.t()
       }
 
   """
@@ -538,6 +562,18 @@ defmodule AWS.OSIS do
 
   ## Example:
 
+      pipeline_destination() :: %{
+        "Endpoint" => String.t(),
+        "ServiceName" => String.t()
+      }
+
+  """
+  @type pipeline_destination() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception() :: %{
         "message" => String.t()
       }
@@ -562,7 +598,8 @@ defmodule AWS.OSIS do
 
       vpc_options() :: %{
         "SecurityGroupIds" => list(String.t()()),
-        "SubnetIds" => list(String.t()())
+        "SubnetIds" => list(String.t()()),
+        "VpcAttachmentOptions" => vpc_attachment_options()
       }
 
   """
@@ -589,6 +626,18 @@ defmodule AWS.OSIS do
 
   """
   @type resource_already_exists_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_attachment_options() :: %{
+        "AttachToVpc" => boolean(),
+        "CidrBlock" => String.t()
+      }
+
+  """
+  @type vpc_attachment_options() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -628,6 +677,7 @@ defmodule AWS.OSIS do
           | access_denied_exception()
           | internal_exception()
           | resource_not_found_exception()
+          | disabled_operation_exception()
 
   @type delete_pipeline_errors() ::
           validation_exception()
@@ -635,42 +685,49 @@ defmodule AWS.OSIS do
           | internal_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | disabled_operation_exception()
 
   @type get_pipeline_errors() ::
           validation_exception()
           | access_denied_exception()
           | internal_exception()
           | resource_not_found_exception()
+          | disabled_operation_exception()
 
   @type get_pipeline_blueprint_errors() ::
           validation_exception()
           | access_denied_exception()
           | internal_exception()
           | resource_not_found_exception()
+          | disabled_operation_exception()
 
   @type get_pipeline_change_progress_errors() ::
           validation_exception()
           | access_denied_exception()
           | internal_exception()
           | resource_not_found_exception()
+          | disabled_operation_exception()
 
   @type list_pipeline_blueprints_errors() ::
           invalid_pagination_token_exception()
           | validation_exception()
           | access_denied_exception()
           | internal_exception()
+          | disabled_operation_exception()
 
   @type list_pipelines_errors() ::
           invalid_pagination_token_exception()
           | validation_exception()
           | access_denied_exception()
           | internal_exception()
+          | disabled_operation_exception()
 
   @type list_tags_for_resource_errors() ::
           validation_exception()
           | access_denied_exception()
           | internal_exception()
           | resource_not_found_exception()
+          | disabled_operation_exception()
 
   @type start_pipeline_errors() ::
           validation_exception()
@@ -678,6 +735,7 @@ defmodule AWS.OSIS do
           | internal_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | disabled_operation_exception()
 
   @type stop_pipeline_errors() ::
           validation_exception()
@@ -685,6 +743,7 @@ defmodule AWS.OSIS do
           | internal_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | disabled_operation_exception()
 
   @type tag_resource_errors() ::
           limit_exceeded_exception()
@@ -692,12 +751,14 @@ defmodule AWS.OSIS do
           | access_denied_exception()
           | internal_exception()
           | resource_not_found_exception()
+          | disabled_operation_exception()
 
   @type untag_resource_errors() ::
           validation_exception()
           | access_denied_exception()
           | internal_exception()
           | resource_not_found_exception()
+          | disabled_operation_exception()
 
   @type update_pipeline_errors() ::
           validation_exception()
@@ -705,9 +766,13 @@ defmodule AWS.OSIS do
           | internal_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | disabled_operation_exception()
 
   @type validate_pipeline_errors() ::
-          validation_exception() | access_denied_exception() | internal_exception()
+          validation_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | disabled_operation_exception()
 
   def metadata do
     %{
@@ -808,14 +873,21 @@ defmodule AWS.OSIS do
   information, see [Using blueprints to create a
   pipeline](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#pipeline-blueprint).
   """
-  @spec get_pipeline_blueprint(map(), String.t(), list()) ::
+  @spec get_pipeline_blueprint(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_pipeline_blueprint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_pipeline_blueprint_errors()}
-  def get_pipeline_blueprint(%Client{} = client, blueprint_name, options \\ []) do
+  def get_pipeline_blueprint(%Client{} = client, blueprint_name, format \\ nil, options \\ []) do
     url_path = "/2022-01-01/osis/getPipelineBlueprint/#{AWS.Util.encode_uri(blueprint_name)}"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(format) do
+        [{"format", format} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 

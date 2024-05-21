@@ -3,12 +3,37 @@
 
 defmodule AWS.ControlTower do
   @moduledoc """
+  Amazon Web Services Control Tower offers application programming interface (API)
+  operations that support programmatic interaction with these types of resources:
+
+    *
+
+  [
+  *controls*
+  ](https://docs.aws.amazon.com/controltower/latest/userguide/controls.html)
+
+    *
+
+  [
+  *landing zones*
+  ](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch.html)
+
+    *
+
+  [
+  *baselines*
+  ](https://docs.aws.amazon.com/controltower/latest/userguide/types-of-baselines.html)
+
+  For more information about these types of resources, see the [
+  *Amazon Web Services Control Tower User Guide*
+  ](https://docs.aws.amazon.com/controltower/latest/userguide/what-is-control-tower.html).
+
+  ## About control APIs
+
   These interfaces allow you to apply the Amazon Web Services library of
   pre-defined
-  *controls* to your organizational units, programmatically.
-
-  In Amazon Web Services Control Tower, the terms "control" and "guardrail" are
-  synonyms.
+  *controls* to your organizational units, programmatically. In Amazon Web
+  Services Control Tower, the terms "control" and "guardrail" are synonyms.
 
   To call these APIs, you'll need to know:
 
@@ -33,6 +58,7 @@ defmodule AWS.ControlTower do
   control. You can
   find the `controlIdentifier` for each Region and control in the [Tables of control
   metadata](https://docs.aws.amazon.com/controltower/latest/userguide/control-metadata-tables.html)
+  or the [Control availability by Region tables](https://docs.aws.amazon.com/controltower/latest/userguide/control-region-tables.html)
   in the *Amazon Web Services Control Tower User Guide.*
 
   A quick-reference list of control identifers for the Amazon Web Services Control
@@ -62,6 +88,34 @@ defmodule AWS.ControlTower do
 
   `arn:${Partition}:organizations::${MasterAccountId}:ou/o-${OrganizationId}/ou-${OrganizationalUnitId}`
 
+  ##  About landing zone APIs
+
+  You can configure and launch an Amazon Web Services Control Tower landing zone
+  with APIs. For an introduction and steps, see [Getting started with Amazon Web Services Control Tower using
+  APIs](https://docs.aws.amazon.com/controltower/latest/userguide/getting-started-apis.html).
+
+  For an overview of landing zone API operations, see [ Amazon Web Services Control Tower supports landing zone
+  APIs](https://docs.aws.amazon.com/controltower/latest/userguide/2023-all.html#landing-zone-apis).
+  The individual API operations for landing zones are detailed in this document,
+  the [API reference manual](https://docs.aws.amazon.com/controltower/latest/APIReference/API_Operations.html),
+  in the "Actions" section.
+
+  ## About baseline APIs
+
+  You can apply the `AWSControlTowerBaseline` baseline to an organizational unit
+  (OU) as a way to register the OU with Amazon Web Services Control Tower,
+  programmatically. For a general overview of this capability, see [Amazon Web Services Control Tower supports APIs for OU registration and configuration with
+  baselines](https://docs.aws.amazon.com/controltower/latest/userguide/2024-all.html#baseline-apis).
+
+  You can call the baseline API operations to view the baselines that Amazon Web
+  Services Control Tower enables for your landing zone, on your behalf, when
+  setting up the landing zone. These baselines are read-only baselines.
+
+  The individual API operations for baselines are detailed in this document, the
+  [API reference manual](https://docs.aws.amazon.com/controltower/latest/APIReference/API_Operations.html),
+  in the "Actions" section. For usage examples, see [Baseline API input and output examples with
+  CLI](https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html).
+
   ## Details and examples
 
     *
@@ -70,11 +124,23 @@ defmodule AWS.ControlTower do
 
     *
 
+  [Baseline API input and output examples with CLI](https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html)
+
+    *
+
   [Enable controls with CloudFormation](https://docs.aws.amazon.com/controltower/latest/userguide/enable-controls.html)
 
     *
 
-  [Control metadata tables](https://docs.aws.amazon.com/controltower/latest/userguide/control-metadata-tables.html)
+  [Launch a landing zone with CloudFormation](https://docs.aws.amazon.com/controltower/latest/userguide/lz-apis-cfn-setup.html)
+
+    *
+
+  [Control metadata tables (large page)](https://docs.aws.amazon.com/controltower/latest/userguide/control-metadata-tables.html)
+
+    *
+
+  [Control availability by Region tables (large page)](https://docs.aws.amazon.com/controltower/latest/userguide/control-region-tables.html)
 
     *
 
@@ -122,8 +188,8 @@ defmodule AWS.ControlTower do
   ## Example:
 
       list_enabled_controls_output() :: %{
-        optional("nextToken") => [String.t()],
-        required("enabledControls") => list(enabled_control_summary()())
+        "enabledControls" => list(enabled_control_summary()()),
+        "nextToken" => [String.t()]
       }
 
   """
@@ -146,7 +212,7 @@ defmodule AWS.ControlTower do
   ## Example:
 
       disable_control_output() :: %{
-        required("operationIdentifier") => String.t()
+        "operationIdentifier" => String.t()
       }
 
   """
@@ -193,6 +259,19 @@ defmodule AWS.ControlTower do
 
   ## Example:
 
+      enabled_control_filter() :: %{
+        "controlIdentifiers" => list(String.t()()),
+        "driftStatuses" => list(list(any())()),
+        "statuses" => list(list(any())())
+      }
+
+  """
+  @type enabled_control_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       enable_control_input() :: %{
         optional("parameters") => list(enabled_control_parameter()()),
         optional("tags") => map(),
@@ -230,9 +309,10 @@ defmodule AWS.ControlTower do
   ## Example:
 
       list_enabled_controls_input() :: %{
+        optional("filter") => enabled_control_filter(),
         optional("maxResults") => integer(),
         optional("nextToken") => [String.t()],
-        required("targetIdentifier") => String.t()
+        optional("targetIdentifier") => String.t()
       }
 
   """
@@ -249,6 +329,18 @@ defmodule AWS.ControlTower do
 
   """
   @type list_landing_zones_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_control_operations_output() :: %{
+        "controlOperations" => list(control_operation_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_control_operations_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -586,8 +678,8 @@ defmodule AWS.ControlTower do
   ## Example:
 
       enable_control_output() :: %{
-        optional("arn") => String.t(),
-        required("operationIdentifier") => String.t()
+        "arn" => String.t(),
+        "operationIdentifier" => String.t()
       }
 
   """
@@ -705,11 +797,15 @@ defmodule AWS.ControlTower do
   ## Example:
 
       control_operation() :: %{
+        "controlIdentifier" => String.t(),
+        "enabledControlIdentifier" => String.t(),
         "endTime" => non_neg_integer(),
-        "operationType" => String.t(),
+        "operationIdentifier" => String.t(),
+        "operationType" => list(any()),
         "startTime" => non_neg_integer(),
-        "status" => String.t(),
-        "statusMessage" => [String.t()]
+        "status" => list(any()),
+        "statusMessage" => [String.t()],
+        "targetIdentifier" => String.t()
       }
 
   """
@@ -748,6 +844,19 @@ defmodule AWS.ControlTower do
 
   ## Example:
 
+      list_control_operations_input() :: %{
+        optional("filter") => control_operation_filter(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_control_operations_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       throttling_exception() :: %{
         "message" => [String.t()],
         "quotaCode" => [String.t()],
@@ -770,6 +879,21 @@ defmodule AWS.ControlTower do
 
   """
   @type update_enabled_baseline_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      control_operation_filter() :: %{
+        "controlIdentifiers" => list(String.t()()),
+        "controlOperationTypes" => list(list(any())()),
+        "enabledControlIdentifiers" => list(String.t()()),
+        "statuses" => list(list(any())()),
+        "targetIdentifiers" => list(String.t()())
+      }
+
+  """
+  @type control_operation_filter() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -867,7 +991,7 @@ defmodule AWS.ControlTower do
   ## Example:
 
       get_control_operation_output() :: %{
-        required("controlOperation") => control_operation()
+        "controlOperation" => control_operation()
       }
 
   """
@@ -1018,6 +1142,25 @@ defmodule AWS.ControlTower do
 
   ## Example:
 
+      control_operation_summary() :: %{
+        "controlIdentifier" => String.t(),
+        "enabledControlIdentifier" => String.t(),
+        "endTime" => non_neg_integer(),
+        "operationIdentifier" => String.t(),
+        "operationType" => list(any()),
+        "startTime" => non_neg_integer(),
+        "status" => list(any()),
+        "statusMessage" => [String.t()],
+        "targetIdentifier" => String.t()
+      }
+
+  """
+  @type control_operation_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_baseline_input() :: %{
         required("baselineIdentifier") => String.t()
       }
@@ -1126,6 +1269,12 @@ defmodule AWS.ControlTower do
           | resource_not_found_exception()
 
   @type list_baselines_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_control_operations_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -1285,7 +1434,9 @@ defmodule AWS.ControlTower do
 
   This API starts an asynchronous operation to remove all resources deployed as
   part of the baseline enablement. The resource will vary depending on the enabled
-  baseline.
+  baseline. For usage examples, see [
+  *the Amazon Web Services Control Tower User Guide*
+  ](https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html).
   """
   @spec disable_baseline(map(), disable_baseline_input(), list()) ::
           {:ok, disable_baseline_output(), any()}
@@ -1349,7 +1500,9 @@ defmodule AWS.ControlTower do
   Enable (apply) a `Baseline` to a Target.
 
   This API starts an asynchronous operation to deploy resources specified by the
-  `Baseline` to the specified Target.
+  `Baseline` to the specified Target. For usage examples, see [
+  *the Amazon Web Services Control Tower User Guide*
+  ](https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html).
   """
   @spec enable_baseline(map(), enable_baseline_input(), list()) ::
           {:ok, enable_baseline_output(), any()}
@@ -1413,6 +1566,10 @@ defmodule AWS.ControlTower do
   @doc """
   Retrieve details about an existing `Baseline` resource by specifying its
   identifier.
+
+  For usage examples, see [
+  *the Amazon Web Services Control Tower User Guide*
+  ](https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html).
   """
   @spec get_baseline(map(), get_baseline_input(), list()) ::
           {:ok, get_baseline_output(), any()}
@@ -1443,7 +1600,10 @@ defmodule AWS.ControlTower do
   of these APIs: `EnableBaseline`, `DisableBaseline`, `UpdateEnabledBaseline`,
   `ResetEnabledBaseline`.
 
-  A status message is displayed in case of operation failure.
+  A status message is displayed in case of operation failure. For usage examples,
+  see [
+  *the Amazon Web Services Control Tower User Guide*
+  ](https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html).
   """
   @spec get_baseline_operation(map(), get_baseline_operation_input(), list()) ::
           {:ok, get_baseline_operation_output(), any()}
@@ -1593,7 +1753,7 @@ defmodule AWS.ControlTower do
   Returns the status of the specified landing zone operation.
 
   Details for an operation are available for
-  60 days.
+  90 days.
   """
   @spec get_landing_zone_operation(map(), get_landing_zone_operation_input(), list()) ::
           {:ok, get_landing_zone_operation_output(), any()}
@@ -1621,6 +1781,10 @@ defmodule AWS.ControlTower do
 
   @doc """
   Returns a summary list of all available baselines.
+
+  For usage examples, see [
+  *the Amazon Web Services Control Tower User Guide*
+  ](https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html).
   """
   @spec list_baselines(map(), list_baselines_input(), list()) ::
           {:ok, list_baselines_output(), any()}
@@ -1647,10 +1811,39 @@ defmodule AWS.ControlTower do
   end
 
   @doc """
+  Provides a list of operations in progress or queued.
+  """
+  @spec list_control_operations(map(), list_control_operations_input(), list()) ::
+          {:ok, list_control_operations_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_control_operations_errors()}
+  def list_control_operations(%Client{} = client, input, options \\ []) do
+    url_path = "/list-control-operations"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Returns a list of summaries describing `EnabledBaseline` resources.
 
   You can filter the list by the corresponding `Baseline` or `Target` of the
-  `EnabledBaseline` resources.
+  `EnabledBaseline` resources. For usage examples, see [
+  *the Amazon Web Services Control Tower User Guide*
+  ](https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html).
   """
   @spec list_enabled_baselines(map(), list_enabled_baselines_input(), list()) ::
           {:ok, list_enabled_baselines_output(), any()}
@@ -1767,7 +1960,9 @@ defmodule AWS.ControlTower do
   Re-enables an `EnabledBaseline` resource.
 
   For example, this API can re-apply the existing `Baseline` after a new member
-  account is moved to the target OU.
+  account is moved to the target OU. For usage examples, see [
+  *the Amazon Web Services Control Tower User Guide*
+  ](https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html).
   """
   @spec reset_enabled_baseline(map(), reset_enabled_baseline_input(), list()) ::
           {:ok, reset_enabled_baseline_output(), any()}
@@ -1892,6 +2087,10 @@ defmodule AWS.ControlTower do
 
   @doc """
   Updates an `EnabledBaseline` resource's applied parameters or version.
+
+  For usage examples, see [
+  *the Amazon Web Services Control Tower User Guide*
+  ](https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html).
   """
   @spec update_enabled_baseline(map(), update_enabled_baseline_input(), list()) ::
           {:ok, update_enabled_baseline_output(), any()}

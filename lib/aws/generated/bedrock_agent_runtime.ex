@@ -49,6 +49,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      guardrail_content_policy_assessment() :: %{
+        "filters" => list(guardrail_content_filter()())
+      }
+
+  """
+  @type guardrail_content_policy_assessment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       text_inference_config() :: %{
         "maxTokens" => integer(),
         "stopSequences" => list([String.t()]()),
@@ -200,6 +211,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      guardrail_managed_word() :: %{
+        "action" => list(any()),
+        "match" => [String.t()],
+        "type" => list(any())
+      }
+
+  """
+  @type guardrail_managed_word() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       action_group_invocation_input() :: %{
         "actionGroupName" => String.t(),
         "apiPath" => String.t(),
@@ -314,6 +338,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      guardrail_custom_word() :: %{
+        "action" => list(any()),
+        "match" => [String.t()]
+      }
+
+  """
+  @type guardrail_custom_word() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       content_body() :: %{
         "body" => [String.t()]
       }
@@ -350,6 +386,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type observation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_word_policy_assessment() :: %{
+        "customWords" => list(guardrail_custom_word()()),
+        "managedWordLists" => list(guardrail_managed_word()())
+      }
+
+  """
+  @type guardrail_word_policy_assessment() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -426,12 +474,37 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      guardrail_sensitive_information_policy_assessment() :: %{
+        "piiEntities" => list(guardrail_pii_entity_filter()()),
+        "regexes" => list(guardrail_regex_filter()())
+      }
+
+  """
+  @type guardrail_sensitive_information_policy_assessment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       knowledge_base_retrieval_configuration() :: %{
         "vectorSearchConfiguration" => knowledge_base_vector_search_configuration()
       }
 
   """
   @type knowledge_base_retrieval_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_content_filter() :: %{
+        "action" => list(any()),
+        "confidence" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type guardrail_content_filter() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -629,6 +702,20 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      guardrail_trace() :: %{
+        "action" => list(any()),
+        "inputAssessments" => list(guardrail_assessment()()),
+        "outputAssessments" => list(guardrail_assessment()()),
+        "traceId" => String.t()
+      }
+
+  """
+  @type guardrail_trace() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       knowledge_base_vector_search_configuration() :: %{
         "filter" => list(),
         "numberOfResults" => [integer()],
@@ -660,6 +747,20 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_assessment() :: %{
+        "contentPolicy" => guardrail_content_policy_assessment(),
+        "sensitiveInformationPolicy" => guardrail_sensitive_information_policy_assessment(),
+        "topicPolicy" => guardrail_topic_policy_assessment(),
+        "wordPolicy" => guardrail_word_policy_assessment()
+      }
+
+  """
+  @type guardrail_assessment() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -736,6 +837,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type inference_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_topic_policy_assessment() :: %{
+        "topics" => list(guardrail_topic()())
+      }
+
+  """
+  @type guardrail_topic_policy_assessment() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -833,6 +945,20 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      guardrail_regex_filter() :: %{
+        "action" => list(any()),
+        "match" => [String.t()],
+        "name" => [String.t()],
+        "regex" => [String.t()]
+      }
+
+  """
+  @type guardrail_regex_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       knowledge_base_lookup_output() :: %{
         "retrievedReferences" => list(retrieved_reference()())
       }
@@ -908,6 +1034,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      guardrail_pii_entity_filter() :: %{
+        "action" => list(any()),
+        "match" => [String.t()],
+        "type" => list(any())
+      }
+
+  """
+  @type guardrail_pii_entity_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       retrieve_response() :: %{
         "nextToken" => String.t(),
         "retrievalResults" => list(knowledge_base_retrieval_result()())
@@ -941,6 +1080,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type knowledge_base_retrieval_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_topic() :: %{
+        "action" => list(any()),
+        "name" => [String.t()],
+        "type" => list(any())
+      }
+
+  """
+  @type guardrail_topic() :: %{String.t() => any()}
 
   @type invoke_agent_errors() ::
           throttling_exception()

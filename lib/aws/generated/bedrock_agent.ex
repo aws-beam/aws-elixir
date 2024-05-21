@@ -209,6 +209,7 @@ defmodule AWS.BedrockAgent do
         optional("customerEncryptionKeyArn") => String.t(),
         optional("description") => String.t(),
         optional("foundationModel") => String.t(),
+        optional("guardrailConfiguration") => guardrail_configuration(),
         optional("idleSessionTTLInSeconds") => integer(),
         optional("instruction") => String.t(),
         optional("promptOverrideConfiguration") => prompt_override_configuration(),
@@ -415,6 +416,7 @@ defmodule AWS.BedrockAgent do
         "agentVersion" => String.t(),
         "createdAt" => non_neg_integer(),
         "description" => String.t(),
+        "guardrailConfiguration" => guardrail_configuration(),
         "updatedAt" => non_neg_integer()
       }
 
@@ -865,6 +867,7 @@ defmodule AWS.BedrockAgent do
         "description" => String.t(),
         "failureReasons" => list(String.t()()),
         "foundationModel" => String.t(),
+        "guardrailConfiguration" => guardrail_configuration(),
         "idleSessionTTLInSeconds" => integer(),
         "instruction" => String.t(),
         "preparedAt" => non_neg_integer(),
@@ -1041,6 +1044,7 @@ defmodule AWS.BedrockAgent do
         "description" => String.t(),
         "failureReasons" => list(String.t()()),
         "foundationModel" => String.t(),
+        "guardrailConfiguration" => guardrail_configuration(),
         "idleSessionTTLInSeconds" => integer(),
         "instruction" => String.t(),
         "promptOverrideConfiguration" => prompt_override_configuration(),
@@ -1280,6 +1284,7 @@ defmodule AWS.BedrockAgent do
       update_agent_request() :: %{
         optional("customerEncryptionKeyArn") => String.t(),
         optional("description") => String.t(),
+        optional("guardrailConfiguration") => guardrail_configuration(),
         optional("idleSessionTTLInSeconds") => integer(),
         optional("instruction") => String.t(),
         optional("promptOverrideConfiguration") => prompt_override_configuration(),
@@ -1457,6 +1462,7 @@ defmodule AWS.BedrockAgent do
         "agentName" => String.t(),
         "agentStatus" => list(any()),
         "description" => String.t(),
+        "guardrailConfiguration" => guardrail_configuration(),
         "latestAgentVersion" => String.t(),
         "updatedAt" => non_neg_integer()
       }
@@ -1518,6 +1524,18 @@ defmodule AWS.BedrockAgent do
 
   """
   @type get_agent_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_configuration() :: %{
+        "guardrailIdentifier" => String.t(),
+        "guardrailVersion" => String.t()
+      }
+
+  """
+  @type guardrail_configuration() :: %{String.t() => any()}
 
   @typedoc """
 

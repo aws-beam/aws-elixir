@@ -184,6 +184,7 @@ defmodule AWS.Request do
       endpoint: client.endpoint,
       service: metadata.signing_name,
       global?: metadata.global?,
+      hostname: metadata.hostname,
       endpoint_prefix: metadata.endpoint_prefix,
       account_id: :proplists.get_value("x-amz-account-id", headers, nil)
     }
@@ -197,6 +198,9 @@ defmodule AWS.Request do
 
       %{endpoint: endpoint_fun} when is_function(endpoint_fun, 1) ->
         endpoint_fun.(build_options)
+
+      %{global?: true, hostname: hostname} when is_binary(hostname) ->
+        hostname
 
       %{global?: true, endpoint: endpoint} ->
         endpoint = resolve_endpoint_sufix(endpoint)

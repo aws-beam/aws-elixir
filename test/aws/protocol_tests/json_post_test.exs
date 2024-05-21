@@ -19,6 +19,7 @@ defmodule AWS.ProtocolTests.JSONPostTest do
       credential_scope: nil,
       endpoint_prefix: "foo",
       global?: false,
+      hostname: nil,
       protocol: "json",
       service_id: "Foo",
       signature_version: "v4",

@@ -9,6 +9,7 @@ defmodule AWS.RequestTest do
     content_type: "application/x-amz-json-1.1",
     endpoint_prefix: "mobileanalytics",
     global?: false,
+    hostname: nil,
     protocol: "rest-json",
     signature_version: "v4",
     signing_name: "mobileanalytics"

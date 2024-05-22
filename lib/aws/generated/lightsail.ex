@@ -1309,6 +1309,7 @@ defmodule AWS.Lightsail do
   ## Example:
       
       set_ip_address_type_request() :: %{
+        optional("acceptBundleUpdate") => boolean(),
         required("ipAddressType") => list(any()),
         required("resourceName") => String.t(),
         required("resourceType") => list(any())
@@ -7681,7 +7682,8 @@ defmodule AWS.Lightsail do
 
   The resulting
   disk can be attached to an Amazon Lightsail instance in the same Availability
-  Zone (`us-east-2a`).
+  Zone
+  (`us-east-2a`).
 
   The `create disk from snapshot` operation supports tag-based access control via
   request tags and resource tags applied to the resource identified by
@@ -10098,7 +10100,8 @@ defmodule AWS.Lightsail do
   certificate is created, it is installed on the specified Lightsail instance.
 
   If you provide more than one domain name in the request, at least one name must
-  be less than or equal to 63 characters in length.
+  be less
+  than or equal to 63 characters in length.
   """
   @spec setup_instance_https(map(), setup_instance_https_request(), list()) ::
           {:ok, setup_instance_https_result(), any()}

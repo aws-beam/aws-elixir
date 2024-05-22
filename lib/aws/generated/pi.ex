@@ -66,6 +66,7 @@ defmodule AWS.PI do
   ## Example:
       
       list_available_resource_dimensions_request() :: %{
+        optional("AuthorizedActions") => list(list(any())()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("Identifier") => String.t(),

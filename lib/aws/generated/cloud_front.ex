@@ -126,7 +126,7 @@ defmodule AWS.CloudFront do
 
       list_realtime_log_configs_request() :: %{
         optional("Marker") => String.t(),
-        optional("MaxItems") => [integer()]
+        optional("MaxItems") => integer()
       }
 
   """
@@ -628,7 +628,7 @@ defmodule AWS.CloudFront do
 
       list_origin_request_policies_request() :: %{
         optional("Marker") => String.t(),
-        optional("MaxItems") => [integer()],
+        optional("MaxItems") => integer(),
         optional("Type") => list(any())
       }
 
@@ -893,7 +893,7 @@ defmodule AWS.CloudFront do
 
       list_invalidations_request() :: %{
         optional("Marker") => String.t(),
-        optional("MaxItems") => [integer()]
+        optional("MaxItems") => integer()
       }
 
   """
@@ -941,7 +941,7 @@ defmodule AWS.CloudFront do
 
       list_distributions_by_cache_policy_id_request() :: %{
         optional("Marker") => String.t(),
-        optional("MaxItems") => [integer()]
+        optional("MaxItems") => integer()
       }
 
   """
@@ -1172,7 +1172,7 @@ defmodule AWS.CloudFront do
 
       list_cloud_front_origin_access_identities_request() :: %{
         optional("Marker") => String.t(),
-        optional("MaxItems") => [integer()]
+        optional("MaxItems") => integer()
       }
 
   """
@@ -1702,7 +1702,7 @@ defmodule AWS.CloudFront do
 
       list_distributions_by_key_group_request() :: %{
         optional("Marker") => String.t(),
-        optional("MaxItems") => [integer()]
+        optional("MaxItems") => integer()
       }
 
   """
@@ -1977,7 +1977,7 @@ defmodule AWS.CloudFront do
 
       list_public_keys_request() :: %{
         optional("Marker") => String.t(),
-        optional("MaxItems") => [integer()]
+        optional("MaxItems") => integer()
       }
 
   """
@@ -2001,7 +2001,7 @@ defmodule AWS.CloudFront do
 
       list_key_value_stores_request() :: %{
         optional("Marker") => String.t(),
-        optional("MaxItems") => [integer()],
+        optional("MaxItems") => integer(),
         optional("Status") => String.t()
       }
 
@@ -2508,7 +2508,7 @@ defmodule AWS.CloudFront do
 
       list_key_groups_request() :: %{
         optional("Marker") => String.t(),
-        optional("MaxItems") => [integer()]
+        optional("MaxItems") => integer()
       }
 
   """
@@ -2722,7 +2722,7 @@ defmodule AWS.CloudFront do
 
       list_response_headers_policies_request() :: %{
         optional("Marker") => String.t(),
-        optional("MaxItems") => [integer()],
+        optional("MaxItems") => integer(),
         optional("Type") => list(any())
       }
 
@@ -3196,7 +3196,7 @@ defmodule AWS.CloudFront do
 
       list_streaming_distributions_request() :: %{
         optional("Marker") => String.t(),
-        optional("MaxItems") => [integer()]
+        optional("MaxItems") => integer()
       }
 
   """
@@ -3437,7 +3437,7 @@ defmodule AWS.CloudFront do
 
       list_field_level_encryption_profiles_request() :: %{
         optional("Marker") => String.t(),
-        optional("MaxItems") => [integer()]
+        optional("MaxItems") => integer()
       }
 
   """
@@ -3622,7 +3622,7 @@ defmodule AWS.CloudFront do
 
       list_field_level_encryption_configs_request() :: %{
         optional("Marker") => String.t(),
-        optional("MaxItems") => [integer()]
+        optional("MaxItems") => integer()
       }
 
   """
@@ -3763,7 +3763,7 @@ defmodule AWS.CloudFront do
 
       list_functions_request() :: %{
         optional("Marker") => String.t(),
-        optional("MaxItems") => [integer()],
+        optional("MaxItems") => integer(),
         optional("Stage") => list(any())
       }
 
@@ -4163,7 +4163,7 @@ defmodule AWS.CloudFront do
 
       list_distributions_by_web_acl_id_request() :: %{
         optional("Marker") => String.t(),
-        optional("MaxItems") => [integer()]
+        optional("MaxItems") => integer()
       }
 
   """
@@ -4251,7 +4251,7 @@ defmodule AWS.CloudFront do
 
       list_distributions_request() :: %{
         optional("Marker") => String.t(),
-        optional("MaxItems") => [integer()]
+        optional("MaxItems") => integer()
       }
 
   """
@@ -4400,7 +4400,7 @@ defmodule AWS.CloudFront do
 
       list_distributions_by_realtime_log_config_request() :: %{
         optional("Marker") => String.t(),
-        optional("MaxItems") => [integer()],
+        optional("MaxItems") => integer(),
         optional("RealtimeLogConfigArn") => String.t(),
         optional("RealtimeLogConfigName") => String.t()
       }
@@ -4557,7 +4557,7 @@ defmodule AWS.CloudFront do
 
       list_distributions_by_origin_request_policy_id_request() :: %{
         optional("Marker") => String.t(),
-        optional("MaxItems") => [integer()]
+        optional("MaxItems") => integer()
       }
 
   """
@@ -4747,7 +4747,7 @@ defmodule AWS.CloudFront do
 
       list_cache_policies_request() :: %{
         optional("Marker") => String.t(),
-        optional("MaxItems") => [integer()],
+        optional("MaxItems") => integer(),
         optional("Type") => list(any())
       }
 
@@ -5222,7 +5222,7 @@ defmodule AWS.CloudFront do
 
       list_origin_access_controls_request() :: %{
         optional("Marker") => String.t(),
-        optional("MaxItems") => [integer()]
+        optional("MaxItems") => integer()
       }
 
   """
@@ -5374,7 +5374,7 @@ defmodule AWS.CloudFront do
 
       list_continuous_deployment_policies_request() :: %{
         optional("Marker") => String.t(),
-        optional("MaxItems") => [integer()]
+        optional("MaxItems") => integer()
       }
 
   """
@@ -5610,7 +5610,7 @@ defmodule AWS.CloudFront do
 
       list_distributions_by_response_headers_policy_id_request() :: %{
         optional("Marker") => String.t(),
-        optional("MaxItems") => [integer()]
+        optional("MaxItems") => integer()
       }
 
   """

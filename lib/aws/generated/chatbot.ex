@@ -18,6 +18,7 @@ defmodule AWS.Chatbot do
         optional("GuardrailPolicyArns") => list(String.t()()),
         optional("LoggingLevel") => String.t(),
         optional("SnsTopicArns") => list(String.t()()),
+        optional("Tags") => list(tag()()),
         optional("TeamName") => String.t(),
         optional("UserAuthorizationRequired") => boolean(),
         required("ChannelId") => String.t(),
@@ -69,6 +70,18 @@ defmodule AWS.Chatbot do
 
   ## Example:
 
+      tag_resource_request() :: %{
+        required("ResourceARN") => String.t(),
+        required("Tags") => list(tag()())
+      }
+
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_slack_channel_configuration_result() :: %{}
 
   """
@@ -95,6 +108,15 @@ defmodule AWS.Chatbot do
 
   """
   @type delete_slack_workspace_authorization_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
@@ -213,6 +235,18 @@ defmodule AWS.Chatbot do
 
   """
   @type delete_teams_configured_team_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("ResourceARN") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -384,6 +418,18 @@ defmodule AWS.Chatbot do
 
   ## Example:
 
+      tag() :: %{
+        "TagKey" => String.t(),
+        "TagValue" => String.t()
+      }
+
+  """
+  @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_account_preferences_request() :: %{}
 
   """
@@ -460,6 +506,17 @@ defmodule AWS.Chatbot do
 
   ## Example:
 
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag()())
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_teams_channel_configuration_result() :: %{
         "ChannelConfiguration" => teams_channel_configuration()
       }
@@ -478,6 +535,17 @@ defmodule AWS.Chatbot do
 
   """
   @type delete_microsoft_teams_user_identity_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type service_unavailable_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -565,6 +633,7 @@ defmodule AWS.Chatbot do
 
       create_chime_webhook_configuration_request() :: %{
         optional("LoggingLevel") => String.t(),
+        optional("Tags") => list(tag()()),
         required("ConfigurationName") => String.t(),
         required("IamRoleArn") => String.t(),
         required("SnsTopicArns") => list(String.t()()),
@@ -607,6 +676,7 @@ defmodule AWS.Chatbot do
         optional("LoggingLevel") => String.t(),
         optional("SlackChannelName") => String.t(),
         optional("SnsTopicArns") => list(String.t()()),
+        optional("Tags") => list(tag()()),
         optional("UserAuthorizationRequired") => boolean(),
         required("ConfigurationName") => String.t(),
         required("IamRoleArn") => String.t(),
@@ -740,6 +810,26 @@ defmodule AWS.Chatbot do
 
   ## Example:
 
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_service_error() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type internal_service_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_slack_user_identities_exception() :: %{
         "Message" => String.t()
       }
@@ -762,11 +852,23 @@ defmodule AWS.Chatbot do
         "SlackTeamId" => String.t(),
         "SlackTeamName" => String.t(),
         "SnsTopicArns" => list(String.t()()),
+        "Tags" => list(tag()()),
         "UserAuthorizationRequired" => boolean()
       }
 
   """
   @type slack_channel_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{
+        required("ResourceARN") => String.t()
+      }
+
+  """
+  @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -801,6 +903,7 @@ defmodule AWS.Chatbot do
         "IamRoleArn" => String.t(),
         "LoggingLevel" => String.t(),
         "SnsTopicArns" => list(String.t()()),
+        "Tags" => list(tag()()),
         "WebhookDescription" => String.t()
       }
 
@@ -910,6 +1013,7 @@ defmodule AWS.Chatbot do
         "IamRoleArn" => String.t(),
         "LoggingLevel" => String.t(),
         "SnsTopicArns" => list(String.t()()),
+        "Tags" => list(tag()()),
         "TeamId" => String.t(),
         "TeamName" => String.t(),
         "TenantId" => String.t(),
@@ -987,6 +1091,17 @@ defmodule AWS.Chatbot do
 
   """
   @type describe_slack_channel_configurations_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_tags_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type too_many_tags_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1097,6 +1212,22 @@ defmodule AWS.Chatbot do
           invalid_parameter_exception()
           | list_microsoft_teams_user_identities_exception()
           | invalid_request_exception()
+
+  @type list_tags_for_resource_errors() ::
+          internal_service_error()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
+  @type tag_resource_errors() ::
+          too_many_tags_exception()
+          | internal_service_error()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
+  @type untag_resource_errors() ::
+          internal_service_error()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
 
   @type update_account_preferences_errors() ::
           invalid_parameter_exception()
@@ -1699,6 +1830,87 @@ defmodule AWS.Chatbot do
           | {:error, list_microsoft_teams_user_identities_errors()}
   def list_microsoft_teams_user_identities(%Client{} = client, input, options \\ []) do
     url_path = "/list-ms-teams-user-identities"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves the list of tags applied to a configuration.
+  """
+  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_tags_for_resource_errors()}
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/list-tags-for-resource"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Applies the supplied tags to a configuration.
+  """
+  @spec tag_resource(map(), tag_resource_request(), list()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_resource_errors()}
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/tag-resource"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Removes the supplied tags from a configuration
+  """
+  @spec untag_resource(map(), untag_resource_request(), list()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_resource_errors()}
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/untag-resource"
     headers = []
     query_params = []
 

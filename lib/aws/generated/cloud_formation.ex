@@ -1201,6 +1201,7 @@ defmodule AWS.CloudFormation do
         "Capabilities" => list(list(any())()),
         "ChangeSetId" => String.t(),
         "CreationTime" => non_neg_integer(),
+        "DeletionMode" => list(any()),
         "DeletionTime" => non_neg_integer(),
         "Description" => String.t(),
         "DetailedStatus" => list(any()),
@@ -3512,6 +3513,7 @@ defmodule AWS.CloudFormation do
       
       delete_stack_input() :: %{
         optional("ClientRequestToken") => String.t(),
+        optional("DeletionMode") => list(any()),
         optional("RetainResources") => list(String.t()()),
         optional("RoleARN") => String.t(),
         required("StackName") => String.t()

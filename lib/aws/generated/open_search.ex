@@ -1819,7 +1819,8 @@ defmodule AWS.OpenSearch do
       data_source_details() :: %{
         "DataSourceType" => list(),
         "Description" => String.t(),
-        "Name" => String.t()
+        "Name" => String.t(),
+        "Status" => list(any())
       }
 
   """
@@ -2364,6 +2365,7 @@ defmodule AWS.OpenSearch do
 
       update_data_source_request() :: %{
         optional("Description") => String.t(),
+        optional("Status") => list(any()),
         required("DataSourceType") => list()
       }
 
@@ -2865,7 +2867,8 @@ defmodule AWS.OpenSearch do
       get_data_source_response() :: %{
         "DataSourceType" => list(),
         "Description" => String.t(),
-        "Name" => String.t()
+        "Name" => String.t(),
+        "Status" => list(any())
       }
 
   """

@@ -1012,6 +1012,8 @@ defmodule AWS.WAFV2 do
       
       logging_configuration() :: %{
         "LogDestinationConfigs" => list(String.t()()),
+        "LogScope" => list(any()),
+        "LogType" => list(any()),
         "LoggingFilter" => logging_filter(),
         "ManagedByFirewallManager" => boolean(),
         "RedactedFields" => list(field_to_match()()),
@@ -1911,6 +1913,8 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       get_logging_configuration_request() :: %{
+        optional("LogScope") => list(any()),
+        optional("LogType") => list(any()),
         required("ResourceArn") => String.t()
       }
       
@@ -2550,6 +2554,7 @@ defmodule AWS.WAFV2 do
       
       list_logging_configurations_request() :: %{
         optional("Limit") => integer(),
+        optional("LogScope") => list(any()),
         optional("NextMarker") => String.t(),
         required("Scope") => list(any())
       }
@@ -2731,6 +2736,8 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       delete_logging_configuration_request() :: %{
+        optional("LogScope") => list(any()),
+        optional("LogType") => list(any()),
         required("ResourceArn") => String.t()
       }
       

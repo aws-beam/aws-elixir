@@ -204,7 +204,7 @@ defmodule AWS.Client do
   * `retry_opts` - the options to configure retries in case of errors. This uses exponential backoff with jitter.
     * `:max_retries` - the maximum number of retries (plus the initial request). Defaults to `10`.
     * `:base_sleep_time` - the base sleep time in milliseconds. Defaults to `5`.
-    * `:cap_sleep_time`  - the maximum sleep time between atttempts. Defaults to `5_000`.
+    * `:cap_sleep_time`  - the maximum sleep time between attempts. Defaults to `5_000`.
 
   See "FullJitter" at: https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/
 

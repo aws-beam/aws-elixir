@@ -163,7 +163,7 @@ $ mix test
 
 ## Release
 
-* Make sure the `CHANGELOG.md` is up-to-date and and reflects the changes for
+* Make sure the `CHANGELOG.md` is up-to-date and reflects the changes for
   the new version.
 * Bump the version here in the `README.md` and in `mix.exs`.
 * Run `git tag v$VERSION` to tag the version that was just published.

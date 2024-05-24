@@ -412,6 +412,7 @@ defmodule AWS.EMRServerless do
         "createdAt" => non_neg_integer(),
         "imageConfiguration" => image_configuration(),
         "initialCapacity" => map(),
+        "interactiveConfiguration" => interactive_configuration(),
         "maximumCapacity" => maximum_allowed_resources(),
         "monitoringConfiguration" => monitoring_configuration(),
         "name" => String.t(),
@@ -450,6 +451,7 @@ defmodule AWS.EMRServerless do
         optional("autoStopConfiguration") => auto_stop_config(),
         optional("imageConfiguration") => image_configuration_input(),
         optional("initialCapacity") => map(),
+        optional("interactiveConfiguration") => interactive_configuration(),
         optional("maximumCapacity") => maximum_allowed_resources(),
         optional("monitoringConfiguration") => monitoring_configuration(),
         optional("name") => String.t(),
@@ -477,6 +479,18 @@ defmodule AWS.EMRServerless do
 
   """
   @type create_application_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      interactive_configuration() :: %{
+        "livyEndpointEnabled" => [boolean()],
+        "studioEnabled" => [boolean()]
+      }
+
+  """
+  @type interactive_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -530,6 +544,7 @@ defmodule AWS.EMRServerless do
         optional("autoStopConfiguration") => auto_stop_config(),
         optional("imageConfiguration") => image_configuration_input(),
         optional("initialCapacity") => map(),
+        optional("interactiveConfiguration") => interactive_configuration(),
         optional("maximumCapacity") => maximum_allowed_resources(),
         optional("monitoringConfiguration") => monitoring_configuration(),
         optional("networkConfiguration") => network_configuration(),

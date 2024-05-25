@@ -261,6 +261,8 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       list_vehicles_request() :: %{
+        optional("attributeNames") => list(String.t()()),
+        optional("attributeValues") => list(String.t()()),
         optional("maxResults") => integer(),
         optional("modelManifestArn") => String.t(),
         optional("nextToken") => String.t()

@@ -16007,6 +16007,7 @@ defmodule AWS.EC2 do
       
       create_customer_gateway_request() :: %{
         optional("BgpAsn") => integer(),
+        optional("BgpAsnExtended") => float(),
         optional("CertificateArn") => String.t(),
         optional("DeviceName") => String.t(),
         optional("DryRun") => boolean(),
@@ -24121,6 +24122,7 @@ defmodule AWS.EC2 do
       
       customer_gateway() :: %{
         "BgpAsn" => String.t(),
+        "BgpAsnExtended" => String.t(),
         "CertificateArn" => String.t(),
         "CustomerGatewayId" => String.t(),
         "DeviceName" => String.t(),

@@ -853,6 +853,7 @@ defmodule AWS.Kafka do
       node_info() :: %{
         "AddedToClusterTime" => String.t(),
         "BrokerNodeInfo" => broker_node_info(),
+        "ControllerNodeInfo" => controller_node_info(),
         "InstanceType" => String.t(),
         "NodeARN" => String.t(),
         "NodeType" => list(any()),
@@ -1060,6 +1061,17 @@ defmodule AWS.Kafka do
 
   """
   @type broker_node_group_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      controller_node_info() :: %{
+        "Endpoints" => list(String.t()())
+      }
+
+  """
+  @type controller_node_info() :: %{String.t() => any()}
 
   @typedoc """
 

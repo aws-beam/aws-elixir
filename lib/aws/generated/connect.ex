@@ -616,6 +616,20 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      attribute_condition() :: %{
+        "ComparisonOperator" => String.t(),
+        "Name" => String.t(),
+        "ProficiencyLevel" => float(),
+        "Value" => String.t()
+      }
+
+  """
+  @type attribute_condition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       prompt_summary() :: %{
         "Arn" => String.t(),
         "Id" => String.t(),
@@ -1103,6 +1117,19 @@ defmodule AWS.Connect do
 
   """
   @type evaluation_form_version_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      routing_criteria() :: %{
+        "ActivationTimestamp" => non_neg_integer(),
+        "Index" => integer(),
+        "Steps" => list(step()())
+      }
+
+  """
+  @type routing_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1839,6 +1866,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      customer_quality_metrics() :: %{
+        "Audio" => audio_quality_metrics_info()
+      }
+
+  """
+  @type customer_quality_metrics() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       search_routing_profiles_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -1995,6 +2033,17 @@ defmodule AWS.Connect do
 
   """
   @type lex_bot_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_hierarchy_group() :: %{
+        "Arn" => String.t()
+      }
+
+  """
+  @type agent_hierarchy_group() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3045,6 +3094,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      customer() :: %{
+        "Capabilities" => participant_capabilities(),
+        "DeviceInfo" => device_info()
+      }
+
+  """
+  @type customer() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_contact_flow_response() :: %{}
 
   """
@@ -3485,7 +3546,10 @@ defmodule AWS.Connect do
 
       agent_info() :: %{
         "AgentPauseDurationInSeconds" => integer(),
+        "Capabilities" => participant_capabilities(),
         "ConnectedToAgentTimestamp" => non_neg_integer(),
+        "DeviceInfo" => device_info(),
+        "HierarchyGroups" => hierarchy_groups(),
         "Id" => String.t()
       }
 
@@ -4356,6 +4420,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      agent_quality_metrics() :: %{
+        "Audio" => audio_quality_metrics_info()
+      }
+
+  """
+  @type agent_quality_metrics() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_contact_streaming_response() :: %{
         "StreamingId" => String.t()
       }
@@ -4888,6 +4963,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      device_info() :: %{
+        "OperatingSystem" => String.t(),
+        "PlatformName" => String.t(),
+        "PlatformVersion" => String.t()
+      }
+
+  """
+  @type device_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       hierarchy_path() :: %{
         "LevelFive" => hierarchy_group_summary(),
         "LevelFour" => hierarchy_group_summary(),
@@ -5083,9 +5171,15 @@ defmodule AWS.Connect do
 
       contact() :: %{
         "AgentInfo" => agent_info(),
+        "AnsweringMachineDetectionStatus" => list(any()),
         "Arn" => String.t(),
+        "Campaign" => campaign(),
         "Channel" => list(any()),
+        "ConnectedToSystemTimestamp" => non_neg_integer(),
+        "Customer" => customer(),
+        "CustomerVoiceActivity" => customer_voice_activity(),
         "Description" => String.t(),
+        "DisconnectDetails" => disconnect_details(),
         "DisconnectTimestamp" => non_neg_integer(),
         "Id" => String.t(),
         "InitialContactId" => String.t(),
@@ -5096,11 +5190,14 @@ defmodule AWS.Connect do
         "LastUpdateTimestamp" => non_neg_integer(),
         "Name" => String.t(),
         "PreviousContactId" => String.t(),
+        "QualityMetrics" => quality_metrics(),
         "QueueInfo" => queue_info(),
         "QueuePriority" => float(),
         "QueueTimeAdjustmentSeconds" => integer(),
         "RelatedContactId" => String.t(),
+        "RoutingCriteria" => routing_criteria(),
         "ScheduledTimestamp" => non_neg_integer(),
+        "SegmentAttributes" => map(),
         "Tags" => map(),
         "TotalPauseCount" => integer(),
         "TotalPauseDurationInSeconds" => integer(),
@@ -5732,6 +5829,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      quality_metrics() :: %{
+        "Agent" => agent_quality_metrics(),
+        "Customer" => customer_quality_metrics()
+      }
+
+  """
+  @type quality_metrics() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_user_hierarchy_structure_request() :: %{
         required("HierarchyStructure") => hierarchy_structure_update()
       }
@@ -5826,6 +5935,18 @@ defmodule AWS.Connect do
 
   """
   @type associate_traffic_distribution_group_user_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      customer_voice_activity() :: %{
+        "GreetingEndTimestamp" => non_neg_integer(),
+        "GreetingStartTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type customer_voice_activity() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6071,6 +6192,21 @@ defmodule AWS.Connect do
 
   """
   @type new_session_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hierarchy_groups() :: %{
+        "Level1" => agent_hierarchy_group(),
+        "Level2" => agent_hierarchy_group(),
+        "Level3" => agent_hierarchy_group(),
+        "Level4" => agent_hierarchy_group(),
+        "Level5" => agent_hierarchy_group()
+      }
+
+  """
+  @type hierarchy_groups() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6353,6 +6489,18 @@ defmodule AWS.Connect do
 
   """
   @type describe_user_hierarchy_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_quality_metrics_info() :: %{
+        "PotentialQualityIssues" => list(String.t()()),
+        "QualityScore" => float()
+      }
+
+  """
+  @type audio_quality_metrics_info() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -7048,6 +7196,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      expression() :: %{
+        "AndExpression" => list(expression()()),
+        "AttributeCondition" => attribute_condition(),
+        "OrExpression" => list(expression()())
+      }
+
+  """
+  @type expression() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       contact_search_summary() :: %{
         "AgentInfo" => contact_search_summary_agent_info(),
         "Arn" => String.t(),
@@ -7568,6 +7729,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      disconnect_details() :: %{
+        "PotentialDisconnectIssue" => String.t()
+      }
+
+  """
+  @type disconnect_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       agent_status_summary() :: %{
         "Arn" => String.t(),
         "Id" => String.t(),
@@ -7972,6 +8144,19 @@ defmodule AWS.Connect do
 
   """
   @type batch_associate_analytics_data_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      step() :: %{
+        "Expiry" => expiry(),
+        "Expression" => expression(),
+        "Status" => list(any())
+      }
+
+  """
+  @type step() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -8843,6 +9028,18 @@ defmodule AWS.Connect do
 
   """
   @type real_time_contact_analysis_segment_attachments() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      expiry() :: %{
+        "DurationInSeconds" => integer(),
+        "ExpiryTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type expiry() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -11609,22 +11806,23 @@ defmodule AWS.Connect do
   [ClaimPhoneNumber](https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html)
   operation.
 
-  If you plan to claim and release numbers frequently during a 30 day period,
+  If you plan to claim and release numbers frequently,
   contact us for a service quota exception. Otherwise, it is possible you will be
   blocked from
-  claiming and releasing any more numbers until 30 days past the oldest number
+  claiming and releasing any more numbers until up to 180 days past the oldest
+  number
   released has expired.
 
   By default you can claim and release up to 200% of your maximum number of active
-  phone numbers during any 30 day period. If you claim and release phone numbers
-  using
-  the UI or API during a rolling 30 day cycle that exceeds 200% of your phone
+  phone numbers. If you claim and release phone numbers using
+  the UI or API during a rolling 180 day cycle that exceeds 200% of your phone
   number
-  service level quota, you will be blocked from claiming any more numbers until 30
+  service level quota, you will be blocked from claiming any more numbers until
+  180
   days past the oldest number released has expired.
 
   For example, if you already have 99 claimed numbers and a service level quota of
-  99 phone numbers, and in any 30
+  99 phone numbers, and in any 180
   day period you release 99, claim 99, and then release 99, you will have exceeded
   the
   200% limit. At that point you are blocked from claiming any more numbers until
@@ -16979,27 +17177,28 @@ defmodule AWS.Connect do
   Amazon Connect admin website.
 
   After releasing a phone number, the phone number enters into a cooldown period
-  of 30 days.
-  It cannot be searched for or claimed again until the period has ended. If you
-  accidentally
-  release a phone number, contact Amazon Web Services Support.
+  for up to
+  180 days. It cannot be searched for or claimed again until the period has ended.
+  If you
+  accidentally release a phone number, contact Amazon Web Services Support.
 
-  If you plan to claim and release numbers frequently during a 30 day period,
+  If you plan to claim and release numbers frequently,
   contact us for a service quota exception. Otherwise, it is possible you will be
   blocked from
-  claiming and releasing any more numbers until 30 days past the oldest number
+  claiming and releasing any more numbers until up to 180 days past the oldest
+  number
   released has expired.
 
   By default you can claim and release up to 200% of your maximum number of active
-  phone numbers during any 30 day period. If you claim and release phone numbers
-  using
-  the UI or API during a rolling 30 day cycle that exceeds 200% of your phone
+  phone numbers. If you claim and release phone numbers using
+  the UI or API during a rolling 180 day cycle that exceeds 200% of your phone
   number
-  service level quota, you will be blocked from claiming any more numbers until 30
+  service level quota, you will be blocked from claiming any more numbers until
+  180
   days past the oldest number released has expired.
 
   For example, if you already have 99 claimed numbers and a service level quota of
-  99 phone numbers, and in any 30
+  99 phone numbers, and in any 180
   day period you release 99, claim 99, and then release 99, you will have exceeded
   the
   200% limit. At that point you are blocked from claiming any more numbers until
@@ -17911,6 +18110,12 @@ defmodule AWS.Connect do
     *
   QUEUE_TRANSFER
 
+    *
+  EXTERNAL_OUTBOUND
+
+    *
+  MONITOR
+
   Chat and task contacts can be terminated in any state, regardless of initiation
   method.
   """
@@ -18685,10 +18890,9 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Updates routing priority and age on the contact (**QueuePriority** and
   **QueueTimeAdjustmentInSeconds**).
+
   These properties can be used to change a customer's position in the queue. For
   example, you can
   move a contact to the back of the queue by setting a lower routing priority
@@ -18702,6 +18906,10 @@ defmodule AWS.Connect do
   its position in queue, and not its actual queue wait time as reported through
   metrics. These
   properties can also be updated by using [the Set routing priority / age flow block](https://docs.aws.amazon.com/connect/latest/adminguide/change-routing-priority.html).
+
+  Either **QueuePriority** or **QueueTimeAdjustmentInSeconds** should be provided
+  within the request body, but not
+  both.
   """
   @spec update_contact_routing_data(
           map(),

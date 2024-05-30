@@ -1333,6 +1333,7 @@ defmodule AWS.CodeBuild do
         optional("branchFilter") => String.t(),
         optional("buildType") => list(any()),
         optional("filterGroups") => list(list(webhook_filter()())()),
+        optional("manualCreation") => boolean(),
         required("projectName") => String.t()
       }
       
@@ -2093,6 +2094,7 @@ defmodule AWS.CodeBuild do
         "buildType" => list(any()),
         "filterGroups" => list(list(webhook_filter()())()),
         "lastModifiedSecret" => non_neg_integer(),
+        "manualCreation" => boolean(),
         "payloadUrl" => String.t(),
         "secret" => String.t(),
         "url" => String.t()

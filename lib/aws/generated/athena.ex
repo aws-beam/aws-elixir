@@ -3323,11 +3323,16 @@ defmodule AWS.Athena do
   query if
   you have access to the workgroup in which the query ran.
 
-  Query execution runtime
-  statistics are returned only when `QueryExecutionStatus$State` is in a
-  SUCCEEDED or FAILED state. Stage-level input and output row count and data size
-  statistics are not shown when a query has row-level filters defined in Lake
-  Formation.
+  Statistics from the
+  `Timeline` section of the response object are available as soon as
+  `QueryExecutionStatus$State` is in a SUCCEEDED or FAILED state. The
+  remaining non-timeline statistics in the response (like stage-level input and
+  output row
+  count and data size) are updated asynchronously and may not be available
+  immediately
+  after a query completes. The non-timeline statistics are also not included when
+  a query
+  has row-level filters defined in Lake Formation.
   """
   @spec get_query_runtime_statistics(map(), get_query_runtime_statistics_input(), list()) ::
           {:ok, get_query_runtime_statistics_output(), any()}
@@ -3398,11 +3403,10 @@ defmodule AWS.Athena do
 
   To import the
   notebook, the request must specify a value for either `Payload` or
-  `NoteBookS3LocationUri`. If neither is specified or both are specified, an
-  `InvalidRequestException` occurs. The maximum file size that can be imported is
-  10
-  megabytes. If an `ipynb` file with the same name already exists in the
-  workgroup, throws an error.
+  `NoteBookS3LocationUri`. If neither is specified or both are specified,
+  an `InvalidRequestException` occurs. The maximum file size that can be
+  imported is 10 megabytes. If an `ipynb` file with the same name already
+  exists in the workgroup, throws an error.
   """
   @spec import_notebook(map(), import_notebook_input(), list()) ::
           {:ok, import_notebook_output(), any()}

@@ -366,6 +366,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       time_series_forecasting_job_config() :: %{
+        "CandidateGenerationConfig" => candidate_generation_config(),
         "CompletionCriteria" => auto_ml_job_completion_criteria(),
         "FeatureSpecificationS3Uri" => String.t(),
         "ForecastFrequency" => String.t(),
@@ -5369,6 +5370,7 @@ defmodule AWS.SageMaker do
         "LastModifiedTime" => non_neg_integer(),
         "MetadataProperties" => metadata_properties(),
         "ModelApprovalStatus" => list(any()),
+        "ModelCard" => model_package_model_card(),
         "ModelMetrics" => model_metrics(),
         "ModelPackageArn" => String.t(),
         "ModelPackageDescription" => String.t(),
@@ -5378,6 +5380,7 @@ defmodule AWS.SageMaker do
         "ModelPackageStatusDetails" => model_package_status_details(),
         "ModelPackageVersion" => integer(),
         "SamplePayloadUrl" => String.t(),
+        "SecurityConfig" => model_package_security_config(),
         "SkipModelValidation" => list(any()),
         "SourceAlgorithmSpecification" => source_algorithm_specification(),
         "SourceUri" => String.t(),
@@ -8298,6 +8301,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      model_package_model_card() :: %{
+        "ModelCardContent" => String.t(),
+        "ModelCardStatus" => list(any())
+      }
+      
+  """
+  @type model_package_model_card() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       remote_debug_config_for_update() :: %{
         "EnableRemoteDebug" => boolean()
       }
@@ -9277,6 +9292,7 @@ defmodule AWS.SageMaker do
         optional("CustomerMetadataPropertiesToRemove") => list(String.t()()),
         optional("InferenceSpecification") => inference_specification(),
         optional("ModelApprovalStatus") => list(any()),
+        optional("ModelCard") => model_package_model_card(),
         optional("SourceUri") => String.t(),
         required("ModelPackageArn") => String.t()
       }
@@ -9765,11 +9781,13 @@ defmodule AWS.SageMaker do
         optional("InferenceSpecification") => inference_specification(),
         optional("MetadataProperties") => metadata_properties(),
         optional("ModelApprovalStatus") => list(any()),
+        optional("ModelCard") => model_package_model_card(),
         optional("ModelMetrics") => model_metrics(),
         optional("ModelPackageDescription") => String.t(),
         optional("ModelPackageGroupName") => String.t(),
         optional("ModelPackageName") => String.t(),
         optional("SamplePayloadUrl") => String.t(),
+        optional("SecurityConfig") => model_package_security_config(),
         optional("SkipModelValidation") => list(any()),
         optional("SourceAlgorithmSpecification") => source_algorithm_specification(),
         optional("SourceUri") => String.t(),
@@ -11817,6 +11835,17 @@ defmodule AWS.SageMaker do
       
   """
   @type model_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      model_package_security_config() :: %{
+        "KmsKeyId" => String.t()
+      }
+      
+  """
+  @type model_package_security_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -15439,6 +15468,7 @@ defmodule AWS.SageMaker do
         "LastModifiedTime" => non_neg_integer(),
         "MetadataProperties" => metadata_properties(),
         "ModelApprovalStatus" => list(any()),
+        "ModelCard" => model_package_model_card(),
         "ModelMetrics" => model_metrics(),
         "ModelPackageArn" => String.t(),
         "ModelPackageDescription" => String.t(),
@@ -15448,6 +15478,7 @@ defmodule AWS.SageMaker do
         "ModelPackageStatusDetails" => model_package_status_details(),
         "ModelPackageVersion" => integer(),
         "SamplePayloadUrl" => String.t(),
+        "SecurityConfig" => model_package_security_config(),
         "SkipModelValidation" => list(any()),
         "SourceAlgorithmSpecification" => source_algorithm_specification(),
         "SourceUri" => String.t(),
@@ -19986,6 +20017,10 @@ defmodule AWS.SageMaker do
   Returns a description of the specified model package, which is used to create
   SageMaker
   models or list them on Amazon Web Services Marketplace.
+
+  If you provided a KMS Key ID when you created your model package,
+  you will see the [KMS Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html)
+  API call in your CloudTrail logs when you use this API.
 
   To create models in SageMaker, buyers can subscribe to model packages listed on
   Amazon Web Services

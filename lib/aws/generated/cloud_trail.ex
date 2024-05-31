@@ -40,6 +40,18 @@ defmodule AWS.CloudTrail do
 
   ## Example:
       
+      partition_key() :: %{
+        "Name" => String.t(),
+        "Type" => String.t()
+      }
+      
+  """
+  @type partition_key() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_trail_request() :: %{
         required("Name") => String.t()
       }
@@ -1356,6 +1368,7 @@ defmodule AWS.CloudTrail do
         "MultiRegionEnabled" => boolean(),
         "Name" => String.t(),
         "OrganizationEnabled" => boolean(),
+        "PartitionKeys" => list(partition_key()()),
         "RetentionPeriod" => integer(),
         "Status" => list(any()),
         "TerminationProtectionEnabled" => boolean(),
@@ -3930,8 +3943,7 @@ defmodule AWS.CloudTrail do
   your trail. If you want your trail to log Insights events, be sure the event
   selector
   enables logging of the Insights event types you want configured for your trail.
-  For more information about logging Insights events, see [Logging Insights events for
-  trails](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html)
+  For more information about logging Insights events, see [Logging Insights events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html)
   in the *CloudTrail User Guide*.
   By default, trails created without specific event selectors are configured to
   log all read and write management events, and no data events.
@@ -4144,13 +4156,14 @@ defmodule AWS.CloudTrail do
   services. If you want to import CloudTrail events contained in another prefix,
   you
   must include the prefix in the `S3LocationUri`. For more considerations about
-  importing trail events, see
-  [Considerations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-copy-trail-to-lake.html#cloudtrail-trail-copy-considerations).   When you start a new import, the `Destinations` and
+  importing trail events, see [Considerations for copying trail events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-copy-trail-to-lake.html#cloudtrail-trail-copy-considerations)
+  in the *CloudTrail User Guide*.
+
+  When you start a new import, the `Destinations` and
   `ImportSource` parameters are required. Before starting a new import, disable
   any access control lists (ACLs) attached to the source S3 bucket. For more
   information
-  about disabling ACLs, see [Controlling ownership of
-  objects and disabling ACLs for your
+  about disabling ACLs, see [Controlling ownership of objects and disabling ACLs for your
   bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html).
 
   When you retry an import, the `ImportID` parameter is required.

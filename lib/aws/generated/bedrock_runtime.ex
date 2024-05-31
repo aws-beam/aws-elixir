@@ -13,23 +13,164 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
-      access_denied_exception() :: %{
-        "message" => String.t()
+      specific_tool_choice() :: %{
+        "name" => String.t()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type specific_tool_choice() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
 
-      internal_server_exception() :: %{
+      model_not_ready_exception() :: %{
         "message" => String.t()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type model_not_ready_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      content_block_stop_event() :: %{
+        "contentBlockIndex" => integer()
+      }
+
+  """
+  @type content_block_stop_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      any_tool_choice() :: %{}
+
+  """
+  @type any_tool_choice() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      inference_configuration() :: %{
+        "maxTokens" => [integer()],
+        "stopSequences" => list(String.t()()),
+        "temperature" => [float()],
+        "topP" => [float()]
+      }
+
+  """
+  @type inference_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auto_tool_choice() :: %{}
+
+  """
+  @type auto_tool_choice() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      converse_request() :: %{
+        optional("additionalModelRequestFields") => [any()],
+        optional("additionalModelResponseFieldPaths") => list([String.t()]()),
+        optional("inferenceConfig") => inference_configuration(),
+        optional("system") => list(list()()),
+        optional("toolConfig") => tool_configuration(),
+        required("messages") => list(message()())
+      }
+
+  """
+  @type converse_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      payload_part() :: %{
+        "bytes" => binary()
+      }
+
+  """
+  @type payload_part() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_stop_event() :: %{
+        "additionalModelResponseFields" => [any()],
+        "stopReason" => list(any())
+      }
+
+  """
+  @type message_stop_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_model_with_response_stream_response() :: %{
+        "body" => list(),
+        "contentType" => String.t()
+      }
+
+  """
+  @type invoke_model_with_response_stream_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_block() :: %{
+        "format" => list(any()),
+        "source" => list()
+      }
+
+  """
+  @type image_block() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      content_block_start_event() :: %{
+        "contentBlockIndex" => integer(),
+        "start" => list()
+      }
+
+  """
+  @type content_block_start_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      content_block_delta_event() :: %{
+        "contentBlockIndex" => integer(),
+        "delta" => list()
+      }
+
+  """
+  @type content_block_delta_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_start_event() :: %{
+        "role" => list(any())
+      }
+
+  """
+  @type message_start_event() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -51,13 +192,12 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
-      invoke_model_response() :: %{
-        "body" => binary(),
-        "contentType" => String.t()
+      resource_not_found_exception() :: %{
+        "message" => String.t()
       }
 
   """
-  @type invoke_model_response() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -79,13 +219,105 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
-      invoke_model_with_response_stream_response() :: %{
-        "body" => list(),
+      converse_stream_metrics() :: %{
+        "latencyMs" => [float()]
+      }
+
+  """
+  @type converse_stream_metrics() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tool_use_block_start() :: %{
+        "name" => String.t(),
+        "toolUseId" => String.t()
+      }
+
+  """
+  @type tool_use_block_start() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_model_response() :: %{
+        "body" => binary(),
         "contentType" => String.t()
       }
 
   """
-  @type invoke_model_with_response_stream_response() :: %{String.t() => any()}
+  @type invoke_model_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tool_specification() :: %{
+        "description" => String.t(),
+        "inputSchema" => list(),
+        "name" => String.t()
+      }
+
+  """
+  @type tool_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      converse_stream_response() :: %{
+        "stream" => list()
+      }
+
+  """
+  @type converse_stream_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      converse_stream_metadata_event() :: %{
+        "metrics" => converse_stream_metrics(),
+        "usage" => token_usage()
+      }
+
+  """
+  @type converse_stream_metadata_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      converse_metrics() :: %{
+        "latencyMs" => [float()]
+      }
+
+  """
+  @type converse_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -104,12 +336,79 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
-      model_not_ready_exception() :: %{
+      tool_configuration() :: %{
+        "toolChoice" => list(),
+        "tools" => list(list()())
+      }
+
+  """
+  @type tool_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      converse_stream_request() :: %{
+        optional("additionalModelRequestFields") => [any()],
+        optional("additionalModelResponseFieldPaths") => list([String.t()]()),
+        optional("inferenceConfig") => inference_configuration(),
+        optional("system") => list(list()()),
+        optional("toolConfig") => tool_configuration(),
+        required("messages") => list(message()())
+      }
+
+  """
+  @type converse_stream_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tool_result_block() :: %{
+        "content" => list(list()()),
+        "status" => list(any()),
+        "toolUseId" => String.t()
+      }
+
+  """
+  @type tool_result_block() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
         "message" => String.t()
       }
 
   """
-  @type model_not_ready_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tool_use_block() :: %{
+        "input" => [any()],
+        "name" => String.t(),
+        "toolUseId" => String.t()
+      }
+
+  """
+  @type tool_use_block() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      token_usage() :: %{
+        "inputTokens" => [integer()],
+        "outputTokens" => [integer()],
+        "totalTokens" => [integer()]
+      }
+
+  """
+  @type token_usage() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -139,34 +438,12 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
-      payload_part() :: %{
-        "bytes" => binary()
-      }
-
-  """
-  @type payload_part() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
+      validation_exception() :: %{
         "message" => String.t()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -183,35 +460,82 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
-      validation_exception() :: %{
-        "message" => String.t()
+      tool_use_block_delta() :: %{
+        "input" => [String.t()]
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type tool_use_block_delta() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message() :: %{
+        "content" => list(list()()),
+        "role" => list(any())
+      }
+
+  """
+  @type message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      converse_response() :: %{
+        "additionalModelResponseFields" => [any()],
+        "metrics" => converse_metrics(),
+        "output" => list(),
+        "stopReason" => list(any()),
+        "usage" => token_usage()
+      }
+
+  """
+  @type converse_response() :: %{String.t() => any()}
+
+  @type converse_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | model_timeout_exception()
+          | access_denied_exception()
+          | model_error_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | model_not_ready_exception()
+
+  @type converse_stream_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | model_timeout_exception()
+          | access_denied_exception()
+          | model_error_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | model_not_ready_exception()
 
   @type invoke_model_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          throttling_exception()
+          | validation_exception()
           | model_timeout_exception()
-          | model_not_ready_exception()
+          | access_denied_exception()
           | model_error_exception()
           | internal_server_exception()
-          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | model_not_ready_exception()
 
   @type invoke_model_with_response_stream_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          throttling_exception()
+          | validation_exception()
           | model_timeout_exception()
           | model_stream_error_exception()
-          | model_not_ready_exception()
+          | access_denied_exception()
           | model_error_exception()
           | internal_server_exception()
-          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | model_not_ready_exception()
 
   def metadata do
     %{
@@ -227,6 +551,90 @@ defmodule AWS.BedrockRuntime do
       signing_name: "bedrock",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Sends messages to the specified Amazon Bedrock model.
+
+  `Converse` provides
+  a consistent interface that works with all models that
+  support messages. This allows you to write code once and use it with different
+  models.
+  Should a model have unique inference parameters, you can also pass those unique
+  parameters
+  to the model. For more information, see [Run inference](https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html)
+  in the Bedrock User Guide.
+
+  This operation requires permission for the `bedrock:InvokeModel` action.
+  """
+  @spec converse(map(), String.t(), converse_request(), list()) ::
+          {:ok, converse_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, converse_errors()}
+  def converse(%Client{} = client, model_id, input, options \\ []) do
+    url_path = "/model/#{AWS.Util.encode_uri(model_id)}/converse"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Sends messages to the specified Amazon Bedrock model and returns
+  the response in a stream.
+
+  `ConverseStream` provides a consistent API
+  that works with all Amazon Bedrock models that support messages.
+  This allows you to write code once and use it with different models. Should a
+  model have unique inference parameters, you can also pass those unique
+  parameters to the
+  model. For more information, see [Run inference](https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html)
+  in the Bedrock User Guide.
+
+  To find out if a model supports streaming, call
+  [GetFoundationModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetFoundationModel.html)
+  and check the `responseStreamingSupported` field in the response.
+
+  For example code, see *Invoke model with streaming code
+  example* in the *Amazon Bedrock User Guide*.
+
+  This operation requires permission for the
+  `bedrock:InvokeModelWithResponseStream` action.
+  """
+  @spec converse_stream(map(), String.t(), converse_stream_request(), list()) ::
+          {:ok, converse_stream_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, converse_stream_errors()}
+  def converse_stream(%Client{} = client, model_id, input, options \\ []) do
+    url_path = "/model/#{AWS.Util.encode_uri(model_id)}/converse-stream"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

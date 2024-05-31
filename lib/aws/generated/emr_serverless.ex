@@ -95,10 +95,12 @@ defmodule AWS.EMRServerless do
 
   ## Example:
 
-      get_job_run_request() :: %{}
+      get_job_run_request() :: %{
+        optional("attempt") => integer()
+      }
 
   """
-  @type get_job_run_request() :: %{}
+  @type get_job_run_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -112,6 +114,30 @@ defmodule AWS.EMRServerless do
 
   """
   @type resource_utilization() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_job_run_attempts_response() :: %{
+        "jobRunAttempts" => list(job_run_attempt_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_job_run_attempts_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_job_run_attempts_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_job_run_attempts_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -132,6 +158,9 @@ defmodule AWS.EMRServerless do
       job_run() :: %{
         "applicationId" => String.t(),
         "arn" => String.t(),
+        "attempt" => integer(),
+        "attemptCreatedAt" => non_neg_integer(),
+        "attemptUpdatedAt" => non_neg_integer(),
         "billedResourceUtilization" => resource_utilization(),
         "configurationOverrides" => configuration_overrides(),
         "createdAt" => non_neg_integer(),
@@ -140,9 +169,11 @@ defmodule AWS.EMRServerless do
         "executionTimeoutMinutes" => float(),
         "jobDriver" => list(),
         "jobRunId" => String.t(),
+        "mode" => String.t(),
         "name" => String.t(),
         "networkConfiguration" => network_configuration(),
         "releaseLabel" => String.t(),
+        "retryPolicy" => retry_policy(),
         "state" => String.t(),
         "stateDetails" => String.t(),
         "tags" => map(),
@@ -170,10 +201,14 @@ defmodule AWS.EMRServerless do
       job_run_summary() :: %{
         "applicationId" => String.t(),
         "arn" => String.t(),
+        "attempt" => integer(),
+        "attemptCreatedAt" => non_neg_integer(),
+        "attemptUpdatedAt" => non_neg_integer(),
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
         "executionRole" => String.t(),
         "id" => String.t(),
+        "mode" => String.t(),
         "name" => String.t(),
         "releaseLabel" => String.t(),
         "state" => String.t(),
@@ -193,6 +228,7 @@ defmodule AWS.EMRServerless do
         optional("createdAtAfter") => non_neg_integer(),
         optional("createdAtBefore") => non_neg_integer(),
         optional("maxResults") => [integer()],
+        optional("mode") => String.t(),
         optional("nextToken") => String.t(),
         optional("states") => list(String.t()())
       }
@@ -225,6 +261,31 @@ defmodule AWS.EMRServerless do
 
   """
   @type configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_run_attempt_summary() :: %{
+        "applicationId" => String.t(),
+        "arn" => String.t(),
+        "attempt" => integer(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
+        "executionRole" => String.t(),
+        "id" => String.t(),
+        "jobCreatedAt" => non_neg_integer(),
+        "mode" => String.t(),
+        "name" => String.t(),
+        "releaseLabel" => String.t(),
+        "state" => String.t(),
+        "stateDetails" => String.t(),
+        "type" => String.t(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type job_run_attempt_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -596,7 +657,9 @@ defmodule AWS.EMRServerless do
         optional("configurationOverrides") => configuration_overrides(),
         optional("executionTimeoutMinutes") => float(),
         optional("jobDriver") => list(),
+        optional("mode") => String.t(),
         optional("name") => String.t(),
+        optional("retryPolicy") => retry_policy(),
         optional("tags") => map(),
         required("clientToken") => String.t(),
         required("executionRoleArn") => String.t()
@@ -663,10 +726,12 @@ defmodule AWS.EMRServerless do
 
   ## Example:
 
-      get_dashboard_for_job_run_request() :: %{}
+      get_dashboard_for_job_run_request() :: %{
+        optional("attempt") => integer()
+      }
 
   """
-  @type get_dashboard_for_job_run_request() :: %{}
+  @type get_dashboard_for_job_run_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -797,6 +862,18 @@ defmodule AWS.EMRServerless do
 
   ## Example:
 
+      retry_policy() :: %{
+        "maxAttempts" => integer(),
+        "maxFailedAttemptsPerHour" => [integer()]
+      }
+
+  """
+  @type retry_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_application_request() :: %{}
 
   """
@@ -833,6 +910,9 @@ defmodule AWS.EMRServerless do
           validation_exception() | internal_server_exception() | resource_not_found_exception()
 
   @type list_applications_errors() :: validation_exception() | internal_server_exception()
+
+  @type list_job_run_attempts_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
 
   @type list_job_runs_errors() :: validation_exception() | internal_server_exception()
 
@@ -997,16 +1077,29 @@ defmodule AWS.EMRServerless do
   UI
   after that hour elapses, you must invoke the API again to generate a new URL.
   """
-  @spec get_dashboard_for_job_run(map(), String.t(), String.t(), list()) ::
+  @spec get_dashboard_for_job_run(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_dashboard_for_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dashboard_for_job_run_errors()}
-  def get_dashboard_for_job_run(%Client{} = client, application_id, job_run_id, options \\ []) do
+  def get_dashboard_for_job_run(
+        %Client{} = client,
+        application_id,
+        job_run_id,
+        attempt \\ nil,
+        options \\ []
+      ) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns/#{AWS.Util.encode_uri(job_run_id)}/dashboard"
 
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(attempt) do
+        [{"attempt", attempt} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -1016,16 +1109,23 @@ defmodule AWS.EMRServerless do
   @doc """
   Displays detailed information about a job run.
   """
-  @spec get_job_run(map(), String.t(), String.t(), list()) ::
+  @spec get_job_run(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_run_errors()}
-  def get_job_run(%Client{} = client, application_id, job_run_id, options \\ []) do
+  def get_job_run(%Client{} = client, application_id, job_run_id, attempt \\ nil, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns/#{AWS.Util.encode_uri(job_run_id)}"
 
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(attempt) do
+        [{"attempt", attempt} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -1077,11 +1177,59 @@ defmodule AWS.EMRServerless do
   end
 
   @doc """
+  Lists all attempt of a job run.
+  """
+  @spec list_job_run_attempts(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_job_run_attempts_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_job_run_attempts_errors()}
+  def list_job_run_attempts(
+        %Client{} = client,
+        application_id,
+        job_run_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns/#{AWS.Util.encode_uri(job_run_id)}/attempts"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists job runs based on a set of parameters.
   """
   @spec list_job_runs(
           map(),
           String.t(),
+          String.t() | nil,
           String.t() | nil,
           String.t() | nil,
           String.t() | nil,
@@ -1098,6 +1246,7 @@ defmodule AWS.EMRServerless do
         created_at_after \\ nil,
         created_at_before \\ nil,
         max_results \\ nil,
+        mode \\ nil,
         next_token \\ nil,
         states \\ nil,
         options \\ []
@@ -1116,6 +1265,13 @@ defmodule AWS.EMRServerless do
     query_params =
       if !is_nil(next_token) do
         [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(mode) do
+        [{"mode", mode} | query_params]
       else
         query_params
       end

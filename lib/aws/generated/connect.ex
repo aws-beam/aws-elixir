@@ -8255,6 +8255,7 @@ defmodule AWS.Connect do
 
       routing_profile() :: %{
         "AgentAvailabilityTimer" => list(any()),
+        "AssociatedQueueIds" => list(String.t()()),
         "DefaultOutboundQueueId" => String.t(),
         "Description" => String.t(),
         "InstanceId" => String.t(),

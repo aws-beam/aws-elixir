@@ -8979,8 +8979,9 @@ defmodule AWS.RDS do
   associated with Amazon RDS resources, or used in a Condition statement in an IAM
   policy for Amazon RDS.
 
-  For an overview on tagging Amazon RDS resources,
-  see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html).
+  For an overview on tagging your relational database resources,
+  see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html)
+  or [Tagging Amazon Aurora and Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html).
   """
   @spec add_tags_to_resource(map(), add_tags_to_resource_message(), list()) ::
           {:ok, nil, any()}

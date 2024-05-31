@@ -737,6 +737,17 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      embedding_model_configuration() :: %{
+        "bedrockEmbeddingModelConfiguration" => bedrock_embedding_model_configuration()
+      }
+
+  """
+  @type embedding_model_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_ingestion_job_response() :: %{
         "ingestionJob" => ingestion_job()
       }
@@ -1652,7 +1663,8 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       vector_knowledge_base_configuration() :: %{
-        "embeddingModelArn" => String.t()
+        "embeddingModelArn" => String.t(),
+        "embeddingModelConfiguration" => embedding_model_configuration()
       }
 
   """
@@ -1707,6 +1719,17 @@ defmodule AWS.BedrockAgent do
 
   """
   @type get_agent_alias_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      bedrock_embedding_model_configuration() :: %{
+        "dimensions" => integer()
+      }
+
+  """
+  @type bedrock_embedding_model_configuration() :: %{String.t() => any()}
 
   @typedoc """
 

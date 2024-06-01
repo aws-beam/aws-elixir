@@ -4,8 +4,7 @@
 defmodule AWS.CodeGuruSecurity do
   @moduledoc """
 
-  Amazon CodeGuru Security is in preview release and is subject to
-  change.
+  Amazon CodeGuru Security is in preview release and is subject to change.
 
   This section provides documentation for the Amazon CodeGuru Security API
   operations.
@@ -133,6 +132,7 @@ defmodule AWS.CodeGuruSecurity do
       get_scan_response() :: %{
         "analysisType" => list(any()),
         "createdAt" => [non_neg_integer()],
+        "errorMessage" => String.t(),
         "numberOfRevisions" => [float()],
         "runId" => String.t(),
         "scanName" => String.t(),
@@ -706,6 +706,7 @@ defmodule AWS.CodeGuruSecurity do
 
   @type get_scan_errors() ::
           throttling_exception()
+          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
@@ -770,7 +771,7 @@ defmodule AWS.CodeGuruSecurity do
   end
 
   @doc """
-  Returns a list of all requested findings.
+  Returns a list of requested findings from standard scans.
   """
   @spec batch_get_findings(map(), batch_get_findings_request(), list()) ::
           {:ok, batch_get_findings_response(), any()}
@@ -797,7 +798,7 @@ defmodule AWS.CodeGuruSecurity do
   end
 
   @doc """
-  Use to create a scan using code uploaded to an S3 bucket.
+  Use to create a scan using code uploaded to an Amazon S3 bucket.
   """
   @spec create_scan(map(), create_scan_request(), list()) ::
           {:ok, create_scan_response(), any()}
@@ -824,10 +825,12 @@ defmodule AWS.CodeGuruSecurity do
   end
 
   @doc """
-  Generates a pre-signed URL and request headers used to upload a code resource.
+  Generates a pre-signed URL, request headers used to upload a code resource, and
+  code
+  artifact identifier for the uploaded resource.
 
-  You can upload your code resource to the URL and add the request headers using
-  any HTTP
+  You can upload your code resource to the URL with the request headers using any
+  HTTP
   client.
   """
   @spec create_upload_url(map(), create_upload_url_request(), list()) ::
@@ -855,7 +858,7 @@ defmodule AWS.CodeGuruSecurity do
   end
 
   @doc """
-  Use to get account level configuration.
+  Use to get the encryption configuration for an account.
   """
   @spec get_account_configuration(map(), list()) ::
           {:ok, get_account_configuration_response(), any()}
@@ -924,7 +927,7 @@ defmodule AWS.CodeGuruSecurity do
   end
 
   @doc """
-  Returns top level metrics about an account from a specified date, including
+  Returns a summary of metrics for an account from a specified date, including
   number of open
   findings, the categories with most findings, the scans with most open findings,
   and scans with
@@ -1035,9 +1038,9 @@ defmodule AWS.CodeGuruSecurity do
   end
 
   @doc """
-  Returns a list of all the standard scans in an account.
+  Returns a list of all scans in an account.
 
-  Does not return express
+  Does not return `EXPRESS`
   scans.
   """
   @spec list_scans(map(), String.t() | nil, String.t() | nil, list()) ::
@@ -1145,7 +1148,7 @@ defmodule AWS.CodeGuruSecurity do
   end
 
   @doc """
-  Use to update account-level configuration with an encryption key.
+  Use to update the encryption configuration for an account.
   """
   @spec update_account_configuration(map(), update_account_configuration_request(), list()) ::
           {:ok, update_account_configuration_response(), any()}

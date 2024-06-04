@@ -242,6 +242,17 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      get_job_queue_snapshot_request() :: %{
+        required("jobQueue") => String.t()
+      }
+
+  """
+  @type get_job_queue_snapshot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       job_timeout() :: %{
         "attemptDurationSeconds" => integer()
       }
@@ -1024,6 +1035,18 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      front_of_queue_job_summary() :: %{
+        "earliestTimeAtPosition" => float(),
+        "jobArn" => String.t()
+      }
+
+  """
+  @type front_of_queue_job_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       container_summary() :: %{
         "exitCode" => integer(),
         "reason" => String.t()
@@ -1082,6 +1105,17 @@ defmodule AWS.Batch do
 
   """
   @type eks_secret() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_job_queue_snapshot_response() :: %{
+        "frontOfQueue" => front_of_queue_detail()
+      }
+
+  """
+  @type get_job_queue_snapshot_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1201,6 +1235,18 @@ defmodule AWS.Batch do
 
   """
   @type container_overrides() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      front_of_queue_detail() :: %{
+        "jobs" => list(front_of_queue_job_summary()()),
+        "lastUpdatedAt" => float()
+      }
+
+  """
+  @type front_of_queue_detail() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2019,6 +2065,8 @@ defmodule AWS.Batch do
 
   @type describe_scheduling_policies_errors() :: server_exception() | client_exception()
 
+  @type get_job_queue_snapshot_errors() :: server_exception() | client_exception()
+
   @type list_jobs_errors() :: server_exception() | client_exception()
 
   @type list_scheduling_policies_errors() :: server_exception() | client_exception()
@@ -2577,6 +2625,34 @@ defmodule AWS.Batch do
           | {:error, describe_scheduling_policies_errors()}
   def describe_scheduling_policies(%Client{} = client, input, options \\ []) do
     url_path = "/v1/describeschedulingpolicies"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Provides a list of the first 100 `RUNNABLE` jobs associated to a single job
+  queue.
+  """
+  @spec get_job_queue_snapshot(map(), get_job_queue_snapshot_request(), list()) ::
+          {:ok, get_job_queue_snapshot_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_job_queue_snapshot_errors()}
+  def get_job_queue_snapshot(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/getjobqueuesnapshot"
     headers = []
     query_params = []
 

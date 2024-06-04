@@ -386,6 +386,7 @@ defmodule AWS.EKS do
         "createdAt" => non_neg_integer(),
         "modifiedAt" => non_neg_integer(),
         "namespace" => String.t(),
+        "ownerArn" => String.t(),
         "roleArn" => String.t(),
         "serviceAccount" => String.t(),
         "tags" => map()
@@ -426,7 +427,8 @@ defmodule AWS.EKS do
       describe_addon_configuration_response() :: %{
         "addonName" => String.t(),
         "addonVersion" => String.t(),
-        "configurationSchema" => String.t()
+        "configurationSchema" => String.t(),
+        "podIdentityConfiguration" => list(addon_pod_identity_configuration()())
       }
 
   """
@@ -487,6 +489,18 @@ defmodule AWS.EKS do
 
   """
   @type disassociate_access_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      addon_pod_identity_configuration() :: %{
+        "recommendedManagedPolicies" => list(String.t()()),
+        "serviceAccount" => String.t()
+      }
+
+  """
+  @type addon_pod_identity_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -594,6 +608,18 @@ defmodule AWS.EKS do
 
   """
   @type list_insights_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      addon_pod_identity_associations() :: %{
+        "roleArn" => String.t(),
+        "serviceAccount" => String.t()
+      }
+
+  """
+  @type addon_pod_identity_associations() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -740,6 +766,7 @@ defmodule AWS.EKS do
         "marketplaceInformation" => marketplace_information(),
         "modifiedAt" => non_neg_integer(),
         "owner" => String.t(),
+        "podIdentityAssociations" => list(String.t()()),
         "publisher" => String.t(),
         "serviceAccountRoleArn" => String.t(),
         "status" => list(any()),
@@ -940,6 +967,7 @@ defmodule AWS.EKS do
         optional("addonVersion") => String.t(),
         optional("clientRequestToken") => String.t(),
         optional("configurationValues") => String.t(),
+        optional("podIdentityAssociations") => list(addon_pod_identity_associations()()),
         optional("resolveConflicts") => list(any()),
         optional("serviceAccountRoleArn") => String.t()
       }
@@ -1185,6 +1213,7 @@ defmodule AWS.EKS do
         optional("addonVersion") => String.t(),
         optional("clientRequestToken") => String.t(),
         optional("configurationValues") => String.t(),
+        optional("podIdentityAssociations") => list(addon_pod_identity_associations()()),
         optional("resolveConflicts") => list(any()),
         optional("serviceAccountRoleArn") => String.t(),
         optional("tags") => map(),
@@ -1293,6 +1322,7 @@ defmodule AWS.EKS do
         "associationId" => String.t(),
         "clusterName" => String.t(),
         "namespace" => String.t(),
+        "ownerArn" => String.t(),
         "serviceAccount" => String.t()
       }
 
@@ -2451,7 +2481,8 @@ defmodule AWS.EKS do
         "addonVersion" => String.t(),
         "architecture" => list(String.t()()),
         "compatibilities" => list(compatibility()()),
-        "requiresConfiguration" => boolean()
+        "requiresConfiguration" => boolean(),
+        "requiresIamPermissions" => boolean()
       }
 
   """
@@ -3085,10 +3116,11 @@ defmodule AWS.EKS do
   In most cases, it takes several minutes to create a cluster. After you create an
   Amazon EKS cluster, you must configure your Kubernetes tooling to communicate
   with the API server and launch nodes into your cluster. For more information,
-  see [Managing Cluster Authentication](https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html)
-  and [Launching Amazon EKS nodes](https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html) in
-  the
-  *Amazon EKS User Guide*.
+  see [Allowing users to access your
+  cluster](https://docs.aws.amazon.com/eks/latest/userguide/cluster-auth.html) and
+  [Launching Amazon EKS
+  nodes](https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html) in
+  the *Amazon EKS User Guide*.
   """
   @spec create_cluster(map(), create_cluster_request(), list()) ::
           {:ok, create_cluster_response(), any()}
@@ -3230,8 +3262,7 @@ defmodule AWS.EKS do
   for the respective minor Kubernetes version of the cluster, unless you deploy a
   custom AMI
   using a launch template. For more information about using launch templates, see
-  [Launch template
-  support](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html).
+  [Customizing managed nodes with launch templates](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html).
 
   An Amazon EKS managed node group is an Amazon EC2
   Auto Scaling group and associated Amazon EC2 instances that are managed by
@@ -4439,8 +4470,10 @@ defmodule AWS.EKS do
   @doc """
   Returns a list of all insights checked for against the specified cluster.
 
-  You can filter which insights are returned by category, associated Kubernetes
-  version, and status.
+  You can
+  filter which insights are returned by category, associated Kubernetes version,
+  and
+  status.
   """
   @spec list_insights(map(), String.t(), list_insights_request(), list()) ::
           {:ok, list_insights_response(), any()}

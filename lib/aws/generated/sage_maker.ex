@@ -15134,6 +15134,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      cluster_instance_placement() :: %{
+        "AvailabilityZone" => String.t(),
+        "AvailabilityZoneId" => String.t()
+      }
+      
+  """
+  @type cluster_instance_placement() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_model_packages_output() :: %{
         "ModelPackageSummaryList" => list(model_package_summary()()),
         "NextToken" => String.t()
@@ -15997,6 +16009,9 @@ defmodule AWS.SageMaker do
         "InstanceType" => list(any()),
         "LaunchTime" => non_neg_integer(),
         "LifeCycleConfig" => cluster_life_cycle_config(),
+        "Placement" => cluster_instance_placement(),
+        "PrivateDnsHostname" => String.t(),
+        "PrivatePrimaryIp" => String.t(),
         "ThreadsPerCore" => integer()
       }
       
@@ -19554,7 +19569,7 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Retrieves information of an instance (also called a *node*
+  Retrieves information of a node (also called a *instance*
   interchangeably) of a SageMaker HyperPod cluster.
   """
   @spec describe_cluster_node(map(), describe_cluster_node_request(), list()) ::

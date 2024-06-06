@@ -196,6 +196,7 @@ defmodule AWS.GlobalAccelerator do
       update_accelerator_request() :: %{
         optional("Enabled") => boolean(),
         optional("IpAddressType") => list(any()),
+        optional("IpAddresses") => list(String.t()()),
         optional("Name") => String.t(),
         required("AcceleratorArn") => String.t()
       }
@@ -1309,6 +1310,7 @@ defmodule AWS.GlobalAccelerator do
       update_custom_routing_accelerator_request() :: %{
         optional("Enabled") => boolean(),
         optional("IpAddressType") => list(any()),
+        optional("IpAddresses") => list(String.t()()),
         optional("Name") => String.t(),
         required("AcceleratorArn") => String.t()
       }

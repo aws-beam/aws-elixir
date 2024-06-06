@@ -1584,6 +1584,19 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      authentication_configuration_input() :: %{
+        "AuthenticationType" => list(any()),
+        "OAuth2Properties" => o_auth2_properties_input(),
+        "SecretArn" => String.t()
+      }
+      
+  """
+  @type authentication_configuration_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       task_run_filter_criteria() :: %{
         "StartedAfter" => non_neg_integer(),
         "StartedBefore" => non_neg_integer(),
@@ -1710,6 +1723,18 @@ defmodule AWS.Glue do
       
   """
   @type table_optimizer_run() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      authorization_code_properties() :: %{
+        "AuthorizationCode" => String.t(),
+        "RedirectUri" => String.t()
+      }
+      
+  """
+  @type authorization_code_properties() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3643,6 +3668,18 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      o_auth2_client_application() :: %{
+        "AWSManagedClientApplicationReference" => String.t(),
+        "UserManagedClientApplicationClientId" => String.t()
+      }
+      
+  """
+  @type o_auth2_client_application() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       register_schema_version_response() :: %{
         "SchemaVersionId" => String.t(),
         "Status" => list(any()),
@@ -4762,15 +4799,19 @@ defmodule AWS.Glue do
   ## Example:
       
       connection() :: %{
+        "AuthenticationConfiguration" => authentication_configuration(),
         "ConnectionProperties" => map(),
         "ConnectionType" => list(any()),
         "CreationTime" => non_neg_integer(),
         "Description" => String.t(),
+        "LastConnectionValidationTime" => non_neg_integer(),
         "LastUpdatedBy" => String.t(),
         "LastUpdatedTime" => non_neg_integer(),
         "MatchCriteria" => list(String.t()()),
         "Name" => String.t(),
-        "PhysicalConnectionRequirements" => physical_connection_requirements()
+        "PhysicalConnectionRequirements" => physical_connection_requirements(),
+        "Status" => list(any()),
+        "StatusReason" => String.t()
       }
       
   """
@@ -6691,12 +6732,14 @@ defmodule AWS.Glue do
   ## Example:
       
       connection_input() :: %{
+        "AuthenticationConfiguration" => authentication_configuration_input(),
         "ConnectionProperties" => map(),
         "ConnectionType" => list(any()),
         "Description" => String.t(),
         "MatchCriteria" => list(String.t()()),
         "Name" => String.t(),
-        "PhysicalConnectionRequirements" => physical_connection_requirements()
+        "PhysicalConnectionRequirements" => physical_connection_requirements(),
+        "ValidateCredentials" => boolean()
       }
       
   """
@@ -8710,10 +8753,12 @@ defmodule AWS.Glue do
 
   ## Example:
       
-      create_connection_response() :: %{}
+      create_connection_response() :: %{
+        "CreateConnectionStatus" => list(any())
+      }
       
   """
-  @type create_connection_response() :: %{}
+  @type create_connection_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -8736,6 +8781,20 @@ defmodule AWS.Glue do
       
   """
   @type update_database_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      o_auth2_properties() :: %{
+        "OAuth2ClientApplication" => o_auth2_client_application(),
+        "OAuth2GrantType" => list(any()),
+        "TokenUrl" => String.t(),
+        "TokenUrlParametersMap" => map()
+      }
+      
+  """
+  @type o_auth2_properties() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -9104,6 +9163,34 @@ defmodule AWS.Glue do
       
   """
   @type update_user_defined_function_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      o_auth2_properties_input() :: %{
+        "AuthorizationCodeProperties" => authorization_code_properties(),
+        "OAuth2ClientApplication" => o_auth2_client_application(),
+        "OAuth2GrantType" => list(any()),
+        "TokenUrl" => String.t(),
+        "TokenUrlParametersMap" => map()
+      }
+      
+  """
+  @type o_auth2_properties_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      authentication_configuration() :: %{
+        "AuthenticationType" => list(any()),
+        "OAuth2Properties" => o_auth2_properties(),
+        "SecretArn" => String.t()
+      }
+      
+  """
+  @type authentication_configuration() :: %{String.t() => any()}
 
   @typedoc """
 

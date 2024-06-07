@@ -138,6 +138,18 @@ defmodule AWS.FSx do
 
   ## Example:
       
+      create_file_system_lustre_metadata_configuration() :: %{
+        "Iops" => integer(),
+        "Mode" => list(any())
+      }
+      
+  """
+  @type create_file_system_lustre_metadata_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       open_z_f_s_user_or_group_quota() :: %{
         "Id" => integer(),
         "StorageCapacityQuotaGiB" => integer(),
@@ -1405,6 +1417,7 @@ defmodule AWS.FSx do
         "ImportPath" => String.t(),
         "ImportedFileChunkSize" => integer(),
         "LogConfiguration" => lustre_log_create_configuration(),
+        "MetadataConfiguration" => create_file_system_lustre_metadata_configuration(),
         "PerUnitStorageThroughput" => integer(),
         "RootSquashConfiguration" => lustre_root_squash_configuration(),
         "WeeklyMaintenanceStartTime" => String.t()
@@ -1516,6 +1529,7 @@ defmodule AWS.FSx do
         "DailyAutomaticBackupStartTime" => String.t(),
         "DataCompressionType" => list(any()),
         "LogConfiguration" => lustre_log_create_configuration(),
+        "MetadataConfiguration" => update_file_system_lustre_metadata_configuration(),
         "PerUnitStorageThroughput" => integer(),
         "RootSquashConfiguration" => lustre_root_squash_configuration(),
         "WeeklyMaintenanceStartTime" => String.t()
@@ -1738,6 +1752,7 @@ defmodule AWS.FSx do
         "DeploymentType" => list(any()),
         "DriveCacheType" => list(any()),
         "LogConfiguration" => lustre_log_configuration(),
+        "MetadataConfiguration" => file_system_lustre_metadata_configuration(),
         "MountName" => String.t(),
         "PerUnitStorageThroughput" => integer(),
         "RootSquashConfiguration" => lustre_root_squash_configuration(),
@@ -2750,6 +2765,18 @@ defmodule AWS.FSx do
 
   ## Example:
       
+      file_system_lustre_metadata_configuration() :: %{
+        "Iops" => integer(),
+        "Mode" => list(any())
+      }
+      
+  """
+  @type file_system_lustre_metadata_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_file_system_windows_response() :: %{
         "FinalBackupId" => String.t(),
         "FinalBackupTags" => list(tag()())
@@ -2995,6 +3022,18 @@ defmodule AWS.FSx do
       
   """
   @type describe_storage_virtual_machines_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_file_system_lustre_metadata_configuration() :: %{
+        "Iops" => integer(),
+        "Mode" => list(any())
+      }
+      
+  """
+  @type update_file_system_lustre_metadata_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3996,7 +4035,7 @@ defmodule AWS.FSx do
 
   To delete an Amazon FSx for NetApp ONTAP file system, first delete all the
   volumes and storage virtual machines (SVMs) on the file system. Then provide a
-  `FileSystemId` value to the `DeleFileSystem` operation.
+  `FileSystemId` value to the `DeleteFileSystem` operation.
 
   By default, when you delete an Amazon FSx for Windows File Server file system,
   a final backup is created upon deletion. This final backup isn't subject to the
@@ -4005,7 +4044,7 @@ defmodule AWS.FSx do
 
   To delete an Amazon FSx for Lustre file system, first
   [unmount](https://docs.aws.amazon.com/fsx/latest/LustreGuide/unmounting-fs.html)  it from every connected Amazon EC2 instance, then provide a `FileSystemId`
-  value to the `DeleFileSystem` operation. By default, Amazon FSx will not
+  value to the `DeleteFileSystem` operation. By default, Amazon FSx will not
   take a final backup when the `DeleteFileSystem` operation is invoked. On file
   systems
   not linked to an Amazon S3 bucket, set `SkipFinalBackup` to `false`
@@ -4677,6 +4716,10 @@ defmodule AWS.FSx do
     *
 
   `LustreRootSquashConfiguration`
+
+    *
+
+  `MetadataConfiguration`
 
     *
 

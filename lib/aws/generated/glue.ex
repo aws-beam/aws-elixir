@@ -397,6 +397,20 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      view_definition_input() :: %{
+        "Definer" => String.t(),
+        "IsProtected" => boolean(),
+        "Representations" => list(view_representation_input()()),
+        "SubObjects" => list(String.t()())
+      }
+      
+  """
+  @type view_definition_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       encryption_configuration() :: %{
         "CloudWatchEncryption" => cloud_watch_encryption(),
         "JobBookmarksEncryption" => job_bookmarks_encryption(),
@@ -974,9 +988,11 @@ defmodule AWS.Glue do
       
       update_table_request() :: %{
         optional("CatalogId") => String.t(),
+        optional("Force") => boolean(),
         optional("SkipArchive") => boolean(),
         optional("TransactionId") => String.t(),
         optional("VersionId") => String.t(),
+        optional("ViewUpdateAction") => list(any()),
         required("DatabaseName") => String.t(),
         required("TableInput") => table_input()
       }
@@ -7517,6 +7533,7 @@ defmodule AWS.Glue do
         "StorageDescriptor" => storage_descriptor(),
         "TableType" => String.t(),
         "TargetTable" => table_identifier(),
+        "ViewDefinition" => view_definition_input(),
         "ViewExpandedText" => String.t(),
         "ViewOriginalText" => String.t()
       }
@@ -9124,6 +9141,7 @@ defmodule AWS.Glue do
         "Dialect" => list(any()),
         "DialectVersion" => String.t(),
         "IsStale" => boolean(),
+        "ValidationConnection" => String.t(),
         "ViewExpandedText" => String.t(),
         "ViewOriginalText" => String.t()
       }
@@ -9907,6 +9925,21 @@ defmodule AWS.Glue do
       
   """
   @type delete_security_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      view_representation_input() :: %{
+        "Dialect" => list(any()),
+        "DialectVersion" => String.t(),
+        "ValidationConnection" => String.t(),
+        "ViewExpandedText" => String.t(),
+        "ViewOriginalText" => String.t()
+      }
+      
+  """
+  @type view_representation_input() :: %{String.t() => any()}
 
   @typedoc """
 

@@ -154,6 +154,23 @@ defmodule AWS.Location do
 
   ## Example:
 
+      forecasted_event() :: %{
+        "EventId" => String.t(),
+        "EventType" => String.t(),
+        "ForecastedBreachTime" => non_neg_integer(),
+        "GeofenceId" => String.t(),
+        "GeofenceProperties" => map(),
+        "IsDeviceInGeofence" => [boolean()],
+        "NearestDistance" => float()
+      }
+
+  """
+  @type forecasted_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_update_device_position_error() :: %{
         "DeviceId" => String.t(),
         "Error" => batch_item_error(),
@@ -795,6 +812,18 @@ defmodule AWS.Location do
 
   ## Example:
 
+      lte_local_id() :: %{
+        "Earfcn" => integer(),
+        "Pci" => integer()
+      }
+
+  """
+  @type lte_local_id() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_geofence_response_entry() :: %{
         "CreateTime" => non_neg_integer(),
         "GeofenceId" => String.t(),
@@ -877,6 +906,35 @@ defmodule AWS.Location do
 
   """
   @type create_geofence_collection_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      wi_fi_access_point() :: %{
+        "MacAddress" => [String.t()],
+        "Rss" => [integer()]
+      }
+
+  """
+  @type wi_fi_access_point() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      device_state() :: %{
+        "Accuracy" => positional_accuracy(),
+        "CellSignals" => cell_signals(),
+        "DeviceId" => String.t(),
+        "Ipv4Address" => [String.t()],
+        "Position" => list([float()]()),
+        "SampleTime" => non_neg_integer(),
+        "WiFiAccessPoints" => list(wi_fi_access_point()())
+      }
+
+  """
+  @type device_state() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1028,6 +1086,18 @@ defmodule AWS.Location do
 
   ## Example:
 
+      forecast_geofence_events_device_state() :: %{
+        "Position" => list([float()]()),
+        "Speed" => [float()]
+      }
+
+  """
+  @type forecast_geofence_events_device_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception_field() :: %{
         "Message" => [String.t()],
         "Name" => [String.t()]
@@ -1035,6 +1105,18 @@ defmodule AWS.Location do
 
   """
   @type validation_exception_field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      verify_device_position_request() :: %{
+        optional("DistanceUnit") => String.t(),
+        required("DeviceState") => device_state()
+      }
+
+  """
+  @type verify_device_position_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1237,6 +1319,22 @@ defmodule AWS.Location do
 
   """
   @type create_map_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      forecast_geofence_events_request() :: %{
+        optional("DistanceUnit") => String.t(),
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t(),
+        optional("SpeedUnit") => String.t(),
+        optional("TimeHorizonMinutes") => [float()],
+        required("DeviceState") => forecast_geofence_events_device_state()
+      }
+
+  """
+  @type forecast_geofence_events_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1659,6 +1757,37 @@ defmodule AWS.Location do
 
   ## Example:
 
+      lte_cell_details() :: %{
+        "CellId" => integer(),
+        "LocalId" => lte_local_id(),
+        "Mcc" => [integer()],
+        "Mnc" => [integer()],
+        "NetworkMeasurements" => list(lte_network_measurements()()),
+        "NrCapable" => [boolean()],
+        "Rsrp" => integer(),
+        "Rsrq" => float(),
+        "Tac" => [integer()],
+        "TimingAdvance" => [integer()]
+      }
+
+  """
+  @type lte_cell_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cell_signals() :: %{
+        "LteCellDetails" => list(lte_cell_details()())
+      }
+
+  """
+  @type cell_signals() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       calculate_route_matrix_summary() :: %{
         "DataSource" => [String.t()],
         "DistanceUnit" => String.t(),
@@ -1710,6 +1839,21 @@ defmodule AWS.Location do
 
   """
   @type calculate_route_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lte_network_measurements() :: %{
+        "CellId" => integer(),
+        "Earfcn" => integer(),
+        "Pci" => integer(),
+        "Rsrp" => integer(),
+        "Rsrq" => float()
+      }
+
+  """
+  @type lte_network_measurements() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1846,6 +1990,21 @@ defmodule AWS.Location do
 
   ## Example:
 
+      verify_device_position_response() :: %{
+        "DeviceId" => String.t(),
+        "DistanceUnit" => String.t(),
+        "InferredState" => inferred_state(),
+        "ReceivedTime" => non_neg_integer(),
+        "SampleTime" => non_neg_integer()
+      }
+
+  """
+  @type verify_device_position_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_place_index_request() :: %{}
 
   """
@@ -1897,6 +2056,7 @@ defmodule AWS.Location do
 
       geofence_geometry() :: %{
         "Circle" => circle(),
+        "Geobuf" => binary(),
         "Polygon" => list(list(list([float()]())())())
       }
 
@@ -1950,6 +2110,20 @@ defmodule AWS.Location do
 
   """
   @type route_matrix_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inferred_state() :: %{
+        "Accuracy" => positional_accuracy(),
+        "DeviationDistance" => [float()],
+        "Position" => list([float()]()),
+        "ProxyDetected" => [boolean()]
+      }
+
+  """
+  @type inferred_state() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2201,6 +2375,20 @@ defmodule AWS.Location do
 
   ## Example:
 
+      forecast_geofence_events_response() :: %{
+        "DistanceUnit" => String.t(),
+        "ForecastedEvents" => list(forecasted_event()()),
+        "NextToken" => String.t(),
+        "SpeedUnit" => String.t()
+      }
+
+  """
+  @type forecast_geofence_events_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_delete_device_position_history_request() :: %{
         required("DeviceIds") => list(String.t()())
       }
@@ -2412,6 +2600,13 @@ defmodule AWS.Location do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type forecast_geofence_events_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_device_position_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2610,6 +2805,13 @@ defmodule AWS.Location do
           | resource_not_found_exception()
 
   @type update_tracker_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type verify_device_position_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -3587,6 +3789,47 @@ defmodule AWS.Location do
   end
 
   @doc """
+  Evaluates device positions against
+  geofence geometries from a given geofence collection.
+
+  The event forecasts three states for which
+  a device can be in relative to a geofence:
+
+  `ENTER`: If a device is outside of a geofence, but would breach the fence if the
+  device is moving at its current speed within time horizon window.
+
+  `EXIT`: If a device is inside of a geofence, but would breach the fence if the
+  device is moving at its current speed within time horizon window.
+
+  `IDLE`: If a device is inside of a geofence, and the device is not moving.
+  """
+  @spec forecast_geofence_events(map(), String.t(), forecast_geofence_events_request(), list()) ::
+          {:ok, forecast_geofence_events_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, forecast_geofence_events_errors()}
+  def forecast_geofence_events(%Client{} = client, collection_name, input, options \\ []) do
+    url_path =
+      "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/forecast-geofence-events"
+
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "geofencing.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves a device's most recent position according to its sample time.
 
   Device positions are deleted after 30 days.
@@ -3654,6 +3897,9 @@ defmodule AWS.Location do
 
   @doc """
   Retrieves the geofence details from a geofence collection.
+
+  The returned geometry will always match the geometry format used when the
+  geofence was created.
   """
   @spec get_geofence(map(), String.t(), String.t(), list()) ::
           {:ok, get_geofence_response(), any()}
@@ -4549,6 +4795,35 @@ defmodule AWS.Location do
       client,
       meta,
       :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Verifies the integrity of the device's position by determining if it was
+  reported behind a proxy, and by comparing it to an inferred position estimated
+  based on the device's state.
+  """
+  @spec verify_device_position(map(), String.t(), verify_device_position_request(), list()) ::
+          {:ok, verify_device_position_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, verify_device_position_errors()}
+  def verify_device_position(%Client{} = client, tracker_name, input, options \\ []) do
+    url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/positions/verify"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "tracking.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       headers,

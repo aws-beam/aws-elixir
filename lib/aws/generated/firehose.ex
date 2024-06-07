@@ -8,10 +8,10 @@ defmodule AWS.Firehose do
   Amazon Data Firehose was previously known as Amazon Kinesis Data Firehose.
 
   Amazon Data Firehose is a fully managed service that delivers real-time
-  streaming data to destinations such as Amazon Simple Storage Service (Amazon
-  S3), Amazon
-  OpenSearch Service, Amazon Redshift, Splunk, and various other supportd
-  destinations.
+  streaming
+  data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon
+  OpenSearch
+  Service, Amazon Redshift, Splunk, and various other supported destinations.
   """
 
   alias AWS.Client
@@ -220,6 +220,7 @@ defmodule AWS.Firehose do
         "S3BackupMode" => list(any()),
         "S3Update" => s3_destination_update(),
         "Schema" => String.t(),
+        "SecretsManagerConfiguration" => secrets_manager_configuration(),
         "SnowflakeRoleConfiguration" => snowflake_role_configuration(),
         "Table" => String.t(),
         "User" => String.t()
@@ -355,7 +356,8 @@ defmodule AWS.Firehose do
         "RetryOptions" => http_endpoint_retry_options(),
         "RoleARN" => String.t(),
         "S3BackupMode" => list(any()),
-        "S3DestinationDescription" => s3_destination_description()
+        "S3DestinationDescription" => s3_destination_description(),
+        "SecretsManagerConfiguration" => secrets_manager_configuration()
       }
       
   """
@@ -497,7 +499,8 @@ defmodule AWS.Firehose do
         "RetryOptions" => http_endpoint_retry_options(),
         "RoleARN" => String.t(),
         "S3BackupMode" => list(any()),
-        "S3Configuration" => s3_destination_configuration()
+        "S3Configuration" => s3_destination_configuration(),
+        "SecretsManagerConfiguration" => secrets_manager_configuration()
       }
       
   """
@@ -540,6 +543,7 @@ defmodule AWS.Firehose do
         "S3BackupMode" => list(any()),
         "S3DestinationDescription" => s3_destination_description(),
         "Schema" => String.t(),
+        "SecretsManagerConfiguration" => secrets_manager_configuration(),
         "SnowflakeRoleConfiguration" => snowflake_role_configuration(),
         "SnowflakeVpcConfiguration" => snowflake_vpc_configuration(),
         "Table" => String.t(),
@@ -697,6 +701,7 @@ defmodule AWS.Firehose do
         "S3BackupMode" => list(any()),
         "S3Configuration" => s3_destination_configuration(),
         "Schema" => String.t(),
+        "SecretsManagerConfiguration" => secrets_manager_configuration(),
         "SnowflakeRoleConfiguration" => snowflake_role_configuration(),
         "SnowflakeVpcConfiguration" => snowflake_vpc_configuration(),
         "Table" => String.t(),
@@ -749,7 +754,8 @@ defmodule AWS.Firehose do
         "ProcessingConfiguration" => processing_configuration(),
         "RetryOptions" => splunk_retry_options(),
         "S3BackupMode" => list(any()),
-        "S3Update" => s3_destination_update()
+        "S3Update" => s3_destination_update(),
+        "SecretsManagerConfiguration" => secrets_manager_configuration()
       }
       
   """
@@ -873,6 +879,7 @@ defmodule AWS.Firehose do
         "S3BackupMode" => list(any()),
         "S3BackupUpdate" => s3_destination_update(),
         "S3Update" => s3_destination_update(),
+        "SecretsManagerConfiguration" => secrets_manager_configuration(),
         "Username" => String.t()
       }
       
@@ -975,7 +982,8 @@ defmodule AWS.Firehose do
         "ProcessingConfiguration" => processing_configuration(),
         "RetryOptions" => splunk_retry_options(),
         "S3BackupMode" => list(any()),
-        "S3Configuration" => s3_destination_configuration()
+        "S3Configuration" => s3_destination_configuration(),
+        "SecretsManagerConfiguration" => secrets_manager_configuration()
       }
       
   """
@@ -1227,6 +1235,19 @@ defmodule AWS.Firehose do
 
   ## Example:
       
+      secrets_manager_configuration() :: %{
+        "Enabled" => boolean(),
+        "RoleARN" => String.t(),
+        "SecretARN" => String.t()
+      }
+      
+  """
+  @type secrets_manager_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       stop_delivery_stream_encryption_output() :: %{}
       
   """
@@ -1329,6 +1350,7 @@ defmodule AWS.Firehose do
         "S3BackupDescription" => s3_destination_description(),
         "S3BackupMode" => list(any()),
         "S3DestinationDescription" => s3_destination_description(),
+        "SecretsManagerConfiguration" => secrets_manager_configuration(),
         "Username" => String.t()
       }
       
@@ -1350,6 +1372,7 @@ defmodule AWS.Firehose do
         "S3BackupConfiguration" => s3_destination_configuration(),
         "S3BackupMode" => list(any()),
         "S3Configuration" => s3_destination_configuration(),
+        "SecretsManagerConfiguration" => secrets_manager_configuration(),
         "Username" => String.t()
       }
       
@@ -1646,7 +1669,8 @@ defmodule AWS.Firehose do
         "ProcessingConfiguration" => processing_configuration(),
         "RetryOptions" => splunk_retry_options(),
         "S3BackupMode" => list(any()),
-        "S3DestinationDescription" => s3_destination_description()
+        "S3DestinationDescription" => s3_destination_description(),
+        "SecretsManagerConfiguration" => secrets_manager_configuration()
       }
       
   """
@@ -1677,7 +1701,8 @@ defmodule AWS.Firehose do
         "RetryOptions" => http_endpoint_retry_options(),
         "RoleARN" => String.t(),
         "S3BackupMode" => list(any()),
-        "S3Update" => s3_destination_update()
+        "S3Update" => s3_destination_update(),
+        "SecretsManagerConfiguration" => secrets_manager_configuration()
       }
       
   """
@@ -2155,9 +2180,9 @@ defmodule AWS.Firehose do
   that enables it to use the new CMK to encrypt and decrypt data and to manage the
   grant.
 
-  For the KMS grant creation to be successful, Firehose APIs
-  `StartDeliveryStreamEncryption` and `CreateDeliveryStream` should not be called
-  with session credentials that are more than 6 hours old.
+  For the KMS grant creation to be successful, the Firehose API operations
+  `StartDeliveryStreamEncryption` and `CreateDeliveryStream` should
+  not be called with session credentials that are more than 6 hours old.
 
   If a delivery stream already has encryption enabled and then you invoke this
   operation

@@ -362,9 +362,10 @@ defmodule AWS.StorageGateway do
       update_maintenance_start_time_input() :: %{
         optional("DayOfMonth") => integer(),
         optional("DayOfWeek") => integer(),
-        required("GatewayARN") => String.t(),
-        required("HourOfDay") => integer(),
-        required("MinuteOfHour") => integer()
+        optional("HourOfDay") => integer(),
+        optional("MinuteOfHour") => integer(),
+        optional("SoftwareUpdatePreferences") => software_update_preferences(),
+        required("GatewayARN") => String.t()
       }
       
   """
@@ -395,6 +396,7 @@ defmodule AWS.StorageGateway do
         "GatewayARN" => String.t(),
         "HourOfDay" => integer(),
         "MinuteOfHour" => integer(),
+        "SoftwareUpdatePreferences" => software_update_preferences(),
         "Timezone" => String.t()
       }
       
@@ -2041,6 +2043,17 @@ defmodule AWS.StorageGateway do
       
   """
   @type disable_gateway_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      software_update_preferences() :: %{
+        "AutomaticUpdatePolicy" => list(any())
+      }
+      
+  """
+  @type software_update_preferences() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4135,11 +4148,12 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  Returns your gateway's weekly maintenance start time including the day and time
-  of
-  the week.
+  Returns your gateway's maintenance window schedule information, with values for
+  monthly or weekly cadence, specific day and time to begin maintenance, and which
+  types of
+  updates to apply.
 
-  Note that values are in terms of the gateway's time zone.
+  Time values returned are for the gateway's time zone.
   """
   @spec describe_maintenance_start_time(map(), describe_maintenance_start_time_input(), list()) ::
           {:ok, describe_maintenance_start_time_output(), any()}
@@ -5174,11 +5188,11 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  Updates a gateway's metadata, which includes the gateway's name and time zone.
+  Updates a gateway's metadata, which includes the gateway's name, time zone,
+  and metadata cache size.
 
-  To specify which gateway to update, use the Amazon Resource Name (ARN) of the
-  gateway in
-  your request.
+  To specify which gateway to update, use the Amazon Resource Name
+  (ARN) of the gateway in your request.
 
   For gateways activated after September 2, 2015, the gateway's ARN contains the
   gateway ID rather than the gateway name. However, changing the name of the
@@ -5227,10 +5241,30 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  Updates a gateway's weekly maintenance start time information, including day and
-  time of the week.
+  Updates a gateway's maintenance window schedule, with settings for monthly or
+  weekly cadence, specific day and time to begin maintenance, and which types of
+  updates to
+  apply.
 
-  The maintenance time is the time in your gateway's time zone.
+  Time configuration uses the gateway's time zone. You can pass values for a
+  complete
+  maintenance schedule, or update policy, or both. Previous values will persist
+  for whichever
+  setting you choose not to modify. If an incomplete or invalid maintenance
+  schedule is
+  passed, the entire request will be rejected with an error and no changes will
+  occur.
+
+  A complete maintenance schedule must include values for *both*
+  `MinuteOfHour` and `HourOfDay`, and *either*
+  `DayOfMonth`
+  *or*
+  `DayOfWeek`.
+
+  We recommend keeping maintenance updates turned on, except in specific use cases
+  where the brief disruptions caused by updating the gateway could critically
+  impact your
+  deployment.
   """
   @spec update_maintenance_start_time(map(), update_maintenance_start_time_input(), list()) ::
           {:ok, update_maintenance_start_time_output(), any()}
@@ -5346,14 +5380,18 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  Updates the SMB security strategy on a file gateway.
+  Updates the SMB security strategy level for an Amazon S3 file gateway.
 
-  This action is only supported in
-  file gateways.
+  This
+  action is only supported for Amazon S3 file gateways.
 
-  This API is called Security level in the User Guide.
+  For information about configuring this setting using the Amazon Web Services
+  console,
+  see [Setting a security level for your gateway](https://docs.aws.amazon.com/filegateway/latest/files3/security-strategy.html)
+  in the *Amazon S3
+  File Gateway User Guide*.
 
-  A higher security level can affect performance of the gateway.
+  A higher security strategy level can affect performance of the gateway.
   """
   @spec update_smb_security_strategy(map(), update_smb_security_strategy_input(), list()) ::
           {:ok, update_smb_security_strategy_output(), any()}

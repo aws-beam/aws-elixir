@@ -13,6 +13,30 @@ defmodule AWS.Account do
 
   ## Example:
 
+      accept_primary_email_update_request() :: %{
+        required("AccountId") => String.t(),
+        required("Otp") => String.t(),
+        required("PrimaryEmail") => String.t()
+      }
+
+  """
+  @type accept_primary_email_update_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      accept_primary_email_update_response() :: %{
+        "Status" => String.t()
+      }
+
+  """
+  @type accept_primary_email_update_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       access_denied_exception() :: %{
         "message" => [String.t()]
       }
@@ -153,6 +177,28 @@ defmodule AWS.Account do
 
   ## Example:
 
+      get_primary_email_request() :: %{
+        required("AccountId") => String.t()
+      }
+
+  """
+  @type get_primary_email_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_primary_email_response() :: %{
+        "PrimaryEmail" => String.t()
+      }
+
+  """
+  @type get_primary_email_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_region_opt_status_request() :: %{
         optional("AccountId") => String.t(),
         required("RegionName") => String.t()
@@ -265,6 +311,29 @@ defmodule AWS.Account do
 
   ## Example:
 
+      start_primary_email_update_request() :: %{
+        required("AccountId") => String.t(),
+        required("PrimaryEmail") => String.t()
+      }
+
+  """
+  @type start_primary_email_update_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_primary_email_update_response() :: %{
+        "Status" => String.t()
+      }
+
+  """
+  @type start_primary_email_update_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       too_many_requests_exception() :: %{
         "message" => [String.t()]
       }
@@ -296,6 +365,14 @@ defmodule AWS.Account do
 
   """
   @type validation_exception_field() :: %{String.t() => any()}
+
+  @type accept_primary_email_update_errors() ::
+          validation_exception()
+          | too_many_requests_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type delete_alternate_contact_errors() ::
           validation_exception()
@@ -332,6 +409,13 @@ defmodule AWS.Account do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type get_primary_email_errors() ::
+          validation_exception()
+          | too_many_requests_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type get_region_opt_status_errors() ::
           validation_exception()
           | too_many_requests_exception()
@@ -356,6 +440,14 @@ defmodule AWS.Account do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type start_primary_email_update_errors() ::
+          validation_exception()
+          | too_many_requests_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   def metadata do
     %{
       api_version: "2021-02-01",
@@ -370,6 +462,35 @@ defmodule AWS.Account do
       signing_name: "account",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Accepts the request that originated from `StartPrimaryEmailUpdate` to update the
+  primary email address (also known
+  as the root user email address) for the specified account.
+  """
+  @spec accept_primary_email_update(map(), accept_primary_email_update_request(), list()) ::
+          {:ok, accept_primary_email_update_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, accept_primary_email_update_errors()}
+  def accept_primary_email_update(%Client{} = client, input, options \\ []) do
+    url_path = "/acceptPrimaryEmailUpdate"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -411,6 +532,9 @@ defmodule AWS.Account do
 
   @doc """
   Disables (opts-out) a particular Region for an account.
+
+  The act of disabling a Region will remove all IAM access to any resources that
+  reside in that Region.
   """
   @spec disable_region(map(), disable_region_request(), list()) ::
           {:ok, nil, any()}
@@ -514,6 +638,33 @@ defmodule AWS.Account do
           | {:error, get_contact_information_errors()}
   def get_contact_information(%Client{} = client, input, options \\ []) do
     url_path = "/getContactInformation"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves the primary email address for the specified account.
+  """
+  @spec get_primary_email(map(), get_primary_email_request(), list()) ::
+          {:ok, get_primary_email_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_primary_email_errors()}
+  def get_primary_email(%Client{} = client, input, options \\ []) do
+    url_path = "/getPrimaryEmail"
     headers = []
     query_params = []
 
@@ -640,6 +791,34 @@ defmodule AWS.Account do
           | {:error, put_contact_information_errors()}
   def put_contact_information(%Client{} = client, input, options \\ []) do
     url_path = "/putContactInformation"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Starts the process to update the primary email address for the specified
+  account.
+  """
+  @spec start_primary_email_update(map(), start_primary_email_update_request(), list()) ::
+          {:ok, start_primary_email_update_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_primary_email_update_errors()}
+  def start_primary_email_update(%Client{} = client, input, options \\ []) do
+    url_path = "/startPrimaryEmailUpdate"
     headers = []
     query_params = []
 

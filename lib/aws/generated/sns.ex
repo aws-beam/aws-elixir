@@ -1795,22 +1795,22 @@ defmodule AWS.SNS do
   the notification service.
 
     *
-  For `ADM`, `PlatformPrincipal` is `client id`
+  For ADM, `PlatformPrincipal` is `client id`
   and `PlatformCredential` is `client secret`.
 
     *
-  For `Baidu`, `PlatformPrincipal` is `API key`
-  and `PlatformCredential` is `secret key`.
-
-    *
-  For `APNS` and `APNS_SANDBOX` using certificate
+  For APNS and `APNS_SANDBOX` using certificate
   credentials, `PlatformPrincipal` is `SSL certificate` and
   `PlatformCredential` is `private key`.
 
     *
-  For `APNS` and `APNS_SANDBOX` using token credentials,
+  For APNS and `APNS_SANDBOX` using token credentials,
   `PlatformPrincipal` is `signing key ID` and
   `PlatformCredential` is `signing key`.
+
+    *
+  For Baidu, `PlatformPrincipal` is `API key`
+  and `PlatformCredential` is `secret key`.
 
     *
   For GCM (Firebase Cloud Messaging) using key credentials, there is no
@@ -1833,7 +1833,7 @@ defmodule AWS.SNS do
   .
 
     *
-  For `MPNS`, `PlatformPrincipal` is
+  For MPNS, `PlatformPrincipal` is
 
   ```
   TLS
@@ -1850,7 +1850,7 @@ defmodule AWS.SNS do
   .
 
     *
-  For `WNS`, `PlatformPrincipal` is
+  For WNS, `PlatformPrincipal` is
 
   ```
   Package Security

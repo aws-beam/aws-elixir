@@ -1,5 +1,8 @@
 # Change Log
 
+## [v1.0.2] - 2024-06-07
+- Fix correct signing name for a few endpoints which were wrong
+
 ## [v1.0.1] - 2024-05-21
 - Fix correct hostname for global endpoints
 

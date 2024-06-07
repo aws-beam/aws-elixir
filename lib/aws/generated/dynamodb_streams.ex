@@ -313,7 +313,7 @@ defmodule AWS.DynamoDBStreams do
       protocol: "json",
       service_id: "DynamoDB Streams",
       signature_version: "v4",
-      signing_name: "streams.dynamodb",
+      signing_name: "dynamodb",
       target_prefix: "DynamoDBStreams_20120810"
     }
   end

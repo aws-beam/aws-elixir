@@ -2386,7 +2386,7 @@ defmodule AWS.MemoryDB do
       protocol: "json",
       service_id: "MemoryDB",
       signature_version: "v4",
-      signing_name: "memory-db",
+      signing_name: "memorydb",
       target_prefix: "AmazonMemoryDB"
     }
   end

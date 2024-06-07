@@ -1126,7 +1126,7 @@ defmodule AWS.TimestreamWrite do
       protocol: "json",
       service_id: "Timestream Write",
       signature_version: "v4",
-      signing_name: "ingest.timestream",
+      signing_name: "timestream",
       target_prefix: "Timestream_20181101"
     }
   end

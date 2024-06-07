@@ -602,7 +602,7 @@ defmodule AWS.MarketplaceAgreement do
       protocol: "json",
       service_id: "Marketplace Agreement",
       signature_version: "v4",
-      signing_name: "agreement-marketplace",
+      signing_name: "aws-marketplace",
       target_prefix: "AWSMPCommerceService_v20200301"
     }
   end

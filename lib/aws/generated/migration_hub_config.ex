@@ -261,7 +261,7 @@ defmodule AWS.MigrationHubConfig do
       protocol: "json",
       service_id: "MigrationHub Config",
       signature_version: "v4",
-      signing_name: "migrationhub-config",
+      signing_name: "mgh",
       target_prefix: "AWSMigrationHubMultiAccountService"
     }
   end

@@ -458,7 +458,7 @@ defmodule AWS.MarketplaceMetering do
       protocol: "json",
       service_id: "Marketplace Metering",
       signature_version: "v4",
-      signing_name: "metering.marketplace",
+      signing_name: "aws-marketplace",
       target_prefix: "AWSMPMeteringService"
     }
   end

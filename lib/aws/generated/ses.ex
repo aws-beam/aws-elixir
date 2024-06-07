@@ -2614,7 +2614,7 @@ defmodule AWS.SES do
       protocol: "query",
       service_id: "SES",
       signature_version: "v4",
-      signing_name: "email",
+      signing_name: "ses",
       target_prefix: "SimpleEmailService"
     }
   end

@@ -669,7 +669,7 @@ defmodule AWS.CloudHSMV2 do
       protocol: "json",
       service_id: "CloudHSM V2",
       signature_version: "v4",
-      signing_name: "cloudhsmv2",
+      signing_name: "cloudhsm",
       target_prefix: "BaldrApiService"
     }
   end

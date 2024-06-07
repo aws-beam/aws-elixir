@@ -1945,7 +1945,7 @@ defmodule AWS.MailManager do
       protocol: "json",
       service_id: "MailManager",
       signature_version: "v4",
-      signing_name: "mail-manager",
+      signing_name: "ses",
       target_prefix: "MailManagerSvc"
     }
   end

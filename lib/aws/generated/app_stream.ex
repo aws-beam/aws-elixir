@@ -3084,7 +3084,7 @@ defmodule AWS.AppStream do
       protocol: "json",
       service_id: "AppStream",
       signature_version: "v4",
-      signing_name: "appstream2",
+      signing_name: "appstream",
       target_prefix: "PhotonAdminProxyService"
     }
   end

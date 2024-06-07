@@ -328,7 +328,7 @@ defmodule AWS.IoTSecureTunneling do
       protocol: "json",
       service_id: "IoTSecureTunneling",
       signature_version: "v4",
-      signing_name: "tunneling.iot",
+      signing_name: "IoTSecuredTunneling",
       target_prefix: "IoTSecuredTunneling"
     }
   end

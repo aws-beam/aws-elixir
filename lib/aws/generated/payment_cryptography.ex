@@ -1040,7 +1040,7 @@ defmodule AWS.PaymentCryptography do
       protocol: "json",
       service_id: "Payment Cryptography",
       signature_version: "v4",
-      signing_name: "controlplane.payment-cryptography",
+      signing_name: "payment-cryptography",
       target_prefix: "PaymentCryptographyControlPlane"
     }
   end

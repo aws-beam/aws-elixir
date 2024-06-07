@@ -164,7 +164,7 @@ defmodule AWS.Forecastquery do
       protocol: "json",
       service_id: "forecastquery",
       signature_version: "v4",
-      signing_name: "forecastquery",
+      signing_name: "forecast",
       target_prefix: "AmazonForecastRuntime"
     }
   end

@@ -131,7 +131,7 @@ defmodule AWS.MarketplaceEntitlement do
       protocol: "json",
       service_id: "Marketplace Entitlement Service",
       signature_version: "v4",
-      signing_name: "entitlement.marketplace",
+      signing_name: "aws-marketplace",
       target_prefix: "AWSMPEntitlementService"
     }
   end

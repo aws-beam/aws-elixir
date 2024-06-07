@@ -358,7 +358,7 @@ defmodule AWS.QLDBSession do
       protocol: "json",
       service_id: "QLDB Session",
       signature_version: "v4",
-      signing_name: "session.qldb",
+      signing_name: "qldb",
       target_prefix: "QLDBSession"
     }
   end

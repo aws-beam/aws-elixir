@@ -79,10 +79,10 @@ defmodule AWS.B2bi do
   ## Example:
       
       create_partnership_request() :: %{
-        optional("capabilities") => list(String.t()()),
         optional("clientToken") => [String.t()],
         optional("phone") => String.t(),
         optional("tags") => list(tag()()),
+        required("capabilities") => list(String.t()()),
         required("email") => String.t(),
         required("name") => String.t(),
         required("profileId") => String.t()
@@ -990,6 +990,12 @@ defmodule AWS.B2bi do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type list_capabilities_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type list_partnerships_errors() ::
           throttling_exception()
           | validation_exception()
@@ -997,8 +1003,20 @@ defmodule AWS.B2bi do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type list_profiles_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type list_tags_for_resource_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type list_transformers_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
 
   @type start_transformer_job_errors() ::
           throttling_exception()
@@ -1006,6 +1024,7 @@ defmodule AWS.B2bi do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | conflict_exception()
 
   @type tag_resource_errors() ::
           throttling_exception()
@@ -1306,6 +1325,7 @@ defmodule AWS.B2bi do
   @spec list_capabilities(map(), list_capabilities_request(), list()) ::
           {:ok, list_capabilities_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, list_capabilities_errors()}
   def list_capabilities(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1340,6 +1360,7 @@ defmodule AWS.B2bi do
   @spec list_profiles(map(), list_profiles_request(), list()) ::
           {:ok, list_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, list_profiles_errors()}
   def list_profiles(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1372,6 +1393,7 @@ defmodule AWS.B2bi do
   @spec list_transformers(map(), list_transformers_request(), list()) ::
           {:ok, list_transformers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, list_transformers_errors()}
   def list_transformers(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

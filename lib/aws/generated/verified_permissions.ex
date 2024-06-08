@@ -192,6 +192,18 @@ defmodule AWS.VerifiedPermissions do
 
   ## Example:
       
+      open_id_connect_identity_token_configuration() :: %{
+        "clientIds" => list(String.t()()),
+        "principalIdClaim" => String.t()
+      }
+      
+  """
+  @type open_id_connect_identity_token_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_policy_templates_output() :: %{
         "nextToken" => String.t(),
         "policyTemplates" => list(policy_template_item()())
@@ -247,6 +259,30 @@ defmodule AWS.VerifiedPermissions do
       
   """
   @type template_linked_policy_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      open_id_connect_access_token_configuration() :: %{
+        "audiences" => list(String.t()()),
+        "principalIdClaim" => String.t()
+      }
+      
+  """
+  @type open_id_connect_access_token_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      open_id_connect_access_token_configuration_detail() :: %{
+        "audiences" => list(String.t()()),
+        "principalIdClaim" => String.t()
+      }
+      
+  """
+  @type open_id_connect_access_token_configuration_detail() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -388,6 +424,20 @@ defmodule AWS.VerifiedPermissions do
 
   ## Example:
       
+      open_id_connect_configuration_detail() :: %{
+        "entityIdPrefix" => String.t(),
+        "groupConfiguration" => open_id_connect_group_configuration_detail(),
+        "issuer" => String.t(),
+        "tokenSelection" => list()
+      }
+      
+  """
+  @type open_id_connect_configuration_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_policy_store_output() :: %{
         "arn" => String.t(),
         "createdDate" => non_neg_integer(),
@@ -473,6 +523,18 @@ defmodule AWS.VerifiedPermissions do
       
   """
   @type put_schema_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_open_id_connect_group_configuration() :: %{
+        "groupClaim" => String.t(),
+        "groupEntityType" => String.t()
+      }
+      
+  """
+  @type update_open_id_connect_group_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -579,6 +641,20 @@ defmodule AWS.VerifiedPermissions do
 
   ## Example:
       
+      open_id_connect_configuration() :: %{
+        "entityIdPrefix" => String.t(),
+        "groupConfiguration" => open_id_connect_group_configuration(),
+        "issuer" => String.t(),
+        "tokenSelection" => list()
+      }
+      
+  """
+  @type open_id_connect_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_policy_template_output() :: %{
         "createdDate" => non_neg_integer(),
         "lastUpdatedDate" => non_neg_integer(),
@@ -644,6 +720,20 @@ defmodule AWS.VerifiedPermissions do
       
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_open_id_connect_configuration() :: %{
+        "entityIdPrefix" => String.t(),
+        "groupConfiguration" => update_open_id_connect_group_configuration(),
+        "issuer" => String.t(),
+        "tokenSelection" => list()
+      }
+      
+  """
+  @type update_open_id_connect_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -754,6 +844,20 @@ defmodule AWS.VerifiedPermissions do
 
   ## Example:
       
+      open_id_connect_configuration_item() :: %{
+        "entityIdPrefix" => String.t(),
+        "groupConfiguration" => open_id_connect_group_configuration_item(),
+        "issuer" => String.t(),
+        "tokenSelection" => list()
+      }
+      
+  """
+  @type open_id_connect_configuration_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       validation_exception_field() :: %{
         "message" => [String.t()],
         "path" => [String.t()]
@@ -807,6 +911,30 @@ defmodule AWS.VerifiedPermissions do
       
   """
   @type delete_identity_source_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_open_id_connect_identity_token_configuration() :: %{
+        "clientIds" => list(String.t()()),
+        "principalIdClaim" => String.t()
+      }
+      
+  """
+  @type update_open_id_connect_identity_token_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      open_id_connect_group_configuration_item() :: %{
+        "groupClaim" => String.t(),
+        "groupEntityType" => String.t()
+      }
+      
+  """
+  @type open_id_connect_group_configuration_item() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1058,6 +1186,18 @@ defmodule AWS.VerifiedPermissions do
 
   ## Example:
       
+      open_id_connect_access_token_configuration_item() :: %{
+        "audiences" => list(String.t()()),
+        "principalIdClaim" => String.t()
+      }
+      
+  """
+  @type open_id_connect_access_token_configuration_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()()),
         "message" => [String.t()]
@@ -1143,6 +1283,18 @@ defmodule AWS.VerifiedPermissions do
 
   ## Example:
       
+      update_open_id_connect_access_token_configuration() :: %{
+        "audiences" => list(String.t()()),
+        "principalIdClaim" => String.t()
+      }
+      
+  """
+  @type update_open_id_connect_access_token_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       throttling_exception() :: %{
         "message" => [String.t()],
         "quotaCode" => [String.t()],
@@ -1151,6 +1303,18 @@ defmodule AWS.VerifiedPermissions do
       
   """
   @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      open_id_connect_group_configuration_detail() :: %{
+        "groupClaim" => String.t(),
+        "groupEntityType" => String.t()
+      }
+      
+  """
+  @type open_id_connect_group_configuration_detail() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1168,6 +1332,18 @@ defmodule AWS.VerifiedPermissions do
       
   """
   @type identity_source_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      open_id_connect_group_configuration() :: %{
+        "groupClaim" => String.t(),
+        "groupEntityType" => String.t()
+      }
+      
+  """
+  @type open_id_connect_group_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1289,6 +1465,18 @@ defmodule AWS.VerifiedPermissions do
 
   ## Example:
       
+      open_id_connect_identity_token_configuration_item() :: %{
+        "clientIds" => list(String.t()()),
+        "principalIdClaim" => String.t()
+      }
+      
+  """
+  @type open_id_connect_identity_token_configuration_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_identity_source_output() :: %{
         "configuration" => list(),
         "createdDate" => non_neg_integer(),
@@ -1301,6 +1489,18 @@ defmodule AWS.VerifiedPermissions do
       
   """
   @type get_identity_source_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      open_id_connect_identity_token_configuration_detail() :: %{
+        "clientIds" => list(String.t()()),
+        "principalIdClaim" => String.t()
+      }
+      
+  """
+  @type open_id_connect_identity_token_configuration_detail() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1479,40 +1679,50 @@ defmodule AWS.VerifiedPermissions do
   end
 
   @doc """
-  Creates a reference to an Amazon Cognito user pool as an external identity
-  provider (IdP).
+  Adds an identity source to a policy store–an Amazon Cognito user pool or OpenID
+  Connect
+  (OIDC) identity provider (IdP).
 
   After you create an identity source, you can use the identities provided by the
   IdP as proxies
   for the principal in authorization queries that use the
-  [IsAuthorizedWithToken](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html) operation. These identities take the form of tokens that contain claims about
-  the user,
-  such as IDs, attributes and group memberships. Amazon Cognito provides both
-  identity tokens and
-  access tokens, and Verified Permissions can use either or both. Any combination
-  of identity and access
-  tokens results in the same Cedar principal. Verified Permissions automatically
-  translates the
-  information about the identities into the standard Cedar attributes that can be
-  evaluated by your policies. Because the Amazon Cognito identity and access
-  tokens can contain
-  different information, the tokens you choose to use determine which principal
-  attributes
-  are available to access when evaluating Cedar policies.
+  [IsAuthorizedWithToken](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html) or
+  [BatchIsAuthorizedWithToken](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_BatchIsAuthorizedWithToken.html)
+  API operations. These identities take the form
+  of tokens that contain claims about the user, such as IDs, attributes and group
+  memberships. Identity sources provide identity (ID) tokens and access tokens.
+  Verified Permissions
+  derives information about your user and session from token claims. Access tokens
+  provide
+  action `context` to your policies, and ID tokens provide principal
+  `Attributes`.
 
-  If you delete a Amazon Cognito user pool or user, tokens from that deleted pool
-  or that deleted user continue to be usable until they expire.
+  Tokens from an identity source user continue to be usable until they expire.
+  Token revocation and resource deletion have no effect on the validity of a token
+  in your policy store
 
-  To reference a user from this identity source in your Cedar policies, use the
-  following
-  syntax.
+  To reference a user from this identity source in your Cedar policies, refer to
+  the
+  following syntax examples.
 
-  *IdentityType::"<CognitoUserPoolIdentifier>|<CognitoClientId>*
+    
+  Amazon Cognito user pool:
 
-  Where `IdentityType` is the string that you provide to the
-  `PrincipalEntityType` parameter for this operation. The
-  `CognitoUserPoolId` and `CognitoClientId` are defined by
-  the Amazon Cognito user pool.
+  ```
+  Namespace::[Entity type]::[User pool ID]|[user principal attribute]
+  ```
+
+  , for example
+  `MyCorp::User::us-east-1_EXAMPLE|a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`.
+
+    
+  OpenID Connect (OIDC) provider:
+
+  ```
+  Namespace::[Entity type]::[principalIdClaim]|[user principal attribute] ```
+
+  , for example
+  `MyCorp::User::MyOIDCProvider|a1b2c3d4-5678-90ab-cdef-EXAMPLE22222`.
 
   Verified Permissions is *
   [eventually consistent](https://wikipedia.org/wiki/Eventual_consistency)
@@ -1807,8 +2017,9 @@ defmodule AWS.VerifiedPermissions do
   checking its expiration
   date and its signature.
 
-  If you delete a Amazon Cognito user pool or user, tokens from that deleted pool
-  or that deleted user continue to be usable until they expire.
+  Tokens from an identity source user continue to be usable until they expire.
+  Token revocation and resource deletion have no effect on the validity of a token
+  in your policy store
   """
   @spec is_authorized_with_token(map(), is_authorized_with_token_input(), list()) ::
           {:ok, is_authorized_with_token_output(), any()}
@@ -1901,8 +2112,8 @@ defmodule AWS.VerifiedPermissions do
   end
 
   @doc """
-  Updates the specified identity source to use a new identity provider (IdP)
-  source, or to change
+  Updates the specified identity source to use a new identity provider (IdP), or
+  to change
   the mapping of identities from the IdP to a different principal entity type.
 
   Verified Permissions is *

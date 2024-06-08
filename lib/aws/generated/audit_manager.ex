@@ -534,6 +534,7 @@ defmodule AWS.AuditManager do
         "lastUpdatedAt" => non_neg_integer(),
         "lastUpdatedBy" => String.t(),
         "name" => String.t(),
+        "state" => list(any()),
         "tags" => map(),
         "testingInformation" => String.t(),
         "type" => list(any())
@@ -1260,6 +1261,7 @@ defmodule AWS.AuditManager do
   ## Example:
 
       list_controls_request() :: %{
+        optional("controlCatalogId") => String.t(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("controlType") => list(any())
@@ -2407,7 +2409,8 @@ defmodule AWS.AuditManager do
           | resource_not_found_exception()
 
   @type create_assessment_errors() ::
-          validation_exception()
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
@@ -2645,7 +2648,8 @@ defmodule AWS.AuditManager do
           validation_exception() | internal_server_exception() | resource_not_found_exception()
 
   @type update_assessment_errors() ::
-          validation_exception()
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
@@ -3910,13 +3914,22 @@ defmodule AWS.AuditManager do
   end
 
   @doc """
-  Gets a list of all of the Amazon Web Services that you can choose to include in
-  your assessment.
+  Gets a list of the Amazon Web Services from which Audit Manager can collect
+  evidence.
 
-  When you [create an assessment](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_CreateAssessment.html),
-  specify which of these services you want to include to
-  narrow the assessment's
-  [scope](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Scope.html).
+  Audit Manager defines which Amazon Web Services are in scope for an
+  assessment. Audit Manager infers this scope by examining the assessment’s
+  controls and
+  their data sources, and then mapping this information to one or more of the
+  corresponding
+  Amazon Web Services that are in this list.
+
+  For information about why it's no longer possible to specify services in scope
+  manually, see
+  [I can't edit the services in scope for my assessment](https://docs.aws.amazon.com/audit-manager/latest/userguide/evidence-collection-issues.html#unable-to-edit-services)
+  in
+  the *Troubleshooting* section of the Audit Manager user
+  guide.
   """
   @spec get_services_in_scope(map(), list()) ::
           {:ok, get_services_in_scope_response(), any()}
@@ -4198,6 +4211,16 @@ defmodule AWS.AuditManager do
   Lists the latest analytics data for control domains across all of your active
   assessments.
 
+  Audit Manager supports the control domains that are provided by Amazon Web
+  Services
+  Control Catalog. For information about how to find a list of available control
+  domains, see
+  [
+  `ListDomains`
+  ](https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html)
+  in the Amazon Web Services Control
+  Catalog API Reference.
+
   A control domain is listed only if at least one of the controls within that
   domain
   collected evidence on the `lastUpdated` date of
@@ -4239,6 +4262,16 @@ defmodule AWS.AuditManager do
 
   @doc """
   Lists analytics data for control domains within a specified active assessment.
+
+  Audit Manager supports the control domains that are provided by Amazon Web
+  Services
+  Control Catalog. For information about how to find a list of available control
+  domains, see
+  [
+  `ListDomains`
+  ](https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html)
+  in the Amazon Web Services Control
+  Catalog API Reference.
 
   A control domain is listed only if at least one of the controls within that
   domain
@@ -4354,12 +4387,20 @@ defmodule AWS.AuditManager do
   @doc """
   Returns a list of controls from Audit Manager.
   """
-  @spec list_controls(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_controls(
+          map(),
+          String.t() | nil,
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
           {:ok, list_controls_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_controls_errors()}
   def list_controls(
         %Client{} = client,
+        control_catalog_id \\ nil,
         control_type,
         max_results \\ nil,
         next_token \\ nil,
@@ -4386,6 +4427,13 @@ defmodule AWS.AuditManager do
     query_params =
       if !is_nil(control_type) do
         [{"controlType", control_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(control_catalog_id) do
+        [{"controlCatalogId", control_catalog_id} | query_params]
       else
         query_params
       end

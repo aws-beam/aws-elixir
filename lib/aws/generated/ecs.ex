@@ -106,6 +106,7 @@ defmodule AWS.ECS do
         "computedDesiredCount" => integer(),
         "createdAt" => non_neg_integer(),
         "externalId" => String.t(),
+        "fargateEphemeralStorage" => deployment_ephemeral_storage(),
         "id" => String.t(),
         "launchType" => list(any()),
         "loadBalancers" => list(load_balancer()()),
@@ -163,6 +164,7 @@ defmodule AWS.ECS do
         "inferenceAccelerators" => list(inference_accelerator()()),
         "pullStoppedAt" => non_neg_integer(),
         "stoppedAt" => non_neg_integer(),
+        "fargateEphemeralStorage" => task_ephemeral_storage(),
         "containers" => list(container()()),
         "capacityProviderName" => String.t(),
         "clusterArn" => String.t(),
@@ -346,6 +348,7 @@ defmodule AWS.ECS do
         "createdAt" => non_neg_integer(),
         "desiredCount" => integer(),
         "failedTasks" => integer(),
+        "fargateEphemeralStorage" => deployment_ephemeral_storage(),
         "id" => String.t(),
         "launchType" => list(any()),
         "networkConfiguration" => network_configuration(),
@@ -914,7 +917,8 @@ defmodule AWS.ECS do
   ## Example:
       
       cluster_configuration() :: %{
-        "executeCommandConfiguration" => execute_command_configuration()
+        "executeCommandConfiguration" => execute_command_configuration(),
+        "managedStorageConfiguration" => managed_storage_configuration()
       }
       
   """
@@ -1203,6 +1207,18 @@ defmodule AWS.ECS do
       
   """
   @type container_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      managed_storage_configuration() :: %{
+        "fargateEphemeralStorageKmsKeyId" => String.t(),
+        "kmsKeyId" => String.t()
+      }
+      
+  """
+  @type managed_storage_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2653,6 +2669,18 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      task_ephemeral_storage() :: %{
+        "kmsKeyId" => String.t(),
+        "sizeInGiB" => integer()
+      }
+      
+  """
+  @type task_ephemeral_storage() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_capacity_providers_response() :: %{
         "capacityProviders" => list(capacity_provider()()),
         "failures" => list(failure()()),
@@ -3161,6 +3189,17 @@ defmodule AWS.ECS do
       
   """
   @type deregister_container_instance_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deployment_ephemeral_storage() :: %{
+        "kmsKeyId" => String.t()
+      }
+      
+  """
+  @type deployment_ephemeral_storage() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4742,6 +4781,12 @@ defmodule AWS.ECS do
   `SIGKILL` value is sent and the containers are forcibly stopped. If the
   container handles the `SIGTERM` value gracefully and exits within 30 seconds
   from receiving it, no `SIGKILL` value is sent.
+
+  For Windows containers, POSIX signals do not work and runtime stops the
+  container by sending
+  a `CTRL_SHUTDOWN_EVENT`. For more information, see [Unable to react to graceful shutdown
+  of (Windows) container #25982](https://github.com/moby/moby/issues/25982) on
+  GitHub.
 
   The default 30-second timeout can be configured on the Amazon ECS container
   agent with

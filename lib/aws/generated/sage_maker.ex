@@ -4826,12 +4826,14 @@ defmodule AWS.SageMaker do
   ## Example:
       
       oidc_config() :: %{
+        "AuthenticationRequestExtraParams" => map(),
         "AuthorizationEndpoint" => String.t(),
         "ClientId" => String.t(),
         "ClientSecret" => String.t(),
         "Issuer" => String.t(),
         "JwksUri" => String.t(),
         "LogoutEndpoint" => String.t(),
+        "Scope" => String.t(),
         "TokenEndpoint" => String.t(),
         "UserInfoEndpoint" => String.t()
       }
@@ -9721,6 +9723,7 @@ defmodule AWS.SageMaker do
       list_model_package_groups_input() :: %{
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
+        optional("CrossAccountFilterOption") => list(any()),
         optional("MaxResults") => integer(),
         optional("NameContains") => String.t(),
         optional("NextToken") => String.t(),
@@ -13568,11 +13571,13 @@ defmodule AWS.SageMaker do
   ## Example:
       
       oidc_config_for_response() :: %{
+        "AuthenticationRequestExtraParams" => map(),
         "AuthorizationEndpoint" => String.t(),
         "ClientId" => String.t(),
         "Issuer" => String.t(),
         "JwksUri" => String.t(),
         "LogoutEndpoint" => String.t(),
+        "Scope" => String.t(),
         "TokenEndpoint" => String.t(),
         "UserInfoEndpoint" => String.t()
       }

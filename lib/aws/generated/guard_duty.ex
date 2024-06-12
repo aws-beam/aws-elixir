@@ -207,6 +207,17 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      malware_protection_plan_tagging_action() :: %{
+        "Status" => list(any())
+      }
+
+  """
+  @type malware_protection_plan_tagging_action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       container() :: %{
         "ContainerRuntime" => String.t(),
         "Id" => String.t(),
@@ -314,6 +325,24 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      get_malware_protection_plan_response() :: %{
+        "Actions" => malware_protection_plan_actions(),
+        "Arn" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "ProtectedResource" => create_protected_resource(),
+        "Role" => String.t(),
+        "Status" => list(any()),
+        "StatusReasons" => list(malware_protection_plan_status_reason()()),
+        "Tags" => map()
+      }
+
+  """
+  @type get_malware_protection_plan_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_organization_configuration_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
@@ -333,6 +362,7 @@ defmodule AWS.GuardDuty do
         "Name" => String.t(),
         "Owner" => owner(),
         "PublicAccess" => public_access(),
+        "S3ObjectDetails" => list(s3_object_detail()()),
         "Tags" => list(tag()()),
         "Type" => String.t()
       }
@@ -609,6 +639,17 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      create_malware_protection_plan_response() :: %{
+        "MalwareProtectionPlanId" => String.t()
+      }
+
+  """
+  @type create_malware_protection_plan_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       account_level_permissions() :: %{
         "BlockPublicAccess" => block_public_access()
       }
@@ -770,6 +811,17 @@ defmodule AWS.GuardDuty do
 
   """
   @type scan_ec2_instance_with_findings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_protected_resource() :: %{
+        "S3Bucket" => update_s3_bucket_resource()
+      }
+
+  """
+  @type update_protected_resource() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1057,6 +1109,7 @@ defmodule AWS.GuardDuty do
         "EventLastSeen" => String.t(),
         "Evidence" => evidence(),
         "FeatureName" => String.t(),
+        "MalwareScanDetails" => malware_scan_details(),
         "ResourceRole" => String.t(),
         "RuntimeDetails" => runtime_details(),
         "ServiceName" => String.t(),
@@ -1504,6 +1557,15 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      delete_malware_protection_plan_request() :: %{}
+
+  """
+  @type delete_malware_protection_plan_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       create_detector_response() :: %{
         "DetectorId" => String.t(),
         "UnprocessedDataSources" => unprocessed_data_sources_result()
@@ -1547,6 +1609,18 @@ defmodule AWS.GuardDuty do
 
   """
   @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t(),
+        "Type" => String.t()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1835,6 +1909,15 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      get_malware_protection_plan_request() :: %{}
+
+  """
+  @type get_malware_protection_plan_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       flow_logs_configuration_result() :: %{
         "Status" => list(any())
       }
@@ -1920,6 +2003,21 @@ defmodule AWS.GuardDuty do
 
   """
   @type ecs_task_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_malware_protection_plan_request() :: %{
+        optional("Actions") => malware_protection_plan_actions(),
+        optional("ClientToken") => String.t(),
+        optional("Tags") => map(),
+        required("ProtectedResource") => create_protected_resource(),
+        required("Role") => String.t()
+      }
+
+  """
+  @type create_malware_protection_plan_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2056,6 +2154,17 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      list_malware_protection_plans_request() :: %{
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_malware_protection_plans_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_tags_for_resource_response() :: %{
         "Tags" => map()
       }
@@ -2141,6 +2250,19 @@ defmodule AWS.GuardDuty do
 
   """
   @type trigger_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_malware_protection_plan_request() :: %{
+        optional("Actions") => malware_protection_plan_actions(),
+        optional("ProtectedResource") => update_protected_resource(),
+        optional("Role") => String.t()
+      }
+
+  """
+  @type update_malware_protection_plan_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2300,6 +2422,17 @@ defmodule AWS.GuardDuty do
 
   """
   @type product_code() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      malware_scan_details() :: %{
+        "Threats" => list(threat()())
+      }
+
+  """
+  @type malware_scan_details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2566,6 +2699,17 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      malware_protection_plan_actions() :: %{
+        "Tagging" => malware_protection_plan_tagging_action()
+      }
+
+  """
+  @type malware_protection_plan_actions() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       anomaly() :: %{
         "Profiles" => map(),
         "Unusual" => anomaly_unusual()
@@ -2713,6 +2857,17 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      malware_protection_plan_summary() :: %{
+        "MalwareProtectionPlanId" => String.t()
+      }
+
+  """
+  @type malware_protection_plan_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_member_detectors_request() :: %{
         optional("DataSources") => data_source_configurations(),
         optional("Features") => list(member_features_configuration()()),
@@ -2786,6 +2941,19 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      threat() :: %{
+        "ItemPaths" => list(item_path()()),
+        "Name" => String.t(),
+        "Source" => String.t()
+      }
+
+  """
+  @type threat() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_ip_set_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Tags") => map(),
@@ -2809,6 +2977,17 @@ defmodule AWS.GuardDuty do
 
   """
   @type volume() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_protected_resource() :: %{
+        "S3Bucket" => create_s3_bucket_resource()
+      }
+
+  """
+  @type create_protected_resource() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2847,6 +3026,18 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      list_malware_protection_plans_response() :: %{
+        "MalwareProtectionPlans" => list(malware_protection_plan_summary()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_malware_protection_plans_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_ip_set_response() :: %{
         "Format" => list(any()),
         "Location" => String.t(),
@@ -2868,6 +3059,18 @@ defmodule AWS.GuardDuty do
 
   """
   @type city() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      item_path() :: %{
+        "Hash" => String.t(),
+        "NestedItemPath" => String.t()
+      }
+
+  """
+  @type item_path() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2925,6 +3128,18 @@ defmodule AWS.GuardDuty do
 
   """
   @type fargate_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      malware_protection_plan_status_reason() :: %{
+        "Code" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type malware_protection_plan_status_reason() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3320,6 +3535,18 @@ defmodule AWS.GuardDuty do
 
   """
   @type update_findings_feedback_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_s3_bucket_resource() :: %{
+        "BucketName" => String.t(),
+        "ObjectPrefixes" => list(String.t()())
+      }
+
+  """
+  @type create_s3_bucket_resource() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3915,6 +4142,21 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      s3_object_detail() :: %{
+        "ETag" => String.t(),
+        "Hash" => String.t(),
+        "Key" => String.t(),
+        "ObjectArn" => String.t(),
+        "VersionId" => String.t()
+      }
+
+  """
+  @type s3_object_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       access_key_details() :: %{
         "AccessKeyId" => String.t(),
         "PrincipalId" => String.t(),
@@ -4020,6 +4262,17 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      update_s3_bucket_resource() :: %{
+        "ObjectPrefixes" => list(String.t()())
+      }
+
+  """
+  @type update_s3_bucket_resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_detector_request() :: %{}
 
   """
@@ -4084,6 +4337,12 @@ defmodule AWS.GuardDuty do
 
   @type create_ip_set_errors() :: bad_request_exception() | internal_server_error_exception()
 
+  @type create_malware_protection_plan_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | access_denied_exception()
+          | conflict_exception()
+
   @type create_members_errors() :: bad_request_exception() | internal_server_error_exception()
 
   @type create_publishing_destination_errors() ::
@@ -4105,6 +4364,12 @@ defmodule AWS.GuardDuty do
   @type delete_invitations_errors() :: bad_request_exception() | internal_server_error_exception()
 
   @type delete_ip_set_errors() :: bad_request_exception() | internal_server_error_exception()
+
+  @type delete_malware_protection_plan_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
 
   @type delete_members_errors() :: bad_request_exception() | internal_server_error_exception()
 
@@ -4158,6 +4423,12 @@ defmodule AWS.GuardDuty do
 
   @type get_ip_set_errors() :: bad_request_exception() | internal_server_error_exception()
 
+  @type get_malware_protection_plan_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
   @type get_malware_scan_settings_errors() ::
           bad_request_exception() | internal_server_error_exception()
 
@@ -4193,6 +4464,9 @@ defmodule AWS.GuardDuty do
   @type list_invitations_errors() :: bad_request_exception() | internal_server_error_exception()
 
   @type list_ip_sets_errors() :: bad_request_exception() | internal_server_error_exception()
+
+  @type list_malware_protection_plans_errors() ::
+          bad_request_exception() | internal_server_error_exception() | access_denied_exception()
 
   @type list_members_errors() :: bad_request_exception() | internal_server_error_exception()
 
@@ -4233,6 +4507,12 @@ defmodule AWS.GuardDuty do
           bad_request_exception() | internal_server_error_exception()
 
   @type update_ip_set_errors() :: bad_request_exception() | internal_server_error_exception()
+
+  @type update_malware_protection_plan_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
 
   @type update_malware_scan_settings_errors() ::
           bad_request_exception() | internal_server_error_exception()
@@ -4460,6 +4740,38 @@ defmodule AWS.GuardDuty do
           | {:error, create_ip_set_errors()}
   def create_ip_set(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/ipset"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a new Malware Protection plan for the protected resource.
+
+  When you create a Malware Protection plan, the Amazon Web Services service terms
+  for GuardDuty Malware
+  Protection apply. For more information, see [Amazon Web Services service terms for GuardDuty Malware
+  Protection](http://aws.amazon.com/service-terms/#87._Amazon_GuardDuty).
+  """
+  @spec create_malware_protection_plan(map(), create_malware_protection_plan_request(), list()) ::
+          {:ok, create_malware_protection_plan_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_malware_protection_plan_errors()}
+  def create_malware_protection_plan(%Client{} = client, input, options \\ []) do
+    url_path = "/malware-protection-plan"
     headers = []
     query_params = []
 
@@ -4769,6 +5081,48 @@ defmodule AWS.GuardDuty do
     url_path =
       "/detector/#{AWS.Util.encode_uri(detector_id)}/ipset/#{AWS.Util.encode_uri(ip_set_id)}"
 
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes the Malware Protection plan ID associated with the Malware Protection
+  plan resource.
+
+  Use this API only when you no longer want to protect the resource associated
+  with this
+  Malware Protection plan ID.
+  """
+  @spec delete_malware_protection_plan(
+          map(),
+          String.t(),
+          delete_malware_protection_plan_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_malware_protection_plan_errors()}
+  def delete_malware_protection_plan(
+        %Client{} = client,
+        malware_protection_plan_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/malware-protection-plan/#{AWS.Util.encode_uri(malware_protection_plan_id)}"
     headers = []
     query_params = []
 
@@ -5443,6 +5797,25 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
+  Retrieves the Malware Protection plan details associated with a Malware
+  Protection
+  plan ID.
+  """
+  @spec get_malware_protection_plan(map(), String.t(), list()) ::
+          {:ok, get_malware_protection_plan_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_malware_protection_plan_errors()}
+  def get_malware_protection_plan(%Client{} = client, malware_protection_plan_id, options \\ []) do
+    url_path = "/malware-protection-plan/#{AWS.Util.encode_uri(malware_protection_plan_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns the details of the malware scan settings.
 
   There might be regional differences because some data sources might not be
@@ -5929,6 +6302,31 @@ defmodule AWS.GuardDuty do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the Malware Protection plan IDs associated with the protected
+  resources in your Amazon Web Services account.
+  """
+  @spec list_malware_protection_plans(map(), String.t() | nil, list()) ::
+          {:ok, list_malware_protection_plans_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_malware_protection_plans_errors()}
+  def list_malware_protection_plans(%Client{} = client, next_token \\ nil, options \\ []) do
+    url_path = "/malware-protection-plan"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -6443,6 +6841,43 @@ defmodule AWS.GuardDuty do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an existing Malware Protection plan resource.
+  """
+  @spec update_malware_protection_plan(
+          map(),
+          String.t(),
+          update_malware_protection_plan_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_malware_protection_plan_errors()}
+  def update_malware_protection_plan(
+        %Client{} = client,
+        malware_protection_plan_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/malware-protection-plan/#{AWS.Util.encode_uri(malware_protection_plan_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
       url_path,
       query_params,
       headers,

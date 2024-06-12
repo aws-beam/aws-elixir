@@ -164,6 +164,18 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
+      edge_override() :: %{
+        "EdgeSets" => list(list(String.t()())()),
+        "UseEdge" => String.t()
+      }
+
+  """
+  @type edge_override() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_device_response() :: %{
         "Device" => device()
       }
@@ -287,6 +299,18 @@ defmodule AWS.NetworkManager do
 
   """
   @type get_transit_gateway_peering_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      service_insertion_segments() :: %{
+        "SendTo" => list(String.t()()),
+        "SendVia" => list(String.t()())
+      }
+
+  """
+  @type service_insertion_segments() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -616,6 +640,20 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
+      service_insertion_action() :: %{
+        "Action" => list(any()),
+        "Mode" => list(any()),
+        "Via" => via(),
+        "WhenSentTo" => when_sent_to()
+      }
+
+  """
+  @type service_insertion_action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_site_to_site_vpn_attachment_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Tags") => list(tag()()),
@@ -645,6 +683,19 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
+      proposed_network_function_group_change() :: %{
+        "AttachmentPolicyRuleNumber" => integer(),
+        "NetworkFunctionGroupName" => String.t(),
+        "Tags" => list(tag()())
+      }
+
+  """
+  @type proposed_network_function_group_change() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       attachment() :: %{
         "AttachmentId" => String.t(),
         "AttachmentPolicyRuleNumber" => integer(),
@@ -653,7 +704,9 @@ defmodule AWS.NetworkManager do
         "CoreNetworkId" => String.t(),
         "CreatedAt" => non_neg_integer(),
         "EdgeLocation" => String.t(),
+        "NetworkFunctionGroupName" => String.t(),
         "OwnerAccountId" => String.t(),
+        "ProposedNetworkFunctionGroupChange" => proposed_network_function_group_change(),
         "ProposedSegmentChange" => proposed_segment_change(),
         "ResourceArn" => String.t(),
         "SegmentName" => String.t(),
@@ -675,6 +728,19 @@ defmodule AWS.NetworkManager do
 
   """
   @type delete_site_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      core_network_network_function_group_identifier() :: %{
+        "CoreNetworkId" => String.t(),
+        "EdgeLocation" => String.t(),
+        "NetworkFunctionGroupName" => String.t()
+      }
+
+  """
+  @type core_network_network_function_group_identifier() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -738,6 +804,7 @@ defmodule AWS.NetworkManager do
       network_route_destination() :: %{
         "CoreNetworkAttachmentId" => String.t(),
         "EdgeLocation" => String.t(),
+        "NetworkFunctionGroupName" => String.t(),
         "ResourceId" => String.t(),
         "ResourceType" => String.t(),
         "SegmentName" => String.t(),
@@ -1143,6 +1210,17 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
+      when_sent_to() :: %{
+        "WhenSentToSegmentsList" => list(String.t()())
+      }
+
+  """
+  @type when_sent_to() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_transit_gateway_peering_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Tags") => list(tag()()),
@@ -1187,7 +1265,9 @@ defmodule AWS.NetworkManager do
         "DestinationIdentifier" => String.t(),
         "EdgeLocations" => list(String.t()()),
         "InsideCidrBlocks" => list(String.t()()),
+        "NetworkFunctionGroupName" => String.t(),
         "SegmentName" => String.t(),
+        "ServiceInsertionActions" => list(service_insertion_action()()),
         "SharedSegments" => list(String.t()())
       }
 
@@ -1597,6 +1677,7 @@ defmodule AWS.NetworkManager do
         "Description" => String.t(),
         "Edges" => list(core_network_edge()()),
         "GlobalNetworkId" => String.t(),
+        "NetworkFunctionGroups" => list(core_network_network_function_group()()),
         "Segments" => list(core_network_segment()()),
         "State" => list(any()),
         "Tags" => list(tag()())
@@ -1911,6 +1992,17 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
+      network_function_group() :: %{
+        "Name" => String.t()
+      }
+
+  """
+  @type network_function_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       core_network_policy() :: %{
         "Alias" => list(any()),
         "ChangeSetState" => list(any()),
@@ -2077,6 +2169,7 @@ defmodule AWS.NetworkManager do
         "AttachmentId" => String.t(),
         "Cidr" => String.t(),
         "EdgeLocation" => String.t(),
+        "NetworkFunctionGroupName" => String.t(),
         "SegmentName" => String.t()
       }
 
@@ -2389,6 +2482,19 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
+      core_network_network_function_group() :: %{
+        "EdgeLocations" => list(String.t()()),
+        "Name" => String.t(),
+        "Segments" => service_insertion_segments()
+      }
+
+  """
+  @type core_network_network_function_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_customer_gateway_associations_request() :: %{
         optional("CustomerGatewayArns") => list(String.t()()),
         optional("MaxResults") => integer(),
@@ -2468,6 +2574,7 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       route_table_identifier() :: %{
+        "CoreNetworkNetworkFunctionGroup" => core_network_network_function_group_identifier(),
         "CoreNetworkSegmentEdge" => core_network_segment_edge_identifier(),
         "TransitGatewayRouteTableArn" => String.t()
       }
@@ -2967,6 +3074,18 @@ defmodule AWS.NetworkManager do
 
   """
   @type organization_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      via() :: %{
+        "NetworkFunctionGroups" => list(network_function_group()()),
+        "WithEdgeOverrides" => list(edge_override()())
+      }
+
+  """
+  @type via() :: %{String.t() => any()}
 
   @typedoc """
 

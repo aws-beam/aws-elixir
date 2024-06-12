@@ -128,6 +128,19 @@ defmodule AWS.AccessAnalyzer do
 
   ## Example:
 
+      check_no_public_access_response() :: %{
+        "message" => [String.t()],
+        "reasons" => list(reason_summary()()),
+        "result" => String.t()
+      }
+
+  """
+  @type check_no_public_access_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_archive_rule_request() :: %{
         "clientToken" => [String.t()]
       }
@@ -263,6 +276,24 @@ defmodule AWS.AccessAnalyzer do
 
   """
   @type s3_bucket_acl_grant_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_finding_recommendation_response() :: %{
+        "completedAt" => non_neg_integer(),
+        "error" => recommendation_error(),
+        "nextToken" => String.t(),
+        "recommendationType" => String.t(),
+        "recommendedSteps" => list(list()()),
+        "resourceArn" => String.t(),
+        "startedAt" => non_neg_integer(),
+        "status" => String.t()
+      }
+
+  """
+  @type get_finding_recommendation_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -669,6 +700,18 @@ defmodule AWS.AccessAnalyzer do
 
   ## Example:
 
+      check_no_public_access_request() :: %{
+        required("policyDocument") => String.t(),
+        required("resourceType") => String.t()
+      }
+
+  """
+  @type check_no_public_access_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       service_quota_exceeded_exception() :: %{
         "message" => [String.t()],
         "resourceId" => [String.t()],
@@ -860,6 +903,18 @@ defmodule AWS.AccessAnalyzer do
 
   ## Example:
 
+      recommendation_error() :: %{
+        "code" => [String.t()],
+        "message" => [String.t()]
+      }
+
+  """
+  @type recommendation_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       location() :: %{
         "path" => list(list()()),
         "span" => span()
@@ -907,6 +962,30 @@ defmodule AWS.AccessAnalyzer do
 
   """
   @type list_policy_generations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_finding_recommendation_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t(),
+        required("analyzerArn") => String.t()
+      }
+
+  """
+  @type get_finding_recommendation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      generate_finding_recommendation_request() :: %{
+        required("analyzerArn") => String.t()
+      }
+
+  """
+  @type generate_finding_recommendation_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1166,6 +1245,20 @@ defmodule AWS.AccessAnalyzer do
 
   ## Example:
 
+      unused_permissions_recommended_step() :: %{
+        "existingPolicyId" => [String.t()],
+        "policyUpdatedAt" => non_neg_integer(),
+        "recommendedAction" => String.t(),
+        "recommendedPolicy" => [String.t()]
+      }
+
+  """
+  @type unused_permissions_recommended_step() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invalid_parameter_exception() :: %{
         "message" => [String.t()]
       }
@@ -1310,7 +1403,8 @@ defmodule AWS.AccessAnalyzer do
   ## Example:
 
       access() :: %{
-        "actions" => list(String.t()())
+        "actions" => list(String.t()()),
+        "resources" => list(String.t()())
       }
 
   """
@@ -1731,6 +1825,14 @@ defmodule AWS.AccessAnalyzer do
           | unprocessable_entity_exception()
           | internal_server_exception()
 
+  @type check_no_public_access_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | unprocessable_entity_exception()
+          | internal_server_exception()
+
   @type create_access_preview_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1771,6 +1873,12 @@ defmodule AWS.AccessAnalyzer do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type generate_finding_recommendation_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type get_access_preview_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1800,6 +1908,13 @@ defmodule AWS.AccessAnalyzer do
           | resource_not_found_exception()
 
   @type get_finding_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_finding_recommendation_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -2045,6 +2160,35 @@ defmodule AWS.AccessAnalyzer do
   end
 
   @doc """
+  Checks whether a resource policy can grant public access to the specified
+  resource
+  type.
+  """
+  @spec check_no_public_access(map(), check_no_public_access_request(), list()) ::
+          {:ok, check_no_public_access_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, check_no_public_access_errors()}
+  def check_no_public_access(%Client{} = client, input, options \\ []) do
+    url_path = "/policy/check-no-public-access"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates an access preview that allows you to preview IAM Access Analyzer
   findings for your
   resource before deploying resource permissions.
@@ -2176,6 +2320,43 @@ defmodule AWS.AccessAnalyzer do
   end
 
   @doc """
+  Creates a recommendation for an unused permissions finding.
+  """
+  @spec generate_finding_recommendation(
+          map(),
+          String.t(),
+          generate_finding_recommendation_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, generate_finding_recommendation_errors()}
+  def generate_finding_recommendation(%Client{} = client, id, input, options \\ []) do
+    url_path = "/recommendation/#{AWS.Util.encode_uri(id)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"analyzerArn", "analyzerArn"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves information about an access preview for the specified analyzer.
   """
   @spec get_access_preview(map(), String.t(), String.t(), list()) ::
@@ -2286,6 +2467,58 @@ defmodule AWS.AccessAnalyzer do
     url_path = "/finding/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(analyzer_arn) do
+        [{"analyzerArn", analyzer_arn} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves information about a finding recommendation for the specified analyzer.
+  """
+  @spec get_finding_recommendation(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, get_finding_recommendation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_finding_recommendation_errors()}
+  def get_finding_recommendation(
+        %Client{} = client,
+        id,
+        analyzer_arn,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/recommendation/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(analyzer_arn) do

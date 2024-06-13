@@ -39,7 +39,7 @@ defmodule AWS.Mixfile do
       {:ex_doc, "~> 0.24", only: [:dev]},
       {:bypass, "~> 2.1", only: [:test]},
       {:finch, "~> 0.13", optional: true},
-      {:hackney, "~> 1.16", optional: true}
+      {:hackney, "~> 1.20", optional: true}
     ]
   end
 

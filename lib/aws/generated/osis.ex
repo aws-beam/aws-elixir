@@ -137,6 +137,7 @@ defmodule AWS.OSIS do
         "Status" => list(any()),
         "StatusReason" => pipeline_status_reason(),
         "Tags" => list(tag()()),
+        "VpcEndpointService" => String.t(),
         "VpcEndpoints" => list(vpc_endpoint()())
       }
 
@@ -599,7 +600,8 @@ defmodule AWS.OSIS do
       vpc_options() :: %{
         "SecurityGroupIds" => list(String.t()()),
         "SubnetIds" => list(String.t()()),
-        "VpcAttachmentOptions" => vpc_attachment_options()
+        "VpcAttachmentOptions" => vpc_attachment_options(),
+        "VpcEndpointManagement" => list(any())
       }
 
   """

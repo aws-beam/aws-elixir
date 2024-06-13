@@ -553,6 +553,7 @@ defmodule AWS.SecretsManager do
       
       put_secret_value_request() :: %{
         optional("ClientRequestToken") => String.t(),
+        optional("RotationToken") => String.t(),
         optional("SecretBinary") => binary(),
         optional("SecretString") => String.t(),
         optional("VersionStages") => list(String.t()()),
@@ -1610,9 +1611,9 @@ defmodule AWS.SecretsManager do
   only create new ones.
 
   Secrets Manager generates a CloudTrail log entry when you call this action. Do
-  not include sensitive information in request parameters except `SecretBinary` or
-  `SecretString` because it might be logged. For more information, see [Logging Secrets Manager events with
-  CloudTrail](https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html).
+  not include sensitive information in request parameters except `SecretBinary`,
+  `SecretString`, or `RotationToken` because it might be logged. For more
+  information, see [Logging Secrets Manager events with CloudTrail](https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html).
 
   ## Required permissions: 
   `secretsmanager:PutSecretValue`.

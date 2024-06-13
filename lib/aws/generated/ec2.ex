@@ -2542,6 +2542,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_traffic_mirror_filter_rules_result() :: %{
+        "NextToken" => String.t(),
+        "TrafficMirrorFilterRules" => list(traffic_mirror_filter_rule()())
+      }
+      
+  """
+  @type describe_traffic_mirror_filter_rules_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       accept_vpc_peering_connection_result() :: %{
         "VpcPeeringConnection" => vpc_peering_connection()
       }
@@ -7338,6 +7350,7 @@ defmodule AWS.EC2 do
         "RuleNumber" => integer(),
         "SourceCidrBlock" => String.t(),
         "SourcePortRange" => traffic_mirror_port_range(),
+        "Tags" => list(tag()()),
         "TrafficDirection" => list(any()),
         "TrafficMirrorFilterId" => String.t(),
         "TrafficMirrorFilterRuleId" => String.t()
@@ -9937,6 +9950,7 @@ defmodule AWS.EC2 do
         optional("DryRun") => boolean(),
         optional("Protocol") => integer(),
         optional("SourcePortRange") => traffic_mirror_port_range_request(),
+        optional("TagSpecifications") => list(tag_specification()()),
         required("DestinationCidrBlock") => String.t(),
         required("RuleAction") => list(any()),
         required("RuleNumber") => integer(),
@@ -22097,6 +22111,22 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_traffic_mirror_filter_rules_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("TrafficMirrorFilterId") => String.t(),
+        optional("TrafficMirrorFilterRuleIds") => list(String.t()())
+      }
+      
+  """
+  @type describe_traffic_mirror_filter_rules_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       inference_device_info() :: %{
         "Count" => integer(),
         "Manufacturer" => String.t(),
@@ -29521,8 +29551,9 @@ defmodule AWS.EC2 do
   A Traffic Mirror filter is a set of rules that defines the traffic to mirror.
 
   By default, no traffic is mirrored. To mirror traffic, use
-  [CreateTrafficMirrorFilterRule](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorFilterRule.htm) to add Traffic Mirror rules to the filter. The rules you
-  add define what traffic gets mirrored. You can also use
+  [CreateTrafficMirrorFilterRule](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorFilterRule.htm) to add Traffic Mirror rules to the filter. The rules you add define what traffic
+  gets mirrored.
+  You can also use
   [ModifyTrafficMirrorFilterNetworkServices](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTrafficMirrorFilterNetworkServices.html)
   to mirror supported network services.
   """
@@ -33952,6 +33983,22 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeTags", input, options)
+  end
+
+  @doc """
+  Describe traffic mirror filters that determine the traffic that is mirrored.
+  """
+  @spec describe_traffic_mirror_filter_rules(
+          map(),
+          describe_traffic_mirror_filter_rules_request(),
+          list()
+        ) ::
+          {:ok, describe_traffic_mirror_filter_rules_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def describe_traffic_mirror_filter_rules(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTrafficMirrorFilterRules", input, options)
   end
 
   @doc """

@@ -199,6 +199,7 @@ defmodule AWS.CloudHSMV2 do
       
       create_cluster_request() :: %{
         optional("BackupRetentionPolicy") => backup_retention_policy(),
+        optional("Mode") => list(any()),
         optional("SourceBackupId") => String.t(),
         optional("TagList") => list(tag()()),
         required("HsmType") => String.t(),
@@ -246,6 +247,7 @@ defmodule AWS.CloudHSMV2 do
         "CreateTimestamp" => non_neg_integer(),
         "HsmType" => String.t(),
         "Hsms" => list(hsm()()),
+        "Mode" => list(any()),
         "PreCoPassword" => String.t(),
         "SecurityGroup" => String.t(),
         "SourceBackupId" => String.t(),
@@ -330,6 +332,8 @@ defmodule AWS.CloudHSMV2 do
         "CopyTimestamp" => non_neg_integer(),
         "CreateTimestamp" => non_neg_integer(),
         "DeleteTimestamp" => non_neg_integer(),
+        "HsmType" => String.t(),
+        "Mode" => list(any()),
         "NeverExpires" => boolean(),
         "SourceBackup" => String.t(),
         "SourceCluster" => String.t(),

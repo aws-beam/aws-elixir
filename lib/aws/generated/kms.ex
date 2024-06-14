@@ -549,6 +549,22 @@ defmodule AWS.KMS do
 
   ## Example:
       
+      derive_shared_secret_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("GrantTokens") => list(String.t()()),
+        optional("Recipient") => recipient_info(),
+        required("KeyAgreementAlgorithm") => list(any()),
+        required("KeyId") => String.t(),
+        required("PublicKey") => binary()
+      }
+      
+  """
+  @type derive_shared_secret_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       disconnect_custom_key_store_request() :: %{
         required("CustomKeyStoreId") => String.t()
       }
@@ -1336,6 +1352,7 @@ defmodule AWS.KMS do
         "Enabled" => boolean(),
         "EncryptionAlgorithms" => list(list(any())()),
         "ExpirationModel" => list(any()),
+        "KeyAgreementAlgorithms" => list(list(any())()),
         "KeyId" => String.t(),
         "KeyManager" => list(any()),
         "KeySpec" => list(any()),
@@ -1463,6 +1480,7 @@ defmodule AWS.KMS do
       get_public_key_response() :: %{
         "CustomerMasterKeySpec" => list(any()),
         "EncryptionAlgorithms" => list(list(any())()),
+        "KeyAgreementAlgorithms" => list(list(any())()),
         "KeyId" => String.t(),
         "KeySpec" => list(any()),
         "KeyUsage" => list(any()),
@@ -1518,6 +1536,21 @@ defmodule AWS.KMS do
       
   """
   @type cancel_key_deletion_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      derive_shared_secret_response() :: %{
+        "CiphertextForRecipient" => binary(),
+        "KeyAgreementAlgorithm" => list(any()),
+        "KeyId" => String.t(),
+        "KeyOrigin" => list(any()),
+        "SharedSecret" => binary()
+      }
+      
+  """
+  @type derive_shared_secret_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2134,6 +2167,17 @@ defmodule AWS.KMS do
           | invalid_arn_exception()
           | dependency_timeout_exception()
           | unsupported_operation_exception()
+
+  @type derive_shared_secret_errors() ::
+          kms_invalid_state_exception()
+          | disabled_exception()
+          | invalid_key_usage_exception()
+          | kms_internal_exception()
+          | key_unavailable_exception()
+          | not_found_exception()
+          | dependency_timeout_exception()
+          | dry_run_operation_exception()
+          | invalid_grant_token_exception()
 
   @type describe_custom_key_stores_errors() ::
           custom_key_store_not_found_exception()
@@ -3076,11 +3120,17 @@ defmodule AWS.KMS do
   SM2 key pair (China Regions only). The private key in an asymmetric KMS key
   never leaves
   KMS unencrypted. However, you can use the `GetPublicKey` operation to
-  download the public key so it can be used outside of KMS. KMS keys with RSA or
-  SM2 key
-  pairs can be used to encrypt or decrypt data or sign and verify messages (but
+  download the public key so it can be used outside of KMS. Each KMS key can have
+  only one key usage. KMS keys with RSA key
+  pairs can be used to encrypt and decrypt data or sign and verify messages (but
   not both).
-  KMS keys with ECC key pairs can be used only to sign and verify messages. For
+  KMS keys with NIST-recommended ECC key pairs can be used to sign and verify
+  messages or
+  derive shared secrets (but not both). KMS keys with `ECC_SECG_P256K1`
+  can be used only to sign and verify messages. KMS keys with SM2 key pairs (China
+  Regions only)
+  can be used to either encrypt and decrypt data, sign and verify messages, or
+  derive shared secrets (you must choose one key usage type). For
   information about asymmetric KMS keys, see [Asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html)
   in the
   *Key Management Service Developer Guide*.
@@ -3576,6 +3626,123 @@ defmodule AWS.KMS do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteImportedKeyMaterial", input, options)
+  end
+
+  @doc """
+  Derives a shared secret using a key agreement algorithm.
+
+  You must use an asymmetric NIST-recommended elliptic curve (ECC) or SM2 (China
+  Regions only)
+  KMS key pair with a `KeyUsage` value of `KEY_AGREEMENT` to call
+  DeriveSharedSecret.
+
+  DeriveSharedSecret uses the [Elliptic Curve Cryptography Cofactor Diffie-Hellman Primitive](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-56Ar3.pdf#page=60)
+  (ECDH) to
+  establish a key agreement between two peers by deriving a shared secret from
+  their elliptic curve
+  public-private key pairs. You can use the raw shared secret that
+  DeriveSharedSecret returns to derive
+  a symmetric key that can encrypt and decrypt data that is sent between the two
+  peers, or that can
+  generate and verify HMACs. KMS recommends that you follow [NIST recommendations for key
+  derivation](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-56Cr2.pdf)
+  when using the raw shared secret to derive a
+  symmetric key.
+
+  The following workflow demonstrates how to establish key agreement over an
+  insecure communication
+  channel using DeriveSharedSecret.
+
+    1.
+
+  **Alice** calls `CreateKey` to create an asymmetric
+  KMS key pair with a `KeyUsage` value of `KEY_AGREEMENT`.
+
+  The asymmetric KMS key must use a NIST-recommended elliptic curve (ECC) or SM2
+  (China Regions only) key spec.
+
+    2.
+
+  **Bob** creates an elliptic curve key pair.
+
+  Bob can call `CreateKey` to create an asymmetric KMS key
+  pair or generate a key pair outside of KMS. Bob's key pair must use the same
+  NIST-recommended elliptic curve (ECC)
+  or SM2 (China Regions ony) curve as Alice.
+
+    3.
+  Alice and Bob ## exchange their public keys
+  through an insecure communication channel (like the internet).
+
+  Use `GetPublicKey` to download the public key of your asymmetric KMS key pair.
+
+  KMS strongly recommends verifying that the public key you receive came from the
+  expected
+  party before using it to derive a shared secret.
+
+    4.
+
+  **Alice** calls DeriveSharedSecret.
+
+  KMS uses the private key from the KMS key pair generated in **Step 1**,
+  Bob's public key, and the Elliptic Curve Cryptography Cofactor Diffie-Hellman
+  Primitive to derive the
+  shared secret. The private key in your KMS key pair never leaves KMS
+  unencrypted. DeriveSharedSecret
+  returns the raw shared secret.
+
+    5.
+
+  **Bob** uses the Elliptic Curve Cryptography Cofactor Diffie-Hellman
+  Primitive to calculate the same raw secret using his private key and Alice's
+  public key.
+
+  To derive a shared secret you must provide a key agreement algorithm, the
+  private key of the caller's asymmetric NIST-recommended
+  elliptic curve or SM2 (China Regions only) KMS key pair, and the public key from
+  your peer's NIST-recommended elliptic curve
+  or SM2 (China Regions only) key pair. The public key can be from another
+  asymmetric KMS key pair or from a key pair generated outside
+  of KMS, but both key pairs must be on the same elliptic curve.
+
+  The KMS key that you use for this operation must be in a compatible key state.
+  For
+  details, see [Key states of KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
+  the *Key Management Service Developer Guide*.
+
+  **Cross-account use**: Yes. To perform this operation with a KMS key in a
+  different Amazon Web Services account, specify
+  the key ARN or alias ARN in the value of the `KeyId` parameter.
+
+  **Required permissions**:
+  [kms:DeriveSharedSecret](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
+
+  ## Related operations:
+
+    *
+
+  `CreateKey`
+
+    *
+
+  `GetPublicKey`
+
+    *
+
+  `DescribeKey`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model.
+  For more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html).
+  """
+  @spec derive_shared_secret(map(), derive_shared_secret_request(), list()) ::
+          {:ok, derive_shared_secret_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, derive_shared_secret_errors()}
+  def derive_shared_secret(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeriveSharedSecret", input, options)
   end
 
   @doc """
@@ -4971,7 +5138,7 @@ defmodule AWS.KMS do
   material.
 
     *
-  The public key (or "wrapping key") of an asymmetric key pair that KMS generates.
+  The public key (or "wrapping key") of an RSA key pair that KMS generates.
 
   You will use this public key to encrypt ("wrap") your key material while it's in
   transit to KMS.
@@ -5075,7 +5242,8 @@ defmodule AWS.KMS do
     *
 
   [KeyUsage](https://docs.aws.amazon.com/kms/latest/APIReference/API_GetPublicKey.html#KMS-GetPublicKey-response-KeyUsage):
-  Whether the key is used for encryption or signing.
+  Whether the key is used for encryption, signing, or
+  deriving a shared secret.
 
     *
 

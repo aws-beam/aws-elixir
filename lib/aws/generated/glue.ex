@@ -7950,6 +7950,7 @@ defmodule AWS.Glue do
       
       data_quality_evaluation_run_additional_run_options() :: %{
         "CloudWatchMetricsEnabled" => boolean(),
+        "CompositeRuleEvaluationMethod" => list(any()),
         "ResultsS3Prefix" => String.t()
       }
       

@@ -145,6 +145,31 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      create_environment_action_input() :: %{
+        optional("description") => [String.t()],
+        required("name") => [String.t()],
+        required("parameters") => list()
+      }
+
+  """
+  @type create_environment_action_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_environment_actions_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_environment_actions_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       redshift_credential_configuration() :: %{
         "secretManagerArn" => [String.t()]
       }
@@ -387,6 +412,15 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      get_environment_action_input() :: %{}
+
+  """
+  @type get_environment_action_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       unauthorized_exception() :: %{
         "message" => String.t()
       }
@@ -540,6 +574,22 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      create_environment_action_output() :: %{
+        "description" => [String.t()],
+        "domainId" => String.t(),
+        "environmentId" => String.t(),
+        "id" => String.t(),
+        "name" => [String.t()],
+        "parameters" => list()
+      }
+
+  """
+  @type create_environment_action_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_listing_change_set_output() :: %{
         "listingId" => String.t(),
         "listingRevision" => String.t(),
@@ -569,6 +619,9 @@ defmodule AWS.DataZone do
 
       create_environment_input() :: %{
         optional("description") => [String.t()],
+        optional("environmentAccountIdentifier") => [String.t()],
+        optional("environmentAccountRegion") => [String.t()],
+        optional("environmentBlueprintIdentifier") => [String.t()],
         optional("glossaryTerms") => list(String.t()()),
         optional("userParameters") => list(environment_parameter()()),
         required("environmentProfileIdentifier") => String.t(),
@@ -1003,6 +1056,17 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      redshift_self_grant_status_output() :: %{
+        "selfGrantStatusDetails" => list(self_grant_status_detail()())
+      }
+
+  """
+  @type redshift_self_grant_status_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_project_output() :: %{
         "createdAt" => [non_neg_integer()],
         "createdBy" => String.t(),
@@ -1086,6 +1150,15 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      disassociate_environment_role_input() :: %{}
+
+  """
+  @type disassociate_environment_role_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       post_time_series_data_points_input() :: %{
         optional("clientToken") => String.t(),
         required("forms") => list(time_series_data_point_form_input()())
@@ -1147,6 +1220,7 @@ defmodule AWS.DataZone do
         "publishOnImport" => [boolean()],
         "recommendation" => recommendation_configuration(),
         "schedule" => schedule_configuration(),
+        "selfGrantStatus" => list(),
         "status" => list(any()),
         "type" => String.t(),
         "updatedAt" => non_neg_integer()
@@ -1272,10 +1346,31 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      associate_environment_role_input() :: %{}
+
+  """
+  @type associate_environment_role_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       cancel_metadata_generation_run_output() :: %{}
 
   """
   @type cancel_metadata_generation_run_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_environment_actions_output() :: %{
+        "items" => list(environment_action_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_environment_actions_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1321,6 +1416,19 @@ defmodule AWS.DataZone do
 
   """
   @type environment_blueprint_configuration_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_environment_action_input() :: %{
+        optional("description") => [String.t()],
+        optional("name") => [String.t()],
+        optional("parameters") => list()
+      }
+
+  """
+  @type update_environment_action_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1796,6 +1904,7 @@ defmodule AWS.DataZone do
         optional("name") => String.t(),
         optional("publishOnImport") => [boolean()],
         optional("recommendation") => recommendation_configuration(),
+        optional("retainPermissionsOnRevokeFailure") => [boolean()],
         optional("schedule") => schedule_configuration()
       }
 
@@ -2079,7 +2188,9 @@ defmodule AWS.DataZone do
         "name" => String.t(),
         "projectId" => String.t(),
         "publishOnImport" => [boolean()],
+        "retainPermissionsOnRevokeFailure" => [boolean()],
         "schedule" => schedule_configuration(),
+        "selfGrantStatus" => list(),
         "status" => list(any()),
         "type" => String.t(),
         "updatedAt" => non_neg_integer()
@@ -2207,6 +2318,22 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      get_environment_action_output() :: %{
+        "description" => [String.t()],
+        "domainId" => String.t(),
+        "environmentId" => String.t(),
+        "id" => String.t(),
+        "name" => [String.t()],
+        "parameters" => list()
+      }
+
+  """
+  @type get_environment_action_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       reject_subscription_request_output() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
@@ -2296,6 +2423,22 @@ defmodule AWS.DataZone do
 
   """
   @type prediction_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      environment_action_summary() :: %{
+        "description" => [String.t()],
+        "domainId" => String.t(),
+        "environmentId" => String.t(),
+        "id" => String.t(),
+        "name" => [String.t()],
+        "parameters" => list()
+      }
+
+  """
+  @type environment_action_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2912,7 +3055,9 @@ defmodule AWS.DataZone do
         "projectId" => String.t(),
         "publishOnImport" => [boolean()],
         "recommendation" => recommendation_configuration(),
+        "retainPermissionsOnRevokeFailure" => [boolean()],
         "schedule" => schedule_configuration(),
+        "selfGrantStatus" => list(),
         "status" => list(any()),
         "type" => String.t(),
         "updatedAt" => non_neg_integer()
@@ -2962,6 +3107,17 @@ defmodule AWS.DataZone do
 
   """
   @type get_environment_blueprint_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_console_link_parameters() :: %{
+        "uri" => [String.t()]
+      }
+
+  """
+  @type aws_console_link_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3021,6 +3177,22 @@ defmodule AWS.DataZone do
 
   """
   @type update_glossary_term_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_environment_action_output() :: %{
+        "description" => [String.t()],
+        "domainId" => String.t(),
+        "environmentId" => String.t(),
+        "id" => String.t(),
+        "name" => [String.t()],
+        "parameters" => list()
+      }
+
+  """
+  @type update_environment_action_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3492,6 +3664,20 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      self_grant_status_detail() :: %{
+        "databaseName" => [String.t()],
+        "failureCause" => [String.t()],
+        "schemaName" => [String.t()],
+        "status" => list(any())
+      }
+
+  """
+  @type self_grant_status_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_listing_change_set_input() :: %{
         optional("clientToken") => String.t(),
         optional("entityRevision") => String.t(),
@@ -3620,6 +3806,15 @@ defmodule AWS.DataZone do
 
   """
   @type schedule_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_environment_role_output() :: %{}
+
+  """
+  @type associate_environment_role_output() :: %{}
 
   @typedoc """
 
@@ -3981,6 +4176,15 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      disassociate_environment_role_output() :: %{}
+
+  """
+  @type disassociate_environment_role_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_subscription_output() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
@@ -4042,6 +4246,15 @@ defmodule AWS.DataZone do
 
   """
   @type group_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_environment_action_input() :: %{}
+
+  """
+  @type delete_environment_action_input() :: %{}
 
   @typedoc """
 
@@ -4178,6 +4391,17 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      glue_self_grant_status_output() :: %{
+        "selfGrantStatusDetails" => list(self_grant_status_detail()())
+      }
+
+  """
+  @type glue_self_grant_status_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_environment_blueprint_input() :: %{}
 
   """
@@ -4265,7 +4489,8 @@ defmodule AWS.DataZone do
   ## Example:
 
       delete_data_source_input() :: %{
-        optional("clientToken") => [String.t()]
+        optional("clientToken") => [String.t()],
+        optional("retainPermissionsOnRevokeFailure") => [boolean()]
       }
 
   """
@@ -4598,6 +4823,14 @@ defmodule AWS.DataZone do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type associate_environment_role_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type cancel_metadata_generation_run_errors() ::
           throttling_exception()
           | validation_exception()
@@ -4658,6 +4891,14 @@ defmodule AWS.DataZone do
           | conflict_exception()
 
   @type create_environment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_environment_action_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -4798,6 +5039,14 @@ defmodule AWS.DataZone do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type delete_environment_action_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type delete_environment_blueprint_configuration_errors() ::
           validation_exception() | access_denied_exception() | internal_server_exception()
 
@@ -4886,6 +5135,14 @@ defmodule AWS.DataZone do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type disassociate_environment_role_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type get_asset_errors() ::
           throttling_exception()
           | validation_exception()
@@ -4927,6 +5184,13 @@ defmodule AWS.DataZone do
           | resource_not_found_exception()
 
   @type get_environment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_environment_action_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -5092,6 +5356,12 @@ defmodule AWS.DataZone do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type list_environment_actions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
 
   @type list_environment_blueprint_configurations_errors() ::
           validation_exception()
@@ -5301,6 +5571,14 @@ defmodule AWS.DataZone do
           | service_quota_exceeded_exception()
           | conflict_exception()
 
+  @type update_environment_action_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type update_environment_profile_errors() ::
           throttling_exception()
           | validation_exception()
@@ -5435,6 +5713,39 @@ defmodule AWS.DataZone do
       ) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/subscription-requests/#{AWS.Util.encode_uri(identifier)}/accept"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Associates the environment role in Amazon DataZone.
+  """
+  @spec associate_environment_role(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          associate_environment_role_input(),
+          list()
+        ) ::
+          {:ok, associate_environment_role_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, associate_environment_role_errors()}
+  def associate_environment_role(
+        %Client{} = client,
+        domain_identifier,
+        environment_identifier,
+        environment_role_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments/#{AWS.Util.encode_uri(environment_identifier)}/roles/#{AWS.Util.encode_uri(environment_role_arn)}"
 
     headers = []
     query_params = []
@@ -5662,6 +5973,49 @@ defmodule AWS.DataZone do
           | {:error, create_environment_errors()}
   def create_environment(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates an action for the environment, for example, creates a console link for
+  an
+  analytics tool that is available in this environment.
+  """
+  @spec create_environment_action(
+          map(),
+          String.t(),
+          String.t(),
+          create_environment_action_input(),
+          list()
+        ) ::
+          {:ok, create_environment_action_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_environment_action_errors()}
+  def create_environment_action(
+        %Client{} = client,
+        domain_identifier,
+        environment_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments/#{AWS.Util.encode_uri(environment_identifier)}/actions"
+
     headers = []
     query_params = []
 
@@ -6112,7 +6466,8 @@ defmodule AWS.DataZone do
 
     {query_params, input} =
       [
-        {"clientToken", "clientToken"}
+        {"clientToken", "clientToken"},
+        {"retainPermissionsOnRevokeFailure", "retainPermissionsOnRevokeFailure"}
       ]
       |> Request.build_params(input)
 
@@ -6174,6 +6529,51 @@ defmodule AWS.DataZone do
   def delete_environment(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes an action for the environment, for example, deletes a console link for
+  an
+  analytics tool that is available in this environment.
+  """
+  @spec delete_environment_action(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          delete_environment_action_input(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_environment_action_errors()}
+  def delete_environment_action(
+        %Client{} = client,
+        domain_identifier,
+        environment_identifier,
+        identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments/#{AWS.Util.encode_uri(environment_identifier)}/actions/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
     query_params = []
@@ -6653,6 +7053,49 @@ defmodule AWS.DataZone do
   end
 
   @doc """
+  Disassociates the environment role in Amazon DataZone.
+  """
+  @spec disassociate_environment_role(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          disassociate_environment_role_input(),
+          list()
+        ) ::
+          {:ok, disassociate_environment_role_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disassociate_environment_role_errors()}
+  def disassociate_environment_role(
+        %Client{} = client,
+        domain_identifier,
+        environment_identifier,
+        environment_role_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments/#{AWS.Util.encode_uri(environment_identifier)}/roles/#{AWS.Util.encode_uri(environment_role_arn)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Gets an Amazon DataZone asset.
   """
   @spec get_asset(map(), String.t(), String.t(), String.t() | nil, list()) ::
@@ -6775,6 +7218,31 @@ defmodule AWS.DataZone do
   def get_environment(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets the specified environment action.
+  """
+  @spec get_environment_action(map(), String.t(), String.t(), String.t(), list()) ::
+          {:ok, get_environment_action_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_environment_action_errors()}
+  def get_environment_action(
+        %Client{} = client,
+        domain_identifier,
+        environment_identifier,
+        identifier,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments/#{AWS.Util.encode_uri(environment_identifier)}/actions/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
     query_params = []
@@ -7469,6 +7937,53 @@ defmodule AWS.DataZone do
       else
         query_params
       end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists existing environment actions.
+  """
+  @spec list_environment_actions(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_environment_actions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_environment_actions_errors()}
+  def list_environment_actions(
+        %Client{} = client,
+        domain_identifier,
+        environment_identifier,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments/#{AWS.Util.encode_uri(environment_identifier)}/actions"
+
+    headers = []
+    query_params = []
 
     query_params =
       if !is_nil(next_token) do
@@ -9019,6 +9534,49 @@ defmodule AWS.DataZone do
   def update_environment(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an environment action.
+  """
+  @spec update_environment_action(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          update_environment_action_input(),
+          list()
+        ) ::
+          {:ok, update_environment_action_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_environment_action_errors()}
+  def update_environment_action(
+        %Client{} = client,
+        domain_identifier,
+        environment_identifier,
+        identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments/#{AWS.Util.encode_uri(environment_identifier)}/actions/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
     query_params = []

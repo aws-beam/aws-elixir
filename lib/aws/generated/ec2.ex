@@ -26812,7 +26812,7 @@ defmodule AWS.EC2 do
   Accepts an Elastic IP address transfer.
 
   For more information, see [Accept a transferred Elastic IP address](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#using-instance-addressing-eips-transfer-accept)
-  in the *Amazon Virtual Private Cloud User Guide*.
+  in the *Amazon VPC User Guide*.
   """
   @spec accept_address_transfer(map(), accept_address_transfer_request(), list()) ::
           {:ok, accept_address_transfer_result(), any()}
@@ -26984,7 +26984,7 @@ defmodule AWS.EC2 do
   from a public IPv4 address range that you have brought to Amazon Web Services
   for use with your Amazon Web Services resources using bring your own
   IP addresses (BYOIP). For more information, see [Bring Your Own IP Addresses (BYOIP)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html) in
-  the *Amazon Elastic Compute Cloud User Guide*.
+  the *Amazon EC2 User Guide*.
 
   If you release an Elastic IP address, you might be able to recover it. You
   cannot recover
@@ -26994,7 +26994,7 @@ defmodule AWS.EC2 do
   it in this operation.
 
   For more information, see [Elastic IP Addresses](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  in the *Amazon EC2 User Guide*.
 
   You can allocate a carrier IP address which is a public IP address from a
   telecommunication carrier,
@@ -27085,9 +27085,7 @@ defmodule AWS.EC2 do
   range.
   You can assign as many IPv6 addresses to a network interface as you can assign
   private
-  IPv4 addresses, and the limit varies per instance type. For information, see [IP Addresses Per Network Interface Per Instance
-  Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  IPv4 addresses, and the limit varies per instance type.
 
   You must specify either the IPv6 addresses or the IPv6 address count in the
   request.
@@ -27097,9 +27095,9 @@ defmodule AWS.EC2 do
   either the IPV6 Prefix Delegation prefixes, or the IPv6 Prefix Delegation count.
   For
   information, see [
-  Assigning prefixes to Amazon EC2 network
+  Assigning prefixes to network
   interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  in the *Amazon EC2 User Guide*.
   """
   @spec assign_ipv6_addresses(map(), assign_ipv6_addresses_request(), list()) ::
           {:ok, assign_ipv6_addresses_result(), any()}
@@ -27120,10 +27118,8 @@ defmodule AWS.EC2 do
   block range.
   The number of secondary IP addresses that you can assign to an instance varies
   by instance type.
-  For information about instance types, see [Instance Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html)
-  in the *Amazon Elastic Compute Cloud User Guide*. For more information about
-  Elastic IP addresses, see [Elastic IP Addresses](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  For more information about Elastic IP addresses, see [Elastic IP Addresses](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html)
+  in the *Amazon EC2 User Guide*.
 
   When you move a secondary private IP address to another network interface, any
   Elastic IP address
@@ -27142,9 +27138,9 @@ defmodule AWS.EC2 do
   either the IPv4 Prefix Delegation prefixes, or the IPv4 Prefix Delegation count.
   For
   information, see [
-  Assigning prefixes to Amazon EC2 network
+  Assigning prefixes to network
   interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  in the *Amazon EC2 User Guide*.
   """
   @spec assign_private_ip_addresses(map(), assign_private_ip_addresses_request(), list()) ::
           {:ok, assign_private_ip_addresses_result(), any()}
@@ -27156,7 +27152,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Assigns one or more private IPv4 addresses to a private NAT gateway.
+  Assigns private IPv4 addresses to a private NAT gateway.
 
   For more information, see
   [Work with NAT gateways](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with)
@@ -27252,7 +27248,7 @@ defmodule AWS.EC2 do
   hours, depending on how frequently the instance renews its DHCP lease. You can
   explicitly renew the lease using the operating system on the instance.
 
-  For more information, see [DHCP options sets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html)
+  For more information, see [DHCP option sets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html)
   in the *Amazon VPC User Guide*.
   """
   @spec associate_dhcp_options(map(), associate_dhcp_options_request(), list()) ::
@@ -27388,8 +27384,8 @@ defmodule AWS.EC2 do
   in the *Amazon VPC User Guide*.
 
   By default, you can associate up to 2 Elastic IP addresses per public NAT
-  gateway. You can increase the limit by requesting a quota adjustment. For more
-  information, see [Elastic IP address quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-eips)
+  gateway. You can increase the limit by requesting a quota adjustment.
+  For more information, see [Elastic IP address quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-eips)
   in the *Amazon VPC User Guide*.
 
   When you associate an EIP or secondary EIPs with a public NAT gateway, the
@@ -27513,12 +27509,12 @@ defmodule AWS.EC2 do
   @doc """
   Associates a branch network interface with a trunk network interface.
 
-  Before you create the association, run the
-  [create-network-interface](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html)
-  command and set
-  `--interface-type` to `trunk`. You must also create a network interface for each
-  branch network interface that you want to associate with the trunk network
-  interface.
+  Before you create the association, use
+  [CreateNetworkInterface](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html)
+  command and set the interface type
+  to `trunk`. You must also create a network interface for
+  each branch network interface that you want to associate with the trunk
+  network interface.
   """
   @spec associate_trunk_interface(map(), associate_trunk_interface_request(), list()) ::
           {:ok, associate_trunk_interface_result(), any()}
@@ -27952,8 +27948,7 @@ defmodule AWS.EC2 do
   Cancels the specified Reserved Instance listing in the Reserved Instance
   Marketplace.
 
-  For more information, see
-  [Reserved Instance Marketplace](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html)
+  For more information, see [Sell in the Reserved Instance Marketplace](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html)
   in the *Amazon EC2 User Guide*.
   """
   @spec cancel_reserved_instances_listing(
@@ -28099,8 +28094,8 @@ defmodule AWS.EC2 do
   Copies of unencrypted snapshots remain unencrypted, unless you enable encryption
   for the
   snapshot copy operation. By default, encrypted snapshot copies use the default
-  Key Management Service (KMS)
-  KMS key; however, you can specify a different KMS key. To copy an encrypted
+  KMS key;
+  however, you can specify a different KMS key. To copy an encrypted
   snapshot that has been shared from another account, you must have permissions
   for the KMS key
   used to encrypt the snapshot.
@@ -28176,7 +28171,8 @@ defmodule AWS.EC2 do
 
   For more information, see [Create a Capacity Reservation
   Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-cr-fleets.html#create-crfleet)
-  in the Amazon EC2 User Guide.
+  in the
+  *Amazon EC2 User Guide*.
   """
   @spec create_capacity_reservation_fleet(
           map(),
@@ -28349,7 +28345,7 @@ defmodule AWS.EC2 do
 
   The following are the individual DHCP options you can specify. For more
   information, see
-  [DHCP options sets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html)
+  [DHCP option sets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html)
   in the *Amazon VPC User Guide*.
 
     *
@@ -28390,7 +28386,7 @@ defmodule AWS.EC2 do
   `netbios-node-type` - The NetBIOS node type (1, 2, 4, or 8). We recommend that
   you specify 2. Broadcast and multicast are not supported. For more information
   about
-  NetBIOS node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
+  NetBIOS node types, see [RFC 2132](https://www.ietf.org/rfc/rfc2132.txt).
 
     *
 
@@ -28467,7 +28463,7 @@ defmodule AWS.EC2 do
   which are log events
   consisting of fields that describe the traffic flow. For more information, see
   [Flow log records](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records)
-  in the *Amazon Virtual Private Cloud User Guide*.
+  in the *Amazon VPC User Guide*.
 
   When publishing to CloudWatch Logs, flow log records are published to a log
   group, and each network
@@ -28477,8 +28473,8 @@ defmodule AWS.EC2 do
   that is stored in the specified
   bucket.
 
-  For more information, see [VPC Flow Logs](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html) in the
-  *Amazon Virtual Private Cloud User Guide*.
+  For more information, see [VPC Flow Logs](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html)
+  in the *Amazon VPC User Guide*.
   """
   @spec create_flow_logs(map(), create_flow_logs_request(), list()) ::
           {:ok, create_flow_logs_result(), any()}
@@ -28537,8 +28533,7 @@ defmodule AWS.EC2 do
   requiring the instance to have a public IPv4 address. For more information, see
   [Connect to your instances without requiring a public IPv4 address using EC2 Instance Connect
   Endpoint](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect-Endpoint.html)
-  in the *Amazon EC2 User
-  Guide*.
+  in the *Amazon EC2 User Guide*.
   """
   @spec create_instance_connect_endpoint(
           map(),
@@ -28751,7 +28746,7 @@ defmodule AWS.EC2 do
   [Launch an instance from a launch
   template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html)
   in the
-  *Amazon Elastic Compute Cloud User Guide*.
+  *Amazon EC2 User Guide*.
 
   To clone an existing launch template as the basis for a new launch template, use
   the
@@ -28759,7 +28754,7 @@ defmodule AWS.EC2 do
   For more
   information, see [Create a launch template from an existing launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template-from-existing-launch-template)
   in the
-  *Amazon Elastic Compute Cloud User Guide*.
+  *Amazon EC2 User Guide*.
   """
   @spec create_launch_template(map(), create_launch_template_request(), list()) ::
           {:ok, create_launch_template_result(), any()}
@@ -28790,7 +28785,7 @@ defmodule AWS.EC2 do
 
   For more information, see [Modify a launch template (manage launch template versions)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions)
   in the
-  *Amazon Elastic Compute Cloud User Guide*.
+  *Amazon EC2 User Guide*.
   """
   @spec create_launch_template_version(map(), create_launch_template_version_request(), list()) ::
           {:ok, create_launch_template_version_result(), any()}
@@ -29043,12 +29038,10 @@ defmodule AWS.EC2 do
 
   The number of IP addresses you can assign to a network interface varies by
   instance
-  type. For more information, see [IP Addresses Per ENI Per Instance
-  Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI)
-  in the *Amazon Virtual Private Cloud User Guide*.
+  type.
 
   For more information about network interfaces, see [Elastic network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  in the *Amazon EC2 User Guide*.
   """
   @spec create_network_interface(map(), create_network_interface_request(), list()) ::
           {:ok, create_network_interface_result(), any()}
@@ -29134,7 +29127,7 @@ defmodule AWS.EC2 do
   that has the same key characteristics as that of the instance.
 
   For more information, see [Replace a root volume](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  in the *Amazon EC2 User Guide*.
   """
   @spec create_replace_root_volume_task(map(), create_replace_root_volume_task_request(), list()) ::
           {:ok, create_replace_root_volume_task_result(), any()}
@@ -29175,9 +29168,8 @@ defmodule AWS.EC2 do
   view the details of your Standard Reserved Instance listing, you can use the
   `DescribeReservedInstancesListings` operation.
 
-  For more information, see [Reserved Instance Marketplace](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html)
-  in the
-  *Amazon EC2 User Guide*.
+  For more information, see [Sell in the Reserved Instance Marketplace](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html)
+  in the *Amazon EC2 User Guide*.
   """
   @spec create_reserved_instances_listing(
           map(),
@@ -29363,9 +29355,9 @@ defmodule AWS.EC2 do
 
   You can tag your snapshots during creation. For more information, see [Tag your Amazon EC2
   resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  in the *Amazon EC2 User Guide*.
 
-  For more information, see [Amazon Elastic Block Store](https://docs.aws.amazon.com/ebs/latest/userguide/what-is-ebs.html) and
+  For more information, see [Amazon EBS](https://docs.aws.amazon.com/ebs/latest/userguide/what-is-ebs.html) and
   [Amazon EBS encryption](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html)
   in the *Amazon EBS User Guide*.
   """
@@ -29417,7 +29409,7 @@ defmodule AWS.EC2 do
   You can create one data feed per Amazon Web Services account. For more
   information, see
   [Spot Instance data feed](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html)
-  in the *Amazon EC2 User Guide for Linux Instances*.
+  in the *Amazon EC2 User Guide*.
   """
   @spec create_spot_datafeed_subscription(
           map(),
@@ -29504,9 +29496,9 @@ defmodule AWS.EC2 do
   Creates a subnet CIDR reservation.
 
   For more information, see [Subnet CIDR reservations](https://docs.aws.amazon.com/vpc/latest/userguide/subnet-cidr-reservation.html)
-  in the *Amazon Virtual Private Cloud User Guide* and [Assign prefixes to network
+  in the *Amazon VPC User Guide* and [Assign prefixes to network
   interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  in the *Amazon EC2 User Guide*.
   """
   @spec create_subnet_cidr_reservation(map(), create_subnet_cidr_reservation_request(), list()) ::
           {:ok, create_subnet_cidr_reservation_result(), any()}
@@ -29699,7 +29691,7 @@ defmodule AWS.EC2 do
   (IPv4 or IPv6).
 
   For more information, see [Connect peers](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html#tgw-connect-peer)
-  in the *Transit Gateways Guide*.
+  in the *Amazon Web Services Transit Gateways Guide*.
   """
   @spec create_transit_gateway_connect_peer(
           map(),
@@ -29953,7 +29945,7 @@ defmodule AWS.EC2 do
 
   You can tag your volumes during creation. For more information, see [Tag your Amazon EC2
   resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  in the *Amazon EC2 User Guide*.
 
   For more information, see [Create an Amazon EBS volume](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-creating-volume.html)
   in the
@@ -30026,8 +30018,9 @@ defmodule AWS.EC2 do
   service.
 
   A connection notification notifies you of specific endpoint events. You must
-  create an SNS topic to receive notifications. For more information, see [Create a Topic](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) in
-  the *Amazon Simple Notification Service Developer Guide*.
+  create an SNS topic to receive notifications. For more information, see
+  [Creating an Amazon SNS topic](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) in
+  the *Amazon SNS Developer Guide*.
 
   You can create a connection notification for interface endpoints only.
   """
@@ -30092,9 +30085,8 @@ defmodule AWS.EC2 do
 
   Limitations and rules apply to a VPC peering connection. For more information,
   see
-  the
-  [limitations](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-basics.html#vpc-peering-limitations)
-  section in the *VPC Peering Guide*.
+  the [VPC peering limitations](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-basics.html#vpc-peering-limitations)
+  in the *VPC Peering Guide*.
 
   The owner of the accepter VPC must accept the peering request to activate the
   peering
@@ -30550,8 +30542,8 @@ defmodule AWS.EC2 do
   deletes the launch template and all of its versions.
 
   For more information, see [Delete a launch template version](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-launch-template-versions.html#delete-launch-template-version)
-  in the *EC2 User
-  Guide*.
+  in the
+  *Amazon EC2 User Guide*.
   """
   @spec delete_launch_template_versions(map(), delete_launch_template_versions_request(), list()) ::
           {:ok, delete_launch_template_versions_result(), any()}
@@ -31682,7 +31674,7 @@ defmodule AWS.EC2 do
   Describes an Elastic IP address transfer.
 
   For more information, see [Transfer Elastic IP addresses](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro)
-  in the *Amazon Virtual Private Cloud User Guide*.
+  in the *Amazon VPC User Guide*.
 
   When you transfer an Elastic IP address, there is a two-step handshake
   between the source and transfer Amazon Web Services accounts. When the source
@@ -31776,7 +31768,7 @@ defmodule AWS.EC2 do
   For more information about Availability Zones, Local Zones, and Wavelength
   Zones, see
   [Regions and zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  in the *Amazon EC2 User Guide*.
 
   The order of the elements in the response, including those within nested
   structures, might vary. Applications should not assume the elements appear in a
@@ -31921,8 +31913,7 @@ defmodule AWS.EC2 do
 
   This action is deprecated.
 
-  Describes one or more of your linked EC2-Classic instances. This request only
-  returns
+  Describes your linked EC2-Classic instances. This request only returns
   information about EC2-Classic instances linked to a VPC through ClassicLink. You
   cannot
   use this request to return information about other instances.
@@ -32054,9 +32045,14 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Describes one or more of your DHCP options sets.
+  Describes your DHCP option sets.
 
-  For more information, see [DHCP options sets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html) in
+  The default is to describe all your DHCP option sets.
+  Alternatively, you can specify specific DHCP option set IDs or filter the
+  results to
+  include only the DHCP option sets that match specific criteria.
+
+  For more information, see [DHCP option sets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html) in
   the
   *Amazon VPC User Guide*.
   """
@@ -32070,7 +32066,12 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Describes one or more of your egress-only internet gateways.
+  Describes your egress-only internet gateways.
+
+  The default is to describe all your egress-only internet gateways.
+  Alternatively, you can specify specific egress-only internet gateway IDs or
+  filter the results to
+  include only the egress-only internet gateways that match specific criteria.
   """
   @spec describe_egress_only_internet_gateways(
           map(),
@@ -32089,14 +32090,10 @@ defmodule AWS.EC2 do
 
   Amazon Elastic Graphics reached end of life on January 8, 2024.
 
-  For
-  workloads that require graphics acceleration, we recommend that you use Amazon
-  EC2 G4ad,
-  G4dn, or G5 instances.
+  For workloads that require graphics acceleration,
+  we recommend that you use Amazon EC2 G4, G5, or G6 instances.
 
-  Describes the Elastic Graphics accelerator associated with your instances. For
-  more information
-  about Elastic Graphics, see [Amazon Elastic Graphics](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html).
+  Describes the Elastic Graphics accelerator associated with your instances.
   """
   @spec describe_elastic_gpus(map(), describe_elastic_gpus_request(), list()) ::
           {:ok, describe_elastic_gpus_result(), any()}
@@ -32731,8 +32728,10 @@ defmodule AWS.EC2 do
   @doc """
   Lists the instance types that are offered for the specified location.
 
-  If no location is specified, the default
-  is to list the instance types that are offered in the current Region.
+  If no location is
+  specified, the default is to list the instance types that are offered in the
+  current
+  Region.
   """
   @spec describe_instance_type_offerings(
           map(),
@@ -32750,8 +32749,8 @@ defmodule AWS.EC2 do
   @doc """
   Describes the specified instance types.
 
-  By default, all instance types for the current Region are described.
-  Alternatively, you can filter the results.
+  By default, all instance types for the current
+  Region are described. Alternatively, you can filter the results.
   """
   @spec describe_instance_types(map(), describe_instance_types_request(), list()) ::
           {:ok, describe_instance_types_result(), any()}
@@ -32811,7 +32810,12 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Describes one or more of your internet gateways.
+  Describes your internet gateways.
+
+  The default is to describe all your internet gateways.
+  Alternatively, you can specify specific internet gateway IDs or filter the
+  results to
+  include only the internet gateways that match specific criteria.
   """
   @spec describe_internet_gateways(map(), describe_internet_gateways_request(), list()) ::
           {:ok, describe_internet_gateways_result(), any()}
@@ -33168,7 +33172,11 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Describes one or more of your NAT gateways.
+  Describes your NAT gateways.
+
+  The default is to describe all your NAT gateways.
+  Alternatively, you can specify specific NAT gateway IDs or filter the results to
+  include only the NAT gateways that match specific criteria.
   """
   @spec describe_nat_gateways(map(), describe_nat_gateways_request(), list()) ::
           {:ok, describe_nat_gateways_result(), any()}
@@ -33180,7 +33188,11 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Describes one or more of your network ACLs.
+  Describes your network ACLs.
+
+  The default is to describe all your network ACLs.
+  Alternatively, you can specify specific network ACL IDs or filter the results to
+  include only the network ACLs that match specific criteria.
 
   For more information, see [Network ACLs](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html) in
   the
@@ -33397,13 +33409,12 @@ defmodule AWS.EC2 do
   @doc """
   Describes the Regions that are enabled for your account, or all Regions.
 
-  For a list of the Regions supported by Amazon EC2, see [
-  Amazon Elastic Compute Cloud endpoints and
-  quotas](https://docs.aws.amazon.com/general/latest/gr/ec2-service.html).
+  For a list of the Regions supported by Amazon EC2, see [Amazon EC2 service endpoints](https://docs.aws.amazon.com/ec2/latest/devguide/ec2-endpoints.html).
 
   For information about enabling and disabling Regions for your account, see
-  [Managing Amazon Web Services Regions](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html) in the
-  *Amazon Web Services General Reference*.
+  [Specify which Amazon Web Services Regions your account can
+  use](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html)
+  in the *Amazon Web Services Account Management Reference Guide*.
 
   The order of the elements in the response, including those within nested
   structures,
@@ -33424,7 +33435,7 @@ defmodule AWS.EC2 do
 
   For more information, see
   [Replace a root volume](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  in the *Amazon EC2 User Guide*.
   """
   @spec describe_replace_root_volume_tasks(
           map(),
@@ -33478,7 +33489,7 @@ defmodule AWS.EC2 do
   is met. You are charged based on the total price of all of the listings that you
   purchase.
 
-  For more information, see [Reserved Instance Marketplace](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html)
+  For more information, see [Sell in the Reserved Instance Marketplace](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html)
   in the *Amazon EC2 User Guide*.
 
   The order of the elements in the response, including those within nested
@@ -33505,8 +33516,9 @@ defmodule AWS.EC2 do
   modification requests is returned. If a modification ID is specified, only
   information about the specific modification is returned.
 
-  For more information, see [Modifying Reserved Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html)
-  in the *Amazon EC2 User Guide*.
+  For more information, see [Modify Reserved Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html)
+  in the
+  *Amazon EC2 User Guide*.
 
   The order of the elements in the response, including those within nested
   structures, might vary. Applications should not assume the elements appear in a
@@ -33537,7 +33549,7 @@ defmodule AWS.EC2 do
   Marketplace, they will be excluded from these results. This is to ensure that
   you do not purchase your own Reserved Instances.
 
-  For more information, see [Reserved Instance Marketplace](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html)
+  For more information, see [Sell in the Reserved Instance Marketplace](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html)
   in the *Amazon EC2 User Guide*.
 
   The order of the elements in the response, including those within nested
@@ -33558,7 +33570,11 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Describes one or more of your route tables.
+  Describes your route tables.
+
+  The default is to describe all your route tables.
+  Alternatively, you can specify specific route table IDs or filter the results to
+  include only the route tables that match specific criteria.
 
   Each subnet in your VPC must be associated with a route table. If a subnet is
   not explicitly associated with any route table, it is implicitly associated with
@@ -33771,7 +33787,7 @@ defmodule AWS.EC2 do
 
   For more information, see [Spot Instance data
   feed](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html)
-  in the *Amazon EC2 User Guide for Linux Instances*.
+  in the *Amazon EC2 User Guide*.
   """
   @spec describe_spot_datafeed_subscription(
           map(),
@@ -33878,7 +33894,7 @@ defmodule AWS.EC2 do
 
   For more information, see [Spot Instance pricing history](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html)
   in the
-  *Amazon EC2 User Guide for Linux Instances*.
+  *Amazon EC2 User Guide*.
 
   When you specify a start and end time, the operation returns the prices of the
   instance types within that time range. It also returns the last price change
@@ -33946,7 +33962,11 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Describes one or more of your subnets.
+  Describes your subnets.
+
+  The default is to describe all your subnets.
+  Alternatively, you can specify specific subnet IDs or filter the results to
+  include only the subnets that match specific criteria.
 
   For more information, see
   [Subnets](https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html)
@@ -34439,11 +34459,9 @@ defmodule AWS.EC2 do
   If a volume has been modified more than once, the output includes only the most
   recent modification request.
 
-  You can also use CloudWatch Events to check the status of a modification to an
-  EBS
-  volume. For information about CloudWatch Events, see the [Amazon CloudWatch Events User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/).
-  For more information, see
-  [Monitor the progress of volume modifications](https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-modifications.html)
+  For more information, see [
+  Monitor the progress of volume
+  modifications](https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-modifications.html)
   in the *Amazon EBS User Guide*.
   """
   @spec describe_volumes_modifications(map(), describe_volumes_modifications_request(), list()) ::
@@ -34611,6 +34629,11 @@ defmodule AWS.EC2 do
 
   @doc """
   Describes your VPC endpoints.
+
+  The default is to describe all your VPC endpoints.
+  Alternatively, you can specify specific VPC endpoint IDs or filter the results
+  to
+  include only the VPC endpoints that match specific criteria.
   """
   @spec describe_vpc_endpoints(map(), describe_vpc_endpoints_request(), list()) ::
           {:ok, describe_vpc_endpoints_result(), any()}
@@ -34622,7 +34645,12 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Describes one or more of your VPC peering connections.
+  Describes your VPC peering connections.
+
+  The default is to describe all your VPC peering connections.
+  Alternatively, you can specify specific VPC peering connection IDs or filter the
+  results to
+  include only the VPC peering connections that match specific criteria.
   """
   @spec describe_vpc_peering_connections(
           map(),
@@ -34638,7 +34666,11 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Describes one or more of your VPCs.
+  Describes your VPCs.
+
+  The default is to describe all your VPCs.
+  Alternatively, you can specify specific VPC IDs or filter the results to
+  include only the VPCs that match specific criteria.
   """
   @spec describe_vpcs(map(), describe_vpcs_request(), list()) ::
           {:ok, describe_vpcs_result(), any()}
@@ -34810,7 +34842,7 @@ defmodule AWS.EC2 do
   Disables Elastic IP address transfer.
 
   For more information, see [Transfer Elastic IP addresses](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro)
-  in the *Amazon Virtual Private Cloud User Guide*.
+  in the *Amazon VPC User Guide*.
   """
   @spec disable_address_transfer(map(), disable_address_transfer_request(), list()) ::
           {:ok, disable_address_transfer_result(), any()}
@@ -35475,7 +35507,7 @@ defmodule AWS.EC2 do
   Enables Elastic IP address transfer.
 
   For more information, see [Transfer Elastic IP addresses](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro)
-  in the *Amazon Virtual Private Cloud User Guide*.
+  in the *Amazon VPC User Guide*.
   """
   @spec enable_address_transfer(map(), enable_address_transfer_request(), list()) ::
           {:ok, enable_address_transfer_result(), any()}
@@ -35971,9 +36003,9 @@ defmodule AWS.EC2 do
 
   The routes are saved to the specified bucket in a JSON file. For more
   information, see
-  [Export Route Tables to Amazon
+  [Export route tables to Amazon
   S3](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-route-tables.html#tgw-export-route-tables)
-  in *Transit Gateways*.
+  in the *Amazon Web Services Transit Gateways Guide*.
   """
   @spec export_transit_gateway_routes(map(), export_transit_gateway_routes_request(), list()) ::
           {:ok, export_transit_gateway_routes_result(), any()}
@@ -36457,7 +36489,7 @@ defmodule AWS.EC2 do
   If you use this action after
   [AllocateIpamPoolCidr](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AllocateIpamPoolCidr.html) or
   [ReleaseIpamPoolAllocation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html),
-  note that all EC2 API actions follow an [eventual consistency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/query-api-troubleshooting.html#eventual-consistency)
+  note that all EC2 API actions follow an [eventual consistency](https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html)
   model.
   """
   @spec get_ipam_pool_allocations(map(), get_ipam_pool_allocations_request(), list()) ::
@@ -36598,8 +36630,8 @@ defmodule AWS.EC2 do
   The Windows password is generated at boot by the `EC2Config` service or
   `EC2Launch` scripts (Windows Server 2016 and later). This usually only
   happens the first time an instance is launched. For more information, see
-  [EC2Config](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/UsingConfig_WinAMI.html) and
-  [EC2Launch](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2launch.html)
+  [EC2Config](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UsingConfig_WinAMI.html) and
+  [EC2Launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2launch.html)
   in the
   *Amazon EC2 User Guide*.
 
@@ -36718,7 +36750,7 @@ defmodule AWS.EC2 do
 
   For more information, see [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html)
   in
-  the Amazon EC2 User Guide.
+  the *Amazon EC2 User Guide*.
   """
   @spec get_spot_placement_scores(map(), get_spot_placement_scores_request(), list()) ::
           {:ok, get_spot_placement_scores_result(), any()}
@@ -37196,12 +37228,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Changes the opt-in status of the Local Zone and Wavelength Zone group for your
-  account.
-
-  Use [
-  DescribeAvailabilityZones](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html)
-  to view the value for `GroupName`.
+  Changes the opt-in status of the specified zone group for your account.
   """
   @spec modify_availability_zone_group(map(), modify_availability_zone_group_request(), list()) ::
           {:ok, modify_availability_zone_group_result(), any()}
@@ -37953,8 +37980,9 @@ defmodule AWS.EC2 do
   The Reserved Instances to be modified must be identical,
   except for Availability Zone, network platform, and instance type.
 
-  For more information, see [Modifying Reserved Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html)
-  in the *Amazon EC2 User Guide*.
+  For more information, see [Modify Reserved Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html)
+  in the
+  *Amazon EC2 User Guide*.
   """
   @spec modify_reserved_instances(map(), modify_reserved_instances_request(), list()) ::
           {:ok, modify_reserved_instances_result(), any()}
@@ -38349,13 +38377,8 @@ defmodule AWS.EC2 do
   file-system size to take advantage of the new storage capacity. For more
   information, see [Extend the file system](https://docs.aws.amazon.com/ebs/latest/userguide/recognize-expanded-volume-linux.html).
 
-  You can use CloudWatch Events to check the status of a modification to an EBS
-  volume. For
-  information about CloudWatch Events, see the [Amazon CloudWatch Events User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/). You can
-  also track the status of a
-  modification using `DescribeVolumesModifications`. For information
-  about tracking status changes using either method, see [Monitor the progress of volume
-  modifications](https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-modifications.html).
+  For more information, see [Monitor the progress of volume modifications](https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-modifications.html)
+  in the *Amazon EBS User Guide*.
 
   With previous-generation instance types, resizing an EBS volume might require
   detaching and
@@ -38775,7 +38798,7 @@ defmodule AWS.EC2 do
   RPKI ROA to authorize Amazon ASNs 16509 and 14618 to advertise the address
   range.
   For more information, see [Bring your own IP addresses (BYOIP)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html) in
-  the *Amazon Elastic Compute Cloud User Guide*.
+  the *Amazon EC2 User Guide*.
 
   Provisioning an address range is an asynchronous operation, so the call returns
   immediately,
@@ -38899,8 +38922,7 @@ defmodule AWS.EC2 do
   purchase time, the default is the current time.
 
   For more information, see [Reserved Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html)
-  and
-  [Reserved Instance Marketplace](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html)
+  and [Sell in the Reserved Instance Marketplace](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html)
   in the *Amazon EC2 User Guide*.
   """
   @spec purchase_reserved_instances_offering(
@@ -39081,10 +39103,11 @@ defmodule AWS.EC2 do
   Registers members (network interfaces) with the transit gateway multicast group.
 
   A member is a network interface associated
-  with a supported EC2 instance that receives multicast traffic. For information
-  about
-  supported instances, see [Multicast Consideration](https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-limits.html#multicast-limits)
-  in *Amazon VPC Transit Gateways*.
+  with a supported EC2 instance that receives multicast traffic. For more
+  information, see
+  [Multicast on transit
+  gateways](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-multicast-overview.html)
+  in the *Amazon Web Services Transit Gateways Guide*.
 
   After you add the members, use
   [SearchTransitGatewayMulticastGroups](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayMulticastGroups.html)
@@ -39116,8 +39139,10 @@ defmodule AWS.EC2 do
 
   A multicast source is a network interface attached to a supported instance that
   sends
-  multicast traffic. For information about supported instances, see [Multicast Considerations](https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-limits.html#multicast-limits)
-  in *Amazon VPC Transit Gateways*.
+  multicast traffic. For more information about supported instances, see
+  [Multicast on transit
+  gateways](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-multicast-overview.html)
+  in the *Amazon Web Services Transit Gateways Guide*.
 
   After you add the source, use
   [SearchTransitGatewayMulticastGroups](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayMulticastGroups.html)
@@ -39308,7 +39333,7 @@ defmodule AWS.EC2 do
   allocation](https://docs.aws.amazon.com/vpc/latest/ipam/release-alloc-ipam.html)
   in the *Amazon VPC IPAM User Guide*.
 
-  All EC2 API actions follow an [eventual consistency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/query-api-troubleshooting.html#eventual-consistency)
+  All EC2 API actions follow an [eventual consistency](https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html)
   model.
   """
   @spec release_ipam_pool_allocation(map(), release_ipam_pool_allocation_request(), list()) ::
@@ -39524,16 +39549,16 @@ defmodule AWS.EC2 do
   @doc """
   Creates a Spot Instance request.
 
-  For more information, see [Spot Instance requests](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html)
+  For more information, see [Work with Spot Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html)
   in
-  the *Amazon EC2 User Guide for Linux Instances*.
+  the *Amazon EC2 User Guide*.
 
   We strongly discourage using the RequestSpotInstances API because it is a legacy
   API with no planned investment. For options for requesting Spot Instances, see
   [Which is the best Spot request method to
   use?](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use)
   in the
-  *Amazon EC2 User Guide for Linux Instances*.
+  *Amazon EC2 User Guide*.
   """
   @spec request_spot_instances(map(), request_spot_instances_request(), list()) ::
           {:ok, request_spot_instances_result(), any()}
@@ -39616,7 +39641,7 @@ defmodule AWS.EC2 do
   The `sourceDestCheck` attribute controls whether source/destination
   checking is enabled. The default value is `true`, which means checking is
   enabled. This value must be `false` for a NAT instance to perform NAT. For
-  more information, see [NAT Instances](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html)
+  more information, see [NAT instances](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html)
   in the
   *Amazon VPC User Guide*.
   """
@@ -39872,8 +39897,8 @@ defmodule AWS.EC2 do
   [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html).
 
     *
-  If you don't specify a security group ID, we use the default security group.
-  For more information, see [Security groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html).
+  If you don't specify a security group ID, we use the default security group
+  for the VPC. For more information, see [Security groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html).
 
     *
   If any of the AMIs have a product code attached for which the user has not
@@ -39890,6 +39915,9 @@ defmodule AWS.EC2 do
   example, create five separate launch requests for 100 instances each instead of
   one
   launch request for 500 instances.
+
+  `RunInstances` is subject to both request rate limiting and resource rate
+  limiting. For more information, see [Request throttling](https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-throttling.html).
 
   An instance is ready for you to use when it's in the `running` state. You
   can check the state of your instance using `DescribeInstances`. You can
@@ -39923,12 +39951,12 @@ defmodule AWS.EC2 do
   identifier using `PurchaseScheduledInstances`.
 
   You must launch a Scheduled Instance during its scheduled time period. You can't
-  stop or reboot a Scheduled Instance,
-  but you can terminate it as needed. If you terminate a Scheduled Instance before
-  the current scheduled time period ends,
-  you can launch it again after a few minutes. For more information, see
-  [Scheduled Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-scheduled-instances.html)
-  in the *Amazon EC2 User Guide*.
+  stop or
+  reboot a Scheduled Instance, but you can terminate it as needed. If you
+  terminate a
+  Scheduled Instance before the current scheduled time period ends, you can launch
+  it again
+  after a few minutes.
   """
   @spec run_scheduled_instances(map(), run_scheduled_instances_request(), list()) ::
           {:ok, run_scheduled_instances_result(), any()}
@@ -40005,9 +40033,7 @@ defmodule AWS.EC2 do
   dump
   when a kernel panic or stop error occurs, see [Send a diagnostic interrupt (for advanced
   users)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/diagnostic-interrupt.html)
-  (Linux instances) or [Send a diagnostic interrupt (for advanced
-  users)](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/diagnostic-interrupt.html)
-  (Windows instances).
+  in the *Amazon EC2 User Guide*.
   """
   @spec send_diagnostic_interrupt(map(), send_diagnostic_interrupt_request(), list()) ::
           {:ok, nil, any()}
@@ -40047,7 +40073,7 @@ defmodule AWS.EC2 do
   you start the instance, either change its CPU credit option to `standard`, or
   change its tenancy to `default` or `dedicated`.
 
-  For more information, see [Stop and start your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html)
+  For more information, see [Stop and start Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html)
   in the *Amazon EC2 User Guide*.
   """
   @spec start_instances(map(), start_instances_request(), list()) ::
@@ -40127,16 +40153,16 @@ defmodule AWS.EC2 do
   @doc """
   Stops an Amazon EBS-backed instance.
 
-  For more information, see [Stop and start your
-  instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html)
-  in the *Amazon EC2 User Guide*.
+  For more information, see [Stop and start Amazon EC2
+  instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html)
+  in the *Amazon EC2 User
+  Guide*.
 
   You can use the Stop action to hibernate an instance if the instance is [enabled for
   hibernation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enabling-hibernation.html)
   and it meets the [hibernation prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html).
-  For more information, see [Hibernate your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in
-  the
-  *Amazon EC2 User Guide*.
+  For more information, see [Hibernate your Amazon EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in
+  the *Amazon EC2 User Guide*.
 
   We don't charge usage for a stopped instance, or data transfer fees; however,
   your

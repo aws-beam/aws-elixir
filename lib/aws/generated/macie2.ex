@@ -658,6 +658,7 @@ defmodule AWS.Macie2 do
       bucket_metadata() :: %{
         "accountId" => String.t(),
         "allowsUnencryptedObjectUploads" => list(any()),
+        "automatedDiscoveryMonitoringStatus" => list(any()),
         "bucketArn" => String.t(),
         "bucketCreatedAt" => non_neg_integer(),
         "bucketName" => String.t(),
@@ -830,6 +831,17 @@ defmodule AWS.Macie2 do
 
   ## Example:
 
+      batch_update_automated_discovery_accounts_request() :: %{
+        optional("accounts") => list(automated_discovery_account_update()())
+      }
+
+  """
+  @type batch_update_automated_discovery_accounts_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       sensitivity_inspection_template_excludes() :: %{
         "managedDataIdentifierIds" => list(String.t()())
       }
@@ -942,6 +954,18 @@ defmodule AWS.Macie2 do
 
   ## Example:
 
+      automated_discovery_account_update() :: %{
+        "accountId" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type automated_discovery_account_update() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_findings_request() :: %{
         optional("sortCriteria") => sort_criteria(),
         required("findingIds") => list(String.t()())
@@ -1014,6 +1038,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       get_automated_discovery_configuration_response() :: %{
+        "autoEnableOrganizationMembers" => list(any()),
         "classificationScopeId" => String.t(),
         "disabledAt" => non_neg_integer(),
         "firstEnabledAt" => non_neg_integer(),
@@ -1371,6 +1396,18 @@ defmodule AWS.Macie2 do
 
   ## Example:
 
+      list_automated_discovery_accounts_response() :: %{
+        "items" => list(automated_discovery_account()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_automated_discovery_accounts_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       disassociate_from_administrator_account_response() :: %{}
 
   """
@@ -1403,6 +1440,19 @@ defmodule AWS.Macie2 do
 
   """
   @type job_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_automated_discovery_accounts_request() :: %{
+        optional("accountIds") => list(String.t()()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_automated_discovery_accounts_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1927,6 +1977,18 @@ defmodule AWS.Macie2 do
 
   ## Example:
 
+      automated_discovery_account_update_error() :: %{
+        "accountId" => String.t(),
+        "errorCode" => list(any())
+      }
+
+  """
+  @type automated_discovery_account_update_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_managed_data_identifiers_response() :: %{
         "items" => list(managed_data_identifier_summary()()),
         "nextToken" => String.t()
@@ -2350,6 +2412,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       update_automated_discovery_configuration_request() :: %{
+        optional("autoEnableOrganizationMembers") => list(any()),
         required("status") => list(any())
       }
 
@@ -3277,6 +3340,17 @@ defmodule AWS.Macie2 do
 
   ## Example:
 
+      batch_update_automated_discovery_accounts_response() :: %{
+        "errors" => list(automated_discovery_account_update_error()())
+      }
+
+  """
+  @type batch_update_automated_discovery_accounts_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_classification_scopes_response() :: %{
         "classificationScopes" => list(classification_scope_summary()()),
         "nextToken" => String.t()
@@ -3415,6 +3489,7 @@ defmodule AWS.Macie2 do
 
       matching_bucket() :: %{
         "accountId" => String.t(),
+        "automatedDiscoveryMonitoringStatus" => list(any()),
         "bucketName" => String.t(),
         "classifiableObjectCount" => float(),
         "classifiableSizeInBytes" => float(),
@@ -3689,6 +3764,18 @@ defmodule AWS.Macie2 do
 
   ## Example:
 
+      automated_discovery_account() :: %{
+        "accountId" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type automated_discovery_account() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_classification_job_request() :: %{
         required("jobStatus") => list(any())
       }
@@ -3804,6 +3891,13 @@ defmodule AWS.Macie2 do
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | conflict_exception()
+
+  @type batch_update_automated_discovery_accounts_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
           | conflict_exception()
 
   @type create_allow_list_errors() ::
@@ -4198,6 +4292,13 @@ defmodule AWS.Macie2 do
           | access_denied_exception()
           | internal_server_exception()
 
+  @type list_automated_discovery_accounts_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type list_classification_jobs_errors() ::
           throttling_exception()
           | validation_exception()
@@ -4485,6 +4586,38 @@ defmodule AWS.Macie2 do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Changes the status of automated sensitive data discovery for one or more
+  accounts.
+  """
+  @spec batch_update_automated_discovery_accounts(
+          map(),
+          batch_update_automated_discovery_accounts_request(),
+          list()
+        ) ::
+          {:ok, batch_update_automated_discovery_accounts_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_update_automated_discovery_accounts_errors()}
+  def batch_update_automated_discovery_accounts(%Client{} = client, input, options \\ []) do
+    url_path = "/automated-discovery/accounts"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
       url_path,
       query_params,
       headers,
@@ -5177,7 +5310,7 @@ defmodule AWS.Macie2 do
 
   @doc """
   Retrieves the configuration settings and status of automated sensitive data
-  discovery for an account.
+  discovery for an organization or standalone account.
   """
   @spec get_automated_discovery_configuration(map(), list()) ::
           {:ok, get_automated_discovery_configuration_response(), any()}
@@ -5610,6 +5743,57 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
+  Retrieves the status of automated sensitive data discovery for one or more
+  accounts.
+  """
+  @spec list_automated_discovery_accounts(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_automated_discovery_accounts_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_automated_discovery_accounts_errors()}
+  def list_automated_discovery_accounts(
+        %Client{} = client,
+        account_ids \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/automated-discovery/accounts"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(account_ids) do
+        [{"accountIds", account_ids} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves a subset of information about one or more classification jobs.
   """
   @spec list_classification_jobs(map(), list_classification_jobs_request(), list()) ::
@@ -5764,7 +5948,7 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Retrieves information about the Amazon Macie membership invitations that were
+  Retrieves information about Amazon Macie membership invitations that were
   received by an account.
   """
   @spec list_invitations(map(), String.t() | nil, String.t() | nil, list()) ::
@@ -5905,8 +6089,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Retrieves information about objects that were selected from an S3 bucket for
-  automated sensitive data discovery.
+  Retrieves information about objects that Amazon Macie selected from an S3 bucket
+  for automated sensitive data discovery.
   """
   @spec list_resource_profile_artifacts(map(), String.t() | nil, String.t(), list()) ::
           {:ok, list_resource_profile_artifacts_response(), any()}
@@ -6047,7 +6231,7 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Creates or updates the configuration settings for storing data classification
+  Adds or updates the configuration settings for storing data classification
   results.
   """
   @spec put_classification_export_configuration(
@@ -6145,7 +6329,7 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Tests a custom data identifier.
+  Tests criteria for a custom data identifier.
   """
   @spec test_custom_data_identifier(map(), test_custom_data_identifier_request(), list()) ::
           {:ok, test_custom_data_identifier_response(), any()}
@@ -6220,7 +6404,8 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Enables or disables automated sensitive data discovery for an account.
+  Changes the configuration settings and status of automated sensitive data
+  discovery for an organization or standalone account.
   """
   @spec update_automated_discovery_configuration(
           map(),

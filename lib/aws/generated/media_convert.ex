@@ -1282,6 +1282,22 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
+      search_jobs_request() :: %{
+        optional("InputFile") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("Order") => list(any()),
+        optional("Queue") => String.t(),
+        optional("Status") => list(any())
+      }
+
+  """
+  @type search_jobs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       hls_settings() :: %{
         "AudioGroupId" => String.t(),
         "AudioOnlyContainer" => list(any()),
@@ -1846,6 +1862,18 @@ defmodule AWS.MediaConvert do
 
   """
   @type dolby_vision() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_jobs_response() :: %{
+        "Jobs" => list(job()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type search_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3907,6 +3935,14 @@ defmodule AWS.MediaConvert do
           | too_many_requests_exception()
           | forbidden_exception()
 
+  @type search_jobs_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
   @type tag_resource_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
@@ -4249,8 +4285,11 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  Send an request with an empty body to the regional API endpoint to get your
+  Send a request with an empty body to the regional API endpoint to get your
   account API endpoint.
+
+  Note that DescribeEndpoints is no longer required. We recommend that you send
+  your requests directly to the regional endpoint instead.
   """
   @spec describe_endpoints(map(), describe_endpoints_request(), list()) ::
           {:ok, describe_endpoints_response(), any()}
@@ -4701,6 +4740,88 @@ defmodule AWS.MediaConvert do
     meta = metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Retrieve a JSON array that includes job details for up to twenty of your most
+  recent jobs.
+
+  Optionally filter results further according to input file, queue, or status. To
+  retrieve the twenty next most recent jobs, use the nextToken string returned
+  with the array.
+  """
+  @spec search_jobs(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, search_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, search_jobs_errors()}
+  def search_jobs(
+        %Client{} = client,
+        input_file \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        order \\ nil,
+        queue \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2017-08-29/search"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(queue) do
+        [{"queue", queue} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(order) do
+        [{"order", order} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(input_file) do
+        [{"inputFile", input_file} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """

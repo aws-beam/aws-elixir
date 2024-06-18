@@ -1334,6 +1334,7 @@ defmodule AWS.CodeBuild do
         optional("buildType") => list(any()),
         optional("filterGroups") => list(list(webhook_filter()())()),
         optional("manualCreation") => boolean(),
+        optional("scopeConfiguration") => scope_configuration(),
         required("projectName") => String.t()
       }
       
@@ -1535,6 +1536,19 @@ defmodule AWS.CodeBuild do
       
   """
   @type delete_resource_policy_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      scope_configuration() :: %{
+        "domain" => String.t(),
+        "name" => String.t(),
+        "scope" => list(any())
+      }
+      
+  """
+  @type scope_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2096,6 +2110,7 @@ defmodule AWS.CodeBuild do
         "lastModifiedSecret" => non_neg_integer(),
         "manualCreation" => boolean(),
         "payloadUrl" => String.t(),
+        "scopeConfiguration" => scope_configuration(),
         "secret" => String.t(),
         "url" => String.t()
       }

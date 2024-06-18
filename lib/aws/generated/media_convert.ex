@@ -683,7 +683,11 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       input_video_generator() :: %{
-        "Duration" => integer()
+        "Channels" => integer(),
+        "Duration" => integer(),
+        "FramerateDenominator" => integer(),
+        "FramerateNumerator" => integer(),
+        "SampleRate" => integer()
       }
 
   """
@@ -1162,6 +1166,7 @@ defmodule AWS.MediaConvert do
         "BaseUrl" => String.t(),
         "ClientCache" => list(any()),
         "CodecSpecification" => list(any()),
+        "DashIFrameTrickPlayNameModifier" => String.t(),
         "DashManifestStyle" => list(any()),
         "Destination" => String.t(),
         "DestinationSettings" => destination_settings(),
@@ -3399,6 +3404,7 @@ defmodule AWS.MediaConvert do
         "AdditionalManifests" => list(dash_additional_manifest()()),
         "AudioChannelConfigSchemeIdUri" => list(any()),
         "BaseUrl" => String.t(),
+        "DashIFrameTrickPlayNameModifier" => String.t(),
         "DashManifestStyle" => list(any()),
         "Destination" => String.t(),
         "DestinationSettings" => destination_settings(),

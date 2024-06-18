@@ -649,6 +649,19 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      update_usage_profile_request() :: %{
+        optional("Description") => String.t(),
+        required("Configuration") => profile_configuration(),
+        required("Name") => String.t()
+      }
+      
+  """
+  @type update_usage_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       check_schema_version_validity_input() :: %{
         required("DataFormat") => list(any()),
         required("SchemaDefinition") => String.t()
@@ -1298,6 +1311,20 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      usage_profile_definition() :: %{
+        "CreatedOn" => non_neg_integer(),
+        "Description" => String.t(),
+        "LastModifiedOn" => non_neg_integer(),
+        "Name" => String.t()
+      }
+      
+  """
+  @type usage_profile_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       amazon_redshift_advanced_option() :: %{
         "Key" => String.t(),
         "Value" => String.t()
@@ -1421,6 +1448,7 @@ defmodule AWS.Glue do
         "NumberOfWorkers" => integer(),
         "PredecessorRuns" => list(predecessor()()),
         "PreviousRunId" => String.t(),
+        "ProfileName" => String.t(),
         "SecurityConfiguration" => String.t(),
         "StartedOn" => non_neg_integer(),
         "Timeout" => integer(),
@@ -1668,6 +1696,18 @@ defmodule AWS.Glue do
       
   """
   @type data_quality_rule_recommendation_run_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_usage_profiles_response() :: %{
+        "NextToken" => String.t(),
+        "Profiles" => list(usage_profile_definition()())
+      }
+      
+  """
+  @type list_usage_profiles_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3671,6 +3711,21 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      get_usage_profile_response() :: %{
+        "Configuration" => profile_configuration(),
+        "CreatedOn" => non_neg_integer(),
+        "Description" => String.t(),
+        "LastModifiedOn" => non_neg_integer(),
+        "Name" => String.t()
+      }
+      
+  """
+  @type get_usage_profile_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_user_defined_function_request() :: %{
         optional("CatalogId") => String.t(),
         required("DatabaseName") => String.t(),
@@ -3729,6 +3784,17 @@ defmodule AWS.Glue do
       
   """
   @type create_custom_entity_type_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_usage_profile_response() :: %{
+        "Name" => String.t()
+      }
+      
+  """
+  @type create_usage_profile_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3829,6 +3895,17 @@ defmodule AWS.Glue do
       
   """
   @type get_classifier_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_usage_profile_response() :: %{
+        "Name" => String.t()
+      }
+      
+  """
+  @type update_usage_profile_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4171,6 +4248,15 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      delete_usage_profile_response() :: %{}
+      
+  """
+  @type delete_usage_profile_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       get_partition_response() :: %{
         "Partition" => partition()
       }
@@ -4275,6 +4361,20 @@ defmodule AWS.Glue do
       
   """
   @type column_statistics_task_not_running_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      configuration_object() :: %{
+        "AllowedValues" => list(String.t()()),
+        "DefaultValue" => String.t(),
+        "MaxValue" => String.t(),
+        "MinValue" => String.t()
+      }
+      
+  """
+  @type configuration_object() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6277,6 +6377,7 @@ defmodule AWS.Glue do
         "IdleTimeout" => integer(),
         "MaxCapacity" => float(),
         "NumberOfWorkers" => integer(),
+        "ProfileName" => String.t(),
         "Progress" => float(),
         "Role" => String.t(),
         "SecurityConfiguration" => String.t(),
@@ -6527,6 +6628,17 @@ defmodule AWS.Glue do
       
   """
   @type create_partition_index_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_usage_profile_request() :: %{
+        required("Name") => String.t()
+      }
+      
+  """
+  @type get_usage_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -7164,6 +7276,18 @@ defmodule AWS.Glue do
       
   """
   @type update_column_statistics_for_partition_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      profile_configuration() :: %{
+        "JobConfiguration" => map(),
+        "SessionConfiguration" => map()
+      }
+      
+  """
+  @type profile_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -8157,6 +8281,7 @@ defmodule AWS.Glue do
         "NonOverridableArguments" => map(),
         "NotificationProperty" => notification_property(),
         "NumberOfWorkers" => integer(),
+        "ProfileName" => String.t(),
         "Role" => String.t(),
         "SecurityConfiguration" => String.t(),
         "SourceControlDetails" => source_control_details(),
@@ -8191,6 +8316,17 @@ defmodule AWS.Glue do
       
   """
   @type connector_data_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_usage_profile_request() :: %{
+        required("Name") => String.t()
+      }
+      
+  """
+  @type delete_usage_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -8614,6 +8750,18 @@ defmodule AWS.Glue do
       
   """
   @type dynamo_db_catalog_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_usage_profiles_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type list_usage_profiles_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -9391,6 +9539,17 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      operation_not_supported_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type operation_not_supported_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       edge() :: %{
         "DestinationId" => String.t(),
         "SourceId" => String.t()
@@ -9439,6 +9598,20 @@ defmodule AWS.Glue do
       
   """
   @type list_table_optimizer_runs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_usage_profile_request() :: %{
+        optional("Description") => String.t(),
+        optional("Tags") => map(),
+        required("Configuration") => profile_configuration(),
+        required("Name") => String.t()
+      }
+      
+  """
+  @type create_usage_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -10817,6 +10990,14 @@ defmodule AWS.Glue do
           | operation_timeout_exception()
           | entity_not_found_exception()
 
+  @type create_usage_profile_errors() ::
+          operation_not_supported_exception()
+          | invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | already_exists_exception()
+          | operation_timeout_exception()
+
   @type create_user_defined_function_errors() ::
           glue_encryption_exception()
           | invalid_input_exception()
@@ -10971,6 +11152,12 @@ defmodule AWS.Glue do
 
   @type delete_trigger_errors() ::
           concurrent_modification_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+
+  @type delete_usage_profile_errors() ::
+          operation_not_supported_exception()
           | invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
@@ -11358,6 +11545,13 @@ defmodule AWS.Glue do
           | operation_timeout_exception()
           | entity_not_found_exception()
 
+  @type get_usage_profile_errors() ::
+          operation_not_supported_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
   @type get_user_defined_function_errors() ::
           glue_encryption_exception()
           | invalid_input_exception()
@@ -11485,6 +11679,12 @@ defmodule AWS.Glue do
           | internal_service_exception()
           | operation_timeout_exception()
           | entity_not_found_exception()
+
+  @type list_usage_profiles_errors() ::
+          operation_not_supported_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
 
   @type list_workflows_errors() ::
           invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
@@ -11844,6 +12044,14 @@ defmodule AWS.Glue do
 
   @type update_trigger_errors() ::
           concurrent_modification_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type update_usage_profile_errors() ::
+          operation_not_supported_exception()
+          | concurrent_modification_exception()
           | invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
@@ -12537,6 +12745,19 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Creates an Glue usage profile.
+  """
+  @spec create_usage_profile(map(), create_usage_profile_request(), list()) ::
+          {:ok, create_usage_profile_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_usage_profile_errors()}
+  def create_usage_profile(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateUsageProfile", input, options)
+  end
+
+  @doc """
   Creates a new function definition in the Data Catalog.
   """
   @spec create_user_defined_function(map(), create_user_defined_function_request(), list()) ::
@@ -12961,6 +13182,19 @@ defmodule AWS.Glue do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteTrigger", input, options)
+  end
+
+  @doc """
+  Deletes the Glue specified usage profile.
+  """
+  @spec delete_usage_profile(map(), delete_usage_profile_request(), list()) ::
+          {:ok, delete_usage_profile_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_usage_profile_errors()}
+  def delete_usage_profile(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteUsageProfile", input, options)
   end
 
   @doc """
@@ -13404,6 +13638,8 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves the metadata for a given job run.
+
+  Job run history is accessible for 90 days for your workflow and job run.
   """
   @spec get_job_run(map(), get_job_run_request(), list()) ::
           {:ok, get_job_run_response(), any()}
@@ -13925,6 +14161,19 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Retrieves information about the specified Glue usage profile.
+  """
+  @spec get_usage_profile(map(), get_usage_profile_request(), list()) ::
+          {:ok, get_usage_profile_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_usage_profile_errors()}
+  def get_usage_profile(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetUsageProfile", input, options)
+  end
+
+  @doc """
   Retrieves a specified function definition from the Data Catalog.
   """
   @spec get_user_defined_function(map(), get_user_defined_function_request(), list()) ::
@@ -13965,6 +14214,8 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves the metadata for a given workflow run.
+
+  Job run history is accessible for 90 days for your workflow and job run.
   """
   @spec get_workflow_run(map(), get_workflow_run_request(), list()) ::
           {:ok, get_workflow_run_response(), any()}
@@ -14351,6 +14602,19 @@ defmodule AWS.Glue do
     meta = metadata()
 
     Request.request_post(client, meta, "ListTriggers", input, options)
+  end
+
+  @doc """
+  List all the Glue usage profiles.
+  """
+  @spec list_usage_profiles(map(), list_usage_profiles_request(), list()) ::
+          {:ok, list_usage_profiles_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_usage_profiles_errors()}
+  def list_usage_profiles(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListUsageProfiles", input, options)
   end
 
   @doc """
@@ -15266,6 +15530,19 @@ defmodule AWS.Glue do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateTrigger", input, options)
+  end
+
+  @doc """
+  Update an Glue usage profile.
+  """
+  @spec update_usage_profile(map(), update_usage_profile_request(), list()) ::
+          {:ok, update_usage_profile_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_usage_profile_errors()}
+  def update_usage_profile(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateUsageProfile", input, options)
   end
 
   @doc """

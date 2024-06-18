@@ -1224,7 +1224,8 @@ defmodule AWS.SecretsManager do
 
   ## Required permissions: 
   `secretsmanager:CreateSecret`. If you
-  include tags in the secret, you also need `secretsmanager:TagResource`.
+  include tags in the secret, you also need `secretsmanager:TagResource`. To add
+  replica Regions, you must also have `secretsmanager:ReplicateSecretToRegions`.
   For more information, see [
   IAM policy actions for Secrets
   Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions)

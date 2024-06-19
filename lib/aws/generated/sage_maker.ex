@@ -808,6 +808,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      create_presigned_mlflow_tracking_server_url_response() :: %{
+        "AuthorizedUrl" => String.t()
+      }
+      
+  """
+  @type create_presigned_mlflow_tracking_server_url_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_inference_recommendations_job_response() :: %{
         "CompletionTime" => non_neg_integer(),
         "CreationTime" => non_neg_integer(),
@@ -893,6 +904,19 @@ defmodule AWS.SageMaker do
       
   """
   @type update_app_image_config_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_presigned_mlflow_tracking_server_url_request() :: %{
+        optional("ExpiresInSeconds") => integer(),
+        optional("SessionExpirationDurationInSeconds") => integer(),
+        required("TrackingServerName") => String.t()
+      }
+      
+  """
+  @type create_presigned_mlflow_tracking_server_url_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1711,6 +1735,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      start_mlflow_tracking_server_request() :: %{
+        required("TrackingServerName") => String.t()
+      }
+      
+  """
+  @type start_mlflow_tracking_server_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_search_suggestions_response() :: %{
         "PropertyNameSuggestions" => list(property_name_suggestion()())
       }
@@ -2214,6 +2249,17 @@ defmodule AWS.SageMaker do
       
   """
   @type training_image_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_mlflow_tracking_server_response() :: %{
+        "TrackingServerArn" => String.t()
+      }
+      
+  """
+  @type delete_mlflow_tracking_server_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5302,6 +5348,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      list_mlflow_tracking_servers_response() :: %{
+        "NextToken" => String.t(),
+        "TrackingServerSummaries" => list(tracking_server_summary()())
+      }
+      
+  """
+  @type list_mlflow_tracking_servers_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_image_version_request() :: %{
         optional("Alias") => String.t(),
         optional("Version") => integer(),
@@ -6802,6 +6860,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      stop_mlflow_tracking_server_request() :: %{
+        required("TrackingServerName") => String.t()
+      }
+      
+  """
+  @type stop_mlflow_tracking_server_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_model_explainability_job_definition_response() :: %{
         "JobDefinitionArn" => String.t()
       }
@@ -8044,6 +8113,21 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      update_mlflow_tracking_server_request() :: %{
+        optional("ArtifactStoreUri") => String.t(),
+        optional("AutomaticModelRegistration") => boolean(),
+        optional("TrackingServerSize") => list(any()),
+        optional("WeeklyMaintenanceWindowStart") => String.t(),
+        required("TrackingServerName") => String.t()
+      }
+      
+  """
+  @type update_mlflow_tracking_server_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_processing_jobs_request() :: %{
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
@@ -8190,6 +8274,24 @@ defmodule AWS.SageMaker do
       
   """
   @type variant_property() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_mlflow_tracking_servers_request() :: %{
+        optional("CreatedAfter") => non_neg_integer(),
+        optional("CreatedBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("MlflowVersion") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("TrackingServerStatus") => list(any())
+      }
+      
+  """
+  @type list_mlflow_tracking_servers_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -9934,6 +10036,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      start_mlflow_tracking_server_response() :: %{
+        "TrackingServerArn" => String.t()
+      }
+      
+  """
+  @type start_mlflow_tracking_server_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       endpoint() :: %{
         "CreationTime" => non_neg_integer(),
         "DataCaptureConfig" => data_capture_config_summary(),
@@ -11287,6 +11400,31 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      describe_mlflow_tracking_server_response() :: %{
+        "ArtifactStoreUri" => String.t(),
+        "AutomaticModelRegistration" => boolean(),
+        "CreatedBy" => user_context(),
+        "CreationTime" => non_neg_integer(),
+        "IsActive" => list(any()),
+        "LastModifiedBy" => user_context(),
+        "LastModifiedTime" => non_neg_integer(),
+        "MlflowVersion" => String.t(),
+        "RoleArn" => String.t(),
+        "TrackingServerArn" => String.t(),
+        "TrackingServerName" => String.t(),
+        "TrackingServerSize" => list(any()),
+        "TrackingServerStatus" => list(any()),
+        "TrackingServerUrl" => String.t(),
+        "WeeklyMaintenanceWindowStart" => String.t()
+      }
+      
+  """
+  @type describe_mlflow_tracking_server_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       real_time_inference_config() :: %{
         "InstanceCount" => integer(),
         "InstanceType" => list(any())
@@ -12544,6 +12682,24 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      create_mlflow_tracking_server_request() :: %{
+        optional("AutomaticModelRegistration") => boolean(),
+        optional("MlflowVersion") => String.t(),
+        optional("Tags") => list(tag()()),
+        optional("TrackingServerSize") => list(any()),
+        optional("WeeklyMaintenanceWindowStart") => String.t(),
+        required("ArtifactStoreUri") => String.t(),
+        required("RoleArn") => String.t(),
+        required("TrackingServerName") => String.t()
+      }
+      
+  """
+  @type create_mlflow_tracking_server_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       start_pipeline_execution_request() :: %{
         optional("ParallelismConfiguration") => parallelism_configuration(),
         optional("PipelineExecutionDescription") => String.t(),
@@ -12671,6 +12827,17 @@ defmodule AWS.SageMaker do
       
   """
   @type list_lineage_groups_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_mlflow_tracking_server_response() :: %{
+        "TrackingServerArn" => String.t()
+      }
+      
+  """
+  @type update_mlflow_tracking_server_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -12945,6 +13112,17 @@ defmodule AWS.SageMaker do
       
   """
   @type create_auto_ml_job_v2_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_mlflow_tracking_server_response() :: %{
+        "TrackingServerArn" => String.t()
+      }
+      
+  """
+  @type create_mlflow_tracking_server_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -13272,6 +13450,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      describe_mlflow_tracking_server_request() :: %{
+        required("TrackingServerName") => String.t()
+      }
+      
+  """
+  @type describe_mlflow_tracking_server_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_flow_definition_response() :: %{}
       
   """
@@ -13365,6 +13554,17 @@ defmodule AWS.SageMaker do
       
   """
   @type inference_metrics() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_mlflow_tracking_server_response() :: %{
+        "TrackingServerArn" => String.t()
+      }
+      
+  """
+  @type stop_mlflow_tracking_server_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -13695,6 +13895,7 @@ defmodule AWS.SageMaker do
         "ExecutionRole" => String.t(),
         "InstanceCount" => integer(),
         "InstanceGroupName" => String.t(),
+        "InstanceStorageConfigs" => list(list()()),
         "InstanceType" => list(any()),
         "LifeCycleConfig" => cluster_life_cycle_config(),
         "ThreadsPerCore" => integer()
@@ -14136,6 +14337,23 @@ defmodule AWS.SageMaker do
       
   """
   @type stop_compilation_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tracking_server_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "IsActive" => list(any()),
+        "LastModifiedTime" => non_neg_integer(),
+        "MlflowVersion" => String.t(),
+        "TrackingServerArn" => String.t(),
+        "TrackingServerName" => String.t(),
+        "TrackingServerStatus" => list(any())
+      }
+      
+  """
+  @type tracking_server_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -15752,6 +15970,7 @@ defmodule AWS.SageMaker do
         "CurrentCount" => integer(),
         "ExecutionRole" => String.t(),
         "InstanceGroupName" => String.t(),
+        "InstanceStorageConfigs" => list(list()()),
         "InstanceType" => list(any()),
         "LifeCycleConfig" => cluster_life_cycle_config(),
         "TargetCount" => integer(),
@@ -16012,6 +16231,7 @@ defmodule AWS.SageMaker do
         "InstanceGroupName" => String.t(),
         "InstanceId" => String.t(),
         "InstanceStatus" => cluster_instance_status_details(),
+        "InstanceStorageConfigs" => list(list()()),
         "InstanceType" => list(any()),
         "LaunchTime" => non_neg_integer(),
         "LifeCycleConfig" => cluster_life_cycle_config(),
@@ -16102,6 +16322,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      cluster_ebs_volume_config() :: %{
+        "VolumeSizeInGB" => integer()
+      }
+      
+  """
+  @type cluster_ebs_volume_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_feature_group_response() :: %{
         "FeatureGroupArn" => String.t()
       }
@@ -16123,6 +16354,17 @@ defmodule AWS.SageMaker do
       
   """
   @type code_repository_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_mlflow_tracking_server_request() :: %{
+        required("TrackingServerName") => String.t()
+      }
+      
+  """
+  @type delete_mlflow_tracking_server_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -16436,6 +16678,8 @@ defmodule AWS.SageMaker do
 
   @type create_labeling_job_errors() :: resource_limit_exceeded() | resource_in_use()
 
+  @type create_mlflow_tracking_server_errors() :: resource_limit_exceeded()
+
   @type create_model_errors() :: resource_limit_exceeded()
 
   @type create_model_bias_job_definition_errors() :: resource_limit_exceeded() | resource_in_use()
@@ -16465,6 +16709,8 @@ defmodule AWS.SageMaker do
           resource_limit_exceeded() | conflict_exception() | resource_not_found()
 
   @type create_presigned_domain_url_errors() :: resource_not_found()
+
+  @type create_presigned_mlflow_tracking_server_url_errors() :: resource_not_found()
 
   @type create_processing_job_errors() ::
           resource_limit_exceeded() | resource_in_use() | resource_not_found()
@@ -16534,6 +16780,8 @@ defmodule AWS.SageMaker do
   @type delete_image_version_errors() :: resource_in_use() | resource_not_found()
 
   @type delete_inference_experiment_errors() :: conflict_exception() | resource_not_found()
+
+  @type delete_mlflow_tracking_server_errors() :: resource_not_found()
 
   @type delete_model_bias_job_definition_errors() :: resource_not_found()
 
@@ -16624,6 +16872,8 @@ defmodule AWS.SageMaker do
   @type describe_labeling_job_errors() :: resource_not_found()
 
   @type describe_lineage_group_errors() :: resource_not_found()
+
+  @type describe_mlflow_tracking_server_errors() :: resource_not_found()
 
   @type describe_model_bias_job_definition_errors() :: resource_not_found()
 
@@ -16731,6 +16981,8 @@ defmodule AWS.SageMaker do
 
   @type start_inference_experiment_errors() :: conflict_exception() | resource_not_found()
 
+  @type start_mlflow_tracking_server_errors() :: conflict_exception() | resource_not_found()
+
   @type start_monitoring_schedule_errors() :: resource_not_found()
 
   @type start_notebook_instance_errors() :: resource_limit_exceeded()
@@ -16749,6 +17001,8 @@ defmodule AWS.SageMaker do
   @type stop_inference_recommendations_job_errors() :: resource_not_found()
 
   @type stop_labeling_job_errors() :: resource_not_found()
+
+  @type stop_mlflow_tracking_server_errors() :: conflict_exception() | resource_not_found()
 
   @type stop_monitoring_schedule_errors() :: resource_not_found()
 
@@ -16801,6 +17055,9 @@ defmodule AWS.SageMaker do
   @type update_inference_component_runtime_config_errors() :: resource_limit_exceeded()
 
   @type update_inference_experiment_errors() :: conflict_exception() | resource_not_found()
+
+  @type update_mlflow_tracking_server_errors() ::
+          resource_limit_exceeded() | conflict_exception() | resource_not_found()
 
   @type update_model_card_errors() ::
           resource_limit_exceeded() | conflict_exception() | resource_not_found()
@@ -17115,7 +17372,8 @@ defmodule AWS.SageMaker do
   persistent clusters for developing large machine learning models, such as large
   language
   models (LLMs) and diffusion models. To learn more, see [Amazon SageMaker HyperPod](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod.html)
-  in the *Amazon SageMaker Developer Guide*.
+  in the
+  *Amazon SageMaker Developer Guide*.
   """
   @spec create_cluster(map(), create_cluster_request(), list()) ::
           {:ok, create_cluster_response(), any()}
@@ -17876,6 +18134,23 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Creates an MLflow Tracking Server using a general purpose Amazon S3 bucket as
+  the artifact
+  store.
+
+  For more information, see [Create an MLflow Tracking Server](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server.html).
+  """
+  @spec create_mlflow_tracking_server(map(), create_mlflow_tracking_server_request(), list()) ::
+          {:ok, create_mlflow_tracking_server_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_mlflow_tracking_server_errors()}
+  def create_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateMlflowTrackingServer", input, options)
+  end
+
+  @doc """
   Creates a model in SageMaker.
 
   In the request, you name the model and describe a primary
@@ -18212,6 +18487,27 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "CreatePresignedDomainUrl", input, options)
+  end
+
+  @doc """
+  Returns a presigned URL that you can use to connect to the MLflow UI attached to
+  your
+  tracking server.
+
+  For more information, see [Launch the MLflow UI using a presigned URL](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-launch-ui.html).
+  """
+  @spec create_presigned_mlflow_tracking_server_url(
+          map(),
+          create_presigned_mlflow_tracking_server_url_request(),
+          list()
+        ) ::
+          {:ok, create_presigned_mlflow_tracking_server_url_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_presigned_mlflow_tracking_server_url_errors()}
+  def create_presigned_mlflow_tracking_server_url(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreatePresignedMlflowTrackingServerUrl", input, options)
   end
 
   @doc """
@@ -19088,6 +19384,21 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Deletes an MLflow Tracking Server.
+
+  For more information, see [Clean up MLflow resources](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-cleanup.html.html).
+  """
+  @spec delete_mlflow_tracking_server(map(), delete_mlflow_tracking_server_request(), list()) ::
+          {:ok, delete_mlflow_tracking_server_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_mlflow_tracking_server_errors()}
+  def delete_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteMlflowTrackingServer", input, options)
+  end
+
+  @doc """
   Deletes a model.
 
   The `DeleteModel` API deletes only the model entry that
@@ -19423,7 +19734,7 @@ defmodule AWS.SageMaker do
   [DeleteWorkteam](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteWorkteam.html)
   operation to delete all work teams before you delete the workforce.
   If you try to delete a workforce that contains one or more work teams,
-  you will recieve a `ResourceInUse` error.
+  you will receive a `ResourceInUse` error.
   """
   @spec delete_workforce(map(), delete_workforce_request(), list()) ::
           {:ok, delete_workforce_response(), any()}
@@ -19961,6 +20272,19 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Returns information about an MLflow Tracking Server.
+  """
+  @spec describe_mlflow_tracking_server(map(), describe_mlflow_tracking_server_request(), list()) ::
+          {:ok, describe_mlflow_tracking_server_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_mlflow_tracking_server_errors()}
+  def describe_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeMlflowTrackingServer", input, options)
+  end
+
+  @doc """
   Describes a model that you created using the `CreateModel`
   API.
   """
@@ -20341,8 +20665,8 @@ defmodule AWS.SageMaker do
   Gets information about a specific work team.
 
   You can see information such as the
-  create date, the last updated date, membership information, and the work team's
-  Amazon
+  creation date, the last updated date, membership information, and the work
+  team's Amazon
   Resource Name (ARN).
   """
   @spec describe_workteam(map(), describe_workteam_request(), list()) ::
@@ -21076,6 +21400,18 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Lists all MLflow Tracking Servers.
+  """
+  @spec list_mlflow_tracking_servers(map(), list_mlflow_tracking_servers_request(), list()) ::
+          {:ok, list_mlflow_tracking_servers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def list_mlflow_tracking_servers(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListMlflowTrackingServers", input, options)
+  end
+
+  @doc """
   Lists model bias jobs definitions that satisfy various filters.
   """
   @spec list_model_bias_job_definitions(map(), list_model_bias_job_definitions_request(), list()) ::
@@ -21790,6 +22126,19 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Programmatically start an MLflow Tracking Server.
+  """
+  @spec start_mlflow_tracking_server(map(), start_mlflow_tracking_server_request(), list()) ::
+          {:ok, start_mlflow_tracking_server_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_mlflow_tracking_server_errors()}
+  def start_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartMlflowTrackingServer", input, options)
+  end
+
+  @doc """
   Starts a previously stopped monitoring schedule.
 
   By default, when you successfully create a new schedule, the status of a
@@ -21962,6 +22311,19 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "StopLabelingJob", input, options)
+  end
+
+  @doc """
+  Programmatically stop an MLflow Tracking Server.
+  """
+  @spec stop_mlflow_tracking_server(map(), stop_mlflow_tracking_server_request(), list()) ::
+          {:ok, stop_mlflow_tracking_server_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, stop_mlflow_tracking_server_errors()}
+  def stop_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopMlflowTrackingServer", input, options)
   end
 
   @doc """
@@ -22450,6 +22812,19 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateInferenceExperiment", input, options)
+  end
+
+  @doc """
+  Updates properties of an existing MLflow Tracking Server.
+  """
+  @spec update_mlflow_tracking_server(map(), update_mlflow_tracking_server_request(), list()) ::
+          {:ok, update_mlflow_tracking_server_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_mlflow_tracking_server_errors()}
+  def update_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateMlflowTrackingServer", input, options)
   end
 
   @doc """

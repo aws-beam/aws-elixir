@@ -24,6 +24,17 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      guardrail_content_policy_assessment() :: %{
+        "filters" => list(guardrail_content_filter()())
+      }
+
+  """
+  @type guardrail_content_policy_assessment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       model_not_ready_exception() :: %{
         "message" => String.t()
       }
@@ -81,6 +92,7 @@ defmodule AWS.BedrockRuntime do
       converse_request() :: %{
         optional("additionalModelRequestFields") => [any()],
         optional("additionalModelResponseFieldPaths") => list([String.t()]()),
+        optional("guardrailConfig") => guardrail_configuration(),
         optional("inferenceConfig") => inference_configuration(),
         optional("system") => list(list()()),
         optional("toolConfig") => tool_configuration(),
@@ -89,6 +101,19 @@ defmodule AWS.BedrockRuntime do
 
   """
   @type converse_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_trace_assessment() :: %{
+        "inputAssessment" => map(),
+        "modelOutput" => list(String.t()()),
+        "outputAssessments" => map()
+      }
+
+  """
+  @type guardrail_trace_assessment() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -112,6 +137,19 @@ defmodule AWS.BedrockRuntime do
 
   """
   @type message_stop_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_managed_word() :: %{
+        "action" => list(any()),
+        "match" => [String.t()],
+        "type" => list(any())
+      }
+
+  """
+  @type guardrail_managed_word() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -165,12 +203,36 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      guardrail_custom_word() :: %{
+        "action" => list(any()),
+        "match" => [String.t()]
+      }
+
+  """
+  @type guardrail_custom_word() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       message_start_event() :: %{
         "role" => list(any())
       }
 
   """
   @type message_start_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_word_policy_assessment() :: %{
+        "customWords" => list(guardrail_custom_word()()),
+        "managedWordLists" => list(guardrail_managed_word()())
+      }
+
+  """
+  @type guardrail_word_policy_assessment() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -219,6 +281,18 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      guardrail_sensitive_information_policy_assessment() :: %{
+        "piiEntities" => list(guardrail_pii_entity_filter()()),
+        "regexes" => list(guardrail_regex_filter()())
+      }
+
+  """
+  @type guardrail_sensitive_information_policy_assessment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       converse_stream_metrics() :: %{
         "latencyMs" => [float()]
       }
@@ -254,12 +328,36 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      guardrail_content_filter() :: %{
+        "action" => list(any()),
+        "confidence" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type guardrail_content_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       service_quota_exceeded_exception() :: %{
         "message" => String.t()
       }
 
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      converse_trace() :: %{
+        "guardrail" => guardrail_trace_assessment()
+      }
+
+  """
+  @type converse_trace() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -291,11 +389,26 @@ defmodule AWS.BedrockRuntime do
 
       converse_stream_metadata_event() :: %{
         "metrics" => converse_stream_metrics(),
+        "trace" => converse_stream_trace(),
         "usage" => token_usage()
       }
 
   """
   @type converse_stream_metadata_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_stream_configuration() :: %{
+        "guardrailIdentifier" => String.t(),
+        "guardrailVersion" => String.t(),
+        "streamProcessingMode" => list(any()),
+        "trace" => list(any())
+      }
+
+  """
+  @type guardrail_stream_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -307,6 +420,20 @@ defmodule AWS.BedrockRuntime do
 
   """
   @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_assessment() :: %{
+        "contentPolicy" => guardrail_content_policy_assessment(),
+        "sensitiveInformationPolicy" => guardrail_sensitive_information_policy_assessment(),
+        "topicPolicy" => guardrail_topic_policy_assessment(),
+        "wordPolicy" => guardrail_word_policy_assessment()
+      }
+
+  """
+  @type guardrail_assessment() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -351,6 +478,7 @@ defmodule AWS.BedrockRuntime do
       converse_stream_request() :: %{
         optional("additionalModelRequestFields") => [any()],
         optional("additionalModelResponseFieldPaths") => list([String.t()]()),
+        optional("guardrailConfig") => guardrail_stream_configuration(),
         optional("inferenceConfig") => inference_configuration(),
         optional("system") => list(list()()),
         optional("toolConfig") => tool_configuration(),
@@ -414,6 +542,17 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      guardrail_topic_policy_assessment() :: %{
+        "topics" => list(guardrail_topic()())
+      }
+
+  """
+  @type guardrail_topic_policy_assessment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       model_stream_error_exception() :: %{
         "message" => String.t(),
         "originalMessage" => String.t(),
@@ -460,12 +599,87 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      guardrail_configuration() :: %{
+        "guardrailIdentifier" => String.t(),
+        "guardrailVersion" => String.t(),
+        "trace" => list(any())
+      }
+
+  """
+  @type guardrail_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_regex_filter() :: %{
+        "action" => list(any()),
+        "match" => [String.t()],
+        "name" => [String.t()],
+        "regex" => [String.t()]
+      }
+
+  """
+  @type guardrail_regex_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_pii_entity_filter() :: %{
+        "action" => list(any()),
+        "match" => [String.t()],
+        "type" => list(any())
+      }
+
+  """
+  @type guardrail_pii_entity_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_converse_text_block() :: %{
+        "text" => [String.t()]
+      }
+
+  """
+  @type guardrail_converse_text_block() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      converse_stream_trace() :: %{
+        "guardrail" => guardrail_trace_assessment()
+      }
+
+  """
+  @type converse_stream_trace() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tool_use_block_delta() :: %{
         "input" => [String.t()]
       }
 
   """
   @type tool_use_block_delta() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_topic() :: %{
+        "action" => list(any()),
+        "name" => [String.t()],
+        "type" => list(any())
+      }
+
+  """
+  @type guardrail_topic() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -488,6 +702,7 @@ defmodule AWS.BedrockRuntime do
         "metrics" => converse_metrics(),
         "output" => list(),
         "stopReason" => list(any()),
+        "trace" => converse_trace(),
         "usage" => token_usage()
       }
 
@@ -562,8 +777,17 @@ defmodule AWS.BedrockRuntime do
   models.
   Should a model have unique inference parameters, you can also pass those unique
   parameters
-  to the model. For more information, see [Run inference](https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html)
-  in the Bedrock User Guide.
+  to the model.
+
+  For information about the Converse API, see *Use the Converse API* in the
+  *Amazon Bedrock User Guide*.
+  To use a guardrail, see *Use a guardrail with the Converse API* in the *Amazon
+  Bedrock User Guide*.
+  To use a tool with a model, see *Tool use (Function calling)* in the *Amazon
+  Bedrock User Guide*
+
+  For example code, see *Converse API examples* in the *Amazon Bedrock User
+  Guide*.
 
   This operation requires permission for the `bedrock:InvokeModel` action.
   """
@@ -600,15 +824,21 @@ defmodule AWS.BedrockRuntime do
   This allows you to write code once and use it with different models. Should a
   model have unique inference parameters, you can also pass those unique
   parameters to the
-  model. For more information, see [Run inference](https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html)
-  in the Bedrock User Guide.
+  model.
 
   To find out if a model supports streaming, call
   [GetFoundationModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetFoundationModel.html)
   and check the `responseStreamingSupported` field in the response.
 
-  For example code, see *Invoke model with streaming code
-  example* in the *Amazon Bedrock User Guide*.
+  For information about the Converse API, see *Use the Converse API* in the
+  *Amazon Bedrock User Guide*.
+  To use a guardrail, see *Use a guardrail with the Converse API* in the *Amazon
+  Bedrock User Guide*.
+  To use a tool with a model, see *Tool use (Function calling)* in the *Amazon
+  Bedrock User Guide*
+
+  For example code, see *Conversation streaming example* in the *Amazon Bedrock
+  User Guide*.
 
   This operation requires permission for the
   `bedrock:InvokeModelWithResponseStream` action.

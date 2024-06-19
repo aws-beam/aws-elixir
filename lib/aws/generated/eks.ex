@@ -738,6 +738,19 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      fargate_profile_issue() :: %{
+        "code" => list(any()),
+        "message" => String.t(),
+        "resourceIds" => list(String.t()())
+      }
+
+  """
+  @type fargate_profile_issue() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_addon_versions_request() :: %{
         optional("addonName") => String.t(),
         optional("kubernetesVersion") => String.t(),
@@ -1204,6 +1217,17 @@ defmodule AWS.EKS do
 
   """
   @type not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fargate_profile_health() :: %{
+        "issues" => list(fargate_profile_issue()())
+      }
+
+  """
+  @type fargate_profile_health() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2019,6 +2043,7 @@ defmodule AWS.EKS do
         "createdAt" => non_neg_integer(),
         "fargateProfileArn" => String.t(),
         "fargateProfileName" => String.t(),
+        "health" => fargate_profile_health(),
         "podExecutionRoleArn" => String.t(),
         "selectors" => list(fargate_profile_selector()()),
         "status" => list(any()),

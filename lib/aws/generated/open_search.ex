@@ -917,6 +917,20 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      j_w_t_options_input() :: %{
+        "Enabled" => boolean(),
+        "PublicKey" => String.t(),
+        "RolesKey" => String.t(),
+        "SubjectKey" => String.t()
+      }
+
+  """
+  @type j_w_t_options_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_domain_request() :: %{}
 
   """
@@ -1186,6 +1200,7 @@ defmodule AWS.OpenSearch do
         "AnonymousAuthEnabled" => boolean(),
         "Enabled" => boolean(),
         "InternalUserDatabaseEnabled" => boolean(),
+        "JWTOptions" => j_w_t_options_output(),
         "SAMLOptions" => saml_options_output()
       }
 
@@ -1805,6 +1820,7 @@ defmodule AWS.OpenSearch do
         "AnonymousAuthEnabled" => boolean(),
         "Enabled" => boolean(),
         "InternalUserDatabaseEnabled" => boolean(),
+        "JWTOptions" => j_w_t_options_input(),
         "MasterUserOptions" => master_user_options(),
         "SAMLOptions" => saml_options_input()
       }
@@ -2333,6 +2349,20 @@ defmodule AWS.OpenSearch do
 
   """
   @type list_instance_type_details_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      j_w_t_options_output() :: %{
+        "Enabled" => boolean(),
+        "PublicKey" => String.t(),
+        "RolesKey" => String.t(),
+        "SubjectKey" => String.t()
+      }
+
+  """
+  @type j_w_t_options_output() :: %{String.t() => any()}
 
   @typedoc """
 

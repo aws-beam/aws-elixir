@@ -228,6 +228,7 @@ defmodule AWS.Artifact do
   ## Example:
 
       report_summary() :: %{
+        "acceptanceType" => String.t(),
         "arn" => String.t(),
         "category" => String.t(),
         "companyName" => String.t(),

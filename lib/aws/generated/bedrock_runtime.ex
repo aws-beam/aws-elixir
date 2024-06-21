@@ -35,6 +35,19 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      document_block() :: %{
+        "format" => list(any()),
+        "name" => [String.t()],
+        "source" => list()
+      }
+
+  """
+  @type document_block() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       model_not_ready_exception() :: %{
         "message" => String.t()
       }

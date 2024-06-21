@@ -93,6 +93,34 @@ defmodule AWS.ComputeOptimizer do
 
   ## Example:
       
+      rds_db_recommendation() :: %{
+        "accountId" => String.t(),
+        "currentDBInstanceClass" => String.t(),
+        "currentStorageConfiguration" => db_storage_configuration(),
+        "effectiveRecommendationPreferences" => rds_effective_recommendation_preferences(),
+        "engine" => String.t(),
+        "engineVersion" => String.t(),
+        "idle" => list(any()),
+        "instanceFinding" => list(any()),
+        "instanceFindingReasonCodes" => list(list(any())()),
+        "instanceRecommendationOptions" => list(rds_db_instance_recommendation_option()()),
+        "lastRefreshTimestamp" => non_neg_integer(),
+        "lookbackPeriodInDays" => float(),
+        "resourceArn" => String.t(),
+        "storageFinding" => list(any()),
+        "storageFindingReasonCodes" => list(list(any())()),
+        "storageRecommendationOptions" => list(rds_db_storage_recommendation_option()()),
+        "tags" => list(tag()()),
+        "utilizationMetrics" => list(rds_db_utilization_metric()())
+      }
+      
+  """
+  @type rds_db_recommendation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       license_configuration() :: %{
         "instanceType" => String.t(),
         "licenseEdition" => list(any()),
@@ -267,6 +295,21 @@ defmodule AWS.ComputeOptimizer do
 
   ## Example:
       
+      db_storage_configuration() :: %{
+        "allocatedStorage" => integer(),
+        "iops" => integer(),
+        "maxAllocatedStorage" => integer(),
+        "storageThroughput" => integer(),
+        "storageType" => String.t()
+      }
+      
+  """
+  @type db_storage_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_enrollment_statuses_for_organization_request() :: %{
         optional("filters") => list(enrollment_filter()()),
         optional("maxResults") => integer(),
@@ -347,6 +390,18 @@ defmodule AWS.ComputeOptimizer do
 
   ## Example:
       
+      rds_storage_estimated_monthly_savings() :: %{
+        "currency" => list(any()),
+        "value" => float()
+      }
+      
+  """
+  @type rds_storage_estimated_monthly_savings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       customizable_metric_parameters() :: %{
         "headroom" => list(any()),
         "threshold" => list(any())
@@ -396,6 +451,20 @@ defmodule AWS.ComputeOptimizer do
       
   """
   @type e_c_s_estimated_monthly_savings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rds_effective_recommendation_preferences() :: %{
+        "cpuVendorArchitectures" => list(list(any())()),
+        "enhancedInfrastructureMetrics" => list(any()),
+        "lookBackPeriod" => list(any()),
+        "savingsEstimationMode" => rds_savings_estimation_mode()
+      }
+      
+  """
+  @type rds_effective_recommendation_preferences() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -546,6 +615,19 @@ defmodule AWS.ComputeOptimizer do
 
   ## Example:
       
+      rds_database_projected_metric() :: %{
+        "name" => list(any()),
+        "timestamps" => list(non_neg_integer()()),
+        "values" => list(float()())
+      }
+      
+  """
+  @type rds_database_projected_metric() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       export_lambda_function_recommendations_request() :: %{
         optional("accountIds") => list(String.t()()),
         optional("fieldsToExport") => list(list(any())()),
@@ -574,6 +656,17 @@ defmodule AWS.ComputeOptimizer do
 
   ## Example:
       
+      rds_savings_estimation_mode() :: %{
+        "source" => list(any())
+      }
+      
+  """
+  @type rds_savings_estimation_mode() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       lambda_effective_recommendation_preferences() :: %{
         "savingsEstimationMode" => lambda_savings_estimation_mode()
       }
@@ -596,6 +689,18 @@ defmodule AWS.ComputeOptimizer do
       
   """
   @type export_e_c_s_service_recommendations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rds_instance_estimated_monthly_savings() :: %{
+        "currency" => list(any()),
+        "value" => float()
+      }
+      
+  """
+  @type rds_instance_estimated_monthly_savings() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -695,6 +800,19 @@ defmodule AWS.ComputeOptimizer do
 
   ## Example:
       
+      rds_db_utilization_metric() :: %{
+        "name" => list(any()),
+        "statistic" => list(any()),
+        "value" => float()
+      }
+      
+  """
+  @type rds_db_utilization_metric() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       put_recommendation_preferences_request() :: %{
         optional("enhancedInfrastructureMetrics") => list(any()),
         optional("externalMetricsPreference") => external_metrics_preference(),
@@ -709,6 +827,22 @@ defmodule AWS.ComputeOptimizer do
       
   """
   @type put_recommendation_preferences_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_rds_database_recommendations_request() :: %{
+        optional("accountIds") => list(String.t()()),
+        optional("filters") => list(rds_db_recommendation_filter()()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("recommendationPreferences") => recommendation_preferences(),
+        optional("resourceArns") => list(String.t()())
+      }
+      
+  """
+  @type get_rds_database_recommendations_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -964,6 +1098,18 @@ defmodule AWS.ComputeOptimizer do
 
   ## Example:
       
+      export_rds_database_recommendations_response() :: %{
+        "jobId" => String.t(),
+        "s3Destination" => s3_destination()
+      }
+      
+  """
+  @type export_rds_database_recommendations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       filter() :: %{
         "name" => list(any()),
         "values" => list(String.t()())
@@ -1163,6 +1309,20 @@ defmodule AWS.ComputeOptimizer do
 
   ## Example:
       
+      rds_db_storage_recommendation_option() :: %{
+        "rank" => integer(),
+        "savingsOpportunity" => savings_opportunity(),
+        "savingsOpportunityAfterDiscounts" => rds_storage_savings_opportunity_after_discounts(),
+        "storageConfiguration" => db_storage_configuration()
+      }
+      
+  """
+  @type rds_db_storage_recommendation_option() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_auto_scaling_group_recommendations_request() :: %{
         optional("accountIds") => list(String.t()()),
         optional("autoScalingGroupArns") => list(String.t()()),
@@ -1313,6 +1473,19 @@ defmodule AWS.ComputeOptimizer do
 
   ## Example:
       
+      rds_database_recommended_option_projected_metric() :: %{
+        "projectedMetrics" => list(rds_database_projected_metric()()),
+        "rank" => integer(),
+        "recommendedDBInstanceClass" => String.t()
+      }
+      
+  """
+  @type rds_database_recommended_option_projected_metric() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       ebs_estimated_monthly_savings() :: %{
         "currency" => list(any()),
         "value" => float()
@@ -1360,6 +1533,18 @@ defmodule AWS.ComputeOptimizer do
       
   """
   @type get_auto_scaling_group_recommendations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rds_instance_savings_opportunity_after_discounts() :: %{
+        "estimatedMonthlySavings" => rds_instance_estimated_monthly_savings(),
+        "savingsOpportunityPercentage" => float()
+      }
+      
+  """
+  @type rds_instance_savings_opportunity_after_discounts() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1487,6 +1672,18 @@ defmodule AWS.ComputeOptimizer do
       
   """
   @type projected_metric() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rds_storage_savings_opportunity_after_discounts() :: %{
+        "estimatedMonthlySavings" => rds_storage_estimated_monthly_savings(),
+        "savingsOpportunityPercentage" => float()
+      }
+      
+  """
+  @type rds_storage_savings_opportunity_after_discounts() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1671,6 +1868,22 @@ defmodule AWS.ComputeOptimizer do
 
   ## Example:
       
+      rds_db_instance_recommendation_option() :: %{
+        "dbInstanceClass" => String.t(),
+        "performanceRisk" => float(),
+        "projectedUtilizationMetrics" => list(rds_db_utilization_metric()()),
+        "rank" => integer(),
+        "savingsOpportunity" => savings_opportunity(),
+        "savingsOpportunityAfterDiscounts" => rds_instance_savings_opportunity_after_discounts()
+      }
+      
+  """
+  @type rds_db_instance_recommendation_option() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       lambda_function_utilization_metric() :: %{
         "name" => list(any()),
         "statistic" => list(any()),
@@ -1679,6 +1892,35 @@ defmodule AWS.ComputeOptimizer do
       
   """
   @type lambda_function_utilization_metric() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rds_db_recommendation_filter() :: %{
+        "name" => list(any()),
+        "values" => list(String.t()())
+      }
+      
+  """
+  @type rds_db_recommendation_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_rds_database_recommendations_request() :: %{
+        optional("accountIds") => list(String.t()()),
+        optional("fieldsToExport") => list(list(any())()),
+        optional("fileFormat") => list(any()),
+        optional("filters") => list(rds_db_recommendation_filter()()),
+        optional("includeMemberAccounts") => boolean(),
+        optional("recommendationPreferences") => recommendation_preferences(),
+        required("s3DestinationConfig") => s3_destination_config()
+      }
+      
+  """
+  @type export_rds_database_recommendations_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1808,6 +2050,17 @@ defmodule AWS.ComputeOptimizer do
 
   ## Example:
       
+      get_rds_database_recommendation_projected_metrics_response() :: %{
+        "recommendedOptionProjectedMetrics" => list(rds_database_recommended_option_projected_metric()())
+      }
+      
+  """
+  @type get_rds_database_recommendation_projected_metrics_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       export_ec2_instance_recommendations_request() :: %{
         optional("accountIds") => list(String.t()()),
         optional("fieldsToExport") => list(list(any())()),
@@ -1820,6 +2073,22 @@ defmodule AWS.ComputeOptimizer do
       
   """
   @type export_ec2_instance_recommendations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_rds_database_recommendation_projected_metrics_request() :: %{
+        optional("recommendationPreferences") => recommendation_preferences(),
+        required("endTime") => non_neg_integer(),
+        required("period") => integer(),
+        required("resourceArn") => String.t(),
+        required("startTime") => non_neg_integer(),
+        required("stat") => list(any())
+      }
+      
+  """
+  @type get_rds_database_recommendation_projected_metrics_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1848,6 +2117,19 @@ defmodule AWS.ComputeOptimizer do
       
   """
   @type service_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_rds_database_recommendations_response() :: %{
+        "errors" => list(get_recommendation_error()()),
+        "nextToken" => String.t(),
+        "rdsDBRecommendations" => list(rds_db_recommendation()())
+      }
+      
+  """
+  @type get_rds_database_recommendations_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1931,6 +2213,16 @@ defmodule AWS.ComputeOptimizer do
           | missing_authentication_token()
 
   @type export_license_recommendations_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | invalid_parameter_value_exception()
+          | opt_in_required_exception()
+          | missing_authentication_token()
+
+  @type export_rds_database_recommendations_errors() ::
           limit_exceeded_exception()
           | throttling_exception()
           | access_denied_exception()
@@ -2037,6 +2329,26 @@ defmodule AWS.ComputeOptimizer do
           | missing_authentication_token()
 
   @type get_license_recommendations_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | invalid_parameter_value_exception()
+          | opt_in_required_exception()
+          | resource_not_found_exception()
+          | missing_authentication_token()
+
+  @type get_rds_database_recommendation_projected_metrics_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | invalid_parameter_value_exception()
+          | opt_in_required_exception()
+          | resource_not_found_exception()
+          | missing_authentication_token()
+
+  @type get_rds_database_recommendations_errors() ::
           throttling_exception()
           | access_denied_exception()
           | internal_server_exception()
@@ -2308,6 +2620,36 @@ defmodule AWS.ComputeOptimizer do
   end
 
   @doc """
+
+  Export optimization recommendations for your Amazon Relational Database Service
+  (Amazon RDS).
+
+  Recommendations are exported in a comma-separated values (CSV) file, and its
+  metadata
+  in a JavaScript Object Notation (JSON) file, to an existing Amazon Simple
+  Storage Service (Amazon S3) bucket that you specify. For more information, see
+  [Exporting Recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html)
+  in the *Compute Optimizer User
+  Guide*.
+
+  You can have only one Amazon RDS export job in progress per Amazon Web Services
+  Region.
+  """
+  @spec export_rds_database_recommendations(
+          map(),
+          export_rds_database_recommendations_request(),
+          list()
+        ) ::
+          {:ok, export_rds_database_recommendations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, export_rds_database_recommendations_errors()}
+  def export_rds_database_recommendations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ExportRDSDatabaseRecommendations", input, options)
+  end
+
+  @doc """
   Returns Auto Scaling group recommendations.
 
   Compute Optimizer generates recommendations for Amazon EC2 Auto Scaling groups
@@ -2553,6 +2895,54 @@ defmodule AWS.ComputeOptimizer do
     meta = metadata()
 
     Request.request_post(client, meta, "GetLicenseRecommendations", input, options)
+  end
+
+  @doc """
+
+  Returns the projected metrics of Amazon RDS recommendations.
+  """
+  @spec get_rds_database_recommendation_projected_metrics(
+          map(),
+          get_rds_database_recommendation_projected_metrics_request(),
+          list()
+        ) ::
+          {:ok, get_rds_database_recommendation_projected_metrics_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_rds_database_recommendation_projected_metrics_errors()}
+  def get_rds_database_recommendation_projected_metrics(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "GetRDSDatabaseRecommendationProjectedMetrics",
+      input,
+      options
+    )
+  end
+
+  @doc """
+
+  Returns Amazon RDS recommendations.
+
+  Compute Optimizer generates recommendations for Amazon RDS that
+  meet a specific set of requirements. For more
+  information, see the [Supported resources and requirements](https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html)
+  in the *Compute Optimizer User
+  Guide*.
+  """
+  @spec get_rds_database_recommendations(
+          map(),
+          get_rds_database_recommendations_request(),
+          list()
+        ) ::
+          {:ok, get_rds_database_recommendations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_rds_database_recommendations_errors()}
+  def get_rds_database_recommendations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetRDSDatabaseRecommendations", input, options)
   end
 
   @doc """

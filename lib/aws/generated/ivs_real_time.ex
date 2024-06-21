@@ -244,6 +244,7 @@ defmodule AWS.IVSRealTime do
   ## Example:
 
       update_stage_request() :: %{
+        optional("autoParticipantRecordingConfiguration") => auto_participant_recording_configuration(),
         optional("name") => String.t(),
         required("arn") => String.t()
       }
@@ -269,6 +270,7 @@ defmodule AWS.IVSRealTime do
       stage() :: %{
         "activeSessionId" => String.t(),
         "arn" => String.t(),
+        "autoParticipantRecordingConfiguration" => auto_participant_recording_configuration(),
         "name" => String.t(),
         "tags" => map()
       }
@@ -365,6 +367,9 @@ defmodule AWS.IVSRealTime do
         "osVersion" => String.t(),
         "participantId" => String.t(),
         "published" => boolean(),
+        "recordingS3BucketName" => String.t(),
+        "recordingS3Prefix" => String.t(),
+        "recordingState" => String.t(),
         "sdkVersion" => String.t(),
         "state" => String.t(),
         "userId" => String.t()
@@ -480,6 +485,7 @@ defmodule AWS.IVSRealTime do
         "firstJoinTime" => non_neg_integer(),
         "participantId" => String.t(),
         "published" => boolean(),
+        "recordingState" => String.t(),
         "state" => String.t(),
         "userId" => String.t()
       }
@@ -751,6 +757,7 @@ defmodule AWS.IVSRealTime do
 
       list_participants_request() :: %{
         optional("filterByPublished") => boolean(),
+        optional("filterByRecordingState") => String.t(),
         optional("filterByState") => String.t(),
         optional("filterByUserId") => String.t(),
         optional("maxResults") => integer(),
@@ -796,6 +803,18 @@ defmodule AWS.IVSRealTime do
 
   """
   @type create_storage_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auto_participant_recording_configuration() :: %{
+        "mediaTypes" => list(String.t()()),
+        "storageConfigurationArn" => String.t()
+      }
+
+  """
+  @type auto_participant_recording_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -926,6 +945,7 @@ defmodule AWS.IVSRealTime do
   ## Example:
 
       create_stage_request() :: %{
+        optional("autoParticipantRecordingConfiguration") => auto_participant_recording_configuration(),
         optional("name") => String.t(),
         optional("participantTokenConfigurations") => list(participant_token_configuration()()),
         optional("tags") => map()

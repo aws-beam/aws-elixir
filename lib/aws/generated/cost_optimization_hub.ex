@@ -84,6 +84,20 @@ defmodule AWS.CostOptimizationHub do
 
   ## Example:
       
+      rds_db_instance_storage_configuration() :: %{
+        "allocatedStorageInGb" => [float()],
+        "iops" => [float()],
+        "storageThroughput" => [float()],
+        "storageType" => [String.t()]
+      }
+      
+  """
+  @type rds_db_instance_storage_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       rds_reserved_instances_configuration() :: %{
         "accountScope" => [String.t()],
         "currentGeneration" => [String.t()],
@@ -663,6 +677,17 @@ defmodule AWS.CostOptimizationHub do
 
   ## Example:
       
+      rds_db_instance_configuration() :: %{
+        "instance" => db_instance_configuration()
+      }
+      
+  """
+  @type rds_db_instance_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       internal_server_exception() :: %{
         "message" => [String.t()]
       }
@@ -692,6 +717,17 @@ defmodule AWS.CostOptimizationHub do
       
   """
   @type ec2_instance_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_instance_configuration() :: %{
+        "dbInstanceClass" => [String.t()]
+      }
+      
+  """
+  @type db_instance_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -798,6 +834,18 @@ defmodule AWS.CostOptimizationHub do
 
   ## Example:
       
+      rds_db_instance() :: %{
+        "configuration" => rds_db_instance_configuration(),
+        "costCalculation" => resource_cost_calculation()
+      }
+      
+  """
+  @type rds_db_instance() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_recommendation_summaries_request() :: %{
         optional("filter") => filter(),
         optional("maxResults") => integer(),
@@ -887,6 +935,18 @@ defmodule AWS.CostOptimizationHub do
       
   """
   @type get_recommendation_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rds_db_instance_storage() :: %{
+        "configuration" => rds_db_instance_storage_configuration(),
+        "costCalculation" => resource_cost_calculation()
+      }
+      
+  """
+  @type rds_db_instance_storage() :: %{String.t() => any()}
 
   @typedoc """
 

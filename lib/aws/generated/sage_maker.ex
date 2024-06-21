@@ -1385,7 +1385,10 @@ defmodule AWS.SageMaker do
         "HubContentStatus" => list(any()),
         "HubContentType" => list(any()),
         "HubContentVersion" => String.t(),
-        "HubName" => String.t()
+        "HubName" => String.t(),
+        "ReferenceMinVersion" => String.t(),
+        "SageMakerPublicHubContentArn" => String.t(),
+        "SupportStatus" => list(any())
       }
       
   """
@@ -2395,7 +2398,10 @@ defmodule AWS.SageMaker do
         "HubContentSearchKeywords" => list(String.t()()),
         "HubContentStatus" => list(any()),
         "HubContentType" => list(any()),
-        "HubContentVersion" => String.t()
+        "HubContentVersion" => String.t(),
+        "OriginalCreationTime" => non_neg_integer(),
+        "SageMakerPublicHubContentArn" => String.t(),
+        "SupportStatus" => list(any())
       }
       
   """
@@ -6205,6 +6211,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      inference_hub_access_config() :: %{
+        "HubContentArn" => String.t()
+      }
+      
+  """
+  @type inference_hub_access_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       session_chaining_config() :: %{
         "EnableSessionTagChaining" => boolean()
       }
@@ -8297,6 +8314,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      create_hub_content_reference_response() :: %{
+        "HubArn" => String.t(),
+        "HubContentArn" => String.t()
+      }
+      
+  """
+  @type create_hub_content_reference_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       offline_store_status() :: %{
         "BlockedReason" => String.t(),
         "Status" => list(any())
@@ -9651,6 +9680,19 @@ defmodule AWS.SageMaker do
       
   """
   @type update_experiment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_hub_content_reference_request() :: %{
+        required("HubContentName") => String.t(),
+        required("HubContentType") => list(any()),
+        required("HubName") => String.t()
+      }
+      
+  """
+  @type delete_hub_content_reference_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -12324,6 +12366,7 @@ defmodule AWS.SageMaker do
       
       s3_model_data_source() :: %{
         "CompressionType" => list(any()),
+        "HubAccessConfig" => inference_hub_access_config(),
         "ModelAccessConfig" => model_access_config(),
         "S3DataType" => list(any()),
         "S3Uri" => String.t()
@@ -13915,6 +13958,21 @@ defmodule AWS.SageMaker do
       
   """
   @type edge_model_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_hub_content_reference_request() :: %{
+        optional("HubContentName") => String.t(),
+        optional("MinVersion") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("HubName") => String.t(),
+        required("SageMakerPublicHubContentArn") => String.t()
+      }
+      
+  """
+  @type create_hub_content_reference_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -16659,6 +16717,9 @@ defmodule AWS.SageMaker do
 
   @type create_hub_errors() :: resource_limit_exceeded() | resource_in_use()
 
+  @type create_hub_content_reference_errors() ::
+          resource_limit_exceeded() | resource_in_use() | resource_not_found()
+
   @type create_human_task_ui_errors() :: resource_limit_exceeded() | resource_in_use()
 
   @type create_hyper_parameter_tuning_job_errors() ::
@@ -16772,6 +16833,8 @@ defmodule AWS.SageMaker do
   @type delete_hub_errors() :: resource_in_use() | resource_not_found()
 
   @type delete_hub_content_errors() :: resource_in_use() | resource_not_found()
+
+  @type delete_hub_content_reference_errors() :: resource_not_found()
 
   @type delete_human_task_ui_errors() :: resource_not_found()
 
@@ -17896,8 +17959,6 @@ defmodule AWS.SageMaker do
 
   @doc """
   Create a hub.
-
-  Hub APIs are only callable through SageMaker Studio.
   """
   @spec create_hub(map(), create_hub_request(), list()) ::
           {:ok, create_hub_response(), any()}
@@ -17907,6 +17968,20 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateHub", input, options)
+  end
+
+  @doc """
+  Create a hub content reference in order to add a model in the JumpStart public
+  hub to a private hub.
+  """
+  @spec create_hub_content_reference(map(), create_hub_content_reference_request(), list()) ::
+          {:ok, create_hub_content_reference_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_hub_content_reference_errors()}
+  def create_hub_content_reference(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateHubContentReference", input, options)
   end
 
   @doc """
@@ -19253,8 +19328,6 @@ defmodule AWS.SageMaker do
 
   @doc """
   Delete a hub.
-
-  Hub APIs are only callable through SageMaker Studio.
   """
   @spec delete_hub(map(), delete_hub_request(), list()) ::
           {:ok, nil, any()}
@@ -19268,8 +19341,6 @@ defmodule AWS.SageMaker do
 
   @doc """
   Delete the contents of a hub.
-
-  Hub APIs are only callable through SageMaker Studio.
   """
   @spec delete_hub_content(map(), delete_hub_content_request(), list()) ::
           {:ok, nil, any()}
@@ -19279,6 +19350,19 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteHubContent", input, options)
+  end
+
+  @doc """
+  Delete a hub content reference in order to remove a model from a private hub.
+  """
+  @spec delete_hub_content_reference(map(), delete_hub_content_reference_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_hub_content_reference_errors()}
+  def delete_hub_content_reference(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteHubContentReference", input, options)
   end
 
   @doc """
@@ -20106,9 +20190,7 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Describe a hub.
-
-  Hub APIs are only callable through SageMaker Studio.
+  Describes a hub.
   """
   @spec describe_hub(map(), describe_hub_request(), list()) ::
           {:ok, describe_hub_response(), any()}
@@ -20122,8 +20204,6 @@ defmodule AWS.SageMaker do
 
   @doc """
   Describe the content of a hub.
-
-  Hub APIs are only callable through SageMaker Studio.
   """
   @spec describe_hub_content(map(), describe_hub_content_request(), list()) ::
           {:ok, describe_hub_content_response(), any()}
@@ -20849,8 +20929,6 @@ defmodule AWS.SageMaker do
 
   @doc """
   Import hub content.
-
-  Hub APIs are only callable through SageMaker Studio.
   """
   @spec import_hub_content(map(), import_hub_content_request(), list()) ::
           {:ok, import_hub_content_response(), any()}
@@ -21191,8 +21269,6 @@ defmodule AWS.SageMaker do
 
   @doc """
   List hub content versions.
-
-  Hub APIs are only callable through SageMaker Studio.
   """
   @spec list_hub_content_versions(map(), list_hub_content_versions_request(), list()) ::
           {:ok, list_hub_content_versions_response(), any()}
@@ -21206,8 +21282,6 @@ defmodule AWS.SageMaker do
 
   @doc """
   List the contents of a hub.
-
-  Hub APIs are only callable through SageMaker Studio.
   """
   @spec list_hub_contents(map(), list_hub_contents_request(), list()) ::
           {:ok, list_hub_contents_response(), any()}
@@ -21221,8 +21295,6 @@ defmodule AWS.SageMaker do
 
   @doc """
   List all existing hubs.
-
-  Hub APIs are only callable through SageMaker Studio.
   """
   @spec list_hubs(map(), list_hubs_request(), list()) ::
           {:ok, list_hubs_response(), any()}
@@ -22720,8 +22792,6 @@ defmodule AWS.SageMaker do
 
   @doc """
   Update a hub.
-
-  Hub APIs are only callable through SageMaker Studio.
   """
   @spec update_hub(map(), update_hub_request(), list()) ::
           {:ok, update_hub_response(), any()}

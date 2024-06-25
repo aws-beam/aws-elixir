@@ -1324,6 +1324,7 @@ defmodule AWS.QBusiness do
         optional("description") => String.t(),
         optional("encryptionConfiguration") => encryption_configuration(),
         optional("identityCenterInstanceArn") => String.t(),
+        optional("qAppsConfiguration") => q_apps_configuration(),
         optional("roleArn") => String.t(),
         optional("tags") => list(tag()()),
         required("displayName") => String.t()
@@ -1615,6 +1616,7 @@ defmodule AWS.QBusiness do
         optional("description") => String.t(),
         optional("displayName") => String.t(),
         optional("identityCenterInstanceArn") => String.t(),
+        optional("qAppsConfiguration") => q_apps_configuration(),
         optional("roleArn") => String.t()
       }
 
@@ -1700,6 +1702,7 @@ defmodule AWS.QBusiness do
         "encryptionConfiguration" => encryption_configuration(),
         "error" => error_detail(),
         "identityCenterApplicationArn" => String.t(),
+        "qAppsConfiguration" => q_apps_configuration(),
         "roleArn" => String.t(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer()
@@ -2321,6 +2324,17 @@ defmodule AWS.QBusiness do
 
   """
   @type data_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      q_apps_configuration() :: %{
+        "qAppsControlMode" => list(any())
+      }
+
+  """
+  @type q_apps_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3303,7 +3317,7 @@ defmodule AWS.QBusiness do
   Pro are
   also available in Amazon Q Business Lite. For information on what's included in
   Amazon Q Business Lite and what's included in
-  Amazon Q Business Pro, see [Amazon Q Business tiers](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/what-is.html#tiers).
+  Amazon Q Business Pro, see [Amazon Q Business tiers](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#user-sub-tiers).
   You must use the Amazon Q Business console to assign subscription tiers to
   users.
   """

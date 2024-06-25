@@ -3,15 +3,15 @@
 
 defmodule AWS.WorkSpacesWeb do
   @moduledoc """
-  WorkSpaces Web is a low cost, fully managed WorkSpace built specifically to
-  facilitate
+  Amazon WorkSpaces Secure Browser is a low cost, fully managed WorkSpace built
+  specifically to facilitate
   secure, web-based workloads.
 
-  WorkSpaces Web makes it easy for customers to safely provide
+  WorkSpaces Secure Browser makes it easy for customers to safely provide
   their employees with access to internal websites and SaaS web applications
   without the
   administrative burden of appliances or specialized client software. WorkSpaces
-  Web provides
+  Secure Browser provides
   simple policy tools tailored for user interactions, while offloading common
   tasks like
   capacity management, scaling, and maintaining browser images.
@@ -547,6 +547,7 @@ defmodule AWS.WorkSpacesWeb do
       user_settings_summary() :: %{
         "cookieSynchronizationConfiguration" => cookie_synchronization_configuration(),
         "copyAllowed" => String.t(),
+        "deepLinkAllowed" => String.t(),
         "disconnectTimeoutInMinutes" => integer(),
         "downloadAllowed" => String.t(),
         "idleDisconnectTimeoutInMinutes" => integer(),
@@ -1092,6 +1093,7 @@ defmodule AWS.WorkSpacesWeb do
         optional("clientToken") => String.t(),
         optional("cookieSynchronizationConfiguration") => cookie_synchronization_configuration(),
         optional("copyAllowed") => String.t(),
+        optional("deepLinkAllowed") => String.t(),
         optional("disconnectTimeoutInMinutes") => integer(),
         optional("downloadAllowed") => String.t(),
         optional("idleDisconnectTimeoutInMinutes") => integer(),
@@ -1238,6 +1240,7 @@ defmodule AWS.WorkSpacesWeb do
 
       create_identity_provider_request() :: %{
         optional("clientToken") => String.t(),
+        optional("tags") => list(tag()()),
         required("identityProviderDetails") => map(),
         required("identityProviderName") => String.t(),
         required("identityProviderType") => String.t(),
@@ -1316,6 +1319,7 @@ defmodule AWS.WorkSpacesWeb do
         optional("clientToken") => String.t(),
         optional("cookieSynchronizationConfiguration") => cookie_synchronization_configuration(),
         optional("customerManagedKey") => String.t(),
+        optional("deepLinkAllowed") => String.t(),
         optional("disconnectTimeoutInMinutes") => integer(),
         optional("idleDisconnectTimeoutInMinutes") => integer(),
         optional("tags") => list(tag()()),
@@ -1517,6 +1521,7 @@ defmodule AWS.WorkSpacesWeb do
         "cookieSynchronizationConfiguration" => cookie_synchronization_configuration(),
         "copyAllowed" => String.t(),
         "customerManagedKey" => String.t(),
+        "deepLinkAllowed" => String.t(),
         "disconnectTimeoutInMinutes" => integer(),
         "downloadAllowed" => String.t(),
         "idleDisconnectTimeoutInMinutes" => integer(),
@@ -1790,6 +1795,7 @@ defmodule AWS.WorkSpacesWeb do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | conflict_exception()
 
   @type associate_user_access_logging_settings_errors() ::
           throttling_exception()
@@ -1936,6 +1942,7 @@ defmodule AWS.WorkSpacesWeb do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | conflict_exception()
 
   @type disassociate_ip_access_settings_errors() ::
           throttling_exception()
@@ -1943,6 +1950,7 @@ defmodule AWS.WorkSpacesWeb do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | conflict_exception()
 
   @type disassociate_network_settings_errors() ::
           throttling_exception()
@@ -1950,6 +1958,7 @@ defmodule AWS.WorkSpacesWeb do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | conflict_exception()
 
   @type disassociate_trust_store_errors() ::
           throttling_exception()
@@ -1957,6 +1966,7 @@ defmodule AWS.WorkSpacesWeb do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | conflict_exception()
 
   @type disassociate_user_access_logging_settings_errors() ::
           throttling_exception()
@@ -1964,6 +1974,7 @@ defmodule AWS.WorkSpacesWeb do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | conflict_exception()
 
   @type disassociate_user_settings_errors() ::
           throttling_exception()
@@ -1971,6 +1982,7 @@ defmodule AWS.WorkSpacesWeb do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | conflict_exception()
 
   @type get_browser_settings_errors() ::
           throttling_exception()

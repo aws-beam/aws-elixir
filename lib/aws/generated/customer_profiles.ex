@@ -6,16 +6,16 @@ defmodule AWS.CustomerProfiles do
   Amazon Connect Customer Profiles
 
   Amazon Connect Customer Profiles is a unified customer profile for your contact
-  center that has
-  pre-built connectors powered by AppFlow that make it easy to combine customer
-  information
-  from third party applications, such as Salesforce (CRM), ServiceNow (ITSM), and
-  your
-  enterprise resource planning (ERP), with contact history from your Amazon
-  Connect contact center.
+  center that has pre-built connectors powered by AppFlow that make it easy to
+  combine
+  customer information from third party applications, such as Salesforce (CRM),
+  ServiceNow
+  (ITSM), and your enterprise resource planning (ERP), with contact history from
+  your Amazon Connect contact center.
 
-  If you're new to Amazon Connect, you might find it helpful to review the [Amazon Connect Administrator
-  Guide](https://docs.aws.amazon.com/connect/latest/adminguide/).
+  For more information about the Amazon Connect Customer Profiles feature, see
+  [Use Customer Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/customer-profiles.html)
+  in the *Amazon Connect Administrator's Guide*.
   """
 
   alias AWS.Client
@@ -75,6 +75,8 @@ defmodule AWS.CustomerProfiles do
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t(),
         "LastUpdatedAt" => non_neg_integer(),
+        "MaxAvailableProfileObjectCount" => integer(),
+        "MaxProfileObjectCount" => integer(),
         "ObjectTypeName" => String.t(),
         "Tags" => map()
       }
@@ -137,6 +139,8 @@ defmodule AWS.CustomerProfiles do
         "Fields" => map(),
         "Keys" => map(),
         "LastUpdatedAt" => non_neg_integer(),
+        "MaxAvailableProfileObjectCount" => integer(),
+        "MaxProfileObjectCount" => integer(),
         "ObjectTypeName" => String.t(),
         "SourceLastUpdatedTimestampFormat" => String.t(),
         "Tags" => map(),
@@ -358,6 +362,8 @@ defmodule AWS.CustomerProfiles do
         "Fields" => map(),
         "Keys" => map(),
         "LastUpdatedAt" => non_neg_integer(),
+        "MaxAvailableProfileObjectCount" => integer(),
+        "MaxProfileObjectCount" => integer(),
         "ObjectTypeName" => String.t(),
         "SourceLastUpdatedTimestampFormat" => String.t(),
         "Tags" => map(),
@@ -1883,6 +1889,7 @@ defmodule AWS.CustomerProfiles do
         optional("ExpirationDays") => integer(),
         optional("Fields") => map(),
         optional("Keys") => map(),
+        optional("MaxProfileObjectCount") => integer(),
         optional("SourceLastUpdatedTimestampFormat") => String.t(),
         optional("Tags") => map(),
         optional("TemplateId") => String.t(),
@@ -2802,11 +2809,11 @@ defmodule AWS.CustomerProfiles do
   be retrieved
   for a profile using the
   [GetCalculatedAttributeForProfile](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetCalculatedAttributeForProfile.html)
-  API.
-  Defining a calculated attribute makes it available for all profiles within a
-  domain. Each
-  calculated attribute can only reference one `ObjectType` and at most, two fields
-  from that `ObjectType`.
+  API. Defining a calculated attribute makes it
+  available for all profiles within a domain. Each calculated attribute can only
+  reference
+  one `ObjectType` and at most, two fields from that
+  `ObjectType`.
   """
   @spec create_calculated_attribute_definition(
           map(),
@@ -2855,8 +2862,7 @@ defmodule AWS.CustomerProfiles do
   domains, and each domain can have multiple third-party integrations.
 
   Each Amazon Connect instance can be associated with only one domain. Multiple
-  Amazon Connect instances can
-  be associated with one domain.
+  Amazon Connect instances can be associated with one domain.
 
   Use this API or
   [UpdateDomain](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateDomain.html) to
@@ -2868,6 +2874,16 @@ defmodule AWS.CustomerProfiles do
   [Cross-service confused deputy prevention](https://docs.aws.amazon.com/connect/latest/adminguide/cross-service-confused-deputy-prevention.html)
   for sample policies that you should
   apply.
+
+  It is not possible to associate a Customer Profiles domain with an Amazon
+  Connect Instance directly from
+  the API. If you would like to create a domain and associate a Customer Profiles
+  domain, use the Amazon Connect
+  admin website. For more information, see [Enable Customer Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/enable-customer-profiles.html#enable-customer-profiles-step1).
+
+  Each Amazon Connect instance can be associated with only one domain. Multiple
+  Amazon Connect instances
+  can be associated with one domain.
   """
   @spec create_domain(map(), String.t(), create_domain_request(), list()) ::
           {:ok, create_domain_response(), any()}
@@ -2895,12 +2911,12 @@ defmodule AWS.CustomerProfiles do
 
   @doc """
   Creates an event stream, which is a subscription to real-time events, such as
-  when profiles are created and
-  updated through Amazon Connect Customer Profiles.
+  when
+  profiles are created and updated through Amazon Connect Customer Profiles.
 
   Each event stream can be associated with only one Kinesis Data Stream
-  destination in the same region and
-  Amazon Web Services account as the customer profiles domain
+  destination in the
+  same region and Amazon Web Services account as the customer profiles domain
   """
   @spec create_event_stream(map(), String.t(), String.t(), create_event_stream_request(), list()) ::
           {:ok, create_event_stream_response(), any()}
@@ -2935,12 +2951,11 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
-
   Creates an integration workflow.
 
-  An integration workflow is an async process which ingests historic data and sets
-  up an integration for ongoing updates. The supported Amazon AppFlow sources are
-  Salesforce, ServiceNow, and Marketo.
+  An integration workflow is an async process which
+  ingests historic data and sets up an integration for ongoing updates. The
+  supported Amazon AppFlow sources are Salesforce, ServiceNow, and Marketo.
   """
   @spec create_integration_workflow(
           map(),
@@ -3005,10 +3020,11 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Deletes an existing calculated attribute definition.
 
-  Note that deleting a default calculated attribute
-  is possible, however once deleted, you will be unable to undo that action and
-  will need to recreate it on
-  your own using the CreateCalculatedAttributeDefinition API if you want it back.
+  Note that deleting a default
+  calculated attribute is possible, however once deleted, you will be unable to
+  undo that
+  action and will need to recreate it on your own using the
+  CreateCalculatedAttributeDefinition API if you want it back.
   """
   @spec delete_calculated_attribute_definition(
           map(),
@@ -3269,7 +3285,8 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Deletes the specified workflow and all its corresponding resources.
 
-  This is an async process.
+  This is an async
+  process.
   """
   @spec delete_workflow(map(), String.t(), String.t(), delete_workflow_request(), list()) ::
           {:ok, delete_workflow_response(), any()}
@@ -3649,12 +3666,11 @@ defmodule AWS.CustomerProfiles do
 
   @doc """
   Returns a set of profiles that belong to the same matching group using the
-  `matchId` or
-  `profileId`.
+  `matchId` or `profileId`.
 
-  You can also specify the type of matching that you want for finding similar
-  profiles using
-  either `RULE_BASED_MATCHING` or `ML_BASED_MATCHING`.
+  You can also specify the type of
+  matching that you want for finding similar profiles using either
+  `RULE_BASED_MATCHING` or `ML_BASED_MATCHING`.
   """
   @spec get_similar_profiles(map(), String.t(), get_similar_profiles_request(), list()) ::
           {:ok, get_similar_profiles_response(), any()}
@@ -4407,12 +4423,13 @@ defmodule AWS.CustomerProfiles do
   (e.g., _fullName, _phone, _email, _account, etc.) and/or custom-defined search
   keys.
 
-  A search key
-  is a data type pair that consists of a `KeyName` and `Values` list.
+  A
+  search key is a data type pair that consists of a `KeyName` and
+  `Values` list.
 
   This operation supports searching for profiles with a minimum of 1 key-value(s)
-  pair and up to
-  5 key-value(s) pairs using either `AND` or `OR` logic.
+  pair and
+  up to 5 key-value(s) pairs using either `AND` or `OR` logic.
   """
   @spec search_profiles(map(), String.t(), search_profiles_request(), list()) ::
           {:ok, search_profiles_response(), any()}
@@ -4534,10 +4551,10 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Updates an existing calculated attribute definition.
 
-  When updating the Conditions, note that increasing
-  the date range of a calculated attribute will not trigger inclusion of
-  historical data greater than the
-  current date range.
+  When updating the Conditions, note
+  that increasing the date range of a calculated attribute will not trigger
+  inclusion of
+  historical data greater than the current date range.
   """
   @spec update_calculated_attribute_definition(
           map(),

@@ -696,6 +696,21 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
+      peering_error() :: %{
+        "Code" => list(any()),
+        "Message" => String.t(),
+        "MissingPermissionsContext" => permissions_error_context(),
+        "RequestId" => String.t(),
+        "ResourceArn" => String.t()
+      }
+
+  """
+  @type peering_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       attachment() :: %{
         "AttachmentId" => String.t(),
         "AttachmentPolicyRuleNumber" => integer(),
@@ -704,6 +719,7 @@ defmodule AWS.NetworkManager do
         "CoreNetworkId" => String.t(),
         "CreatedAt" => non_neg_integer(),
         "EdgeLocation" => String.t(),
+        "LastModificationErrors" => list(attachment_error()()),
         "NetworkFunctionGroupName" => String.t(),
         "OwnerAccountId" => String.t(),
         "ProposedNetworkFunctionGroupChange" => proposed_network_function_group_change(),
@@ -938,6 +954,17 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
+      permissions_error_context() :: %{
+        "MissingPermission" => String.t()
+      }
+
+  """
+  @type permissions_error_context() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_network_routes_response() :: %{
         "CoreNetworkSegmentEdge" => core_network_segment_edge_identifier(),
         "NetworkRoutes" => list(network_route()()),
@@ -1157,6 +1184,20 @@ defmodule AWS.NetworkManager do
 
   """
   @type create_connect_attachment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connect_peer_error() :: %{
+        "Code" => list(any()),
+        "Message" => String.t(),
+        "RequestId" => String.t(),
+        "ResourceArn" => String.t()
+      }
+
+  """
+  @type connect_peer_error() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1590,6 +1631,7 @@ defmodule AWS.NetworkManager do
         "CoreNetworkId" => String.t(),
         "CreatedAt" => non_neg_integer(),
         "EdgeLocation" => String.t(),
+        "LastModificationErrors" => list(peering_error()()),
         "OwnerAccountId" => String.t(),
         "PeeringId" => String.t(),
         "PeeringType" => list(any()),
@@ -1638,6 +1680,20 @@ defmodule AWS.NetworkManager do
 
   """
   @type customer_gateway_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attachment_error() :: %{
+        "Code" => list(any()),
+        "Message" => String.t(),
+        "RequestId" => String.t(),
+        "ResourceArn" => String.t()
+      }
+
+  """
+  @type attachment_error() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2684,6 +2740,7 @@ defmodule AWS.NetworkManager do
         "CoreNetworkId" => String.t(),
         "CreatedAt" => non_neg_integer(),
         "EdgeLocation" => String.t(),
+        "LastModificationErrors" => list(connect_peer_error()()),
         "State" => list(any()),
         "SubnetArn" => String.t(),
         "Tags" => list(tag()())

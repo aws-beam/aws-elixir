@@ -9,8 +9,8 @@ defmodule AWS.AutoScaling do
   instances
   based on user-defined scaling policies, scheduled actions, and health checks.
 
-  For more information, see the [Amazon EC2 Auto Scaling User Guide](https://docs.aws.amazon.com/autoscaling/ec2/userguide/) and the [Amazon EC2 Auto Scaling API
-  Reference](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html).
+  For more information, see the [Amazon EC2 Auto Scaling User Guide](https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html)
+  and the [Amazon EC2 Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html).
   """
 
   alias AWS.Client
@@ -2754,8 +2754,8 @@ defmodule AWS.AutoScaling do
   your Auto Scaling
   group, the instances are also registered with the target groups.
 
-  For more information, see [Attach EC2 instances to your Auto Scaling
-  group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-instance-asg.html)
+  For more information, see [Detach or attach
+  instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-detach-attach-instances.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
   @spec attach_instances(map(), attach_instances_query(), list()) ::
@@ -3058,7 +3058,7 @@ defmodule AWS.AutoScaling do
   Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
 
-  For more information, see [Launch configurations](https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchConfiguration.html)
+  For more information, see [Launch configurations](https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-configurations.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
 
   Amazon EC2 Auto Scaling configures instances launched as part of an Auto Scaling
@@ -3193,7 +3193,7 @@ defmodule AWS.AutoScaling do
   an
   associated action.
 
-  For more information, see [Deleting a scaling policy](https://docs.aws.amazon.com/autoscaling/ec2/userguide/deleting-scaling-policy.html)
+  For more information, see [Delete a scaling policy](https://docs.aws.amazon.com/autoscaling/ec2/userguide/deleting-scaling-policy.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
   @spec delete_policy(map(), delete_policy_type(), list()) ::
@@ -3600,7 +3600,7 @@ defmodule AWS.AutoScaling do
 
   When scaling events occur, you see a record of the scaling activity in the
   scaling
-  activities. For more information, see [Verifying a scaling activity for an Auto Scaling
+  activities. For more information, see [Verify a scaling activity for an Auto Scaling
   group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
 
@@ -3685,8 +3685,8 @@ defmodule AWS.AutoScaling do
   @doc """
   Describes the termination policies supported by Amazon EC2 Auto Scaling.
 
-  For more information, see [Work with Amazon EC2 Auto Scaling termination
-  policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html)
+  For more information, see [Configure termination policies for Amazon EC2 Auto
+  Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html)
   in the
   *Amazon EC2 Auto Scaling User Guide*.
   """
@@ -3755,8 +3755,8 @@ defmodule AWS.AutoScaling do
   Auto Scaling
   group, the instances are deregistered from the target groups.
 
-  For more information, see [Detach EC2 instances from your Auto Scaling
-  group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/detach-instance-asg.html)
+  For more information, see [Detach or attach
+  instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-detach-attach-instances.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
   @spec detach_instances(map(), detach_instances_query(), list()) ::
@@ -4063,8 +4063,8 @@ defmodule AWS.AutoScaling do
 
   This configuration overwrites any existing configuration.
 
-  For more information, see [Getting Amazon SNS notifications when your Auto Scaling group
-  scales](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html)
+  For more information, see [Amazon SNS notification options for Amazon EC2 Auto
+  Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-sns-notifications.html)
   in the
   *Amazon EC2 Auto Scaling User Guide*.
 
@@ -4116,7 +4116,7 @@ defmodule AWS.AutoScaling do
   @doc """
   Creates or updates a scheduled scaling action for an Auto Scaling group.
 
-  For more information, see [Scheduled scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html)
+  For more information, see [Scheduled scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scheduled-scaling.html)
   in the
   *Amazon EC2 Auto Scaling User Guide*.
 
@@ -4146,20 +4146,19 @@ defmodule AWS.AutoScaling do
   Whenever your
   application needs to scale out, the Auto Scaling group can draw on the warm pool
   to meet its new
-  desired capacity. For more information and example configurations, see [Warm pools for
-  Amazon EC2 Auto
-  Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
-  in the *Amazon EC2 Auto Scaling User Guide*.
+  desired capacity.
 
   This operation must be called from the Region in which the Auto Scaling group
-  was created.
-  This operation cannot be called on an Auto Scaling group that has a mixed
-  instances policy or a
-  launch template or launch configuration that requests Spot Instances.
+  was
+  created.
 
   You can view the instances in the warm pool using the `DescribeWarmPool` API
   call. If you are no longer using a warm pool, you can delete it by calling the
   `DeleteWarmPool` API.
+
+  For more information, see [Warm pools for Amazon EC2 Auto
+  Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
+  in the *Amazon EC2 Auto Scaling User Guide*.
   """
   @spec put_warm_pool(map(), put_warm_pool_type(), list()) ::
           {:ok, put_warm_pool_answer(), any()}
@@ -4231,7 +4230,7 @@ defmodule AWS.AutoScaling do
   process, for
   the specified Auto Scaling group.
 
-  For more information, see [Suspending and resuming scaling
+  For more information, see [Suspend and resume Amazon EC2 Auto Scaling
   processes](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
@@ -4298,9 +4297,8 @@ defmodule AWS.AutoScaling do
   its termination
   policy to determine which instances to terminate.
 
-  For more information, see [Manual scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-manual-scaling.html)
-  in the
-  *Amazon EC2 Auto Scaling User Guide*.
+  For more information, see [Manual scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scaling-manually.html)
+  in the *Amazon EC2 Auto Scaling User Guide*.
   """
   @spec set_desired_capacity(map(), set_desired_capacity_type(), list()) ::
           {:ok, nil, any()}
@@ -4315,8 +4313,10 @@ defmodule AWS.AutoScaling do
   @doc """
   Sets the health status of the specified instance.
 
-  For more information, see [Health checks for Auto Scaling instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html)
-  in the *Amazon EC2 Auto Scaling User Guide*.
+  For more information, see [Health checks for instances in an Auto Scaling
+  group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html)
+  in the
+  *Amazon EC2 Auto Scaling User Guide*.
   """
   @spec set_instance_health(map(), set_instance_health_query(), list()) ::
           {:ok, nil, any()}
@@ -4334,9 +4334,7 @@ defmodule AWS.AutoScaling do
   This operation
   cannot be called on instances in a warm pool.
 
-  For more information about preventing instances that are part of an Auto Scaling
-  group from
-  terminating on scale in, see [Using instance scale-in
+  For more information, see [Use instance scale-in
   protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
   in the
   *Amazon EC2 Auto Scaling User Guide*.
@@ -4412,7 +4410,7 @@ defmodule AWS.AutoScaling do
   If you suspend either the `Launch` or `Terminate` process types,
   it can prevent other process types from functioning properly. For more
   information, see
-  [Suspending and resuming scaling
+  [Suspend and resume Amazon EC2 Auto Scaling
   processes](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
 
@@ -4449,7 +4447,7 @@ defmodule AWS.AutoScaling do
   between
   Availability Zones. Amazon EC2 Auto Scaling tries to rebalance the group, and
   rebalancing might
-  terminate instances in other zones. For more information, see [Rebalancing activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-benefits.html#AutoScalingBehavior.InstanceUsage)
+  terminate instances in other zones. For more information, see [Manual scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scaling-manually.html)
   in the *Amazon EC2 Auto Scaling User Guide*.
   """
   @spec terminate_instance_in_auto_scaling_group(

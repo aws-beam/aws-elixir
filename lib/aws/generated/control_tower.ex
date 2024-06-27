@@ -9,20 +9,124 @@ defmodule AWS.ControlTower do
     *
 
   [
-  *controls*
+  *Controls*
   ](https://docs.aws.amazon.com/controltower/latest/userguide/controls.html)
 
+      *
+
+  [DisableControl](https://docs.aws.amazon.com/controltower/latest/APIReference/API_DisableControl.html) 
+
+      *
+
+  [EnableControl](https://docs.aws.amazon.com/controltower/latest/APIReference/API_EnableControl.html)
+
+      *
+
+  [GetEnabledControl](https://docs.aws.amazon.com/controltower/latest/APIReference/API_GetEnabledControl.html) 
+
+      *
+
+  [ListControlOperations](https://docs.aws.amazon.com/controltower/latest/APIReference/API_ListControlOperations.html)
+
+      *
+
+  [ListEnabledControls](https://docs.aws.amazon.com/controltower/latest/APIReference/API_ListEnabledControls.html) 
+
+      *
+
+  [UpdateEnabledControl](https://docs.aws.amazon.com/controltower/latest/APIReference/API_UpdateEnabledControl.html)
+
     *
 
   [
-  *landing zones*
+  *Landing zones*
   ](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch.html)
 
+      *
+
+  [CreateLandingZone](https://docs.aws.amazon.com/controltower/latest/APIReference/API_CreateLandingZone.html) 
+
+      *
+
+  [DeleteLandingZone](https://docs.aws.amazon.com/controltower/latest/APIReference/API_DeleteLandingZone.html)
+
+      *
+
+  [GetLandingZone](https://docs.aws.amazon.com/controltower/latest/APIReference/API_GetLandingZone.html) 
+
+      *
+
+  [GetLandingZoneOperation](https://docs.aws.amazon.com/controltower/latest/APIReference/API_GetLandingZoneOperation.html)
+
+      *
+
+  [ListLandingZones](https://docs.aws.amazon.com/controltower/latest/APIReference/API_ListLandingZones.html) 
+
+      *
+
+  [ResetLandingZone](https://docs.aws.amazon.com/controltower/latest/APIReference/API_ResetLandingZone.html)
+
+      *
+
+  [UpdateLandingZone](https://docs.aws.amazon.com/controltower/latest/APIReference/API_UpdateLandingZone.html) 
+
     *
 
   [
-  *baselines*
+  *Baselines*
   ](https://docs.aws.amazon.com/controltower/latest/userguide/types-of-baselines.html)
+
+      *
+
+  [DisableBaseline](https://docs.aws.amazon.com/controltower/latest/APIReference/API_DisableBaseline.html) 
+
+      *
+
+  [EnableBaseline](https://docs.aws.amazon.com/controltower/latest/APIReference/API_EnableBaseline.html)
+
+      *
+
+  [GetBaseline](https://docs.aws.amazon.com/controltower/latest/APIReference/API_GetBaseline.html) 
+
+      *
+
+  [GetBaselineOperation](https://docs.aws.amazon.com/controltower/latest/APIReference/API_GetBaselineOperation.html)
+
+      *
+
+  [GetEnabledBaseline](https://docs.aws.amazon.com/controltower/latest/APIReference/API_GetEnabledBaseline.html) 
+
+      *
+
+  [ListBaselines](https://docs.aws.amazon.com/controltower/latest/APIReference/API_ListBaselines.html)
+
+      *
+
+  [ListEnabledBaselines](https://docs.aws.amazon.com/controltower/latest/APIReference/API_ListEnabledBaselines.html) 
+
+      *
+
+  [ResetEnabledBaseline](https://docs.aws.amazon.com/controltower/latest/APIReference/API_ResetEnabledBaseline.html)
+
+      *
+
+  [UpdateEnabledBaseline](https://docs.aws.amazon.com/controltower/latest/APIReference/API_UpdateEnabledBaseline.html) 
+
+    *
+
+  [Tagging](https://docs.aws.amazon.com/controltower/latest/controlreference/tagging.html)
+
+      *
+
+  [ListTagsForResource](https://docs.aws.amazon.com/controltower/latest/APIReference/API_ListTagsForResource.html) 
+
+      *
+
+  [TagResource](https://docs.aws.amazon.com/controltower/latest/APIReference/API_TagResource.html)
+
+      *
+
+  [UntagResource](https://docs.aws.amazon.com/controltower/latest/APIReference/API_UntagResource.html) 
 
   For more information about these types of resources, see the [
   *Amazon Web Services Control Tower User Guide*
@@ -57,18 +161,18 @@ defmodule AWS.ControlTower do
   The `controlIdentifier` is unique in each Amazon Web Services Region for each
   control. You can
   find the `controlIdentifier` for each Region and control in the [Tables of control
-  metadata](https://docs.aws.amazon.com/controltower/latest/userguide/control-metadata-tables.html)
-  or the [Control availability by Region tables](https://docs.aws.amazon.com/controltower/latest/userguide/control-region-tables.html)
-  in the *Amazon Web Services Control Tower User Guide.*
+  metadata](https://docs.aws.amazon.com/controltower/latest/controlreference/control-metadata-tables.html)
+  or the [Control availability by Region tables](https://docs.aws.amazon.com/controltower/latest/controlreference/control-region-tables.html)
+  in the *Amazon Web Services Control Tower Controls Reference Guide*.
 
   A quick-reference list of control identifers for the Amazon Web Services Control
   Tower legacy *Strongly recommended* and
   *Elective* controls is given in [Resource identifiers for APIs and
-  controls](https://docs.aws.amazon.com/controltower/latest/userguide/control-identifiers.html.html)
-  in the [Controls reference guide section](https://docs.aws.amazon.com/controltower/latest/userguide/control-identifiers.html)
-  of the *Amazon Web Services Control Tower User Guide*. Remember that *Mandatory*
-  controls
-  cannot be added or removed.
+  controls](https://docs.aws.amazon.com/controltower/latest/controlreference/control-identifiers.html.html)
+  in the [
+  *Amazon Web Services Control Tower Controls Reference Guide*
+  ](https://docs.aws.amazon.com/controltower/latest/controlreference/control-identifiers.html).
+  Remember that *Mandatory* controls cannot be added or removed.
 
   ## ARN format:
   `arn:aws:controltower:{REGION}::control/{CONTROL_NAME}`
@@ -120,7 +224,7 @@ defmodule AWS.ControlTower do
 
     *
 
-  [Control API input and output examples with CLI](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html)
+  [Control API input and output examples with CLI](https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html)
 
     *
 
@@ -128,7 +232,7 @@ defmodule AWS.ControlTower do
 
     *
 
-  [Enable controls with CloudFormation](https://docs.aws.amazon.com/controltower/latest/userguide/enable-controls.html)
+  [Enable controls with CloudFormation](https://docs.aws.amazon.com/controltower/latest/controlreference/enable-controls.html)
 
     *
 
@@ -136,23 +240,23 @@ defmodule AWS.ControlTower do
 
     *
 
-  [Control metadata tables (large page)](https://docs.aws.amazon.com/controltower/latest/userguide/control-metadata-tables.html)
+  [Control metadata tables (large page)](https://docs.aws.amazon.com/controltower/latest/controlreference/control-metadata-tables.html)
 
     *
 
-  [Control availability by Region tables (large page)](https://docs.aws.amazon.com/controltower/latest/userguide/control-region-tables.html)
+  [Control availability by Region tables (large page)](https://docs.aws.amazon.com/controltower/latest/controlreference/control-region-tables.html)
 
     *
 
-  [List of identifiers for legacy controls](https://docs.aws.amazon.com/controltower/latest/userguide/control-identifiers.html)
+  [List of identifiers for legacy controls](https://docs.aws.amazon.com/controltower/latest/controlreference/control-identifiers.html)
 
     *
 
-  [Controls reference guide](https://docs.aws.amazon.com/controltower/latest/userguide/controls.html)
+  [Controls reference guide](https://docs.aws.amazon.com/controltower/latest/controlreference/controls.html)
 
     *
 
-  [Controls library groupings](https://docs.aws.amazon.com/controltower/latest/userguide/controls-reference.html)
+  [Controls library groupings](https://docs.aws.amazon.com/controltower/latest/controlreference/controls-reference.html)
 
     *
 
@@ -267,6 +371,19 @@ defmodule AWS.ControlTower do
 
   """
   @type enabled_control_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      landing_zone_operation_summary() :: %{
+        "operationIdentifier" => String.t(),
+        "operationType" => list(any()),
+        "status" => list(any())
+      }
+
+  """
+  @type landing_zone_operation_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -389,6 +506,18 @@ defmodule AWS.ControlTower do
 
   """
   @type get_baseline_operation_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      landing_zone_operation_filter() :: %{
+        "statuses" => list(list(any())()),
+        "types" => list(list(any())())
+      }
+
+  """
+  @type landing_zone_operation_filter() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -695,6 +824,19 @@ defmodule AWS.ControlTower do
 
   """
   @type landing_zone_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_landing_zone_operations_input() :: %{
+        optional("filter") => landing_zone_operation_filter(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => [String.t()]
+      }
+
+  """
+  @type list_landing_zone_operations_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1048,6 +1190,18 @@ defmodule AWS.ControlTower do
 
   ## Example:
 
+      list_landing_zone_operations_output() :: %{
+        "landingZoneOperations" => list(landing_zone_operation_summary()()),
+        "nextToken" => [String.t()]
+      }
+
+  """
+  @type list_landing_zone_operations_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       enabled_baseline_parameter_summary() :: %{
         "key" => [String.t()],
         "value" => any()
@@ -1107,6 +1261,7 @@ defmodule AWS.ControlTower do
 
       landing_zone_operation_detail() :: %{
         "endTime" => non_neg_integer(),
+        "operationIdentifier" => String.t(),
         "operationType" => list(any()),
         "startTime" => non_neg_integer(),
         "status" => list(any()),
@@ -1293,6 +1448,12 @@ defmodule AWS.ControlTower do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type list_landing_zone_operations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type list_landing_zones_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1465,12 +1626,13 @@ defmodule AWS.ControlTower do
   @doc """
   This API call turns off a control.
 
-  It starts an asynchronous operation that deletes AWS
+  It starts an asynchronous operation that deletes Amazon Web Services
   resources on the specified organizational unit and the accounts it contains. The
   resources
-  will vary according to the control that you specify. For usage examples, see [
-  *the Amazon Web Services Control Tower User Guide*
-  ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
+  will vary according to the control that you specify. For usage examples, see the
+  [
+  *Controls Reference Guide*
+  ](https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html).
   """
   @spec disable_control(map(), disable_control_input(), list()) ::
           {:ok, disable_control_output(), any()}
@@ -1535,9 +1697,9 @@ defmodule AWS.ControlTower do
   resources on the specified organizational unit and the accounts it contains. The
   resources
   created will vary according to the control that you specify. For usage examples,
-  see [
-  *the Amazon Web Services Control Tower User Guide*
-  ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
+  see the [
+  *Controls Reference Guide*
+  ](https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html).
   """
   @spec enable_control(map(), enable_control_input(), list()) ::
           {:ok, enable_control_output(), any()}
@@ -1634,9 +1796,9 @@ defmodule AWS.ControlTower do
   `DisableControl` operation.
 
   Displays a message in case of error. Details for an
-  operation are available for 90 days. For usage examples, see [
-  *the Amazon Web Services Control Tower User Guide*
-  ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
+  operation are available for 90 days. For usage examples, see the [
+  *Controls Reference Guide*
+  ](https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html).
   """
   @spec get_control_operation(map(), get_control_operation_input(), list()) ::
           {:ok, get_control_operation_output(), any()}
@@ -1692,9 +1854,9 @@ defmodule AWS.ControlTower do
   @doc """
   Retrieves details about an enabled control.
 
-  For usage examples, see [
-  *the Amazon Web Services Control Tower User Guide*
-  ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
+  For usage examples, see the [
+  *Controls Reference Guide*
+  ](https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html).
   """
   @spec get_enabled_control(map(), get_enabled_control_input(), list()) ::
           {:ok, get_enabled_control_output(), any()}
@@ -1812,6 +1974,8 @@ defmodule AWS.ControlTower do
 
   @doc """
   Provides a list of operations in progress or queued.
+
+  For usage examples, see [ListControlOperation examples](https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html#list-control-operations-api-examples).
   """
   @spec list_control_operations(map(), list_control_operations_input(), list()) ::
           {:ok, list_control_operations_output(), any()}
@@ -1874,9 +2038,9 @@ defmodule AWS.ControlTower do
   organizational unit and
   the accounts it contains.
 
-  For usage examples, see [
-  *the Amazon Web Services Control Tower User Guide*
-  ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
+  For usage examples, see the [
+  *Controls Reference Guide*
+  ](https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html).
   """
   @spec list_enabled_controls(map(), list_enabled_controls_input(), list()) ::
           {:ok, list_enabled_controls_output(), any()}
@@ -1884,6 +2048,35 @@ defmodule AWS.ControlTower do
           | {:error, list_enabled_controls_errors()}
   def list_enabled_controls(%Client{} = client, input, options \\ []) do
     url_path = "/list-enabled-controls"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all landing zone operations from the past 90 days.
+
+  Results are sorted by time, with the most recent operation first.
+  """
+  @spec list_landing_zone_operations(map(), list_landing_zone_operations_input(), list()) ::
+          {:ok, list_landing_zone_operations_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_landing_zone_operations_errors()}
+  def list_landing_zone_operations(%Client{} = client, input, options \\ []) do
+    url_path = "/list-landingzone-operations"
     headers = []
     query_params = []
 
@@ -1938,9 +2131,9 @@ defmodule AWS.ControlTower do
   @doc """
   Returns a list of tags associated with the resource.
 
-  For usage examples, see [
-  *the Amazon Web Services Control Tower User Guide*
-  ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
+  For usage examples, see the [
+  *Controls Reference Guide*
+  ](https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html).
   """
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
@@ -1992,7 +2185,13 @@ defmodule AWS.ControlTower do
   This API call resets a landing zone.
 
   It starts an asynchronous operation that resets the
-  landing zone to the parameters specified in its original configuration.
+  landing zone to the parameters specified in the original configuration, which
+  you specified
+  in the manifest file. Nothing in the manifest file's original landing zone
+  configuration is changed
+  during the reset process, by default. This API is not the same as a rollback of
+  a landing
+  zone version, which is not a supported operation.
   """
   @spec reset_landing_zone(map(), reset_landing_zone_input(), list()) ::
           {:ok, reset_landing_zone_output(), any()}
@@ -2021,9 +2220,9 @@ defmodule AWS.ControlTower do
   @doc """
   Applies tags to a resource.
 
-  For usage examples, see [
-  *the Amazon Web Services Control Tower User Guide*
-  ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
+  For usage examples, see the [
+  *Controls Reference Guide*
+  ](https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html).
   """
   @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
@@ -2052,9 +2251,9 @@ defmodule AWS.ControlTower do
   @doc """
   Removes tags from a resource.
 
-  For usage examples, see [
-  *the Amazon Web Services Control Tower User Guide*
-  ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html).
+  For usage examples, see the [
+  *Controls Reference Guide*
+  ](https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html).
   """
   @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
@@ -2125,15 +2324,15 @@ defmodule AWS.ControlTower do
   Otherwise, Amazon Web Services Control Tower will not accept the request.
 
   If the enabled control shows an `EnablementStatus` of FAILED, Amazon Web
-  Services Control Tower will update the control to match any valid parameters
-  that you supply.
+  Services Control Tower updates the control to match any valid parameters that
+  you supply.
 
   If the `DriftSummary` status for the control shows as DRIFTED, you cannot call
   this API. Instead, you can update the control by calling `DisableControl` and
   again calling `EnableControl`, or you can run an extending governance operation.
-  For usage examples, see [
-  *the Amazon Web Services Control Tower User Guide*
-  ](https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html)
+  For usage examples, see the [
+  *Controls Reference Guide*
+  ](https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html).
   """
   @spec update_enabled_control(map(), update_enabled_control_input(), list()) ::
           {:ok, update_enabled_control_output(), any()}

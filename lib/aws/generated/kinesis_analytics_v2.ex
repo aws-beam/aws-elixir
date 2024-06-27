@@ -49,6 +49,7 @@ defmodule AWS.KinesisAnalyticsV2 do
       add_application_vpc_configuration_response() :: %{
         "ApplicationARN" => String.t(),
         "ApplicationVersionId" => float(),
+        "OperationId" => String.t(),
         "VpcConfigurationDescription" => vpc_configuration_description()
       }
       
@@ -118,6 +119,7 @@ defmodule AWS.KinesisAnalyticsV2 do
         "ApplicationMode" => list(any()),
         "ApplicationName" => String.t(),
         "ApplicationStatus" => list(any()),
+        "ApplicationVersionCreateTimestamp" => non_neg_integer(),
         "ApplicationVersionId" => float(),
         "ApplicationVersionRolledBackFrom" => float(),
         "ApplicationVersionRolledBackTo" => float(),
@@ -315,7 +317,8 @@ defmodule AWS.KinesisAnalyticsV2 do
       add_application_cloud_watch_logging_option_response() :: %{
         "ApplicationARN" => String.t(),
         "ApplicationVersionId" => float(),
-        "CloudWatchLoggingOptionDescriptions" => list(cloud_watch_logging_option_description()())
+        "CloudWatchLoggingOptionDescriptions" => list(cloud_watch_logging_option_description()()),
+        "OperationId" => String.t()
       }
       
   """
@@ -398,6 +401,18 @@ defmodule AWS.KinesisAnalyticsV2 do
       
   """
   @type custom_artifact_configuration_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_application_operation_request() :: %{
+        required("ApplicationName") => String.t(),
+        required("OperationId") => String.t()
+      }
+      
+  """
+  @type describe_application_operation_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -563,6 +578,28 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   ## Example:
       
+      application_system_rollback_configuration() :: %{
+        "RollbackEnabled" => boolean()
+      }
+      
+  """
+  @type application_system_rollback_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_application_operation_response() :: %{
+        "ApplicationOperationInfoDetails" => application_operation_info_details()
+      }
+      
+  """
+  @type describe_application_operation_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       application_version_summary() :: %{
         "ApplicationStatus" => list(any()),
         "ApplicationVersionId" => float()
@@ -646,6 +683,17 @@ defmodule AWS.KinesisAnalyticsV2 do
       
   """
   @type monitoring_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      error_info() :: %{
+        "ErrorString" => String.t()
+      }
+      
+  """
+  @type error_info() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -995,6 +1043,7 @@ defmodule AWS.KinesisAnalyticsV2 do
       application_configuration() :: %{
         "ApplicationCodeConfiguration" => application_code_configuration(),
         "ApplicationSnapshotConfiguration" => application_snapshot_configuration(),
+        "ApplicationSystemRollbackConfiguration" => application_system_rollback_configuration(),
         "EnvironmentProperties" => environment_properties(),
         "FlinkApplicationConfiguration" => flink_application_configuration(),
         "SqlApplicationConfiguration" => sql_application_configuration(),
@@ -1047,7 +1096,8 @@ defmodule AWS.KinesisAnalyticsV2 do
   ## Example:
       
       rollback_application_response() :: %{
-        "ApplicationDetail" => application_detail()
+        "ApplicationDetail" => application_detail(),
+        "OperationId" => String.t()
       }
       
   """
@@ -1064,6 +1114,22 @@ defmodule AWS.KinesisAnalyticsV2 do
       
   """
   @type csv_mapping_parameters() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      application_operation_info_details() :: %{
+        "ApplicationVersionChangeDetails" => application_version_change_details(),
+        "EndTime" => non_neg_integer(),
+        "Operation" => String.t(),
+        "OperationFailureDetails" => operation_failure_details(),
+        "OperationStatus" => list(any()),
+        "StartTime" => non_neg_integer()
+      }
+      
+  """
+  @type application_operation_info_details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1112,7 +1178,8 @@ defmodule AWS.KinesisAnalyticsV2 do
       delete_application_cloud_watch_logging_option_response() :: %{
         "ApplicationARN" => String.t(),
         "ApplicationVersionId" => float(),
-        "CloudWatchLoggingOptionDescriptions" => list(cloud_watch_logging_option_description()())
+        "CloudWatchLoggingOptionDescriptions" => list(cloud_watch_logging_option_description()()),
+        "OperationId" => String.t()
       }
       
   """
@@ -1165,7 +1232,8 @@ defmodule AWS.KinesisAnalyticsV2 do
       
       delete_application_vpc_configuration_response() :: %{
         "ApplicationARN" => String.t(),
-        "ApplicationVersionId" => float()
+        "ApplicationVersionId" => float(),
+        "OperationId" => String.t()
       }
       
   """
@@ -1260,6 +1328,21 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   ## Example:
       
+      list_application_operations_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t(),
+        optional("Operation") => String.t(),
+        optional("OperationStatus") => list(any()),
+        required("ApplicationName") => String.t()
+      }
+      
+  """
+  @type list_application_operations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       add_application_input_request() :: %{
         required("ApplicationName") => String.t(),
         required("CurrentApplicationVersionId") => float(),
@@ -1282,10 +1365,23 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   ## Example:
       
-      start_application_response() :: %{}
+      application_system_rollback_configuration_update() :: %{
+        "RollbackEnabledUpdate" => boolean()
+      }
       
   """
-  @type start_application_response() :: %{}
+  @type application_system_rollback_configuration_update() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_application_response() :: %{
+        "OperationId" => String.t()
+      }
+      
+  """
+  @type start_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1330,6 +1426,18 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   ## Example:
       
+      list_application_operations_response() :: %{
+        "ApplicationOperationInfoList" => list(application_operation_info()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type list_application_operations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_application_version_request() :: %{
         required("ApplicationName") => String.t(),
         required("ApplicationVersionId") => float()
@@ -1361,7 +1469,8 @@ defmodule AWS.KinesisAnalyticsV2 do
   ## Example:
       
       update_application_response() :: %{
-        "ApplicationDetail" => application_detail()
+        "ApplicationDetail" => application_detail(),
+        "OperationId" => String.t()
       }
       
   """
@@ -1567,10 +1676,12 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   ## Example:
       
-      stop_application_response() :: %{}
+      stop_application_response() :: %{
+        "OperationId" => String.t()
+      }
       
   """
-  @type stop_application_response() :: %{}
+  @type stop_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1698,6 +1809,18 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   ## Example:
       
+      operation_failure_details() :: %{
+        "ErrorInfo" => error_info(),
+        "RollbackOperationId" => String.t()
+      }
+      
+  """
+  @type operation_failure_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       application_maintenance_configuration_description() :: %{
         "ApplicationMaintenanceWindowEndTime" => String.t(),
         "ApplicationMaintenanceWindowStartTime" => String.t()
@@ -1738,6 +1861,17 @@ defmodule AWS.KinesisAnalyticsV2 do
       
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      application_system_rollback_configuration_description() :: %{
+        "RollbackEnabled" => boolean()
+      }
+      
+  """
+  @type application_system_rollback_configuration_description() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1875,6 +2009,18 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   ## Example:
       
+      application_version_change_details() :: %{
+        "ApplicationVersionUpdatedFrom" => float(),
+        "ApplicationVersionUpdatedTo" => float()
+      }
+      
+  """
+  @type application_version_change_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       application_summary() :: %{
         "ApplicationARN" => String.t(),
         "ApplicationMode" => list(any()),
@@ -1903,9 +2049,25 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   ## Example:
       
+      application_operation_info() :: %{
+        "EndTime" => non_neg_integer(),
+        "Operation" => String.t(),
+        "OperationId" => String.t(),
+        "OperationStatus" => list(any()),
+        "StartTime" => non_neg_integer()
+      }
+      
+  """
+  @type application_operation_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       application_configuration_description() :: %{
         "ApplicationCodeConfigurationDescription" => application_code_configuration_description(),
         "ApplicationSnapshotConfigurationDescription" => application_snapshot_configuration_description(),
+        "ApplicationSystemRollbackConfigurationDescription" => application_system_rollback_configuration_description(),
         "EnvironmentPropertyDescriptions" => environment_property_descriptions(),
         "FlinkApplicationConfigurationDescription" => flink_application_configuration_description(),
         "RunConfigurationDescription" => run_configuration_description(),
@@ -2318,6 +2480,7 @@ defmodule AWS.KinesisAnalyticsV2 do
       application_configuration_update() :: %{
         "ApplicationCodeConfigurationUpdate" => application_code_configuration_update(),
         "ApplicationSnapshotConfigurationUpdate" => application_snapshot_configuration_update(),
+        "ApplicationSystemRollbackConfigurationUpdate" => application_system_rollback_configuration_update(),
         "EnvironmentPropertyUpdates" => environment_property_updates(),
         "FlinkApplicationConfigurationUpdate" => flink_application_configuration_update(),
         "SqlApplicationConfigurationUpdate" => sql_application_configuration_update(),
@@ -2552,6 +2715,11 @@ defmodule AWS.KinesisAnalyticsV2 do
           | invalid_request_exception()
           | resource_not_found_exception()
 
+  @type describe_application_operation_errors() ::
+          invalid_argument_exception()
+          | resource_not_found_exception()
+          | unsupported_operation_exception()
+
   @type describe_application_snapshot_errors() ::
           invalid_argument_exception()
           | resource_not_found_exception()
@@ -2568,6 +2736,11 @@ defmodule AWS.KinesisAnalyticsV2 do
           | invalid_request_exception()
           | unable_to_detect_schema_exception()
           | resource_provisioned_throughput_exceeded_exception()
+          | unsupported_operation_exception()
+
+  @type list_application_operations_errors() ::
+          invalid_argument_exception()
+          | resource_not_found_exception()
           | unsupported_operation_exception()
 
   @type list_application_snapshots_errors() ::
@@ -3033,6 +3206,20 @@ defmodule AWS.KinesisAnalyticsV2 do
   end
 
   @doc """
+  Returns information about a specific operation performed on a Managed Service
+  for Apache Flink application
+  """
+  @spec describe_application_operation(map(), describe_application_operation_request(), list()) ::
+          {:ok, describe_application_operation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_application_operation_errors()}
+  def describe_application_operation(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeApplicationOperation", input, options)
+  end
+
+  @doc """
   Returns information about a snapshot of application state data.
   """
   @spec describe_application_snapshot(map(), describe_application_snapshot_request(), list()) ::
@@ -3086,6 +3273,20 @@ defmodule AWS.KinesisAnalyticsV2 do
     meta = metadata()
 
     Request.request_post(client, meta, "DiscoverInputSchema", input, options)
+  end
+
+  @doc """
+  Lists information about operations performed on a Managed Service for Apache
+  Flink application
+  """
+  @spec list_application_operations(map(), list_application_operations_request(), list()) ::
+          {:ok, list_application_operations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_application_operations_errors()}
+  def list_application_operations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListApplicationOperations", input, options)
   end
 
   @doc """
@@ -3163,19 +3364,17 @@ defmodule AWS.KinesisAnalyticsV2 do
   @doc """
   Reverts the application to the previous running version.
 
-  You can
-  roll back an application if you suspect it is stuck in a transient status.
+  You can roll back an
+  application if you suspect it is stuck in a transient status or in the running
+  status.
 
-  You can roll back an application only if it is in the `UPDATING`
-  or `AUTOSCALING` status.
+  You can roll back an application only if it is in the `UPDATING`,
+  `AUTOSCALING`, or `RUNNING` statuses.
 
   When you rollback an application, it loads state data from the last successful
   snapshot.
   If the application has no snapshots, Managed Service for Apache Flink rejects
   the rollback request.
-
-  This action is not supported for Managed Service for Apache Flink for SQL
-  applications.
   """
   @spec rollback_application(map(), rollback_application_request(), list()) ::
           {:ok, rollback_application_response(), any()}

@@ -886,6 +886,7 @@ defmodule AWS.EKS do
 
       create_cluster_request() :: %{
         optional("accessConfig") => create_access_config_request(),
+        optional("bootstrapSelfManagedAddons") => boolean(),
         optional("clientRequestToken") => String.t(),
         optional("encryptionConfig") => list(encryption_config()()),
         optional("kubernetesNetworkConfig") => kubernetes_network_config_request(),

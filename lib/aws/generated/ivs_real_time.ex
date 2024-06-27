@@ -3,9 +3,6 @@
 
 defmodule AWS.IVSRealTime do
   @moduledoc """
-
-  ## Introduction
-
   The Amazon Interactive Video Service (IVS) real-time API is REST compatible,
   using a standard HTTP
   API and an AWS EventBridge event stream for responses.
@@ -13,17 +10,20 @@ defmodule AWS.IVSRealTime do
   JSON is used for both requests and responses,
   including errors.
 
-  Terminology:
+  ## Key Concepts
 
     *
-  A *stage* is a virtual space where participants can exchange video in real time.
+
+  **Stage** — A virtual space where participants can exchange video in real time.
 
     *
-  A *participant token* is a token that authenticates a participant when they join
+
+  **Participant token** — A token that authenticates a participant when they join
   a stage.
 
     *
-  A *participant object* represents participants (people) in the stage and
+
+  **Participant object** — Represents participants (people) in the stage and
   contains information about them. When a token is created, it includes a
   participant ID;
   when a participant uses that token to join a stage, the participant is
@@ -31,25 +31,22 @@ defmodule AWS.IVSRealTime do
   that participant ID. There is a 1:1 mapping between participant tokens and
   participants.
 
+  For server-side composition:
+
     *
-  Server-side composition: The *composition* process composites participants
+
+  **Composition process** — Composites participants
   of a stage into a single video and forwards it to a set of outputs (e.g., IVS
   channels).
   Composition endpoints support this process.
 
     *
-  Server-side composition: A *composition* controls the look of the outputs,
+
+  **Composition** — Controls the look of the outputs,
   including how participants are positioned in the video.
 
-  ## Resources
-
-  The following resources contain information about your IVS live stream (see
-  [Getting Started with Amazon IVS Real-Time Streaming](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/getting-started.html)):
-
-    *
-
-  **Stage** — A stage is a virtual space where participants can exchange video in
-  real time.
+  For more information about your IVS live stream, also see [Getting Started with Amazon IVS Real-Time
+  Streaming](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/getting-started.html).
 
   ## Tagging
 
@@ -73,153 +70,6 @@ defmodule AWS.IVSRealTime do
   `ListTagsForResource`. The following resource supports tagging: Stage.
 
   At most 50 tags can be applied to a resource.
-
-  ## Stages Endpoints
-
-    *
-
-  `CreateParticipantToken` — Creates an additional token for a specified stage.
-  This can be done after stage creation or when tokens expire.
-
-    *
-
-  `CreateStage` — Creates a new stage (and optionally participant tokens).
-
-    *
-
-  `DeleteStage` — Shuts down and deletes the specified stage (disconnecting all
-  participants).
-
-    *
-
-  `DisconnectParticipant` — Disconnects a specified participant and revokes the
-  participant permanently from a specified stage.
-
-    *
-
-  `GetParticipant` — Gets information about the specified
-  participant token.
-
-    *
-
-  `GetStage` — Gets information for the specified stage.
-
-    *
-
-  `GetStageSession` — Gets information for the specified stage
-  session.
-
-    *
-
-  `ListParticipantEvents` — Lists events for a specified
-  participant that occurred during a specified stage session.
-
-    *
-
-  `ListParticipants` — Lists all participants in a specified stage
-  session.
-
-    *
-
-  `ListStages` — Gets summary information about all stages in your account, in the
-  AWS region where the API request is processed.
-
-    *
-
-  `ListStageSessions` — Gets all sessions for a specified stage.
-
-    *
-
-  `UpdateStage` — Updates a stage’s configuration.
-
-  ## Composition Endpoints
-
-    *
-
-  `GetComposition` — Gets information about the specified
-  Composition resource.
-
-    *
-
-  `ListCompositions` — Gets summary information about all
-  Compositions in your account, in the AWS region where the API request is
-  processed.
-
-    *
-
-  `StartComposition` — Starts a Composition from a stage based on
-  the configuration provided in the request.
-
-    *
-
-  `StopComposition` — Stops and deletes a Composition resource.
-  Any broadcast from the Composition resource is stopped.
-
-  ## EncoderConfiguration Endpoints
-
-    *
-
-  `CreateEncoderConfiguration` — Creates an EncoderConfiguration object.
-
-    *
-
-  `DeleteEncoderConfiguration` — Deletes an EncoderConfiguration
-  resource. Ensures that no Compositions are using this template; otherwise,
-  returns an
-  error.
-
-    *
-
-  `GetEncoderConfiguration` — Gets information about the specified
-  EncoderConfiguration resource.
-
-    *
-
-  `ListEncoderConfigurations` — Gets summary information about all
-  EncoderConfigurations in your account, in the AWS region where the API request
-  is
-  processed.
-
-  ## StorageConfiguration Endpoints
-
-    *
-
-  `CreateStorageConfiguration` — Creates a new storage configuration, used to
-  enable
-  recording to Amazon S3.
-
-    *
-
-  `DeleteStorageConfiguration` — Deletes the storage configuration for the
-  specified ARN.
-
-    *
-
-  `GetStorageConfiguration` — Gets the storage configuration for the specified
-  ARN.
-
-    *
-
-  `ListStorageConfigurations` — Gets summary information about all storage
-  configurations in your
-  account, in the AWS region where the API request is processed.
-
-  ## Tags Endpoints
-
-    *
-
-  `ListTagsForResource` — Gets information about AWS tags for the
-  specified ARN.
-
-    *
-
-  `TagResource` — Adds or updates tags for the AWS resource with
-  the specified ARN.
-
-    *
-
-  `UntagResource` — Removes tags from the resource with the
-  specified ARN.
   """
 
   alias AWS.Client
@@ -271,6 +121,7 @@ defmodule AWS.IVSRealTime do
         "activeSessionId" => String.t(),
         "arn" => String.t(),
         "autoParticipantRecordingConfiguration" => auto_participant_recording_configuration(),
+        "endpoints" => stage_endpoints(),
         "name" => String.t(),
         "tags" => map()
       }
@@ -445,6 +296,18 @@ defmodule AWS.IVSRealTime do
 
   ## Example:
 
+      list_public_keys_response() :: %{
+        "nextToken" => String.t(),
+        "publicKeys" => list(public_key_summary()())
+      }
+
+  """
+  @type list_public_keys_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_encoder_configuration_request() :: %{
         required("arn") => String.t()
       }
@@ -501,6 +364,18 @@ defmodule AWS.IVSRealTime do
 
   """
   @type disconnect_participant_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      stage_endpoints() :: %{
+        "events" => String.t(),
+        "whip" => String.t()
+      }
+
+  """
+  @type stage_endpoints() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -579,6 +454,17 @@ defmodule AWS.IVSRealTime do
 
   ## Example:
 
+      import_public_key_response() :: %{
+        "publicKey" => public_key()
+      }
+
+  """
+  @type import_public_key_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_encoder_configurations_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
@@ -597,6 +483,18 @@ defmodule AWS.IVSRealTime do
 
   """
   @type get_stage_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_public_keys_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_public_keys_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -693,6 +591,17 @@ defmodule AWS.IVSRealTime do
 
   """
   @type list_storage_configurations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_public_key_request() :: %{
+        required("arn") => String.t()
+      }
+
+  """
+  @type delete_public_key_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -909,6 +818,21 @@ defmodule AWS.IVSRealTime do
 
   ## Example:
 
+      public_key() :: %{
+        "arn" => String.t(),
+        "fingerprint" => String.t(),
+        "name" => String.t(),
+        "publicKeyMaterial" => String.t(),
+        "tags" => map()
+      }
+
+  """
+  @type public_key() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       encoder_configuration_summary() :: %{
         "arn" => String.t(),
         "name" => String.t(),
@@ -995,6 +919,28 @@ defmodule AWS.IVSRealTime do
 
   ## Example:
 
+      import_public_key_request() :: %{
+        optional("name") => String.t(),
+        optional("tags") => map(),
+        required("publicKeyMaterial") => String.t()
+      }
+
+  """
+  @type import_public_key_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_public_key_response() :: %{}
+
+  """
+  @type delete_public_key_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_stages_response() :: %{
         optional("nextToken") => String.t(),
         required("stages") => list(stage_summary()())
@@ -1034,6 +980,17 @@ defmodule AWS.IVSRealTime do
 
   ## Example:
 
+      get_public_key_request() :: %{
+        required("arn") => String.t()
+      }
+
+  """
+  @type get_public_key_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_participant_request() :: %{
         required("participantId") => String.t(),
         required("sessionId") => String.t(),
@@ -1042,6 +999,17 @@ defmodule AWS.IVSRealTime do
 
   """
   @type get_participant_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_public_key_response() :: %{
+        "publicKey" => public_key()
+      }
+
+  """
+  @type get_public_key_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1198,6 +1166,19 @@ defmodule AWS.IVSRealTime do
 
   """
   @type get_encoder_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      public_key_summary() :: %{
+        "arn" => String.t(),
+        "name" => String.t(),
+        "tags" => map()
+      }
+
+  """
+  @type public_key_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1385,6 +1366,13 @@ defmodule AWS.IVSRealTime do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type delete_public_key_errors() ::
+          pending_verification()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type delete_stage_errors() ::
           pending_verification()
           | validation_exception()
@@ -1425,6 +1413,9 @@ defmodule AWS.IVSRealTime do
   @type get_participant_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
 
+  @type get_public_key_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
   @type get_stage_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
 
@@ -1437,6 +1428,13 @@ defmodule AWS.IVSRealTime do
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | conflict_exception()
+
+  @type import_public_key_errors() ::
+          pending_verification()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
 
   @type list_compositions_errors() ::
@@ -1456,6 +1454,8 @@ defmodule AWS.IVSRealTime do
   @type list_participant_events_errors() :: validation_exception() | access_denied_exception()
 
   @type list_participants_errors() :: validation_exception() | access_denied_exception()
+
+  @type list_public_keys_errors() :: validation_exception() | access_denied_exception()
 
   @type list_stage_sessions_errors() :: validation_exception() | access_denied_exception()
 
@@ -1670,6 +1670,36 @@ defmodule AWS.IVSRealTime do
   end
 
   @doc """
+  Deletes the specified public key used to sign stage participant tokens.
+
+  This invalidates future participant tokens generated using the key pair’s
+  private key.
+  """
+  @spec delete_public_key(map(), delete_public_key_request(), list()) ::
+          {:ok, delete_public_key_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_public_key_errors()}
+  def delete_public_key(%Client{} = client, input, options \\ []) do
+    url_path = "/DeletePublicKey"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Shuts down and deletes the specified stage (disconnecting all participants).
   """
   @spec delete_stage(map(), delete_stage_request(), list()) ::
@@ -1840,6 +1870,33 @@ defmodule AWS.IVSRealTime do
   end
 
   @doc """
+  Gets information for the specified public key.
+  """
+  @spec get_public_key(map(), get_public_key_request(), list()) ::
+          {:ok, get_public_key_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_public_key_errors()}
+  def get_public_key(%Client{} = client, input, options \\ []) do
+    url_path = "/GetPublicKey"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Gets information for the specified stage.
   """
   @spec get_stage(map(), get_stage_request(), list()) ::
@@ -1902,6 +1959,33 @@ defmodule AWS.IVSRealTime do
           | {:error, get_storage_configuration_errors()}
   def get_storage_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/GetStorageConfiguration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Import a public key to be used for signing stage participant tokens.
+  """
+  @spec import_public_key(map(), import_public_key_request(), list()) ::
+          {:ok, import_public_key_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, import_public_key_errors()}
+  def import_public_key(%Client{} = client, input, options \\ []) do
+    url_path = "/ImportPublicKey"
     headers = []
     query_params = []
 
@@ -2015,6 +2099,34 @@ defmodule AWS.IVSRealTime do
           | {:error, list_participants_errors()}
   def list_participants(%Client{} = client, input, options \\ []) do
     url_path = "/ListParticipants"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Gets summary information about all public keys in your account, in the AWS
+  region where the API request is processed.
+  """
+  @spec list_public_keys(map(), list_public_keys_request(), list()) ::
+          {:ok, list_public_keys_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_public_keys_errors()}
+  def list_public_keys(%Client{} = client, input, options \\ []) do
+    url_path = "/ListPublicKeys"
     headers = []
     query_params = []
 

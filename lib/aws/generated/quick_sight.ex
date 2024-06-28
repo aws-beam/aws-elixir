@@ -2590,6 +2590,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      body_section_repeat_dimension_configuration() :: %{
+        "DynamicCategoryDimensionConfiguration" => body_section_dynamic_category_dimension_configuration(),
+        "DynamicNumericDimensionConfiguration" => body_section_dynamic_numeric_dimension_configuration()
+      }
+
+  """
+  @type body_section_repeat_dimension_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       free_form_section_layout_configuration() :: %{
         "Elements" => list(free_form_layout_element()())
       }
@@ -5018,6 +5030,19 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      body_section_dynamic_numeric_dimension_configuration() :: %{
+        "Column" => column_identifier(),
+        "Limit" => integer(),
+        "SortByMetrics" => list(column_sort()())
+      }
+
+  """
+  @type body_section_dynamic_numeric_dimension_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       link_sharing_configuration() :: %{
         "Permissions" => list(resource_permission()())
       }
@@ -5318,6 +5343,20 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      nested_filter() :: %{
+        "Column" => column_identifier(),
+        "FilterId" => String.t(),
+        "IncludeInnerSet" => boolean(),
+        "InnerFilter" => inner_filter()
+      }
+
+  """
+  @type nested_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_folder_membership_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer()
@@ -5430,6 +5469,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      body_section_repeat_page_break_configuration() :: %{
+        "After" => section_after_page_break()
+      }
+
+  """
+  @type body_section_repeat_page_break_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       registered_user_dashboard_embedding_configuration() :: %{
         "FeatureConfigurations" => registered_user_dashboard_feature_configurations(),
         "InitialDashboardId" => String.t()
@@ -5507,6 +5557,19 @@ defmodule AWS.QuickSight do
 
   """
   @type asset_bundle_resource_link_sharing_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      category_inner_filter() :: %{
+        "Column" => column_identifier(),
+        "Configuration" => category_filter_configuration(),
+        "DefaultFilterControlConfiguration" => default_filter_control_configuration()
+      }
+
+  """
+  @type category_inner_filter() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6678,6 +6741,19 @@ defmodule AWS.QuickSight do
 
   """
   @type axis_data_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      body_section_repeat_configuration() :: %{
+        "DimensionConfigurations" => list(body_section_repeat_dimension_configuration()()),
+        "NonRepeatingVisuals" => list(String.t()()),
+        "PageBreakConfiguration" => body_section_repeat_page_break_configuration()
+      }
+
+  """
+  @type body_section_repeat_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -8180,6 +8256,7 @@ defmodule AWS.QuickSight do
 
       filter() :: %{
         "CategoryFilter" => category_filter(),
+        "NestedFilter" => nested_filter(),
         "NumericEqualityFilter" => numeric_equality_filter(),
         "NumericRangeFilter" => numeric_range_filter(),
         "RelativeDatesFilter" => relative_dates_filter(),
@@ -8395,6 +8472,17 @@ defmodule AWS.QuickSight do
 
   """
   @type concurrent_updating_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inner_filter() :: %{
+        "CategoryInnerFilter" => category_inner_filter()
+      }
+
+  """
+  @type inner_filter() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -13765,6 +13853,7 @@ defmodule AWS.QuickSight do
       body_section_configuration() :: %{
         "Content" => body_section_content(),
         "PageBreakConfiguration" => section_page_break_configuration(),
+        "RepeatConfiguration" => body_section_repeat_configuration(),
         "SectionId" => String.t(),
         "Style" => section_style()
       }
@@ -13902,6 +13991,19 @@ defmodule AWS.QuickSight do
 
   """
   @type reference_line() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      body_section_dynamic_category_dimension_configuration() :: %{
+        "Column" => column_identifier(),
+        "Limit" => integer(),
+        "SortByMetrics" => list(column_sort()())
+      }
+
+  """
+  @type body_section_dynamic_category_dimension_configuration() :: %{String.t() => any()}
 
   @typedoc """
 

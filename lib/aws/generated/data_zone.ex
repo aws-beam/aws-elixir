@@ -522,6 +522,17 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      get_lineage_node_input() :: %{
+        optional("eventTimestamp") => [non_neg_integer()]
+      }
+
+  """
+  @type get_lineage_node_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       project_member() :: %{
         "designation" => list(any()),
         "memberDetails" => list()
@@ -1121,6 +1132,22 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      list_lineage_node_history_input() :: %{
+        optional("direction") => list(any()),
+        optional("eventTimestampGTE") => [non_neg_integer()],
+        optional("eventTimestampLTE") => [non_neg_integer()],
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("sortOrder") => list(any())
+      }
+
+  """
+  @type list_lineage_node_history_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       revoke_subscription_input() :: %{
         optional("retainPermissions") => [boolean()]
       }
@@ -1555,6 +1582,25 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      lineage_node_type_item() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
+        "description" => [String.t()],
+        "domainId" => String.t(),
+        "formsOutput" => map(),
+        "name" => [String.t()],
+        "revision" => String.t(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t()
+      }
+
+  """
+  @type lineage_node_type_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_metadata_generation_run_output() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
@@ -1738,6 +1784,18 @@ defmodule AWS.DataZone do
 
   """
   @type create_environment_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      post_lineage_event_input() :: %{
+        optional("clientToken") => String.t(),
+        required("event") => binary()
+      }
+
+  """
+  @type post_lineage_event_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2572,6 +2630,15 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      post_lineage_event_output() :: %{}
+
+  """
+  @type post_lineage_event_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       time_series_data_point_form_output() :: %{
         "content" => [String.t()],
         "formName" => String.t(),
@@ -2660,6 +2727,28 @@ defmodule AWS.DataZone do
 
   """
   @type delete_glossary_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      lineage_node_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
+        "description" => [String.t()],
+        "domainId" => String.t(),
+        "eventTimestamp" => [non_neg_integer()],
+        "id" => String.t(),
+        "name" => [String.t()],
+        "sourceIdentifier" => [String.t()],
+        "typeName" => [String.t()],
+        "typeRevision" => String.t(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t()
+      }
+
+  """
+  @type lineage_node_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3487,6 +3576,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      lineage_node_reference() :: %{
+        "eventTimestamp" => [non_neg_integer()],
+        "id" => String.t()
+      }
+
+  """
+  @type lineage_node_reference() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_glossary_term_input() :: %{}
 
   """
@@ -3503,6 +3604,18 @@ defmodule AWS.DataZone do
 
   """
   @type create_group_profile_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_lineage_node_history_output() :: %{
+        "nextToken" => String.t(),
+        "nodes" => list(lineage_node_summary()())
+      }
+
+  """
+  @type list_lineage_node_history_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4311,6 +4424,31 @@ defmodule AWS.DataZone do
 
   """
   @type delete_listing_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_lineage_node_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
+        "description" => [String.t()],
+        "domainId" => String.t(),
+        "downstreamNodes" => list(lineage_node_reference()()),
+        "eventTimestamp" => [non_neg_integer()],
+        "formsOutput" => list(form_output()()),
+        "id" => String.t(),
+        "name" => [String.t()],
+        "sourceIdentifier" => [String.t()],
+        "typeName" => [String.t()],
+        "typeRevision" => String.t(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t(),
+        "upstreamNodes" => list(lineage_node_reference()())
+      }
+
+  """
+  @type get_lineage_node_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5252,6 +5390,13 @@ defmodule AWS.DataZone do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type get_lineage_node_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_listing_errors() ::
           throttling_exception()
           | validation_exception()
@@ -5388,6 +5533,13 @@ defmodule AWS.DataZone do
           | access_denied_exception()
           | internal_server_exception()
 
+  @type list_lineage_node_history_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type list_metadata_generation_runs_errors() ::
           throttling_exception()
           | validation_exception()
@@ -5451,6 +5603,15 @@ defmodule AWS.DataZone do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type post_lineage_event_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type post_time_series_data_points_errors() ::
           throttling_exception()
@@ -7431,6 +7592,38 @@ defmodule AWS.DataZone do
   end
 
   @doc """
+  Gets the data lineage node.
+  """
+  @spec get_lineage_node(map(), String.t(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_lineage_node_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_lineage_node_errors()}
+  def get_lineage_node(
+        %Client{} = client,
+        domain_identifier,
+        identifier,
+        event_timestamp \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/lineage/nodes/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(event_timestamp) do
+        [{"timestamp", event_timestamp} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets a listing (a record of an asset at a given time).
   """
   @spec get_listing(map(), String.t(), String.t(), String.t() | nil, list()) ::
@@ -8314,6 +8507,89 @@ defmodule AWS.DataZone do
   end
 
   @doc """
+  Lists the history of the specified data lineage node.
+  """
+  @spec list_lineage_node_history(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_lineage_node_history_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_lineage_node_history_errors()}
+  def list_lineage_node_history(
+        %Client{} = client,
+        domain_identifier,
+        identifier,
+        direction \\ nil,
+        event_timestamp_g_t_e \\ nil,
+        event_timestamp_l_t_e \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        sort_order \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/lineage/nodes/#{AWS.Util.encode_uri(identifier)}/history"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(sort_order) do
+        [{"sortOrder", sort_order} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(event_timestamp_l_t_e) do
+        [{"timestampLTE", event_timestamp_l_t_e} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(event_timestamp_g_t_e) do
+        [{"timestampGTE", event_timestamp_g_t_e} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(direction) do
+        [{"direction", direction} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists all metadata generation runs.
   """
   @spec list_metadata_generation_runs(
@@ -9053,6 +9329,38 @@ defmodule AWS.DataZone do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Posts a data lineage event.
+  """
+  @spec post_lineage_event(map(), String.t(), post_lineage_event_input(), list()) ::
+          {:ok, post_lineage_event_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, post_lineage_event_errors()}
+  def post_lineage_event(%Client{} = client, domain_identifier, input, options \\ []) do
+    url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/lineage/events"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

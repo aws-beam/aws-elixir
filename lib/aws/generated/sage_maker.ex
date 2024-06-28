@@ -14523,11 +14523,24 @@ defmodule AWS.SageMaker do
         "SharingSettings" => sharing_settings(),
         "SpaceStorageSettings" => default_space_storage_settings(),
         "StudioWebPortal" => list(any()),
+        "StudioWebPortalSettings" => studio_web_portal_settings(),
         "TensorBoardAppSettings" => tensor_board_app_settings()
       }
       
   """
   @type user_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      studio_web_portal_settings() :: %{
+        "HiddenAppTypes" => list(list(any())()),
+        "HiddenMlTools" => list(list(any())())
+      }
+      
+  """
+  @type studio_web_portal_settings() :: %{String.t() => any()}
 
   @typedoc """
 

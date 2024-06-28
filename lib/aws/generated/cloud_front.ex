@@ -10714,6 +10714,9 @@ defmodule AWS.CloudFront do
 
   @doc """
   List tags for a CloudFront resource.
+
+  For more information, see [Tagging a distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/tagging.html)
+  in the *Amazon CloudFront Developer Guide*.
   """
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_result(), any()}
@@ -10786,6 +10789,9 @@ defmodule AWS.CloudFront do
 
   @doc """
   Add tags to a CloudFront resource.
+
+  For more information, see [Tagging a distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/tagging.html)
+  in the *Amazon CloudFront Developer Guide*.
   """
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
@@ -10867,6 +10873,9 @@ defmodule AWS.CloudFront do
 
   @doc """
   Remove tags from a CloudFront resource.
+
+  For more information, see [Tagging a distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/tagging.html)
+  in the *Amazon CloudFront Developer Guide*.
   """
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, nil, any()}

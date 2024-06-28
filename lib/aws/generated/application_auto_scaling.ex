@@ -44,13 +44,16 @@ defmodule AWS.ApplicationAutoScaling do
   Amazon SageMaker endpoint variants
 
     *
-  Amazon SageMaker Serverless endpoint provisioned concurrency
-
-    *
   Amazon SageMaker inference components
 
     *
+  Amazon SageMaker serverless endpoint provisioned concurrency
+
+    *
   Spot Fleets (Amazon EC2)
+
+    *
+  WorkSpaces pools
 
     *
   Custom resources provided by your own applications or services
@@ -1008,9 +1011,7 @@ defmodule AWS.ApplicationAutoScaling do
   `ScalableDimension`, and `ScheduledActionNames` parameters.
 
   For more information, see [Scheduled scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html)
-  and [Managing scheduled scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/scheduled-scaling-additional-cli-commands.html)
-  in the
-  *Application Auto Scaling User Guide*.
+  in the *Application Auto Scaling User Guide*.
   """
   @spec describe_scheduled_actions(map(), describe_scheduled_actions_request(), list()) ::
           {:ok, describe_scheduled_actions_response(), any()}
@@ -1026,7 +1027,7 @@ defmodule AWS.ApplicationAutoScaling do
   Returns all the tags on the specified Application Auto Scaling scalable target.
 
   For general information about tags, including the format and syntax, see
-  [Tagging Amazon Web Services resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in
+  [Tagging your Amazon Web Services resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in
   the *Amazon Web Services General Reference*.
   """
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
@@ -1227,7 +1228,7 @@ defmodule AWS.ApplicationAutoScaling do
   (`RegisterScalableTarget`).
 
   For general information about tags, including the format and syntax, see
-  [Tagging Amazon Web Services resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in
+  [Tagging your Amazon Web Services resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in
   the *Amazon Web Services General Reference*.
 
   Use tags to control access to a scalable target. For more information, see

@@ -168,10 +168,13 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
-      register_workspace_directory_result() :: %{}
+      register_workspace_directory_result() :: %{
+        "DirectoryId" => String.t(),
+        "State" => list(any())
+      }
       
   """
-  @type register_workspace_directory_result() :: %{}
+  @type register_workspace_directory_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -419,6 +422,18 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      network_access_configuration() :: %{
+        "EniId" => String.t(),
+        "EniPrivateIpAddress" => String.t()
+      }
+      
+  """
+  @type network_access_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       accept_account_link_invitation_result() :: %{
         "AccountLink" => account_link()
       }
@@ -597,6 +612,17 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      start_workspaces_pool_request() :: %{
+        required("PoolId") => String.t()
+      }
+      
+  """
+  @type start_workspaces_pool_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_application_associations_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -674,6 +700,17 @@ defmodule AWS.WorkSpaces do
       
   """
   @type modify_workspace_creation_properties_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity() :: %{
+        "DesiredUserSessions" => integer()
+      }
+      
+  """
+  @type capacity() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -794,6 +831,15 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      terminate_workspaces_pool_result() :: %{}
+      
+  """
+  @type terminate_workspaces_pool_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       unsupported_network_configuration_exception() :: %{
         "message" => String.t()
       }
@@ -852,6 +898,17 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      update_workspaces_pool_result() :: %{
+        "WorkspacesPool" => workspaces_pool()
+      }
+      
+  """
+  @type update_workspaces_pool_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       failed_workspace_change_request() :: %{
         "ErrorCode" => String.t(),
         "ErrorMessage" => String.t(),
@@ -881,6 +938,18 @@ defmodule AWS.WorkSpaces do
       
   """
   @type modify_certificate_based_auth_properties_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_workspaces_pool_sessions_result() :: %{
+        "NextToken" => String.t(),
+        "Sessions" => list(workspaces_pool_session()())
+      }
+      
+  """
+  @type describe_workspaces_pool_sessions_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -936,6 +1005,18 @@ defmodule AWS.WorkSpaces do
       
   """
   @type connection_alias_permission() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_streaming_properties_request() :: %{
+        optional("StreamingProperties") => streaming_properties(),
+        required("ResourceId") => String.t()
+      }
+      
+  """
+  @type modify_streaming_properties_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1078,6 +1159,19 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      timeout_settings() :: %{
+        "DisconnectTimeoutInSeconds" => integer(),
+        "IdleDisconnectTimeoutInSeconds" => integer(),
+        "MaxUserDurationInSeconds" => integer()
+      }
+      
+  """
+  @type timeout_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_ip_group_request() :: %{
         required("GroupId") => String.t()
       }
@@ -1089,12 +1183,25 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      workspaces_pool_error() :: %{
+        "ErrorCode" => list(any()),
+        "ErrorMessage" => String.t()
+      }
+      
+  """
+  @type workspaces_pool_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       default_workspace_creation_properties() :: %{
         "CustomSecurityGroupId" => String.t(),
         "DefaultOu" => String.t(),
         "EnableInternetAccess" => boolean(),
         "EnableMaintenanceMode" => boolean(),
         "EnableWorkDocs" => boolean(),
+        "InstanceIamRoleArn" => String.t(),
         "UserEnabledAsLocalAdministrator" => boolean()
       }
       
@@ -1177,6 +1284,17 @@ defmodule AWS.WorkSpaces do
       
   """
   @type import_workspace_image_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_workspaces_pool_result() :: %{
+        "WorkspacesPool" => workspaces_pool()
+      }
+      
+  """
+  @type create_workspaces_pool_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1335,6 +1453,19 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      user_setting() :: %{
+        "Action" => list(any()),
+        "MaximumLength" => integer(),
+        "Permission" => list(any())
+      }
+      
+  """
+  @type user_setting() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       reject_account_link_invitation_request() :: %{
         optional("ClientToken") => String.t(),
         required("LinkId") => String.t()
@@ -1390,6 +1521,18 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      storage_connector() :: %{
+        "ConnectorType" => list(any()),
+        "Status" => list(any())
+      }
+      
+  """
+  @type storage_connector() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       image_permission() :: %{
         "SharedAccountId" => String.t()
       }
@@ -1407,6 +1550,7 @@ defmodule AWS.WorkSpaces do
         "EnableInternetAccess" => boolean(),
         "EnableMaintenanceMode" => boolean(),
         "EnableWorkDocs" => boolean(),
+        "InstanceIamRoleArn" => String.t(),
         "UserEnabledAsLocalAdministrator" => boolean()
       }
       
@@ -1452,6 +1596,15 @@ defmodule AWS.WorkSpaces do
       
   """
   @type get_account_link_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_workspaces_pool_result() :: %{}
+      
+  """
+  @type start_workspaces_pool_result() :: %{}
 
   @typedoc """
 
@@ -1551,7 +1704,8 @@ defmodule AWS.WorkSpaces do
       describe_workspace_directories_request() :: %{
         optional("DirectoryIds") => list(String.t()()),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t(),
+        optional("WorkspaceDirectoryNames") => list(String.t()())
       }
       
   """
@@ -1767,6 +1921,20 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      describe_workspaces_pool_sessions_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t(),
+        optional("UserId") => String.t(),
+        required("PoolId") => String.t()
+      }
+      
+  """
+  @type describe_workspaces_pool_sessions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_client_branding_request() :: %{
         required("Platforms") => list(list(any())()),
         required("ResourceId") => String.t()
@@ -1774,6 +1942,15 @@ defmodule AWS.WorkSpaces do
       
   """
   @type delete_client_branding_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_streaming_properties_result() :: %{}
+      
+  """
+  @type modify_streaming_properties_result() :: %{}
 
   @typedoc """
 
@@ -1836,6 +2013,18 @@ defmodule AWS.WorkSpaces do
       
   """
   @type default_client_branding_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      active_directory_config() :: %{
+        "DomainName" => String.t(),
+        "ServiceAccountSecretArn" => String.t()
+      }
+      
+  """
+  @type active_directory_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1952,6 +2141,17 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      terminate_workspaces_pool_request() :: %{
+        required("PoolId") => String.t()
+      }
+      
+  """
+  @type terminate_workspaces_pool_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_connection_alias_permission_request() :: %{
         required("AliasId") => String.t(),
         required("ConnectionAliasPermission") => connection_alias_permission()
@@ -2036,6 +2236,19 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      describe_workspaces_pools_filter() :: %{
+        "Name" => list(any()),
+        "Operator" => list(any()),
+        "Values" => list(String.t()())
+      }
+      
+  """
+  @type describe_workspaces_pools_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       import_client_branding_result() :: %{
         "DeviceTypeAndroid" => default_client_branding_attributes(),
         "DeviceTypeIos" => ios_client_branding_attributes(),
@@ -2090,12 +2303,17 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       register_workspace_directory_request() :: %{
+        optional("ActiveDirectoryConfig") => active_directory_config(),
+        optional("DirectoryId") => String.t(),
         optional("EnableSelfService") => boolean(),
+        optional("EnableWorkDocs") => boolean(),
         optional("SubnetIds") => list(String.t()()),
         optional("Tags") => list(tag()()),
         optional("Tenancy") => list(any()),
-        required("DirectoryId") => String.t(),
-        required("EnableWorkDocs") => boolean()
+        optional("UserIdentityType") => list(any()),
+        optional("WorkspaceDirectoryDescription") => String.t(),
+        optional("WorkspaceDirectoryName") => String.t(),
+        optional("WorkspaceType") => list(any())
       }
       
   """
@@ -2163,6 +2381,18 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      application_settings_request() :: %{
+        "SettingsGroup" => String.t(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type application_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       copy_workspace_image_result() :: %{
         "ImageId" => String.t()
       }
@@ -2204,6 +2434,20 @@ defmodule AWS.WorkSpaces do
       
   """
   @type migrate_workspace_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_status() :: %{
+        "ActiveUserSessions" => integer(),
+        "ActualUserSessions" => integer(),
+        "AvailableUserSessions" => integer(),
+        "DesiredUserSessions" => integer()
+      }
+      
+  """
+  @type capacity_status() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2251,7 +2495,34 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      update_workspaces_pool_request() :: %{
+        optional("ApplicationSettings") => application_settings_request(),
+        optional("BundleId") => String.t(),
+        optional("Capacity") => capacity(),
+        optional("Description") => String.t(),
+        optional("DirectoryId") => String.t(),
+        optional("TimeoutSettings") => timeout_settings(),
+        required("PoolId") => String.t()
+      }
+      
+  """
+  @type update_workspaces_pool_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      terminate_workspaces_pool_session_result() :: %{}
+      
+  """
+  @type terminate_workspaces_pool_session_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       workspace_directory() :: %{
+        "ActiveDirectoryConfig" => active_directory_config(),
         "Alias" => String.t(),
         "CertificateBasedAuthProperties" => certificate_based_auth_properties(),
         "CustomerUserName" => String.t(),
@@ -2259,16 +2530,22 @@ defmodule AWS.WorkSpaces do
         "DirectoryName" => String.t(),
         "DirectoryType" => list(any()),
         "DnsIpAddresses" => list(String.t()()),
+        "ErrorMessage" => String.t(),
         "IamRoleId" => String.t(),
         "RegistrationCode" => String.t(),
         "SamlProperties" => saml_properties(),
         "SelfservicePermissions" => selfservice_permissions(),
         "State" => list(any()),
+        "StreamingProperties" => streaming_properties(),
         "SubnetIds" => list(String.t()()),
         "Tenancy" => list(any()),
+        "UserIdentityType" => list(any()),
         "WorkspaceAccessProperties" => workspace_access_properties(),
         "WorkspaceCreationProperties" => default_workspace_creation_properties(),
+        "WorkspaceDirectoryDescription" => String.t(),
+        "WorkspaceDirectoryName" => String.t(),
         "WorkspaceSecurityGroupId" => String.t(),
+        "WorkspaceType" => list(any()),
         "ipGroupIds" => list(String.t()())
       }
       
@@ -2418,6 +2695,41 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      workspaces_pool() :: %{
+        "ApplicationSettings" => application_settings_response(),
+        "BundleId" => String.t(),
+        "CapacityStatus" => capacity_status(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t(),
+        "DirectoryId" => String.t(),
+        "Errors" => list(workspaces_pool_error()()),
+        "PoolArn" => String.t(),
+        "PoolId" => String.t(),
+        "PoolName" => String.t(),
+        "State" => list(any()),
+        "TimeoutSettings" => timeout_settings()
+      }
+      
+  """
+  @type workspaces_pool() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      streaming_properties() :: %{
+        "StorageConnectors" => list(storage_connector()()),
+        "StreamingExperiencePreferredProtocol" => list(any()),
+        "UserSettings" => list(user_setting()())
+      }
+      
+  """
+  @type streaming_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       incompatible_applications_exception() :: %{}
       
   """
@@ -2433,6 +2745,24 @@ defmodule AWS.WorkSpaces do
       
   """
   @type terminate_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_workspaces_pool_request() :: %{
+        optional("ApplicationSettings") => application_settings_request(),
+        optional("Tags") => list(tag()()),
+        optional("TimeoutSettings") => timeout_settings(),
+        required("BundleId") => String.t(),
+        required("Capacity") => capacity(),
+        required("Description") => String.t(),
+        required("DirectoryId") => String.t(),
+        required("PoolName") => String.t()
+      }
+      
+  """
+  @type create_workspaces_pool_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2606,12 +2936,40 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      stop_workspaces_pool_result() :: %{}
+      
+  """
+  @type stop_workspaces_pool_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_tags_request() :: %{
         required("ResourceId") => String.t()
       }
       
   """
   @type describe_tags_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      workspaces_pool_session() :: %{
+        "AuthenticationType" => list(any()),
+        "ConnectionState" => list(any()),
+        "ExpirationTime" => non_neg_integer(),
+        "InstanceId" => String.t(),
+        "NetworkAccessConfiguration" => network_access_configuration(),
+        "PoolId" => String.t(),
+        "SessionId" => String.t(),
+        "StartTime" => non_neg_integer(),
+        "UserId" => String.t()
+      }
+      
+  """
+  @type workspaces_pool_session() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2712,6 +3070,18 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      describe_workspaces_pools_result() :: %{
+        "NextToken" => String.t(),
+        "WorkspacesPools" => list(workspaces_pool()())
+      }
+      
+  """
+  @type describe_workspaces_pools_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       connection_alias() :: %{
         "AliasId" => String.t(),
         "Associations" => list(connection_alias_association()()),
@@ -2722,6 +3092,17 @@ defmodule AWS.WorkSpaces do
       
   """
   @type connection_alias() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_workspaces_pool_request() :: %{
+        required("PoolId") => String.t()
+      }
+      
+  """
+  @type stop_workspaces_pool_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2769,6 +3150,17 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      terminate_workspaces_pool_session_request() :: %{
+        required("SessionId") => String.t()
+      }
+      
+  """
+  @type terminate_workspaces_pool_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_connect_client_add_ins_result() :: %{
         "AddIns" => list(connect_client_add_in()()),
         "NextToken" => String.t()
@@ -2776,6 +3168,19 @@ defmodule AWS.WorkSpaces do
       
   """
   @type describe_connect_client_add_ins_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      application_settings_response() :: %{
+        "S3BucketName" => String.t(),
+        "SettingsGroup" => String.t(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type application_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2878,6 +3283,20 @@ defmodule AWS.WorkSpaces do
       
   """
   @type describe_connect_client_add_ins_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_workspaces_pools_request() :: %{
+        optional("Filters") => list(describe_workspaces_pools_filter()()),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t(),
+        optional("PoolIds") => list(String.t()())
+      }
+      
+  """
+  @type describe_workspaces_pools_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3051,6 +3470,14 @@ defmodule AWS.WorkSpaces do
   @type create_workspaces_errors() ::
           invalid_parameter_values_exception() | resource_limit_exceeded_exception()
 
+  @type create_workspaces_pool_errors() ::
+          operation_not_supported_exception()
+          | resource_already_exists_exception()
+          | access_denied_exception()
+          | invalid_parameter_values_exception()
+          | resource_limit_exceeded_exception()
+          | resource_not_found_exception()
+
   @type delete_account_link_invitation_errors() ::
           validation_exception()
           | access_denied_exception()
@@ -3197,6 +3624,16 @@ defmodule AWS.WorkSpaces do
 
   @type describe_workspaces_connection_status_errors() :: invalid_parameter_values_exception()
 
+  @type describe_workspaces_pool_sessions_errors() ::
+          access_denied_exception()
+          | invalid_parameter_values_exception()
+          | resource_not_found_exception()
+
+  @type describe_workspaces_pools_errors() ::
+          access_denied_exception()
+          | invalid_parameter_values_exception()
+          | resource_not_found_exception()
+
   @type disassociate_connection_alias_errors() ::
           operation_not_supported_exception()
           | access_denied_exception()
@@ -3205,7 +3642,8 @@ defmodule AWS.WorkSpaces do
           | resource_not_found_exception()
 
   @type disassociate_ip_groups_errors() ::
-          access_denied_exception()
+          operation_not_supported_exception()
+          | access_denied_exception()
           | invalid_parameter_values_exception()
           | invalid_resource_state_exception()
           | resource_not_found_exception()
@@ -3265,7 +3703,8 @@ defmodule AWS.WorkSpaces do
           | resource_not_found_exception()
 
   @type modify_client_properties_errors() ::
-          access_denied_exception()
+          operation_not_supported_exception()
+          | access_denied_exception()
           | invalid_parameter_values_exception()
           | resource_not_found_exception()
 
@@ -3276,7 +3715,14 @@ defmodule AWS.WorkSpaces do
           | resource_not_found_exception()
 
   @type modify_selfservice_permissions_errors() ::
-          access_denied_exception()
+          operation_not_supported_exception()
+          | access_denied_exception()
+          | invalid_parameter_values_exception()
+          | resource_not_found_exception()
+
+  @type modify_streaming_properties_errors() ::
+          operation_not_supported_exception()
+          | access_denied_exception()
           | invalid_parameter_values_exception()
           | resource_not_found_exception()
 
@@ -3310,6 +3756,7 @@ defmodule AWS.WorkSpaces do
 
   @type register_workspace_directory_errors() ::
           operation_not_supported_exception()
+          | resource_already_exists_exception()
           | access_denied_exception()
           | workspaces_default_role_not_found_exception()
           | invalid_parameter_values_exception()
@@ -3335,6 +3782,36 @@ defmodule AWS.WorkSpaces do
           access_denied_exception()
           | invalid_parameter_values_exception()
           | invalid_resource_state_exception()
+          | resource_not_found_exception()
+
+  @type start_workspaces_pool_errors() ::
+          operation_not_supported_exception()
+          | access_denied_exception()
+          | invalid_parameter_values_exception()
+          | invalid_resource_state_exception()
+          | resource_limit_exceeded_exception()
+          | operation_in_progress_exception()
+          | resource_not_found_exception()
+
+  @type stop_workspaces_pool_errors() ::
+          access_denied_exception()
+          | invalid_parameter_values_exception()
+          | invalid_resource_state_exception()
+          | operation_in_progress_exception()
+          | resource_not_found_exception()
+
+  @type terminate_workspaces_pool_errors() ::
+          access_denied_exception()
+          | invalid_parameter_values_exception()
+          | invalid_resource_state_exception()
+          | operation_in_progress_exception()
+          | resource_not_found_exception()
+
+  @type terminate_workspaces_pool_session_errors() ::
+          operation_not_supported_exception()
+          | access_denied_exception()
+          | invalid_parameter_values_exception()
+          | operation_in_progress_exception()
           | resource_not_found_exception()
 
   @type update_connect_client_add_in_errors() ::
@@ -3371,6 +3848,15 @@ defmodule AWS.WorkSpaces do
           | invalid_parameter_values_exception()
           | resource_not_found_exception()
           | resource_unavailable_exception()
+
+  @type update_workspaces_pool_errors() ::
+          operation_not_supported_exception()
+          | access_denied_exception()
+          | invalid_parameter_values_exception()
+          | invalid_resource_state_exception()
+          | resource_limit_exceeded_exception()
+          | operation_in_progress_exception()
+          | resource_not_found_exception()
 
   def metadata do
     %{
@@ -3696,6 +4182,19 @@ defmodule AWS.WorkSpaces do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateWorkspaces", input, options)
+  end
+
+  @doc """
+  Creates a pool of WorkSpaces.
+  """
+  @spec create_workspaces_pool(map(), create_workspaces_pool_request(), list()) ::
+          {:ok, create_workspaces_pool_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_workspaces_pool_errors()}
+  def create_workspaces_pool(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateWorkspacesPool", input, options)
   end
 
   @doc """
@@ -4217,6 +4716,37 @@ defmodule AWS.WorkSpaces do
   end
 
   @doc """
+  Retrieves a list that describes the streaming sessions for a specified
+  WorkSpaces pool.
+  """
+  @spec describe_workspaces_pool_sessions(
+          map(),
+          describe_workspaces_pool_sessions_request(),
+          list()
+        ) ::
+          {:ok, describe_workspaces_pool_sessions_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_workspaces_pool_sessions_errors()}
+  def describe_workspaces_pool_sessions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeWorkspacesPoolSessions", input, options)
+  end
+
+  @doc """
+  Describes the specified WorkSpaces pool.
+  """
+  @spec describe_workspaces_pools(map(), describe_workspaces_pools_request(), list()) ::
+          {:ok, describe_workspaces_pools_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_workspaces_pools_errors()}
+  def describe_workspaces_pools(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeWorkspacesPools", input, options)
+  end
+
+  @doc """
   Disassociates a connection alias from a directory.
 
   Disassociating a connection alias
@@ -4496,6 +5026,19 @@ defmodule AWS.WorkSpaces do
   end
 
   @doc """
+  Modifies the specified streaming properties.
+  """
+  @spec modify_streaming_properties(map(), modify_streaming_properties_request(), list()) ::
+          {:ok, modify_streaming_properties_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, modify_streaming_properties_errors()}
+  def modify_streaming_properties(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyStreamingProperties", input, options)
+  end
+
+  @doc """
   Specifies which devices and operating systems users can use to access their
   WorkSpaces.
 
@@ -4706,6 +5249,22 @@ defmodule AWS.WorkSpaces do
   end
 
   @doc """
+  Starts the specified WorkSpaces pool.
+
+  You cannot start a WorkSpace pool unless it has a running mode of
+  `AutoStop` and a state of `STOPPED`.
+  """
+  @spec start_workspaces_pool(map(), start_workspaces_pool_request(), list()) ::
+          {:ok, start_workspaces_pool_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_workspaces_pool_errors()}
+  def start_workspaces_pool(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartWorkspacesPool", input, options)
+  end
+
+  @doc """
   Stops the specified WorkSpaces.
 
   You cannot stop a WorkSpace unless it has a running mode of `AutoStop` and a
@@ -4719,6 +5278,22 @@ defmodule AWS.WorkSpaces do
     meta = metadata()
 
     Request.request_post(client, meta, "StopWorkspaces", input, options)
+  end
+
+  @doc """
+  Stops the specifiedWorkSpaces pool.
+
+  You cannot stop a WorkSpace pool unless it has a running mode of `AutoStop`
+  and a state of `AVAILABLE`, `IMPAIRED`, `UNHEALTHY`, or `ERROR`.
+  """
+  @spec stop_workspaces_pool(map(), stop_workspaces_pool_request(), list()) ::
+          {:ok, stop_workspaces_pool_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, stop_workspaces_pool_errors()}
+  def stop_workspaces_pool(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopWorkspacesPool", input, options)
   end
 
   @doc """
@@ -4766,6 +5341,36 @@ defmodule AWS.WorkSpaces do
     meta = metadata()
 
     Request.request_post(client, meta, "TerminateWorkspaces", input, options)
+  end
+
+  @doc """
+  Terminates the specified WorkSpaces pool.
+  """
+  @spec terminate_workspaces_pool(map(), terminate_workspaces_pool_request(), list()) ::
+          {:ok, terminate_workspaces_pool_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, terminate_workspaces_pool_errors()}
+  def terminate_workspaces_pool(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "TerminateWorkspacesPool", input, options)
+  end
+
+  @doc """
+  Terminates the WorkSpaces pool session.
+  """
+  @spec terminate_workspaces_pool_session(
+          map(),
+          terminate_workspaces_pool_session_request(),
+          list()
+        ) ::
+          {:ok, terminate_workspaces_pool_session_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, terminate_workspaces_pool_session_errors()}
+  def terminate_workspaces_pool_session(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "TerminateWorkspacesPoolSession", input, options)
   end
 
   @doc """
@@ -4909,5 +5514,18 @@ defmodule AWS.WorkSpaces do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateWorkspaceImagePermission", input, options)
+  end
+
+  @doc """
+  Updates the specified WorkSpaces pool.
+  """
+  @spec update_workspaces_pool(map(), update_workspaces_pool_request(), list()) ::
+          {:ok, update_workspaces_pool_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_workspaces_pool_errors()}
+  def update_workspaces_pool(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateWorkspacesPool", input, options)
   end
 end

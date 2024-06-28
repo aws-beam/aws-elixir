@@ -191,6 +191,15 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      get_content_association_request() :: %{}
+
+  """
+  @type get_content_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       highlight() :: %{
         "beginOffsetInclusive" => integer(),
         "endOffsetExclusive" => integer()
@@ -253,6 +262,25 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      content_association_data() :: %{
+        "associationData" => list(),
+        "associationType" => String.t(),
+        "contentArn" => String.t(),
+        "contentAssociationArn" => String.t(),
+        "contentAssociationId" => String.t(),
+        "contentId" => String.t(),
+        "knowledgeBaseArn" => String.t(),
+        "knowledgeBaseId" => String.t(),
+        "tags" => map()
+      }
+
+  """
+  @type content_association_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       external_source_configuration() :: %{
         "configuration" => list(),
         "source" => String.t()
@@ -260,6 +288,17 @@ defmodule AWS.QConnect do
 
   """
   @type external_source_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_content_association_response() :: %{
+        "contentAssociation" => content_association_data()
+      }
+
+  """
+  @type create_content_association_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -483,6 +522,25 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      content_association_summary() :: %{
+        "associationData" => list(),
+        "associationType" => String.t(),
+        "contentArn" => String.t(),
+        "contentAssociationArn" => String.t(),
+        "contentAssociationId" => String.t(),
+        "contentId" => String.t(),
+        "knowledgeBaseArn" => String.t(),
+        "knowledgeBaseId" => String.t(),
+        "tags" => map()
+      }
+
+  """
+  @type content_association_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       connect_configuration() :: %{
         "instanceId" => String.t()
       }
@@ -566,6 +624,18 @@ defmodule AWS.QConnect do
 
   """
   @type delete_assistant_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_content_associations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_content_associations_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -666,6 +736,20 @@ defmodule AWS.QConnect do
 
   """
   @type list_knowledge_bases_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_content_association_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("tags") => map(),
+        required("association") => list(),
+        required("associationType") => String.t()
+      }
+
+  """
+  @type create_content_association_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -792,6 +876,17 @@ defmodule AWS.QConnect do
 
   """
   @type quick_response_contents() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      amazon_connect_guide_association_data() :: %{
+        "flowId" => String.t()
+      }
+
+  """
+  @type amazon_connect_guide_association_data() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1207,6 +1302,15 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      delete_content_association_response() :: %{}
+
+  """
+  @type delete_content_association_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       remove_knowledge_base_template_uri_request() :: %{}
 
   """
@@ -1408,6 +1512,17 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      get_content_association_response() :: %{
+        "contentAssociation" => content_association_data()
+      }
+
+  """
+  @type get_content_association_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_content_request() :: %{}
 
   """
@@ -1488,6 +1603,17 @@ defmodule AWS.QConnect do
 
   """
   @type content_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type throttling_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1825,6 +1951,18 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      list_content_associations_response() :: %{
+        "contentAssociationSummaries" => list(content_association_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_content_associations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_assistant_association_response() :: %{}
 
   """
@@ -1854,6 +1992,15 @@ defmodule AWS.QConnect do
 
   """
   @type list_assistants_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_content_association_request() :: %{}
+
+  """
+  @type delete_content_association_request() :: %{}
 
   @typedoc """
 
@@ -1907,6 +2054,14 @@ defmodule AWS.QConnect do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type create_content_association_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type create_knowledge_base_errors() ::
           validation_exception()
           | access_denied_exception()
@@ -1935,6 +2090,9 @@ defmodule AWS.QConnect do
   @type delete_content_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
 
+  @type delete_content_association_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
   @type delete_import_job_errors() ::
           validation_exception()
           | access_denied_exception()
@@ -1959,6 +2117,9 @@ defmodule AWS.QConnect do
   @type get_content_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
 
+  @type get_content_association_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
   @type get_content_summary_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
 
@@ -1981,6 +2142,9 @@ defmodule AWS.QConnect do
           validation_exception() | access_denied_exception() | resource_not_found_exception()
 
   @type list_assistants_errors() :: validation_exception() | access_denied_exception()
+
+  @type list_content_associations_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
 
   @type list_contents_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
@@ -2148,6 +2312,73 @@ defmodule AWS.QConnect do
           | {:error, create_content_errors()}
   def create_content(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/contents"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates an association between a content resource in a knowledge base and
+  [step-by-step guides](https://docs.aws.amazon.com/connect/latest/adminguide/step-by-step-guided-experiences.html).
+
+  Step-by-step guides offer instructions to agents for resolving common
+  customer issues. You create a content association to integrate Amazon Q in
+  Connect and step-by-step
+  guides.
+
+  After you integrate Amazon Q and step-by-step guides, when Amazon Q provides a
+  recommendation to an agent based on the intent that it's detected, it also
+  provides them with
+  the option to start the step-by-step guide that you have associated with the
+  content.
+
+  Note the following limitations:
+
+    *
+  You can create only one content association for each
+  content resource in a knowledge base.
+
+    *
+  You can associate a step-by-step guide with multiple content resources.
+
+  For more information, see [Integrate Amazon Q in Connect with step-by-step
+  guides](https://docs.aws.amazon.com/connect/latest/adminguide/integrate-q-with-guides.html)
+  in the *Amazon Connect Administrator
+  Guide*.
+  """
+  @spec create_content_association(
+          map(),
+          String.t(),
+          String.t(),
+          create_content_association_request(),
+          list()
+        ) ::
+          {:ok, create_content_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_content_association_errors()}
+  def create_content_association(
+        %Client{} = client,
+        content_id,
+        knowledge_base_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/contents/#{AWS.Util.encode_uri(content_id)}/associations"
+
     headers = []
     query_params = []
 
@@ -2377,6 +2608,55 @@ defmodule AWS.QConnect do
   end
 
   @doc """
+  Deletes the content association.
+
+  For more information about content associations--what they are and when they are
+  used--see
+  [Integrate Amazon Q in Connect with step-by-step guides](https://docs.aws.amazon.com/connect/latest/adminguide/integrate-q-with-guides.html)
+  in the *Amazon Connect
+  Administrator Guide*.
+  """
+  @spec delete_content_association(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          delete_content_association_request(),
+          list()
+        ) ::
+          {:ok, delete_content_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_content_association_errors()}
+  def delete_content_association(
+        %Client{} = client,
+        content_association_id,
+        content_id,
+        knowledge_base_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/contents/#{AWS.Util.encode_uri(content_id)}/associations/#{AWS.Util.encode_uri(content_association_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Deletes the quick response import job.
   """
   @spec delete_import_job(map(), String.t(), String.t(), delete_import_job_request(), list()) ::
@@ -2541,6 +2821,37 @@ defmodule AWS.QConnect do
   def get_content(%Client{} = client, content_id, knowledge_base_id, options \\ []) do
     url_path =
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/contents/#{AWS.Util.encode_uri(content_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns the content association.
+
+  For more information about content associations--what they are and when they are
+  used--see
+  [Integrate Amazon Q in Connect with step-by-step guides](https://docs.aws.amazon.com/connect/latest/adminguide/integrate-q-with-guides.html)
+  in the *Amazon Connect
+  Administrator Guide*.
+  """
+  @spec get_content_association(map(), String.t(), String.t(), String.t(), list()) ::
+          {:ok, get_content_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_content_association_errors()}
+  def get_content_association(
+        %Client{} = client,
+        content_association_id,
+        content_id,
+        knowledge_base_id,
+        options \\ []
+      ) do
+    url_path =
+      "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/contents/#{AWS.Util.encode_uri(content_id)}/associations/#{AWS.Util.encode_uri(content_association_id)}"
 
     headers = []
     query_params = []
@@ -2753,6 +3064,59 @@ defmodule AWS.QConnect do
           | {:error, list_assistants_errors()}
   def list_assistants(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/assistants"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the content associations.
+
+  For more information about content associations--what they are and when they are
+  used--see
+  [Integrate Amazon Q in Connect with step-by-step guides](https://docs.aws.amazon.com/connect/latest/adminguide/integrate-q-with-guides.html)
+  in the *Amazon Connect
+  Administrator Guide*.
+  """
+  @spec list_content_associations(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_content_associations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_content_associations_errors()}
+  def list_content_associations(
+        %Client{} = client,
+        content_id,
+        knowledge_base_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/contents/#{AWS.Util.encode_uri(content_id)}/associations"
+
     headers = []
     query_params = []
 
@@ -3442,10 +3806,10 @@ defmodule AWS.QConnect do
   @doc """
   Updates a session.
 
-  A session is a contextual container used for generating recommendations.
-  Amazon Connect updates the existing Amazon Q in Connect session for each contact
-  on which Amazon Q in Connect
-  is enabled.
+  A session is a contextual container used for generating
+  recommendations. Amazon Connect updates the existing Amazon Q in Connect session
+  for each contact on
+  which Amazon Q in Connect is enabled.
   """
   @spec update_session(map(), String.t(), String.t(), update_session_request(), list()) ::
           {:ok, update_session_response(), any()}

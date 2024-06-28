@@ -12553,8 +12553,6 @@ defmodule AWS.RDS do
 
   You can't export snapshot data from Db2 or RDS Custom DB instances.
 
-  You can't export cluster data from Multi-AZ DB clusters.
-
   For more information on exporting DB snapshot data, see
   [Exporting DB snapshot data to Amazon
   S3](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ExportSnapshot.html)

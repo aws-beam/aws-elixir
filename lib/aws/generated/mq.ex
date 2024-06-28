@@ -146,11 +146,13 @@ defmodule AWS.Mq do
 
       create_broker_request() :: %{
         optional("AuthenticationStrategy") => list(any()),
+        optional("AutoMinorVersionUpgrade") => boolean(),
         optional("Configuration") => configuration_id(),
         optional("CreatorRequestId") => String.t(),
         optional("DataReplicationMode") => list(any()),
         optional("DataReplicationPrimaryBrokerArn") => String.t(),
         optional("EncryptionOptions") => encryption_options(),
+        optional("EngineVersion") => String.t(),
         optional("LdapServerMetadata") => ldap_server_metadata_input(),
         optional("Logs") => logs(),
         optional("MaintenanceWindowStartTime") => weekly_start_time(),
@@ -158,11 +160,9 @@ defmodule AWS.Mq do
         optional("StorageType") => list(any()),
         optional("SubnetIds") => list(String.t()()),
         optional("Tags") => map(),
-        required("AutoMinorVersionUpgrade") => boolean(),
         required("BrokerName") => String.t(),
         required("DeploymentMode") => list(any()),
         required("EngineType") => list(any()),
-        required("EngineVersion") => String.t(),
         required("HostInstanceType") => String.t(),
         required("PubliclyAccessible") => boolean(),
         required("Users") => list(user()())
@@ -491,9 +491,9 @@ defmodule AWS.Mq do
 
       create_configuration_request() :: %{
         optional("AuthenticationStrategy") => list(any()),
+        optional("EngineVersion") => String.t(),
         optional("Tags") => map(),
         required("EngineType") => list(any()),
-        required("EngineVersion") => String.t(),
         required("Name") => String.t()
       }
 

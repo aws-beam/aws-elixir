@@ -9101,6 +9101,7 @@ defmodule AWS.Glue do
   ## Example:
       
       get_databases_request() :: %{
+        optional("AttributesToGet") => list(list(any())()),
         optional("CatalogId") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),

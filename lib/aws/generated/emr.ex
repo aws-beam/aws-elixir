@@ -1360,6 +1360,7 @@ defmodule AWS.EMR do
         "CustomAmiId" => String.t(),
         "EbsConfiguration" => ebs_configuration(),
         "InstanceType" => String.t(),
+        "Priority" => float(),
         "WeightedCapacity" => integer()
       }
       
@@ -2710,6 +2711,7 @@ defmodule AWS.EMR do
         "EbsBlockDevices" => list(ebs_block_device()()),
         "EbsOptimized" => boolean(),
         "InstanceType" => String.t(),
+        "Priority" => float(),
         "WeightedCapacity" => integer()
       }
       

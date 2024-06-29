@@ -388,18 +388,6 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
-      natural_language_query_generation_options_output() :: %{
-        "CurrentState" => list(any()),
-        "DesiredState" => list(any())
-      }
-
-  """
-  @type natural_language_query_generation_options_output() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-
       snapshot_options_status() :: %{
         "Options" => snapshot_options(),
         "Status" => option_status()
@@ -540,7 +528,6 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       domain_config() :: %{
-        "AIMLOptions" => a_i_ml_options_status(),
         "AccessPolicies" => access_policies_status(),
         "AdvancedOptions" => advanced_options_status(),
         "AdvancedSecurityOptions" => advanced_security_options_status(),
@@ -1029,17 +1016,6 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
-      a_i_ml_options_output() :: %{
-        "NaturalLanguageQueryGenerationOptions" => natural_language_query_generation_options_output()
-      }
-
-  """
-  @type a_i_ml_options_output() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-
       update_scheduled_action_request() :: %{
         optional("DesiredStartTime") => float(),
         required("ActionID") => String.t(),
@@ -1139,7 +1115,6 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       create_domain_request() :: %{
-        optional("AIMLOptions") => a_i_ml_options_input(),
         optional("AccessPolicies") => String.t(),
         optional("AdvancedOptions") => map(),
         optional("AdvancedSecurityOptions") => advanced_security_options_input(),
@@ -1309,18 +1284,6 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
-      a_i_ml_options_status() :: %{
-        "Options" => a_i_ml_options_output(),
-        "Status" => option_status()
-      }
-
-  """
-  @type a_i_ml_options_status() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-
       update_domain_config_response() :: %{
         "DomainConfig" => domain_config(),
         "DryRunProgressStatus" => dry_run_progress_status(),
@@ -1348,7 +1311,6 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       update_domain_config_request() :: %{
-        optional("AIMLOptions") => a_i_ml_options_input(),
         optional("AccessPolicies") => String.t(),
         optional("AdvancedOptions") => map(),
         optional("AdvancedSecurityOptions") => advanced_security_options_input(),
@@ -1885,39 +1847,38 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       domain_status() :: %{
-        "UpgradeProcessing" => boolean(),
-        "AIMLOptions" => a_i_ml_options_output(),
-        "EBSOptions" => ebs_options(),
-        "VPCOptions" => vpc_derived_info(),
-        "AdvancedSecurityOptions" => advanced_security_options(),
-        "ServiceSoftwareOptions" => service_software_options(),
         "ARN" => String.t(),
-        "DomainId" => String.t(),
-        "ModifyingProperties" => list(modifying_properties()()),
-        "AdvancedOptions" => map(),
-        "SnapshotOptions" => snapshot_options(),
-        "Processing" => boolean(),
-        "Created" => boolean(),
         "AccessPolicies" => String.t(),
-        "DomainProcessingStatus" => list(any()),
+        "AdvancedOptions" => map(),
+        "AdvancedSecurityOptions" => advanced_security_options(),
+        "AutoTuneOptions" => auto_tune_options_output(),
         "ChangeProgressDetails" => change_progress_details(),
-        "DomainEndpointOptions" => domain_endpoint_options(),
-        "EndpointV2" => String.t(),
-        "NodeToNodeEncryptionOptions" => node_to_node_encryption_options(),
         "ClusterConfig" => cluster_config(),
         "CognitoOptions" => cognito_options(),
-        "DomainName" => String.t(),
-        "DomainEndpointV2HostedZoneId" => String.t(),
-        "AutoTuneOptions" => auto_tune_options_output(),
-        "LogPublishingOptions" => map(),
-        "OffPeakWindowOptions" => off_peak_window_options(),
-        "SoftwareUpdateOptions" => software_update_options(),
+        "Created" => boolean(),
         "Deleted" => boolean(),
-        "IPAddressType" => list(any()),
+        "DomainEndpointOptions" => domain_endpoint_options(),
+        "DomainEndpointV2HostedZoneId" => String.t(),
+        "DomainId" => String.t(),
+        "DomainName" => String.t(),
+        "DomainProcessingStatus" => list(any()),
+        "EBSOptions" => ebs_options(),
         "EncryptionAtRestOptions" => encryption_at_rest_options(),
-        "EngineVersion" => String.t(),
         "Endpoint" => String.t(),
-        "Endpoints" => map()
+        "EndpointV2" => String.t(),
+        "Endpoints" => map(),
+        "EngineVersion" => String.t(),
+        "IPAddressType" => list(any()),
+        "LogPublishingOptions" => map(),
+        "ModifyingProperties" => list(modifying_properties()()),
+        "NodeToNodeEncryptionOptions" => node_to_node_encryption_options(),
+        "OffPeakWindowOptions" => off_peak_window_options(),
+        "Processing" => boolean(),
+        "ServiceSoftwareOptions" => service_software_options(),
+        "SnapshotOptions" => snapshot_options(),
+        "SoftwareUpdateOptions" => software_update_options(),
+        "UpgradeProcessing" => boolean(),
+        "VPCOptions" => vpc_derived_info()
       }
 
   """
@@ -2209,17 +2170,6 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
-      natural_language_query_generation_options_input() :: %{
-        "DesiredState" => list(any())
-      }
-
-  """
-  @type natural_language_query_generation_options_input() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-
       domain_nodes_status() :: %{
         "AvailabilityZone" => String.t(),
         "InstanceType" => list(any()),
@@ -2451,17 +2401,6 @@ defmodule AWS.OpenSearch do
 
   """
   @type update_data_source_request() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      a_i_ml_options_input() :: %{
-        "NaturalLanguageQueryGenerationOptions" => natural_language_query_generation_options_input()
-      }
-
-  """
-  @type a_i_ml_options_input() :: %{String.t() => any()}
 
   @typedoc """
 

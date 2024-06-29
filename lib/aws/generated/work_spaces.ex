@@ -4716,8 +4716,7 @@ defmodule AWS.WorkSpaces do
   end
 
   @doc """
-  Retrieves a list that describes the streaming sessions for a specified
-  WorkSpaces pool.
+  Retrieves a list that describes the streaming sessions for a specified pool.
   """
   @spec describe_workspaces_pool_sessions(
           map(),
@@ -4734,7 +4733,7 @@ defmodule AWS.WorkSpaces do
   end
 
   @doc """
-  Describes the specified WorkSpaces pool.
+  Describes the specified WorkSpaces Pools.
   """
   @spec describe_workspaces_pools(map(), describe_workspaces_pools_request(), list()) ::
           {:ok, describe_workspaces_pools_result(), any()}
@@ -5249,9 +5248,9 @@ defmodule AWS.WorkSpaces do
   end
 
   @doc """
-  Starts the specified WorkSpaces pool.
+  Starts the specified pool.
 
-  You cannot start a WorkSpace pool unless it has a running mode of
+  You cannot start a pool unless it has a running mode of
   `AutoStop` and a state of `STOPPED`.
   """
   @spec start_workspaces_pool(map(), start_workspaces_pool_request(), list()) ::
@@ -5281,7 +5280,7 @@ defmodule AWS.WorkSpaces do
   end
 
   @doc """
-  Stops the specifiedWorkSpaces pool.
+  Stops the specified pool.
 
   You cannot stop a WorkSpace pool unless it has a running mode of `AutoStop`
   and a state of `AVAILABLE`, `IMPAIRED`, `UNHEALTHY`, or `ERROR`.
@@ -5344,7 +5343,7 @@ defmodule AWS.WorkSpaces do
   end
 
   @doc """
-  Terminates the specified WorkSpaces pool.
+  Terminates the specified pool.
   """
   @spec terminate_workspaces_pool(map(), terminate_workspaces_pool_request(), list()) ::
           {:ok, terminate_workspaces_pool_result(), any()}
@@ -5357,7 +5356,7 @@ defmodule AWS.WorkSpaces do
   end
 
   @doc """
-  Terminates the WorkSpaces pool session.
+  Terminates the pool session.
   """
   @spec terminate_workspaces_pool_session(
           map(),
@@ -5517,7 +5516,7 @@ defmodule AWS.WorkSpaces do
   end
 
   @doc """
-  Updates the specified WorkSpaces pool.
+  Updates the specified pool.
   """
   @spec update_workspaces_pool(map(), update_workspaces_pool_request(), list()) ::
           {:ok, update_workspaces_pool_result(), any()}

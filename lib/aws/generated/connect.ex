@@ -3,6 +3,16 @@
 
 defmodule AWS.Connect do
   @moduledoc """
+
+    *
+
+  [Amazon Connect actions](https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Service.html)
+
+    *
+
+  [Amazon Connect data
+  types](https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Service.html)
+
   Amazon Connect is a cloud-based contact center solution that you use to set up
   and
   manage a customer contact center and provide reliable customer engagement at any
@@ -2097,6 +2107,28 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      authentication_profile() :: %{
+        "AllowedIps" => list(String.t()()),
+        "Arn" => String.t(),
+        "BlockedIps" => list(String.t()()),
+        "CreatedTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "Id" => String.t(),
+        "IsDefault" => boolean(),
+        "LastModifiedRegion" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "MaxSessionDuration" => integer(),
+        "Name" => String.t(),
+        "PeriodicSessionDuration" => integer()
+      }
+
+  """
+  @type authentication_profile() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       evaluation_note() :: %{
         "Value" => String.t()
       }
@@ -2855,6 +2887,15 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      describe_authentication_profile_request() :: %{}
+
+  """
+  @type describe_authentication_profile_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       contact_flow_summary() :: %{
         "Arn" => String.t(),
         "ContactFlowState" => list(any()),
@@ -3285,6 +3326,22 @@ defmodule AWS.Connect do
 
   """
   @type list_security_keys_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      authentication_profile_summary() :: %{
+        "Arn" => String.t(),
+        "Id" => String.t(),
+        "IsDefault" => boolean(),
+        "LastModifiedRegion" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t()
+      }
+
+  """
+  @type authentication_profile_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3879,6 +3936,18 @@ defmodule AWS.Connect do
 
   """
   @type s3_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_authentication_profiles_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_authentication_profiles_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -7752,6 +7821,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      describe_authentication_profile_response() :: %{
+        "AuthenticationProfile" => authentication_profile()
+      }
+
+  """
+  @type describe_authentication_profile_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       disconnect_details() :: %{
         "PotentialDisconnectIssue" => String.t()
       }
@@ -8683,6 +8763,21 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      update_authentication_profile_request() :: %{
+        optional("AllowedIps") => list(String.t()()),
+        optional("BlockedIps") => list(String.t()()),
+        optional("Description") => String.t(),
+        optional("Name") => String.t(),
+        optional("PeriodicSessionDuration") => integer()
+      }
+
+  """
+  @type update_authentication_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_quick_connect_request() :: %{}
 
   """
@@ -8948,6 +9043,18 @@ defmodule AWS.Connect do
 
   """
   @type get_current_metric_data_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_authentication_profiles_response() :: %{
+        "AuthenticationProfileSummaryList" => list(authentication_profile_summary()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_authentication_profiles_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -9895,6 +10002,13 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type describe_authentication_profile_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type describe_contact_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
@@ -10255,6 +10369,13 @@ defmodule AWS.Connect do
           | internal_service_exception()
 
   @type list_approved_origins_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type list_authentication_profiles_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
           | invalid_request_exception()
@@ -10835,6 +10956,13 @@ defmodule AWS.Connect do
           duplicate_resource_exception()
           | limit_exceeded_exception()
           | throttling_exception()
+          | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type update_authentication_profile_errors() ::
+          throttling_exception()
           | invalid_parameter_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
@@ -13532,6 +13660,35 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
+  To
+  request access to this API, contact Amazon Web Services Support.
+
+  Describes the target authentication profile.
+  """
+  @spec describe_authentication_profile(map(), String.t(), String.t(), list()) ::
+          {:ok, describe_authentication_profile_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_authentication_profile_errors()}
+  def describe_authentication_profile(
+        %Client{} = client,
+        authentication_profile_id,
+        instance_id,
+        options \\ []
+      ) do
+    url_path =
+      "/authentication-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(authentication_profile_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
   Describes the specified contact.
 
   Contact information remains available in Amazon Connect for 24 months, and then
@@ -15190,6 +15347,55 @@ defmodule AWS.Connect do
         options \\ []
       ) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/approved-origins"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  To
+  request access to this API, contact Amazon Web Services Support.
+
+  Provides summary information about the authentication profiles in a specified
+  Amazon Connect instance.
+  """
+  @spec list_authentication_profiles(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_authentication_profiles_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_authentication_profiles_errors()}
+  def list_authentication_profiles(
+        %Client{} = client,
+        instance_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/authentication-profiles-summary/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     query_params = []
 
@@ -17828,7 +18034,7 @@ defmodule AWS.Connect do
   @doc """
   Provides a pre-signed Amazon S3 URL in response for uploading your content.
 
-  You may only use this API to upload attachments to a [Connect Case](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html).
+  You may only use this API to upload attachments to an [Amazon Connect Case](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html).
   """
   @spec start_attached_file_upload(
           map(),
@@ -18584,6 +18790,52 @@ defmodule AWS.Connect do
   def update_agent_status(%Client{} = client, agent_status_id, instance_id, input, options \\ []) do
     url_path =
       "/agent-status/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(agent_status_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  This API is in preview release for Amazon Connect and is subject to change.
+
+  To
+  request access to this API, contact Amazon Web Services Support.
+
+  Updates the selected authentication profile.
+  """
+  @spec update_authentication_profile(
+          map(),
+          String.t(),
+          String.t(),
+          update_authentication_profile_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_authentication_profile_errors()}
+  def update_authentication_profile(
+        %Client{} = client,
+        authentication_profile_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/authentication-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(authentication_profile_id)}"
 
     headers = []
     query_params = []

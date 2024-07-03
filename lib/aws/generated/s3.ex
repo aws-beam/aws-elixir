@@ -3585,6 +3585,12 @@ defmodule AWS.S3 do
         optional("PartNumber") => integer(),
         optional("Range") => String.t(),
         optional("RequestPayer") => list(any()),
+        optional("ResponseCacheControl") => String.t(),
+        optional("ResponseContentDisposition") => String.t(),
+        optional("ResponseContentEncoding") => String.t(),
+        optional("ResponseContentLanguage") => String.t(),
+        optional("ResponseContentType") => String.t(),
+        optional("ResponseExpires") => non_neg_integer(),
         optional("SSECustomerAlgorithm") => String.t(),
         optional("SSECustomerKey") => String.t(),
         optional("SSECustomerKeyMD5") => String.t(),
@@ -4656,11 +4662,10 @@ defmodule AWS.S3 do
 
   ### Response and special errors
 
-  When the request is an HTTP 1.1 request, the response is chunk encoded.
-  When the request is not an HTTP 1.1 request, the response would not contain the
-  `Content-Length`.
-  You always need to read the entire response body to check if the copy succeeds.
-  to keep the connection alive while we copy the data.
+  When the request is an HTTP 1.1 request, the response is chunk encoded. When
+  the request is not an HTTP 1.1 request, the response would not contain the
+  `Content-Length`. You always need to read the entire response body
+  to check if the copy succeeds.
 
     
   If the copy is successful, you receive a response with information about the
@@ -6739,7 +6744,7 @@ defmodule AWS.S3 do
 
 
   `s3:DeleteObjectVersion`
-  ** - To delete a specific version of an object from a versiong-enabled bucket,
+  ** - To delete a specific version of an object from a versioning-enabled bucket,
   you must specify the `s3:DeleteObjectVersion` permission.
 
     
@@ -9777,6 +9782,12 @@ defmodule AWS.S3 do
     {query_params, input} =
       [
         {"PartNumber", "partNumber"},
+        {"ResponseCacheControl", "response-cache-control"},
+        {"ResponseContentDisposition", "response-content-disposition"},
+        {"ResponseContentEncoding", "response-content-encoding"},
+        {"ResponseContentLanguage", "response-content-language"},
+        {"ResponseContentType", "response-content-type"},
+        {"ResponseExpires", "response-expires"},
         {"VersionId", "versionId"}
       ]
       |> Request.build_params(input)
@@ -14682,7 +14693,7 @@ defmodule AWS.S3 do
   ** permission to write the object copy to the destination bucket.
 
   For information about permissions required to use the multipart upload API, see
-  [Multipart Upload and Permissions](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html)
+  [Multipart upload API and permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html#mpuAndPermissions)
   in the
   *Amazon S3 User Guide*.
 
@@ -14698,10 +14709,10 @@ defmodule AWS.S3 do
   directory bucket, you must have the 
   `s3express:CreateSession`
   ##  permission in
-  the `Action` element of a policy to read the object
-  .
-  By default, the session is in the `ReadWrite` mode. If you want to restrict the
-  access, you can explicitly set the `s3express:SessionMode` condition key to
+  the `Action` element of a policy to read the object. By
+  default, the session is in the `ReadWrite` mode. If you
+  want to restrict the access, you can explicitly set the
+  `s3express:SessionMode` condition key to
   `ReadOnly` on the copy source bucket.
 
       

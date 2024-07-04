@@ -3272,6 +3272,7 @@ defmodule AWS.Rekognition do
       
       create_dataset_request() :: %{
         optional("DatasetSource") => dataset_source(),
+        optional("Tags") => map(),
         required("DatasetType") => list(any()),
         required("ProjectArn") => String.t()
       }
@@ -3435,6 +3436,7 @@ defmodule AWS.Rekognition do
       create_project_request() :: %{
         optional("AutoUpdate") => list(any()),
         optional("Feature") => list(any()),
+        optional("Tags") => map(),
         required("ProjectName") => String.t()
       }
       
@@ -6727,6 +6729,10 @@ defmodule AWS.Rekognition do
   populate the `NextToken` request parameter with the token value returned from
   the
   previous call to `GetLabelDetection`.
+
+  If you are retrieving results while using the Amazon Simple Notification
+  Service, note that you will receive an
+  "ERROR" notification if the job encounters an issue.
   """
   @spec get_label_detection(map(), get_label_detection_request(), list()) ::
           {:ok, get_label_detection_response(), any()}

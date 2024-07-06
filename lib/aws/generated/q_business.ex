@@ -27,38 +27,6 @@ defmodule AWS.QBusiness do
   in the
   *Amazon Q Business User Guide*.
 
-  You can use the following AWS SDKs to access Amazon Q Business APIs:
-
-    *
-
-  [AWS SDK for C++](https://docs.aws.amazon.com/sdk-for-cpp) 
-
-    *
-
-  [AWS SDK for Go](https://docs.aws.amazon.com/sdk-for-go)
-
-    *
-
-  [AWS SDK for Java](https://docs.aws.amazon.com/sdk-for-java) 
-
-    *
-
-  [AWS SDK for
-  JavaScript](https://docs.aws.amazon.com/sdk-for-javascript)
-
-    *
-
-  [AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net) 
-
-    *
-
-  [AWS SDK for Python
-  (Boto3)](https://docs.aws.amazon.com/pythonsdk)
-
-    *
-
-  [AWS SDK for Ruby](https://docs.aws.amazon.com/sdk-for-ruby) 
-
   The following resources provide additional information about using the Amazon Q
   Business
   API:
@@ -66,8 +34,7 @@ defmodule AWS.QBusiness do
     *
 
   *
-  [Setting up for
-  Amazon Q
+  [Setting up for Amazon Q
   Business](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/setting-up.html)
   *
 
@@ -1282,6 +1249,17 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      personalization_configuration() :: %{
+        "personalizationControlMode" => list(any())
+      }
+
+  """
+  @type personalization_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       attachment_input() :: %{
         "data" => binary(),
         "name" => String.t()
@@ -1324,6 +1302,7 @@ defmodule AWS.QBusiness do
         optional("description") => String.t(),
         optional("encryptionConfiguration") => encryption_configuration(),
         optional("identityCenterInstanceArn") => String.t(),
+        optional("personalizationConfiguration") => personalization_configuration(),
         optional("qAppsConfiguration") => q_apps_configuration(),
         optional("roleArn") => String.t(),
         optional("tags") => list(tag()()),
@@ -1616,6 +1595,7 @@ defmodule AWS.QBusiness do
         optional("description") => String.t(),
         optional("displayName") => String.t(),
         optional("identityCenterInstanceArn") => String.t(),
+        optional("personalizationConfiguration") => personalization_configuration(),
         optional("qAppsConfiguration") => q_apps_configuration(),
         optional("roleArn") => String.t()
       }
@@ -1702,6 +1682,7 @@ defmodule AWS.QBusiness do
         "encryptionConfiguration" => encryption_configuration(),
         "error" => error_detail(),
         "identityCenterApplicationArn" => String.t(),
+        "personalizationConfiguration" => personalization_configuration(),
         "qAppsConfiguration" => q_apps_configuration(),
         "roleArn" => String.t(),
         "status" => list(any()),
@@ -3316,10 +3297,10 @@ defmodule AWS.QBusiness do
   There are new tiers for Amazon Q Business. Not all features in Amazon Q Business
   Pro are
   also available in Amazon Q Business Lite. For information on what's included in
-  Amazon Q Business Lite and what's included in
-  Amazon Q Business Pro, see [Amazon Q Business tiers](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#user-sub-tiers).
-  You must use the Amazon Q Business console to assign subscription tiers to
-  users.
+  Amazon Q Business Lite and what's included in Amazon Q Business Pro, see [Amazon Q Business
+  tiers](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#user-sub-tiers).
+  You must use the Amazon Q Business console to assign
+  subscription tiers to users.
   """
   @spec create_application(map(), create_application_request(), list()) ::
           {:ok, create_application_response(), any()}

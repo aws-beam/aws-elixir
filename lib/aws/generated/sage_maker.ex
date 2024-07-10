@@ -1434,6 +1434,27 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      list_optimization_jobs_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("LastModifiedTimeAfter") => non_neg_integer(),
+        optional("LastModifiedTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("OptimizationContains") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("StatusEquals") => list(any())
+      }
+      
+  """
+  @type list_optimization_jobs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       s3_storage_config() :: %{
         "KmsKeyId" => String.t(),
         "ResolvedOutputS3Uri" => String.t(),
@@ -1709,6 +1730,17 @@ defmodule AWS.SageMaker do
       
   """
   @type update_project_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      optimization_job_model_source() :: %{
+        "S3" => optimization_job_model_source_s3()
+      }
+      
+  """
+  @type optimization_job_model_source() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2240,6 +2272,18 @@ defmodule AWS.SageMaker do
       
   """
   @type update_app_image_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      optimization_vpc_config() :: %{
+        "SecurityGroupIds" => list(String.t()()),
+        "Subnets" => list(String.t()())
+      }
+      
+  """
+  @type optimization_vpc_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3077,6 +3121,18 @@ defmodule AWS.SageMaker do
       
   """
   @type update_notebook_instance_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      optimization_job_output_config() :: %{
+        "KmsKeyId" => String.t(),
+        "S3OutputLocation" => String.t()
+      }
+      
+  """
+  @type optimization_job_output_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6477,6 +6533,26 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      create_optimization_job_request() :: %{
+        optional("OptimizationEnvironment") => map(),
+        optional("Tags") => list(tag()()),
+        optional("VpcConfig") => optimization_vpc_config(),
+        required("DeploymentInstanceType") => list(any()),
+        required("ModelSource") => optimization_job_model_source(),
+        required("OptimizationConfigs") => list(list()()),
+        required("OptimizationJobName") => String.t(),
+        required("OutputConfig") => optimization_job_output_config(),
+        required("RoleArn") => String.t(),
+        required("StoppingCondition") => stopping_condition()
+      }
+      
+  """
+  @type create_optimization_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       pending_deployment_summary() :: %{
         "EndpointConfigName" => String.t(),
         "ProductionVariants" => list(pending_production_variant_summary()()),
@@ -6689,6 +6765,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       container_definition() :: %{
+        "AdditionalModelDataSources" => list(additional_model_data_source()()),
         "ContainerHostname" => String.t(),
         "Environment" => map(),
         "Image" => String.t(),
@@ -7839,6 +7916,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      describe_optimization_job_request() :: %{
+        required("OptimizationJobName") => String.t()
+      }
+      
+  """
+  @type describe_optimization_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       trial_component_artifact() :: %{
         "MediaType" => String.t(),
         "Value" => String.t()
@@ -8362,6 +8450,33 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      describe_optimization_job_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DeploymentInstanceType" => list(any()),
+        "FailureReason" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "ModelSource" => optimization_job_model_source(),
+        "OptimizationConfigs" => list(list()()),
+        "OptimizationEndTime" => non_neg_integer(),
+        "OptimizationEnvironment" => map(),
+        "OptimizationJobArn" => String.t(),
+        "OptimizationJobName" => String.t(),
+        "OptimizationJobStatus" => list(any()),
+        "OptimizationOutput" => optimization_output(),
+        "OptimizationStartTime" => non_neg_integer(),
+        "OutputConfig" => optimization_job_output_config(),
+        "RoleArn" => String.t(),
+        "StoppingCondition" => stopping_condition(),
+        "VpcConfig" => optimization_vpc_config()
+      }
+      
+  """
+  @type describe_optimization_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_endpoints_output() :: %{
         "Endpoints" => list(endpoint_summary()()),
         "NextToken" => String.t()
@@ -8600,6 +8715,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       domain_settings_for_update() :: %{
+        "AmazonQSettings" => amazon_q_settings(),
         "DockerSettings" => docker_settings(),
         "ExecutionRoleIdentityConfig" => list(any()),
         "RStudioServerProDomainSettingsForUpdate" => r_studio_server_pro_domain_settings_for_update(),
@@ -8938,6 +9054,18 @@ defmodule AWS.SageMaker do
       
   """
   @type model_metadata_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      additional_model_data_source() :: %{
+        "ChannelName" => String.t(),
+        "S3DataSource" => s3_model_data_source()
+      }
+      
+  """
+  @type additional_model_data_source() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -9294,6 +9422,17 @@ defmodule AWS.SageMaker do
       
   """
   @type instance_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      optimization_output() :: %{
+        "RecommendedInferenceImage" => String.t()
+      }
+      
+  """
+  @type optimization_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -10347,6 +10486,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       domain_settings() :: %{
+        "AmazonQSettings" => amazon_q_settings(),
         "DockerSettings" => docker_settings(),
         "ExecutionRoleIdentityConfig" => list(any()),
         "RStudioServerProDomainSettings" => r_studio_server_pro_domain_settings(),
@@ -11078,6 +11218,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      optimization_job_model_source_s3() :: %{
+        "ModelAccessConfig" => optimization_model_access_config(),
+        "S3Uri" => String.t()
+      }
+      
+  """
+  @type optimization_job_model_source_s3() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       deployed_image() :: %{
         "ResolutionTime" => non_neg_integer(),
         "ResolvedImage" => String.t(),
@@ -11431,6 +11583,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      amazon_q_settings() :: %{
+        "QProfileArn" => String.t(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type amazon_q_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_project_output() :: %{
         "ProjectArn" => String.t()
       }
@@ -11505,6 +11669,17 @@ defmodule AWS.SageMaker do
       
   """
   @type describe_transform_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      optimization_model_access_config() :: %{
+        "AcceptEula" => boolean()
+      }
+      
+  """
+  @type optimization_model_access_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -11698,6 +11873,18 @@ defmodule AWS.SageMaker do
       
   """
   @type app_image_config_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      model_compilation_config() :: %{
+        "Image" => String.t(),
+        "OverrideEnvironment" => map()
+      }
+      
+  """
+  @type model_compilation_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -13995,6 +14182,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      stop_optimization_job_request() :: %{
+        required("OptimizationJobName") => String.t()
+      }
+      
+  """
+  @type stop_optimization_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       deployment_stage_status_summary() :: %{
         "DeploymentConfig" => edge_deployment_config(),
         "DeploymentStatus" => edge_deployment_status(),
@@ -14686,6 +14884,17 @@ defmodule AWS.SageMaker do
       
   """
   @type list_notebook_instance_lifecycle_configs_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_optimization_job_response() :: %{
+        "OptimizationJobArn" => String.t()
+      }
+      
+  """
+  @type create_optimization_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -16066,6 +16275,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      model_quantization_config() :: %{
+        "Image" => String.t(),
+        "OverrideEnvironment" => map()
+      }
+      
+  """
+  @type model_quantization_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       condition_step_metadata() :: %{
         "Outcome" => list(any())
       }
@@ -16208,6 +16429,25 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      optimization_job_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DeploymentInstanceType" => list(any()),
+        "LastModifiedTime" => non_neg_integer(),
+        "OptimizationEndTime" => non_neg_integer(),
+        "OptimizationJobArn" => String.t(),
+        "OptimizationJobName" => String.t(),
+        "OptimizationJobStatus" => list(any()),
+        "OptimizationStartTime" => non_neg_integer(),
+        "OptimizationTypes" => list(String.t()())
+      }
+      
+  """
+  @type optimization_job_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_edge_packaging_job_request() :: %{
         optional("ResourceKey") => String.t(),
         optional("Tags") => list(tag()()),
@@ -16232,6 +16472,17 @@ defmodule AWS.SageMaker do
       
   """
   @type create_monitoring_schedule_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_optimization_job_request() :: %{
+        required("OptimizationJobName") => String.t()
+      }
+      
+  """
+  @type delete_optimization_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -16350,6 +16601,18 @@ defmodule AWS.SageMaker do
       
   """
   @type production_variant_core_dump_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_optimization_jobs_response() :: %{
+        "NextToken" => String.t(),
+        "OptimizationJobSummaries" => list(optimization_job_summary()())
+      }
+      
+  """
+  @type list_optimization_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -16779,6 +17042,8 @@ defmodule AWS.SageMaker do
 
   @type create_notebook_instance_lifecycle_config_errors() :: resource_limit_exceeded()
 
+  @type create_optimization_job_errors() :: resource_limit_exceeded() | resource_in_use()
+
   @type create_pipeline_errors() ::
           resource_limit_exceeded() | conflict_exception() | resource_not_found()
 
@@ -16873,6 +17138,8 @@ defmodule AWS.SageMaker do
 
   @type delete_monitoring_schedule_errors() :: resource_not_found()
 
+  @type delete_optimization_job_errors() :: resource_not_found()
+
   @type delete_pipeline_errors() :: conflict_exception() | resource_not_found()
 
   @type delete_project_errors() :: conflict_exception()
@@ -16962,6 +17229,8 @@ defmodule AWS.SageMaker do
   @type describe_model_quality_job_definition_errors() :: resource_not_found()
 
   @type describe_monitoring_schedule_errors() :: resource_not_found()
+
+  @type describe_optimization_job_errors() :: resource_not_found()
 
   @type describe_pipeline_errors() :: resource_not_found()
 
@@ -17081,6 +17350,8 @@ defmodule AWS.SageMaker do
   @type stop_mlflow_tracking_server_errors() :: conflict_exception() | resource_not_found()
 
   @type stop_monitoring_schedule_errors() :: resource_not_found()
+
+  @type stop_optimization_job_errors() :: resource_not_found()
 
   @type stop_pipeline_execution_errors() :: conflict_exception() | resource_not_found()
 
@@ -17595,12 +17866,12 @@ defmodule AWS.SageMaker do
   @doc """
   Creates a `Domain`.
 
-  A domain consists of an associated Amazon Elastic File System volume, a list
-  of authorized users, and a variety of security, application, policy, and Amazon
-  Virtual Private Cloud (VPC)
-  configurations. Users within a domain can share notebook files and other
-  artifacts with each
-  other.
+  A domain consists of an associated Amazon Elastic File System
+  volume, a list of authorized users, and a variety of security, application,
+  policy, and
+  Amazon Virtual Private Cloud (VPC) configurations. Users within a domain can
+  share notebook files
+  and other artifacts with each other.
 
   ## EFS storage
 
@@ -17611,22 +17882,22 @@ defmodule AWS.SageMaker do
   repositories, and data files.
 
   SageMaker uses the Amazon Web Services Key Management Service (Amazon Web
-  Services KMS) to
-  encrypt the EFS volume attached to the domain with an Amazon Web Services
-  managed key by
-  default. For more control, you can specify a customer managed key. For more
-  information, see
-  [Protect Data at Rest Using
+  Services
+  KMS) to encrypt the EFS volume attached to the domain with an Amazon Web
+  Services managed key
+  by default. For more control, you can specify a customer managed key. For more
+  information,
+  see [Protect Data at Rest Using
   Encryption](https://docs.aws.amazon.com/sagemaker/latest/dg/encryption-at-rest.html).
 
   ## VPC configuration
 
   All traffic between the domain and the Amazon EFS volume is through the
-  specified VPC and
-  subnets. For other traffic, you can specify the `AppNetworkAccessType`
-  parameter.
-  `AppNetworkAccessType` corresponds to the network access type that you choose
-  when you onboard to the domain. The following options are available:
+  specified
+  VPC and subnets. For other traffic, you can specify the `AppNetworkAccessType`
+  parameter. `AppNetworkAccessType` corresponds to the network access type that
+  you
+  choose when you onboard to the domain. The following options are available:
 
     *
 
@@ -17640,10 +17911,10 @@ defmodule AWS.SageMaker do
   gateway.
 
   When internet access is disabled, you won't be able to run a Amazon SageMaker
-  Studio notebook
-  or to train or host models unless your VPC has an interface endpoint to the
-  SageMaker API and
-  runtime or a NAT gateway and your security groups allow outbound connections.
+  Studio notebook or to train or host models unless your VPC has an interface
+  endpoint to
+  the SageMaker API and runtime or a NAT gateway and your security groups allow
+  outbound connections.
 
   NFS traffic over TCP on port 2049 needs to be allowed in both inbound and
   outbound rules
@@ -18526,6 +18797,30 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Creates a job that optimizes a model for inference performance.
+
+  To create the job, you
+  provide the location of a source model, and you provide the settings for the
+  optimization
+  techniques that you want the job to apply. When the job completes successfully,
+  SageMaker
+  uploads the new optimized model to the output destination that you specify.
+
+  For more information about how to use this action, and about the supported
+  optimization
+  techniques, see [Optimize model inference with Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/model-optimize.html).
+  """
+  @spec create_optimization_job(map(), create_optimization_job_request(), list()) ::
+          {:ok, create_optimization_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_optimization_job_errors()}
+  def create_optimization_job(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateOptimizationJob", input, options)
+  end
+
+  @doc """
   Creates a pipeline using a JSON pipeline definition.
   """
   @spec create_pipeline(map(), create_pipeline_request(), list()) ::
@@ -18541,31 +18836,30 @@ defmodule AWS.SageMaker do
   @doc """
   Creates a URL for a specified UserProfile in a Domain.
 
-  When accessed in a web browser,
-  the user will be automatically signed in to the domain, and granted access to
-  all of
-  the Apps and files associated with the Domain's Amazon Elastic File System
-  volume.
-  This operation can only be called when the authentication mode equals IAM.
+  When accessed in a web browser, the
+  user will be automatically signed in to the domain, and granted access to all of
+  the Apps and
+  files associated with the Domain's Amazon Elastic File System volume. This
+  operation can only be
+  called when the authentication mode equals IAM.
 
-  The IAM role or user passed to this API defines the permissions to access the
-  app. Once
-  the presigned URL is created, no additional permission is required to access
-  this URL. IAM
-  authorization policies for this API are also enforced for every HTTP request and
-  WebSocket
-  frame that attempts to connect to the app.
+  The IAM role or user passed to this API defines the permissions to access
+  the app. Once the presigned URL is created, no additional permission is required
+  to access
+  this URL. IAM authorization policies for this API are also enforced for every
+  HTTP request and WebSocket frame that attempts to connect to the app.
 
-  You can restrict access to this API and to the
-  URL that it returns to a list of IP addresses, Amazon VPCs or Amazon VPC
-  Endpoints that you specify. For more
-  information, see [Connect to Amazon SageMaker Studio Through an Interface VPC Endpoint](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-interface-endpoint.html)
+  You can restrict access to this API and to the URL that it returns to a list of
+  IP
+  addresses, Amazon VPCs or Amazon VPC Endpoints that you specify. For more
+  information, see [Connect to Amazon SageMaker Studio Through an Interface VPC
+  Endpoint](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-interface-endpoint.html)
   .
 
   The URL that you get from a call to `CreatePresignedDomainUrl` has a default
   timeout of 5 minutes. You can configure this value using `ExpiresInSeconds`. If
-  you try to use the URL after the timeout limit expires, you
-  are directed to the Amazon Web Services console sign-in page.
+  you try to use the URL after the timeout limit expires, you are directed to the
+  Amazon Web Services console sign-in page.
   """
   @spec create_presigned_domain_url(map(), create_presigned_domain_url_request(), list()) ::
           {:ok, create_presigned_domain_url_response(), any()}
@@ -18920,10 +19214,11 @@ defmodule AWS.SageMaker do
   user-oriented features. This entity is created when a user onboards to a domain.
   If an
   administrator invites a person by email or imports them from IAM Identity
-  Center, a user profile is
-  automatically created. A user profile is the primary holder of settings for an
-  individual
-  user and has a reference to the user's private Amazon Elastic File System home
+  Center, a user
+  profile is automatically created. A user profile is the primary holder of
+  settings for an
+  individual user and has a reference to the user's private Amazon Elastic File
+  System home
   directory.
   """
   @spec create_user_profile(map(), create_user_profile_request(), list()) ::
@@ -19679,6 +19974,19 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Deletes an optimization job.
+  """
+  @spec delete_optimization_job(map(), delete_optimization_job_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_optimization_job_errors()}
+  def delete_optimization_job(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteOptimizationJob", input, options)
+  end
+
+  @doc """
   Deletes a pipeline if there are no running instances of the pipeline.
 
   To delete a
@@ -19725,9 +20033,12 @@ defmodule AWS.SageMaker do
   @doc """
   Deletes the Amazon SageMaker Studio Lifecycle Configuration.
 
-  In order to delete the Lifecycle Configuration, there must be no running apps
-  using the Lifecycle Configuration. You must also remove the Lifecycle
-  Configuration from UserSettings in all Domains and UserProfiles.
+  In order to delete the
+  Lifecycle Configuration, there must be no running apps using the Lifecycle
+  Configuration. You
+  must also remove the Lifecycle Configuration from UserSettings in all Domains
+  and
+  UserProfiles.
   """
   @spec delete_studio_lifecycle_config(map(), delete_studio_lifecycle_config_request(), list()) ::
           {:ok, nil, any()}
@@ -20544,6 +20855,19 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeNotebookInstanceLifecycleConfig", input, options)
+  end
+
+  @doc """
+  Provides the properties of the specified optimization job.
+  """
+  @spec describe_optimization_job(map(), describe_optimization_job_request(), list()) ::
+          {:ok, describe_optimization_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_optimization_job_errors()}
+  def describe_optimization_job(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeOptimizationJob", input, options)
   end
 
   @doc """
@@ -21709,6 +22033,18 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Lists the optimization jobs in your account and their properties.
+  """
+  @spec list_optimization_jobs(map(), list_optimization_jobs_request(), list()) ::
+          {:ok, list_optimization_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def list_optimization_jobs(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListOptimizationJobs", input, options)
+  end
+
+  @doc """
   Gets a list of `PipeLineExecutionStep` objects.
   """
   @spec list_pipeline_execution_steps(map(), list_pipeline_execution_steps_request(), list()) ::
@@ -21829,7 +22165,8 @@ defmodule AWS.SageMaker do
 
   @doc """
   Lists the Amazon SageMaker Studio Lifecycle Configurations in your Amazon Web
-  Services Account.
+  Services
+  Account.
   """
   @spec list_studio_lifecycle_configs(map(), list_studio_lifecycle_configs_request(), list()) ::
           {:ok, list_studio_lifecycle_configs_response(), any()}
@@ -22445,6 +22782,19 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "StopNotebookInstance", input, options)
+  end
+
+  @doc """
+  Ends a running inference optimization job.
+  """
+  @spec stop_optimization_job(map(), stop_optimization_job_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, stop_optimization_job_errors()}
+  def stop_optimization_job(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopOptimizationJob", input, options)
   end
 
   @doc """

@@ -874,6 +874,7 @@ defmodule AWS.FSx do
         "DailyAutomaticBackupStartTime" => String.t(),
         "DiskIopsConfiguration" => disk_iops_configuration(),
         "FsxAdminPassword" => String.t(),
+        "HAPairs" => integer(),
         "RemoveRouteTableIds" => list(String.t()()),
         "ThroughputCapacity" => integer(),
         "ThroughputCapacityPerHAPair" => integer(),

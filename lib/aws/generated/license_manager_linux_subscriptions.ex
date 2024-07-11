@@ -15,6 +15,26 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
 
   ## Example:
 
+      deregister_subscription_provider_request() :: %{
+        required("SubscriptionProviderArn") => String.t()
+      }
+
+  """
+  @type deregister_subscription_provider_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deregister_subscription_provider_response() :: %{}
+
+  """
+  @type deregister_subscription_provider_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       filter() :: %{
         "Name" => [String.t()],
         "Operator" => String.t(),
@@ -23,6 +43,33 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
 
   """
   @type filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_registered_subscription_provider_request() :: %{
+        required("SubscriptionProviderArn") => String.t()
+      }
+
+  """
+  @type get_registered_subscription_provider_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_registered_subscription_provider_response() :: %{
+        "LastSuccessfulDataRetrievalTime" => [String.t()],
+        "SecretArn" => String.t(),
+        "SubscriptionProviderArn" => String.t(),
+        "SubscriptionProviderSource" => String.t(),
+        "SubscriptionProviderStatus" => String.t(),
+        "SubscriptionProviderStatusMessage" => [String.t()]
+      }
+
+  """
+  @type get_registered_subscription_provider_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -55,13 +102,18 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
       instance() :: %{
         "AccountID" => [String.t()],
         "AmiId" => [String.t()],
+        "DualSubscription" => [String.t()],
         "InstanceID" => [String.t()],
         "InstanceType" => [String.t()],
         "LastUpdatedTime" => [String.t()],
+        "OsVersion" => [String.t()],
         "ProductCode" => list([String.t()]()),
         "Region" => [String.t()],
+        "RegisteredWithSubscriptionProvider" => [String.t()],
         "Status" => [String.t()],
         "SubscriptionName" => [String.t()],
+        "SubscriptionProviderCreateTime" => [String.t()],
+        "SubscriptionProviderUpdateTime" => [String.t()],
         "UsageOperation" => [String.t()]
       }
 
@@ -145,6 +197,104 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
 
   ## Example:
 
+      list_registered_subscription_providers_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t()],
+        optional("SubscriptionProviderSources") => list(String.t()())
+      }
+
+  """
+  @type list_registered_subscription_providers_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_registered_subscription_providers_response() :: %{
+        "NextToken" => [String.t()],
+        "RegisteredSubscriptionProviders" => list(registered_subscription_provider()())
+      }
+
+  """
+  @type list_registered_subscription_providers_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_subscription_provider_request() :: %{
+        optional("Tags") => map(),
+        required("SecretArn") => String.t(),
+        required("SubscriptionProviderSource") => String.t()
+      }
+
+  """
+  @type register_subscription_provider_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_subscription_provider_response() :: %{
+        "SubscriptionProviderArn" => [String.t()],
+        "SubscriptionProviderSource" => String.t(),
+        "SubscriptionProviderStatus" => String.t()
+      }
+
+  """
+  @type register_subscription_provider_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      registered_subscription_provider() :: %{
+        "LastSuccessfulDataRetrievalTime" => [String.t()],
+        "SecretArn" => String.t(),
+        "SubscriptionProviderArn" => String.t(),
+        "SubscriptionProviderSource" => String.t(),
+        "SubscriptionProviderStatus" => String.t(),
+        "SubscriptionProviderStatusMessage" => [String.t()]
+      }
+
+  """
+  @type registered_subscription_provider() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       subscription() :: %{
         "InstanceCount" => float(),
         "Name" => [String.t()],
@@ -158,12 +308,52 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
 
   ## Example:
 
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       throttling_exception() :: %{
         "message" => [String.t()]
       }
 
   """
   @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list([String.t()]())
+      }
+
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
@@ -204,6 +394,18 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   """
   @type validation_exception() :: %{String.t() => any()}
 
+  @type deregister_subscription_provider_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+
+  @type get_registered_subscription_provider_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+
   @type get_service_settings_errors() ::
           validation_exception() | throttling_exception() | internal_server_exception()
 
@@ -212,6 +414,20 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
 
   @type list_linux_subscriptions_errors() ::
           validation_exception() | throttling_exception() | internal_server_exception()
+
+  @type list_registered_subscription_providers_errors() ::
+          validation_exception() | throttling_exception() | internal_server_exception()
+
+  @type list_tags_for_resource_errors() ::
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
+
+  @type register_subscription_provider_errors() ::
+          validation_exception() | throttling_exception() | internal_server_exception()
+
+  @type tag_resource_errors() ::
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
+
+  @type untag_resource_errors() :: resource_not_found_exception() | internal_server_exception()
 
   @type update_service_settings_errors() ::
           validation_exception() | throttling_exception() | internal_server_exception()
@@ -233,7 +449,72 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   end
 
   @doc """
-  Lists the Linux subscriptions service settings.
+  Remove a third-party subscription provider from the Bring Your Own License
+  (BYOL) subscriptions
+  registered to your account.
+  """
+  @spec deregister_subscription_provider(
+          map(),
+          deregister_subscription_provider_request(),
+          list()
+        ) ::
+          {:ok, deregister_subscription_provider_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, deregister_subscription_provider_errors()}
+  def deregister_subscription_provider(%Client{} = client, input, options \\ []) do
+    url_path = "/subscription/DeregisterSubscriptionProvider"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Get details for a Bring Your Own License (BYOL) subscription that's registered
+  to your account.
+  """
+  @spec get_registered_subscription_provider(
+          map(),
+          get_registered_subscription_provider_request(),
+          list()
+        ) ::
+          {:ok, get_registered_subscription_provider_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_registered_subscription_provider_errors()}
+  def get_registered_subscription_provider(%Client{} = client, input, options \\ []) do
+    url_path = "/subscription/GetRegisteredSubscriptionProvider"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists the Linux subscriptions service settings for your account.
   """
   @spec get_service_settings(map(), get_service_settings_request(), list()) ::
           {:ok, get_service_settings_response(), any()}
@@ -315,6 +596,133 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  List Bring Your Own License (BYOL) subscription registration resources for your
+  account.
+  """
+  @spec list_registered_subscription_providers(
+          map(),
+          list_registered_subscription_providers_request(),
+          list()
+        ) ::
+          {:ok, list_registered_subscription_providers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_registered_subscription_providers_errors()}
+  def list_registered_subscription_providers(%Client{} = client, input, options \\ []) do
+    url_path = "/subscription/ListRegisteredSubscriptionProviders"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  List the metadata tags that are assigned to the
+  specified Amazon Web Services resource.
+  """
+  @spec list_tags_for_resource(map(), String.t(), list()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_tags_for_resource_errors()}
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Register the supported third-party subscription provider for your Bring Your Own
+  License (BYOL) subscription.
+  """
+  @spec register_subscription_provider(map(), register_subscription_provider_request(), list()) ::
+          {:ok, register_subscription_provider_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, register_subscription_provider_errors()}
+  def register_subscription_provider(%Client{} = client, input, options \\ []) do
+    url_path = "/subscription/RegisterSubscriptionProvider"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Add metadata tags to the specified Amazon Web Services resource.
+  """
+  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_resource_errors()}
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Remove one or more metadata tag from the specified Amazon Web Services resource.
+  """
+  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_resource_errors()}
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"tagKeys", "tagKeys"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
       url_path,
       query_params,
       headers,

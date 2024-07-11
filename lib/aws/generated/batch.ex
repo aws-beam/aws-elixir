@@ -355,6 +355,7 @@ defmodule AWS.Batch do
       node_property_override() :: %{
         "containerOverrides" => container_overrides(),
         "ecsPropertiesOverride" => ecs_properties_override(),
+        "eksPropertiesOverride" => eks_properties_override(),
         "instanceTypes" => list(String.t()()),
         "targetNodes" => String.t()
       }
@@ -1083,6 +1084,7 @@ defmodule AWS.Batch do
 
       eks_attempt_detail() :: %{
         "containers" => list(eks_attempt_container_detail()()),
+        "eksClusterArn" => String.t(),
         "initContainers" => list(eks_attempt_container_detail()()),
         "nodeName" => String.t(),
         "podName" => String.t(),
@@ -1401,6 +1403,7 @@ defmodule AWS.Batch do
       node_range_property() :: %{
         "container" => container_properties(),
         "ecsProperties" => ecs_properties(),
+        "eksProperties" => eks_properties(),
         "instanceTypes" => list(String.t()()),
         "targetNodes" => String.t()
       }

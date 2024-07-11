@@ -1928,6 +1928,7 @@ defmodule AWS.MediaConnect do
         optional("MaxLatency") => integer(),
         optional("MediaStreamOutputConfigurations") => list(media_stream_output_configuration_request()()),
         optional("MinLatency") => integer(),
+        optional("OutputStatus") => list(any()),
         optional("Port") => integer(),
         optional("Protocol") => list(any()),
         optional("RemoteId") => String.t(),
@@ -2356,6 +2357,7 @@ defmodule AWS.MediaConnect do
         "MediaStreamOutputConfigurations" => list(media_stream_output_configuration()()),
         "Name" => String.t(),
         "OutputArn" => String.t(),
+        "OutputStatus" => list(any()),
         "Port" => integer(),
         "Transport" => transport(),
         "VpcInterfaceAttachment" => vpc_interface_attachment()
@@ -2451,6 +2453,7 @@ defmodule AWS.MediaConnect do
         "MediaStreamOutputConfigurations" => list(media_stream_output_configuration_request()()),
         "MinLatency" => integer(),
         "Name" => String.t(),
+        "OutputStatus" => list(any()),
         "Port" => integer(),
         "Protocol" => list(any()),
         "RemoteId" => String.t(),

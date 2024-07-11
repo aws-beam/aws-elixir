@@ -34,6 +34,32 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      update_flow_request() :: %{
+        optional("customerEncryptionKeyArn") => String.t(),
+        optional("definition") => flow_definition(),
+        optional("description") => String.t(),
+        required("executionRoleArn") => String.t(),
+        required("name") => String.t()
+      }
+
+  """
+  @type update_flow_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      storage_flow_node_s3_configuration() :: %{
+        "bucketName" => String.t()
+      }
+
+  """
+  @type storage_flow_node_s3_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       ingestion_job_statistics() :: %{
         "numberOfDocumentsDeleted" => [float()],
         "numberOfDocumentsFailed" => [float()],
@@ -46,6 +72,19 @@ defmodule AWS.BedrockAgent do
 
   """
   @type ingestion_job_statistics() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_flow_alias_request() :: %{
+        optional("description") => String.t(),
+        required("name") => String.t(),
+        required("routingConfiguration") => list(flow_alias_routing_configuration_list_item()())
+      }
+
+  """
+  @type update_flow_alias_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -79,12 +118,129 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      share_point_data_source_configuration() :: %{
+        "crawlerConfiguration" => share_point_crawler_configuration(),
+        "sourceConfiguration" => share_point_source_configuration()
+      }
+
+  """
+  @type share_point_data_source_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      text_prompt_template_configuration() :: %{
+        "inputVariables" => list(prompt_input_variable()()),
+        "text" => String.t()
+      }
+
+  """
+  @type text_prompt_template_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_flow_alias_response() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t(),
+        "flowId" => String.t(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "routingConfiguration" => list(flow_alias_routing_configuration_list_item()()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type update_flow_alias_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      memory_configuration() :: %{
+        "enabledMemoryTypes" => list(list(any())()),
+        "storageDays" => integer()
+      }
+
+  """
+  @type memory_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_agent_alias_response() :: %{
         "agentAlias" => agent_alias()
       }
 
   """
   @type get_agent_alias_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_prompt_version_response() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "customerEncryptionKeyArn" => String.t(),
+        "defaultVariant" => String.t(),
+        "description" => String.t(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "updatedAt" => non_neg_integer(),
+        "variants" => list(prompt_variant()()),
+        "version" => String.t()
+      }
+
+  """
+  @type create_prompt_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_condition() :: %{
+        "expression" => String.t(),
+        "name" => String.t()
+      }
+
+  """
+  @type flow_condition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      prompt_flow_node_inline_configuration() :: %{
+        "inferenceConfiguration" => list(),
+        "modelId" => String.t(),
+        "templateConfiguration" => list(),
+        "templateType" => list(any())
+      }
+
+  """
+  @type prompt_flow_node_inline_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      prompt_summary() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "updatedAt" => non_neg_integer(),
+        "version" => String.t()
+      }
+
+  """
+  @type prompt_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -97,6 +253,34 @@ defmodule AWS.BedrockAgent do
 
   """
   @type list_agents_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      storage_flow_node_configuration() :: %{
+        "serviceConfiguration" => list()
+      }
+
+  """
+  @type storage_flow_node_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_flow_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("customerEncryptionKeyArn") => String.t(),
+        optional("definition") => flow_definition(),
+        optional("description") => String.t(),
+        optional("tags") => map(),
+        required("executionRoleArn") => String.t(),
+        required("name") => String.t()
+      }
+
+  """
+  @type create_flow_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -132,8 +316,12 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       data_source_configuration() :: %{
+        "confluenceConfiguration" => confluence_data_source_configuration(),
         "s3Configuration" => s3_data_source_configuration(),
-        "type" => list(any())
+        "salesforceConfiguration" => salesforce_data_source_configuration(),
+        "sharePointConfiguration" => share_point_data_source_configuration(),
+        "type" => list(any()),
+        "webConfiguration" => web_data_source_configuration()
       }
 
   """
@@ -147,6 +335,28 @@ defmodule AWS.BedrockAgent do
 
   """
   @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      pattern_object_filter_configuration() :: %{
+        "filters" => list(pattern_object_filter()())
+      }
+
+  """
+  @type pattern_object_filter_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      web_source_configuration() :: %{
+        "urlConfiguration" => url_configuration()
+      }
+
+  """
+  @type web_source_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -203,6 +413,30 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      transformation() :: %{
+        "stepToApply" => list(any()),
+        "transformationFunction" => transformation_function()
+      }
+
+  """
+  @type transformation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_transformation_configuration() :: %{
+        "intermediateStorage" => intermediate_storage(),
+        "transformations" => list(transformation()())
+      }
+
+  """
+  @type custom_transformation_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_agent_request() :: %{
         optional("agentResourceRoleArn") => String.t(),
         optional("clientToken") => String.t(),
@@ -212,6 +446,7 @@ defmodule AWS.BedrockAgent do
         optional("guardrailConfiguration") => guardrail_configuration(),
         optional("idleSessionTTLInSeconds") => integer(),
         optional("instruction") => String.t(),
+        optional("memoryConfiguration") => memory_configuration(),
         optional("promptOverrideConfiguration") => prompt_override_configuration(),
         optional("tags") => map(),
         required("agentName") => String.t()
@@ -219,6 +454,64 @@ defmodule AWS.BedrockAgent do
 
   """
   @type create_agent_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_flow_response() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "customerEncryptionKeyArn" => String.t(),
+        "definition" => flow_definition(),
+        "description" => String.t(),
+        "executionRoleArn" => String.t(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer(),
+        "validations" => list(flow_validation()()),
+        "version" => String.t()
+      }
+
+  """
+  @type get_flow_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_data_connection_configuration() :: %{
+        "sourceOutput" => String.t(),
+        "targetInput" => String.t()
+      }
+
+  """
+  @type flow_data_connection_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      salesforce_data_source_configuration() :: %{
+        "crawlerConfiguration" => salesforce_crawler_configuration(),
+        "sourceConfiguration" => salesforce_source_configuration()
+      }
+
+  """
+  @type salesforce_data_source_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_prompts_response() :: %{
+        "nextToken" => String.t(),
+        "promptSummaries" => list(prompt_summary()())
+      }
+
+  """
+  @type list_prompts_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -286,6 +579,32 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      flow_node() :: %{
+        "configuration" => list(),
+        "inputs" => list(flow_node_input()()),
+        "name" => String.t(),
+        "outputs" => list(flow_node_output()()),
+        "type" => list(any())
+      }
+
+  """
+  @type flow_node() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_flow_request() :: %{
+        optional("skipResourceInUseCheck") => [boolean()]
+      }
+
+  """
+  @type delete_flow_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_knowledge_base_request() :: %{
         optional("description") => String.t(),
         required("knowledgeBaseConfiguration") => knowledge_base_configuration(),
@@ -301,6 +620,18 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      flow_validation() :: %{
+        "message" => String.t(),
+        "severity" => list(any())
+      }
+
+  """
+  @type flow_validation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       parameter_detail() :: %{
         "description" => String.t(),
         "required" => [boolean()],
@@ -309,6 +640,38 @@ defmodule AWS.BedrockAgent do
 
   """
   @type parameter_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_definition() :: %{
+        "connections" => list(flow_connection()()),
+        "nodes" => list(flow_node()())
+      }
+
+  """
+  @type flow_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_flow_version_response() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "customerEncryptionKeyArn" => String.t(),
+        "definition" => flow_definition(),
+        "description" => String.t(),
+        "executionRoleArn" => String.t(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "status" => list(any()),
+        "version" => String.t()
+      }
+
+  """
+  @type get_flow_version_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -339,6 +702,51 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      list_flow_versions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_flow_versions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_prompt_response() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "customerEncryptionKeyArn" => String.t(),
+        "defaultVariant" => String.t(),
+        "description" => String.t(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "updatedAt" => non_neg_integer(),
+        "variants" => list(prompt_variant()()),
+        "version" => String.t()
+      }
+
+  """
+  @type update_prompt_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_node_input() :: %{
+        "expression" => String.t(),
+        "name" => String.t(),
+        "type" => list(any())
+      }
+
+  """
+  @type flow_node_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       prepare_agent_response() :: %{
         "agentId" => String.t(),
         "agentStatus" => list(any()),
@@ -348,6 +756,26 @@ defmodule AWS.BedrockAgent do
 
   """
   @type prepare_agent_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      iterator_flow_node_configuration() :: %{}
+
+  """
+  @type iterator_flow_node_configuration() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      prompt_input_variable() :: %{
+        "name" => String.t()
+      }
+
+  """
+  @type prompt_input_variable() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -364,6 +792,27 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      create_flow_response() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "customerEncryptionKeyArn" => String.t(),
+        "definition" => flow_definition(),
+        "description" => String.t(),
+        "executionRoleArn" => String.t(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer(),
+        "version" => String.t()
+      }
+
+  """
+  @type create_flow_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       rds_configuration() :: %{
         "credentialsSecretArn" => String.t(),
         "databaseName" => String.t(),
@@ -374,6 +823,17 @@ defmodule AWS.BedrockAgent do
 
   """
   @type rds_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_flow_response() :: %{
+        "id" => String.t()
+      }
+
+  """
+  @type delete_flow_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -396,6 +856,30 @@ defmodule AWS.BedrockAgent do
 
   """
   @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      parsing_configuration() :: %{
+        "bedrockFoundationModelConfiguration" => bedrock_foundation_model_configuration(),
+        "parsingStrategy" => list(any())
+      }
+
+  """
+  @type parsing_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_flow_aliases_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_flow_aliases_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -427,6 +911,17 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      share_point_crawler_configuration() :: %{
+        "filterConfiguration" => crawl_filter_configuration()
+      }
+
+  """
+  @type share_point_crawler_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       action_group_summary() :: %{
         "actionGroupId" => String.t(),
         "actionGroupName" => String.t(),
@@ -437,6 +932,36 @@ defmodule AWS.BedrockAgent do
 
   """
   @type action_group_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      knowledge_base_flow_node_configuration() :: %{
+        "knowledgeBaseId" => String.t(),
+        "modelId" => String.t()
+      }
+
+  """
+  @type knowledge_base_flow_node_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_flow_alias_response() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t(),
+        "flowId" => String.t(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "routingConfiguration" => list(flow_alias_routing_configuration_list_item()()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type create_flow_alias_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -453,6 +978,18 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      delete_prompt_response() :: %{
+        "id" => String.t(),
+        "version" => String.t()
+      }
+
+  """
+  @type delete_prompt_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_agent_versions_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
@@ -460,6 +997,19 @@ defmodule AWS.BedrockAgent do
 
   """
   @type list_agent_versions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      salesforce_source_configuration() :: %{
+        "authType" => list(any()),
+        "credentialsSecretArn" => String.t(),
+        "hostUrl" => String.t()
+      }
+
+  """
+  @type salesforce_source_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -484,12 +1034,81 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      delete_prompt_request() :: %{
+        optional("promptVersion") => String.t()
+      }
+
+  """
+  @type delete_prompt_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hierarchical_chunking_configuration() :: %{
+        "levelConfigurations" => list(hierarchical_chunking_level_configuration()()),
+        "overlapTokens" => [integer()]
+      }
+
+  """
+  @type hierarchical_chunking_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_connection() :: %{
+        "configuration" => list(),
+        "name" => String.t(),
+        "source" => String.t(),
+        "target" => String.t(),
+        "type" => list(any())
+      }
+
+  """
+  @type flow_connection() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_prompt_response() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "customerEncryptionKeyArn" => String.t(),
+        "defaultVariant" => String.t(),
+        "description" => String.t(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "updatedAt" => non_neg_integer(),
+        "variants" => list(prompt_variant()()),
+        "version" => String.t()
+      }
+
+  """
+  @type get_prompt_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_agent_action_group_response() :: %{
         "agentActionGroup" => agent_action_group()
       }
 
   """
   @type get_agent_action_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      transformation_function() :: %{
+        "transformationLambdaConfiguration" => transformation_lambda_configuration()
+      }
+
+  """
+  @type transformation_function() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -528,6 +1147,18 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      list_flows_response() :: %{
+        "flowSummaries" => list(flow_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_flows_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_agent_version_request() :: %{}
 
   """
@@ -555,6 +1186,29 @@ defmodule AWS.BedrockAgent do
 
   """
   @type list_data_sources_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retrieval_flow_node_configuration() :: %{
+        "serviceConfiguration" => list()
+      }
+
+  """
+  @type retrieval_flow_node_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_flow_version_response() :: %{
+        "id" => String.t(),
+        "version" => String.t()
+      }
+
+  """
+  @type delete_flow_version_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -623,6 +1277,18 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      list_flow_versions_response() :: %{
+        "flowVersionSummaries" => list(flow_version_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_flow_versions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       bedrockagent_function() :: %{
         "description" => String.t(),
         "name" => String.t(),
@@ -631,6 +1297,21 @@ defmodule AWS.BedrockAgent do
 
   """
   @type bedrockagent_function() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_flow_alias_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("description") => String.t(),
+        optional("tags") => map(),
+        required("name") => String.t(),
+        required("routingConfiguration") => list(flow_alias_routing_configuration_list_item()())
+      }
+
+  """
+  @type create_flow_alias_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -678,6 +1359,23 @@ defmodule AWS.BedrockAgent do
 
   """
   @type list_knowledge_bases_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_prompt_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("customerEncryptionKeyArn") => String.t(),
+        optional("defaultVariant") => String.t(),
+        optional("description") => String.t(),
+        optional("tags") => map(),
+        optional("variants") => list(prompt_variant()()),
+        required("name") => String.t()
+      }
+
+  """
+  @type create_prompt_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -737,12 +1435,77 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      pattern_object_filter() :: %{
+        "exclusionFilters" => list(String.t()()),
+        "inclusionFilters" => list(String.t()()),
+        "objectType" => String.t()
+      }
+
+  """
+  @type pattern_object_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_node_output() :: %{
+        "name" => String.t(),
+        "type" => list(any())
+      }
+
+  """
+  @type flow_node_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       embedding_model_configuration() :: %{
         "bedrockEmbeddingModelConfiguration" => bedrock_embedding_model_configuration()
       }
 
   """
   @type embedding_model_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_flow_version_request() :: %{}
+
+  """
+  @type get_flow_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_prompt_response() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "customerEncryptionKeyArn" => String.t(),
+        "defaultVariant" => String.t(),
+        "description" => String.t(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "updatedAt" => non_neg_integer(),
+        "variants" => list(prompt_variant()()),
+        "version" => String.t()
+      }
+
+  """
+  @type create_prompt_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      seed_url() :: %{
+        "url" => String.t()
+      }
+
+  """
+  @type seed_url() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -759,10 +1522,47 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      flow_version_summary() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "id" => String.t(),
+        "status" => list(any()),
+        "version" => String.t()
+      }
+
+  """
+  @type flow_version_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      transformation_lambda_configuration() :: %{
+        "lambdaArn" => String.t()
+      }
+
+  """
+  @type transformation_lambda_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_data_source_request() :: %{}
 
   """
   @type get_data_source_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      url_configuration() :: %{
+        "seedUrls" => list(seed_url()())
+      }
+
+  """
+  @type url_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -779,12 +1579,90 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      agent_flow_node_configuration() :: %{
+        "agentAliasArn" => String.t()
+      }
+
+  """
+  @type agent_flow_node_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      web_crawler_limits() :: %{
+        "rateLimit" => [integer()]
+      }
+
+  """
+  @type web_crawler_limits() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_flow_node_configuration() :: %{}
+
+  """
+  @type input_flow_node_configuration() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      intermediate_storage() :: %{
+        "s3Location" => s3_location()
+      }
+
+  """
+  @type intermediate_storage() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_flow_alias_response() :: %{
+        "flowId" => String.t(),
+        "id" => String.t()
+      }
+
+  """
+  @type delete_flow_alias_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bedrock_foundation_model_configuration() :: %{
+        "modelArn" => String.t(),
+        "parsingPrompt" => parsing_prompt()
+      }
+
+  """
+  @type bedrock_foundation_model_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_agent_alias_response() :: %{
         "agentAlias" => agent_alias()
       }
 
   """
   @type update_agent_alias_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      prepare_flow_response() :: %{
+        "id" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type prepare_flow_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -853,9 +1731,23 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      confluence_data_source_configuration() :: %{
+        "crawlerConfiguration" => confluence_crawler_configuration(),
+        "sourceConfiguration" => confluence_source_configuration()
+      }
+
+  """
+  @type confluence_data_source_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       chunking_configuration() :: %{
         "chunkingStrategy" => list(any()),
-        "fixedSizeChunkingConfiguration" => fixed_size_chunking_configuration()
+        "fixedSizeChunkingConfiguration" => fixed_size_chunking_configuration(),
+        "hierarchicalChunkingConfiguration" => hierarchical_chunking_configuration(),
+        "semanticChunkingConfiguration" => semantic_chunking_configuration()
       }
 
   """
@@ -881,6 +1773,7 @@ defmodule AWS.BedrockAgent do
         "guardrailConfiguration" => guardrail_configuration(),
         "idleSessionTTLInSeconds" => integer(),
         "instruction" => String.t(),
+        "memoryConfiguration" => memory_configuration(),
         "preparedAt" => non_neg_integer(),
         "promptOverrideConfiguration" => prompt_override_configuration(),
         "recommendedActions" => list(String.t()()),
@@ -900,6 +1793,24 @@ defmodule AWS.BedrockAgent do
 
   """
   @type delete_agent_action_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_flow_alias_response() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t(),
+        "flowId" => String.t(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "routingConfiguration" => list(flow_alias_routing_configuration_list_item()()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_flow_alias_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -959,10 +1870,33 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      parsing_prompt() :: %{
+        "parsingPromptText" => String.t()
+      }
+
+  """
+  @type parsing_prompt() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_knowledge_base_request() :: %{}
 
   """
   @type delete_knowledge_base_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_flow_version_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("description") => String.t()
+      }
+
+  """
+  @type create_flow_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -975,6 +1909,15 @@ defmodule AWS.BedrockAgent do
 
   """
   @type validation_exception_field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_flow_alias_request() :: %{}
+
+  """
+  @type delete_flow_alias_request() :: %{}
 
   @typedoc """
 
@@ -996,6 +1939,17 @@ defmodule AWS.BedrockAgent do
 
   """
   @type delete_agent_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      salesforce_crawler_configuration() :: %{
+        "filterConfiguration" => crawl_filter_configuration()
+      }
+
+  """
+  @type salesforce_crawler_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1024,10 +1978,76 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      flow_alias_summary() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t(),
+        "flowId" => String.t(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "routingConfiguration" => list(flow_alias_routing_configuration_list_item()()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type flow_alias_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_location() :: %{
+        "uri" => String.t()
+      }
+
+  """
+  @type s3_location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_flows_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_flows_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      confluence_source_configuration() :: %{
+        "authType" => list(any()),
+        "credentialsSecretArn" => String.t(),
+        "hostType" => list(any()),
+        "hostUrl" => String.t()
+      }
+
+  """
+  @type confluence_source_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       disassociate_agent_knowledge_base_request() :: %{}
 
   """
   @type disassociate_agent_knowledge_base_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_prompt_request() :: %{
+        optional("promptVersion") => String.t()
+      }
+
+  """
+  @type get_prompt_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1058,6 +2078,7 @@ defmodule AWS.BedrockAgent do
         "guardrailConfiguration" => guardrail_configuration(),
         "idleSessionTTLInSeconds" => integer(),
         "instruction" => String.t(),
+        "memoryConfiguration" => memory_configuration(),
         "promptOverrideConfiguration" => prompt_override_configuration(),
         "recommendedActions" => list(String.t()()),
         "updatedAt" => non_neg_integer(),
@@ -1078,6 +2099,19 @@ defmodule AWS.BedrockAgent do
 
   """
   @type agent_alias_routing_configuration_list_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      semantic_chunking_configuration() :: %{
+        "breakpointPercentileThreshold" => [integer()],
+        "bufferSize" => [integer()],
+        "maxTokens" => [integer()]
+      }
+
+  """
+  @type semantic_chunking_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1131,6 +2165,49 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      list_prompts_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("promptIdentifier") => String.t()
+      }
+
+  """
+  @type list_prompts_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      share_point_source_configuration() :: %{
+        "authType" => list(any()),
+        "credentialsSecretArn" => String.t(),
+        "domain" => String.t(),
+        "hostType" => list(any()),
+        "siteUrls" => list(String.t()()),
+        "tenantId" => String.t()
+      }
+
+  """
+  @type share_point_source_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      web_crawler_configuration() :: %{
+        "crawlerLimits" => web_crawler_limits(),
+        "exclusionFilters" => list(String.t()()),
+        "inclusionFilters" => list(String.t()()),
+        "scope" => list(any())
+      }
+
+  """
+  @type web_crawler_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       internal_server_exception() :: %{
         "message" => String.t()
       }
@@ -1172,6 +2249,18 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      crawl_filter_configuration() :: %{
+        "patternObjectFilter" => pattern_object_filter_configuration(),
+        "type" => list(any())
+      }
+
+  """
+  @type crawl_filter_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_data_source_response() :: %{
         "dataSource" => data_source()
       }
@@ -1191,6 +2280,24 @@ defmodule AWS.BedrockAgent do
 
   """
   @type ingestion_job_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_summary() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer(),
+        "version" => String.t()
+      }
+
+  """
+  @type flow_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1223,6 +2330,21 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      update_prompt_request() :: %{
+        optional("customerEncryptionKeyArn") => String.t(),
+        optional("defaultVariant") => String.t(),
+        optional("description") => String.t(),
+        optional("variants") => list(prompt_variant()()),
+        required("name") => String.t()
+      }
+
+  """
+  @type update_prompt_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       agent_action_group() :: %{
         "actionGroupExecutor" => list(),
         "actionGroupId" => String.t(),
@@ -1241,6 +2363,46 @@ defmodule AWS.BedrockAgent do
 
   """
   @type agent_action_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lex_flow_node_configuration() :: %{
+        "botAliasArn" => String.t(),
+        "localeId" => String.t()
+      }
+
+  """
+  @type lex_flow_node_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      prompt_model_inference_configuration() :: %{
+        "maxTokens" => integer(),
+        "stopSequences" => list([String.t()]()),
+        "temperature" => float(),
+        "topK" => integer(),
+        "topP" => float()
+      }
+
+  """
+  @type prompt_model_inference_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_prompt_version_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("description") => String.t(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_prompt_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1292,12 +2454,22 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      get_flow_alias_request() :: %{}
+
+  """
+  @type get_flow_alias_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       update_agent_request() :: %{
         optional("customerEncryptionKeyArn") => String.t(),
         optional("description") => String.t(),
         optional("guardrailConfiguration") => guardrail_configuration(),
         optional("idleSessionTTLInSeconds") => integer(),
         optional("instruction") => String.t(),
+        optional("memoryConfiguration") => memory_configuration(),
         optional("promptOverrideConfiguration") => prompt_override_configuration(),
         required("agentName") => String.t(),
         required("agentResourceRoleArn") => String.t(),
@@ -1317,6 +2489,37 @@ defmodule AWS.BedrockAgent do
 
   """
   @type delete_agent_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      condition_flow_node_configuration() :: %{
+        "conditions" => list(flow_condition()())
+      }
+
+  """
+  @type condition_flow_node_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_flow_version_response() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "customerEncryptionKeyArn" => String.t(),
+        "definition" => flow_definition(),
+        "description" => String.t(),
+        "executionRoleArn" => String.t(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "status" => list(any()),
+        "version" => String.t()
+      }
+
+  """
+  @type create_flow_version_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1417,6 +2620,15 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      output_flow_node_configuration() :: %{}
+
+  """
+  @type output_flow_node_configuration() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       ingestion_job_sort_by() :: %{
         "attribute" => list(any()),
         "order" => list(any())
@@ -1440,12 +2652,35 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      list_flow_aliases_response() :: %{
+        "flowAliasSummaries" => list(flow_alias_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_flow_aliases_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_agent_response() :: %{
         "agent" => agent()
       }
 
   """
   @type get_agent_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hierarchical_chunking_level_configuration() :: %{
+        "maxTokens" => [integer()]
+      }
+
+  """
+  @type hierarchical_chunking_level_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1468,6 +2703,26 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      lambda_function_flow_node_configuration() :: %{
+        "lambdaArn" => String.t()
+      }
+
+  """
+  @type lambda_function_flow_node_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      collector_flow_node_configuration() :: %{}
+
+  """
+  @type collector_flow_node_configuration() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       agent_summary() :: %{
         "agentId" => String.t(),
         "agentName" => String.t(),
@@ -1480,6 +2735,17 @@ defmodule AWS.BedrockAgent do
 
   """
   @type agent_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      confluence_crawler_configuration() :: %{
+        "filterConfiguration" => crawl_filter_configuration()
+      }
+
+  """
+  @type confluence_crawler_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1508,6 +2774,26 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      prepare_flow_request() :: %{}
+
+  """
+  @type prepare_flow_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_conditional_connection_configuration() :: %{
+        "condition" => String.t()
+      }
+
+  """
+  @type flow_conditional_connection_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       disassociate_agent_knowledge_base_response() :: %{}
 
   """
@@ -1524,6 +2810,18 @@ defmodule AWS.BedrockAgent do
 
   """
   @type list_agent_versions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      web_data_source_configuration() :: %{
+        "crawlerConfiguration" => web_crawler_configuration(),
+        "sourceConfiguration" => web_source_configuration()
+      }
+
+  """
+  @type web_data_source_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1567,6 +2865,58 @@ defmodule AWS.BedrockAgent do
 
   """
   @type get_agent_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_alias_routing_configuration_list_item() :: %{
+        "flowVersion" => String.t()
+      }
+
+  """
+  @type flow_alias_routing_configuration_list_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_flow_response() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "customerEncryptionKeyArn" => String.t(),
+        "definition" => flow_definition(),
+        "description" => String.t(),
+        "executionRoleArn" => String.t(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer(),
+        "version" => String.t()
+      }
+
+  """
+  @type update_flow_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      prompt_flow_node_resource_configuration() :: %{
+        "promptArn" => String.t()
+      }
+
+  """
+  @type prompt_flow_node_resource_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_flow_request() :: %{}
+
+  """
+  @type get_flow_request() :: %{}
 
   @typedoc """
 
@@ -1652,7 +3002,9 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       vector_ingestion_configuration() :: %{
-        "chunkingConfiguration" => chunking_configuration()
+        "chunkingConfiguration" => chunking_configuration(),
+        "customTransformationConfiguration" => custom_transformation_configuration(),
+        "parsingConfiguration" => parsing_configuration()
       }
 
   """
@@ -1680,6 +3032,17 @@ defmodule AWS.BedrockAgent do
 
   """
   @type get_data_source_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retrieval_flow_node_s3_configuration() :: %{
+        "bucketName" => String.t()
+      }
+
+  """
+  @type retrieval_flow_node_s3_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1735,6 +3098,17 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      prompt_flow_node_configuration() :: %{
+        "sourceConfiguration" => list()
+      }
+
+  """
+  @type prompt_flow_node_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       s3_data_source_configuration() :: %{
         "bucketArn" => String.t(),
         "bucketOwnerAccountId" => String.t(),
@@ -1762,6 +3136,17 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      delete_flow_version_request() :: %{
+        optional("skipResourceInUseCheck") => [boolean()]
+      }
+
+  """
+  @type delete_flow_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       prompt_configuration() :: %{
         "basePromptTemplate" => String.t(),
         "inferenceConfiguration" => inference_configuration(),
@@ -1773,6 +3158,21 @@ defmodule AWS.BedrockAgent do
 
   """
   @type prompt_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      prompt_variant() :: %{
+        "inferenceConfiguration" => list(),
+        "modelId" => String.t(),
+        "name" => String.t(),
+        "templateConfiguration" => list(),
+        "templateType" => list(any())
+      }
+
+  """
+  @type prompt_variant() :: %{String.t() => any()}
 
   @type associate_agent_knowledge_base_errors() ::
           throttling_exception()
@@ -1818,12 +3218,55 @@ defmodule AWS.BedrockAgent do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type create_flow_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_flow_alias_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_flow_version_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type create_knowledge_base_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_prompt_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_prompt_version_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
           | conflict_exception()
 
   @type delete_agent_errors() ::
@@ -1865,7 +3308,39 @@ defmodule AWS.BedrockAgent do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type delete_flow_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_flow_alias_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_flow_version_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type delete_knowledge_base_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_prompt_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -1923,6 +3398,27 @@ defmodule AWS.BedrockAgent do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_flow_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_flow_alias_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_flow_version_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_ingestion_job_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1931,6 +3427,13 @@ defmodule AWS.BedrockAgent do
           | resource_not_found_exception()
 
   @type get_knowledge_base_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_prompt_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -1978,6 +3481,26 @@ defmodule AWS.BedrockAgent do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type list_flow_aliases_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_flow_versions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_flows_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type list_ingestion_jobs_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1991,6 +3514,13 @@ defmodule AWS.BedrockAgent do
           | access_denied_exception()
           | internal_server_exception()
 
+  @type list_prompts_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type list_tags_for_resource_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1999,6 +3529,15 @@ defmodule AWS.BedrockAgent do
           | resource_not_found_exception()
 
   @type prepare_agent_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type prepare_flow_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -2074,11 +3613,38 @@ defmodule AWS.BedrockAgent do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type update_flow_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_flow_alias_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type update_knowledge_base_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_prompt_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -2156,9 +3722,14 @@ defmodule AWS.BedrockAgent do
   subsequent `InvokeAgent` request begins a new session.
 
     *
+  To enable your agent to retain conversational context across multiple sessions,
+  include a `memoryConfiguration` object.
+  For more information, see [Configure memory](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-configure-memory.html).
+
+    *
   To override the default prompt behavior for agent orchestration and to use
-  advanced prompts, include a `promptOverrideConfiguration` object. For more
-  information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html).
+  advanced prompts, include a `promptOverrideConfiguration` object.
+  For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html).
 
     *
   If you agent fails to be created, the response returns a list of
@@ -2187,12 +3758,20 @@ defmodule AWS.BedrockAgent do
   them.
 
   To allow your agent to request the user for additional information when trying
-  to complete a task, add an action group with the `parentActionGroupSignature`
-  field set to `AMAZON.UserInput`. You must leave the `description`, `apiSchema`,
-  and `actionGroupExecutor` fields blank for this action group. During
-  orchestration, if your agent determines that it needs to invoke an API in an
-  action group, but doesn't have enough information to complete the API request,
-  it will invoke this action group instead and return an
+  to complete a task,
+  add an action group with the `parentActionGroupSignature` field set to
+  `AMAZON.UserInput`.
+
+  To allow your agent to generate, run, and troubleshoot code when trying to
+  complete a task,
+  add an action group with the `parentActionGroupSignature` field set to
+  `AMAZON.CodeInterpreter`.
+
+  You must leave the `description`, `apiSchema`, and `actionGroupExecutor` fields
+  blank for this action group. During orchestration, if your agent determines that
+  it needs to invoke an API in an action group, but doesn't have enough
+  information to complete the API request, it will invoke this action group
+  instead and return an
   [Observation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html)
   reprompting the user for more information.
   """
@@ -2236,9 +3815,10 @@ defmodule AWS.BedrockAgent do
   end
 
   @doc """
-  Sets up a data source to be added to a knowledge base.
+  Creates a data source connector for a knowledge base.
 
-  You can't change the `chunkingConfiguration` after you create the data source.
+  You can't change the `chunkingConfiguration` after you create the data source
+  connector.
   """
   @spec create_data_source(map(), String.t(), create_data_source_request(), list()) ::
           {:ok, create_data_source_response(), any()}
@@ -2252,6 +3832,100 @@ defmodule AWS.BedrockAgent do
     meta = metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Creates a prompt flow that you can use to send an input through various steps to
+  yield an output.
+
+  Configure nodes, each of which corresponds to a step of the flow, and create
+  connections between the nodes to create paths to different outputs. For more
+  information, see [How it works](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-how-it-works.html)
+  and [Create a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-create.html)
+  in the Amazon Bedrock User Guide.
+  """
+  @spec create_flow(map(), create_flow_request(), list()) ::
+          {:ok, create_flow_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_flow_errors()}
+  def create_flow(%Client{} = client, input, options \\ []) do
+    url_path = "/flows/"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates an alias of a flow for deployment.
+
+  For more information, see [Deploy a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-deploy.html)
+  in the Amazon Bedrock User Guide.
+  """
+  @spec create_flow_alias(map(), String.t(), create_flow_alias_request(), list()) ::
+          {:ok, create_flow_alias_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_flow_alias_errors()}
+  def create_flow_alias(%Client{} = client, flow_identifier, input, options \\ []) do
+    url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/aliases"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a version of the flow that you can deploy.
+
+  For more information, see [Deploy a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-deploy.html)
+  in the Amazon Bedrock User Guide.
+  """
+  @spec create_flow_version(map(), String.t(), create_flow_version_request(), list()) ::
+          {:ok, create_flow_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_flow_version_errors()}
+  def create_flow_version(%Client{} = client, flow_identifier, input, options \\ []) do
+    url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/versions"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -2311,6 +3985,68 @@ defmodule AWS.BedrockAgent do
     meta = metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+  end
+
+  @doc """
+  Creates a prompt in your prompt library that you can add to a flow.
+
+  For more information, see [Prompt management in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management.html),
+  [Create a prompt using Prompt management](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-create.html)
+  and [Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows.html) in the
+  Amazon Bedrock User Guide.
+  """
+  @spec create_prompt(map(), create_prompt_request(), list()) ::
+          {:ok, create_prompt_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_prompt_errors()}
+  def create_prompt(%Client{} = client, input, options \\ []) do
+    url_path = "/prompts/"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a static snapshot of your prompt that can be deployed to production.
+
+  For more information, see [Deploy prompts using Prompt management by creating versions](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-deploy.html)
+  in the Amazon Bedrock User Guide.
+  """
+  @spec create_prompt_version(map(), String.t(), create_prompt_version_request(), list()) ::
+          {:ok, create_prompt_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_prompt_version_errors()}
+  def create_prompt_version(%Client{} = client, prompt_identifier, input, options \\ []) do
+    url_path = "/prompts/#{AWS.Util.encode_uri(prompt_identifier)}/versions"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -2498,6 +4234,107 @@ defmodule AWS.BedrockAgent do
   end
 
   @doc """
+  Deletes a flow.
+  """
+  @spec delete_flow(map(), String.t(), delete_flow_request(), list()) ::
+          {:ok, delete_flow_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_flow_errors()}
+  def delete_flow(%Client{} = client, flow_identifier, input, options \\ []) do
+    url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"skipResourceInUseCheck", "skipResourceInUseCheck"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes an alias of a flow.
+  """
+  @spec delete_flow_alias(map(), String.t(), String.t(), delete_flow_alias_request(), list()) ::
+          {:ok, delete_flow_alias_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_flow_alias_errors()}
+  def delete_flow_alias(
+        %Client{} = client,
+        alias_identifier,
+        flow_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/flows/#{AWS.Util.encode_uri(flow_identifier)}/aliases/#{AWS.Util.encode_uri(alias_identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a version of a flow.
+  """
+  @spec delete_flow_version(map(), String.t(), String.t(), delete_flow_version_request(), list()) ::
+          {:ok, delete_flow_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_flow_version_errors()}
+  def delete_flow_version(%Client{} = client, flow_identifier, flow_version, input, options \\ []) do
+    url_path =
+      "/flows/#{AWS.Util.encode_uri(flow_identifier)}/versions/#{AWS.Util.encode_uri(flow_version)}/"
+
+    headers = []
+
+    {query_params, input} =
+      [
+        {"skipResourceInUseCheck", "skipResourceInUseCheck"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes a knowledge base.
 
   Before deleting a knowledge base, you should disassociate the knowledge base
@@ -2526,6 +4363,42 @@ defmodule AWS.BedrockAgent do
       input,
       options,
       202
+    )
+  end
+
+  @doc """
+  Deletes a prompt or a prompt version from the Prompt management tool.
+
+  For more information, see [Delete prompts from the Prompt management tool](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-manage.html#prompt-management-delete.html)
+  and [Delete a version of a prompt from the Prompt management tool](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-deploy.html#prompt-management-versions-delete.html)
+  in the Amazon Bedrock User Guide.
+  """
+  @spec delete_prompt(map(), String.t(), delete_prompt_request(), list()) ::
+          {:ok, delete_prompt_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_prompt_errors()}
+  def delete_prompt(%Client{} = client, prompt_identifier, input, options \\ []) do
+    url_path = "/prompts/#{AWS.Util.encode_uri(prompt_identifier)}/"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"promptVersion", "promptVersion"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
     )
   end
 
@@ -2697,6 +4570,70 @@ defmodule AWS.BedrockAgent do
   end
 
   @doc """
+  Retrieves information about a flow.
+
+  For more information, see [Manage a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-manage.html)
+  in the Amazon Bedrock User Guide.
+  """
+  @spec get_flow(map(), String.t(), list()) ::
+          {:ok, get_flow_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_flow_errors()}
+  def get_flow(%Client{} = client, flow_identifier, options \\ []) do
+    url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves information about a flow.
+
+  For more information, see [Deploy a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-deploy.html)
+  in the Amazon Bedrock User Guide.
+  """
+  @spec get_flow_alias(map(), String.t(), String.t(), list()) ::
+          {:ok, get_flow_alias_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_flow_alias_errors()}
+  def get_flow_alias(%Client{} = client, alias_identifier, flow_identifier, options \\ []) do
+    url_path =
+      "/flows/#{AWS.Util.encode_uri(flow_identifier)}/aliases/#{AWS.Util.encode_uri(alias_identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves information about a version of a flow.
+
+  For more information, see [Deploy a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-deploy.html)
+  in the Amazon Bedrock User Guide.
+  """
+  @spec get_flow_version(map(), String.t(), String.t(), list()) ::
+          {:ok, get_flow_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_flow_version_errors()}
+  def get_flow_version(%Client{} = client, flow_identifier, flow_version, options \\ []) do
+    url_path =
+      "/flows/#{AWS.Util.encode_uri(flow_identifier)}/versions/#{AWS.Util.encode_uri(flow_version)}/"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets information about a ingestion job, in which a data source is added to a
   knowledge base.
   """
@@ -2733,6 +4670,34 @@ defmodule AWS.BedrockAgent do
     url_path = "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves information about a prompt or a version of it.
+
+  For more information, see [View information about prompts using Prompt management](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-manage.html#prompt-management-view.html)
+  and [View information about a version of your prompt](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-deploy.html#prompt-management-versions-view.html)
+  in the Amazon Bedrock User Guide.
+  """
+  @spec get_prompt(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_prompt_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_prompt_errors()}
+  def get_prompt(%Client{} = client, prompt_identifier, prompt_version \\ nil, options \\ []) do
+    url_path = "/prompts/#{AWS.Util.encode_uri(prompt_identifier)}/"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(prompt_version) do
+        [{"promptVersion", prompt_version} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -2924,6 +4889,117 @@ defmodule AWS.BedrockAgent do
   end
 
   @doc """
+  Returns a list of aliases for a flow.
+  """
+  @spec list_flow_aliases(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_flow_aliases_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_flow_aliases_errors()}
+  def list_flow_aliases(
+        %Client{} = client,
+        flow_identifier,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/aliases"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of information about each flow.
+
+  For more information, see [Deploy a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-deploy.html)
+  in the Amazon Bedrock User Guide.
+  """
+  @spec list_flow_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_flow_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_flow_versions_errors()}
+  def list_flow_versions(
+        %Client{} = client,
+        flow_identifier,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/versions"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of flows and information about each flow.
+
+  For more information, see [Manage a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-manage.html)
+  in the Amazon Bedrock User Guide.
+  """
+  @spec list_flows(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_flows_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_flows_errors()}
+  def list_flows(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/flows/"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists the ingestion jobs for a data source and information about each of them.
   """
   @spec list_ingestion_jobs(map(), String.t(), String.t(), list_ingestion_jobs_request(), list()) ::
@@ -2986,6 +5062,54 @@ defmodule AWS.BedrockAgent do
   end
 
   @doc """
+  Returns a list of prompts from the Prompt management tool and information about
+  each prompt.
+
+  For more information, see [View information about prompts using Prompt management](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-manage.html#prompt-management-view.html)
+  in the Amazon Bedrock User Guide.
+  """
+  @spec list_prompts(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_prompts_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_prompts_errors()}
+  def list_prompts(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        prompt_identifier \\ nil,
+        options \\ []
+      ) do
+    url_path = "/prompts/"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(prompt_identifier) do
+        [{"promptIdentifier", prompt_identifier} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   List all the tags for the resource you specify.
   """
   @spec list_tags_for_resource(map(), String.t(), list()) ::
@@ -3011,6 +5135,36 @@ defmodule AWS.BedrockAgent do
           | {:error, prepare_agent_errors()}
   def prepare_agent(%Client{} = client, agent_id, input, options \\ []) do
     url_path = "/agents/#{AWS.Util.encode_uri(agent_id)}/"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Prepares the `DRAFT` version of a flow so that it can be invoked.
+
+  For more information, see [Test a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-test.html)
+  in the Amazon Bedrock User Guide.
+  """
+  @spec prepare_flow(map(), String.t(), prepare_flow_request(), list()) ::
+          {:ok, prepare_flow_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, prepare_flow_errors()}
+  def prepare_flow(%Client{} = client, flow_identifier, input, options \\ []) do
+    url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/"
     headers = []
     query_params = []
 
@@ -3220,10 +5374,10 @@ defmodule AWS.BedrockAgent do
   end
 
   @doc """
-  Updates configurations for a data source.
+  Updates the configurations for a data source connector.
 
-  You can't change the `chunkingConfiguration` after you create the data source.
-  Specify the existing `chunkingConfiguration`.
+  You can't change the `chunkingConfiguration` after you create the data source
+  connector. Specify the existing `chunkingConfiguration`.
   """
   @spec update_data_source(map(), String.t(), String.t(), update_data_source_request(), list()) ::
           {:ok, update_data_source_response(), any()}
@@ -3238,6 +5392,57 @@ defmodule AWS.BedrockAgent do
       ) do
     url_path =
       "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/datasources/#{AWS.Util.encode_uri(data_source_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Modifies a flow.
+
+  Include both fields that you want to keep and fields that you want to change.
+  For more information, see [How it works](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-how-it-works.html)
+  and [Create a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-create.html)
+  in the Amazon Bedrock User Guide.
+  """
+  @spec update_flow(map(), String.t(), update_flow_request(), list()) ::
+          {:ok, update_flow_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_flow_errors()}
+  def update_flow(%Client{} = client, flow_identifier, input, options \\ []) do
+    url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Modifies the alias of a flow.
+
+  Include both fields that you want to keep and ones that you want to change. For
+  more information, see [Deploy a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-deploy.html)
+  in the Amazon Bedrock User Guide.
+  """
+  @spec update_flow_alias(map(), String.t(), String.t(), update_flow_alias_request(), list()) ::
+          {:ok, update_flow_alias_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_flow_alias_errors()}
+  def update_flow_alias(
+        %Client{} = client,
+        alias_identifier,
+        flow_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/flows/#{AWS.Util.encode_uri(flow_identifier)}/aliases/#{AWS.Util.encode_uri(alias_identifier)}"
 
     headers = []
     query_params = []
@@ -3285,5 +5490,27 @@ defmodule AWS.BedrockAgent do
     meta = metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+  end
+
+  @doc """
+  Modifies a prompt in your prompt library.
+
+  Include both fields that you want to keep and fields that you want to replace.
+  For more information, see [Prompt management in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management.html)
+  and [Edit prompts in your prompt library](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-manage.html#prompt-management-edit)
+  in the Amazon Bedrock User Guide.
+  """
+  @spec update_prompt(map(), String.t(), update_prompt_request(), list()) ::
+          {:ok, update_prompt_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_prompt_errors()}
+  def update_prompt(%Client{} = client, prompt_identifier, input, options \\ []) do
+    url_path = "/prompts/#{AWS.Util.encode_uri(prompt_identifier)}/"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 end

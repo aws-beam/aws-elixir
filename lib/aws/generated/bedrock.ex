@@ -179,6 +179,7 @@ defmodule AWS.Bedrock do
         "blockedInputMessaging" => String.t(),
         "blockedOutputsMessaging" => String.t(),
         "contentPolicy" => guardrail_content_policy(),
+        "contextualGroundingPolicy" => guardrail_contextual_grounding_policy(),
         "createdAt" => non_neg_integer(),
         "description" => String.t(),
         "failureRecommendations" => list(String.t()()),
@@ -236,6 +237,7 @@ defmodule AWS.Bedrock do
       create_guardrail_request() :: %{
         optional("clientRequestToken") => String.t(),
         optional("contentPolicyConfig") => guardrail_content_policy_config(),
+        optional("contextualGroundingPolicyConfig") => guardrail_contextual_grounding_policy_config(),
         optional("description") => String.t(),
         optional("kmsKeyId") => String.t(),
         optional("sensitiveInformationPolicyConfig") => guardrail_sensitive_information_policy_config(),
@@ -354,6 +356,18 @@ defmodule AWS.Bedrock do
 
   """
   @type guardrail_content_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_contextual_grounding_filter_config() :: %{
+        "threshold" => [float()],
+        "type" => list(any())
+      }
+
+  """
+  @type guardrail_contextual_grounding_filter_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -708,6 +722,18 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      guardrail_contextual_grounding_filter() :: %{
+        "threshold" => [float()],
+        "type" => list(any())
+      }
+
+  """
+  @type guardrail_contextual_grounding_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_provisioned_model_throughput_request() :: %{
         optional("desiredModelId") => String.t(),
         optional("desiredProvisionedModelName") => String.t()
@@ -826,6 +852,7 @@ defmodule AWS.Bedrock do
 
       update_guardrail_request() :: %{
         optional("contentPolicyConfig") => guardrail_content_policy_config(),
+        optional("contextualGroundingPolicyConfig") => guardrail_contextual_grounding_policy_config(),
         optional("description") => String.t(),
         optional("kmsKeyId") => String.t(),
         optional("sensitiveInformationPolicyConfig") => guardrail_sensitive_information_policy_config(),
@@ -926,6 +953,17 @@ defmodule AWS.Bedrock do
 
   """
   @type foundation_model_lifecycle() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_contextual_grounding_policy_config() :: %{
+        "filtersConfig" => list(guardrail_contextual_grounding_filter_config()())
+      }
+
+  """
+  @type guardrail_contextual_grounding_policy_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1489,6 +1527,17 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      guardrail_contextual_grounding_policy() :: %{
+        "filters" => list(guardrail_contextual_grounding_filter()())
+      }
+
+  """
+  @type guardrail_contextual_grounding_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       human_evaluation_config() :: %{
         "customMetrics" => list(human_evaluation_custom_metric()()),
         "datasetMetricConfigs" => list(evaluation_dataset_metric_config()()),
@@ -1762,52 +1811,48 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Creates a guardrail to block topics and to filter out harmful content.
+  Creates a guardrail to block topics and to implement safeguards for your
+  generative AI applications.
+
+  You can configure the following policies in a guardrail to avoid undesirable and
+  harmful content, filter
+  out denied topics and words, and remove sensitive information for privacy
+  protection.
 
     *
-  Specify a `name` and optional `description`.
+
+  **Content filters** - Adjust filter strengths
+  to block input prompts or model responses containing harmful content.
 
     *
-  Specify messages for when the guardrail successfully blocks a prompt or a model
-  response in the `blockedInputMessaging` and `blockedOutputsMessaging` fields.
+
+  **Denied topics** - Define a set of topics that
+  are undesirable in the context of your application. These topics will be blocked
+  if
+  detected in user queries or model responses.
 
     *
-  Specify topics for the guardrail to deny in the `topicPolicyConfig` object. Each
-  [GuardrailTopicConfig](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailTopicConfig.html) object in the `topicsConfig` list pertains to one topic.
 
-      *
-  Give a `name` and `description` so that the guardrail can properly identify the
-  topic.
-
-      *
-  Specify `DENY` in the `type` field.
-
-      *
-  (Optional) Provide up to five prompts that you would categorize as belonging to
-  the topic in the `examples` list.
+  **Word filters** - Configure filters to block
+  undesirable words, phrases, and profanity. Such words can include offensive
+  terms,
+  competitor names etc.
 
     *
-  Specify filter strengths for the harmful categories defined in Amazon Bedrock in
-  the `contentPolicyConfig` object. Each
-  [GuardrailContentFilterConfig](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html)
-  object in the `filtersConfig` list pertains to a harmful category. For more
-  information, see [Content filters](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-filters).
-  For more information about the fields in a content filter, see
-  [GuardrailContentFilterConfig](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html). 
-      *
-  Specify the category in the `type` field.
 
-      *
-  Specify the strength of the filter for prompts in the `inputStrength` field and
-  for model responses in the `strength` field of the
-  [GuardrailContentFilterConfig](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html).
+  **Sensitive information filters** - Block or
+  mask sensitive information such as personally identifiable information (PII) or
+  custom
+  regex in user inputs and model responses.
 
-    *
-  (Optional) For security, include the ARN of a KMS key in the `kmsKeyId` field.
+  In addition to the above policies, you can also configure the messages to be
+  returned to
+  the user if a user input or model response is in violation of the policies
+  defined in the guardrail.
 
-    *
-  (Optional) Attach any tags to the guardrail in the `tags` object. For more
-  information, see [Tag resources](https://docs.aws.amazon.com/bedrock/latest/userguide/tagging).
+  For more information, see [Guardrails for Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html)
+  in
+  the *Amazon Bedrock User Guide*.
   """
   @spec create_guardrail(map(), create_guardrail_request(), list()) ::
           {:ok, create_guardrail_response(), any()}
@@ -2961,7 +3006,7 @@ defmodule AWS.Bedrock do
   the `contentPolicyConfig` object. Each
   [GuardrailContentFilterConfig](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html)
   object in the `filtersConfig` list pertains to a harmful category. For more
-  information, see [Content filters](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-filters).
+  information, see [Content filters](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-content-filters).
   For more information about the fields in a content filter, see
   [GuardrailContentFilterConfig](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html). 
       *
@@ -2974,10 +3019,6 @@ defmodule AWS.Bedrock do
 
     *
   (Optional) For security, include the ARN of a KMS key in the `kmsKeyId` field.
-
-    *
-  (Optional) Attach any tags to the guardrail in the `tags` object. For more
-  information, see [Tag resources](https://docs.aws.amazon.com/bedrock/latest/userguide/tagging).
   """
   @spec update_guardrail(map(), String.t(), update_guardrail_request(), list()) ::
           {:ok, update_guardrail_response(), any()}

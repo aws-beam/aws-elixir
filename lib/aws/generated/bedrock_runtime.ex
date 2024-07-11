@@ -48,6 +48,20 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      apply_guardrail_response() :: %{
+        "action" => list(any()),
+        "assessments" => list(guardrail_assessment()()),
+        "outputs" => list(guardrail_output_content()()),
+        "usage" => guardrail_usage()
+      }
+
+  """
+  @type apply_guardrail_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       model_not_ready_exception() :: %{
         "message" => String.t()
       }
@@ -97,6 +111,18 @@ defmodule AWS.BedrockRuntime do
 
   """
   @type auto_tool_choice() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      apply_guardrail_request() :: %{
+        required("content") => list(list()()),
+        required("source") => list(any())
+      }
+
+  """
+  @type apply_guardrail_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -175,6 +201,18 @@ defmodule AWS.BedrockRuntime do
 
   """
   @type invoke_model_with_response_stream_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_text_block() :: %{
+        "qualifiers" => list(list(any())()),
+        "text" => [String.t()]
+      }
+
+  """
+  @type guardrail_text_block() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -376,6 +414,20 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      guardrail_contextual_grounding_filter() :: %{
+        "action" => list(any()),
+        "score" => [float()],
+        "threshold" => [float()],
+        "type" => list(any())
+      }
+
+  """
+  @type guardrail_contextual_grounding_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tool_specification() :: %{
         "description" => String.t(),
         "inputSchema" => list(),
@@ -395,6 +447,17 @@ defmodule AWS.BedrockRuntime do
 
   """
   @type converse_stream_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_contextual_grounding_policy_assessment() :: %{
+        "filters" => list(guardrail_contextual_grounding_filter()())
+      }
+
+  """
+  @type guardrail_contextual_grounding_policy_assessment() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -440,6 +503,7 @@ defmodule AWS.BedrockRuntime do
 
       guardrail_assessment() :: %{
         "contentPolicy" => guardrail_content_policy_assessment(),
+        "contextualGroundingPolicy" => guardrail_contextual_grounding_policy_assessment(),
         "sensitiveInformationPolicy" => guardrail_sensitive_information_policy_assessment(),
         "topicPolicy" => guardrail_topic_policy_assessment(),
         "wordPolicy" => guardrail_word_policy_assessment()
@@ -566,6 +630,22 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      guardrail_usage() :: %{
+        "contentPolicyUnits" => integer(),
+        "contextualGroundingPolicyUnits" => integer(),
+        "sensitiveInformationPolicyFreeUnits" => integer(),
+        "sensitiveInformationPolicyUnits" => integer(),
+        "topicPolicyUnits" => integer(),
+        "wordPolicyUnits" => integer()
+      }
+
+  """
+  @type guardrail_usage() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       model_stream_error_exception() :: %{
         "message" => String.t(),
         "originalMessage" => String.t(),
@@ -639,6 +719,17 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      guardrail_output_content() :: %{
+        "text" => String.t()
+      }
+
+  """
+  @type guardrail_output_content() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_pii_entity_filter() :: %{
         "action" => list(any()),
         "match" => [String.t()],
@@ -653,6 +744,7 @@ defmodule AWS.BedrockRuntime do
   ## Example:
 
       guardrail_converse_text_block() :: %{
+        "qualifiers" => list(list(any())()),
         "text" => [String.t()]
       }
 
@@ -722,6 +814,14 @@ defmodule AWS.BedrockRuntime do
   """
   @type converse_response() :: %{String.t() => any()}
 
+  @type apply_guardrail_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
   @type converse_errors() ::
           throttling_exception()
           | validation_exception()
@@ -779,6 +879,41 @@ defmodule AWS.BedrockRuntime do
       signing_name: "bedrock",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  The action to apply a guardrail.
+  """
+  @spec apply_guardrail(map(), String.t(), String.t(), apply_guardrail_request(), list()) ::
+          {:ok, apply_guardrail_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, apply_guardrail_errors()}
+  def apply_guardrail(
+        %Client{} = client,
+        guardrail_identifier,
+        guardrail_version,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/guardrail/#{AWS.Util.encode_uri(guardrail_identifier)}/version/#{AWS.Util.encode_uri(guardrail_version)}/apply"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

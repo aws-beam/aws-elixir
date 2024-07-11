@@ -1343,8 +1343,10 @@ defmodule AWS.EC2 do
   ## Example:
       
       ipam_discovered_resource_cidr() :: %{
+        "AvailabilityZoneId" => String.t(),
         "IpUsage" => float(),
         "IpamResourceDiscoveryId" => String.t(),
+        "NetworkInterfaceAttachmentStatus" => list(any()),
         "ResourceCidr" => String.t(),
         "ResourceId" => String.t(),
         "ResourceOwnerId" => String.t(),
@@ -1926,6 +1928,7 @@ defmodule AWS.EC2 do
       
       provision_public_ipv4_pool_cidr_request() :: %{
         optional("DryRun") => boolean(),
+        optional("NetworkBorderGroup") => String.t(),
         required("IpamPoolId") => String.t(),
         required("NetmaskLength") => integer(),
         required("PoolId") => String.t()
@@ -2943,6 +2946,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       ipam_resource_cidr() :: %{
+        "AvailabilityZoneId" => String.t(),
         "ComplianceStatus" => list(any()),
         "IpUsage" => float(),
         "IpamId" => String.t(),
@@ -13271,6 +13275,7 @@ defmodule AWS.EC2 do
       
       delete_public_ipv4_pool_request() :: %{
         optional("DryRun") => boolean(),
+        optional("NetworkBorderGroup") => String.t(),
         required("PoolId") => String.t()
       }
       
@@ -23829,6 +23834,7 @@ defmodule AWS.EC2 do
       
       create_public_ipv4_pool_request() :: %{
         optional("DryRun") => boolean(),
+        optional("NetworkBorderGroup") => String.t(),
         optional("TagSpecifications") => list(tag_specification()())
       }
       

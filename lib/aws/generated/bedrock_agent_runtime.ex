@@ -26,6 +26,29 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      file_part() :: %{
+        "files" => list(output_file()())
+      }
+
+  """
+  @type file_part() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      knowledge_base_configuration() :: %{
+        "knowledgeBaseId" => String.t(),
+        "retrievalConfiguration" => knowledge_base_retrieval_configuration()
+      }
+
+  """
+  @type knowledge_base_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       rationale() :: %{
         "text" => String.t(),
         "traceId" => String.t()
@@ -74,6 +97,20 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      code_interpreter_invocation_output() :: %{
+        "executionError" => [String.t()],
+        "executionOutput" => [String.t()],
+        "executionTimeout" => [boolean()],
+        "files" => list([String.t()]())
+      }
+
+  """
+  @type code_interpreter_invocation_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       external_source() :: %{
         "byteContent" => byte_content_doc(),
         "s3Location" => s3_object_doc(),
@@ -109,6 +146,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type bad_gateway_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_file() :: %{
+        "name" => [String.t()],
+        "source" => file_source(),
+        "useCase" => list(any())
+      }
+
+  """
+  @type input_file() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -176,6 +226,15 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      delete_agent_memory_response() :: %{}
+
+  """
+  @type delete_agent_memory_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       knowledge_base_query() :: %{
         "text" => [String.t()]
       }
@@ -227,7 +286,9 @@ defmodule AWS.BedrockAgentRuntime do
       action_group_invocation_input() :: %{
         "actionGroupName" => String.t(),
         "apiPath" => String.t(),
+        "executionType" => list(any()),
         "function" => String.t(),
+        "invocationId" => [String.t()],
         "parameters" => list(parameter()()),
         "requestBody" => request_body(),
         "verb" => String.t()
@@ -254,8 +315,12 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       retrieval_result_location() :: %{
+        "confluenceLocation" => retrieval_result_confluence_location(),
         "s3Location" => retrieval_result_s3_location(),
-        "type" => list(any())
+        "salesforceLocation" => retrieval_result_salesforce_location(),
+        "sharePointLocation" => retrieval_result_share_point_location(),
+        "type" => list(any()),
+        "webLocation" => retrieval_result_web_location()
       }
 
   """
@@ -327,6 +392,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      invoke_flow_response() :: %{
+        "responseStream" => list()
+      }
+
+  """
+  @type invoke_flow_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       retrieval_result_content() :: %{
         "text" => [String.t()]
       }
@@ -365,6 +441,7 @@ defmodule AWS.BedrockAgentRuntime do
         "generationConfiguration" => generation_configuration(),
         "knowledgeBaseId" => String.t(),
         "modelArn" => String.t(),
+        "orchestrationConfiguration" => orchestration_configuration(),
         "retrievalConfiguration" => knowledge_base_retrieval_configuration()
       }
 
@@ -377,6 +454,7 @@ defmodule AWS.BedrockAgentRuntime do
 
       observation() :: %{
         "actionGroupInvocationOutput" => action_group_invocation_output(),
+        "codeInterpreterInvocationOutput" => code_interpreter_invocation_output(),
         "finalResponse" => final_response(),
         "knowledgeBaseLookupOutput" => knowledge_base_lookup_output(),
         "repromptResponse" => reprompt_response(),
@@ -463,6 +541,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      query_transformation_configuration() :: %{
+        "type" => list(any())
+      }
+
+  """
+  @type query_transformation_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       post_processing_parsed_response() :: %{
         "text" => String.t()
       }
@@ -510,6 +599,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      flow_completion_event() :: %{
+        "completionReason" => list(any())
+      }
+
+  """
+  @type flow_completion_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       service_quota_exceeded_exception() :: %{
         "message" => String.t()
       }
@@ -548,6 +648,7 @@ defmodule AWS.BedrockAgentRuntime do
       invoke_agent_response() :: %{
         "completion" => list(),
         "contentType" => String.t(),
+        "memoryId" => String.t(),
         "sessionId" => String.t()
       }
 
@@ -559,7 +660,9 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       session_state() :: %{
+        "files" => list(input_file()()),
         "invocationId" => [String.t()],
+        "knowledgeBaseConfigurations" => list(knowledge_base_configuration()()),
         "promptSessionAttributes" => map(),
         "returnControlInvocationResults" => list(list()()),
         "sessionAttributes" => map()
@@ -631,6 +734,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type retrieve_and_generate_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retrieval_result_confluence_location() :: %{
+        "url" => [String.t()]
+      }
+
+  """
+  @type retrieval_result_confluence_location() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -741,6 +855,30 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      retrieval_result_salesforce_location() :: %{
+        "url" => [String.t()]
+      }
+
+  """
+  @type retrieval_result_salesforce_location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      output_file() :: %{
+        "bytes" => binary(),
+        "name" => [String.t()],
+        "type" => String.t()
+      }
+
+  """
+  @type output_file() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       internal_server_exception() :: %{
         "message" => String.t()
       }
@@ -804,6 +942,28 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type trace_part() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retrieval_result_share_point_location() :: %{
+        "url" => [String.t()]
+      }
+
+  """
+  @type retrieval_result_share_point_location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      orchestration_configuration() :: %{
+        "queryTransformationConfiguration" => query_transformation_configuration()
+      }
+
+  """
+  @type orchestration_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -878,6 +1038,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      flow_input() :: %{
+        "content" => list(),
+        "nodeName" => String.t(),
+        "nodeOutputName" => String.t()
+      }
+
+  """
+  @type flow_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       generated_response_part() :: %{
         "textResponsePart" => text_response_part()
       }
@@ -889,12 +1062,39 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      memory_session_summary() :: %{
+        "memoryId" => String.t(),
+        "sessionExpiryTime" => non_neg_integer(),
+        "sessionId" => String.t(),
+        "sessionStartTime" => non_neg_integer(),
+        "summaryText" => String.t()
+      }
+
+  """
+  @type memory_session_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception() :: %{
         "message" => String.t()
       }
 
   """
   @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_agent_memory_response() :: %{
+        "memoryContents" => list(list()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type get_agent_memory_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -917,6 +1117,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type retrieve_and_generate_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_output_event() :: %{
+        "content" => list(),
+        "nodeName" => String.t(),
+        "nodeType" => list(any())
+      }
+
+  """
+  @type flow_output_event() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -959,12 +1172,46 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      retrieval_result_web_location() :: %{
+        "url" => [String.t()]
+      }
+
+  """
+  @type retrieval_result_web_location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_agent_memory_request() :: %{
+        optional("memoryId") => String.t()
+      }
+
+  """
+  @type delete_agent_memory_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       knowledge_base_lookup_output() :: %{
         "retrievedReferences" => list(retrieved_reference()())
       }
 
   """
   @type knowledge_base_lookup_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      byte_content_file() :: %{
+        "data" => binary(),
+        "mediaType" => String.t()
+      }
+
+  """
+  @type byte_content_file() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -987,6 +1234,7 @@ defmodule AWS.BedrockAgentRuntime do
         optional("enableTrace") => [boolean()],
         optional("endSession") => [boolean()],
         optional("inputText") => String.t(),
+        optional("memoryId") => String.t(),
         optional("sessionState") => session_state()
       }
 
@@ -999,6 +1247,7 @@ defmodule AWS.BedrockAgentRuntime do
 
       invocation_input() :: %{
         "actionGroupInvocationInput" => action_group_invocation_input(),
+        "codeInterpreterInvocationInput" => code_interpreter_invocation_input(),
         "invocationType" => list(any()),
         "knowledgeBaseLookupInput" => knowledge_base_lookup_input(),
         "traceId" => String.t()
@@ -1017,6 +1266,31 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type request_body() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_agent_memory_request() :: %{
+        optional("maxItems") => integer(),
+        optional("nextToken") => String.t(),
+        required("memoryId") => String.t(),
+        required("memoryType") => list(any())
+      }
+
+  """
+  @type get_agent_memory_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_object_file() :: %{
+        "uri" => String.t()
+      }
+
+  """
+  @type s3_object_file() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1047,6 +1321,30 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      invoke_flow_request() :: %{
+        required("inputs") => list(flow_input()())
+      }
+
+  """
+  @type invoke_flow_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      file_source() :: %{
+        "byteContent" => byte_content_file(),
+        "s3Location" => s3_object_file(),
+        "sourceType" => list(any())
+      }
+
+  """
+  @type file_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       retrieve_response() :: %{
         "nextToken" => String.t(),
         "retrievalResults" => list(knowledge_base_retrieval_result()())
@@ -1066,6 +1364,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type knowledge_base_lookup_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_interpreter_invocation_input() :: %{
+        "code" => [String.t()],
+        "files" => list([String.t()]())
+      }
+
+  """
+  @type code_interpreter_invocation_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1094,7 +1404,40 @@ defmodule AWS.BedrockAgentRuntime do
   """
   @type guardrail_topic() :: %{String.t() => any()}
 
+  @type delete_agent_memory_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | dependency_failed_exception()
+          | bad_gateway_exception()
+
+  @type get_agent_memory_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | dependency_failed_exception()
+          | bad_gateway_exception()
+
   @type invoke_agent_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | dependency_failed_exception()
+          | bad_gateway_exception()
+
+  @type invoke_flow_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -1144,8 +1487,108 @@ defmodule AWS.BedrockAgentRuntime do
   end
 
   @doc """
+  Deletes memory from the specified memory identifier.
+  """
+  @spec delete_agent_memory(map(), String.t(), String.t(), delete_agent_memory_request(), list()) ::
+          {:ok, delete_agent_memory_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_agent_memory_errors()}
+  def delete_agent_memory(%Client{} = client, agent_alias_id, agent_id, input, options \\ []) do
+    url_path =
+      "/agents/#{AWS.Util.encode_uri(agent_id)}/agentAliases/#{AWS.Util.encode_uri(agent_alias_id)}/memories"
 
-  The CLI doesn't support `InvokeAgent`.
+    headers = []
+
+    {query_params, input} =
+      [
+        {"memoryId", "memoryId"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Gets the sessions stored in the memory of the agent.
+  """
+  @spec get_agent_memory(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, get_agent_memory_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_agent_memory_errors()}
+  def get_agent_memory(
+        %Client{} = client,
+        agent_alias_id,
+        agent_id,
+        max_items \\ nil,
+        memory_id,
+        memory_type,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/agents/#{AWS.Util.encode_uri(agent_id)}/agentAliases/#{AWS.Util.encode_uri(agent_alias_id)}/memories"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(memory_type) do
+        [{"memoryType", memory_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(memory_id) do
+        [{"memoryId", memory_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"maxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+
+  The CLI doesn't support streaming operations in Amazon Bedrock, including
+  `InvokeAgent`.
 
   Sends a prompt for the agent to process and respond to. Note the following
   fields for the request:
@@ -1201,9 +1644,50 @@ defmodule AWS.BedrockAgentRuntime do
         :response_header_parameters,
         [
           {"x-amzn-bedrock-agent-content-type", "contentType"},
+          {"x-amz-bedrock-agent-memory-id", "memoryId"},
           {"x-amz-bedrock-agent-session-id", "sessionId"}
         ]
       )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Invokes an alias of a flow to run the inputs that you specify and return the
+  output of each node as a stream.
+
+  If there's an error, the error is returned. For more information, see [Test a flow in Amazon
+  Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-test.html)
+  in the Amazon Bedrock User Guide.
+  """
+  @spec invoke_flow(map(), String.t(), String.t(), invoke_flow_request(), list()) ::
+          {:ok, invoke_flow_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invoke_flow_errors()}
+  def invoke_flow(
+        %Client{} = client,
+        flow_alias_identifier,
+        flow_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/flows/#{AWS.Util.encode_uri(flow_identifier)}/aliases/#{AWS.Util.encode_uri(flow_alias_identifier)}"
+
+    headers = []
+    query_params = []
 
     meta = metadata()
 

@@ -5245,6 +5245,18 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      recipe_action() :: %{
+        "Operation" => String.t(),
+        "Parameters" => map()
+      }
+      
+  """
+  @type recipe_action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       find_matches_task_run_properties() :: %{
         "JobId" => String.t(),
         "JobName" => String.t(),
@@ -5439,7 +5451,8 @@ defmodule AWS.Glue do
       recipe() :: %{
         "Inputs" => list(String.t()()),
         "Name" => String.t(),
-        "RecipeReference" => recipe_reference()
+        "RecipeReference" => recipe_reference(),
+        "RecipeSteps" => list(recipe_step()())
       }
       
   """
@@ -7454,6 +7467,18 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      recipe_step() :: %{
+        "Action" => recipe_action(),
+        "ConditionExpressions" => list(condition_expression()())
+      }
+      
+  """
+  @type recipe_step() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_database_request() :: %{
         optional("CatalogId") => String.t(),
         required("Name") => String.t()
@@ -8561,6 +8586,19 @@ defmodule AWS.Glue do
       
   """
   @type crawler_not_running_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      condition_expression() :: %{
+        "Condition" => String.t(),
+        "TargetColumn" => String.t(),
+        "Value" => String.t()
+      }
+      
+  """
+  @type condition_expression() :: %{String.t() => any()}
 
   @typedoc """
 

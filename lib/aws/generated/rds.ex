@@ -3084,6 +3084,7 @@ defmodule AWS.RDS do
       
       create_db_shard_group_message() :: %{
         optional("ComputeRedundancy") => integer(),
+        optional("MinACU") => float(),
         optional("PubliclyAccessible") => boolean(),
         required("DBClusterIdentifier") => String.t(),
         required("DBShardGroupIdentifier") => String.t(),
@@ -4140,6 +4141,7 @@ defmodule AWS.RDS do
         optional("DBShardGroupResourceId") => String.t(),
         optional("Endpoint") => String.t(),
         optional("MaxACU") => float(),
+        optional("MinACU") => float(),
         optional("PubliclyAccessible") => boolean(),
         optional("Status") => String.t()
       }
@@ -5462,6 +5464,7 @@ defmodule AWS.RDS do
       
       modify_db_shard_group_message() :: %{
         optional("MaxACU") => float(),
+        optional("MinACU") => float(),
         required("DBShardGroupIdentifier") => String.t()
       }
       
@@ -11000,6 +11003,13 @@ defmodule AWS.RDS do
   @doc """
   Returns a list of resources (for example, DB instances) that have at least one
   pending maintenance action.
+
+  This API follows an eventual consistency model. This means that the result of
+  the
+  `DescribePendingMaintenanceActions` command might not be immediately
+  visible to all subsequent RDS commands. Keep this in mind when you use
+  `DescribePendingMaintenanceActions` immediately after using a previous
+  API command such as `ApplyPendingMaintenanceActions`.
   """
   @spec describe_pending_maintenance_actions(
           map(),

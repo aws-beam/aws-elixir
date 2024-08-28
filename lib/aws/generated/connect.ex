@@ -617,6 +617,28 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      routing_criteria_input() :: %{
+        "Steps" => list(routing_criteria_input_step()())
+      }
+
+  """
+  @type routing_criteria_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      user_hierarchy_group_search_filter() :: %{
+        "AttributeFilter" => control_plane_attribute_filter()
+      }
+
+  """
+  @type user_hierarchy_group_search_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_traffic_distribution_group_request() :: %{}
 
   """
@@ -660,6 +682,29 @@ defmodule AWS.Connect do
 
   """
   @type disassociate_flow_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_condition() :: %{
+        "Conditions" => list(condition()()),
+        "TargetListType" => list(any())
+      }
+
+  """
+  @type list_condition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      routing_criteria_input_step_expiry() :: %{
+        "DurationInSeconds" => integer()
+      }
+
+  """
+  @type routing_criteria_input_step_expiry() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1274,6 +1319,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      agent_status_search_criteria() :: %{
+        "AndConditions" => list(agent_status_search_criteria()()),
+        "OrConditions" => list(agent_status_search_criteria()()),
+        "StringCondition" => string_condition()
+      }
+
+  """
+  @type agent_status_search_criteria() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_security_profile_response() :: %{
         "SecurityProfileArn" => String.t(),
         "SecurityProfileId" => String.t()
@@ -1409,6 +1467,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      search_user_hierarchy_groups_response() :: %{
+        "ApproximateTotalCount" => float(),
+        "NextToken" => String.t(),
+        "UserHierarchyGroups" => list(hierarchy_group()())
+      }
+
+  """
+  @type search_user_hierarchy_groups_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       credentials() :: %{
         "AccessToken" => String.t(),
         "AccessTokenExpiration" => non_neg_integer(),
@@ -1507,6 +1578,19 @@ defmodule AWS.Connect do
 
   """
   @type delete_attached_file_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      control_plane_attribute_filter() :: %{
+        "AndCondition" => common_attribute_and_condition(),
+        "OrConditions" => list(common_attribute_and_condition()()),
+        "TagCondition" => tag_condition()
+      }
+
+  """
+  @type control_plane_attribute_filter() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1888,6 +1972,20 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      number_condition() :: %{
+        "ComparisonType" => list(any()),
+        "FieldName" => String.t(),
+        "MaxValue" => integer(),
+        "MinValue" => integer()
+      }
+
+  """
+  @type number_condition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       search_routing_profiles_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -1951,6 +2049,19 @@ defmodule AWS.Connect do
 
   """
   @type user_identity_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      real_time_contact_analysis_segment_post_contact_summary() :: %{
+        "Content" => String.t(),
+        "FailureCode" => list(any()),
+        "Status" => list(any())
+      }
+
+  """
+  @type real_time_contact_analysis_segment_post_contact_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2192,6 +2303,21 @@ defmodule AWS.Connect do
 
   """
   @type list_evaluation_form_versions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_agent_statuses_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SearchCriteria") => agent_status_search_criteria(),
+        optional("SearchFilter") => agent_status_search_filter(),
+        required("InstanceId") => String.t()
+      }
+
+  """
+  @type search_agent_statuses_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4944,6 +5070,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      condition() :: %{
+        "NumberCondition" => number_condition(),
+        "StringCondition" => string_condition()
+      }
+
+  """
+  @type condition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       associate_phone_number_contact_flow_request() :: %{
         required("ContactFlowId") => String.t(),
         required("InstanceId") => String.t()
@@ -5761,6 +5899,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      user_hierarchy_group_search_criteria() :: %{
+        "AndConditions" => list(user_hierarchy_group_search_criteria()()),
+        "OrConditions" => list(user_hierarchy_group_search_criteria()()),
+        "StringCondition" => string_condition()
+      }
+
+  """
+  @type user_hierarchy_group_search_criteria() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       rule_summary() :: %{
         "ActionSummaries" => list(action_summary()()),
         "CreatedTime" => non_neg_integer(),
@@ -5904,6 +6055,18 @@ defmodule AWS.Connect do
 
   """
   @type list_bots_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      routing_criteria_input_step() :: %{
+        "Expiry" => routing_criteria_input_step_expiry(),
+        "Expression" => expression()
+      }
+
+  """
+  @type routing_criteria_input_step() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6115,6 +6278,7 @@ defmodule AWS.Connect do
       user_search_criteria() :: %{
         "AndConditions" => list(user_search_criteria()()),
         "HierarchyGroupCondition" => hierarchy_group_condition(),
+        "ListCondition" => list_condition(),
         "OrConditions" => list(user_search_criteria()()),
         "StringCondition" => string_condition()
       }
@@ -6130,6 +6294,17 @@ defmodule AWS.Connect do
 
   """
   @type describe_contact_evaluation_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_status_search_filter() :: %{
+        "AttributeFilter" => control_plane_attribute_filter()
+      }
+
+  """
+  @type agent_status_search_filter() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6542,7 +6717,8 @@ defmodule AWS.Connect do
 
       update_contact_routing_data_request() :: %{
         optional("QueuePriority") => float(),
-        optional("QueueTimeAdjustmentSeconds") => integer()
+        optional("QueueTimeAdjustmentSeconds") => integer(),
+        optional("RoutingCriteria") => routing_criteria_input()
       }
 
   """
@@ -6694,6 +6870,17 @@ defmodule AWS.Connect do
 
   """
   @type submit_contact_evaluation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      common_attribute_and_condition() :: %{
+        "TagConditions" => list(tag_condition()())
+      }
+
+  """
+  @type common_attribute_and_condition() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -8106,6 +8293,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      search_agent_statuses_response() :: %{
+        "AgentStatuses" => list(agent_status()()),
+        "ApproximateTotalCount" => float(),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type search_agent_statuses_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       quick_connect() :: %{
         "Description" => String.t(),
         "LastModifiedRegion" => String.t(),
@@ -8638,6 +8838,21 @@ defmodule AWS.Connect do
 
   """
   @type create_task_template_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_user_hierarchy_groups_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SearchCriteria") => user_hierarchy_group_search_criteria(),
+        optional("SearchFilter") => user_hierarchy_group_search_filter(),
+        required("InstanceId") => String.t()
+      }
+
+  """
+  @type search_user_hierarchy_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -10721,6 +10936,13 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type search_agent_statuses_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type search_available_phone_numbers_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
@@ -10799,6 +11021,13 @@ defmodule AWS.Connect do
           | internal_service_exception()
 
   @type search_security_profiles_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type search_user_hierarchy_groups_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
           | invalid_request_exception()
@@ -12167,6 +12396,9 @@ defmodule AWS.Connect do
   also does not allow for any configurations on features, such as Contact Lens for
   Amazon Connect.
 
+  For more information, see [Create an Amazon Connect instance](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-instances.html)
+  in the *Amazon Connect Administrator Guide*.
+
   Amazon Connect enforces a limit on the total number of instances that you can
   create or delete in 30 days.
   If you exceed this limit, you will get an error message indicating there has
@@ -12289,6 +12521,13 @@ defmodule AWS.Connect do
 
   @doc """
   Creates a new predefined attribute for the specified Amazon Connect instance.
+
+  *Predefined
+  attributes* are attributes in an Amazon Connect instance that can be used to
+  route
+  contacts to an agent or pools of agents within a queue. For more information,
+  see [Create predefined attributes for routing contacts to
+  agents](https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html).
   """
   @spec create_predefined_attribute(
           map(),
@@ -12444,6 +12683,12 @@ defmodule AWS.Connect do
 
   @doc """
   Creates a security profile.
+
+  For information about security profiles, see [Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html)
+  in the
+  *Amazon Connect Administrator Guide*. For a mapping of the API name and
+  user interface name of the security profile permissions, see [List of security profile
+  permissions](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html).
   """
   @spec create_security_profile(map(), String.t(), create_security_profile_request(), list()) ::
           {:ok, create_security_profile_response(), any()}
@@ -12973,7 +13218,10 @@ defmodule AWS.Connect do
   @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
-  Deletes the Amazon Connect instance.
+  Deletes the Amazon Connect instance. For more information, see [Delete your Amazon Connect
+  instance](https://docs.aws.amazon.com/connect/latest/adminguide/delete-connect-instance.html)
+  in the *Amazon Connect Administrator
+  Guide*.
 
   Amazon Connect enforces a limit on the total number of instances that you can
   create or delete in 30 days.
@@ -13115,6 +13363,8 @@ defmodule AWS.Connect do
 
   @doc """
   Deletes a queue.
+
+  It isn't possible to delete a queue by using the Amazon Connect admin website.
   """
   @spec delete_queue(map(), String.t(), String.t(), delete_queue_request(), list()) ::
           {:ok, nil, any()}
@@ -13975,6 +14225,13 @@ defmodule AWS.Connect do
 
   @doc """
   Describes a predefined attribute for the specified Amazon Connect instance.
+
+  *Predefined
+  attributes* are attributes in an Amazon Connect instance that can be used to
+  route
+  contacts to an agent or pools of agents within a queue. For more information,
+  see [Create predefined attributes for routing contacts to
+  agents](https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html).
   """
   @spec describe_predefined_attribute(map(), String.t(), String.t(), list()) ::
           {:ok, describe_predefined_attribute_response(), any()}
@@ -14084,7 +14341,13 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Gets basic information about the security profle.
+  Gets basic information about the security profile.
+
+  For information about security profiles, see [Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html)
+  in the
+  *Amazon Connect Administrator Guide*. For a mapping of the API name and
+  user interface name of the security profile permissions, see [List of security profile
+  permissions](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html).
   """
   @spec describe_security_profile(map(), String.t(), String.t(), list()) ::
           {:ok, describe_security_profile_response(), any()}
@@ -16287,6 +16550,13 @@ defmodule AWS.Connect do
 
   @doc """
   Lists predefined attributes for the specified Amazon Connect instance.
+
+  *Predefined
+  attributes* are attributes in an Amazon Connect instance that can be used to
+  route
+  contacts to an agent or pools of agents within a queue. For more information,
+  see [Create predefined attributes for routing contacts to
+  agents](https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html).
   """
   @spec list_predefined_attributes(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_predefined_attributes_response(), any()}
@@ -16804,6 +17074,12 @@ defmodule AWS.Connect do
 
   @doc """
   Lists the permissions granted to a security profile.
+
+  For information about security profiles, see [Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html)
+  in the
+  *Amazon Connect Administrator Guide*. For a mapping of the API name and
+  user interface name of the security profile permissions, see [List of security profile
+  permissions](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html).
   """
   @spec list_security_profile_permissions(
           map(),
@@ -16855,7 +17131,9 @@ defmodule AWS.Connect do
 
   For more information about security profiles, see [Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html)
   in the
-  *Amazon Connect Administrator Guide*.
+  *Amazon Connect Administrator Guide*. For a mapping of the API name and
+  user interface name of the security profile permissions, see [List of security profile
+  permissions](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html).
   """
   @spec list_security_profiles(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_security_profiles_response(), any()}
@@ -17592,6 +17870,33 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Searches AgentStatuses in an Amazon Connect instance, with optional filtering.
+  """
+  @spec search_agent_statuses(map(), search_agent_statuses_request(), list()) ::
+          {:ok, search_agent_statuses_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, search_agent_statuses_errors()}
+  def search_agent_statuses(%Client{} = client, input, options \\ []) do
+    url_path = "/search-agent-statuses"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Searches for available phone numbers that you can claim to your Amazon Connect
   instance
   or traffic distribution group.
@@ -17736,7 +18041,14 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Predefined attributes that meet certain criteria.
+  Searches predefined attributes that meet certain criteria.
+
+  *Predefined
+  attributes* are attributes in an Amazon Connect instance that can be used to
+  route
+  contacts to an agent or pools of agents within a queue. For more information,
+  see [Create predefined attributes for routing contacts to
+  agents](https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html).
   """
   @spec search_predefined_attributes(map(), search_predefined_attributes_request(), list()) ::
           {:ok, search_predefined_attributes_response(), any()}
@@ -17901,6 +18213,12 @@ defmodule AWS.Connect do
   @doc """
   Searches security profiles in an Amazon Connect instance, with optional
   filtering.
+
+  For information about security profiles, see [Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html)
+  in the
+  *Amazon Connect Administrator Guide*. For a mapping of the API name and
+  user interface name of the security profile permissions, see [List of security profile
+  permissions](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html).
   """
   @spec search_security_profiles(map(), search_security_profiles_request(), list()) ::
           {:ok, search_security_profiles_response(), any()}
@@ -17908,6 +18226,38 @@ defmodule AWS.Connect do
           | {:error, search_security_profiles_errors()}
   def search_security_profiles(%Client{} = client, input, options \\ []) do
     url_path = "/search-security-profiles"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Searches UserHierarchyGroups in an Amazon Connect instance, with optional
+  filtering.
+
+  The UserHierarchyGroup with `"LevelId": "0"` is the foundation for building
+  levels on top of an instance. It is not user-definable, nor is it visible in the
+  UI.
+  """
+  @spec search_user_hierarchy_groups(map(), search_user_hierarchy_groups_request(), list()) ::
+          {:ok, search_user_hierarchy_groups_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, search_user_hierarchy_groups_errors()}
+  def search_user_hierarchy_groups(%Client{} = client, input, options \\ []) do
+    url_path = "/search-user-hierarchy-groups"
     headers = []
     query_params = []
 
@@ -19585,6 +19935,13 @@ defmodule AWS.Connect do
 
   @doc """
   Updates a predefined attribute for the specified Amazon Connect instance.
+
+  *Predefined
+  attributes* are attributes in an Amazon Connect instance that can be used to
+  route
+  contacts to an agent or pools of agents within a queue. For more information,
+  see [Create predefined attributes for routing contacts to
+  agents](https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html).
   """
   @spec update_predefined_attribute(
           map(),
@@ -20181,6 +20538,12 @@ defmodule AWS.Connect do
 
   @doc """
   Updates a security profile.
+
+  For information about security profiles, see [Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html)
+  in the
+  *Amazon Connect Administrator Guide*. For a mapping of the API name and
+  user interface name of the security profile permissions, see [List of security profile
+  permissions](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html).
   """
   @spec update_security_profile(
           map(),

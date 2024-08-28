@@ -1356,6 +1356,7 @@ defmodule AWS.S3 do
 
       put_object_request() :: %{
         optional("GrantRead") => String.t(),
+        optional("IfNoneMatch") => String.t(),
         optional("ChecksumCRC32C") => String.t(),
         optional("Expires") => non_neg_integer(),
         optional("Body") => binary(),
@@ -1998,6 +1999,7 @@ defmodule AWS.S3 do
 
       list_buckets_output() :: %{
         "Buckets" => list(bucket()()),
+        "ContinuationToken" => String.t(),
         "Owner" => owner()
       }
 
@@ -3058,6 +3060,18 @@ defmodule AWS.S3 do
 
   ## Example:
 
+      list_buckets_request() :: %{
+        optional("ContinuationToken") => String.t(),
+        optional("MaxBuckets") => integer()
+      }
+
+  """
+  @type list_buckets_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       part() :: %{
         "ChecksumCRC32" => String.t(),
         "ChecksumCRC32C" => String.t(),
@@ -3865,6 +3879,7 @@ defmodule AWS.S3 do
         optional("ChecksumSHA1") => String.t(),
         optional("ChecksumSHA256") => String.t(),
         optional("ExpectedBucketOwner") => String.t(),
+        optional("IfNoneMatch") => String.t(),
         optional("MultipartUpload") => completed_multipart_upload(),
         optional("RequestPayer") => list(any()),
         optional("SSECustomerAlgorithm") => String.t(),
@@ -4165,6 +4180,18 @@ defmodule AWS.S3 do
   [ListParts](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html) API operation and ensure that
   the parts list is empty.
 
+    
+
+  **Directory buckets** -
+  If multipart uploads in a directory bucket are in progress, you can't delete the
+  bucket until all the in-progress multipart uploads are aborted or completed.
+  To delete these in-progress multipart uploads, use the
+  `ListMultipartUploads` operation to list the in-progress multipart
+  uploads in the bucket and use the `AbortMultupartUpload` operation to
+  abort all the in-progress multipart uploads.
+
+    
+
   **Directory buckets** - For directory buckets, you must make requests for this
   API operation to the Zonal endpoint. These endpoints support
   virtual-hosted-style requests in the format
@@ -4375,11 +4402,10 @@ defmodule AWS.S3 do
 
     
 
-  **General purpose bucket permissions** - For information about permissions
-  required to use the multipart upload API, see [Multipart Upload and
-  Permissions](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html)
-  in the *Amazon S3
-  User Guide*.
+  **General purpose bucket permissions** - For
+  information about permissions required to use the multipart upload API, see
+  [Multipart Upload and Permissions](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html)
+  in the *Amazon S3 User Guide*.
 
     
 
@@ -4399,6 +4425,14 @@ defmodule AWS.S3 do
   information about authorization, see [
   `CreateSession`
   ](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html).
+
+    
+  If you provide an [additional checksum value](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Checksum.html) in
+  your `MultipartUpload` requests and the
+  object is encrypted with Key Management Service, you must have permission to use
+  the
+  `kms:Decrypt` action for the
+  `CompleteMultipartUpload` request to succeed.
 
   ### Special errors
 
@@ -4496,6 +4530,7 @@ defmodule AWS.S3 do
         {"ChecksumSHA1", "x-amz-checksum-sha1"},
         {"ChecksumSHA256", "x-amz-checksum-sha256"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"IfNoneMatch", "If-None-Match"},
         {"RequestPayer", "x-amz-request-payer"},
         {"SSECustomerAlgorithm", "x-amz-server-side-encryption-customer-algorithm"},
         {"SSECustomerKey", "x-amz-server-side-encryption-customer-key"},
@@ -4553,6 +4588,12 @@ defmodule AWS.S3 do
   directory buckets, and
   between general purpose buckets and directory buckets.
 
+    
+  Amazon S3 supports copy operations using Multi-Region Access Points only as a
+  destination when using the Multi-Region Access Point ARN.
+
+    
+
   **Directory buckets ** - For directory buckets, you must make requests for this
   API operation to the Zonal endpoint. These endpoints support
   virtual-hosted-style requests in the format
@@ -4566,6 +4607,11 @@ defmodule AWS.S3 do
   endpoints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
   in the
   *Amazon S3 User Guide*.
+
+    
+  VPC endpoints don't support cross-Region requests (including copies). If you're
+  using VPC endpoints, your source and destination buckets should be in the same
+  Amazon Web Services Region as your VPC endpoint.
 
   Both the
   Region that you want to copy the object from and the Region that you want to
@@ -5084,20 +5130,18 @@ defmodule AWS.S3 do
 
     
 
-  **General purpose bucket permissions** - For information about the permissions
-  required to use the multipart upload API, see
-  [Multipart upload and
-  permissions](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html)
-  in the *Amazon S3 User Guide*.
-
-  To perform a multipart upload with encryption by using an Amazon Web Services
-  KMS key, the requester
-  must have permission to the `kms:Decrypt` and `kms:GenerateDataKey*`
-  actions on the key. These permissions are required because Amazon S3 must
-  decrypt and read data
-  from the encrypted file parts before it completes the multipart upload. For more
-  information, see [Multipart upload API and
-  permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html#mpuAndPermissions)
+  **General purpose bucket permissions** - To
+  perform a multipart upload with encryption using an Key Management Service (KMS)
+  KMS key, the requester must have permission to the
+  `kms:Decrypt` and `kms:GenerateDataKey` actions on
+  the key. The requester must also have permissions for the
+  `kms:GenerateDataKey` action for the
+  `CreateMultipartUpload` API. Then, the requester needs
+  permissions for the `kms:Decrypt` action on the
+  `UploadPart` and `UploadPartCopy` APIs. These
+  permissions are required because Amazon S3 must decrypt and read data from the
+  encrypted file parts before it completes the multipart upload. For more
+  information, see [Multipart upload API and permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html#mpuAndPermissions)
   and [Protecting data using server-side encryption with Amazon Web Services
   KMS](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html)
   in the
@@ -9486,24 +9530,18 @@ defmodule AWS.S3 do
   or `404 Not Found` code. A message body is not included, so
   you cannot determine the exception beyond these HTTP response codes.
 
-  **Directory buckets ** - You must make requests for this API operation to the
-  Zonal endpoint. These endpoints support virtual-hosted-style requests in the
-  format `https://*bucket_name*.s3express-*az_id*.*region*.amazonaws.com`.
-  Path-style requests are not supported. For more information, see [Regional and Zonal
-  endpoints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
-  in the
-  *Amazon S3 User Guide*.
-
   ## Definitions
 
   ### Authentication and authorization
 
-  All `HeadBucket` requests must be authenticated and signed by using IAM
-  credentials (access key ID and secret access key for the IAM identities). All
-  headers with the `x-amz-` prefix, including
+  **General purpose buckets** - Request to public buckets that grant the
+  s3:ListBucket permission publicly do not need to be signed. All other
+  `HeadBucket` requests must be authenticated and signed by using IAM credentials
+  (access key ID and secret access key for the IAM identities). All headers with
+  the `x-amz-` prefix, including
   `x-amz-copy-source`, must be signed. For more information, see [REST Authentication](https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html).
 
-  **Directory bucket** - You must use IAM credentials to authenticate and
+  **Directory buckets** - You must use IAM credentials to authenticate and
   authorize your access to the `HeadBucket` API operation, instead of using the
   temporary security credentials through the `CreateSession` API operation.
 
@@ -9548,6 +9586,13 @@ defmodule AWS.S3 do
   ```
 
   .
+
+  You must make requests for this API operation to the Zonal endpoint. These
+  endpoints support virtual-hosted-style requests in the format
+  `https://*bucket_name*.s3express-*az_id*.*region*.amazonaws.com`. Path-style
+  requests are not supported. For more information, see [Regional and Zonal endpoints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  in the
+  *Amazon S3 User Guide*.
   """
   @spec head_bucket(map(), String.t(), head_bucket_request(), list()) ::
           {:ok, head_bucket_output(), any()}
@@ -9612,20 +9657,6 @@ defmodule AWS.S3 do
 
   Request headers are limited to 8 KB in size. For more information, see [Common Request
   Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonRequestHeaders.html).
-
-  **Directory buckets** - For directory buckets, you must make requests for this
-  API operation to the Zonal endpoint. These endpoints support
-  virtual-hosted-style requests in the format
-
-  ```
-  https://*bucket_name*.s3express-*az_id*.*region*.amazonaws.com/*key-name*
-
-  ```
-
-  . Path-style requests are not supported. For more information, see [Regional and Zonal
-  endpoints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
-  in the
-  *Amazon S3 User Guide*.
 
   ## Definitions
 
@@ -9745,6 +9776,20 @@ defmodule AWS.S3 do
   ```
 
   .
+
+  For directory buckets, you must make requests for this API operation to the
+  Zonal endpoint. These endpoints support virtual-hosted-style requests in the
+  format
+
+  ```
+  https://*bucket_name*.s3express-*az_id*.*region*.amazonaws.com/*key-name*
+
+  ```
+
+  . Path-style requests are not supported. For more information, see [Regional and Zonal
+  endpoints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  in the
+  *Amazon S3 User Guide*.
 
   The following actions are related to `HeadObject`:
 
@@ -10181,13 +10226,32 @@ defmodule AWS.S3 do
   For information about Amazon S3 buckets, see [Creating, configuring, and working with Amazon S3
   buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html).
   """
-  @spec list_buckets(map(), list()) ::
+  @spec list_buckets(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_buckets_output(), any()}
           | {:error, {:unexpected_response, any()}}
-  def list_buckets(%Client{} = client, options \\ []) do
+  def list_buckets(
+        %Client{} = client,
+        continuation_token \\ nil,
+        max_buckets \\ nil,
+        options \\ []
+      ) do
     url_path = "/?x-id=ListBuckets"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(max_buckets) do
+        [{"max-buckets", max_buckets} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(continuation_token) do
+        [{"continuation-token", continuation_token} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -10275,6 +10339,10 @@ defmodule AWS.S3 do
   **Directory buckets** -
   If multipart uploads in a directory bucket are in progress, you can't delete the
   bucket until all the in-progress multipart uploads are aborted or completed.
+  To delete these in-progress multipart uploads, use the `ListMultipartUploads`
+  operation to list the in-progress multipart
+  uploads in the bucket and use the `AbortMultupartUpload` operation to abort all
+  the in-progress multipart uploads.
 
   The `ListMultipartUploads` operation returns a maximum of 1,000 multipart
   uploads in the response. The limit of 1,000 multipart
@@ -10807,6 +10875,19 @@ defmodule AWS.S3 do
   For more information about listing objects, see [Listing object keys programmatically](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ListingKeysUsingAPIs.html)
   in the *Amazon S3 User Guide*. To get a list of your buckets, see
   [ListBuckets](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html). 
+
+    
+
+  **General purpose bucket** - For general purpose buckets, `ListObjectsV2`
+  doesn't return prefixes that are related only to in-progress multipart uploads.
+
+    
+
+  **Directory buckets** -
+  For directory buckets, `ListObjectsV2` response includes the prefixes that are
+  related only to in-progress multipart uploads.
+
+    
 
   **Directory buckets** - For directory buckets, you must make requests for this
   API operation to the Zonal endpoint. These endpoints support
@@ -11787,7 +11868,15 @@ defmodule AWS.S3 do
   to SSE-KMS, you should verify that your KMS key ID is correct. Amazon S3 does
   not validate the KMS key ID provided in PutBucketEncryption requests.
 
-  This action requires Amazon Web Services Signature Version 4. For more
+  If you're specifying a customer managed KMS key, we recommend using a fully
+  qualified
+  KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key
+  within the
+  requester’s account. This behavior can result in data that's encrypted with a
+  KMS key
+  that belongs to the requester, and not the bucket owner.
+
+  Also, this action requires Amazon Web Services Signature Version 4. For more
   information, see [
   Authenticating Requests (Amazon Web Services Signature Version
   4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html).
@@ -12900,6 +12989,15 @@ defmodule AWS.S3 do
 
   This operation is not supported by directory buckets.
 
+  When you enable versioning on a bucket for the first time, it might take a short
+  amount of time for the change to be fully propagated. We recommend that you wait
+  for 15
+  minutes after enabling versioning before issuing write operations
+  (`PUT`
+  or
+  `DELETE`)
+  on objects in the bucket.
+
   Sets the versioning state of an existing bucket.
 
   You can set the versioning state with one of the following values:
@@ -13294,6 +13392,7 @@ defmodule AWS.S3 do
         {"ChecksumSHA256", "x-amz-checksum-sha256"},
         {"Expires", "Expires"},
         {"ContentMD5", "Content-MD5"},
+        {"IfNoneMatch", "If-None-Match"},
         {"GrantWriteACP", "x-amz-grant-write-acp"},
         {"SSEKMSEncryptionContext", "x-amz-server-side-encryption-context"},
         {"CacheControl", "Cache-Control"},
@@ -13902,6 +14001,10 @@ defmodule AWS.S3 do
 
   This operation is not supported by directory buckets.
 
+  The `SELECT` job type for the RestoreObject operation is no longer available to
+  new customers. Existing customers of Amazon S3 Select can continue to use the
+  feature as usual. [Learn more](http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/)
+
   Restores an archived copy of an object back into Amazon S3
 
   This functionality is not supported for Amazon S3 on Outposts.
@@ -14173,6 +14276,10 @@ defmodule AWS.S3 do
 
   This operation is not supported by directory buckets.
 
+  The SelectObjectContent operation is no longer available to new customers.
+  Existing customers of Amazon S3 Select can continue to use the operation as
+  usual. [Learn more](http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/)
+
   This action filters the contents of an Amazon S3 object based on a simple
   structured query
   language (SQL) statement. In the request, along with the SQL expression, you
@@ -14404,11 +14511,26 @@ defmodule AWS.S3 do
 
     
 
-  **General purpose bucket permissions** - For information on the permissions
-  required to use the multipart upload API, see
-  [Multipart Upload and
-  Permissions](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html)
-  in the *Amazon S3 User Guide*.
+  **General purpose bucket permissions** - To
+  perform a multipart upload with encryption using an Key Management Service key,
+  the
+  requester must have permission to the `kms:Decrypt` and
+  `kms:GenerateDataKey` actions on the key. The requester must
+  also have permissions for the `kms:GenerateDataKey` action for
+  the `CreateMultipartUpload` API. Then, the requester needs
+  permissions for the `kms:Decrypt` action on the
+  `UploadPart` and `UploadPartCopy` APIs.
+
+  These permissions are required because Amazon S3 must decrypt and read data
+  from the encrypted file parts before it completes the multipart upload. For
+  more information about KMS permissions, see [Protecting data using server-side encryption with
+  KMS](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html)
+  in the
+  *Amazon S3 User Guide*. For information about the
+  permissions required to use the multipart upload API, see [Multipart upload and permissions](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html)
+  and [Multipart upload API and permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html#mpuAndPermissions)
+  in the
+  *Amazon S3 User Guide*.
 
     
 
@@ -14678,22 +14800,43 @@ defmodule AWS.S3 do
 
     
 
-  **General purpose bucket permissions##  - You must have the permissions in a
-  policy based on the bucket types of your source bucket and destination bucket in
-  an `UploadPartCopy` operation.
+  **General purpose bucket permissions##  - You
+  must have the permissions in a policy based on the bucket types of your
+  source bucket and destination bucket in an `UploadPartCopy`
+  operation.
 
       
-  If the source object is in a general purpose bucket, you must have the 
+  If the source object is in a general purpose bucket, you must have the
+
   `s3:GetObject`
-  ##  permission to read the source object that is being copied.
+  ## 
+  permission to read the source object that is being copied.
 
       
-  If the destination bucket is a general purpose bucket, you must have the 
-  `s3:PutObject`
-  ** permission to write the object copy to the destination bucket.
+  If the destination bucket is a general purpose bucket, you must have the
 
-  For information about permissions required to use the multipart upload API, see
-  [Multipart upload API and permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html#mpuAndPermissions)
+  `s3:PutObject`
+  **
+  permission to write the object copy to the destination bucket.
+
+      
+  To perform a multipart upload with encryption using an Key Management Service
+  key, the requester must have permission to the
+  `kms:Decrypt` and `kms:GenerateDataKey`
+  actions on the key. The requester must also have permissions for the
+  `kms:GenerateDataKey` action for the
+  `CreateMultipartUpload` API. Then, the requester needs
+  permissions for the `kms:Decrypt` action on the
+  `UploadPart` and `UploadPartCopy` APIs. These
+  permissions are required because Amazon S3 must decrypt and read data from
+  the encrypted file parts before it completes the multipart upload. For
+  more information about KMS permissions, see [Protecting data using server-side encryption with
+  KMS](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html)
+  in the
+  *Amazon S3 User Guide*. For information about the
+  permissions required to use the multipart upload API, see [Multipart upload and
+  permissions](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html)
+  and [Multipart upload API and permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html#mpuAndPermissions)
   in the
   *Amazon S3 User Guide*.
 

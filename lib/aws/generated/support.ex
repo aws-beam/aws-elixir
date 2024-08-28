@@ -54,7 +54,9 @@ defmodule AWS.Support do
 
   You can also use the Amazon Web Services Support API to call the Trusted Advisor
   operations. For more
-  information, see [Trusted Advisor](https://docs.aws.amazon.com/) in the
+  information, see [Trusted
+  Advisor](https://docs.aws.amazon.com/awssupport/latest/user/trusted-advisor.html)
+  in the
   *Amazon Web Services Support User Guide*.
 
   For authentication of requests, Amazon Web Services Support uses [Signature Version 4 Signing

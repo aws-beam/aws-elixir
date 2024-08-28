@@ -3672,7 +3672,9 @@ defmodule AWS.DynamoDB do
 
   Each read statement in a `BatchExecuteStatement` must specify
   an equality condition on all key attributes. This enforces that each `SELECT`
-  statement in a batch returns at most a single item.
+  statement in a batch returns at most a single item. For more information, see
+  [Running batch operations with PartiQL for DynamoDB
+  ](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ql-reference.multiplestatements.batching.html).
 
   The entire batch must consist of either read statements or write statements, you
   cannot mix both in one batch.
@@ -3704,11 +3706,11 @@ defmodule AWS.DynamoDB do
   as 100
   items. `BatchGetItem` returns a partial result if the response size limit is
   exceeded, the table's provisioned throughput is exceeded, more than 1MB per
-  partition is requested,
-  or an internal processing failure occurs. If a partial result is returned, the
-  operation returns a value for
-  `UnprocessedKeys`. You can use this value to retry the operation starting
-  with the next item to get.
+  partition is
+  requested, or an internal processing failure occurs. If a partial result is
+  returned,
+  the operation returns a value for `UnprocessedKeys`. You can use this value
+  to retry the operation starting with the next item to get.
 
   If you request more than 100 items, `BatchGetItem` returns a
   `ValidationException` with the message "Too many items requested for
@@ -3790,11 +3792,10 @@ defmodule AWS.DynamoDB do
   for the API call. For more details on this distinction, see [Naming Rules and Data
   Types](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html).
 
-  `BatchWriteItem` cannot update items. If you perform a `BatchWriteItem`
-  operation on an existing item, that item's values will be overwritten by the
-  operation and it will appear like it was updated. To update items, we recommend
-  you
-  use the `UpdateItem` action.
+  `BatchWriteItem` cannot update items. If you perform a
+  `BatchWriteItem` operation on an existing item, that item's values
+  will be overwritten by the operation and it will appear like it was updated. To
+  update items, we recommend you use the `UpdateItem` action.
 
   The individual `PutItem` and `DeleteItem` operations specified
   in `BatchWriteItem` are atomic; however `BatchWriteItem` as a
@@ -3807,10 +3808,14 @@ defmodule AWS.DynamoDB do
   items and submit a new `BatchWriteItem` request with those unprocessed items
   until all items have been processed.
 
-  If *none* of the items can be processed due to insufficient
-  provisioned throughput on all of the tables in the request, then
-  `BatchWriteItem` returns a
-  `ProvisionedThroughputExceededException`.
+  For tables and indexes with provisioned capacity, if none of the items can be
+  processed due to insufficient provisioned throughput on all of the tables in the
+  request, then `BatchWriteItem` returns a
+  `ProvisionedThroughputExceededException`. For all tables and indexes, if
+  none of the items can be processed due to other throttling scenarios (such as
+  exceeding
+  partition level limits), then `BatchWriteItem` returns a
+  `ThrottlingException`.
 
   If DynamoDB returns any unprocessed items, you should retry the batch operation
   on
@@ -4105,22 +4110,27 @@ defmodule AWS.DynamoDB do
 
   @doc """
   Deletes the resource-based policy attached to the resource, which can be a table
-  or stream.
+  or
+  stream.
 
-  `DeleteResourcePolicy` is an idempotent operation; running it multiple times on
-  the same resource *doesn't* result in an error response, unless you specify an
-  `ExpectedRevisionId`, which will then return a `PolicyNotFoundException`.
+  `DeleteResourcePolicy` is an idempotent operation; running it multiple
+  times on the same resource *doesn't* result in an error response,
+  unless you specify an `ExpectedRevisionId`, which will then return a
+  `PolicyNotFoundException`.
 
   To make sure that you don't inadvertently lock yourself out of your own
-  resources, the root principal in your Amazon Web Services account can perform
-  `DeleteResourcePolicy` requests, even if your resource-based policy explicitly
-  denies the root principal's access.
+  resources,
+  the root principal in your Amazon Web Services account can perform
+  `DeleteResourcePolicy` requests, even if your resource-based policy
+  explicitly denies the root principal's access.
 
   `DeleteResourcePolicy` is an asynchronous operation. If you issue a
-  `GetResourcePolicy` request immediately after running the `DeleteResourcePolicy`
-  request, DynamoDB might still return the deleted policy. This is because the
-  policy for your resource might not have been deleted yet. Wait for a few
-  seconds, and then try the `GetResourcePolicy` request again.
+  `GetResourcePolicy` request immediately after running the
+  `DeleteResourcePolicy` request, DynamoDB might still return
+  the deleted policy. This is because the policy for your resource might not have
+  been
+  deleted yet. Wait for a few seconds, and then try the `GetResourcePolicy`
+  request again.
   """
   @spec delete_resource_policy(map(), delete_resource_policy_input(), list()) ::
           {:ok, delete_resource_policy_output(), any()}
@@ -4144,12 +4154,14 @@ defmodule AWS.DynamoDB do
   returns a `ResourceNotFoundException`. If table is already in the
   `DELETING` state, no error is returned.
 
-  For global tables, this operation only applies to global tables using Version
-  2019.11.21 (Current version).
+  For global tables, this operation only applies to
+  global tables using Version 2019.11.21 (Current version).
 
   DynamoDB might continue to accept data read and write operations, such as
   `GetItem` and `PutItem`, on a table in the
-  `DELETING` state until the table deletion is complete.
+  `DELETING` state until the table deletion is complete. For the full
+  list of table states, see
+  [TableStatus](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TableDescription.html#DDB-Type-TableDescription-TableStatus).
 
   When you delete a table, any indexes on that table are also deleted.
 
@@ -4234,8 +4246,8 @@ defmodule AWS.DynamoDB do
   @doc """
   Returns the regional endpoint information.
 
-  For more information
-  on policy permissions, please see [Internetwork traffic privacy](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/inter-network-traffic-privacy.html#inter-network-traffic-DescribeEndpoints).
+  For more information on policy permissions,
+  please see [Internetwork traffic privacy](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/inter-network-traffic-privacy.html#inter-network-traffic-DescribeEndpoints).
   """
   @spec describe_endpoints(map(), describe_endpoints_request(), list()) ::
           {:ok, describe_endpoints_response(), any()}
@@ -4493,8 +4505,8 @@ defmodule AWS.DynamoDB do
   @doc """
   Stops replication from the DynamoDB table to the Kinesis data stream.
 
-  This is done
-  without deleting either of the resources.
+  This
+  is done without deleting either of the resources.
   """
   @spec disable_kinesis_streaming_destination(
           map(),
@@ -4547,9 +4559,8 @@ defmodule AWS.DynamoDB do
   apply any
   filtering to the results using `WHERE` clause). If
   `LastEvaluatedKey` is present in the response, you need to paginate the
-  result set. If `NextToken` is present, you need to paginate the result set and
-  include
-  `NextToken`.
+  result set. If `NextToken` is present, you need to paginate the result set
+  and include `NextToken`.
   """
   @spec execute_statement(map(), execute_statement_input(), list()) ::
           {:ok, execute_statement_output(), any()}
@@ -4626,38 +4637,44 @@ defmodule AWS.DynamoDB do
 
   @doc """
   Returns the resource-based policy document attached to the resource, which can
-  be a table or stream, in JSON format.
+  be a
+  table or stream, in JSON format.
 
   `GetResourcePolicy` follows an [
   *eventually consistent*
   ](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html)
-  model. The following list describes the outcomes when you issue the
-  `GetResourcePolicy` request immediately after issuing another request:
+  model. The following list
+  describes the outcomes when you issue the `GetResourcePolicy` request
+  immediately after issuing another request:
 
     *
   If you issue a `GetResourcePolicy` request immediately after a
-  `PutResourcePolicy` request, DynamoDB might return a `PolicyNotFoundException`.
+  `PutResourcePolicy` request, DynamoDB might return a
+  `PolicyNotFoundException`.
 
     *
   If you issue a `GetResourcePolicy`request immediately after a
-  `DeleteResourcePolicy` request, DynamoDB might return the policy that was
-  present before the deletion request.
+  `DeleteResourcePolicy` request, DynamoDB might return
+  the policy that was present before the deletion request.
 
     *
-  If you issue a `GetResourcePolicy` request immediately after a `CreateTable`
-  request, which includes a resource-based policy, DynamoDB might return a
-  `ResourceNotFoundException` or a `PolicyNotFoundException`.
+  If you issue a `GetResourcePolicy` request immediately after a
+  `CreateTable` request, which includes a resource-based policy,
+  DynamoDB might return a `ResourceNotFoundException` or
+  a `PolicyNotFoundException`.
 
-  Because `GetResourcePolicy` uses an *eventually consistent* query, the metadata
-  for your policy or table might not be available at that moment. Wait for a few
-  seconds, and then retry the `GetResourcePolicy` request.
+  Because `GetResourcePolicy` uses an *eventually
+  consistent* query, the metadata for your policy or table might not be
+  available at that moment. Wait for a few seconds, and then retry the
+  `GetResourcePolicy` request.
 
   After a `GetResourcePolicy` request returns a policy created using the
-  `PutResourcePolicy` request, the policy will be applied in the authorization of
-  requests to the resource. Because this process is eventually consistent, it will
-  take some time to apply the policy to all requests to a resource. Policies that
-  you attach while creating a table using the `CreateTable` request will always be
-  applied to all requests for that table.
+  `PutResourcePolicy` request, the policy will be applied in the
+  authorization of requests to the resource. Because this process is eventually
+  consistent, it will take some time to apply the policy to all requests to a
+  resource.
+  Policies that you attach while creating a table using the `CreateTable`
+  request will always be applied to all requests for that table.
   """
   @spec get_resource_policy(map(), get_resource_policy_input(), list()) ::
           {:ok, get_resource_policy_output(), any()}
@@ -4684,13 +4701,14 @@ defmodule AWS.DynamoDB do
 
   @doc """
   List DynamoDB backups that are associated with an Amazon Web Services account
-  and weren't made with Amazon Web Services Backup.
+  and
+  weren't made with Amazon Web Services Backup.
 
-  To list these backups for a given table, specify `TableName`. `ListBackups`
-  returns a
-  paginated list of results with at most 1 MB worth of items in a page. You can
-  also
-  specify a maximum number of entries to be returned in a page.
+  To list these backups for a given table,
+  specify `TableName`. `ListBackups` returns a paginated list of
+  results with at most 1 MB worth of items in a page. You can also specify a
+  maximum
+  number of entries to be returned in a page.
 
   In the request, start time is inclusive, but end time is exclusive. Note that
   these
@@ -4699,8 +4717,9 @@ defmodule AWS.DynamoDB do
   You can call `ListBackups` a maximum of five times per second.
 
   If you want to retrieve the complete list of backups made with Amazon Web
-  Services Backup, use the
-  [Amazon Web Services Backup list API.](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ListBackupJobs.html)
+  Services
+  Backup, use the [Amazon Web Services Backup list
+  API.](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ListBackupJobs.html)
   """
   @spec list_backups(map(), list_backups_input(), list()) ::
           {:ok, list_backups_output(), any()}
@@ -4861,25 +4880,30 @@ defmodule AWS.DynamoDB do
 
   @doc """
   Attaches a resource-based policy document to the resource, which can be a table
-  or stream.
+  or
+  stream.
 
   When you attach a resource-based policy using this API, the policy application
   is [
   *eventually consistent*
   ](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html).
 
-  `PutResourcePolicy` is an idempotent operation; running it multiple times on the
-  same resource using the same policy document will return the same revision ID.
-  If you specify an `ExpectedRevisionId` that doesn't match the current policy's
-  `RevisionId`, the `PolicyNotFoundException` will be returned.
+  `PutResourcePolicy` is an idempotent operation; running it multiple times
+  on the same resource using the same policy document will return the same
+  revision ID. If
+  you specify an `ExpectedRevisionId` that doesn't match the current policy's
+  `RevisionId`, the `PolicyNotFoundException` will be
+  returned.
 
   `PutResourcePolicy` is an asynchronous operation. If you issue a
-  `GetResourcePolicy` request immediately after a `PutResourcePolicy` request,
-  DynamoDB might return your previous policy, if there was one, or return the
-  `PolicyNotFoundException`. This is because `GetResourcePolicy` uses an
-  eventually consistent query, and the metadata for your policy or table might not
-  be available at that moment. Wait for a few seconds, and then try the
-  `GetResourcePolicy` request again.
+  `GetResourcePolicy` request immediately after a
+  `PutResourcePolicy` request, DynamoDB might return your
+  previous policy, if there was one, or return the
+  `PolicyNotFoundException`. This is because
+  `GetResourcePolicy` uses an eventually consistent query, and the
+  metadata for your policy or table might not be available at that moment. Wait
+  for a
+  few seconds, and then try the `GetResourcePolicy` request again.
   """
   @spec put_resource_policy(map(), put_resource_policy_input(), list()) ::
           {:ok, put_resource_policy_output(), any()}
@@ -5022,7 +5046,8 @@ defmodule AWS.DynamoDB do
   table.
 
   Along with data, the following are also included on the new restored table using
-  point in time recovery:
+  point
+  in time recovery:
 
     *
   Global secondary indexes (GSIs)
@@ -5080,30 +5105,26 @@ defmodule AWS.DynamoDB do
   items, you can provide a `FilterExpression` operation.
 
   If the total size of scanned items exceeds the maximum dataset size limit of 1
-  MB,
-  the scan completes and results are returned to the user. The `LastEvaluatedKey`
+  MB, the
+  scan completes and results are returned to the user. The `LastEvaluatedKey`
   value is also returned and the requestor can use the `LastEvaluatedKey` to
-  continue
-  the scan in a subsequent operation. Each scan response also includes number of
-  items that were
-  scanned (ScannedCount) as part of the request. If using a `FilterExpression`, a
-  scan result
-  can result in no items meeting the criteria and the `Count` will result in zero.
-  If
-  you did not use a `FilterExpression` in the scan request, then `Count` is
-  the same as `ScannedCount`.
+  continue the scan in a subsequent operation. Each scan response also includes
+  number of
+  items that were scanned (ScannedCount) as part of the request. If using a
+  `FilterExpression`, a scan result can result in no items meeting the
+  criteria and the `Count` will result in zero. If you did not use a
+  `FilterExpression` in the scan request, then `Count` is the
+  same as `ScannedCount`.
 
-  `Count` and `ScannedCount` only return the count of items specific to a
-  single scan request and, unless the table is less than 1MB, do not represent the
-  total number
-  of items in the table.
+  `Count` and `ScannedCount` only return the count of items
+  specific to a single scan request and, unless the table is less than 1MB, do not
+  represent the total number of items in the table.
 
-  A single `Scan` operation first reads up to the maximum number of items set (if
-  using the `Limit` parameter) or a maximum of 1 MB of data and then applies any
-  filtering to the results if a `FilterExpression` is provided. If
+  A single `Scan` operation first reads up to the maximum number of items set
+  (if using the `Limit` parameter) or a maximum of 1 MB of data and then
+  applies any filtering to the results if a `FilterExpression` is provided. If
   `LastEvaluatedKey` is present in the response, pagination is required to
-  complete the
-  full table scan. For more information, see [Paginating the Results](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.Pagination)
+  complete the full table scan. For more information, see [Paginating the Results](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.Pagination)
   in the *Amazon DynamoDB Developer Guide*.
 
   `Scan` operations proceed sequentially; however, for faster performance on
@@ -5112,22 +5133,21 @@ defmodule AWS.DynamoDB do
   parameters. For more information, see [Parallel Scan](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.ParallelScan)
   in the *Amazon DynamoDB Developer Guide*.
 
-  By default, a `Scan` uses eventually consistent reads when accessing the items
-  in a table.
-  Therefore, the results from an eventually consistent `Scan` may not include the
-  latest item
-  changes at the time the scan iterates through each item in the table. If you
-  require a strongly consistent
-  read of each item as the scan iterates through the items in the table, you can
-  set the `ConsistentRead`
+  By default, a `Scan` uses eventually consistent reads when accessing the
+  items in a table. Therefore, the results from an eventually consistent `Scan`
+  may not include the latest item changes at the time the scan iterates through
+  each item
+  in the table. If you require a strongly consistent read of each item as the scan
+  iterates through the items in the table, you can set the `ConsistentRead`
   parameter to true. Strong consistency only relates to the consistency of the
-  read at the item level.
+  read at the
+  item level.
 
   DynamoDB does not provide snapshot isolation for a scan operation when the
-  `ConsistentRead`
-  parameter is set to true. Thus, a DynamoDB scan operation does not guarantee
-  that all reads in a scan
-  see a consistent snapshot of the table when the scan operation was requested.
+  `ConsistentRead` parameter is set to true. Thus, a DynamoDB scan
+  operation does not guarantee that all reads in a scan see a consistent snapshot
+  of
+  the table when the scan operation was requested.
   """
   @spec scan(map(), scan_input(), list()) ::
           {:ok, scan_output(), any()}

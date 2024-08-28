@@ -310,6 +310,8 @@ defmodule AWS.OpenSearchServerless do
         "createdDate" => [float()],
         "dashboardEndpoint" => [String.t()],
         "description" => [String.t()],
+        "failureCode" => [String.t()],
+        "failureMessage" => [String.t()],
         "id" => String.t(),
         "kmsKeyArn" => [String.t()],
         "lastModifiedDate" => [float()],
@@ -549,6 +551,8 @@ defmodule AWS.OpenSearchServerless do
       
       vpc_endpoint_detail() :: %{
         "createdDate" => [float()],
+        "failureCode" => [String.t()],
+        "failureMessage" => [String.t()],
         "id" => String.t(),
         "name" => String.t(),
         "securityGroupIds" => list(String.t()()),

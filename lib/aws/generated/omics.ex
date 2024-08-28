@@ -287,7 +287,9 @@ defmodule AWS.Omics do
 
       get_reference_metadata_response() :: %{
         "arn" => String.t(),
+        "creationJobId" => String.t(),
         "creationTime" => [non_neg_integer()],
+        "creationType" => String.t(),
         "description" => String.t(),
         "files" => reference_files(),
         "id" => String.t(),
@@ -1102,6 +1104,7 @@ defmodule AWS.Omics do
 
       get_read_set_metadata_response() :: %{
         "arn" => String.t(),
+        "creationJobId" => String.t(),
         "creationTime" => [non_neg_integer()],
         "creationType" => String.t(),
         "description" => String.t(),
@@ -1490,6 +1493,7 @@ defmodule AWS.Omics do
         "description" => String.t(),
         "generatedFrom" => String.t(),
         "name" => String.t(),
+        "readSetId" => String.t(),
         "referenceArn" => String.t(),
         "sampleId" => String.t(),
         "sourceFileType" => String.t(),
@@ -2548,6 +2552,7 @@ defmodule AWS.Omics do
       import_reference_source_item() :: %{
         "description" => String.t(),
         "name" => String.t(),
+        "referenceId" => String.t(),
         "sourceFile" => String.t(),
         "status" => String.t(),
         "statusMessage" => String.t(),
@@ -4277,7 +4282,8 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Creates a run group.
+  You can optionally create a run group to limit the compute resources for the
+  runs that you add to the group.
   """
   @spec create_run_group(map(), create_run_group_request(), list()) ::
           {:ok, create_run_group_response(), any()}
@@ -4340,10 +4346,10 @@ defmodule AWS.Omics do
   The following resources support cross-account sharing:
 
     *
-  Healthomics variant stores
+  HealthOmics variant stores
 
     *
-  Healthomics annotation stores
+  HealthOmics annotation stores
 
     *
   Private workflows

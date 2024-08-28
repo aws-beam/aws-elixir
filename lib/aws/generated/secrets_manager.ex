@@ -1234,6 +1234,11 @@ defmodule AWS.SecretsManager do
 
   To encrypt the secret with a KMS key other than `aws/secretsmanager`, you need
   `kms:GenerateDataKey` and `kms:Decrypt` permission to the key.
+
+  When you enter commands in a command shell, there is a risk of the command
+  history being accessed or utilities having access to your command parameters.
+  This is a concern if the command includes the value of a secret. Learn how to
+  [Mitigate the risks of using command-line tools to store Secrets Manager secrets](https://docs.aws.amazon.com/secretsmanager/latest/userguide/security_cli-exposure-risks.html).
   """
   @spec create_secret(map(), create_secret_request(), list()) ::
           {:ok, create_secret_response(), any()}
@@ -1623,6 +1628,11 @@ defmodule AWS.SecretsManager do
   Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions)
   and [Authentication and access control in Secrets
   Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
+
+  When you enter commands in a command shell, there is a risk of the command
+  history being accessed or utilities having access to your command parameters.
+  This is a concern if the command includes the value of a secret. Learn how to
+  [Mitigate the risks of using command-line tools to store Secrets Manager secrets](https://docs.aws.amazon.com/secretsmanager/latest/userguide/security_cli-exposure-risks.html).
   """
   @spec put_secret_value(map(), put_secret_value_request(), list()) ::
           {:ok, put_secret_value_response(), any()}
@@ -1923,10 +1933,16 @@ defmodule AWS.SecretsManager do
   If you use a customer managed key, you must also have `kms:GenerateDataKey`,
   `kms:Encrypt`, and
   `kms:Decrypt` permissions on the key. If you change the KMS key and you don't
-  have `kms:Encrypt` permission to the new key, Secrets Manager does not re-ecrypt
-  existing secret versions with the new key. For more information, see [
+  have `kms:Encrypt` permission to the new key, Secrets Manager does not
+  re-encrypt existing secret versions with the new key. For more information, see
+  [
   Secret encryption and
   decryption](https://docs.aws.amazon.com/secretsmanager/latest/userguide/security-encryption.html).
+
+  When you enter commands in a command shell, there is a risk of the command
+  history being accessed or utilities having access to your command parameters.
+  This is a concern if the command includes the value of a secret. Learn how to
+  [Mitigate the risks of using command-line tools to store Secrets Manager secrets](https://docs.aws.amazon.com/secretsmanager/latest/userguide/security_cli-exposure-risks.html).
   """
   @spec update_secret(map(), update_secret_request(), list()) ::
           {:ok, update_secret_response(), any()}

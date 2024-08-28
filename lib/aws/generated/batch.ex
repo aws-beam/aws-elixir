@@ -228,6 +228,7 @@ defmodule AWS.Batch do
 
       update_compute_environment_request() :: %{
         optional("computeResources") => compute_resource_update(),
+        optional("context") => String.t(),
         optional("serviceRole") => String.t(),
         optional("state") => list(any()),
         optional("unmanagedvCpus") => integer(),
@@ -527,6 +528,7 @@ defmodule AWS.Batch do
 
       create_compute_environment_request() :: %{
         optional("computeResources") => compute_resource(),
+        optional("context") => String.t(),
         optional("eksConfiguration") => eks_configuration(),
         optional("serviceRole") => String.t(),
         optional("state") => list(any()),
@@ -1653,6 +1655,7 @@ defmodule AWS.Batch do
         "computeEnvironmentName" => String.t(),
         "computeResources" => compute_resource(),
         "containerOrchestrationType" => list(any()),
+        "context" => String.t(),
         "ecsClusterArn" => String.t(),
         "eksConfiguration" => eks_configuration(),
         "serviceRole" => String.t(),
@@ -2111,15 +2114,8 @@ defmodule AWS.Batch do
   @doc """
   Cancels a job in an Batch job queue.
 
-  Jobs that are in the
-  `SUBMITTED`
-  or
-  `PENDING`
-  are
-  canceled. A job
-  in`RUNNABLE` remains in `RUNNABLE` until it reaches the head of the
-  job queue. Then the job status is updated to
-  `FAILED`.
+  Jobs that are in a `SUBMITTED`, `PENDING`, or `RUNNABLE` state are cancelled and
+  the job status is updated to `FAILED`.
 
   A `PENDING` job is canceled after all dependency jobs are completed.
   Therefore, it may take longer than expected to cancel a job in `PENDING`

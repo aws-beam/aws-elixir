@@ -156,6 +156,18 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      list_id_mapping_tables_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_id_mapping_tables_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_members_output() :: %{
         optional("nextToken") => String.t(),
         required("memberSummaries") => list(member_summary()())
@@ -163,6 +175,18 @@ defmodule AWS.CleanRooms do
 
   """
   @type list_members_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_collaboration_id_namespace_associations_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_collaboration_id_namespace_associations_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -200,6 +224,18 @@ defmodule AWS.CleanRooms do
 
   """
   @type get_configured_table_analysis_rule_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_configured_table_association_analysis_rule_input() :: %{
+        required("analysisRulePolicy") => list(),
+        required("analysisRuleType") => list(any())
+      }
+
+  """
+  @type create_configured_table_association_analysis_rule_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -293,6 +329,17 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      protected_query_member_output_configuration() :: %{
+        "accountId" => String.t()
+      }
+
+  """
+  @type protected_query_member_output_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_analysis_templates_output() :: %{
         optional("nextToken") => String.t(),
         required("analysisTemplateSummaries") => list(analysis_template_summary()())
@@ -305,11 +352,42 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      delete_id_namespace_association_output() :: %{}
+
+  """
+  @type delete_id_namespace_association_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      collaboration_id_namespace_association_summary() :: %{
+        "arn" => String.t(),
+        "collaborationArn" => String.t(),
+        "collaborationId" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "creatorAccountId" => String.t(),
+        "description" => String.t(),
+        "id" => String.t(),
+        "inputReferenceConfig" => id_namespace_association_input_reference_config(),
+        "inputReferenceProperties" => id_namespace_association_input_reference_properties_summary(),
+        "name" => String.t(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type collaboration_id_namespace_association_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       protected_query_summary() :: %{
         "createTime" => [non_neg_integer()],
         "id" => String.t(),
         "membershipArn" => String.t(),
         "membershipId" => String.t(),
+        "receiverConfigurations" => list(receiver_configuration()()),
         "status" => String.t()
       }
 
@@ -350,10 +428,31 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      delete_id_mapping_table_input() :: %{}
+
+  """
+  @type delete_id_mapping_table_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_membership_output() :: %{}
 
   """
   @type delete_membership_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      receiver_configuration() :: %{
+        "analysisType" => list(any()),
+        "configurationDetails" => list()
+      }
+
+  """
+  @type receiver_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -382,6 +481,37 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      id_namespace_association_summary() :: %{
+        "arn" => String.t(),
+        "collaborationArn" => String.t(),
+        "collaborationId" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "id" => String.t(),
+        "inputReferenceConfig" => id_namespace_association_input_reference_config(),
+        "inputReferenceProperties" => id_namespace_association_input_reference_properties_summary(),
+        "membershipArn" => String.t(),
+        "membershipId" => String.t(),
+        "name" => String.t(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type id_namespace_association_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_collaboration_id_namespace_association_input() :: %{}
+
+  """
+  @type get_collaboration_id_namespace_association_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_configured_tables_input() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
@@ -400,6 +530,18 @@ defmodule AWS.CleanRooms do
 
   """
   @type create_collaboration_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      id_namespace_association_input_reference_config() :: %{
+        "inputReferenceArn" => String.t(),
+        "manageResourcePolicies" => [boolean()]
+      }
+
+  """
+  @type id_namespace_association_input_reference_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -539,6 +681,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       configured_table_association() :: %{
+        "analysisRuleTypes" => list(list(any())()),
         "arn" => String.t(),
         "configuredTableArn" => String.t(),
         "configuredTableId" => String.t(),
@@ -565,6 +708,15 @@ defmodule AWS.CleanRooms do
 
   """
   @type get_membership_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_configured_table_association_analysis_rule_output() :: %{}
+
+  """
+  @type delete_configured_table_association_analysis_rule_output() :: %{}
 
   @typedoc """
 
@@ -607,6 +759,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       analysis_rule_aggregation() :: %{
+        "additionalAnalyses" => list(any()),
         "aggregateColumns" => list(aggregate_column()()),
         "allowedJoinOperators" => list(String.t()()),
         "dimensionColumns" => list(String.t()()),
@@ -669,12 +822,48 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      update_id_mapping_table_input() :: %{
+        optional("description") => String.t(),
+        optional("kmsKeyArn") => String.t()
+      }
+
+  """
+  @type update_id_mapping_table_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_id_namespace_association_input() :: %{
+        optional("description") => String.t(),
+        optional("idMappingConfig") => id_mapping_config(),
+        optional("name") => String.t()
+      }
+
+  """
+  @type update_id_namespace_association_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_collaboration_output() :: %{
         required("collaboration") => collaboration()
       }
 
   """
   @type update_collaboration_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_id_mapping_table_output() :: %{
+        "idMappingTable" => id_mapping_table()
+      }
+
+  """
+  @type create_id_mapping_table_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -695,6 +884,7 @@ defmodule AWS.CleanRooms do
 
       schema_status_detail() :: %{
         "analysisRuleType" => list(any()),
+        "analysisType" => list(any()),
         "configurations" => list(list(any())()),
         "reasons" => list(schema_status_reason()()),
         "status" => list(any())
@@ -765,6 +955,17 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      id_mapping_table_schema_type_properties() :: %{
+        "idMappingTableInputSource" => list(id_mapping_table_input_source()())
+      }
+
+  """
+  @type id_mapping_table_schema_type_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_memberships_input() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
@@ -773,6 +974,17 @@ defmodule AWS.CleanRooms do
 
   """
   @type list_memberships_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_id_namespace_association_output() :: %{
+        "idNamespaceAssociation" => id_namespace_association()
+      }
+
+  """
+  @type get_id_namespace_association_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -832,9 +1044,11 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       analysis_rule_custom() :: %{
+        "additionalAnalyses" => list(any()),
         "allowedAnalyses" => list(String.t()()),
         "allowedAnalysisProviders" => list(String.t()()),
-        "differentialPrivacy" => differential_privacy_configuration()
+        "differentialPrivacy" => differential_privacy_configuration(),
+        "disallowedOutputColumns" => list(String.t()())
       }
 
   """
@@ -922,6 +1136,17 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      create_configured_table_association_analysis_rule_output() :: %{
+        "analysisRule" => configured_table_association_analysis_rule()
+      }
+
+  """
+  @type create_configured_table_association_analysis_rule_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_collaboration_input() :: %{}
 
   """
@@ -937,6 +1162,18 @@ defmodule AWS.CleanRooms do
 
   """
   @type update_protected_query_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configured_table_association_analysis_rule_custom() :: %{
+        "allowedAdditionalAnalyses" => list(String.t()()),
+        "allowedResultReceivers" => list(String.t()())
+      }
+
+  """
+  @type configured_table_association_analysis_rule_custom() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1025,6 +1262,21 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      create_id_mapping_table_input() :: %{
+        optional("description") => String.t(),
+        optional("kmsKeyArn") => String.t(),
+        optional("tags") => map(),
+        required("inputReferenceConfig") => id_mapping_table_input_reference_config(),
+        required("name") => String.t()
+      }
+
+  """
+  @type create_id_mapping_table_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_configured_table_analysis_rule_input() :: %{
         required("analysisRulePolicy") => list(),
         required("analysisRuleType") => list(any())
@@ -1032,6 +1284,28 @@ defmodule AWS.CleanRooms do
 
   """
   @type create_configured_table_analysis_rule_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_id_namespace_association_output() :: %{
+        "idNamespaceAssociation" => id_namespace_association()
+      }
+
+  """
+  @type update_id_namespace_association_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      query_constraint_require_overlap() :: %{
+        "columns" => list(String.t()())
+      }
+
+  """
+  @type query_constraint_require_overlap() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1058,6 +1332,18 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      id_namespace_association_input_reference_properties() :: %{
+        "idMappingWorkflowsSupported" => list([any()]()),
+        "idNamespaceType" => list(any())
+      }
+
+  """
+  @type id_namespace_association_input_reference_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       protected_query_result_configuration() :: %{
         "outputConfiguration" => list()
       }
@@ -1075,6 +1361,17 @@ defmodule AWS.CleanRooms do
 
   """
   @type update_configured_table_association_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_configured_table_association_analysis_rule_input() :: %{
+        required("analysisRulePolicy") => list()
+      }
+
+  """
+  @type update_configured_table_association_analysis_rule_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1202,6 +1499,17 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      populate_id_mapping_table_output() :: %{
+        "idMappingJobId" => String.t()
+      }
+
+  """
+  @type populate_id_mapping_table_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       privacy_budget_template() :: %{
         "arn" => String.t(),
         "autoRefresh" => list(any()),
@@ -1218,6 +1526,18 @@ defmodule AWS.CleanRooms do
 
   """
   @type privacy_budget_template() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configured_table_association_analysis_rule_aggregation() :: %{
+        "allowedAdditionalAnalyses" => list(String.t()()),
+        "allowedResultReceivers" => list(String.t()())
+      }
+
+  """
+  @type configured_table_association_analysis_rule_aggregation() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1310,12 +1630,22 @@ defmodule AWS.CleanRooms do
         "name" => String.t(),
         "partitionKeys" => list(column()()),
         "schemaStatusDetails" => list(schema_status_detail()()),
+        "schemaTypeProperties" => list(),
         "type" => list(any()),
         "updateTime" => [non_neg_integer()]
       }
 
   """
   @type schema() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configured_table_association_analysis_rule_input() :: %{}
+
+  """
+  @type get_configured_table_association_analysis_rule_input() :: %{}
 
   @typedoc """
 
@@ -1339,6 +1669,17 @@ defmodule AWS.CleanRooms do
 
   """
   @type list_collaboration_privacy_budget_templates_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configured_table_association_analysis_rule_output() :: %{
+        "analysisRule" => configured_table_association_analysis_rule()
+      }
+
+  """
+  @type get_configured_table_association_analysis_rule_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1392,7 +1733,19 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      id_mapping_config() :: %{
+        "allowUseAsDimensionColumn" => [boolean()]
+      }
+
+  """
+  @type id_mapping_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       analysis_rule_list() :: %{
+        "additionalAnalyses" => list(any()),
         "allowedJoinOperators" => list(String.t()()),
         "joinColumns" => list(String.t()()),
         "listColumns" => list(String.t()())
@@ -1427,6 +1780,21 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      create_id_namespace_association_input() :: %{
+        optional("description") => String.t(),
+        optional("idMappingConfig") => id_mapping_config(),
+        optional("tags") => map(),
+        required("inputReferenceConfig") => id_namespace_association_input_reference_config(),
+        required("name") => String.t()
+      }
+
+  """
+  @type create_id_namespace_association_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception_field() :: %{
         "message" => [String.t()],
         "name" => [String.t()]
@@ -1443,6 +1811,19 @@ defmodule AWS.CleanRooms do
 
   """
   @type get_configured_table_analysis_rule_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      analysis_rule_id_mapping_table() :: %{
+        "dimensionColumns" => list(String.t()()),
+        "joinColumns" => list(String.t()()),
+        "queryConstraints" => list(list()())
+      }
+
+  """
+  @type analysis_rule_id_mapping_table() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1599,6 +1980,38 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      id_mapping_table() :: %{
+        "arn" => String.t(),
+        "collaborationArn" => String.t(),
+        "collaborationId" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "id" => String.t(),
+        "inputReferenceConfig" => id_mapping_table_input_reference_config(),
+        "inputReferenceProperties" => id_mapping_table_input_reference_properties(),
+        "kmsKeyArn" => String.t(),
+        "membershipArn" => String.t(),
+        "membershipId" => String.t(),
+        "name" => String.t(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type id_mapping_table() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_id_mapping_table_output() :: %{}
+
+  """
+  @type delete_id_mapping_table_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       create_collaboration_input() :: %{
         optional("creatorPaymentConfiguration") => payment_configuration(),
         optional("dataEncryptionMetadata") => data_encryption_metadata(),
@@ -1629,6 +2042,17 @@ defmodule AWS.CleanRooms do
 
   """
   @type configured_table_analysis_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_id_mapping_table_output() :: %{
+        "idMappingTable" => id_mapping_table()
+      }
+
+  """
+  @type update_id_mapping_table_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1678,6 +2102,17 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      get_id_mapping_table_output() :: %{
+        "idMappingTable" => id_mapping_table()
+      }
+
+  """
+  @type get_id_mapping_table_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       aggregation_constraint() :: %{
         "columnName" => String.t(),
         "minimum" => [integer()],
@@ -1686,6 +2121,17 @@ defmodule AWS.CleanRooms do
 
   """
   @type aggregation_constraint() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_collaboration_id_namespace_association_output() :: %{
+        "collaborationIdNamespaceAssociation" => collaboration_id_namespace_association()
+      }
+
+  """
+  @type get_collaboration_id_namespace_association_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1729,6 +2175,18 @@ defmodule AWS.CleanRooms do
 
   """
   @type collaboration_privacy_budget_template() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_id_namespace_associations_output() :: %{
+        "idNamespaceAssociationSummaries" => list(id_namespace_association_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_id_namespace_associations_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1799,6 +2257,17 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      create_id_namespace_association_output() :: %{
+        "idNamespaceAssociation" => id_namespace_association()
+      }
+
+  """
+  @type create_id_namespace_association_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       access_denied_exception() :: %{
         "message" => [String.t()],
         "reason" => String.t()
@@ -1817,6 +2286,17 @@ defmodule AWS.CleanRooms do
 
   """
   @type differential_privacy_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      direct_analysis_configuration_details() :: %{
+        "receiverAccountIds" => list(String.t()())
+      }
+
+  """
+  @type direct_analysis_configuration_details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1928,6 +2408,35 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      configured_table_association_analysis_rule_list() :: %{
+        "allowedAdditionalAnalyses" => list(String.t()()),
+        "allowedResultReceivers" => list(String.t()())
+      }
+
+  """
+  @type configured_table_association_analysis_rule_list() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configured_table_association_analysis_rule() :: %{
+        "configuredTableAssociationArn" => String.t(),
+        "configuredTableAssociationId" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "membershipIdentifier" => String.t(),
+        "policy" => list(),
+        "type" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type configured_table_association_analysis_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_schema_input() :: %{}
 
   """
@@ -1957,6 +2466,15 @@ defmodule AWS.CleanRooms do
 
   """
   @type list_collaborations_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_id_namespace_association_input() :: %{}
+
+  """
+  @type delete_id_namespace_association_input() :: %{}
 
   @typedoc """
 
@@ -2016,6 +2534,28 @@ defmodule AWS.CleanRooms do
 
   """
   @type list_tags_for_resource_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      collaboration_id_namespace_association() :: %{
+        "arn" => String.t(),
+        "collaborationArn" => String.t(),
+        "collaborationId" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "creatorAccountId" => String.t(),
+        "description" => String.t(),
+        "id" => String.t(),
+        "idMappingConfig" => id_mapping_config(),
+        "inputReferenceConfig" => id_namespace_association_input_reference_config(),
+        "inputReferenceProperties" => id_namespace_association_input_reference_properties(),
+        "name" => String.t(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type collaboration_id_namespace_association() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2105,12 +2645,39 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      get_id_namespace_association_input() :: %{}
+
+  """
+  @type get_id_namespace_association_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_collaboration_output() :: %{
         required("collaboration") => collaboration()
       }
 
   """
   @type get_collaboration_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_id_mapping_table_input() :: %{}
+
+  """
+  @type get_id_mapping_table_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_configured_table_association_analysis_rule_input() :: %{}
+
+  """
+  @type delete_configured_table_association_analysis_rule_input() :: %{}
 
   @typedoc """
 
@@ -2318,6 +2885,18 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      id_mapping_table_input_source() :: %{
+        "idNamespaceAssociationId" => [String.t()],
+        "type" => list(any())
+      }
+
+  """
+  @type id_mapping_table_input_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_protected_query_input() :: %{
         optional("resultConfiguration") => protected_query_result_configuration(),
         required("sqlParameters") => protected_query_s_q_l_parameters(),
@@ -2448,6 +3027,18 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      list_id_namespace_associations_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_id_namespace_associations_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_configured_tables_output() :: %{
         optional("nextToken") => String.t(),
         required("configuredTableSummaries") => list(configured_table_summary()())
@@ -2455,6 +3046,29 @@ defmodule AWS.CleanRooms do
 
   """
   @type list_configured_tables_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      id_namespace_association() :: %{
+        "arn" => String.t(),
+        "collaborationArn" => String.t(),
+        "collaborationId" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "id" => String.t(),
+        "idMappingConfig" => id_mapping_config(),
+        "inputReferenceConfig" => id_namespace_association_input_reference_config(),
+        "inputReferenceProperties" => id_namespace_association_input_reference_properties(),
+        "membershipArn" => String.t(),
+        "membershipId" => String.t(),
+        "name" => String.t(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type id_namespace_association() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2509,6 +3123,17 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      id_namespace_association_input_reference_properties_summary() :: %{
+        "idNamespaceType" => list(any())
+      }
+
+  """
+  @type id_namespace_association_input_reference_properties_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_get_schema_error() :: %{
         "code" => [String.t()],
         "message" => [String.t()],
@@ -2556,6 +3181,17 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      id_mapping_table_input_reference_properties() :: %{
+        "idMappingTableInputSource" => list(id_mapping_table_input_source()())
+      }
+
+  """
+  @type id_mapping_table_input_reference_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       membership() :: %{
         "arn" => String.t(),
         "collaborationArn" => String.t(),
@@ -2580,10 +3216,51 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      update_configured_table_association_analysis_rule_output() :: %{
+        "analysisRule" => configured_table_association_analysis_rule()
+      }
+
+  """
+  @type update_configured_table_association_analysis_rule_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_configured_table_output() :: %{}
 
   """
   @type delete_configured_table_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      id_mapping_table_summary() :: %{
+        "arn" => String.t(),
+        "collaborationArn" => String.t(),
+        "collaborationId" => String.t(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "id" => String.t(),
+        "inputReferenceConfig" => id_mapping_table_input_reference_config(),
+        "membershipArn" => String.t(),
+        "membershipId" => String.t(),
+        "name" => String.t(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type id_mapping_table_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      populate_id_mapping_table_input() :: %{}
+
+  """
+  @type populate_id_mapping_table_input() :: %{}
 
   @typedoc """
 
@@ -2604,6 +3281,18 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      id_mapping_table_input_reference_config() :: %{
+        "inputReferenceArn" => String.t(),
+        "manageResourcePolicies" => [boolean()]
+      }
+
+  """
+  @type id_mapping_table_input_reference_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       differential_privacy_sensitivity_parameters() :: %{
         "aggregationExpression" => String.t(),
         "aggregationType" => list(any()),
@@ -2619,12 +3308,36 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      list_id_mapping_tables_output() :: %{
+        "idMappingTableSummaries" => list(id_mapping_table_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_id_mapping_tables_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_configured_table_output() :: %{
         required("configuredTable") => configured_table()
       }
 
   """
   @type get_configured_table_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_collaboration_id_namespace_associations_output() :: %{
+        "collaborationIdNamespaceAssociationSummaries" => list(collaboration_id_namespace_association_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_collaboration_id_namespace_associations_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2719,6 +3432,32 @@ defmodule AWS.CleanRooms do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type create_configured_table_association_analysis_rule_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_id_mapping_table_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_id_namespace_association_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type create_membership_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2780,6 +3519,28 @@ defmodule AWS.CleanRooms do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type delete_configured_table_association_analysis_rule_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_id_mapping_table_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type delete_id_namespace_association_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type delete_member_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2830,6 +3591,13 @@ defmodule AWS.CleanRooms do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_collaboration_id_namespace_association_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_collaboration_privacy_budget_template_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2859,6 +3627,27 @@ defmodule AWS.CleanRooms do
           | resource_not_found_exception()
 
   @type get_configured_table_association_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_configured_table_association_analysis_rule_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_id_mapping_table_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_id_namespace_association_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -2921,6 +3710,13 @@ defmodule AWS.CleanRooms do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type list_collaboration_id_namespace_associations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type list_collaboration_privacy_budget_templates_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2960,6 +3756,20 @@ defmodule AWS.CleanRooms do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+
+  @type list_id_mapping_tables_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_id_namespace_associations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type list_members_errors() ::
           throttling_exception()
@@ -3003,6 +3813,14 @@ defmodule AWS.CleanRooms do
           | resource_not_found_exception()
 
   @type list_tags_for_resource_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type populate_id_mapping_table_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type preview_privacy_impact_errors() ::
           throttling_exception()
@@ -3066,6 +3884,28 @@ defmodule AWS.CleanRooms do
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type update_configured_table_association_analysis_rule_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_id_mapping_table_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_id_namespace_association_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type update_membership_errors() ::
           throttling_exception()
@@ -3420,6 +4260,113 @@ defmodule AWS.CleanRooms do
   end
 
   @doc """
+  Creates a new analysis rule for an associated configured table.
+  """
+  @spec create_configured_table_association_analysis_rule(
+          map(),
+          String.t(),
+          String.t(),
+          create_configured_table_association_analysis_rule_input(),
+          list()
+        ) ::
+          {:ok, create_configured_table_association_analysis_rule_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_configured_table_association_analysis_rule_errors()}
+  def create_configured_table_association_analysis_rule(
+        %Client{} = client,
+        configured_table_association_identifier,
+        membership_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/configuredTableAssociations/#{AWS.Util.encode_uri(configured_table_association_identifier)}/analysisRule"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates an ID mapping table.
+  """
+  @spec create_id_mapping_table(map(), String.t(), create_id_mapping_table_input(), list()) ::
+          {:ok, create_id_mapping_table_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_id_mapping_table_errors()}
+  def create_id_mapping_table(%Client{} = client, membership_identifier, input, options \\ []) do
+    url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/idmappingtables"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates an ID namespace association.
+  """
+  @spec create_id_namespace_association(
+          map(),
+          String.t(),
+          create_id_namespace_association_input(),
+          list()
+        ) ::
+          {:ok, create_id_namespace_association_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_id_namespace_association_errors()}
+  def create_id_namespace_association(
+        %Client{} = client,
+        membership_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/idnamespaceassociations"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a membership for a specific collaboration identifier and joins the
   collaboration.
   """
@@ -3715,6 +4662,132 @@ defmodule AWS.CleanRooms do
   end
 
   @doc """
+  Deletes
+  an analysis rule for a configured table association.
+  """
+  @spec delete_configured_table_association_analysis_rule(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          delete_configured_table_association_analysis_rule_input(),
+          list()
+        ) ::
+          {:ok, delete_configured_table_association_analysis_rule_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_configured_table_association_analysis_rule_errors()}
+  def delete_configured_table_association_analysis_rule(
+        %Client{} = client,
+        analysis_rule_type,
+        configured_table_association_identifier,
+        membership_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/configuredTableAssociations/#{AWS.Util.encode_uri(configured_table_association_identifier)}/analysisRule/#{AWS.Util.encode_uri(analysis_rule_type)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes an ID mapping table.
+  """
+  @spec delete_id_mapping_table(
+          map(),
+          String.t(),
+          String.t(),
+          delete_id_mapping_table_input(),
+          list()
+        ) ::
+          {:ok, delete_id_mapping_table_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_id_mapping_table_errors()}
+  def delete_id_mapping_table(
+        %Client{} = client,
+        id_mapping_table_identifier,
+        membership_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/idmappingtables/#{AWS.Util.encode_uri(id_mapping_table_identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes an ID namespace association.
+  """
+  @spec delete_id_namespace_association(
+          map(),
+          String.t(),
+          String.t(),
+          delete_id_namespace_association_input(),
+          list()
+        ) ::
+          {:ok, delete_id_namespace_association_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_id_namespace_association_errors()}
+  def delete_id_namespace_association(
+        %Client{} = client,
+        id_namespace_association_identifier,
+        membership_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/idnamespaceassociations/#{AWS.Util.encode_uri(id_namespace_association_identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Removes the specified member from a collaboration.
 
   The removed member is placed in the
@@ -3919,6 +4992,30 @@ defmodule AWS.CleanRooms do
   end
 
   @doc """
+  Retrieves an ID namespace association from a specific collaboration.
+  """
+  @spec get_collaboration_id_namespace_association(map(), String.t(), String.t(), list()) ::
+          {:ok, get_collaboration_id_namespace_association_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_collaboration_id_namespace_association_errors()}
+  def get_collaboration_id_namespace_association(
+        %Client{} = client,
+        collaboration_identifier,
+        id_namespace_association_identifier,
+        options \\ []
+      ) do
+    url_path =
+      "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/idnamespaceassociations/#{AWS.Util.encode_uri(id_namespace_association_identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns details about a specified privacy budget template.
   """
   @spec get_collaboration_privacy_budget_template(map(), String.t(), String.t(), list()) ::
@@ -4022,6 +5119,87 @@ defmodule AWS.CleanRooms do
       ) do
     url_path =
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/configuredTableAssociations/#{AWS.Util.encode_uri(configured_table_association_identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+
+  Retrieves
+  the analysis rule for a configured table association.
+  """
+  @spec get_configured_table_association_analysis_rule(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          list()
+        ) ::
+          {:ok, get_configured_table_association_analysis_rule_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_configured_table_association_analysis_rule_errors()}
+  def get_configured_table_association_analysis_rule(
+        %Client{} = client,
+        analysis_rule_type,
+        configured_table_association_identifier,
+        membership_identifier,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/configuredTableAssociations/#{AWS.Util.encode_uri(configured_table_association_identifier)}/analysisRule/#{AWS.Util.encode_uri(analysis_rule_type)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves an ID mapping table.
+  """
+  @spec get_id_mapping_table(map(), String.t(), String.t(), list()) ::
+          {:ok, get_id_mapping_table_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_id_mapping_table_errors()}
+  def get_id_mapping_table(
+        %Client{} = client,
+        id_mapping_table_identifier,
+        membership_identifier,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/idmappingtables/#{AWS.Util.encode_uri(id_mapping_table_identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves an ID namespace association.
+  """
+  @spec get_id_namespace_association(map(), String.t(), String.t(), list()) ::
+          {:ok, get_id_namespace_association_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_id_namespace_association_errors()}
+  def get_id_namespace_association(
+        %Client{} = client,
+        id_namespace_association_identifier,
+        membership_identifier,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/idnamespaceassociations/#{AWS.Util.encode_uri(id_namespace_association_identifier)}"
 
     headers = []
     query_params = []
@@ -4244,6 +5422,51 @@ defmodule AWS.CleanRooms do
       ) do
     url_path =
       "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/configuredaudiencemodelassociations"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of the ID namespace associations in a collaboration.
+  """
+  @spec list_collaboration_id_namespace_associations(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_collaboration_id_namespace_associations_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_collaboration_id_namespace_associations_errors()}
+  def list_collaboration_id_namespace_associations(
+        %Client{} = client,
+        collaboration_identifier,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/idnamespaceassociations"
 
     headers = []
     query_params = []
@@ -4517,6 +5740,88 @@ defmodule AWS.CleanRooms do
         options \\ []
       ) do
     url_path = "/configuredTables"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of ID mapping tables.
+  """
+  @spec list_id_mapping_tables(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_id_mapping_tables_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_id_mapping_tables_errors()}
+  def list_id_mapping_tables(
+        %Client{} = client,
+        membership_identifier,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/idmappingtables"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of ID namespace associations.
+  """
+  @spec list_id_namespace_associations(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_id_namespace_associations_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_id_namespace_associations_errors()}
+  def list_id_namespace_associations(
+        %Client{} = client,
+        membership_identifier,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/idnamespaceassociations"
+
     headers = []
     query_params = []
 
@@ -4839,6 +6144,47 @@ defmodule AWS.CleanRooms do
   end
 
   @doc """
+  Defines the information that's necessary to populate an ID mapping table.
+  """
+  @spec populate_id_mapping_table(
+          map(),
+          String.t(),
+          String.t(),
+          populate_id_mapping_table_input(),
+          list()
+        ) ::
+          {:ok, populate_id_mapping_table_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, populate_id_mapping_table_errors()}
+  def populate_id_mapping_table(
+        %Client{} = client,
+        id_mapping_table_identifier,
+        membership_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/idmappingtables/#{AWS.Util.encode_uri(id_mapping_table_identifier)}/populate"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   An estimate of the number of aggregation functions that the member who can query
   can run given epsilon and noise parameters.
   """
@@ -5158,6 +6504,133 @@ defmodule AWS.CleanRooms do
       ) do
     url_path =
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/configuredTableAssociations/#{AWS.Util.encode_uri(configured_table_association_identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+
+  Updates
+  the analysis rule for a configured table association.
+  """
+  @spec update_configured_table_association_analysis_rule(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          update_configured_table_association_analysis_rule_input(),
+          list()
+        ) ::
+          {:ok, update_configured_table_association_analysis_rule_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_configured_table_association_analysis_rule_errors()}
+  def update_configured_table_association_analysis_rule(
+        %Client{} = client,
+        analysis_rule_type,
+        configured_table_association_identifier,
+        membership_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/configuredTableAssociations/#{AWS.Util.encode_uri(configured_table_association_identifier)}/analysisRule/#{AWS.Util.encode_uri(analysis_rule_type)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Provides the details that are necessary to update an ID mapping table.
+  """
+  @spec update_id_mapping_table(
+          map(),
+          String.t(),
+          String.t(),
+          update_id_mapping_table_input(),
+          list()
+        ) ::
+          {:ok, update_id_mapping_table_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_id_mapping_table_errors()}
+  def update_id_mapping_table(
+        %Client{} = client,
+        id_mapping_table_identifier,
+        membership_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/idmappingtables/#{AWS.Util.encode_uri(id_mapping_table_identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Provides the details that are necessary to update an ID namespace association.
+  """
+  @spec update_id_namespace_association(
+          map(),
+          String.t(),
+          String.t(),
+          update_id_namespace_association_input(),
+          list()
+        ) ::
+          {:ok, update_id_namespace_association_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_id_namespace_association_errors()}
+  def update_id_namespace_association(
+        %Client{} = client,
+        id_namespace_association_identifier,
+        membership_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/idnamespaceassociations/#{AWS.Util.encode_uri(id_namespace_association_identifier)}"
 
     headers = []
     query_params = []

@@ -161,6 +161,17 @@ defmodule AWS.MedicalImaging do
 
   ## Example:
 
+      metadata_copies() :: %{
+        "copiableAttributes" => String.t()
+      }
+
+  """
+  @type metadata_copies() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_request() :: %{
         required("tags") => map()
       }
@@ -201,6 +212,17 @@ defmodule AWS.MedicalImaging do
 
   ## Example:
 
+      overrides() :: %{
+        "forced" => [boolean()]
+      }
+
+  """
+  @type overrides() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       image_sets_metadata_summary() :: %{
         "DICOMTags" => d_i_c_o_m_tags(),
         "createdAt" => non_neg_integer(),
@@ -226,6 +248,7 @@ defmodule AWS.MedicalImaging do
   ## Example:
 
       copy_image_set_request() :: %{
+        optional("force") => [boolean()],
         required("copyImageSetInformation") => copy_image_set_information()
       }
 
@@ -237,6 +260,7 @@ defmodule AWS.MedicalImaging do
   ## Example:
 
       copy_source_image_set_information() :: %{
+        "DICOMCopies" => metadata_copies(),
         "latestVersionId" => String.t()
       }
 
@@ -321,6 +345,7 @@ defmodule AWS.MedicalImaging do
         "imageSetId" => String.t(),
         "imageSetState" => list(any()),
         "message" => String.t(),
+        "overrides" => overrides(),
         "updatedAt" => non_neg_integer(),
         "versionId" => String.t()
       }
@@ -373,6 +398,7 @@ defmodule AWS.MedicalImaging do
         "imageSetState" => list(any()),
         "imageSetWorkflowStatus" => list(any()),
         "message" => String.t(),
+        "overrides" => overrides(),
         "updatedAt" => non_neg_integer(),
         "versionId" => String.t()
       }
@@ -443,6 +469,7 @@ defmodule AWS.MedicalImaging do
   ## Example:
 
       update_image_set_metadata_request() :: %{
+        optional("force") => [boolean()],
         required("latestVersionId") => String.t(),
         required("updateImageSetMetadataUpdates") => list()
       }
@@ -1094,7 +1121,12 @@ defmodule AWS.MedicalImaging do
       "/datastore/#{AWS.Util.encode_uri(datastore_id)}/imageSet/#{AWS.Util.encode_uri(source_image_set_id)}/copyImageSet"
 
     headers = []
-    query_params = []
+
+    {query_params, input} =
+      [
+        {"force", "force"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata() |> Map.put_new(:host_prefix, "runtime-")
 
@@ -1683,6 +1715,7 @@ defmodule AWS.MedicalImaging do
 
     {query_params, input} =
       [
+        {"force", "force"},
         {"latestVersionId", "latestVersion"}
       ]
       |> Request.build_params(input)

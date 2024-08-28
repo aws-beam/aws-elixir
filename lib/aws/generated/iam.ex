@@ -5111,17 +5111,14 @@ defmodule AWS.IAM do
   You get all of this information from the OIDC IdP you want to use to access
   Amazon Web Services.
 
-  Amazon Web Services secures communication with some OIDC identity providers
-  (IdPs) through our library
-  of trusted root certificate authorities (CAs) instead of using a certificate
-  thumbprint to
-  verify your IdP server certificate. In these cases, your legacy thumbprint
-  remains in your
-  configuration, but is no longer used for validation. These OIDC IdPs include
-  Auth0, GitHub,
-  GitLab, Google, and those that use an Amazon S3 bucket to host a JSON Web Key
-  Set (JWKS)
-  endpoint.
+  Amazon Web Services secures communication with OIDC identity providers (IdPs)
+  using our library of
+  trusted root certificate authorities (CAs) to verify the JSON Web Key Set (JWKS)
+  endpoint's TLS certificate. If your OIDC IdP relies on a certificate that is not
+  signed
+  by one of these trusted CAs, only then we secure communication using the
+  thumbprints set
+  in the IdP's configuration.
 
   The trust for the OIDC provider is derived from the IAM provider that this
   operation creates. Therefore, it is best to limit access to the
@@ -7138,9 +7135,9 @@ defmodule AWS.IAM do
   one).
 
   For information about using an Amazon Web Services account alias, see [Creating, deleting, and listing an Amazon Web Services account
-  alias](https://docs.aws.amazon.com/signin/latest/userguide/CreateAccountAlias.html)
-  in the *Amazon Web Services Sign-In
-  User Guide*.
+  alias](https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html#CreateAccountAlias)
+  in the
+  *IAM User Guide*.
   """
   @spec list_account_aliases(map(), list_account_aliases_request(), list()) ::
           {:ok, list_account_aliases_response(), any()}
@@ -9190,17 +9187,14 @@ defmodule AWS.IAM do
   the OIDC provider as a principal fails until the certificate thumbprint is
   updated.
 
-  Amazon Web Services secures communication with some OIDC identity providers
-  (IdPs) through our library
-  of trusted root certificate authorities (CAs) instead of using a certificate
-  thumbprint to
-  verify your IdP server certificate. In these cases, your legacy thumbprint
-  remains in your
-  configuration, but is no longer used for validation. These OIDC IdPs include
-  Auth0, GitHub,
-  GitLab, Google, and those that use an Amazon S3 bucket to host a JSON Web Key
-  Set (JWKS)
-  endpoint.
+  Amazon Web Services secures communication with OIDC identity providers (IdPs)
+  using our library of
+  trusted root certificate authorities (CAs) to verify the JSON Web Key Set (JWKS)
+  endpoint's TLS certificate. If your OIDC IdP relies on a certificate that is not
+  signed
+  by one of these trusted CAs, only then we secure communication using the
+  thumbprints set
+  in the IdP's configuration.
 
   Trust for the OIDC provider is derived from the provider certificate and is
   validated by the thumbprint. Therefore, it is best to limit access to the

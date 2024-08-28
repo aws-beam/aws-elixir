@@ -15,6 +15,7 @@ defmodule AWS.BedrockAgentRuntime do
 
       function_invocation_input() :: %{
         "actionGroup" => [String.t()],
+        "actionInvocationType" => list(any()),
         "function" => [String.t()],
         "parameters" => list(function_parameter()())
       }
@@ -235,6 +236,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      metadata() :: %{
+        "usage" => usage()
+      }
+
+  """
+  @type metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       knowledge_base_query() :: %{
         "text" => [String.t()]
       }
@@ -403,6 +415,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      usage() :: %{
+        "inputTokens" => [integer()],
+        "outputTokens" => [integer()]
+      }
+
+  """
+  @type usage() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       retrieval_result_content() :: %{
         "text" => [String.t()]
       }
@@ -507,6 +531,7 @@ defmodule AWS.BedrockAgentRuntime do
 
       function_result() :: %{
         "actionGroup" => [String.t()],
+        "confirmationState" => list(any()),
         "function" => [String.t()],
         "responseBody" => map(),
         "responseState" => list(any())
@@ -715,6 +740,7 @@ defmodule AWS.BedrockAgentRuntime do
 
       api_invocation_input() :: %{
         "actionGroup" => [String.t()],
+        "actionInvocationType" => list(any()),
         "apiPath" => String.t(),
         "httpMethod" => [String.t()],
         "parameters" => list(api_parameter()()),
@@ -776,6 +802,7 @@ defmodule AWS.BedrockAgentRuntime do
       api_result() :: %{
         "actionGroup" => [String.t()],
         "apiPath" => String.t(),
+        "confirmationState" => list(any()),
         "httpMethod" => [String.t()],
         "httpStatusCode" => [integer()],
         "responseBody" => map(),
@@ -1146,6 +1173,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      raw_response() :: %{
+        "content" => [String.t()]
+      }
+
+  """
+  @type raw_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_configuration() :: %{
         "guardrailId" => [String.t()],
         "guardrailVersion" => [String.t()]
@@ -1316,6 +1354,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type guardrail_pii_entity_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      orchestration_model_invocation_output() :: %{
+        "metadata" => metadata(),
+        "rawResponse" => raw_response(),
+        "traceId" => String.t()
+      }
+
+  """
+  @type orchestration_model_invocation_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1671,6 +1722,9 @@ defmodule AWS.BedrockAgentRuntime do
   If there's an error, the error is returned. For more information, see [Test a flow in Amazon
   Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-test.html)
   in the Amazon Bedrock User Guide.
+
+  The CLI doesn't support streaming operations in Amazon Bedrock, including
+  `InvokeFlow`.
   """
   @spec invoke_flow(map(), String.t(), String.t(), invoke_flow_request(), list()) ::
           {:ok, invoke_flow_response(), any()}

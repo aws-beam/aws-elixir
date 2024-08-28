@@ -88,6 +88,7 @@ defmodule AWS.SsmSap do
         "ApplicationId" => String.t(),
         "Arn" => String.t(),
         "ComponentId" => String.t(),
+        "ConnectedComponentArns" => list(String.t()()),
         "Credentials" => list(application_credential()()),
         "DatabaseId" => String.t(),
         "DatabaseName" => [String.t()],
@@ -501,6 +502,7 @@ defmodule AWS.SsmSap do
       application() :: %{
         "AppRegistryArn" => String.t(),
         "Arn" => String.t(),
+        "AssociatedApplicationArns" => list(String.t()()),
         "Components" => list(String.t()()),
         "DiscoveryStatus" => list(any()),
         "Id" => String.t(),
@@ -1222,8 +1224,7 @@ defmodule AWS.SsmSap do
   Returns a list of operations events.
 
   Available parameters include `OperationID`, as well as optional parameters
-  `MaxResults`, `NextToken`, and
-  `Filters`.
+  `MaxResults`, `NextToken`, and `Filters`.
   """
   @spec list_operation_events(map(), list_operation_events_input(), list()) ::
           {:ok, list_operation_events_output(), any()}
@@ -1423,9 +1424,9 @@ defmodule AWS.SsmSap do
   @doc """
   Request is an operation to stop an application.
 
-  Parameter `ApplicationId` is required.
-  Parameters `StopConnectedEntity` and
-  `IncludeEc2InstanceShutdown` are optional.
+  Parameter `ApplicationId` is required. Parameters
+  `StopConnectedEntity` and `IncludeEc2InstanceShutdown` are
+  optional.
   """
   @spec stop_application(map(), stop_application_input(), list()) ::
           {:ok, stop_application_output(), any()}

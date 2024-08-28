@@ -315,6 +315,7 @@ defmodule AWS.SES do
       
       s3_action() :: %{
         "BucketName" => String.t(),
+        "IamRoleArn" => String.t(),
         "KmsKeyArn" => String.t(),
         "ObjectKeyPrefix" => String.t(),
         "TopicArn" => String.t()
@@ -1507,12 +1508,12 @@ defmodule AWS.SES do
       send_bulk_templated_email_request() :: %{
         optional("ConfigurationSetName") => String.t(),
         optional("DefaultTags") => list(message_tag()()),
-        optional("DefaultTemplateData") => String.t(),
         optional("ReplyToAddresses") => list(String.t()()),
         optional("ReturnPath") => String.t(),
         optional("ReturnPathArn") => String.t(),
         optional("SourceArn") => String.t(),
         optional("TemplateArn") => String.t(),
+        required("DefaultTemplateData") => String.t(),
         required("Destinations") => list(bulk_email_destination()()),
         required("Source") => String.t(),
         required("Template") => String.t()

@@ -1100,6 +1100,19 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      container_restart_policy() :: %{
+        "enabled" => boolean(),
+        "ignoredExitCodes" => list(integer()()),
+        "restartAttemptPeriod" => integer()
+      }
+      
+  """
+  @type container_restart_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       service_connect_configuration() :: %{
         "enabled" => boolean(),
         "logConfiguration" => log_configuration(),
@@ -1196,6 +1209,7 @@ defmodule AWS.ECS do
         "startTimeout" => integer(),
         "resourceRequirements" => list(resource_requirement()()),
         "dnsServers" => list(String.t()()),
+        "restartPolicy" => container_restart_policy(),
         "dockerLabels" => map(),
         "essential" => boolean(),
         "stopTimeout" => integer(),
@@ -3717,16 +3731,18 @@ defmodule AWS.ECS do
   By default, your account receives a `default`
   cluster when you launch your first container instance. However, you can create
   your own
-  cluster with a unique name with the `CreateCluster` action.
+  cluster with a unique name.
 
-  When you call the `CreateCluster` API operation, Amazon ECS attempts to
+  When you call the
+  [CreateCluster](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCluster.html) API operation, Amazon ECS attempts to
   create the Amazon ECS service-linked role for your account. This is so that it
   can manage
   required resources in other Amazon Web Services services on your behalf.
   However, if the user that
   makes the call doesn't have permissions to create the service-linked role, it
   isn't
-  created. For more information, see [Using service-linked roles for Amazon
+  created. For more information, see [Using
+  service-linked roles for Amazon
   ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html)
   in the *Amazon Elastic Container Service Developer Guide*.
   """
@@ -3748,8 +3764,8 @@ defmodule AWS.ECS do
   the number of tasks running in a service drops below the `desiredCount`,
   Amazon ECS runs another copy of the task in the specified cluster. To update an
   existing
-  service, see the `UpdateService` action.
-
+  service, use
+  [UpdateService](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html). 
   On March 21, 2024, a change was made to resolve the task definition revision
   before authorization. When a task definition revision is not specified,
   authorization will occur using the latest revision of a task definition.
@@ -3759,7 +3775,8 @@ defmodule AWS.ECS do
   balancers
   distribute traffic across the tasks that are associated with the service. For
   more
-  information, see [Service load balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html)
+  information, see [Service load
+  balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html)
   in the *Amazon Elastic Container Service Developer Guide*.
 
   You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume
@@ -3800,8 +3817,8 @@ defmodule AWS.ECS do
   deployment
   is initiated by changing properties. For example, the deployment might be
   initiated by
-  the task definition or by your desired count of a service. This is done with an
-  `UpdateService` operation. The default value for a replica service for
+  the task definition or by your desired count of a service. You can use
+  [UpdateService](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html). The default value for a replica service for
   `minimumHealthyPercent` is 100%. The default value for a daemon service
   for `minimumHealthyPercent` is 0%.
 
@@ -3857,12 +3874,12 @@ defmodule AWS.ECS do
   can specify only parameters that aren't controlled at the task set level. The
   only
   required parameter is the service name. You control your services using the
-  `CreateTaskSet` operation. For more information, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
+  [CreateTaskSet](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateTaskSet.html).
+  For more information, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
   in the *Amazon Elastic Container Service Developer Guide*.
 
   When the service scheduler launches new tasks, it determines task placement. For
-  information
-  about task placement and task placement strategies, see [Amazon ECS task
+  information about task placement and task placement strategies, see [Amazon ECS task
   placement](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement.html)
   in the *Amazon Elastic Container Service Developer Guide*
 
@@ -3896,7 +3913,7 @@ defmodule AWS.ECS do
   before authorization. When a task definition revision is not specified,
   authorization will occur using the latest revision of a task definition.
 
-  For information about the maximum number of task sets and otther quotas, see
+  For information about the maximum number of task sets and other quotas, see
   [Amazon ECS service
   quotas](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html)
   in the *Amazon Elastic Container Service Developer Guide*.
@@ -3944,12 +3961,13 @@ defmodule AWS.ECS do
   The `FARGATE` and `FARGATE_SPOT` capacity providers are
   reserved and can't be deleted. You can disassociate them from a cluster using
   either
-  the `PutClusterCapacityProviders` API or by deleting the
+  [PutCapacityProviderProviders](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutCapacityProviderProviders.html) or by deleting the
   cluster.
 
   Prior to a capacity provider being deleted, the capacity provider must be
   removed from
-  the capacity provider strategy from all services. The `UpdateService`
+  the capacity provider strategy from all services. The
+  [UpdateService](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html)
   API can be used to remove a capacity provider from a service's capacity provider
   strategy. When updating a service, the `forceNewDeployment` option can be
   used to ensure that any tasks using the Amazon EC2 instance capacity provided by
@@ -3959,7 +3977,8 @@ defmodule AWS.ECS do
   Only capacity providers that aren't associated with a cluster can be deleted. To
   remove
   a capacity provider from a cluster, you can either use
-  `PutClusterCapacityProviders` or delete the cluster.
+  [PutCapacityProviderProviders](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutCapacityProviderProviders.html)
+  or delete the cluster.
   """
   @spec delete_capacity_provider(map(), delete_capacity_provider_request(), list()) ::
           {:ok, delete_capacity_provider_response(), any()}
@@ -3983,7 +4002,8 @@ defmodule AWS.ECS do
   You must deregister all container instances from this cluster before you may
   delete
   it. You can list the container instances in a cluster with
-  `ListContainerInstances` and deregister them with `DeregisterContainerInstance`.
+  [ListContainerInstances](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListContainerInstances.html) and deregister them with
+  [DeregisterContainerInstance](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeregisterContainerInstance.html).
   """
   @spec delete_cluster(map(), delete_cluster_request(), list()) ::
           {:ok, delete_cluster_response(), any()}
@@ -4003,19 +4023,22 @@ defmodule AWS.ECS do
   actively
   maintaining tasks, you can't delete it, and you must update the service to a
   desired
-  task count of zero. For more information, see `UpdateService`.
-
+  task count of zero. For more information, see
+  [UpdateService](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html). 
   When you delete a service, if there are still running tasks that require
   cleanup,
   the service status moves from `ACTIVE` to `DRAINING`, and the
-  service is no longer visible in the console or in the `ListServices`
+  service is no longer visible in the console or in the
+  [ListServices](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html)
   API operation. After all tasks have transitioned to either `STOPPING` or
   `STOPPED` status, the service status moves from `DRAINING`
   to `INACTIVE`. Services in the `DRAINING` or
-  `INACTIVE` status can still be viewed with the `DescribeServices` API operation.
-  However, in the future,
+  `INACTIVE` status can still be viewed with the
+  [DescribeServices](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeServices.html) API operation. However, in the future,
   `INACTIVE` services may be cleaned up and purged from Amazon ECS record
-  keeping, and `DescribeServices` calls on those services return a
+  keeping, and
+  [DescribeServices](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeServices.html)
+  calls on those services return a
   `ServiceNotFoundException` error.
 
   If you attempt to create a new service with the same name as an existing service
@@ -4554,7 +4577,8 @@ defmodule AWS.ECS do
   If the attribute doesn't exist,
   it's created. If the attribute exists, its value is replaced with the specified
   value.
-  To delete an attribute, use `DeleteAttributes`. For more information,
+  To delete an attribute, use
+  [DeleteAttributes](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteAttributes.html). For more information,
   see
   [Attributes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes)
   in the *Amazon Elastic Container Service Developer Guide*.
@@ -4582,7 +4606,8 @@ defmodule AWS.ECS do
   to any
   new ones you want to add. Any existing capacity providers that are associated
   with a
-  cluster that are omitted from a `PutClusterCapacityProviders` API call
+  cluster that are omitted from a
+  [PutClusterCapacityProviders](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutClusterCapacityProviders.html) API call
   will be disassociated with the cluster. You can only disassociate an existing
   capacity
   provider from a cluster if it's not being used by any existing tasks.
@@ -4645,13 +4670,12 @@ defmodule AWS.ECS do
 
   You can specify a Docker networking mode for the containers in your task
   definition
-  with the `networkMode` parameter. The available network modes correspond to
-  those described in [Network settings](https://docs.docker.com/engine/reference/run/#/network-settings) in
-  the Docker run reference. If you specify the `awsvpc`
+  with the `networkMode` parameter. If you specify the `awsvpc`
   network mode, the task is allocated an elastic network interface, and you must
   specify a
-  `NetworkConfiguration` when you create a service or run a task with
-  the task definition. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
+  [NetworkConfiguration](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_NetworkConfiguration.html) when you create a service or run a task with
+  the task definition. For more information, see [Task
+  Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
   in the *Amazon Elastic Container Service Developer Guide*.
   """
   @spec register_task_definition(map(), register_task_definition_request(), list()) ::
@@ -4745,7 +4769,7 @@ defmodule AWS.ECS do
   who have used Amazon EI at least once during the past 30-day period are
   considered current customers and will be able to continue using the service.
 
-  Alternatively, you can use `RunTask` to place tasks for you. For more
+  Alternatively, you can use`RunTask` to place tasks for you. For more
   information, see [Scheduling Tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html)
   in the *Amazon Elastic Container Service Developer Guide*.
 
@@ -4769,7 +4793,7 @@ defmodule AWS.ECS do
 
   Any tags associated with the task will be deleted.
 
-  When `StopTask` is called on a task, the equivalent of
+  When you call `StopTask` on a task, the equivalent of
 
   ```
   docker
@@ -4783,8 +4807,8 @@ defmodule AWS.ECS do
   from receiving it, no `SIGKILL` value is sent.
 
   For Windows containers, POSIX signals do not work and runtime stops the
-  container by sending
-  a `CTRL_SHUTDOWN_EVENT`. For more information, see [Unable to react to graceful shutdown
+  container by
+  sending a `CTRL_SHUTDOWN_EVENT`. For more information, see [Unable to react to graceful shutdown
   of (Windows) container #25982](https://github.com/moby/moby/issues/25982) on
   GitHub.
 
@@ -4991,8 +5015,8 @@ defmodule AWS.ECS do
   stopped and replaced according to the service's deployment configuration
   parameters,
   `minimumHealthyPercent` and `maximumPercent`. You can change
-  the deployment configuration of your service using `UpdateService`.
-
+  the deployment configuration of your service using
+  [UpdateService](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html). 
     *
   If `minimumHealthyPercent` is below 100%, the scheduler can ignore
   `desiredCount` temporarily during task replacement. For example,
@@ -5018,7 +5042,8 @@ defmodule AWS.ECS do
   aren't affected. You must wait for them to finish or stop them manually.
 
   A container instance has completed draining when it has no more `RUNNING`
-  tasks. You can verify this using `ListTasks`.
+  tasks. You can verify this using
+  [ListTasks](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListTasks.html).
 
   When a container instance has been drained, you can set a container instance to
   `ACTIVE` status and once it has reached that status the Amazon ECS scheduler
@@ -5083,7 +5108,8 @@ defmodule AWS.ECS do
   managed tags option, and propagate tags option, using this API. If the launch
   type, load
   balancer, network configuration, platform version, or task definition need to be
-  updated, create a new task set For more information, see `CreateTaskSet`.
+  updated, create a new task set For more information, see
+  [CreateTaskSet](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateTaskSet.html).
 
   You can add to or subtract from the number of instantiations of a task
   definition in a
@@ -5093,8 +5119,7 @@ defmodule AWS.ECS do
   You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume
   when starting or
   running a task, or when creating or updating a service. For more infomation, see
-  [Amazon EBS
-  volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types)
+  [Amazon EBS volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types)
   in the *Amazon Elastic Container Service Developer Guide*.
 
   If you have updated the container image of your application, you can create a
@@ -5137,7 +5162,8 @@ defmodule AWS.ECS do
   a maximum of 200% starts four new tasks before stopping the four older tasks
   (provided that the cluster resources required to do this are available).
 
-  When `UpdateService` stops a task during a deployment, the equivalent
+  When
+  [UpdateService](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html) stops a task during a deployment, the equivalent
   of `docker stop` is issued to the containers running in the task. This
   results in a `SIGTERM` and a 30-second timeout. After this,
   `SIGKILL` is sent and the containers are forcibly stopped. If the

@@ -1177,7 +1177,7 @@ defmodule AWS.ACMPCA do
 
   def metadata do
     %{
-      api_version: "2017-08-22",
+      api_version: nil,
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
       endpoint_prefix: "acm-pca",
@@ -1748,63 +1748,62 @@ defmodule AWS.ACMPCA do
   certificate or chain.
 
     *
-  Authority key identifier
-
-    *
   Basic constraints (*must* be marked critical)
 
     *
-  Certificate policies
-
-    *
-  Extended key usage
-
-    *
-  Inhibit anyPolicy
-
-    *
-  Issuer alternative name
+  Subject alternative names
 
     *
   Key usage
 
     *
-  Name constraints
+  Extended key usage
 
     *
-  Policy mappings
-
-    *
-  Subject alternative name
-
-    *
-  Subject directory attributes
+  Authority key identifier
 
     *
   Subject key identifier
 
     *
+  Issuer alternative name
+
+    *
+  Subject directory attributes
+
+    *
   Subject information access
+
+    *
+  Certificate policies
+
+    *
+  Policy mappings
+
+    *
+  Inhibit anyPolicy
 
   Amazon Web Services Private CA rejects the following extensions when they are
   marked critical in an
   imported CA certificate or chain.
 
     *
-  Authority information access
+  Name constraints
+
+    *
+  Policy constraints
 
     *
   CRL distribution points
 
     *
+  Authority information access
+
+    *
   Freshest CRL
 
     *
-  Policy constraints
-
-  Amazon Web Services Private Certificate Authority will also reject any other
-  extension marked as critical not contained on the preceding list of allowed
-  extensions.
+  Any other extension
   """
   @spec import_certificate_authority_certificate(
           map(),

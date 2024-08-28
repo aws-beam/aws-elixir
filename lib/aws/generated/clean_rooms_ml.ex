@@ -94,6 +94,7 @@ defmodule AWS.CleanRoomsML do
         "includeSeedInOutput" => [boolean()],
         "metrics" => audience_quality_metrics(),
         "name" => String.t(),
+        "protectedQueryIdentifier" => [String.t()],
         "seedAudience" => audience_generation_job_data_source(),
         "startedBy" => String.t(),
         "status" => list(any()),
@@ -649,6 +650,19 @@ defmodule AWS.CleanRoomsML do
 
   ## Example:
 
+      protected_query_s_q_l_parameters() :: %{
+        "analysisTemplateArn" => String.t(),
+        "parameters" => map(),
+        "queryString" => [String.t()]
+      }
+
+  """
+  @type protected_query_s_q_l_parameters() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_configured_audience_model_policy_response() :: %{
         "configuredAudienceModelPolicy" => String.t(),
         "policyHash" => String.t()
@@ -787,7 +801,8 @@ defmodule AWS.CleanRoomsML do
 
       audience_generation_job_data_source() :: %{
         "dataSource" => s3_config_map(),
-        "roleArn" => String.t()
+        "roleArn" => String.t(),
+        "sqlParameters" => protected_query_s_q_l_parameters()
       }
 
   """

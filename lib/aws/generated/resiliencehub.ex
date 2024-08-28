@@ -100,6 +100,19 @@ defmodule AWS.Resiliencehub do
 
   ## Example:
 
+      describe_resource_grouping_recommendation_task_response() :: %{
+        "errorMessage" => String.t(),
+        "groupingId" => String.t(),
+        "status" => String.t()
+      }
+
+  """
+  @type describe_resource_grouping_recommendation_task_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_request() :: %{
         required("tags") => map()
       }
@@ -389,6 +402,18 @@ defmodule AWS.Resiliencehub do
 
   ## Example:
 
+      describe_resource_grouping_recommendation_task_request() :: %{
+        optional("groupingId") => String.t(),
+        required("appArn") => String.t()
+      }
+
+  """
+  @type describe_resource_grouping_recommendation_task_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       config_recommendation() :: %{
         "appComponentName" => String.t(),
         "compliance" => map(),
@@ -429,6 +454,20 @@ defmodule AWS.Resiliencehub do
 
   """
   @type describe_app_version_template_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_resource_grouping_recommendation_task_response() :: %{
+        "appArn" => String.t(),
+        "errorMessage" => String.t(),
+        "groupingId" => String.t(),
+        "status" => String.t()
+      }
+
+  """
+  @type start_resource_grouping_recommendation_task_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -689,6 +728,19 @@ defmodule AWS.Resiliencehub do
 
   ## Example:
 
+      assessment_risk_recommendation() :: %{
+        "appComponents" => list(String.t()()),
+        "recommendation" => String.t(),
+        "risk" => String.t()
+      }
+
+  """
+  @type assessment_risk_recommendation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_app_version_resource_response() :: %{
         optional("physicalResource") => physical_resource(),
         required("appArn") => String.t(),
@@ -930,6 +982,18 @@ defmodule AWS.Resiliencehub do
 
   ## Example:
 
+      accept_resource_grouping_recommendations_response() :: %{
+        "appArn" => String.t(),
+        "failedEntries" => list(failed_grouping_recommendation_entry()())
+      }
+
+  """
+  @type accept_resource_grouping_recommendations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_resiliency_policy_request() :: %{
         optional("clientToken") => String.t(),
         optional("dataLocationConstraint") => String.t(),
@@ -978,6 +1042,18 @@ defmodule AWS.Resiliencehub do
 
   """
   @type list_sop_recommendations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      accept_resource_grouping_recommendations_request() :: %{
+        required("appArn") => String.t(),
+        required("entries") => list(accept_grouping_recommendation_entry()())
+      }
+
+  """
+  @type accept_resource_grouping_recommendations_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1094,6 +1170,18 @@ defmodule AWS.Resiliencehub do
 
   """
   @type update_app_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reject_grouping_recommendation_entry() :: %{
+        "groupingRecommendationId" => String.t(),
+        "rejectionReason" => String.t()
+      }
+
+  """
+  @type reject_grouping_recommendation_entry() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1223,6 +1311,17 @@ defmodule AWS.Resiliencehub do
 
   ## Example:
 
+      accept_grouping_recommendation_entry() :: %{
+        "groupingRecommendationId" => String.t()
+      }
+
+  """
+  @type accept_grouping_recommendation_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       s3_location() :: %{
         "bucket" => String.t(),
         "prefix" => String.t()
@@ -1313,6 +1412,18 @@ defmodule AWS.Resiliencehub do
 
   """
   @type app_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reject_resource_grouping_recommendations_request() :: %{
+        required("appArn") => String.t(),
+        required("entries") => list(reject_grouping_recommendation_entry()())
+      }
+
+  """
+  @type reject_resource_grouping_recommendations_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1466,6 +1577,18 @@ defmodule AWS.Resiliencehub do
 
   """
   @type describe_app_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resource_grouping_recommendations_response() :: %{
+        "groupingRecommendations" => list(grouping_recommendation()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_resource_grouping_recommendations_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1699,6 +1822,7 @@ defmodule AWS.Resiliencehub do
         "resiliencyScore" => resiliency_score(),
         "resourceErrorsDetails" => resource_errors_details(),
         "startTime" => non_neg_integer(),
+        "summary" => assessment_summary(),
         "tags" => map(),
         "versionName" => String.t()
       }
@@ -1793,6 +1917,17 @@ defmodule AWS.Resiliencehub do
 
   """
   @type list_alarm_recommendations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_resource_grouping_recommendation_task_request() :: %{
+        required("appArn") => String.t()
+      }
+
+  """
+  @type start_resource_grouping_recommendation_task_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2040,6 +2175,19 @@ defmodule AWS.Resiliencehub do
 
   ## Example:
 
+      grouping_app_component() :: %{
+        "appComponentId" => String.t(),
+        "appComponentName" => String.t(),
+        "appComponentType" => String.t()
+      }
+
+  """
+  @type grouping_app_component() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_recommendation_template_request() :: %{
         optional("clientToken") => String.t(),
         required("recommendationTemplateArn") => String.t()
@@ -2060,6 +2208,19 @@ defmodule AWS.Resiliencehub do
 
   """
   @type list_app_assessment_resource_drifts_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resource_grouping_recommendations_request() :: %{
+        optional("appArn") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_resource_grouping_recommendations_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2105,6 +2266,30 @@ defmodule AWS.Resiliencehub do
 
   ## Example:
 
+      assessment_summary() :: %{
+        "riskRecommendations" => list(assessment_risk_recommendation()()),
+        "summary" => String.t()
+      }
+
+  """
+  @type assessment_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reject_resource_grouping_recommendations_response() :: %{
+        "appArn" => String.t(),
+        "failedEntries" => list(failed_grouping_recommendation_entry()())
+      }
+
+  """
+  @type reject_resource_grouping_recommendations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       remove_draft_app_version_resource_mappings_request() :: %{
         optional("appRegistryAppNames") => list(String.t()()),
         optional("eksSourceNames") => list(String.t()()),
@@ -2117,6 +2302,33 @@ defmodule AWS.Resiliencehub do
 
   """
   @type remove_draft_app_version_resource_mappings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      grouping_resource() :: %{
+        "logicalResourceId" => logical_resource_id(),
+        "physicalResourceId" => physical_resource_id(),
+        "resourceName" => String.t(),
+        "resourceType" => String.t(),
+        "sourceAppComponentIds" => list(String.t()())
+      }
+
+  """
+  @type grouping_resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      failed_grouping_recommendation_entry() :: %{
+        "errorMessage" => String.t(),
+        "groupingRecommendationId" => String.t()
+      }
+
+  """
+  @type failed_grouping_recommendation_entry() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2199,6 +2411,25 @@ defmodule AWS.Resiliencehub do
 
   ## Example:
 
+      grouping_recommendation() :: %{
+        "confidenceLevel" => String.t(),
+        "creationTime" => non_neg_integer(),
+        "groupingAppComponent" => grouping_app_component(),
+        "groupingRecommendationId" => String.t(),
+        "recommendationReasons" => list(String.t()()),
+        "rejectionReason" => String.t(),
+        "resources" => list(grouping_resource()()),
+        "score" => float(),
+        "status" => String.t()
+      }
+
+  """
+  @type grouping_recommendation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_draft_app_version_resources_import_status_response() :: %{
         optional("errorMessage") => String.t(),
         required("appArn") => String.t(),
@@ -2223,11 +2454,19 @@ defmodule AWS.Resiliencehub do
   """
   @type describe_app_version_response() :: %{String.t() => any()}
 
+  @type accept_resource_grouping_recommendations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type add_draft_app_version_resource_mappings_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -2401,6 +2640,13 @@ defmodule AWS.Resiliencehub do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type describe_resource_grouping_recommendation_task_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type import_resources_to_draft_app_version_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2505,6 +2751,13 @@ defmodule AWS.Resiliencehub do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type list_resource_grouping_recommendations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type list_sop_recommendations_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2559,6 +2812,13 @@ defmodule AWS.Resiliencehub do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type reject_resource_grouping_recommendations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type remove_draft_app_version_resource_mappings_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2581,6 +2841,14 @@ defmodule AWS.Resiliencehub do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type start_resource_grouping_recommendation_task_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -2656,12 +2924,49 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
+  Accepts the resource grouping recommendations suggested by Resilience Hub for
+  your application.
+  """
+  @spec accept_resource_grouping_recommendations(
+          map(),
+          accept_resource_grouping_recommendations_request(),
+          list()
+        ) ::
+          {:ok, accept_resource_grouping_recommendations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, accept_resource_grouping_recommendations_errors()}
+  def accept_resource_grouping_recommendations(%Client{} = client, input, options \\ []) do
+    url_path = "/accept-resource-grouping-recommendations"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Adds the source of resource-maps to the draft version of an application.
 
-  During assessment, Resilience Hub will use these resource-maps to resolve the
-  latest physical ID for each resource in the application template. For more
-  information about different types of resources suported by Resilience Hub and
-  how to add them in your application, see [Step 2: How is your application managed?](https://docs.aws.amazon.com/resilience-hub/latest/userguide/how-app-manage.html)
+  During
+  assessment, Resilience Hub will use these resource-maps to resolve the latest
+  physical
+  ID for each resource in the application template. For more information about
+  different types
+  of resources supported by Resilience Hub and how to add them in your
+  application, see
+  [Step 2: How is your application
+  managed?](https://docs.aws.amazon.com/resilience-hub/latest/userguide/how-app-manage.html)
   in the Resilience Hub User Guide.
   """
   @spec add_draft_app_version_resource_mappings(
@@ -2729,23 +3034,22 @@ defmodule AWS.Resiliencehub do
   An Resilience Hub application is a
   collection of Amazon Web Services resources structured to prevent and recover
   Amazon Web Services application disruptions. To describe a Resilience Hub
-  application,
-  you provide an application name, resources from one or more CloudFormation
-  stacks, Resource Groups, Terraform state files, AppRegistry applications, and an
-  appropriate
+  application, you provide an
+  application name, resources from one or more CloudFormation stacks, Resource
+  Groups, Terraform state files, AppRegistry applications, and an appropriate
   resiliency policy. In addition, you can also add resources that are located on
   Amazon Elastic Kubernetes Service (Amazon EKS) clusters as optional resources.
-  For more information about the number of resources supported per application,
-  see [Service quotas](https://docs.aws.amazon.com/general/latest/gr/resiliencehub.html#limits_resiliencehub).
+  For more information
+  about the number of resources supported per application, see [Service quotas](https://docs.aws.amazon.com/general/latest/gr/resiliencehub.html#limits_resiliencehub).
 
   After you create an Resilience Hub application, you publish it so that you can
-  run a resiliency
-  assessment on it. You can then use recommendations from the assessment to
-  improve resiliency
-  by running another assessment, comparing results, and then iterating the process
-  until you
-  achieve your goals for recovery time objective (RTO) and recovery point
-  objective
+  run
+  a resiliency assessment on it. You can then use recommendations from the
+  assessment to improve
+  resiliency by running another assessment, comparing results, and then iterating
+  the process
+  until you achieve your goals for recovery time objective (RTO) and recovery
+  point objective
   (RPO).
   """
   @spec create_app(map(), create_app_request(), list()) ::
@@ -2777,7 +3081,8 @@ defmodule AWS.Resiliencehub do
 
   This API updates the Resilience Hub application draft version. To use this
   Application Component for running assessments, you must publish the Resilience
-  Hub application using the `PublishAppVersion` API.
+  Hub
+  application using the `PublishAppVersion` API.
   """
   @spec create_app_version_app_component(
           map(),
@@ -2812,18 +3117,16 @@ defmodule AWS.Resiliencehub do
   specified
   Application Components.
 
-  If you specify a new Application Component, Resilience Hub will automatically
-  create the Application Component.
+  If you specify a new Application Component, Resilience Hub will
+  automatically create the Application Component.
 
     
   This action has no effect outside Resilience Hub.
 
     
   This API updates the Resilience Hub application draft version. To use this
-  resource
-  for running resiliency assessments, you must publish the Resilience Hub
-  application using
-  the `PublishAppVersion` API.
+  resource for running resiliency assessments, you must publish the Resilience Hub
+  application using the `PublishAppVersion` API.
 
     
   To update application version with new `physicalResourceID`, you must
@@ -2883,11 +3186,13 @@ defmodule AWS.Resiliencehub do
   @doc """
   Creates a resiliency policy for an application.
 
-  Resilience Hub allows you to provide a value of zero for `rtoInSecs` and
-  `rpoInSecs` of your resiliency policy. But, while assessing your application,
+  Resilience Hub allows you to provide a value of zero for `rtoInSecs`
+  and `rpoInSecs` of your resiliency policy. But, while assessing your
+  application,
   the lowest possible assessment result is near zero. Hence, if you provide value
-  zero for `rtoInSecs` and `rpoInSecs`, the estimated workload RTO and estimated
-  workload RPO result will be near zero and the **Compliance
+  zero for
+  `rtoInSecs` and `rpoInSecs`, the estimated workload RTO and
+  estimated workload RPO result will be near zero and the **Compliance
   status** for your application will be set to **Policy
   breached**.
   """
@@ -2948,8 +3253,8 @@ defmodule AWS.Resiliencehub do
   @doc """
   Deletes an Resilience Hub application assessment.
 
-  This is a destructive action that can't
-  be undone.
+  This is a destructive action
+  that can't be undone.
   """
   @spec delete_app_assessment(map(), delete_app_assessment_request(), list()) ::
           {:ok, delete_app_assessment_response(), any()}
@@ -2977,7 +3282,8 @@ defmodule AWS.Resiliencehub do
 
   @doc """
   Deletes the input source and all of its imported resources from the Resilience
-  Hub application.
+  Hub
+  application.
   """
   @spec delete_app_input_source(map(), delete_app_input_source_request(), list()) ::
           {:ok, delete_app_input_source_response(), any()}
@@ -3009,11 +3315,13 @@ defmodule AWS.Resiliencehub do
     
   This API updates the Resilience Hub application draft version. To use this
   Application Component for running assessments, you must publish the Resilience
-  Hub application using the `PublishAppVersion` API.
+  Hub
+  application using the `PublishAppVersion` API.
 
     
   You will not be able to delete an Application Component if it has resources
-  associated with it.
+  associated
+  with it.
   """
   @spec delete_app_version_app_component(
           map(),
@@ -3256,7 +3564,7 @@ defmodule AWS.Resiliencehub do
   @doc """
   Describes a resource of the Resilience Hub application.
 
-  This API accepts only one of the following parameters to descibe the resource:
+  This API accepts only one of the following parameters to describe the resource:
 
     
 
@@ -3268,8 +3576,8 @@ defmodule AWS.Resiliencehub do
 
     
 
-  `physicalResourceId` (Along with `physicalResourceId`, you can also
-  provide `awsAccountId`, and `awsRegion`)
+  `physicalResourceId` (Along with `physicalResourceId`, you can
+  also provide `awsAccountId`, and `awsRegion`)
   """
   @spec describe_app_version_resource(map(), describe_app_version_resource_request(), list()) ::
           {:ok, describe_app_version_resource_response(), any()}
@@ -3428,12 +3736,44 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
+  Describes the resource grouping recommendation tasks run by Resilience Hub for
+  your application.
+  """
+  @spec describe_resource_grouping_recommendation_task(
+          map(),
+          describe_resource_grouping_recommendation_task_request(),
+          list()
+        ) ::
+          {:ok, describe_resource_grouping_recommendation_task_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_resource_grouping_recommendation_task_errors()}
+  def describe_resource_grouping_recommendation_task(%Client{} = client, input, options \\ []) do
+    url_path = "/describe-resource-grouping-recommendation-task"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Imports resources to Resilience Hub application draft version from different
-  input sources.
+  input
+  sources.
 
   For more information about the input sources supported by Resilience Hub, see
-  [Discover the structure and describe your Resilience Hub
-  application](https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html).
+  [Discover the structure and describe your Resilience Hub application](https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html).
   """
   @spec import_resources_to_draft_app_version(
           map(),
@@ -3556,8 +3896,8 @@ defmodule AWS.Resiliencehub do
   @doc """
   Lists the assessments for an Resilience Hub application.
 
-  You can use request parameters to
-  refine the results for the response object.
+  You can use request
+  parameters to refine the results for the response object.
   """
   @spec list_app_assessments(
           map(),
@@ -3712,8 +4052,8 @@ defmodule AWS.Resiliencehub do
   @doc """
   Lists all the input sources of the Resilience Hub application.
 
-  For more information about the
-  input sources supported by Resilience Hub, see [Discover the structure and describe your Resilience Hub
+  For more
+  information about the input sources supported by Resilience Hub, see [Discover the structure and describe your Resilience Hub
   application](https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html).
   """
   @spec list_app_input_sources(map(), list_app_input_sources_request(), list()) ::
@@ -4092,9 +4432,59 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
+  Lists the resource grouping recommendations suggested by Resilience Hub for your
+  application.
+  """
+  @spec list_resource_grouping_recommendations(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_resource_grouping_recommendations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_resource_grouping_recommendations_errors()}
+  def list_resource_grouping_recommendations(
+        %Client{} = client,
+        app_arn \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/list-resource-grouping-recommendations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(app_arn) do
+        [{"appArn", app_arn} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists the standard operating procedure (SOP) recommendations for the Resilience
-  Hub
-  applications.
+  Hub applications.
   """
   @spec list_sop_recommendations(map(), list_sop_recommendations_request(), list()) ::
           {:ok, list_sop_recommendations_response(), any()}
@@ -4121,7 +4511,8 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Lists the suggested resiliency policies for the Resilience Hub applications.
+  Lists the suggested resiliency policies for the Resilience Hub
+  applications.
   """
   @spec list_suggested_resiliency_policies(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_suggested_resiliency_policies_response(), any()}
@@ -4203,10 +4594,10 @@ defmodule AWS.Resiliencehub do
   @doc """
   Lists the resources that are not currently supported in Resilience Hub.
 
-  An unsupported
-  resource is a resource that exists in the object that was used to create an app,
-  but is not
-  supported by Resilience Hub.
+  An
+  unsupported resource is a resource that exists in the object that was used to
+  create an app,
+  but is not supported by Resilience Hub.
   """
   @spec list_unsupported_app_version_resources(
           map(),
@@ -4292,6 +4683,37 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
+  Rejects resource grouping recommendations.
+  """
+  @spec reject_resource_grouping_recommendations(
+          map(),
+          reject_resource_grouping_recommendations_request(),
+          list()
+        ) ::
+          {:ok, reject_resource_grouping_recommendations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, reject_resource_grouping_recommendations_errors()}
+  def reject_resource_grouping_recommendations(%Client{} = client, input, options \\ []) do
+    url_path = "/reject-resource-grouping-recommendations"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Removes resource mappings from a draft application version.
   """
   @spec remove_draft_app_version_resource_mappings(
@@ -4358,6 +4780,37 @@ defmodule AWS.Resiliencehub do
           | {:error, start_app_assessment_errors()}
   def start_app_assessment(%Client{} = client, input, options \\ []) do
     url_path = "/start-app-assessment"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Starts grouping recommendation task.
+  """
+  @spec start_resource_grouping_recommendation_task(
+          map(),
+          start_resource_grouping_recommendation_task_request(),
+          list()
+        ) ::
+          {:ok, start_resource_grouping_recommendation_task_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_resource_grouping_recommendation_task_errors()}
+  def start_resource_grouping_recommendation_task(%Client{} = client, input, options \\ []) do
+    url_path = "/start-resource-grouping-recommendation-task"
     headers = []
     query_params = []
 
@@ -4466,10 +4919,9 @@ defmodule AWS.Resiliencehub do
   Updates the Resilience Hub application version.
 
   This API updates the Resilience Hub application draft version. To use this
-  information
-  for running resiliency assessments, you must publish the Resilience Hub
-  application using the
-  `PublishAppVersion` API.
+  information for running resiliency assessments, you must publish the Resilience
+  Hub
+  application using the `PublishAppVersion` API.
   """
   @spec update_app_version(map(), update_app_version_request(), list()) ::
           {:ok, update_app_version_response(), any()}
@@ -4500,7 +4952,8 @@ defmodule AWS.Resiliencehub do
 
   This API updates the Resilience Hub application draft version. To use this
   Application Component for running assessments, you must publish the Resilience
-  Hub application using the `PublishAppVersion` API.
+  Hub
+  application using the `PublishAppVersion` API.
   """
   @spec update_app_version_app_component(
           map(),
@@ -4542,8 +4995,8 @@ defmodule AWS.Resiliencehub do
   application using the `PublishAppVersion` API.
 
     
-  To update application version with new `physicalResourceID`, you must call
-  `ResolveAppVersionResources` API.
+  To update application version with new `physicalResourceID`, you must
+  call `ResolveAppVersionResources` API.
   """
   @spec update_app_version_resource(map(), update_app_version_resource_request(), list()) ::
           {:ok, update_app_version_resource_response(), any()}
@@ -4572,10 +5025,12 @@ defmodule AWS.Resiliencehub do
   @doc """
   Updates a resiliency policy.
 
-  Resilience Hub allows you to provide a value of zero for `rtoInSecs` and
-  `rpoInSecs` of your resiliency policy. But, while assessing your application,
+  Resilience Hub allows you to provide a value of zero for `rtoInSecs`
+  and `rpoInSecs` of your resiliency policy. But, while assessing your
+  application,
   the lowest possible assessment result is near zero. Hence, if you provide value
-  zero for `rtoInSecs` and `rpoInSecs`, the estimated workload RTO and
+  zero for
+  `rtoInSecs` and `rpoInSecs`, the estimated workload RTO and
   estimated workload RPO result will be near zero and the **Compliance
   status** for your application will be set to **Policy
   breached**.

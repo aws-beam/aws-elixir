@@ -110,6 +110,19 @@ defmodule AWS.ControlCatalog do
 
   ## Example:
 
+      control_summary() :: %{
+        "Arn" => String.t(),
+        "Description" => [String.t()],
+        "Name" => [String.t()]
+      }
+
+  """
+  @type control_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       domain_resource_filter() :: %{
         "Arn" => String.t()
       }
@@ -131,6 +144,32 @@ defmodule AWS.ControlCatalog do
 
   """
   @type domain_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_control_request() :: %{
+        required("ControlArn") => String.t()
+      }
+
+  """
+  @type get_control_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_control_response() :: %{
+        "Arn" => String.t(),
+        "Behavior" => list(any()),
+        "Description" => [String.t()],
+        "Name" => [String.t()],
+        "RegionConfiguration" => region_configuration()
+      }
+
+  """
+  @type get_control_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -167,6 +206,30 @@ defmodule AWS.ControlCatalog do
 
   """
   @type list_common_controls_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_controls_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_controls_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_controls_response() :: %{
+        "Controls" => list(control_summary()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_controls_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -259,6 +322,29 @@ defmodule AWS.ControlCatalog do
 
   ## Example:
 
+      region_configuration() :: %{
+        "DeployableRegions" => list(String.t()()),
+        "Scope" => list(any())
+      }
+
+  """
+  @type region_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => [String.t()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       throttling_exception() :: %{
         "Message" => [String.t()]
       }
@@ -277,7 +363,20 @@ defmodule AWS.ControlCatalog do
   """
   @type validation_exception() :: %{String.t() => any()}
 
+  @type get_control_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type list_common_controls_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_controls_errors() ::
           validation_exception()
           | throttling_exception()
           | internal_server_exception()
@@ -312,6 +411,43 @@ defmodule AWS.ControlCatalog do
   end
 
   @doc """
+  Returns details about a specific control, most notably a list of Amazon Web
+  Services Regions where this control is supported.
+
+  Input a value for the *ControlArn* parameter, in ARN form. `GetControl` accepts
+  *controltower* or *controlcatalog* control ARNs as input. Returns a
+  *controlcatalog* ARN format.
+
+  In the API response, controls that have the value `GLOBAL` in the `Scope` field
+  do not show the `DeployableRegions` field, because it does not apply. Controls
+  that have the value `REGIONAL` in the `Scope` field return a value for the
+  `DeployableRegions` field, as shown in the example.
+  """
+  @spec get_control(map(), get_control_request(), list()) ::
+          {:ok, get_control_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_control_errors()}
+  def get_control(%Client{} = client, input, options \\ []) do
+    url_path = "/get-control"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Returns a paginated list of common controls from the Amazon Web Services Control
   Catalog.
 
@@ -325,6 +461,44 @@ defmodule AWS.ControlCatalog do
           | {:error, list_common_controls_errors()}
   def list_common_controls(%Client{} = client, input, options \\ []) do
     url_path = "/common-controls"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"MaxResults", "maxResults"},
+        {"NextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns a paginated list of all available controls in the Amazon Web Services
+  Control Catalog library.
+
+  Allows you to discover available controls. The list of controls is given as
+  structures of type *controlSummary*. The ARN is returned in the global
+  *controlcatalog* format, as shown in the examples.
+  """
+  @spec list_controls(map(), list_controls_request(), list()) ::
+          {:ok, list_controls_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_controls_errors()}
+  def list_controls(%Client{} = client, input, options \\ []) do
+    url_path = "/list-controls"
     headers = []
 
     {query_params, input} =

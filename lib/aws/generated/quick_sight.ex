@@ -993,6 +993,20 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      topic_visual() :: %{
+        "Ir" => topic_i_r(),
+        "Role" => list(any()),
+        "SupportingVisuals" => list(topic_visual()()),
+        "VisualId" => String.t()
+      }
+
+  """
+  @type topic_visual() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_data_source_request() :: %{}
 
   """
@@ -1201,7 +1215,9 @@ defmodule AWS.QuickSight do
   ## Example:
 
       date_time_picker_control_display_options() :: %{
+        "DateIconVisibility" => list(any()),
         "DateTimeFormat" => String.t(),
+        "HelperTextVisibility" => list(any()),
         "InfoIconLabelOptions" => sheet_control_info_icon_label_options(),
         "TitleOptions" => label_options()
       }
@@ -1234,6 +1250,19 @@ defmodule AWS.QuickSight do
 
   """
   @type combo_chart_sort_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      anchor() :: %{
+        "AnchorType" => list(any()),
+        "Offset" => integer(),
+        "TimeGranularity" => list(any())
+      }
+
+  """
+  @type anchor() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1417,6 +1446,17 @@ defmodule AWS.QuickSight do
 
   """
   @type list_ingestions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      quicksight_identifier() :: %{
+        "Identity" => String.t()
+      }
+
+  """
+  @type quicksight_identifier() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2326,6 +2366,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      customer_managed_key_unavailable_exception() :: %{
+        "Message" => String.t(),
+        "RequestId" => String.t()
+      }
+
+  """
+  @type customer_managed_key_unavailable_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_topic_refresh_schedule_request() :: %{
         required("RefreshSchedule") => topic_refresh_schedule()
       }
@@ -2755,6 +2807,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      slot() :: %{
+        "SlotId" => String.t(),
+        "VisualId" => String.t()
+      }
+
+  """
+  @type slot() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_refresh_schedule_response() :: %{
         "Arn" => String.t(),
         "RefreshSchedule" => refresh_schedule(),
@@ -3043,7 +3107,21 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      named_entity_ref() :: %{
+        "NamedEntityName" => String.t()
+      }
+
+  """
+  @type named_entity_ref() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       anonymous_user_dashboard_embedding_configuration() :: %{
+        "DisabledFeatures" => list(list(any())()),
+        "EnabledFeatures" => list(list(any())()),
+        "FeatureConfigurations" => anonymous_user_dashboard_feature_configurations(),
         "InitialDashboardId" => String.t()
       }
 
@@ -3907,6 +3985,7 @@ defmodule AWS.QuickSight do
         "FilterGroups" => list(filter_group()()),
         "Options" => asset_options(),
         "ParameterDeclarations" => list(parameter_declaration()()),
+        "QueryExecutionOptions" => query_execution_options(),
         "Sheets" => list(sheet_definition()())
       }
 
@@ -4058,6 +4137,21 @@ defmodule AWS.QuickSight do
 
   """
   @type long_format_text() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      topic_constant_value() :: %{
+        "ConstantType" => list(any()),
+        "Maximum" => String.t(),
+        "Minimum" => String.t(),
+        "Value" => String.t(),
+        "ValueList" => list(collective_constant_entry()())
+      }
+
+  """
+  @type topic_constant_value() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4549,6 +4643,19 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      topic_i_r_comparison_method() :: %{
+        "Period" => list(any()),
+        "Type" => list(any()),
+        "WindowSize" => integer()
+      }
+
+  """
+  @type topic_i_r_comparison_method() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_topic_response() :: %{
         "Arn" => String.t(),
         "RefreshArn" => String.t(),
@@ -4635,6 +4742,7 @@ defmodule AWS.QuickSight do
         "FilterGroups" => list(filter_group()()),
         "Options" => asset_options(),
         "ParameterDeclarations" => list(parameter_declaration()()),
+        "QueryExecutionOptions" => query_execution_options(),
         "Sheets" => list(sheet_definition()())
       }
 
@@ -4997,6 +5105,25 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      topic_i_r_metric() :: %{
+        "CalculatedFieldReferences" => list(quicksight_identifier()()),
+        "ComparisonMethod" => topic_i_r_comparison_method(),
+        "DisplayFormat" => list(any()),
+        "DisplayFormatOptions" => display_format_options(),
+        "Expression" => String.t(),
+        "Function" => agg_function(),
+        "MetricId" => quicksight_identifier(),
+        "NamedEntity" => named_entity_ref(),
+        "Operands" => list(quicksight_identifier()())
+      }
+
+  """
+  @type topic_i_r_metric() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       display_format_options() :: %{
         "BlankCellFormat" => String.t(),
         "CurrencySymbol" => String.t(),
@@ -5287,6 +5414,21 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      list_topic_reviewed_answers_response() :: %{
+        "Answers" => list(topic_reviewed_answer()()),
+        "RequestId" => String.t(),
+        "Status" => integer(),
+        "TopicArn" => String.t(),
+        "TopicId" => String.t()
+      }
+
+  """
+  @type list_topic_reviewed_answers_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       missing_data_configuration() :: %{
         "TreatmentOption" => list(any())
       }
@@ -5404,6 +5546,34 @@ defmodule AWS.QuickSight do
 
   """
   @type conditional_formatting_icon_display_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      topic_i_r_filter_option() :: %{
+        "AggMetrics" => list(filter_agg_metrics()()),
+        "Aggregation" => list(any()),
+        "AggregationFunctionParameters" => map(),
+        "AggregationPartitionBy" => list(aggregation_partition_by()()),
+        "Anchor" => anchor(),
+        "Constant" => topic_constant_value(),
+        "FilterClass" => list(any()),
+        "FilterType" => list(any()),
+        "Function" => list(any()),
+        "Inclusive" => boolean(),
+        "Inverse" => boolean(),
+        "LastNextOffset" => topic_constant_value(),
+        "NullFilter" => list(any()),
+        "OperandField" => quicksight_identifier(),
+        "Range" => topic_constant_value(),
+        "SortDirection" => list(any()),
+        "TimeGranularity" => list(any()),
+        "TopBottomLimit" => topic_constant_value()
+      }
+
+  """
+  @type topic_i_r_filter_option() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5606,6 +5776,23 @@ defmodule AWS.QuickSight do
 
   """
   @type column_group_column_schema() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      topic_reviewed_answer() :: %{
+        "AnswerId" => String.t(),
+        "Arn" => String.t(),
+        "DatasetArn" => String.t(),
+        "Mir" => topic_i_r(),
+        "PrimaryVisual" => topic_visual(),
+        "Question" => String.t(),
+        "Template" => topic_template()
+      }
+
+  """
+  @type topic_reviewed_answer() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5869,6 +6056,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      query_execution_options() :: %{
+        "QueryExecutionMode" => list(any())
+      }
+
+  """
+  @type query_execution_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       subtotal_options() :: %{
         "CustomLabel" => String.t(),
         "FieldLevel" => list(any()),
@@ -5975,6 +6173,7 @@ defmodule AWS.QuickSight do
 
       registered_user_dashboard_feature_configurations() :: %{
         "Bookmarks" => bookmarks_configurations(),
+        "SharedView" => shared_view_configurations(),
         "StatePersistence" => state_persistence_configurations()
       }
 
@@ -6329,6 +6528,29 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      contribution_analysis_factor() :: %{
+        "FieldName" => String.t()
+      }
+
+  """
+  @type contribution_analysis_factor() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_topic_reviewed_answer() :: %{
+        "AnswerId" => String.t(),
+        "Error" => list(any())
+      }
+
+  """
+  @type invalid_topic_reviewed_answer() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       asset_bundle_import_job_data_source_override_tags() :: %{
         "DataSourceIds" => list(String.t()()),
         "Tags" => list(tag()())
@@ -6403,6 +6625,18 @@ defmodule AWS.QuickSight do
 
   """
   @type dashboard_visual_publish_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      topic_template() :: %{
+        "Slots" => list(slot()()),
+        "TemplateType" => String.t()
+      }
+
+  """
+  @type topic_template() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6599,6 +6833,19 @@ defmodule AWS.QuickSight do
 
   """
   @type asset_bundle_export_job_theme_override_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      filter_agg_metrics() :: %{
+        "Function" => list(any()),
+        "MetricOperand" => quicksight_identifier(),
+        "SortDirection" => list(any())
+      }
+
+  """
+  @type filter_agg_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -7584,6 +7831,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      contribution_analysis_time_ranges() :: %{
+        "EndRange" => topic_i_r_filter_option(),
+        "StartRange" => topic_i_r_filter_option()
+      }
+
+  """
+  @type contribution_analysis_time_ranges() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       word_cloud_options() :: %{
         "CloudLayout" => list(any()),
         "MaximumStringLength" => integer(),
@@ -7595,6 +7854,17 @@ defmodule AWS.QuickSight do
 
   """
   @type word_cloud_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_topic_reviewed_answer_request() :: %{
+        optional("AnswerIds") => list(String.t()())
+      }
+
+  """
+  @type batch_delete_topic_reviewed_answer_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -7985,12 +8255,39 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      batch_create_topic_reviewed_answer_response() :: %{
+        "InvalidAnswers" => list(invalid_topic_reviewed_answer()()),
+        "RequestId" => String.t(),
+        "Status" => integer(),
+        "SucceededAnswers" => list(succeeded_topic_reviewed_answer()()),
+        "TopicArn" => String.t(),
+        "TopicId" => String.t()
+      }
+
+  """
+  @type batch_create_topic_reviewed_answer_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       data_path_type() :: %{
         "PivotTableDataPathType" => list(any())
       }
 
   """
   @type data_path_type() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      anonymous_user_dashboard_feature_configurations() :: %{
+        "SharedView" => shared_view_configurations()
+      }
+
+  """
+  @type anonymous_user_dashboard_feature_configurations() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -8396,6 +8693,15 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      list_topic_reviewed_answers_request() :: %{}
+
+  """
+  @type list_topic_reviewed_answers_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       set_parameter_value_configuration() :: %{
         "DestinationParameterName" => String.t(),
         "Value" => destination_parameter_value_configuration()
@@ -8403,6 +8709,20 @@ defmodule AWS.QuickSight do
 
   """
   @type set_parameter_value_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      topic_i_r_contribution_analysis() :: %{
+        "Direction" => list(any()),
+        "Factors" => list(contribution_analysis_factor()()),
+        "SortType" => list(any()),
+        "TimeRanges" => contribution_analysis_time_ranges()
+      }
+
+  """
+  @type topic_i_r_contribution_analysis() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -9268,6 +9588,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      topic_sort_clause() :: %{
+        "Operand" => quicksight_identifier(),
+        "SortDirection" => list(any())
+      }
+
+  """
+  @type topic_sort_clause() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       theme_configuration() :: %{
         "DataColorPalette" => data_color_palette(),
         "Sheet" => sheet_style(),
@@ -9534,6 +9866,22 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      create_topic_reviewed_answer() :: %{
+        "AnswerId" => String.t(),
+        "DatasetArn" => String.t(),
+        "Mir" => topic_i_r(),
+        "PrimaryVisual" => topic_visual(),
+        "Question" => String.t(),
+        "Template" => topic_template()
+      }
+
+  """
+  @type create_topic_reviewed_answer() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_topic_response() :: %{
         "Arn" => String.t(),
         "RefreshArn" => String.t(),
@@ -9672,6 +10020,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      batch_create_topic_reviewed_answer_request() :: %{
+        required("Answers") => list(create_topic_reviewed_answer()())
+      }
+
+  """
+  @type batch_create_topic_reviewed_answer_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       default_filter_list_control_options() :: %{
         "DisplayOptions" => list_control_display_options(),
         "SelectableValues" => filter_selectable_values(),
@@ -9753,11 +10112,28 @@ defmodule AWS.QuickSight do
   ## Example:
 
       registered_user_console_feature_configurations() :: %{
+        "SharedView" => shared_view_configurations(),
         "StatePersistence" => state_persistence_configurations()
       }
 
   """
   @type registered_user_console_feature_configurations() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      topic_i_r() :: %{
+        "ContributionAnalysis" => topic_i_r_contribution_analysis(),
+        "Filters" => list(list(topic_i_r_filter_option()())()),
+        "GroupByList" => list(topic_i_r_group_by()()),
+        "Metrics" => list(topic_i_r_metric()()),
+        "Sort" => topic_sort_clause(),
+        "Visual" => visual_options()
+      }
+
+  """
+  @type topic_i_r() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -9820,6 +10196,18 @@ defmodule AWS.QuickSight do
 
   """
   @type create_account_subscription_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      collective_constant_entry() :: %{
+        "ConstantType" => list(any()),
+        "Value" => String.t()
+      }
+
+  """
+  @type collective_constant_entry() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -10804,6 +11192,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      visual_options() :: %{
+        "type" => String.t()
+      }
+
+  """
+  @type visual_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_data_set_permissions_response() :: %{
         "DataSetArn" => String.t(),
         "DataSetId" => String.t(),
@@ -10986,6 +11385,22 @@ defmodule AWS.QuickSight do
 
   """
   @type update_user_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      topic_i_r_group_by() :: %{
+        "DisplayFormat" => list(any()),
+        "DisplayFormatOptions" => display_format_options(),
+        "FieldName" => quicksight_identifier(),
+        "NamedEntity" => named_entity_ref(),
+        "Sort" => topic_sort_clause(),
+        "TimeGranularity" => list(any())
+      }
+
+  """
+  @type topic_i_r_group_by() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -13601,6 +14016,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      shared_view_configurations() :: %{
+        "Enabled" => boolean()
+      }
+
+  """
+  @type shared_view_configurations() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       ui_color_palette() :: %{
         "Accent" => String.t(),
         "AccentForeground" => String.t(),
@@ -13901,6 +14327,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      aggregation_partition_by() :: %{
+        "FieldName" => String.t(),
+        "TimeGranularity" => list(any())
+      }
+
+  """
+  @type aggregation_partition_by() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       analysis_defaults() :: %{
         "DefaultNewSheetConfiguration" => default_new_sheet_configuration()
       }
@@ -14079,6 +14517,22 @@ defmodule AWS.QuickSight do
 
   """
   @type filter_operation_target_visuals_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_topic_reviewed_answer_response() :: %{
+        "InvalidAnswers" => list(invalid_topic_reviewed_answer()()),
+        "RequestId" => String.t(),
+        "Status" => integer(),
+        "SucceededAnswers" => list(succeeded_topic_reviewed_answer()()),
+        "TopicArn" => String.t(),
+        "TopicId" => String.t()
+      }
+
+  """
+  @type batch_delete_topic_reviewed_answer_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -14512,6 +14966,20 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      agg_function() :: %{
+        "Aggregation" => list(any()),
+        "AggregationFunctionParameters" => map(),
+        "Period" => list(any()),
+        "PeriodField" => String.t()
+      }
+
+  """
+  @type agg_function() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_role_custom_permission_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer()
@@ -14586,6 +15054,17 @@ defmodule AWS.QuickSight do
 
   """
   @type data_path_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      succeeded_topic_reviewed_answer() :: %{
+        "AnswerId" => String.t()
+      }
+
+  """
+  @type succeeded_topic_reviewed_answer() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -15168,6 +15647,21 @@ defmodule AWS.QuickSight do
   """
   @type section_based_layout_configuration() :: %{String.t() => any()}
 
+  @type batch_create_topic_reviewed_answer_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type batch_delete_topic_reviewed_answer_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | internal_failure_exception()
+
   @type cancel_ingestion_errors() ::
           throttling_exception()
           | access_denied_exception()
@@ -15236,6 +15730,7 @@ defmodule AWS.QuickSight do
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | customer_managed_key_unavailable_exception()
           | internal_failure_exception()
 
   @type create_folder_errors() ::
@@ -16225,6 +16720,13 @@ defmodule AWS.QuickSight do
           | conflict_exception()
           | internal_failure_exception()
 
+  @type list_topic_reviewed_answers_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
   @type list_topics_errors() ::
           throttling_exception()
           | access_denied_exception()
@@ -16478,6 +16980,7 @@ defmodule AWS.QuickSight do
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | customer_managed_key_unavailable_exception()
           | internal_failure_exception()
 
   @type update_data_source_permissions_errors() ::
@@ -16696,6 +17199,88 @@ defmodule AWS.QuickSight do
       signing_name: "quicksight",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Creates new reviewed answers for a Q Topic.
+  """
+  @spec batch_create_topic_reviewed_answer(
+          map(),
+          String.t(),
+          String.t(),
+          batch_create_topic_reviewed_answer_request(),
+          list()
+        ) ::
+          {:ok, batch_create_topic_reviewed_answer_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_create_topic_reviewed_answer_errors()}
+  def batch_create_topic_reviewed_answer(
+        %Client{} = client,
+        aws_account_id,
+        topic_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}/batch-create-reviewed-answers"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes reviewed answers for Q Topic.
+  """
+  @spec batch_delete_topic_reviewed_answer(
+          map(),
+          String.t(),
+          String.t(),
+          batch_delete_topic_reviewed_answer_request(),
+          list()
+        ) ::
+          {:ok, batch_delete_topic_reviewed_answer_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_delete_topic_reviewed_answer_errors()}
+  def batch_delete_topic_reviewed_answer(
+        %Client{} = client,
+        aws_account_id,
+        topic_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}/batch-delete-reviewed-answers"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -21427,6 +22012,25 @@ defmodule AWS.QuickSight do
   def list_topic_refresh_schedules(%Client{} = client, aws_account_id, topic_id, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}/schedules"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all reviewed answers for a Q Topic.
+  """
+  @spec list_topic_reviewed_answers(map(), String.t(), String.t(), list()) ::
+          {:ok, list_topic_reviewed_answers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_topic_reviewed_answers_errors()}
+  def list_topic_reviewed_answers(%Client{} = client, aws_account_id, topic_id, options \\ []) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}/reviewed-answers"
 
     headers = []
     query_params = []

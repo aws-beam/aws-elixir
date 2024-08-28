@@ -3,7 +3,28 @@
 
 defmodule AWS.Chatbot do
   @moduledoc """
-  AWS Chatbot API
+  The *AWS Chatbot API Reference* provides descriptions, API request parameters,
+  and the XML response for each of the AWS Chatbot API actions.
+
+  AWS Chatbot APIs are currently available in the following Regions:
+
+    *
+  US East (Ohio) - `us-east-2`
+
+    *
+  US West (Oregon) - `us-west-2`
+
+    *
+  Asia Pacific (Singapore) - `ap-southeast-1`
+
+    *
+  Europe (Ireland) - `eu-west-1`
+
+  The AWS Chatbot console can only be used in US East (Ohio). Your configuration
+  data however, is stored in each of the relevant available Regions.
+
+  Your AWS CloudTrail events are logged in whatever Region you call from, not US
+  East (N. Virginia) by default.
   """
 
   alias AWS.Client
@@ -1269,7 +1290,7 @@ defmodule AWS.Chatbot do
   end
 
   @doc """
-  Creates Chime Webhook Configuration
+  Creates an AWS Chatbot configuration for Amazon Chime.
   """
   @spec create_chime_webhook_configuration(
           map(),
@@ -1300,7 +1321,7 @@ defmodule AWS.Chatbot do
   end
 
   @doc """
-  Creates MS Teams Channel Configuration
+  Creates an AWS Chatbot configuration for Microsoft Teams.
   """
   @spec create_microsoft_teams_channel_configuration(
           map(),
@@ -1331,7 +1352,7 @@ defmodule AWS.Chatbot do
   end
 
   @doc """
-  Creates Slack Channel Configuration
+  Creates an AWS Chatbot confugration for Slack.
   """
   @spec create_slack_channel_configuration(
           map(),
@@ -1362,7 +1383,7 @@ defmodule AWS.Chatbot do
   end
 
   @doc """
-  Deletes a Chime Webhook Configuration
+  Deletes a Amazon Chime webhook configuration for AWS Chatbot.
   """
   @spec delete_chime_webhook_configuration(
           map(),
@@ -1393,7 +1414,7 @@ defmodule AWS.Chatbot do
   end
 
   @doc """
-  Deletes MS Teams Channel Configuration
+  Deletes a Microsoft Teams channel configuration for AWS Chatbot
   """
   @spec delete_microsoft_teams_channel_configuration(
           map(),
@@ -1459,7 +1480,7 @@ defmodule AWS.Chatbot do
   end
 
   @doc """
-  Deletes a Teams user identity
+  Identifes a user level permission for a channel configuration.
   """
   @spec delete_microsoft_teams_user_identity(
           map(),
@@ -1490,7 +1511,7 @@ defmodule AWS.Chatbot do
   end
 
   @doc """
-  Deletes Slack Channel Configuration
+  Deletes a Slack channel configuration for AWS Chatbot
   """
   @spec delete_slack_channel_configuration(
           map(),
@@ -1521,7 +1542,7 @@ defmodule AWS.Chatbot do
   end
 
   @doc """
-  Deletes a Slack user identity
+  Deletes a user level permission for a Slack channel configuration.
   """
   @spec delete_slack_user_identity(map(), delete_slack_user_identity_request(), list()) ::
           {:ok, delete_slack_user_identity_result(), any()}
@@ -1582,7 +1603,8 @@ defmodule AWS.Chatbot do
   end
 
   @doc """
-  Lists Chime Webhook Configurations optionally filtered by ChatConfigurationArn
+  Lists Amazon Chime webhook configurations optionally filtered by
+  ChatConfigurationArn
   """
   @spec describe_chime_webhook_configurations(
           map(),
@@ -1613,7 +1635,7 @@ defmodule AWS.Chatbot do
   end
 
   @doc """
-  Lists Slack Channel Configurations optionally filtered by ChatConfigurationArn
+  Lists Slack channel configurations optionally filtered by ChatConfigurationArn
   """
   @spec describe_slack_channel_configurations(
           map(),
@@ -1671,7 +1693,8 @@ defmodule AWS.Chatbot do
   end
 
   @doc """
-  Lists all authorized Slack Workspaces for AWS Account
+  List all authorized Slack workspaces connected to the AWS Account onboarded with
+  AWS Chatbot.
   """
   @spec describe_slack_workspaces(map(), describe_slack_workspaces_request(), list()) ::
           {:ok, describe_slack_workspaces_result(), any()}
@@ -1698,7 +1721,7 @@ defmodule AWS.Chatbot do
   end
 
   @doc """
-  Get Chatbot account level preferences
+  Returns AWS Chatbot account preferences.
   """
   @spec get_account_preferences(map(), get_account_preferences_request(), list()) ::
           {:ok, get_account_preferences_result(), any()}
@@ -1725,7 +1748,7 @@ defmodule AWS.Chatbot do
   end
 
   @doc """
-  Get a single MS Teams Channel Configurations
+  Returns a Microsoft Teams channel configuration in an AWS account.
   """
   @spec get_microsoft_teams_channel_configuration(
           map(),
@@ -1756,7 +1779,7 @@ defmodule AWS.Chatbot do
   end
 
   @doc """
-  Lists MS Teams Channel Configurations optionally filtered by TeamId
+  Lists all AWS Chatbot Microsoft Teams channel configurations in an AWS account.
   """
   @spec list_microsoft_teams_channel_configurations(
           map(),
@@ -1787,7 +1810,7 @@ defmodule AWS.Chatbot do
   end
 
   @doc """
-  Lists all authorized MS teams for AWS Account
+  Lists all authorized Microsoft Teams for an AWS Account
   """
   @spec list_microsoft_teams_configured_teams(
           map(),
@@ -1818,7 +1841,7 @@ defmodule AWS.Chatbot do
   end
 
   @doc """
-  Lists all Microsoft Teams user identities with a mapped role.
+  A list all Microsoft Teams user identities with a mapped role.
   """
   @spec list_microsoft_teams_user_identities(
           map(),
@@ -1849,7 +1872,10 @@ defmodule AWS.Chatbot do
   end
 
   @doc """
-  Retrieves the list of tags applied to a configuration.
+  Lists all of the tags associated with the Amazon Resource Name (ARN) that you
+  specify.
+
+  The resource can be a user, server, or role.
   """
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1876,7 +1902,10 @@ defmodule AWS.Chatbot do
   end
 
   @doc """
-  Applies the supplied tags to a configuration.
+  Attaches a key-value pair to a resource, as identified by its Amazon Resource
+  Name (ARN).
+
+  Resources are users, servers, roles, and other entities.
   """
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
@@ -1903,7 +1932,10 @@ defmodule AWS.Chatbot do
   end
 
   @doc """
-  Removes the supplied tags from a configuration
+  Detaches a key-value pair from a resource, as identified by its Amazon Resource
+  Name (ARN).
+
+  Resources are users, servers, roles, and other entities.
   """
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
@@ -1930,7 +1962,7 @@ defmodule AWS.Chatbot do
   end
 
   @doc """
-  Update Chatbot account level preferences
+  Updates AWS Chatbot account preferences.
   """
   @spec update_account_preferences(map(), update_account_preferences_request(), list()) ::
           {:ok, update_account_preferences_result(), any()}
@@ -1957,7 +1989,7 @@ defmodule AWS.Chatbot do
   end
 
   @doc """
-  Updates a Chime Webhook Configuration
+  Updates a Amazon Chime webhook configuration.
   """
   @spec update_chime_webhook_configuration(
           map(),
@@ -1988,7 +2020,7 @@ defmodule AWS.Chatbot do
   end
 
   @doc """
-  Updates MS Teams Channel Configuration
+  Updates an Microsoft Teams channel configuration.
   """
   @spec update_microsoft_teams_channel_configuration(
           map(),
@@ -2019,7 +2051,7 @@ defmodule AWS.Chatbot do
   end
 
   @doc """
-  Updates Slack Channel Configuration
+  Updates a Slack channel configuration.
   """
   @spec update_slack_channel_configuration(
           map(),

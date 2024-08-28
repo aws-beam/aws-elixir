@@ -30,6 +30,7 @@ defmodule AWS.NeptuneGraph do
   ## Example:
 
       create_graph_using_import_task_input() :: %{
+        optional("blankNodeHandling") => list(any()),
         optional("deletionProtection") => [boolean()],
         optional("failOnError") => [boolean()],
         optional("format") => list(any()),
@@ -145,6 +146,7 @@ defmodule AWS.NeptuneGraph do
   ## Example:
 
       start_import_task_input() :: %{
+        optional("blankNodeHandling") => list(any()),
         optional("failOnError") => [boolean()],
         optional("format") => list(any()),
         optional("importOptions") => list(),

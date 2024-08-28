@@ -226,6 +226,7 @@ defmodule AWS.Lambda do
         optional("FilterCriteria") => filter_criteria(),
         optional("FunctionName") => String.t(),
         optional("FunctionResponseTypes") => list(list(any())()),
+        optional("KMSKeyArn") => String.t(),
         optional("MaximumBatchingWindowInSeconds") => integer(),
         optional("MaximumRecordAgeInSeconds") => integer(),
         optional("MaximumRetryAttempts") => integer(),
@@ -546,6 +547,17 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      put_function_recursion_config_response() :: %{
+        "RecursiveLoop" => list(any())
+      }
+
+  """
+  @type put_function_recursion_config_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_function_event_invoke_config_request() :: %{
         optional("DestinationConfig") => destination_config(),
         optional("MaximumEventAgeInSeconds") => integer(),
@@ -663,6 +675,15 @@ defmodule AWS.Lambda do
 
   """
   @type delete_function_url_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_function_recursion_config_request() :: %{}
+
+  """
+  @type get_function_recursion_config_request() :: %{}
 
   @typedoc """
 
@@ -824,6 +845,17 @@ defmodule AWS.Lambda do
 
   """
   @type get_function_code_signing_config_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_function_recursion_config_request() :: %{
+        required("RecursiveLoop") => list(any())
+      }
+
+  """
+  @type put_function_recursion_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1236,8 +1268,10 @@ defmodule AWS.Lambda do
         "DocumentDBEventSourceConfig" => document_db_event_source_config(),
         "EventSourceArn" => String.t(),
         "FilterCriteria" => filter_criteria(),
+        "FilterCriteriaError" => filter_criteria_error(),
         "FunctionArn" => String.t(),
         "FunctionResponseTypes" => list(list(any())()),
+        "KMSKeyArn" => String.t(),
         "LastModified" => non_neg_integer(),
         "LastProcessingResult" => String.t(),
         "MaximumBatchingWindowInSeconds" => integer(),
@@ -1275,6 +1309,7 @@ defmodule AWS.Lambda do
         optional("EventSourceArn") => String.t(),
         optional("FilterCriteria") => filter_criteria(),
         optional("FunctionResponseTypes") => list(list(any())()),
+        optional("KMSKeyArn") => String.t(),
         optional("MaximumBatchingWindowInSeconds") => integer(),
         optional("MaximumRecordAgeInSeconds") => integer(),
         optional("MaximumRetryAttempts") => integer(),
@@ -2561,6 +2596,18 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      filter_criteria_error() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type filter_criteria_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tracing_config_response() :: %{
         "Mode" => list(any())
       }
@@ -2579,6 +2626,17 @@ defmodule AWS.Lambda do
 
   """
   @type snap_start_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_function_recursion_config_response() :: %{
+        "RecursiveLoop" => list(any())
+      }
+
+  """
+  @type get_function_recursion_config_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2768,6 +2826,12 @@ defmodule AWS.Lambda do
           | too_many_requests_exception()
 
   @type get_function_event_invoke_config_errors() ::
+          service_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type get_function_recursion_config_errors() ::
           service_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
@@ -2991,6 +3055,13 @@ defmodule AWS.Lambda do
           | resource_not_found_exception()
           | too_many_requests_exception()
 
+  @type put_function_recursion_config_errors() ::
+          resource_conflict_exception()
+          | service_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
   @type put_provisioned_concurrency_config_errors() ::
           resource_conflict_exception()
           | service_exception()
@@ -3163,7 +3234,7 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Grants an Amazon Web Service, Amazon Web Services account, or Amazon Web
+  Grants an Amazon Web Servicesservice, Amazon Web Services account, or Amazon Web
   Services organization
   permission to use a function.
 
@@ -3179,11 +3250,11 @@ defmodule AWS.Lambda do
   `Principal`. To grant
   permission to an organization defined in Organizations, specify the organization
   ID as the
-  `PrincipalOrgID`. For Amazon Web Services, the principal is a domain-style
-  identifier that
+  `PrincipalOrgID`. For Amazon Web Servicesservices, the principal is a
+  domain-style identifier that
   the service defines, such as `s3.amazonaws.com` or `sns.amazonaws.com`. For
-  Amazon Web Services, you can also specify the ARN of the associated resource as
-  the `SourceArn`. If
+  Amazon Web Servicesservices, you can also specify the ARN of the associated
+  resource as the `SourceArn`. If
   you grant permission to a service principal without specifying the source, other
   accounts could potentially
   configure resources in their account to invoke your Lambda function.
@@ -3448,8 +3519,8 @@ defmodule AWS.Lambda do
   The
   deployment package is a .zip file archive or container image that contains your
   function code. The execution role
-  grants the function permission to use Amazon Web Services, such as Amazon
-  CloudWatch Logs for log
+  grants the function permission to use Amazon Web Servicesservices, such as
+  Amazon CloudWatch Logs for log
   streaming and X-Ray for request tracing.
 
   If the deployment package is a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html), then
@@ -3506,14 +3577,14 @@ defmodule AWS.Lambda do
   profiles, which define the trusted
   publishers for this function.
 
-  If another Amazon Web Services account or an Amazon Web Service invokes your
-  function, use `AddPermission` to grant permission by creating a resource-based
-  Identity and Access Management (IAM) policy. You can grant permissions at the
-  function level, on a version, or on an alias.
+  If another Amazon Web Services account or an Amazon Web Servicesservice invokes
+  your function, use `AddPermission` to grant permission by creating a
+  resource-based Identity and Access Management (IAM) policy. You can grant
+  permissions at the function level, on a version, or on an alias.
 
   To invoke your function directly, use `Invoke`. To invoke your function in
   response to events
-  in other Amazon Web Services, create an event source mapping
+  in other Amazon Web Servicesservices, create an event source mapping
   (`CreateEventSourceMapping`),
   or configure a function trigger in the other service. For more information, see
   [Invoking Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html).
@@ -3700,8 +3771,8 @@ defmodule AWS.Lambda do
   permissions for `DeleteAlias`.
 
   To delete Lambda event source mappings that invoke a function, use
-  `DeleteEventSourceMapping`. For Amazon Web Services and resources that invoke
-  your function
+  `DeleteEventSourceMapping`. For Amazon Web Servicesservices and resources that
+  invoke your function
   directly, delete the trigger in the service where you originally configured it.
   """
   @spec delete_function(map(), String.t(), delete_function_request(), list()) ::
@@ -4168,6 +4239,24 @@ defmodule AWS.Lambda do
       else
         query_params
       end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns your function's [recursive loop detection](https://docs.aws.amazon.com/lambda/latest/dg/invocation-recursion.html)
+  configuration.
+  """
+  @spec get_function_recursion_config(map(), String.t(), list()) ::
+          {:ok, get_function_recursion_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_function_recursion_config_errors()}
+  def get_function_recursion_config(%Client{} = client, function_name, options \\ []) do
+    url_path = "/2024-08-31/functions/#{AWS.Util.encode_uri(function_name)}/recursion-config"
+    headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -5349,6 +5438,43 @@ defmodule AWS.Lambda do
   end
 
   @doc """
+  Sets your function's [recursive loop detection](https://docs.aws.amazon.com/lambda/latest/dg/invocation-recursion.html)
+  configuration.
+
+  When you configure a Lambda function to output to the same service or resource
+  that invokes the function, it's possible to create
+  an infinite recursive loop. For example, a Lambda function might write a message
+  to an Amazon Simple Queue Service (Amazon SQS) queue, which then invokes the
+  same
+  function. This invocation causes the function to write another message to the
+  queue, which in turn invokes the function again.
+
+  Lambda can detect certain types of recursive loops shortly after they occur.
+  When Lambda detects a recursive loop and your
+  function's recursive loop detection configuration is set to `Terminate`, it
+  stops your function being invoked and notifies
+  you.
+  """
+  @spec put_function_recursion_config(
+          map(),
+          String.t(),
+          put_function_recursion_config_request(),
+          list()
+        ) ::
+          {:ok, put_function_recursion_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_function_recursion_config_errors()}
+  def put_function_recursion_config(%Client{} = client, function_name, input, options \\ []) do
+    url_path = "/2024-08-31/functions/#{AWS.Util.encode_uri(function_name)}/recursion-config"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
   Adds a provisioned concurrency configuration to a function's alias or version.
   """
   @spec put_provisioned_concurrency_config(
@@ -5461,8 +5587,8 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Revokes function-use permission from an Amazon Web Service or another Amazon Web
-  Services account.
+  Revokes function-use permission from an Amazon Web Servicesservice or another
+  Amazon Web Services account.
 
   You
   can get the ID of the statement from the output of `GetPolicy`.
@@ -5820,7 +5946,8 @@ defmodule AWS.Lambda do
 
   To configure function concurrency, use `PutFunctionConcurrency`. To grant invoke
   permissions
-  to an Amazon Web Services account or Amazon Web Service, use `AddPermission`.
+  to an Amazon Web Services account or Amazon Web Servicesservice, use
+  `AddPermission`.
   """
   @spec update_function_configuration(
           map(),

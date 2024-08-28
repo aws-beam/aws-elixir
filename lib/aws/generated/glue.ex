@@ -156,6 +156,27 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      statistic_summary() :: %{
+        "ColumnsReferenced" => list(String.t()()),
+        "DoubleValue" => float(),
+        "EvaluationLevel" => list(any()),
+        "InclusionAnnotation" => timestamped_inclusion_annotation(),
+        "ProfileId" => String.t(),
+        "RecordedOn" => non_neg_integer(),
+        "ReferencedDatasets" => list(String.t()()),
+        "RunIdentifier" => run_identifier(),
+        "StatisticId" => String.t(),
+        "StatisticName" => String.t(),
+        "StatisticProperties" => map()
+      }
+      
+  """
+  @type statistic_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_data_quality_results_response() :: %{
         "NextToken" => String.t(),
         "Results" => list(data_quality_result_description()())
@@ -375,6 +396,7 @@ defmodule AWS.Glue do
         "Database" => String.t(),
         "Inputs" => list(String.t()()),
         "Name" => String.t(),
+        "PartitionKeys" => list(list(String.t()())()),
         "Table" => String.t()
       }
       
@@ -599,6 +621,18 @@ defmodule AWS.Glue do
       
   """
   @type update_data_quality_ruleset_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      timestamped_inclusion_annotation() :: %{
+        "LastModifiedOn" => non_neg_integer(),
+        "Value" => list(any())
+      }
+      
+  """
+  @type timestamped_inclusion_annotation() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -854,6 +888,18 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      run_identifier() :: %{
+        "JobRunId" => String.t(),
+        "RunId" => String.t()
+      }
+      
+  """
+  @type run_identifier() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       partition_index() :: %{
         "IndexName" => String.t(),
         "Keys" => list(String.t()())
@@ -861,6 +907,24 @@ defmodule AWS.Glue do
       
   """
   @type partition_index() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      table_status() :: %{
+        "Action" => list(any()),
+        "Details" => status_details(),
+        "Error" => error_detail(),
+        "RequestTime" => non_neg_integer(),
+        "RequestedBy" => String.t(),
+        "State" => list(any()),
+        "UpdateTime" => non_neg_integer(),
+        "UpdatedBy" => String.t()
+      }
+      
+  """
+  @type table_status() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1155,6 +1219,7 @@ defmodule AWS.Glue do
         "JobName" => String.t(),
         "JobRunId" => String.t(),
         "Observations" => list(data_quality_observation()()),
+        "ProfileId" => String.t(),
         "ResultId" => String.t(),
         "RuleResults" => list(data_quality_rule_result()()),
         "RulesetEvaluationRunId" => String.t(),
@@ -1439,6 +1504,7 @@ defmodule AWS.Glue do
         "Id" => String.t(),
         "JobMode" => list(any()),
         "JobName" => String.t(),
+        "JobRunQueuingEnabled" => boolean(),
         "JobRunState" => list(any()),
         "LastModifiedOn" => non_neg_integer(),
         "LogGroupName" => String.t(),
@@ -1451,6 +1517,7 @@ defmodule AWS.Glue do
         "ProfileName" => String.t(),
         "SecurityConfiguration" => String.t(),
         "StartedOn" => non_neg_integer(),
+        "StateDetail" => String.t(),
         "Timeout" => integer(),
         "TriggerName" => String.t(),
         "WorkerType" => list(any())
@@ -1682,6 +1749,18 @@ defmodule AWS.Glue do
       
   """
   @type batch_update_partition_failure_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_data_quality_model_result_request() :: %{
+        required("ProfileId") => String.t(),
+        required("StatisticId") => String.t()
+      }
+      
+  """
+  @type get_data_quality_model_result_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2117,6 +2196,7 @@ defmodule AWS.Glue do
       
       get_table_request() :: %{
         optional("CatalogId") => String.t(),
+        optional("IncludeStatusDetails") => boolean(),
         optional("QueryAsOfTime") => non_neg_integer(),
         optional("TransactionId") => String.t(),
         required("DatabaseName") => String.t(),
@@ -2388,6 +2468,18 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      put_data_quality_profile_annotation_request() :: %{
+        required("InclusionAnnotation") => list(any()),
+        required("ProfileId") => String.t()
+      }
+      
+  """
+  @type put_data_quality_profile_annotation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_ml_task_run_request() :: %{
         required("TaskRunId") => String.t(),
         required("TransformId") => String.t()
@@ -2411,6 +2503,20 @@ defmodule AWS.Glue do
       
   """
   @type create_table_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      statistic_annotation() :: %{
+        "InclusionAnnotation" => timestamped_inclusion_annotation(),
+        "ProfileId" => String.t(),
+        "StatisticId" => String.t(),
+        "StatisticRecordedOn" => non_neg_integer()
+      }
+      
+  """
+  @type statistic_annotation() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2456,6 +2562,18 @@ defmodule AWS.Glue do
       
   """
   @type create_security_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_data_quality_statistic_annotations_response() :: %{
+        "Annotations" => list(statistic_annotation()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type list_data_quality_statistic_annotations_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2811,6 +2929,18 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      get_data_quality_model_result_response() :: %{
+        "CompletedOn" => non_neg_integer(),
+        "Model" => list(statistic_model_result()())
+      }
+      
+  """
+  @type get_data_quality_model_result_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_crawlers_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -2859,6 +2989,7 @@ defmodule AWS.Glue do
         optional("ExecutionProperty") => execution_property(),
         optional("GlueVersion") => String.t(),
         optional("JobMode") => list(any()),
+        optional("JobRunQueuingEnabled") => boolean(),
         optional("LogUri") => String.t(),
         optional("MaintenanceWindow") => String.t(),
         optional("MaxCapacity") => float(),
@@ -3167,8 +3298,10 @@ defmodule AWS.Glue do
   ## Example:
       
       get_tables_request() :: %{
+        optional("AttributesToGet") => list(list(any())()),
         optional("CatalogId") => String.t(),
         optional("Expression") => String.t(),
+        optional("IncludeStatusDetails") => boolean(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("QueryAsOfTime") => non_neg_integer(),
@@ -3213,6 +3346,18 @@ defmodule AWS.Glue do
       
   """
   @type invalid_state_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      status_details() :: %{
+        "RequestedChange" => table(),
+        "ViewValidations" => list(view_validation()())
+      }
+      
+  """
+  @type status_details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3405,6 +3550,17 @@ defmodule AWS.Glue do
       
   """
   @type get_table_versions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_put_data_quality_statistic_annotation_response() :: %{
+        "FailedInclusionAnnotations" => list(annotation_error()())
+      }
+      
+  """
+  @type batch_put_data_quality_statistic_annotation_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3603,6 +3759,21 @@ defmodule AWS.Glue do
       
   """
   @type get_databases_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_data_quality_statistic_annotations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("ProfileId") => String.t(),
+        optional("StatisticId") => String.t(),
+        optional("TimestampFilter") => timestamp_filter()
+      }
+      
+  """
+  @type list_data_quality_statistic_annotations_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3829,6 +4000,7 @@ defmodule AWS.Glue do
         "ExecutionProperty" => execution_property(),
         "GlueVersion" => String.t(),
         "JobMode" => list(any()),
+        "JobRunQueuingEnabled" => boolean(),
         "LogUri" => String.t(),
         "MaintenanceWindow" => String.t(),
         "MaxCapacity" => float(),
@@ -4514,6 +4686,7 @@ defmodule AWS.Glue do
       data_quality_rule_result() :: %{
         "Description" => String.t(),
         "EvaluatedMetrics" => map(),
+        "EvaluatedRule" => String.t(),
         "EvaluationMessage" => String.t(),
         "Name" => String.t(),
         "Result" => list(any())
@@ -4533,6 +4706,18 @@ defmodule AWS.Glue do
       
   """
   @type update_registry_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_put_data_quality_statistic_annotation_request() :: %{
+        optional("ClientToken") => String.t(),
+        required("InclusionAnnotations") => list(datapoint_inclusion_annotation()())
+      }
+      
+  """
+  @type batch_put_data_quality_statistic_annotation_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4623,6 +4808,15 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      put_data_quality_profile_annotation_response() :: %{}
+      
+  """
+  @type put_data_quality_profile_annotation_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_column_statistics_for_partition_request() :: %{
         optional("CatalogId") => String.t(),
         required("ColumnName") => String.t(),
@@ -4698,6 +4892,7 @@ defmodule AWS.Glue do
       get_data_quality_rule_recommendation_run_response() :: %{
         "CompletedOn" => non_neg_integer(),
         "CreatedRulesetName" => String.t(),
+        "DataQualitySecurityConfiguration" => String.t(),
         "DataSource" => data_source(),
         "ErrorString" => String.t(),
         "ExecutionTime" => integer(),
@@ -4780,6 +4975,22 @@ defmodule AWS.Glue do
       
   """
   @type get_workflow_run_properties_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      statistic_model_result() :: %{
+        "ActualValue" => float(),
+        "Date" => non_neg_integer(),
+        "InclusionAnnotation" => list(any()),
+        "LowerBound" => float(),
+        "PredictedValue" => float(),
+        "UpperBound" => float()
+      }
+      
+  """
+  @type statistic_model_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4879,7 +5090,8 @@ defmodule AWS.Glue do
       metric_based_observation() :: %{
         "MetricName" => String.t(),
         "MetricValues" => data_quality_metric_values(),
-        "NewRules" => list(String.t()())
+        "NewRules" => list(String.t()()),
+        "StatisticId" => String.t()
       }
       
   """
@@ -5545,12 +5757,41 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      view_validation() :: %{
+        "Dialect" => list(any()),
+        "DialectVersion" => String.t(),
+        "Error" => error_detail(),
+        "State" => list(any()),
+        "UpdateTime" => non_neg_integer(),
+        "ViewValidationText" => String.t()
+      }
+      
+  """
+  @type view_validation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       illegal_workflow_state_exception() :: %{
         "Message" => String.t()
       }
       
   """
   @type illegal_workflow_state_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      datapoint_inclusion_annotation() :: %{
+        "InclusionAnnotation" => list(any()),
+        "ProfileId" => String.t(),
+        "StatisticId" => String.t()
+      }
+      
+  """
+  @type datapoint_inclusion_annotation() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6070,6 +6311,19 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      annotation_error() :: %{
+        "FailureReason" => String.t(),
+        "ProfileId" => String.t(),
+        "StatisticId" => String.t()
+      }
+      
+  """
+  @type annotation_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       crawler_history() :: %{
         "CrawlId" => String.t(),
         "DPUHour" => float(),
@@ -6169,6 +6423,18 @@ defmodule AWS.Glue do
       
   """
   @type condition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_data_quality_model_request() :: %{
+        optional("StatisticId") => String.t(),
+        required("ProfileId") => String.t()
+      }
+      
+  """
+  @type get_data_quality_model_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6597,6 +6863,7 @@ defmodule AWS.Glue do
       start_data_quality_rule_recommendation_run_request() :: %{
         optional("ClientToken") => String.t(),
         optional("CreatedRulesetName") => String.t(),
+        optional("DataQualitySecurityConfiguration") => String.t(),
         optional("NumberOfWorkers") => integer(),
         optional("Timeout") => integer(),
         required("DataSource") => data_source(),
@@ -6818,6 +7085,20 @@ defmodule AWS.Glue do
       
   """
   @type microsoft_s_q_l_server_catalog_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_data_quality_model_response() :: %{
+        "CompletedOn" => non_neg_integer(),
+        "FailureReason" => String.t(),
+        "StartedOn" => non_neg_integer(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type get_data_quality_model_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -7080,6 +7361,30 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      list_data_quality_statistics_response() :: %{
+        "NextToken" => String.t(),
+        "Statistics" => list(statistic_summary()())
+      }
+      
+  """
+  @type list_data_quality_statistics_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      timestamp_filter() :: %{
+        "RecordedAfter" => non_neg_integer(),
+        "RecordedBefore" => non_neg_integer()
+      }
+      
+  """
+  @type timestamp_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       federated_resource_already_exists_exception() :: %{
         "AssociatedGlueResource" => String.t(),
         "Message" => String.t()
@@ -7121,6 +7426,7 @@ defmodule AWS.Glue do
         optional("Arguments") => map(),
         optional("ExecutionClass") => list(any()),
         optional("JobRunId") => String.t(),
+        optional("JobRunQueuingEnabled") => boolean(),
         optional("MaxCapacity") => float(),
         optional("NotificationProperty") => notification_property(),
         optional("NumberOfWorkers") => integer(),
@@ -7534,6 +7840,21 @@ defmodule AWS.Glue do
       
   """
   @type start_trigger_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_data_quality_statistics_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("ProfileId") => String.t(),
+        optional("StatisticId") => String.t(),
+        optional("TimestampFilter") => timestamp_filter()
+      }
+      
+  """
+  @type list_data_quality_statistics_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -8057,6 +8378,7 @@ defmodule AWS.Glue do
         "JobName" => String.t(),
         "JobRunId" => String.t(),
         "Observations" => list(data_quality_observation()()),
+        "ProfileId" => String.t(),
         "ResultId" => String.t(),
         "RuleResults" => list(data_quality_rule_result()()),
         "RulesetEvaluationRunId" => String.t(),
@@ -8297,6 +8619,7 @@ defmodule AWS.Glue do
         "ExecutionProperty" => execution_property(),
         "GlueVersion" => String.t(),
         "JobMode" => list(any()),
+        "JobRunQueuingEnabled" => boolean(),
         "LastModifiedOn" => non_neg_integer(),
         "LogUri" => String.t(),
         "MaintenanceWindow" => String.t(),
@@ -8709,6 +9032,7 @@ defmodule AWS.Glue do
       search_tables_request() :: %{
         optional("CatalogId") => String.t(),
         optional("Filters") => list(property_predicate()()),
+        optional("IncludeStatusDetails") => boolean(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("ResourceShareType") => list(any()),
@@ -8867,6 +9191,7 @@ defmodule AWS.Glue do
       
       create_data_quality_ruleset_request() :: %{
         optional("ClientToken") => String.t(),
+        optional("DataQualitySecurityConfiguration") => String.t(),
         optional("Description") => String.t(),
         optional("Tags") => map(),
         optional("TargetTable") => data_quality_target_table(),
@@ -9877,6 +10202,7 @@ defmodule AWS.Glue do
         "Parameters" => map(),
         "PartitionKeys" => list(column()()),
         "Retention" => integer(),
+        "Status" => table_status(),
         "StorageDescriptor" => storage_descriptor(),
         "TableType" => String.t(),
         "TargetTable" => table_identifier(),
@@ -10203,6 +10529,7 @@ defmodule AWS.Glue do
       
       get_data_quality_ruleset_response() :: %{
         "CreatedOn" => non_neg_integer(),
+        "DataQualitySecurityConfiguration" => String.t(),
         "Description" => String.t(),
         "LastModifiedOn" => non_neg_integer(),
         "Name" => String.t(),
@@ -10830,6 +11157,12 @@ defmodule AWS.Glue do
   @type batch_get_workflows_errors() ::
           invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
 
+  @type batch_put_data_quality_statistic_annotation_errors() ::
+          invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+
   @type batch_stop_job_run_errors() ::
           invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
 
@@ -11284,6 +11617,18 @@ defmodule AWS.Glue do
   @type get_data_catalog_encryption_settings_errors() ::
           invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
 
+  @type get_data_quality_model_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_data_quality_model_result_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
   @type get_data_quality_result_errors() ::
           invalid_input_exception()
           | internal_service_exception()
@@ -11660,6 +12005,12 @@ defmodule AWS.Glue do
           | operation_timeout_exception()
           | entity_not_found_exception()
 
+  @type list_data_quality_statistic_annotations_errors() ::
+          invalid_input_exception() | internal_service_exception()
+
+  @type list_data_quality_statistics_errors() ::
+          invalid_input_exception() | internal_service_exception() | entity_not_found_exception()
+
   @type list_dev_endpoints_errors() ::
           invalid_input_exception()
           | internal_service_exception()
@@ -11730,6 +12081,9 @@ defmodule AWS.Glue do
 
   @type put_data_catalog_encryption_settings_errors() ::
           invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
+
+  @type put_data_quality_profile_annotation_errors() ::
+          invalid_input_exception() | internal_service_exception() | entity_not_found_exception()
 
   @type put_resource_policy_errors() ::
           condition_check_failure_exception()
@@ -12355,6 +12709,23 @@ defmodule AWS.Glue do
     meta = metadata()
 
     Request.request_post(client, meta, "BatchGetWorkflows", input, options)
+  end
+
+  @doc """
+  Annotate datapoints over time for a specific data quality statistic.
+  """
+  @spec batch_put_data_quality_statistic_annotation(
+          map(),
+          batch_put_data_quality_statistic_annotation_request(),
+          list()
+        ) ::
+          {:ok, batch_put_data_quality_statistic_annotation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_put_data_quality_statistic_annotation_errors()}
+  def batch_put_data_quality_statistic_annotation(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchPutDataQualityStatisticAnnotation", input, options)
   end
 
   @doc """
@@ -13499,6 +13870,33 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Retrieve the training status of the model along with more information
+  (CompletedOn, StartedOn, FailureReason).
+  """
+  @spec get_data_quality_model(map(), get_data_quality_model_request(), list()) ::
+          {:ok, get_data_quality_model_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_data_quality_model_errors()}
+  def get_data_quality_model(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDataQualityModel", input, options)
+  end
+
+  @doc """
+  Retrieve a statistic's predictions for a given Profile ID.
+  """
+  @spec get_data_quality_model_result(map(), get_data_quality_model_result_request(), list()) ::
+          {:ok, get_data_quality_model_result_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_data_quality_model_result_errors()}
+  def get_data_quality_model_result(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDataQualityModelResult", input, options)
+  end
+
+  @doc """
   Retrieves the result of a data quality rule evaluation.
   """
   @spec get_data_quality_result(map(), get_data_quality_result_request(), list()) ::
@@ -14465,6 +14863,36 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Retrieve annotations for a data quality statistic.
+  """
+  @spec list_data_quality_statistic_annotations(
+          map(),
+          list_data_quality_statistic_annotations_request(),
+          list()
+        ) ::
+          {:ok, list_data_quality_statistic_annotations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_data_quality_statistic_annotations_errors()}
+  def list_data_quality_statistic_annotations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDataQualityStatisticAnnotations", input, options)
+  end
+
+  @doc """
+  Retrieves a list of data quality statistics.
+  """
+  @spec list_data_quality_statistics(map(), list_data_quality_statistics_request(), list()) ::
+          {:ok, list_data_quality_statistics_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_data_quality_statistics_errors()}
+  def list_data_quality_statistics(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDataQualityStatistics", input, options)
+  end
+
+  @doc """
   Retrieves the names of all `DevEndpoint` resources in this Amazon Web Services
   account, or the
   resources with the specified tag.
@@ -14687,6 +15115,23 @@ defmodule AWS.Glue do
     meta = metadata()
 
     Request.request_post(client, meta, "PutDataCatalogEncryptionSettings", input, options)
+  end
+
+  @doc """
+  Annotate all datapoints for a Profile.
+  """
+  @spec put_data_quality_profile_annotation(
+          map(),
+          put_data_quality_profile_annotation_request(),
+          list()
+        ) ::
+          {:ok, put_data_quality_profile_annotation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_data_quality_profile_annotation_errors()}
+  def put_data_quality_profile_annotation(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutDataQualityProfileAnnotation", input, options)
   end
 
   @doc """

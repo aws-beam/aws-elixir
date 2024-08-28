@@ -973,6 +973,8 @@ defmodule AWS.Inspector2 do
 
       finding_type_aggregation_response() :: %{
         "accountId" => String.t(),
+        "exploitAvailableCount" => [float()],
+        "fixAvailableCount" => [float()],
         "severityCounts" => severity_counts()
       }
 
@@ -2104,6 +2106,8 @@ defmodule AWS.Inspector2 do
 
       account_aggregation_response() :: %{
         "accountId" => String.t(),
+        "exploitAvailableCount" => [float()],
+        "fixAvailableCount" => [float()],
         "severityCounts" => severity_counts()
       }
 

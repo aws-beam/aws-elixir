@@ -66,7 +66,8 @@ defmodule AWS.EntityResolution do
 
       id_mapping_techniques() :: %{
         "idMappingType" => list(any()),
-        "providerProperties" => provider_properties()
+        "providerProperties" => provider_properties(),
+        "ruleBasedProperties" => id_mapping_rule_based_properties()
       }
 
   """
@@ -342,7 +343,8 @@ defmodule AWS.EntityResolution do
 
       id_namespace_id_mapping_workflow_properties() :: %{
         "idMappingType" => list(any()),
-        "providerProperties" => namespace_provider_properties()
+        "providerProperties" => namespace_provider_properties(),
+        "ruleBasedProperties" => namespace_rule_based_properties()
       }
 
   """
@@ -465,6 +467,20 @@ defmodule AWS.EntityResolution do
 
   """
   @type get_schema_mapping_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      namespace_rule_based_properties() :: %{
+        "attributeMatchingModel" => list(any()),
+        "recordMatchingModels" => list(list(any())()),
+        "ruleDefinitionTypes" => list(list(any())()),
+        "rules" => list(rule()())
+      }
+
+  """
+  @type namespace_rule_based_properties() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -656,6 +672,9 @@ defmodule AWS.EntityResolution do
       id_mapping_job_metrics() :: %{
         "inputRecords" => [integer()],
         "recordsNotProcessed" => [integer()],
+        "totalMappedRecords" => [integer()],
+        "totalMappedSourceRecords" => [integer()],
+        "totalMappedTargetRecords" => [integer()],
         "totalRecordsProcessed" => [integer()]
       }
 
@@ -669,10 +688,10 @@ defmodule AWS.EntityResolution do
       create_id_mapping_workflow_input() :: %{
         optional("description") => String.t(),
         optional("outputSourceConfig") => list(id_mapping_workflow_output_source()()),
+        optional("roleArn") => String.t(),
         optional("tags") => map(),
         required("idMappingTechniques") => id_mapping_techniques(),
         required("inputSourceConfig") => list(id_mapping_workflow_input_source()()),
-        required("roleArn") => String.t(),
         required("workflowName") => String.t()
       }
 
@@ -802,6 +821,17 @@ defmodule AWS.EntityResolution do
 
   """
   @type get_provider_service_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      id_namespace_id_mapping_workflow_metadata() :: %{
+        "idMappingType" => list(any())
+      }
+
+  """
+  @type id_namespace_id_mapping_workflow_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -948,9 +978,9 @@ defmodule AWS.EntityResolution do
       update_id_mapping_workflow_input() :: %{
         optional("description") => String.t(),
         optional("outputSourceConfig") => list(id_mapping_workflow_output_source()()),
+        optional("roleArn") => String.t(),
         required("idMappingTechniques") => id_mapping_techniques(),
-        required("inputSourceConfig") => list(id_mapping_workflow_input_source()()),
-        required("roleArn") => String.t()
+        required("inputSourceConfig") => list(id_mapping_workflow_input_source()())
       }
 
   """
@@ -1271,6 +1301,7 @@ defmodule AWS.EntityResolution do
       id_namespace_summary() :: %{
         "createdAt" => [non_neg_integer()],
         "description" => String.t(),
+        "idMappingWorkflowProperties" => list(id_namespace_id_mapping_workflow_metadata()()),
         "idNamespaceArn" => String.t(),
         "idNamespaceName" => String.t(),
         "type" => list(any()),
@@ -1320,6 +1351,7 @@ defmodule AWS.EntityResolution do
       schema_input_attribute() :: %{
         "fieldName" => String.t(),
         "groupName" => String.t(),
+        "hashed" => [boolean()],
         "matchKey" => String.t(),
         "subType" => String.t(),
         "type" => list(any())
@@ -1377,6 +1409,7 @@ defmodule AWS.EntityResolution do
 
       rule_based_properties() :: %{
         "attributeMatchingModel" => list(any()),
+        "matchPurpose" => list(any()),
         "rules" => list(rule()())
       }
 
@@ -1402,6 +1435,20 @@ defmodule AWS.EntityResolution do
 
   """
   @type create_id_namespace_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      id_mapping_rule_based_properties() :: %{
+        "attributeMatchingModel" => list(any()),
+        "recordMatchingModel" => list(any()),
+        "ruleDefinitionType" => list(any()),
+        "rules" => list(rule()())
+      }
+
+  """
+  @type id_mapping_rule_based_properties() :: %{String.t() => any()}
 
   @typedoc """
 

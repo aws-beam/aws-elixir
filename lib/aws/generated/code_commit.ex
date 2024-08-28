@@ -4613,6 +4613,17 @@ defmodule AWS.CodeCommit do
 
   ## Example:
       
+      operation_not_allowed_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type operation_not_allowed_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_branches_input() :: %{
         optional("nextToken") => String.t(),
         required("repositoryName") => String.t()
@@ -5438,6 +5449,7 @@ defmodule AWS.CodeCommit do
           | too_many_tags_exception()
           | invalid_tags_map_exception()
           | repository_limit_exceeded_exception()
+          | operation_not_allowed_exception()
           | invalid_system_tag_usage_exception()
           | encryption_key_disabled_exception()
           | encryption_key_invalid_id_exception()

@@ -721,8 +721,8 @@ defmodule AWS.SESv2 do
         optional("AdditionalContactEmailAddresses") => list(String.t()()),
         optional("ContactLanguage") => list(any()),
         optional("ProductionAccessEnabled") => boolean(),
+        optional("UseCaseDescription") => String.t(),
         required("MailType") => list(any()),
-        required("UseCaseDescription") => String.t(),
         required("WebsiteURL") => String.t()
       }
 

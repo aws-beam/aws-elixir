@@ -723,10 +723,10 @@ defmodule AWS.TaxSettings do
     %{
       api_version: "2018-05-10",
       content_type: "application/x-amz-json-1.1",
-      credential_scope: nil,
+      credential_scope: "us-east-1",
       endpoint_prefix: "tax",
-      global?: false,
-      hostname: nil,
+      global?: true,
+      hostname: "tax.us-east-1.amazonaws.com",
       protocol: "rest-json",
       service_id: "TaxSettings",
       signature_version: "v4",

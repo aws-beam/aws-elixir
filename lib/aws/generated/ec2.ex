@@ -1344,6 +1344,7 @@ defmodule AWS.EC2 do
       
       ipam_discovered_resource_cidr() :: %{
         "AvailabilityZoneId" => String.t(),
+        "IpSource" => list(any()),
         "IpUsage" => float(),
         "IpamResourceDiscoveryId" => String.t(),
         "NetworkInterfaceAttachmentStatus" => list(any()),
@@ -3396,6 +3397,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      create_ipam_external_resource_verification_token_result() :: %{
+        "IpamExternalResourceVerificationToken" => ipam_external_resource_verification_token()
+      }
+      
+  """
+  @type create_ipam_external_resource_verification_token_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_vpc_endpoint_service_configuration_request() :: %{
         optional("AcceptanceRequired") => boolean(),
         optional("ClientToken") => String.t(),
@@ -3641,7 +3653,9 @@ defmodule AWS.EC2 do
         optional("CidrAuthorizationContext") => ipam_cidr_authorization_context(),
         optional("ClientToken") => String.t(),
         optional("DryRun") => boolean(),
+        optional("IpamExternalResourceVerificationTokenId") => String.t(),
         optional("NetmaskLength") => integer(),
+        optional("VerificationMethod") => list(any()),
         required("IpamPoolId") => String.t()
       }
       
@@ -3879,6 +3893,27 @@ defmodule AWS.EC2 do
       
   """
   @type active_instance() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ipam_external_resource_verification_token() :: %{
+        "IpamArn" => String.t(),
+        "IpamExternalResourceVerificationTokenArn" => String.t(),
+        "IpamExternalResourceVerificationTokenId" => String.t(),
+        "IpamId" => String.t(),
+        "IpamRegion" => String.t(),
+        "NotAfter" => non_neg_integer(),
+        "State" => list(any()),
+        "Status" => list(any()),
+        "Tags" => list(tag()()),
+        "TokenName" => String.t(),
+        "TokenValue" => String.t()
+      }
+      
+  """
+  @type ipam_external_resource_verification_token() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5437,6 +5472,8 @@ defmodule AWS.EC2 do
       
       subnet_ipv6_cidr_block_association() :: %{
         "AssociationId" => String.t(),
+        "IpSource" => list(any()),
+        "Ipv6AddressAttribute" => list(any()),
         "Ipv6CidrBlock" => String.t(),
         "Ipv6CidrBlockState" => subnet_cidr_block_state()
       }
@@ -5762,6 +5799,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      delete_ipam_external_resource_verification_token_request() :: %{
+        optional("DryRun") => boolean(),
+        required("IpamExternalResourceVerificationTokenId") => String.t()
+      }
+      
+  """
+  @type delete_ipam_external_resource_verification_token_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_spot_datafeed_subscription_request() :: %{
         optional("DryRun") => boolean()
       }
@@ -5798,6 +5847,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      delete_ipam_external_resource_verification_token_result() :: %{
+        "IpamExternalResourceVerificationToken" => ipam_external_resource_verification_token()
+      }
+      
+  """
+  @type delete_ipam_external_resource_verification_token_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       deprovision_ipam_byoasn_request() :: %{
         optional("DryRun") => boolean(),
         required("Asn") => String.t(),
@@ -5806,6 +5866,19 @@ defmodule AWS.EC2 do
       
   """
   @type deprovision_ipam_byoasn_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      move_capacity_reservation_instances_result() :: %{
+        "DestinationCapacityReservation" => capacity_reservation(),
+        "InstanceCount" => integer(),
+        "SourceCapacityReservation" => capacity_reservation()
+      }
+      
+  """
+  @type move_capacity_reservation_instances_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -7836,6 +7909,7 @@ defmodule AWS.EC2 do
         "DefaultResourceDiscoveryAssociationId" => String.t(),
         "DefaultResourceDiscoveryId" => String.t(),
         "Description" => String.t(),
+        "EnablePrivateGua" => boolean(),
         "IpamArn" => String.t(),
         "IpamId" => String.t(),
         "IpamRegion" => String.t(),
@@ -8389,6 +8463,21 @@ defmodule AWS.EC2 do
       
   """
   @type modify_managed_prefix_list_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      move_capacity_reservation_instances_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("DryRun") => boolean(),
+        required("DestinationCapacityReservationId") => String.t(),
+        required("InstanceCount") => integer(),
+        required("SourceCapacityReservationId") => String.t()
+      }
+      
+  """
+  @type move_capacity_reservation_instances_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -10251,6 +10340,8 @@ defmodule AWS.EC2 do
       
       vpc_ipv6_cidr_block_association() :: %{
         "AssociationId" => String.t(),
+        "IpSource" => list(any()),
+        "Ipv6AddressAttribute" => list(any()),
         "Ipv6CidrBlock" => String.t(),
         "Ipv6CidrBlockState" => vpc_cidr_block_state(),
         "Ipv6Pool" => String.t(),
@@ -10336,6 +10427,20 @@ defmodule AWS.EC2 do
       
   """
   @type modify_client_vpn_endpoint_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_ipam_external_resource_verification_token_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("DryRun") => boolean(),
+        optional("TagSpecifications") => list(tag_specification()()),
+        required("IpamId") => String.t()
+      }
+      
+  """
+  @type create_ipam_external_resource_verification_token_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -13448,6 +13553,7 @@ defmodule AWS.EC2 do
         optional("EndDate") => non_neg_integer(),
         optional("EndDateType") => list(any()),
         optional("InstanceCount") => integer(),
+        optional("InstanceMatchCriteria") => list(any()),
         required("CapacityReservationId") => String.t()
       }
       
@@ -14936,6 +15042,21 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_ipam_external_resource_verification_tokens_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()()),
+        optional("IpamExternalResourceVerificationTokenIds") => list(String.t()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type describe_ipam_external_resource_verification_tokens_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_vpc_peering_connections_request() :: %{
         optional("DryRun") => boolean(),
         optional("Filters") => list(filter()()),
@@ -16095,6 +16216,7 @@ defmodule AWS.EC2 do
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
         optional("DryRun") => boolean(),
+        optional("EnablePrivateGua") => boolean(),
         optional("OperatingRegions") => list(add_ipam_operating_region()()),
         optional("TagSpecifications") => list(tag_specification()()),
         optional("Tier") => list(any())
@@ -16771,6 +16893,21 @@ defmodule AWS.EC2 do
       
   """
   @type load_permission() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_capacity_reservation_by_splitting_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("DryRun") => boolean(),
+        optional("TagSpecifications") => list(tag_specification()()),
+        required("InstanceCount") => integer(),
+        required("SourceCapacityReservationId") => String.t()
+      }
+      
+  """
+  @type create_capacity_reservation_by_splitting_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -19955,6 +20092,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      ebs_status_details() :: %{
+        "ImpairedSince" => non_neg_integer(),
+        "Name" => list(any()),
+        "Status" => list(any())
+      }
+      
+  """
+  @type ebs_status_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       fleet_launch_template_config_request() :: %{
         "LaunchTemplateSpecification" => fleet_launch_template_specification_request(),
         "Overrides" => list(fleet_launch_template_overrides_request()())
@@ -22023,6 +22173,7 @@ defmodule AWS.EC2 do
         optional("AddOperatingRegions") => list(add_ipam_operating_region()()),
         optional("Description") => String.t(),
         optional("DryRun") => boolean(),
+        optional("EnablePrivateGua") => boolean(),
         optional("RemoveOperatingRegions") => list(remove_ipam_operating_region()()),
         optional("Tier") => list(any()),
         required("IpamId") => String.t()
@@ -22931,6 +23082,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       instance_status() :: %{
+        "AttachedEbsStatus" => ebs_status_summary(),
         "AvailabilityZone" => String.t(),
         "Events" => list(instance_status_event()()),
         "InstanceId" => String.t(),
@@ -24402,6 +24554,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      ebs_status_summary() :: %{
+        "Details" => list(ebs_status_details()()),
+        "Status" => list(any())
+      }
+      
+  """
+  @type ebs_status_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       launch_template_block_device_mapping_request() :: %{
         "DeviceName" => String.t(),
         "Ebs" => launch_template_ebs_block_device_request(),
@@ -25362,6 +25526,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      create_capacity_reservation_by_splitting_result() :: %{
+        "DestinationCapacityReservation" => capacity_reservation(),
+        "InstanceCount" => integer(),
+        "SourceCapacityReservation" => capacity_reservation()
+      }
+      
+  """
+  @type create_capacity_reservation_by_splitting_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       cloud_watch_log_options() :: %{
         "LogEnabled" => boolean(),
         "LogGroupArn" => String.t(),
@@ -25865,6 +26042,18 @@ defmodule AWS.EC2 do
       
   """
   @type purchase_scheduled_instances_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_ipam_external_resource_verification_tokens_result() :: %{
+        "IpamExternalResourceVerificationTokens" => list(ipam_external_resource_verification_token()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type describe_ipam_external_resource_verification_tokens_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -28042,37 +28231,26 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Initiates the copy of an AMI.
+  Initiates an AMI copy operation.
 
   You can copy an AMI from one Region to another, or from a
   Region to an Outpost. You can't copy an AMI from an Outpost to a Region, from
-  one Outpost
-  to another, or within the same Outpost. To copy an AMI to another partition, see
-  [CreateStoreImageTask](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html).   To copy an AMI from one Region to another, specify the source Region using the
-  **SourceRegion** parameter, and specify the
-  destination Region using its endpoint. Copies of encrypted backing snapshots for
-  the AMI are encrypted. Copies of unencrypted backing snapshots remain
-  unencrypted,
-  unless you set `Encrypted` during the copy operation. You cannot
-  create an unencrypted copy of an encrypted backing snapshot.
+  one Outpost to
+  another, or within the same Outpost. To copy an AMI to another partition, see
+  [CreateStoreImageTask](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html).   When you copy an AMI from one Region to another, the destination Region is the
+  current Region.
 
-  To copy an AMI from a Region to an Outpost, specify the source Region using the
-  **SourceRegion** parameter, and specify the
-  ARN of the destination Outpost using **DestinationOutpostArn**.
-  Backing snapshots copied to an Outpost are encrypted by default using the
-  default
-  encryption key for the Region, or a different key that you specify in the
-  request using
-  **KmsKeyId**. Outposts do not support unencrypted
-  snapshots. For more information, [
-  Amazon EBS local snapshots on
-  Outposts](https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#ami)
-  in the *Amazon EBS User Guide*.
+  When you copy an AMI from a Region to an Outpost, specify the ARN of the Outpost
+  as
+  the destination. Backing snapshots copied to an Outpost are encrypted by default
+  using
+  the default encryption key for the Region or the key that you specify. Outposts
+  do not
+  support unencrypted snapshots.
 
-  For more information about the prerequisites and limits when copying an AMI, see
-  [Copy an AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html) in
-  the
-  *Amazon EC2 User Guide*.
+  For information about the prerequisites when copying an AMI, see [Copy an
+  AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html) in
+  the *Amazon EC2 User Guide*.
   """
   @spec copy_image(map(), copy_image_request(), list()) ::
           {:ok, copy_image_result(), any()}
@@ -28170,6 +28348,28 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateCapacityReservation", input, options)
+  end
+
+  @doc """
+
+  Create a new Capacity Reservation by splitting the available capacity of the
+  source Capacity Reservation.
+
+  The new Capacity Reservation will have the same attributes as the source
+  Capacity Reservation except for tags. The source Capacity Reservation must be
+  `active` and owned by your Amazon Web Services account.
+  """
+  @spec create_capacity_reservation_by_splitting(
+          map(),
+          create_capacity_reservation_by_splitting_request(),
+          list()
+        ) ::
+          {:ok, create_capacity_reservation_by_splitting_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def create_capacity_reservation_by_splitting(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateCapacityReservationBySplitting", input, options)
   end
 
   @doc """
@@ -28651,6 +28851,33 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateIpam", input, options)
+  end
+
+  @doc """
+  Create a verification token.
+
+  A verification token is an Amazon Web Services-generated random value that you
+  can use to prove ownership of an external resource. For example, you can use a
+  verification token to validate that you control a public IP address range when
+  you bring an IP address range to Amazon Web Services (BYOIP).
+  """
+  @spec create_ipam_external_resource_verification_token(
+          map(),
+          create_ipam_external_resource_verification_token_request(),
+          list()
+        ) ::
+          {:ok, create_ipam_external_resource_verification_token_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def create_ipam_external_resource_verification_token(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "CreateIpamExternalResourceVerificationToken",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -30452,6 +30679,33 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Delete a verification token.
+
+  A verification token is an Amazon Web Services-generated random value that you
+  can use to prove ownership of an external resource. For example, you can use a
+  verification token to validate that you control a public IP address range when
+  you bring an IP address range to Amazon Web Services (BYOIP).
+  """
+  @spec delete_ipam_external_resource_verification_token(
+          map(),
+          delete_ipam_external_resource_verification_token_request(),
+          list()
+        ) ::
+          {:ok, delete_ipam_external_resource_verification_token_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def delete_ipam_external_resource_verification_token(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "DeleteIpamExternalResourceVerificationToken",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Delete an IPAM pool.
 
   You cannot delete an IPAM pool if there are allocations in it or CIDRs
@@ -30876,7 +31130,7 @@ defmodule AWS.EC2 do
 
   If you attempt to delete a security group that is associated with an instance or
   network interface or is
-  referenced by another security group, the operation fails with
+  referenced by another security group in the same VPC, the operation fails with
   `DependencyViolation`.
   """
   @spec delete_security_group(map(), delete_security_group_request(), list()) ::
@@ -31690,7 +31944,7 @@ defmodule AWS.EC2 do
   pending transfer by using this action. After seven days, the
   transfer expires and ownership of the Elastic IP
   address returns to the source
-  account. Accepted transfers are visible to the source account for three days
+  account. Accepted transfers are visible to the source account for 14 days
   after the transfers have been accepted.
   """
   @spec describe_address_transfers(map(), describe_address_transfers_request(), list()) ::
@@ -32849,6 +33103,37 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Describe verification tokens.
+
+  A verification token is an Amazon Web Services-generated random value that you
+  can use to prove ownership of an external resource. For example, you can use a
+  verification token to validate that you control a public IP address range when
+  you bring an IP address range to Amazon Web Services (BYOIP).
+  """
+  @spec describe_ipam_external_resource_verification_tokens(
+          map(),
+          describe_ipam_external_resource_verification_tokens_request(),
+          list()
+        ) ::
+          {:ok, describe_ipam_external_resource_verification_tokens_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def describe_ipam_external_resource_verification_tokens(
+        %Client{} = client,
+        input,
+        options \\ []
+      ) do
+    meta = metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "DescribeIpamExternalResourceVerificationTokens",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Get information about your IPAM pools.
   """
   @spec describe_ipam_pools(map(), describe_ipam_pools_request(), list()) ::
@@ -33336,8 +33621,13 @@ defmodule AWS.EC2 do
   @doc """
   Describes the specified placement groups or all of your placement groups.
 
-  For more
-  information, see [Placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html)
+  To describe a specific placement group that is *shared* with
+  your account, you must specify the ID of the placement group using the
+  `GroupId` parameter. Specifying the name of a
+  *shared* placement group using the `GroupNames`
+  parameter will result in an error.
+
+  For more information, see [Placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html)
   in the
   *Amazon EC2 User Guide*.
   """
@@ -33919,9 +34209,9 @@ defmodule AWS.EC2 do
   @doc """
   Describes the stale security group rules for security groups in a specified VPC.
 
-  Rules are stale when they reference a deleted security group in the same VPC or
-  peered VPC. Rules can also be stale if they reference a security group in a peer
-  VPC for which the VPC peering connection has
+  Rules are stale when they reference a deleted security group in a peered VPC.
+  Rules can also be stale if they reference a security group in a peer VPC for
+  which the VPC peering connection has
   been deleted.
   """
   @spec describe_stale_security_groups(map(), describe_stale_security_groups_request(), list()) ::
@@ -34459,11 +34749,6 @@ defmodule AWS.EC2 do
   @doc """
   Describes the most recent volume modification request for the specified EBS
   volumes.
-
-  If a volume has never been modified, some information in the output will be
-  null.
-  If a volume has been modified more than once, the output includes only the most
-  recent modification request.
 
   For more information, see [
   Monitor the progress of volume
@@ -35104,10 +35389,18 @@ defmodule AWS.EC2 do
   access for snapshots in a Region, users can publicly share snapshots in that
   Region.
 
-  If block public access is enabled in `block-all-sharing` mode, and
-  you disable block public access, all snapshots that were previously publicly
-  shared
-  are no longer treated as private and they become publicly accessible again.
+  Enabling block public access for snapshots in *block-all-sharing*
+  mode does not change the permissions for snapshots that are already publicly
+  shared.
+  Instead, it prevents these snapshots from be publicly visible and publicly
+  accessible.
+  Therefore, the attributes for these snapshots still indicate that they are
+  publicly
+  shared, even though they are not publicly available.
+
+  If you disable block public access , these snapshots will become publicly
+  available
+  again.
 
   For more information, see [
   Block public access for
@@ -35808,11 +36101,17 @@ defmodule AWS.EC2 do
   treated as private or they remain publicly shared, depending on the
   **State** that you specify.
 
-  If block public access is enabled in `block-all-sharing` mode, and
-  you change the mode to `block-new-sharing`, all snapshots that were
-  previously publicly shared are no longer treated as private and they become
+  Enabling block public access for snapshots in *block all sharing*
+  mode does not change the permissions for snapshots that are already publicly
+  shared.
+  Instead, it prevents these snapshots from be publicly visible and publicly
+  accessible.
+  Therefore, the attributes for these snapshots still indicate that they are
   publicly
-  accessible again.
+  shared, even though they are not publicly available.
+
+  If you later disable block public access or change the mode to *block new
+  sharing*, these snapshots will become publicly available again.
 
   For more information, see [
   Block public access for
@@ -36113,20 +36412,6 @@ defmodule AWS.EC2 do
   physical monitor attached to a computer. For Windows instances, the instance
   console
   output includes the last three system event log errors.
-
-  By default, the console output returns buffered information that was posted
-  shortly
-  after an instance transition state (start, stop, reboot, or terminate). This
-  information
-  is available for at least one hour after the most recent post. Only the most
-  recent 64
-  KB of console output is available.
-
-  You can optionally retrieve the latest serial console output at any time during
-  the
-  instance lifecycle. This option is supported on instance types that use the
-  Nitro
-  hypervisor.
 
   For more information, see [Instance console
   output](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html#instance-console-console-output)
@@ -37246,17 +37531,15 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Modifies a Capacity Reservation's capacity and the conditions under which it is
-  to be released.
+  Modifies a Capacity Reservation's capacity, instance eligibility, and the
+  conditions under which it is to be released.
 
   You
-  cannot change a Capacity Reservation's instance type, EBS optimization, instance
-  store settings,
-  platform, Availability Zone, or instance eligibility. If you need to modify any
-  of these
-  attributes, we recommend that you cancel the Capacity Reservation, and then
-  create a new one with
-  the required attributes.
+  can't modify a Capacity Reservation's instance type, EBS optimization, platform,
+  instance store settings, Availability Zone, or
+  tenancy. If you need to modify any of these attributes, we recommend that you
+  cancel the Capacity Reservation, and then create a new one with
+  the required attributes. For more information, see [Modify an active Capacity Reservation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-modify.html).
   """
   @spec modify_capacity_reservation(map(), modify_capacity_reservation_request(), list()) ::
           {:ok, modify_capacity_reservation_result(), any()}
@@ -38787,6 +39070,44 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "MoveByoipCidrToIpam", input, options)
+  end
+
+  @doc """
+  Move available capacity from a source Capacity Reservation to a destination
+  Capacity Reservation.
+
+  The source Capacity Reservation and the destination Capacity Reservation must be
+  `active`, owned by your Amazon Web Services account, and share the following:
+
+    *
+  Instance type
+
+    *
+  Platform
+
+    *
+  Availability Zone
+
+    *
+  Tenancy
+
+    *
+  Placement group
+
+    *
+  Capacity Reservation end time - `At specific time` or `Manually`.
+  """
+  @spec move_capacity_reservation_instances(
+          map(),
+          move_capacity_reservation_instances_request(),
+          list()
+        ) ::
+          {:ok, move_capacity_reservation_instances_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def move_capacity_reservation_instances(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "MoveCapacityReservationInstances", input, options)
   end
 
   @doc """

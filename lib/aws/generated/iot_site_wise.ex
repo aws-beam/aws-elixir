@@ -33,6 +33,17 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      siemens_i_e() :: %{
+        "iotCoreThingName" => String.t()
+      }
+
+  """
+  @type siemens_i_e() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_gateway_request() :: %{
         required("gatewayName") => String.t()
       }
@@ -272,10 +283,12 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
-      describe_asset_model_composite_model_request() :: %{}
+      describe_asset_model_composite_model_request() :: %{
+        optional("assetModelVersion") => String.t()
+      }
 
   """
-  @type describe_asset_model_composite_model_request() :: %{}
+  @type describe_asset_model_composite_model_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -843,7 +856,10 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       delete_asset_model_request() :: %{
-        optional("clientToken") => String.t()
+        optional("clientToken") => String.t(),
+        optional("ifMatch") => String.t(),
+        optional("ifNoneMatch") => String.t(),
+        optional("matchForVersionType") => list(any())
       }
 
   """
@@ -1053,7 +1069,8 @@ defmodule AWS.IoTSiteWise do
         "id" => String.t(),
         "lastUpdateDate" => non_neg_integer(),
         "name" => String.t(),
-        "status" => asset_model_status()
+        "status" => asset_model_status(),
+        "version" => String.t()
       }
 
   """
@@ -1567,6 +1584,9 @@ defmodule AWS.IoTSiteWise do
         optional("assetModelHierarchies") => list(asset_model_hierarchy()()),
         optional("assetModelProperties") => list(asset_model_property()()),
         optional("clientToken") => String.t(),
+        optional("ifMatch") => String.t(),
+        optional("ifNoneMatch") => String.t(),
+        optional("matchForVersionType") => list(any()),
         required("assetModelName") => String.t()
       }
 
@@ -1998,6 +2018,9 @@ defmodule AWS.IoTSiteWise do
         optional("assetModelCompositeModelProperties") => list(asset_model_property_definition()()),
         optional("clientToken") => String.t(),
         optional("composedAssetModelId") => String.t(),
+        optional("ifMatch") => String.t(),
+        optional("ifNoneMatch") => String.t(),
+        optional("matchForVersionType") => list(any()),
         optional("parentAssetModelCompositeModelId") => String.t(),
         required("assetModelCompositeModelName") => String.t(),
         required("assetModelCompositeModelType") => String.t()
@@ -2023,6 +2046,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       describe_asset_model_request() :: %{
+        optional("assetModelVersion") => String.t(),
         optional("excludeProperties") => boolean()
       }
 
@@ -2121,7 +2145,10 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       delete_asset_model_composite_model_request() :: %{
-        optional("clientToken") => String.t()
+        optional("clientToken") => String.t(),
+        optional("ifMatch") => String.t(),
+        optional("ifNoneMatch") => String.t(),
+        optional("matchForVersionType") => list(any())
       }
 
   """
@@ -2174,6 +2201,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       list_asset_model_composite_models_request() :: %{
+        optional("assetModelVersion") => String.t(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -2241,7 +2269,9 @@ defmodule AWS.IoTSiteWise do
         "assetModelName" => String.t(),
         "assetModelProperties" => list(asset_model_property()()),
         "assetModelStatus" => asset_model_status(),
-        "assetModelType" => list(any())
+        "assetModelType" => list(any()),
+        "assetModelVersion" => String.t(),
+        "eTag" => String.t()
       }
 
   """
@@ -2322,7 +2352,8 @@ defmodule AWS.IoTSiteWise do
 
       gateway_platform() :: %{
         "greengrass" => greengrass(),
-        "greengrassV2" => greengrass_v2()
+        "greengrassV2" => greengrass_v2(),
+        "siemensIE" => siemens_i_e()
       }
 
   """
@@ -2384,6 +2415,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       list_asset_model_properties_request() :: %{
+        optional("assetModelVersion") => String.t(),
         optional("filter") => list(any()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
@@ -3086,6 +3118,9 @@ defmodule AWS.IoTSiteWise do
         optional("assetModelCompositeModelExternalId") => String.t(),
         optional("assetModelCompositeModelProperties") => list(asset_model_property()()),
         optional("clientToken") => String.t(),
+        optional("ifMatch") => String.t(),
+        optional("ifNoneMatch") => String.t(),
+        optional("matchForVersionType") => list(any()),
         required("assetModelCompositeModelName") => String.t()
       }
 
@@ -3539,6 +3574,19 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      precondition_failed_exception() :: %{
+        "message" => String.t(),
+        "resourceArn" => String.t(),
+        "resourceId" => String.t()
+      }
+
+  """
+  @type precondition_failed_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_get_asset_property_aggregates_error_info() :: %{
         "errorCode" => list(any()),
         "errorTimestamp" => non_neg_integer()
@@ -3644,6 +3692,7 @@ defmodule AWS.IoTSiteWise do
 
       list_asset_models_request() :: %{
         optional("assetModelTypes") => list(list(any())()),
+        optional("assetModelVersion") => String.t(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -3859,7 +3908,8 @@ defmodule AWS.IoTSiteWise do
           | internal_failure_exception()
 
   @type create_asset_model_composite_model_errors() ::
-          resource_already_exists_exception()
+          precondition_failed_exception()
+          | resource_already_exists_exception()
           | limit_exceeded_exception()
           | throttling_exception()
           | invalid_request_exception()
@@ -3918,14 +3968,16 @@ defmodule AWS.IoTSiteWise do
           | internal_failure_exception()
 
   @type delete_asset_model_errors() ::
-          throttling_exception()
+          precondition_failed_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
           | conflicting_operation_exception()
           | internal_failure_exception()
 
   @type delete_asset_model_composite_model_errors() ::
-          throttling_exception()
+          precondition_failed_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
           | conflicting_operation_exception()
@@ -3941,6 +3993,7 @@ defmodule AWS.IoTSiteWise do
           throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
+          | conflicting_operation_exception()
           | internal_failure_exception()
 
   @type delete_portal_errors() ::
@@ -4270,7 +4323,8 @@ defmodule AWS.IoTSiteWise do
           | internal_failure_exception()
 
   @type update_asset_model_errors() ::
-          resource_already_exists_exception()
+          precondition_failed_exception()
+          | resource_already_exists_exception()
           | limit_exceeded_exception()
           | throttling_exception()
           | invalid_request_exception()
@@ -4279,7 +4333,8 @@ defmodule AWS.IoTSiteWise do
           | internal_failure_exception()
 
   @type update_asset_model_composite_model_errors() ::
-          resource_already_exists_exception()
+          precondition_failed_exception()
+          | resource_already_exists_exception()
           | limit_exceeded_exception()
           | throttling_exception()
           | invalid_request_exception()
@@ -4716,18 +4771,20 @@ defmodule AWS.IoTSiteWise do
   in the
   *IoT SiteWise User Guide*.
 
-  You can create two types of asset models, `ASSET_MODEL` or `COMPONENT_MODEL`.
+  You can create two types of asset models, `ASSET_MODEL` or
+  `COMPONENT_MODEL`.
 
     *
 
-  **ASSET_MODEL** – (default) An asset model that you can use to create assets.
-  Can't be included as a component in another asset model.
+  **ASSET_MODEL** – (default) An asset model that
+  you can use to create assets. Can't be included as a component in another asset
+  model.
 
     *
 
-  **COMPONENT_MODEL** – A reusable component that you can include in the composite
-  models of other asset models. You can't create assets directly from this type of
-  asset model.
+  **COMPONENT_MODEL** – A reusable component that
+  you can include in the composite models of other asset models. You can't create
+  assets directly from this type of asset model.
   """
   @spec create_asset_model(map(), create_asset_model_request(), list()) ::
           {:ok, create_asset_model_response(), any()}
@@ -4757,27 +4814,30 @@ defmodule AWS.IoTSiteWise do
   Creates a custom composite model from specified property and hierarchy
   definitions.
 
-  There are two types of custom composite models,
-  `inline` and `component-model-based`.
+  There
+  are two types of custom composite models, `inline` and
+  `component-model-based`.
 
   Use component-model-based custom composite models to define standard, reusable
-  components. A component-model-based custom composite model consists of a name,
-  a description, and the ID of the component model it references. A
-  component-model-based custom composite model has no properties of its own; its
-  referenced
-  component model provides its associated properties to any created assets. For
-  more information, see
-  [Custom composite models (Components)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/custom-composite-models.html)
-  in the
-  *IoT SiteWise User Guide*.
+  components.
+  A component-model-based custom composite model consists of a name, a
+  description, and the ID
+  of the component model it references. A component-model-based custom composite
+  model has no
+  properties of its own; its referenced component model provides its associated
+  properties to
+  any created assets. For more information, see [Custom composite models (Components)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/custom-composite-models.html)
+  in the *IoT SiteWise User Guide*.
 
   Use inline custom composite models to organize the properties of an asset model.
-  The properties of inline custom composite models are local to the asset model
-  where they are
+  The
+  properties of inline custom composite models are local to the asset model where
+  they are
   included and can't be used to create multiple assets.
 
   To create a component-model-based model, specify the `composedAssetModelId` of
-  an existing asset model with `assetModelType` of `COMPONENT_MODEL`.
+  an existing asset model with `assetModelType` of
+  `COMPONENT_MODEL`.
 
   To create an inline model, specify the `assetModelCompositeModelProperties` and
   don't include an `composedAssetModelId`.
@@ -4793,7 +4853,15 @@ defmodule AWS.IoTSiteWise do
           | {:error, create_asset_model_composite_model_errors()}
   def create_asset_model_composite_model(%Client{} = client, asset_model_id, input, options \\ []) do
     url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}/composite-models"
-    headers = []
+
+    {headers, input} =
+      [
+        {"ifMatch", "If-Match"},
+        {"ifNoneMatch", "If-None-Match"},
+        {"matchForVersionType", "Match-For-Version-Type"}
+      ]
+      |> Request.build_params(input)
+
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -4824,8 +4892,8 @@ defmodule AWS.IoTSiteWise do
   [PutStorageConfiguration](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutStorageConfiguration.html).
 
   Bulk import is designed to store historical data to IoT SiteWise. It does not
-  trigger computations or notifications on
-  IoT SiteWise warm or cold tier storage.
+  trigger
+  computations or notifications on IoT SiteWise warm or cold tier storage.
   """
   @spec create_bulk_import_job(map(), create_bulk_import_job_request(), list()) ::
           {:ok, create_bulk_import_job_response(), any()}
@@ -5071,7 +5139,14 @@ defmodule AWS.IoTSiteWise do
           | {:error, delete_asset_model_errors()}
   def delete_asset_model(%Client{} = client, asset_model_id, input, options \\ []) do
     url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}"
-    headers = []
+
+    {headers, input} =
+      [
+        {"ifMatch", "If-Match"},
+        {"ifNoneMatch", "If-None-Match"},
+        {"matchForVersionType", "Match-For-Version-Type"}
+      ]
+      |> Request.build_params(input)
 
     {query_params, input} =
       [
@@ -5099,13 +5174,12 @@ defmodule AWS.IoTSiteWise do
 
   This action can't be undone. You must delete all assets created
   from a composite model before you can delete the model. Also, you can't delete a
-  composite model if
-  a parent asset model exists that contains a property formula expression that
-  depends on the
-  asset model that you want to delete. For more information, see [Deleting assets and
+  composite
+  model if a parent asset model exists that contains a property formula expression
+  that depends
+  on the asset model that you want to delete. For more information, see [Deleting assets and
   models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html)
-  in the
-  *IoT SiteWise User Guide*.
+  in the *IoT SiteWise User Guide*.
   """
   @spec delete_asset_model_composite_model(
           map(),
@@ -5127,7 +5201,13 @@ defmodule AWS.IoTSiteWise do
     url_path =
       "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}/composite-models/#{AWS.Util.encode_uri(asset_model_composite_model_id)}"
 
-    headers = []
+    {headers, input} =
+      [
+        {"ifMatch", "If-Match"},
+        {"ifNoneMatch", "If-None-Match"},
+        {"matchForVersionType", "Match-For-Version-Type"}
+      ]
+      |> Request.build_params(input)
 
     {query_params, input} =
       [
@@ -5395,8 +5475,10 @@ defmodule AWS.IoTSiteWise do
   Retrieves information about an asset composite model (also known as an asset
   component).
 
-  An `AssetCompositeModel` is an instance of an `AssetModelCompositeModel`. If you
-  want to see information about the model this is based on, call
+  An `AssetCompositeModel` is an instance of an
+  `AssetModelCompositeModel`. If you want to see information about the model this
+  is
+  based on, call
   [DescribeAssetModelCompositeModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModelCompositeModel.html).
   """
   @spec describe_asset_composite_model(map(), String.t(), String.t(), list()) ::
@@ -5423,13 +5505,14 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves information about an asset model.
   """
-  @spec describe_asset_model(map(), String.t(), String.t() | nil, list()) ::
+  @spec describe_asset_model(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, describe_asset_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_asset_model_errors()}
   def describe_asset_model(
         %Client{} = client,
         asset_model_id,
+        asset_model_version \\ nil,
         exclude_properties \\ nil,
         options \\ []
       ) do
@@ -5444,6 +5527,20 @@ defmodule AWS.IoTSiteWise do
         query_params
       end
 
+    query_params =
+      if !is_nil(asset_model_version) do
+        [{"assetModelVersion", asset_model_version} | query_params]
+      else
+        query_params
+      end
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "eTag"}]
+      )
+
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
@@ -5451,12 +5548,19 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Retrieves information about an asset model composite model (also known as an
-  asset model component).
+  asset model
+  component).
 
   For more information, see [Custom composite models (Components)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/custom-composite-models.html)
   in the *IoT SiteWise User Guide*.
   """
-  @spec describe_asset_model_composite_model(map(), String.t(), String.t(), list()) ::
+  @spec describe_asset_model_composite_model(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          list()
+        ) ::
           {:ok, describe_asset_model_composite_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_asset_model_composite_model_errors()}
@@ -5464,6 +5568,7 @@ defmodule AWS.IoTSiteWise do
         %Client{} = client,
         asset_model_composite_model_id,
         asset_model_id,
+        asset_model_version \\ nil,
         options \\ []
       ) do
     url_path =
@@ -5471,6 +5576,13 @@ defmodule AWS.IoTSiteWise do
 
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(asset_model_version) do
+        [{"assetModelVersion", asset_model_version} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
@@ -5842,7 +5954,8 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Run SQL queries to retrieve metadata and time-series data from asset models,
-  assets, measurements, metrics, transforms, and aggregates.
+  assets,
+  measurements, metrics, transforms, and aggregates.
   """
   @spec execute_query(map(), execute_query_request(), list()) ::
           {:ok, execute_query_response(), any()}
@@ -6497,6 +6610,7 @@ defmodule AWS.IoTSiteWise do
           String.t(),
           String.t() | nil,
           String.t() | nil,
+          String.t() | nil,
           list()
         ) ::
           {:ok, list_asset_model_composite_models_response(), any()}
@@ -6505,6 +6619,7 @@ defmodule AWS.IoTSiteWise do
   def list_asset_model_composite_models(
         %Client{} = client,
         asset_model_id,
+        asset_model_version \\ nil,
         max_results \\ nil,
         next_token \\ nil,
         options \\ []
@@ -6527,6 +6642,13 @@ defmodule AWS.IoTSiteWise do
         query_params
       end
 
+    query_params =
+      if !is_nil(asset_model_version) do
+        [{"assetModelVersion", asset_model_version} | query_params]
+      else
+        query_params
+      end
+
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
@@ -6545,6 +6667,7 @@ defmodule AWS.IoTSiteWise do
           String.t() | nil,
           String.t() | nil,
           String.t() | nil,
+          String.t() | nil,
           list()
         ) ::
           {:ok, list_asset_model_properties_response(), any()}
@@ -6553,6 +6676,7 @@ defmodule AWS.IoTSiteWise do
   def list_asset_model_properties(
         %Client{} = client,
         asset_model_id,
+        asset_model_version \\ nil,
         filter \\ nil,
         max_results \\ nil,
         next_token \\ nil,
@@ -6583,6 +6707,13 @@ defmodule AWS.IoTSiteWise do
         query_params
       end
 
+    query_params =
+      if !is_nil(asset_model_version) do
+        [{"assetModelVersion", asset_model_version} | query_params]
+      else
+        query_params
+      end
+
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
@@ -6591,13 +6722,21 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves a paginated list of summaries of all asset models.
   """
-  @spec list_asset_models(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_asset_models(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
           {:ok, list_asset_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_asset_models_errors()}
   def list_asset_models(
         %Client{} = client,
         asset_model_types \\ nil,
+        asset_model_version \\ nil,
         max_results \\ nil,
         next_token \\ nil,
         options \\ []
@@ -6616,6 +6755,13 @@ defmodule AWS.IoTSiteWise do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(asset_model_version) do
+        [{"assetModelVersion", asset_model_version} | query_params]
       else
         query_params
       end
@@ -6825,10 +6971,12 @@ defmodule AWS.IoTSiteWise do
   You can use this operation to do the following:
 
     *
-  List child assets associated to a parent asset by a hierarchy that you specify.
+
+  `CHILD` - List all child assets associated to the asset.
 
     *
-  List an asset's parent asset.
+
+  `PARENT` - List the asset's parent asset.
   """
   @spec list_associated_assets(
           map(),
@@ -6938,7 +7086,8 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Retrieves a paginated list of composition relationships for an asset model of
-  type `COMPONENT_MODEL`.
+  type
+  `COMPONENT_MODEL`.
   """
   @spec list_composition_relationships(
           map(),
@@ -7458,20 +7607,21 @@ defmodule AWS.IoTSiteWise do
   in the
   *IoT SiteWise User Guide*.
 
-  This operation overwrites the existing model with the provided model. To avoid
-  deleting
-  your asset model's properties or hierarchies, you must include their IDs and
-  definitions in
-  the updated asset model payload. For more information, see
-  [DescribeAssetModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModel.html).
-
   If you remove a property from an asset model, IoT SiteWise deletes all previous
   data for that
-  property. If you remove a hierarchy definition from an asset model, IoT SiteWise
-  disassociates every
-  asset associated with that hierarchy. You can't change the type or data type of
-  an existing
-  property.
+  property. You can’t change the type or data type of an existing property.
+
+  To replace an existing asset model property with a new one with the same
+  `name`, do the following:
+
+    
+  Submit an `UpdateAssetModel` request with the entire existing property
+  removed.
+
+    
+  Submit a second `UpdateAssetModel` request that includes the new
+  property. The new asset property will have the same `name` as the previous
+  one and IoT SiteWise will generate a new unique `id`.
   """
   @spec update_asset_model(map(), String.t(), update_asset_model_request(), list()) ::
           {:ok, update_asset_model_response(), any()}
@@ -7479,7 +7629,15 @@ defmodule AWS.IoTSiteWise do
           | {:error, update_asset_model_errors()}
   def update_asset_model(%Client{} = client, asset_model_id, input, options \\ []) do
     url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}"
-    headers = []
+
+    {headers, input} =
+      [
+        {"ifMatch", "If-Match"},
+        {"ifNoneMatch", "If-None-Match"},
+        {"matchForVersionType", "Match-For-Version-Type"}
+      ]
+      |> Request.build_params(input)
+
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -7491,28 +7649,30 @@ defmodule AWS.IoTSiteWise do
   Updates a composite model and all of the assets that were created from the
   model.
 
-  Each asset
-  created from the model inherits the updated asset model's property and hierarchy
-  definitions.
-  For more information, see [Updating assets and models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html)
+  Each
+  asset created from the model inherits the updated asset model's property and
+  hierarchy
+  definitions. For more information, see [Updating assets and models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html)
   in the
   *IoT SiteWise User Guide*.
 
   If you remove a property from a composite asset model, IoT SiteWise deletes all
-  previous data for that property. You can’t change the type or data type of an
-  existing property.
+  previous data
+  for that property. You can’t change the type or data type of an existing
+  property.
 
   To replace an existing composite asset model property with a new one with the
-  same `name`, do the following:
+  same
+  `name`, do the following:
 
     
-  Submit an `UpdateAssetModelCompositeModel` request with the entire existing
-  property removed.
+  Submit an `UpdateAssetModelCompositeModel` request with the entire
+  existing property removed.
 
     
-  Submit a second `UpdateAssetModelCompositeModel` request that includes the new
-  property. The new asset property will have the same
-  `name` as the previous one and IoT SiteWise will generate a new unique `id`.
+  Submit a second `UpdateAssetModelCompositeModel` request that includes
+  the new property. The new asset property will have the same `name` as the
+  previous one and IoT SiteWise will generate a new unique `id`.
   """
   @spec update_asset_model_composite_model(
           map(),
@@ -7534,7 +7694,14 @@ defmodule AWS.IoTSiteWise do
     url_path =
       "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}/composite-models/#{AWS.Util.encode_uri(asset_model_composite_model_id)}"
 
-    headers = []
+    {headers, input} =
+      [
+        {"ifMatch", "If-Match"},
+        {"ifNoneMatch", "If-None-Match"},
+        {"matchForVersionType", "Match-For-Version-Type"}
+      ]
+      |> Request.build_params(input)
+
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")

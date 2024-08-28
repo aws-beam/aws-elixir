@@ -914,6 +914,17 @@ defmodule AWS.DocDB do
 
   ## Example:
       
+      failover_global_cluster_result() :: %{
+        "GlobalCluster" => global_cluster()
+      }
+      
+  """
+  @type failover_global_cluster_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       invalid_global_cluster_state_fault() :: %{
         "message" => String.t()
       }
@@ -2481,6 +2492,20 @@ defmodule AWS.DocDB do
 
   ## Example:
       
+      failover_global_cluster_message() :: %{
+        optional("AllowDataLoss") => boolean(),
+        optional("Switchover") => boolean(),
+        required("GlobalClusterIdentifier") => String.t(),
+        required("TargetDbClusterIdentifier") => String.t()
+      }
+      
+  """
+  @type failover_global_cluster_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       db_cluster_parameter_group_details() :: %{
         "Marker" => String.t(),
         "Parameters" => list(parameter()())
@@ -2685,6 +2710,12 @@ defmodule AWS.DocDB do
           invalid_db_instance_state_fault()
           | db_cluster_not_found_fault()
           | invalid_db_cluster_state_fault()
+
+  @type failover_global_cluster_errors() ::
+          global_cluster_not_found_fault()
+          | db_cluster_not_found_fault()
+          | invalid_db_cluster_state_fault()
+          | invalid_global_cluster_state_fault()
 
   @type list_tags_for_resource_errors() ::
           db_cluster_not_found_fault()
@@ -3476,6 +3507,28 @@ defmodule AWS.DocDB do
     meta = metadata()
 
     Request.request_post(client, meta, "FailoverDBCluster", input, options)
+  end
+
+  @doc """
+  Promotes the specified secondary DB cluster to be the primary DB cluster in the
+  global cluster when failing over a global cluster occurs.
+
+  Use this operation to respond to an unplanned event, such as a regional disaster
+  in the primary region.
+  Failing over can result in a loss of write transaction data that wasn't
+  replicated to the chosen secondary before the failover event occurred.
+  However, the recovery process that promotes a DB instance on the chosen seconday
+  DB cluster to be the primary writer DB instance guarantees that the data is in a
+  transactionally consistent state.
+  """
+  @spec failover_global_cluster(map(), failover_global_cluster_message(), list()) ::
+          {:ok, failover_global_cluster_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, failover_global_cluster_errors()}
+  def failover_global_cluster(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "FailoverGlobalCluster", input, options)
   end
 
   @doc """

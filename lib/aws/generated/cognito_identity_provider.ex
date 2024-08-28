@@ -328,6 +328,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      s3_configuration_type() :: %{
+        "BucketArn" => String.t()
+      }
+      
+  """
+  @type s3_configuration_type() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       user_not_confirmed_exception() :: %{
         "message" => String.t()
       }
@@ -371,6 +382,17 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type unsupported_operation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      advanced_security_additional_flows_type() :: %{
+        "CustomAuthMode" => list(any())
+      }
+      
+  """
+  @type advanced_security_additional_flows_type() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -463,6 +485,17 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type unsupported_user_state_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      password_history_policy_violation_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type password_history_policy_violation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2017,6 +2050,7 @@ defmodule AWS.CognitoIdentityProvider do
       
       password_policy_type() :: %{
         "MinimumLength" => integer(),
+        "PasswordHistorySize" => integer(),
         "RequireLowercase" => boolean(),
         "RequireNumbers" => boolean(),
         "RequireSymbols" => boolean(),
@@ -2558,6 +2592,7 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       user_pool_add_ons_type() :: %{
+        "AdvancedSecurityAdditionalFlows" => advanced_security_additional_flows_type(),
         "AdvancedSecurityMode" => list(any())
       }
       
@@ -2809,7 +2844,9 @@ defmodule AWS.CognitoIdentityProvider do
       log_configuration_type() :: %{
         "CloudWatchLogsConfiguration" => cloud_watch_logs_configuration_type(),
         "EventSource" => list(any()),
-        "LogLevel" => list(any())
+        "FirehoseConfiguration" => firehose_configuration_type(),
+        "LogLevel" => list(any()),
+        "S3Configuration" => s3_configuration_type()
       }
       
   """
@@ -2869,6 +2906,17 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type describe_user_import_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      firehose_configuration_type() :: %{
+        "StreamArn" => String.t()
+      }
+      
+  """
+  @type firehose_configuration_type() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4176,6 +4224,7 @@ defmodule AWS.CognitoIdentityProvider do
           | invalid_sms_role_access_policy_exception()
           | too_many_requests_exception()
           | alias_exists_exception()
+          | password_history_policy_violation_exception()
           | user_not_confirmed_exception()
 
   @type admin_set_user_mfa_preference_errors() ::
@@ -4195,6 +4244,7 @@ defmodule AWS.CognitoIdentityProvider do
           | user_not_found_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
+          | password_history_policy_violation_exception()
 
   @type admin_set_user_settings_errors() ::
           internal_error_exception()
@@ -4264,6 +4314,7 @@ defmodule AWS.CognitoIdentityProvider do
           | resource_not_found_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+          | password_history_policy_violation_exception()
           | user_not_confirmed_exception()
 
   @type confirm_device_errors() ::
@@ -4296,6 +4347,7 @@ defmodule AWS.CognitoIdentityProvider do
           | code_mismatch_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+          | password_history_policy_violation_exception()
           | user_not_confirmed_exception()
           | too_many_failed_attempts_exception()
 
@@ -4753,6 +4805,7 @@ defmodule AWS.CognitoIdentityProvider do
           | too_many_requests_exception()
           | alias_exists_exception()
           | forbidden_exception()
+          | password_history_policy_violation_exception()
           | user_not_confirmed_exception()
 
   @type revoke_token_errors() ::
@@ -5068,24 +5121,19 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  This IAM-authenticated API operation provides a code that Amazon Cognito sent to
-  your user
-  when they signed up in your user pool.
+  This IAM-authenticated API operation confirms user sign-up as an administrator.
 
-  After your user enters their code, they confirm
-  ownership of the email address or phone number that they provided, and their
-  user
-  account becomes active. Depending on your user pool configuration, your users
-  will
-  receive their confirmation code in an email or SMS message.
+  Unlike
+  [ConfirmSignUp](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmSignUp.html), your IAM credentials authorize user account confirmation.
+  No confirmation code is required.
 
-  Local users who signed up in your user pool are the only type of user who can
+  This request sets a user account active in a user pool that [requires
+  confirmation of new user
+  accounts](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#signing-up-users-in-your-app-and-confirming-them-as-admin)
+  before they can sign in. You can
+  configure your user pool to not send confirmation codes to new users and instead
   confirm
-  sign-up with a code. Users who federate through an external identity provider
-  (IdP) have
-  already been confirmed by their IdP. Administrator-created users confirm their
-  accounts
-  when they respond to their invitation email message and choose a password.
+  them with this API operation on the back end.
 
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
@@ -5132,7 +5180,7 @@ defmodule AWS.CognitoIdentityProvider do
   in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Service,
+  Web Services service,
   Amazon Simple Notification Service might place your account in the SMS sandbox.
   In *
   [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html)
@@ -5476,7 +5524,7 @@ defmodule AWS.CognitoIdentityProvider do
   in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Service,
+  Web Services service,
   Amazon Simple Notification Service might place your account in the SMS sandbox.
   In *
   [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html)
@@ -5701,7 +5749,7 @@ defmodule AWS.CognitoIdentityProvider do
   in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Service,
+  Web Services service,
   Amazon Simple Notification Service might place your account in the SMS sandbox.
   In *
   [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html)
@@ -5781,7 +5829,7 @@ defmodule AWS.CognitoIdentityProvider do
   in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Service,
+  Web Services service,
   Amazon Simple Notification Service might place your account in the SMS sandbox.
   In *
   [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html)
@@ -6030,7 +6078,7 @@ defmodule AWS.CognitoIdentityProvider do
   in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Service,
+  Web Services service,
   Amazon Simple Notification Service might place your account in the SMS sandbox.
   In *
   [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html)
@@ -6159,8 +6207,8 @@ defmodule AWS.CognitoIdentityProvider do
   user name and password credentials alone. If your user pool requires TOTP MFA,
   Amazon Cognito
   generates an `MFA_SETUP` or `SOFTWARE_TOKEN_SETUP` challenge
-  each time your user signs. Complete setup with `AssociateSoftwareToken`
-  and `VerifySoftwareToken`.
+  each time your user signs in. Complete setup with
+  `AssociateSoftwareToken` and `VerifySoftwareToken`.
 
   After you set up software token MFA for your user, Amazon Cognito generates a
   `SOFTWARE_TOKEN_MFA` challenge when they authenticate. Respond to
@@ -6431,7 +6479,7 @@ defmodule AWS.CognitoIdentityProvider do
   in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Service,
+  Web Services service,
   Amazon Simple Notification Service might place your account in the SMS sandbox.
   In *
   [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html)
@@ -6861,7 +6909,7 @@ defmodule AWS.CognitoIdentityProvider do
   in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Service,
+  Web Services service,
   Amazon Simple Notification Service might place your account in the SMS sandbox.
   In *
   [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html)
@@ -6958,7 +7006,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Gets the detailed activity logging configuration for a user pool.
+  Gets the logging configuration of a user pool.
   """
   @spec get_log_delivery_configuration(map(), get_log_delivery_configuration_request(), list()) ::
           {:ok, get_log_delivery_configuration_response(), any()}
@@ -7067,7 +7115,7 @@ defmodule AWS.CognitoIdentityProvider do
   in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Service,
+  Web Services service,
   Amazon Simple Notification Service might place your account in the SMS sandbox.
   In *
   [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html)
@@ -7189,7 +7237,7 @@ defmodule AWS.CognitoIdentityProvider do
   in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Service,
+  Web Services service,
   Amazon Simple Notification Service might place your account in the SMS sandbox.
   In *
   [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html)
@@ -7510,7 +7558,7 @@ defmodule AWS.CognitoIdentityProvider do
   in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Service,
+  Web Services service,
   Amazon Simple Notification Service might place your account in the SMS sandbox.
   In *
   [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html)
@@ -7569,7 +7617,7 @@ defmodule AWS.CognitoIdentityProvider do
   in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Service,
+  Web Services service,
   Amazon Simple Notification Service might place your account in the SMS sandbox.
   In *
   [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html)
@@ -7619,7 +7667,10 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Sets up or modifies the detailed activity logging configuration of a user pool.
+  Sets up or modifies the logging configuration of a user pool.
+
+  User pools can export
+  user notification logs and advanced security features user activity logs.
   """
   @spec set_log_delivery_configuration(map(), set_log_delivery_configuration_request(), list()) ::
           {:ok, set_log_delivery_configuration_response(), any()}
@@ -7739,7 +7790,7 @@ defmodule AWS.CognitoIdentityProvider do
   in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Service,
+  Web Services service,
   Amazon Simple Notification Service might place your account in the SMS sandbox.
   In *
   [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html)
@@ -7819,7 +7870,7 @@ defmodule AWS.CognitoIdentityProvider do
   in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Service,
+  Web Services service,
   Amazon Simple Notification Service might place your account in the SMS sandbox.
   In *
   [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html)
@@ -8099,7 +8150,7 @@ defmodule AWS.CognitoIdentityProvider do
   in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Service,
+  Web Services service,
   Amazon Simple Notification Service might place your account in the SMS sandbox.
   In *
   [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html)
@@ -8138,7 +8189,7 @@ defmodule AWS.CognitoIdentityProvider do
   in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Service,
+  Web Services service,
   Amazon Simple Notification Service might place your account in the SMS sandbox.
   In *
   [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html)

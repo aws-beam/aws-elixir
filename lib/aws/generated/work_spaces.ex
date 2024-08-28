@@ -278,6 +278,18 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      describe_workspace_directories_filter() :: %{
+        "Name" => list(any()),
+        "Values" => list(String.t()())
+      }
+      
+  """
+  @type describe_workspace_directories_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       workspace_image() :: %{
         "Created" => non_neg_integer(),
         "Description" => String.t(),
@@ -1509,6 +1521,18 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      microsoft_entra_config() :: %{
+        "ApplicationConfigSecretArn" => String.t(),
+        "TenantId" => String.t()
+      }
+      
+  """
+  @type microsoft_entra_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       modify_workspace_creation_properties_request() :: %{
         required("ResourceId") => String.t(),
         required("WorkspaceCreationProperties") => workspace_creation_properties()
@@ -1703,6 +1727,7 @@ defmodule AWS.WorkSpaces do
       
       describe_workspace_directories_request() :: %{
         optional("DirectoryIds") => list(String.t()()),
+        optional("Filters") => list(describe_workspace_directories_filter()()),
         optional("Limit") => integer(),
         optional("NextToken") => String.t(),
         optional("WorkspaceDirectoryNames") => list(String.t()())
@@ -2307,6 +2332,8 @@ defmodule AWS.WorkSpaces do
         optional("DirectoryId") => String.t(),
         optional("EnableSelfService") => boolean(),
         optional("EnableWorkDocs") => boolean(),
+        optional("IdcInstanceArn") => String.t(),
+        optional("MicrosoftEntraConfig") => microsoft_entra_config(),
         optional("SubnetIds") => list(String.t()()),
         optional("Tags") => list(tag()()),
         optional("Tenancy") => list(any()),
@@ -2531,7 +2558,9 @@ defmodule AWS.WorkSpaces do
         "DirectoryType" => list(any()),
         "DnsIpAddresses" => list(String.t()()),
         "ErrorMessage" => String.t(),
+        "IDCConfig" => id_c_config(),
         "IamRoleId" => String.t(),
+        "MicrosoftEntraConfig" => microsoft_entra_config(),
         "RegistrationCode" => String.t(),
         "SamlProperties" => saml_properties(),
         "SelfservicePermissions" => selfservice_permissions(),
@@ -2551,6 +2580,18 @@ defmodule AWS.WorkSpaces do
       
   """
   @type workspace_directory() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      id_c_config() :: %{
+        "ApplicationArn" => String.t(),
+        "InstanceArn" => String.t()
+      }
+      
+  """
+  @type id_c_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4173,6 +4214,14 @@ defmodule AWS.WorkSpaces do
     
   User-decoupled WorkSpaces are only supported by Amazon WorkSpaces
   Core.
+
+    
+  Review your running mode to ensure you are using one that is optimal for your
+  needs and budget.
+  For more information on switching running modes, see
+  [
+  Can I switch between hourly and monthly
+  billing?](http://aws.amazon.com/workspaces-family/workspaces/faqs/#:~:text=Can%20I%20switch%20between%20hourly%20and%20monthly%20billing%20on%20WorkSpaces%20Personal%3F)
   """
   @spec create_workspaces(map(), create_workspaces_request(), list()) ::
           {:ok, create_workspaces_result(), any()}

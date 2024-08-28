@@ -234,6 +234,17 @@ defmodule AWS.RedshiftServerless do
 
   ## Example:
       
+      ipv6_cidr_block_not_found_exception() :: %{
+        "message" => [String.t()]
+      }
+      
+  """
+  @type ipv6_cidr_block_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_snapshot_request() :: %{
         optional("retentionPeriod") => [integer()],
         optional("tags") => list(tag()()),
@@ -312,6 +323,7 @@ defmodule AWS.RedshiftServerless do
       
       network_interface() :: %{
         "availabilityZone" => [String.t()],
+        "ipv6Address" => [String.t()],
         "networkInterfaceId" => [String.t()],
         "privateIpAddress" => [String.t()],
         "subnetId" => [String.t()]
@@ -743,6 +755,7 @@ defmodule AWS.RedshiftServerless do
         "customDomainName" => String.t(),
         "endpoint" => endpoint(),
         "enhancedVpcRouting" => [boolean()],
+        "ipAddressType" => String.t(),
         "maxCapacity" => [integer()],
         "namespaceName" => [String.t()],
         "patchVersion" => [String.t()],
@@ -1060,6 +1073,7 @@ defmodule AWS.RedshiftServerless do
         optional("baseCapacity") => [integer()],
         optional("configParameters") => list(config_parameter()()),
         optional("enhancedVpcRouting") => [boolean()],
+        optional("ipAddressType") => String.t(),
         optional("maxCapacity") => [integer()],
         optional("port") => [integer()],
         optional("publiclyAccessible") => [boolean()],
@@ -1630,6 +1644,7 @@ defmodule AWS.RedshiftServerless do
         optional("baseCapacity") => [integer()],
         optional("configParameters") => list(config_parameter()()),
         optional("enhancedVpcRouting") => [boolean()],
+        optional("ipAddressType") => String.t(),
         optional("maxCapacity") => [integer()],
         optional("port") => [integer()],
         optional("publiclyAccessible") => [boolean()],
@@ -1908,6 +1923,7 @@ defmodule AWS.RedshiftServerless do
           | resource_not_found_exception()
           | conflict_exception()
           | insufficient_capacity_exception()
+          | ipv6_cidr_block_not_found_exception()
 
   @type delete_custom_domain_association_errors() ::
           throttling_exception()
@@ -2155,6 +2171,7 @@ defmodule AWS.RedshiftServerless do
           | resource_not_found_exception()
           | conflict_exception()
           | insufficient_capacity_exception()
+          | ipv6_cidr_block_not_found_exception()
 
   def metadata do
     %{

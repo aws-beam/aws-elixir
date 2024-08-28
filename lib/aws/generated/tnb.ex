@@ -3,12 +3,14 @@
 
 defmodule AWS.Tnb do
   @moduledoc """
-  Amazon Web Services Telco Network Builder (TNB) is a network automation service
-  that helps you deploy and manage telecom networks.
 
-  AWS TNB helps you with the lifecycle management of your telecommunication
-  network functions throughout planning, deployment, and post-deployment
-  activities.
+  Amazon Web Services Telco Network Builder (TNB) is a network automation service
+  that helps
+  you deploy and manage telecom networks.
+
+  AWS TNB helps you with the lifecycle management of
+  your telecommunication network functions throughout planning, deployment, and
+  post-deployment activities.
   """
 
   alias AWS.Client
@@ -122,7 +124,8 @@ defmodule AWS.Tnb do
 
       list_sol_network_operations_input() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t(),
+        optional("nsInstanceId") => String.t()
       }
 
   """
@@ -314,7 +317,7 @@ defmodule AWS.Tnb do
 
       validate_sol_network_package_content_input() :: %{
         optional("contentType") => list(any()),
-        required("file") => [binary()]
+        required("file") => binary()
       }
 
   """
@@ -326,7 +329,7 @@ defmodule AWS.Tnb do
 
       put_sol_network_package_content_input() :: %{
         optional("contentType") => list(any()),
-        required("file") => [binary()]
+        required("file") => binary()
       }
 
   """
@@ -343,7 +346,8 @@ defmodule AWS.Tnb do
         "lcmOperationType" => list(any()),
         "metadata" => list_sol_network_operations_metadata(),
         "nsInstanceId" => String.t(),
-        "operationState" => list(any())
+        "operationState" => list(any()),
+        "updateType" => list(any())
       }
 
   """
@@ -409,6 +413,18 @@ defmodule AWS.Tnb do
 
   ## Example:
 
+      update_ns_metadata() :: %{
+        "additionalParamsForNs" => [any()],
+        "nsdInfoId" => String.t()
+      }
+
+  """
+  @type update_ns_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_sol_network_package_content_output() :: %{
         "arn" => String.t(),
         "id" => String.t(),
@@ -462,7 +478,9 @@ defmodule AWS.Tnb do
 
       list_sol_network_operations_metadata() :: %{
         "createdAt" => [non_neg_integer()],
-        "lastModified" => [non_neg_integer()]
+        "lastModified" => [non_neg_integer()],
+        "nsdInfoId" => String.t(),
+        "vnfInstanceId" => String.t()
       }
 
   """
@@ -537,7 +555,7 @@ defmodule AWS.Tnb do
 
       put_sol_function_package_content_input() :: %{
         optional("contentType") => list(any()),
-        required("file") => [binary()]
+        required("file") => binary()
       }
 
   """
@@ -620,6 +638,18 @@ defmodule AWS.Tnb do
 
   ## Example:
 
+      update_sol_network_service_data() :: %{
+        "additionalParamsForNs" => [any()],
+        "nsdInfoId" => String.t()
+      }
+
+  """
+  @type update_sol_network_service_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_sol_network_instance_metadata() :: %{
         "createdAt" => [non_neg_integer()],
         "lastModified" => [non_neg_integer()]
@@ -656,6 +686,18 @@ defmodule AWS.Tnb do
 
   """
   @type tag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      modify_vnf_info_metadata() :: %{
+        "vnfConfigurableProperties" => [any()],
+        "vnfInstanceId" => String.t()
+      }
+
+  """
+  @type modify_vnf_info_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -891,6 +933,7 @@ defmodule AWS.Tnb do
       update_sol_network_instance_input() :: %{
         optional("modifyVnfInfoData") => update_sol_network_modify(),
         optional("tags") => map(),
+        optional("updateNs") => update_sol_network_service_data(),
         required("updateType") => list(any())
       }
 
@@ -938,7 +981,10 @@ defmodule AWS.Tnb do
 
       get_sol_network_operation_metadata() :: %{
         "createdAt" => [non_neg_integer()],
-        "lastModified" => [non_neg_integer()]
+        "instantiateMetadata" => instantiate_metadata(),
+        "lastModified" => [non_neg_integer()],
+        "modifyVnfInfoMetadata" => modify_vnf_info_metadata(),
+        "updateNsMetadata" => update_ns_metadata()
       }
 
   """
@@ -998,6 +1044,18 @@ defmodule AWS.Tnb do
 
   """
   @type get_sol_network_instance_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      instantiate_metadata() :: %{
+        "additionalParamsForNs" => [any()],
+        "nsdInfoId" => String.t()
+      }
+
+  """
+  @type instantiate_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1080,7 +1138,7 @@ defmodule AWS.Tnb do
 
       validate_sol_function_package_content_input() :: %{
         optional("contentType") => list(any()),
-        required("file") => [binary()]
+        required("file") => binary()
       }
 
   """
@@ -1150,7 +1208,8 @@ defmodule AWS.Tnb do
         "nsInstanceId" => String.t(),
         "operationState" => list(any()),
         "tags" => map(),
-        "tasks" => list(get_sol_network_operation_task_details()())
+        "tasks" => list(get_sol_network_operation_task_details()()),
+        "updateType" => list(any())
       }
 
   """
@@ -1542,12 +1601,14 @@ defmodule AWS.Tnb do
   function package descriptor that uses the TOSCA standard to describe how the
   network functions should run on your network. For more information, see
   [Function packages](https://docs.aws.amazon.com/tnb/latest/ug/function-packages.html) in
-  the *Amazon Web Services Telco Network Builder User Guide*.
+  the
+  *Amazon Web Services Telco Network Builder User Guide*.
 
   Creating a function package is the first step for creating a network in AWS TNB.
-  This request creates an empty container with an ID. The next step is to upload
-  the actual CSAR zip file into that empty container. To upload function package
-  content, see
+  This
+  request creates an empty container with an ID. The next step is to upload the
+  actual CSAR
+  zip file into that empty container. To upload function package content, see
   [PutSolFunctionPackageContent](https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolFunctionPackageContent.html).
   """
   @spec create_sol_function_package(map(), create_sol_function_package_input(), list()) ::
@@ -1580,12 +1641,14 @@ defmodule AWS.Tnb do
   A network instance is a single network created in Amazon Web Services TNB that
   can be deployed and on which life-cycle operations (like terminate, update, and
   delete) can be performed. Creating a network instance is the third step after
-  creating a network package. For more information about network instances,
-  [Network instances](https://docs.aws.amazon.com/tnb/latest/ug/network-instances.html) in
-  the *Amazon Web Services Telco Network Builder User Guide*.
+  creating a network
+  package. For more information about network instances, [Network instances](https://docs.aws.amazon.com/tnb/latest/ug/network-instances.html) in
+  the
+  *Amazon Web Services Telco Network Builder User Guide*.
 
   Once you create a network instance, you can instantiate it. To instantiate a
-  network, see
+  network,
+  see
   [InstantiateSolNetworkInstance](https://docs.aws.amazon.com/tnb/latest/APIReference/API_InstantiateSolNetworkInstance.html).
   """
   @spec create_sol_network_instance(map(), create_sol_network_instance_input(), list()) ::
@@ -1618,16 +1681,20 @@ defmodule AWS.Tnb do
   A network package is a .zip file in CSAR (Cloud Service Archive) format defines
   the function packages you want to deploy and the Amazon Web Services
   infrastructure you want to deploy them on. For more information, see [Network instances](https://docs.aws.amazon.com/tnb/latest/ug/network-instances.html) in
-  the *Amazon Web Services Telco Network Builder User Guide*.
+  the
+  *Amazon Web Services Telco Network Builder User Guide*.
 
   A network package consists of a network service descriptor (NSD) file (required)
-  and any additional files (optional), such as scripts specific to your needs. For
-  example, if you have multiple function packages in your network package, you can
-  use the NSD to define which network functions should run in certain VPCs,
-  subnets, or EKS clusters.
+  and any
+  additional files (optional), such as scripts specific to your needs. For
+  example, if you
+  have multiple function packages in your network package, you can use the NSD to
+  define
+  which network functions should run in certain VPCs, subnets, or EKS clusters.
 
   This request creates an empty network package container with an ID. Once you
-  create a network package, you can upload the network package content using
+  create a
+  network package, you can upload the network package content using
   [PutSolNetworkPackageContent](https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolNetworkPackageContent.html).
   """
   @spec create_sol_network_package(map(), create_sol_network_package_input(), list()) ::
@@ -1663,7 +1730,8 @@ defmodule AWS.Tnb do
   network functions should run on your network.
 
   To delete a function package, the package must be in a disabled state. To
-  disable a function package, see
+  disable a
+  function package, see
   [UpdateSolFunctionPackage](https://docs.aws.amazon.com/tnb/latest/APIReference/API_UpdateSolFunctionPackage.html).
   """
   @spec delete_sol_function_package(
@@ -1703,7 +1771,8 @@ defmodule AWS.Tnb do
   delete) can be performed.
 
   To delete a network instance, the instance must be in a stopped or terminated
-  state. To terminate a network instance, see
+  state. To
+  terminate a network instance, see
   [TerminateSolNetworkInstance](https://docs.aws.amazon.com/tnb/latest/APIReference/API_TerminateSolNetworkInstance.html).
   """
   @spec delete_sol_network_instance(
@@ -1743,7 +1812,8 @@ defmodule AWS.Tnb do
   infrastructure you want to deploy them on.
 
   To delete a network package, the package must be in a disable state. To disable
-  a network package, see
+  a
+  network package, see
   [UpdateSolNetworkPackage](https://docs.aws.amazon.com/tnb/latest/APIReference/API_UpdateSolNetworkPackage.html).
   """
   @spec delete_sol_network_package(map(), String.t(), delete_sol_network_package_input(), list()) ::
@@ -1771,9 +1841,9 @@ defmodule AWS.Tnb do
   end
 
   @doc """
-  Gets the details of a network function instance, including the instantation
-  state and metadata from the function package descriptor in the network function
-  package.
+  Gets the details of a network function instance, including the instantiation
+  state and
+  metadata from the function package descriptor in the network function package.
 
   A network function instance is a function in a function package .
   """
@@ -1793,7 +1863,8 @@ defmodule AWS.Tnb do
 
   @doc """
   Gets the details of an individual function package, such as the operational
-  state and whether the package is in use.
+  state and
+  whether the package is in use.
 
   A function package is a .zip file in CSAR (Cloud Service Archive) format that
   contains a network function (an ETSI standard telecommunication application) and
@@ -1915,7 +1986,8 @@ defmodule AWS.Tnb do
 
   @doc """
   Gets the details of a network operation, including the tasks involved in the
-  network operation and the status of the tasks.
+  network
+  operation and the status of the tasks.
 
   A network operation is any operation that is done to your network, such as
   network instance instantiation or termination.
@@ -2027,7 +2099,8 @@ defmodule AWS.Tnb do
   delete) can be performed.
 
   Before you can instantiate a network instance, you have to create a network
-  instance. For more information, see
+  instance.
+  For more information, see
   [CreateSolNetworkInstance](https://docs.aws.amazon.com/tnb/latest/APIReference/API_CreateSolNetworkInstance.html).
   """
   @spec instantiate_sol_network_instance(
@@ -2185,12 +2258,19 @@ defmodule AWS.Tnb do
 
   @doc """
   Lists details for a network operation, including when the operation started and
-  the status of the operation.
+  the
+  status of the operation.
 
   A network operation is any operation that is done to your network, such as
   network instance instantiation or termination.
   """
-  @spec list_sol_network_operations(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_sol_network_operations(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
           {:ok, list_sol_network_operations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_sol_network_operations_errors()}
@@ -2198,11 +2278,19 @@ defmodule AWS.Tnb do
         %Client{} = client,
         max_results \\ nil,
         next_token \\ nil,
+        ns_instance_id \\ nil,
         options \\ []
       ) do
     url_path = "/sol/nslcm/v1/ns_lcm_op_occs"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(ns_instance_id) do
+        [{"nsInstanceId", ns_instance_id} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(next_token) do
@@ -2493,6 +2581,9 @@ defmodule AWS.Tnb do
   A network instance is a single network created in Amazon Web Services TNB that
   can be deployed and on which life-cycle operations (like terminate, update, and
   delete) can be performed.
+
+  Choose the *updateType* parameter to target the necessary update of the network
+  instance.
   """
   @spec update_sol_network_instance(
           map(),
@@ -2561,7 +2652,8 @@ defmodule AWS.Tnb do
   @doc """
   Validates function package content.
 
-  This can be used as a dry run before uploading function package content with
+  This can be used as a dry run before uploading
+  function package content with
   [PutSolFunctionPackageContent](https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolFunctionPackageContent.html).
 
   A function package is a .zip file in CSAR (Cloud Service Archive) format that
@@ -2598,7 +2690,8 @@ defmodule AWS.Tnb do
   @doc """
   Validates network package content.
 
-  This can be used as a dry run before uploading network package content with
+  This can be used as a dry run before uploading
+  network package content with
   [PutSolNetworkPackageContent](https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolNetworkPackageContent.html).
 
   A network package is a .zip file in CSAR (Cloud Service Archive) format defines

@@ -857,6 +857,7 @@ defmodule AWS.QBusiness do
 
       create_web_experience_request() :: %{
         optional("clientToken") => String.t(),
+        optional("identityProviderConfiguration") => list(),
         optional("roleArn") => String.t(),
         optional("samplePromptsControlMode") => list(any()),
         optional("subtitle") => String.t(),
@@ -982,6 +983,7 @@ defmodule AWS.QBusiness do
         "createdAt" => non_neg_integer(),
         "defaultEndpoint" => String.t(),
         "error" => error_detail(),
+        "identityProviderConfiguration" => list(),
         "roleArn" => String.t(),
         "samplePromptsControlMode" => list(any()),
         "status" => list(any()),
@@ -1153,6 +1155,7 @@ defmodule AWS.QBusiness do
 
       update_web_experience_request() :: %{
         optional("authenticationConfiguration") => list(),
+        optional("identityProviderConfiguration") => list(),
         optional("roleArn") => String.t(),
         optional("samplePromptsControlMode") => list(any()),
         optional("subtitle") => String.t(),
@@ -1171,6 +1174,7 @@ defmodule AWS.QBusiness do
         "applicationId" => String.t(),
         "createdAt" => non_neg_integer(),
         "displayName" => String.t(),
+        "identityType" => list(any()),
         "status" => list(any()),
         "updatedAt" => non_neg_integer()
       }
@@ -1296,12 +1300,27 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      auto_subscription_configuration() :: %{
+        "autoSubscribe" => list(any()),
+        "defaultSubscriptionType" => list(any())
+      }
+
+  """
+  @type auto_subscription_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_application_request() :: %{
         optional("attachmentsConfiguration") => attachments_configuration(),
+        optional("clientIdsForOIDC") => list(String.t()()),
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
         optional("encryptionConfiguration") => encryption_configuration(),
+        optional("iamIdentityProviderArn") => String.t(),
         optional("identityCenterInstanceArn") => String.t(),
+        optional("identityType") => list(any()),
         optional("personalizationConfiguration") => personalization_configuration(),
         optional("qAppsConfiguration") => q_apps_configuration(),
         optional("roleArn") => String.t(),
@@ -1592,6 +1611,7 @@ defmodule AWS.QBusiness do
 
       update_application_request() :: %{
         optional("attachmentsConfiguration") => attachments_configuration(),
+        optional("autoSubscriptionConfiguration") => auto_subscription_configuration(),
         optional("description") => String.t(),
         optional("displayName") => String.t(),
         optional("identityCenterInstanceArn") => String.t(),
@@ -1676,12 +1696,16 @@ defmodule AWS.QBusiness do
         "applicationArn" => String.t(),
         "applicationId" => String.t(),
         "attachmentsConfiguration" => applied_attachments_configuration(),
+        "autoSubscriptionConfiguration" => auto_subscription_configuration(),
+        "clientIdsForOIDC" => list(String.t()()),
         "createdAt" => non_neg_integer(),
         "description" => String.t(),
         "displayName" => String.t(),
         "encryptionConfiguration" => encryption_configuration(),
         "error" => error_detail(),
+        "iamIdentityProviderArn" => String.t(),
         "identityCenterApplicationArn" => String.t(),
+        "identityType" => list(any()),
         "personalizationConfiguration" => personalization_configuration(),
         "qAppsConfiguration" => q_apps_configuration(),
         "roleArn" => String.t(),
@@ -1745,6 +1769,17 @@ defmodule AWS.QBusiness do
 
   """
   @type batch_put_document_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      saml_provider_configuration() :: %{
+        "authenticationUrl" => String.t()
+      }
+
+  """
+  @type saml_provider_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2120,6 +2155,18 @@ defmodule AWS.QBusiness do
 
   """
   @type content_retrieval_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      open_id_connect_provider_configuration() :: %{
+        "secretsArn" => String.t(),
+        "secretsRole" => String.t()
+      }
+
+  """
+  @type open_id_connect_provider_configuration() :: %{String.t() => any()}
 
   @typedoc """
 

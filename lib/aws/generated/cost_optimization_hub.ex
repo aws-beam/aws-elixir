@@ -35,6 +35,17 @@ defmodule AWS.CostOptimizationHub do
 
   ## Example:
       
+      summary_metrics_result() :: %{
+        "savingsPercentage" => [String.t()]
+      }
+      
+  """
+  @type summary_metrics_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       ec2_instance_savings_plans() :: %{
         "configuration" => ec2_instance_savings_plans_configuration(),
         "costCalculation" => savings_plans_cost_calculation()
@@ -399,6 +410,7 @@ defmodule AWS.CostOptimizationHub do
         "estimatedTotalDedupedSavings" => [float()],
         "groupBy" => [String.t()],
         "items" => list(recommendation_summary()()),
+        "metrics" => summary_metrics_result(),
         "nextToken" => [String.t()]
       }
       
@@ -849,6 +861,7 @@ defmodule AWS.CostOptimizationHub do
       list_recommendation_summaries_request() :: %{
         optional("filter") => filter(),
         optional("maxResults") => integer(),
+        optional("metrics") => list(list(any())()),
         optional("nextToken") => [String.t()],
         required("groupBy") => [String.t()]
       }
@@ -1128,9 +1141,9 @@ defmodule AWS.CostOptimizationHub do
   Optimization
   Hub service.
 
-  If the account is a management account of an organization, this action can also
-  be used to
-  enroll member accounts of the organization.
+  If the account is a management account or delegated administrator of an
+  organization, this
+  action can also be used to enroll member accounts of the organization.
 
   You must have the appropriate permissions to opt in to Cost Optimization Hub and
   to view

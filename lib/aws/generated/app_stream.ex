@@ -38,6 +38,24 @@ defmodule AWS.AppStream do
 
   ## Example:
       
+      theme() :: %{
+        "CreatedTime" => non_neg_integer(),
+        "StackName" => String.t(),
+        "State" => list(any()),
+        "ThemeFaviconURL" => String.t(),
+        "ThemeFooterLinks" => list(theme_footer_link()()),
+        "ThemeOrganizationLogoURL" => String.t(),
+        "ThemeStyling" => list(any()),
+        "ThemeTitleText" => String.t()
+      }
+      
+  """
+  @type theme() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_app_block_builders_result() :: %{
         "AppBlockBuilders" => list(app_block_builder()()),
         "NextToken" => String.t()
@@ -75,6 +93,7 @@ defmodule AWS.AppStream do
         "ImageArn" => String.t(),
         "ImageBuilderErrors" => list(resource_error()()),
         "InstanceType" => String.t(),
+        "LatestAppstreamAgentVersion" => list(any()),
         "Name" => String.t(),
         "NetworkAccessConfiguration" => network_access_configuration(),
         "Platform" => list(any()),
@@ -356,6 +375,17 @@ defmodule AWS.AppStream do
 
   ## Example:
       
+      describe_theme_for_stack_request() :: %{
+        required("StackName") => String.t()
+      }
+      
+  """
+  @type describe_theme_for_stack_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       resource_in_use_exception() :: %{
         "Message" => String.t()
       }
@@ -430,6 +460,15 @@ defmodule AWS.AppStream do
       
   """
   @type describe_image_builders_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_theme_for_stack_result() :: %{}
+      
+  """
+  @type delete_theme_for_stack_result() :: %{}
 
   @typedoc """
 
@@ -574,6 +613,17 @@ defmodule AWS.AppStream do
       
   """
   @type update_app_block_builder_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_theme_for_stack_result() :: %{
+        "Theme" => theme()
+      }
+      
+  """
+  @type describe_theme_for_stack_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1092,6 +1142,24 @@ defmodule AWS.AppStream do
 
   ## Example:
       
+      update_theme_for_stack_request() :: %{
+        optional("AttributesToDelete") => list(list(any())()),
+        optional("FaviconS3Location") => s3_location(),
+        optional("FooterLinks") => list(theme_footer_link()()),
+        optional("OrganizationLogoS3Location") => s3_location(),
+        optional("State") => list(any()),
+        optional("ThemeStyling") => list(any()),
+        optional("TitleText") => String.t(),
+        required("StackName") => String.t()
+      }
+      
+  """
+  @type update_theme_for_stack_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       fleet_error() :: %{
         "ErrorCode" => list(any()),
         "ErrorMessage" => String.t()
@@ -1537,6 +1605,17 @@ defmodule AWS.AppStream do
 
   ## Example:
       
+      update_theme_for_stack_result() :: %{
+        "Theme" => theme()
+      }
+      
+  """
+  @type update_theme_for_stack_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       stop_app_block_builder_request() :: %{
         required("Name") => String.t()
       }
@@ -1886,6 +1965,18 @@ defmodule AWS.AppStream do
 
   ## Example:
       
+      theme_footer_link() :: %{
+        "DisplayName" => String.t(),
+        "FooterLinkURL" => String.t()
+      }
+      
+  """
+  @type theme_footer_link() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       entitlement() :: %{
         "AppVisibility" => list(any()),
         "Attributes" => list(entitlement_attribute()()),
@@ -1911,15 +2002,19 @@ defmodule AWS.AppStream do
         "CreatedTime" => non_neg_integer(),
         "Description" => String.t(),
         "DisplayName" => String.t(),
+        "DynamicAppProvidersEnabled" => list(any()),
         "ImageBuilderName" => String.t(),
         "ImageBuilderSupported" => boolean(),
         "ImageErrors" => list(resource_error()()),
         "ImagePermissions" => image_permissions(),
+        "ImageSharedWithOthers" => list(any()),
+        "LatestAppstreamAgentVersion" => list(any()),
         "Name" => String.t(),
         "Platform" => list(any()),
         "PublicBaseImageReleasedDate" => non_neg_integer(),
         "State" => list(any()),
         "StateChangeReason" => image_state_change_reason(),
+        "SupportedInstanceFamilies" => list(String.t()()),
         "Visibility" => list(any())
       }
       
@@ -2287,6 +2382,17 @@ defmodule AWS.AppStream do
 
   ## Example:
       
+      delete_theme_for_stack_request() :: %{
+        required("StackName") => String.t()
+      }
+      
+  """
+  @type delete_theme_for_stack_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_usage_report_subscriptions_result() :: %{
         "NextToken" => String.t(),
         "UsageReportSubscriptions" => list(usage_report_subscription()())
@@ -2486,6 +2592,17 @@ defmodule AWS.AppStream do
 
   ## Example:
       
+      create_theme_for_stack_result() :: %{
+        "Theme" => theme()
+      }
+      
+  """
+  @type create_theme_for_stack_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       application_settings_response() :: %{
         "Enabled" => boolean(),
         "S3BucketName" => String.t(),
@@ -2494,6 +2611,22 @@ defmodule AWS.AppStream do
       
   """
   @type application_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_theme_for_stack_request() :: %{
+        optional("FooterLinks") => list(theme_footer_link()()),
+        required("FaviconS3Location") => s3_location(),
+        required("OrganizationLogoS3Location") => s3_location(),
+        required("StackName") => String.t(),
+        required("ThemeStyling") => list(any()),
+        required("TitleText") => String.t()
+      }
+      
+  """
+  @type create_theme_for_stack_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2811,6 +2944,14 @@ defmodule AWS.AppStream do
           | invalid_parameter_combination_exception()
           | resource_not_available_exception()
 
+  @type create_theme_for_stack_errors() ::
+          resource_already_exists_exception()
+          | limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | invalid_account_status_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+
   @type create_updated_image_errors() ::
           resource_already_exists_exception()
           | limit_exceeded_exception()
@@ -2883,6 +3024,11 @@ defmodule AWS.AppStream do
           | resource_not_found_exception()
           | resource_in_use_exception()
 
+  @type delete_theme_for_stack_errors() ::
+          concurrent_modification_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+
   @type delete_usage_report_subscription_errors() ::
           invalid_account_status_exception() | resource_not_found_exception()
 
@@ -2922,6 +3068,9 @@ defmodule AWS.AppStream do
   @type describe_sessions_errors() :: invalid_parameter_combination_exception()
 
   @type describe_stacks_errors() :: resource_not_found_exception()
+
+  @type describe_theme_for_stack_errors() ::
+          operation_not_permitted_exception() | resource_not_found_exception()
 
   @type describe_usage_report_subscriptions_errors() ::
           invalid_account_status_exception() | resource_not_found_exception()
@@ -3072,6 +3221,14 @@ defmodule AWS.AppStream do
           | resource_not_found_exception()
           | invalid_parameter_combination_exception()
           | resource_in_use_exception()
+
+  @type update_theme_for_stack_errors() ::
+          limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | invalid_account_status_exception()
+          | operation_not_permitted_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_combination_exception()
 
   def metadata do
     %{
@@ -3398,6 +3555,20 @@ defmodule AWS.AppStream do
   end
 
   @doc """
+  Creates custom branding that customizes the appearance of the streaming
+  application catalog page.
+  """
+  @spec create_theme_for_stack(map(), create_theme_for_stack_request(), list()) ::
+          {:ok, create_theme_for_stack_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_theme_for_stack_errors()}
+  def create_theme_for_stack(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateThemeForStack", input, options)
+  end
+
+  @doc """
   Creates a new image with the latest Windows operating system updates, driver
   updates, and AppStream 2.0 agent software.
 
@@ -3591,6 +3762,20 @@ defmodule AWS.AppStream do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteStack", input, options)
+  end
+
+  @doc """
+  Deletes custom branding that customizes the appearance of the streaming
+  application catalog page.
+  """
+  @spec delete_theme_for_stack(map(), delete_theme_for_stack_request(), list()) ::
+          {:ok, delete_theme_for_stack_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_theme_for_stack_errors()}
+  def delete_theme_for_stack(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteThemeForStack", input, options)
   end
 
   @doc """
@@ -3833,6 +4018,22 @@ defmodule AWS.AppStream do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeStacks", input, options)
+  end
+
+  @doc """
+  Retrieves a list that describes the theme for a specified stack.
+
+  A theme is custom branding that customizes the appearance of the streaming
+  application catalog page.
+  """
+  @spec describe_theme_for_stack(map(), describe_theme_for_stack_request(), list()) ::
+          {:ok, describe_theme_for_stack_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_theme_for_stack_errors()}
+  def describe_theme_for_stack(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeThemeForStack", input, options)
   end
 
   @doc """
@@ -4305,5 +4506,19 @@ defmodule AWS.AppStream do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateStack", input, options)
+  end
+
+  @doc """
+  Updates custom branding that customizes the appearance of the streaming
+  application catalog page.
+  """
+  @spec update_theme_for_stack(map(), update_theme_for_stack_request(), list()) ::
+          {:ok, update_theme_for_stack_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_theme_for_stack_errors()}
+  def update_theme_for_stack(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateThemeForStack", input, options)
   end
 end

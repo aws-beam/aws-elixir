@@ -131,6 +131,17 @@ defmodule AWS.ECR do
 
   ## Example:
       
+      template_already_exists_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type template_already_exists_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       image_digest_does_not_match_exception() :: %{
         "message" => String.t()
       }
@@ -235,6 +246,29 @@ defmodule AWS.ECR do
 
   ## Example:
       
+      update_repository_creation_template_response() :: %{
+        "registryId" => String.t(),
+        "repositoryCreationTemplate" => repository_creation_template()
+      }
+      
+  """
+  @type update_repository_creation_template_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_account_setting_request() :: %{
+        required("name") => String.t()
+      }
+      
+  """
+  @type get_account_setting_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       layer_failure() :: %{
         "failureCode" => list(any()),
         "failureReason" => String.t(),
@@ -268,6 +302,25 @@ defmodule AWS.ECR do
 
   ## Example:
       
+      create_repository_creation_template_request() :: %{
+        optional("customRoleArn") => String.t(),
+        optional("description") => String.t(),
+        optional("encryptionConfiguration") => encryption_configuration_for_repository_creation_template(),
+        optional("imageTagMutability") => list(any()),
+        optional("lifecyclePolicy") => String.t(),
+        optional("repositoryPolicy") => String.t(),
+        optional("resourceTags") => list(tag()()),
+        required("appliedFor") => list(list(any())()),
+        required("prefix") => String.t()
+      }
+      
+  """
+  @type create_repository_creation_template_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_images_request() :: %{
         optional("filter") => describe_images_filter(),
         optional("imageIds") => list(image_identifier()()),
@@ -279,6 +332,18 @@ defmodule AWS.ECR do
       
   """
   @type describe_images_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_account_setting_response() :: %{
+        "name" => String.t(),
+        "value" => String.t()
+      }
+      
+  """
+  @type put_account_setting_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -379,6 +444,18 @@ defmodule AWS.ECR do
 
   ## Example:
       
+      encryption_configuration_for_repository_creation_template() :: %{
+        "encryptionType" => list(any()),
+        "kmsKey" => String.t()
+      }
+      
+  """
+  @type encryption_configuration_for_repository_creation_template() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_repository_policy_request() :: %{
         optional("registryId") => String.t(),
         required("repositoryName") => String.t()
@@ -425,6 +502,17 @@ defmodule AWS.ECR do
       
   """
   @type repository_not_empty_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_repository_creation_template_request() :: %{
+        required("prefix") => String.t()
+      }
+      
+  """
+  @type delete_repository_creation_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -692,6 +780,18 @@ defmodule AWS.ECR do
 
   ## Example:
       
+      put_account_setting_request() :: %{
+        required("name") => String.t(),
+        required("value") => String.t()
+      }
+      
+  """
+  @type put_account_setting_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       enhanced_image_scan_finding() :: %{
         "awsAccountId" => String.t(),
         "description" => String.t(),
@@ -729,6 +829,17 @@ defmodule AWS.ECR do
       
   """
   @type get_lifecycle_policy_preview_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      template_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type template_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -794,6 +905,27 @@ defmodule AWS.ECR do
       
   """
   @type complete_layer_upload_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      repository_creation_template() :: %{
+        "appliedFor" => list(list(any())()),
+        "createdAt" => non_neg_integer(),
+        "customRoleArn" => String.t(),
+        "description" => String.t(),
+        "encryptionConfiguration" => encryption_configuration_for_repository_creation_template(),
+        "imageTagMutability" => list(any()),
+        "lifecyclePolicy" => String.t(),
+        "prefix" => String.t(),
+        "repositoryPolicy" => String.t(),
+        "resourceTags" => list(tag()()),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type repository_creation_template() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1292,6 +1424,18 @@ defmodule AWS.ECR do
 
   ## Example:
       
+      get_account_setting_response() :: %{
+        "name" => String.t(),
+        "value" => String.t()
+      }
+      
+  """
+  @type get_account_setting_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       upload_layer_part_response() :: %{
         "lastByteReceived" => float(),
         "registryId" => String.t(),
@@ -1387,6 +1531,18 @@ defmodule AWS.ECR do
 
   ## Example:
       
+      create_repository_creation_template_response() :: %{
+        "registryId" => String.t(),
+        "repositoryCreationTemplate" => repository_creation_template()
+      }
+      
+  """
+  @type create_repository_creation_template_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_image_scan_findings_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
@@ -1443,6 +1599,19 @@ defmodule AWS.ECR do
 
   ## Example:
       
+      describe_repository_creation_templates_response() :: %{
+        "nextToken" => String.t(),
+        "registryId" => String.t(),
+        "repositoryCreationTemplates" => list(repository_creation_template()())
+      }
+      
+  """
+  @type describe_repository_creation_templates_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_pull_through_cache_rules_request() :: %{
         optional("ecrRepositoryPrefixes") => list(String.t()()),
         optional("maxResults") => integer(),
@@ -1452,6 +1621,18 @@ defmodule AWS.ECR do
       
   """
   @type describe_pull_through_cache_rules_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_repository_creation_template_response() :: %{
+        "registryId" => String.t(),
+        "repositoryCreationTemplate" => repository_creation_template()
+      }
+      
+  """
+  @type delete_repository_creation_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1953,6 +2134,19 @@ defmodule AWS.ECR do
 
   ## Example:
       
+      describe_repository_creation_templates_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("prefixes") => list(String.t()())
+      }
+      
+  """
+  @type describe_repository_creation_templates_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       image_detail() :: %{
         "artifactMediaType" => String.t(),
         "imageDigest" => String.t(),
@@ -2015,6 +2209,25 @@ defmodule AWS.ECR do
       
   """
   @type batch_get_image_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_repository_creation_template_request() :: %{
+        optional("appliedFor") => list(list(any())()),
+        optional("customRoleArn") => String.t(),
+        optional("description") => String.t(),
+        optional("encryptionConfiguration") => encryption_configuration_for_repository_creation_template(),
+        optional("imageTagMutability") => list(any()),
+        optional("lifecyclePolicy") => String.t(),
+        optional("repositoryPolicy") => String.t(),
+        optional("resourceTags") => list(tag()()),
+        required("prefix") => String.t()
+      }
+      
+  """
+  @type update_repository_creation_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2206,6 +2419,13 @@ defmodule AWS.ECR do
           | repository_already_exists_exception()
           | invalid_tag_parameter_exception()
 
+  @type create_repository_creation_template_errors() ::
+          limit_exceeded_exception()
+          | server_exception()
+          | validation_exception()
+          | invalid_parameter_exception()
+          | template_already_exists_exception()
+
   @type delete_lifecycle_policy_errors() ::
           repository_not_found_exception()
           | server_exception()
@@ -2231,6 +2451,12 @@ defmodule AWS.ECR do
           | kms_exception()
           | invalid_parameter_exception()
           | repository_not_empty_exception()
+
+  @type delete_repository_creation_template_errors() ::
+          server_exception()
+          | validation_exception()
+          | invalid_parameter_exception()
+          | template_not_found_exception()
 
   @type delete_repository_policy_errors() ::
           repository_not_found_exception()
@@ -2270,6 +2496,12 @@ defmodule AWS.ECR do
 
   @type describe_repositories_errors() ::
           repository_not_found_exception() | server_exception() | invalid_parameter_exception()
+
+  @type describe_repository_creation_templates_errors() ::
+          server_exception() | validation_exception() | invalid_parameter_exception()
+
+  @type get_account_setting_errors() ::
+          server_exception() | validation_exception() | invalid_parameter_exception()
 
   @type get_authorization_token_errors() :: server_exception() | invalid_parameter_exception()
 
@@ -2321,6 +2553,12 @@ defmodule AWS.ECR do
 
   @type list_tags_for_resource_errors() ::
           repository_not_found_exception() | server_exception() | invalid_parameter_exception()
+
+  @type put_account_setting_errors() ::
+          limit_exceeded_exception()
+          | server_exception()
+          | validation_exception()
+          | invalid_parameter_exception()
 
   @type put_image_errors() ::
           limit_exceeded_exception()
@@ -2400,6 +2638,12 @@ defmodule AWS.ECR do
           | secret_not_found_exception()
           | pull_through_cache_rule_not_found_exception()
           | unable_to_decrypt_secret_value_exception()
+
+  @type update_repository_creation_template_errors() ::
+          server_exception()
+          | validation_exception()
+          | invalid_parameter_exception()
+          | template_not_found_exception()
 
   @type upload_layer_part_errors() ::
           limit_exceeded_exception()
@@ -2579,6 +2823,31 @@ defmodule AWS.ECR do
   end
 
   @doc """
+  Creates a repository creation template.
+
+  This template is used to define the settings
+  for repositories created by Amazon ECR on your behalf. For example, repositories
+  created
+  through pull through cache actions. For more information, see [Private repository creation
+  templates](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-creation-templates.html)
+  in the
+  *Amazon Elastic Container Registry User Guide*.
+  """
+  @spec create_repository_creation_template(
+          map(),
+          create_repository_creation_template_request(),
+          list()
+        ) ::
+          {:ok, create_repository_creation_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_repository_creation_template_errors()}
+  def create_repository_creation_template(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateRepositoryCreationTemplate", input, options)
+  end
+
+  @doc """
   Deletes the lifecycle policy associated with the specified repository.
   """
   @spec delete_lifecycle_policy(map(), delete_lifecycle_policy_request(), list()) ::
@@ -2632,6 +2901,23 @@ defmodule AWS.ECR do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteRepository", input, options)
+  end
+
+  @doc """
+  Deletes a repository creation template.
+  """
+  @spec delete_repository_creation_template(
+          map(),
+          delete_repository_creation_template_request(),
+          list()
+        ) ::
+          {:ok, delete_repository_creation_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_repository_creation_template_errors()}
+  def delete_repository_creation_template(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteRepositoryCreationTemplate", input, options)
   end
 
   @doc """
@@ -2746,6 +3032,40 @@ defmodule AWS.ECR do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeRepositories", input, options)
+  end
+
+  @doc """
+  Returns details about the repository creation templates in a registry.
+
+  The
+  `prefixes` request parameter can be used to return the details for a
+  specific repository creation template.
+  """
+  @spec describe_repository_creation_templates(
+          map(),
+          describe_repository_creation_templates_request(),
+          list()
+        ) ::
+          {:ok, describe_repository_creation_templates_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_repository_creation_templates_errors()}
+  def describe_repository_creation_templates(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRepositoryCreationTemplates", input, options)
+  end
+
+  @doc """
+  Retrieves the basic scan type version name.
+  """
+  @spec get_account_setting(map(), get_account_setting_request(), list()) ::
+          {:ok, get_account_setting_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_account_setting_errors()}
+  def get_account_setting(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAccountSetting", input, options)
   end
 
   @doc """
@@ -2924,6 +3244,20 @@ defmodule AWS.ECR do
   end
 
   @doc """
+  Allows you to change the basic scan type version by setting the `name`
+  parameter to either `CLAIR` to `AWS_NATIVE`.
+  """
+  @spec put_account_setting(map(), put_account_setting_request(), list()) ::
+          {:ok, put_account_setting_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_account_setting_errors()}
+  def put_account_setting(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutAccountSetting", input, options)
+  end
+
+  @doc """
   Creates or updates the image manifest and tags associated with an image.
 
   When an image is pushed and all new image layers have been uploaded, the
@@ -3048,8 +3382,9 @@ defmodule AWS.ECR do
   in
   your account for the replication process. For more information, see [Using service-linked roles for Amazon
   ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/using-service-linked-roles.html)
-  in the
-  *Amazon Elastic Container Registry User Guide*.
+  in the *Amazon Elastic Container Registry User Guide*.
+  For more information on the custom role for replication, see [Creating an IAM role for
+  replication](https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication-creation-templates.html#roles-creatingrole-user-console).
 
   When configuring cross-account replication, the destination account must grant
   the
@@ -3159,6 +3494,23 @@ defmodule AWS.ECR do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdatePullThroughCacheRule", input, options)
+  end
+
+  @doc """
+  Updates an existing repository creation template.
+  """
+  @spec update_repository_creation_template(
+          map(),
+          update_repository_creation_template_request(),
+          list()
+        ) ::
+          {:ok, update_repository_creation_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_repository_creation_template_errors()}
+  def update_repository_creation_template(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateRepositoryCreationTemplate", input, options)
   end
 
   @doc """

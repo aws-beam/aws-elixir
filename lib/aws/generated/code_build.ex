@@ -1452,6 +1452,7 @@ defmodule AWS.CodeBuild do
         optional("computeType") => list(any()),
         optional("environmentType") => list(any()),
         optional("fleetServiceRole") => String.t(),
+        optional("imageId") => String.t(),
         optional("overflowBehavior") => list(any()),
         optional("scalingConfiguration") => scaling_configuration_input(),
         optional("tags") => list(tag()()),
@@ -1468,6 +1469,7 @@ defmodule AWS.CodeBuild do
       
       create_fleet_input() :: %{
         optional("fleetServiceRole") => String.t(),
+        optional("imageId") => String.t(),
         optional("overflowBehavior") => list(any()),
         optional("scalingConfiguration") => scaling_configuration_input(),
         optional("tags") => list(tag()()),
@@ -2157,6 +2159,7 @@ defmodule AWS.CodeBuild do
         "environmentType" => list(any()),
         "fleetServiceRole" => String.t(),
         "id" => String.t(),
+        "imageId" => String.t(),
         "lastModified" => non_neg_integer(),
         "name" => String.t(),
         "overflowBehavior" => list(any()),
@@ -2783,7 +2786,8 @@ defmodule AWS.CodeBuild do
 
   @doc """
   Imports the source repository credentials for an CodeBuild project that has its
-  source code stored in a GitHub, GitHub Enterprise, or Bitbucket repository.
+  source code stored in a GitHub, GitHub Enterprise, GitLab, GitLab Self Managed,
+  or Bitbucket repository.
   """
   @spec import_source_credentials(map(), import_source_credentials_input(), list()) ::
           {:ok, import_source_credentials_output(), any()}

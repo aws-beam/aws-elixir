@@ -3,17 +3,34 @@
 
 defmodule AWS.AppIntegrations do
   @moduledoc """
+
+    *
+
+  [Amazon AppIntegrations actions](https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_AppIntegrations_Service.html)
+
+    *
+
+  [Amazon AppIntegrations data
+  types](https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_AppIntegrations_Service.html)
+
   The Amazon AppIntegrations service enables you to configure and reuse
   connections to external
   applications.
 
   For information about how you can use external applications with Amazon Connect,
   see
-  [Set up pre-built integrations](https://docs.aws.amazon.com/connect/latest/adminguide/crm.html)
-  and [Deliver information to agents using Amazon Connect
-  Wisdom](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-wisdom.html)
-  in the *Amazon Connect Administrator
-  Guide*.
+  the following topics in the *Amazon Connect Administrator
+  Guide*:
+
+    *
+
+  [Third-party applications (3p apps) in the agent
+  workspace](https://docs.aws.amazon.com/connect/latest/adminguide/3p-apps.html)
+
+    *
+
+  [Use Amazon Q in Connect for generative AI–powered agent assistance in
+  real-time](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-q-connect.html)
   """
 
   alias AWS.Client
@@ -38,7 +55,10 @@ defmodule AWS.AppIntegrations do
       data_integration_association_summary() :: %{
         "ClientId" => String.t(),
         "DataIntegrationArn" => String.t(),
-        "DataIntegrationAssociationArn" => String.t()
+        "DataIntegrationAssociationArn" => String.t(),
+        "DestinationURI" => String.t(),
+        "ExecutionConfiguration" => execution_configuration(),
+        "LastExecutionStatus" => last_execution_status()
       }
 
   """
@@ -83,6 +103,18 @@ defmodule AWS.AppIntegrations do
 
   """
   @type get_event_integration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      last_execution_status() :: %{
+        "ExecutionStatus" => list(any()),
+        "StatusMessage" => String.t()
+      }
+
+  """
+  @type last_execution_status() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -169,16 +201,25 @@ defmodule AWS.AppIntegrations do
 
   ## Example:
 
+      update_data_integration_association_response() :: %{}
+
+  """
+  @type update_data_integration_association_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       create_data_integration_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
         optional("FileConfiguration") => file_configuration(),
         optional("ObjectConfiguration") => map(),
         optional("ScheduleConfig") => schedule_configuration(),
+        optional("SourceURI") => String.t(),
         optional("Tags") => map(),
         required("KmsKey") => String.t(),
-        required("Name") => String.t(),
-        required("SourceURI") => String.t()
+        required("Name") => String.t()
       }
 
   """
@@ -218,6 +259,22 @@ defmodule AWS.AppIntegrations do
 
   """
   @type list_event_integration_associations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_integration_association_request() :: %{
+        optional("ClientAssociationMetadata") => map(),
+        optional("ClientId") => String.t(),
+        optional("ClientToken") => String.t(),
+        optional("DestinationURI") => String.t(),
+        optional("ExecutionConfiguration") => execution_configuration(),
+        optional("ObjectConfiguration") => map()
+      }
+
+  """
+  @type create_data_integration_association_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -382,6 +439,19 @@ defmodule AWS.AppIntegrations do
 
   ## Example:
 
+      execution_configuration() :: %{
+        "ExecutionMode" => list(any()),
+        "OnDemandConfiguration" => on_demand_configuration(),
+        "ScheduleConfiguration" => schedule_configuration()
+      }
+
+  """
+  @type execution_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       event_filter() :: %{
         "Source" => String.t()
       }
@@ -417,6 +487,18 @@ defmodule AWS.AppIntegrations do
 
   """
   @type delete_application_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_integration_association_response() :: %{
+        "DataIntegrationArn" => String.t(),
+        "DataIntegrationAssociationId" => String.t()
+      }
+
+  """
+  @type create_data_integration_association_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -580,6 +662,17 @@ defmodule AWS.AppIntegrations do
 
   """
   @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_data_integration_association_request() :: %{
+        required("ExecutionConfiguration") => execution_configuration()
+      }
+
+  """
+  @type update_data_integration_association_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -785,6 +878,18 @@ defmodule AWS.AppIntegrations do
   """
   @type delete_application_request() :: %{}
 
+  @typedoc """
+
+  ## Example:
+
+      on_demand_configuration() :: %{
+        "EndTime" => String.t(),
+        "StartTime" => String.t()
+      }
+
+  """
+  @type on_demand_configuration() :: %{String.t() => any()}
+
   @type create_application_errors() ::
           duplicate_resource_exception()
           | throttling_exception()
@@ -801,6 +906,14 @@ defmodule AWS.AppIntegrations do
           | access_denied_exception()
           | resource_quota_exceeded_exception()
           | invalid_request_exception()
+
+  @type create_data_integration_association_errors() ::
+          throttling_exception()
+          | internal_service_error()
+          | access_denied_exception()
+          | resource_quota_exceeded_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
 
   @type create_event_integration_errors() ::
           duplicate_resource_exception()
@@ -924,6 +1037,13 @@ defmodule AWS.AppIntegrations do
           | invalid_request_exception()
           | resource_not_found_exception()
 
+  @type update_data_integration_association_errors() ::
+          throttling_exception()
+          | internal_service_error()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
   @type update_event_integration_errors() ::
           throttling_exception()
           | internal_service_error()
@@ -948,8 +1068,6 @@ defmodule AWS.AppIntegrations do
   end
 
   @doc """
-  This API is in preview release and subject to change.
-
   Creates and persists an Application resource.
   """
   @spec create_application(map(), create_application_request(), list()) ::
@@ -1010,6 +1128,45 @@ defmodule AWS.AppIntegrations do
   end
 
   @doc """
+  Creates and persists a DataIntegrationAssociation resource.
+  """
+  @spec create_data_integration_association(
+          map(),
+          String.t(),
+          create_data_integration_association_request(),
+          list()
+        ) ::
+          {:ok, create_data_integration_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_data_integration_association_errors()}
+  def create_data_integration_association(
+        %Client{} = client,
+        data_integration_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/dataIntegrations/#{AWS.Util.encode_uri(data_integration_identifier)}/associations"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates an EventIntegration, given a specified name, description, and a
   reference to an
   Amazon EventBridge bus in your account and a partner event source that pushes
@@ -1047,7 +1204,8 @@ defmodule AWS.AppIntegrations do
   @doc """
   Deletes the Application.
 
-  Only Applications that don't have any Application Associations can be deleted.
+  Only Applications that don't have any Application Associations
+  can be deleted.
   """
   @spec delete_application(map(), String.t(), delete_application_request(), list()) ::
           {:ok, delete_application_response(), any()}
@@ -1147,8 +1305,6 @@ defmodule AWS.AppIntegrations do
   end
 
   @doc """
-  This API is in preview release and subject to change.
-
   Get an Application resource.
   """
   @spec get_application(map(), String.t(), list()) ::
@@ -1249,8 +1405,6 @@ defmodule AWS.AppIntegrations do
   end
 
   @doc """
-  This API is in preview release and subject to change.
-
   Lists applications in the account.
   """
   @spec list_applications(map(), String.t() | nil, String.t() | nil, list()) ::
@@ -1530,8 +1684,6 @@ defmodule AWS.AppIntegrations do
   end
 
   @doc """
-  This API is in preview release and subject to change.
-
   Updates and persists an Application resource.
   """
   @spec update_application(map(), String.t(), update_application_request(), list()) ::
@@ -1573,6 +1725,50 @@ defmodule AWS.AppIntegrations do
           | {:error, update_data_integration_errors()}
   def update_data_integration(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/dataIntegrations/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates and persists a DataIntegrationAssociation resource.
+
+  Updating a DataIntegrationAssociation with ExecutionConfiguration will rerun the
+  on-demand job.
+  """
+  @spec update_data_integration_association(
+          map(),
+          String.t(),
+          String.t(),
+          update_data_integration_association_request(),
+          list()
+        ) ::
+          {:ok, update_data_integration_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_data_integration_association_errors()}
+  def update_data_integration_association(
+        %Client{} = client,
+        data_integration_association_identifier,
+        data_integration_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/dataIntegrations/#{AWS.Util.encode_uri(data_integration_identifier)}/associations/#{AWS.Util.encode_uri(data_integration_association_identifier)}"
+
     headers = []
     query_params = []
 

@@ -58,7 +58,8 @@ defmodule AWS.Outposts do
   ## Example:
 
       instance_type_item() :: %{
-        "InstanceType" => String.t()
+        "InstanceType" => String.t(),
+        "VCPUs" => integer()
       }
 
   """

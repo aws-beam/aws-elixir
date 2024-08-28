@@ -39,6 +39,7 @@ defmodule AWS.Bedrock do
         optional("creationTimeAfter") => non_neg_integer(),
         optional("creationTimeBefore") => non_neg_integer(),
         optional("foundationModelArnEquals") => String.t(),
+        optional("isOwned") => [boolean()],
         optional("maxResults") => integer(),
         optional("nameContains") => String.t(),
         optional("nextToken") => String.t(),
@@ -57,6 +58,17 @@ defmodule AWS.Bedrock do
 
   """
   @type delete_provisioned_model_throughput_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_model_import_job_response() :: %{
+        "jobArn" => String.t()
+      }
+
+  """
+  @type create_model_import_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -128,10 +140,55 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      stop_model_invocation_job_request() :: %{}
+
+  """
+  @type stop_model_invocation_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_custom_model_response() :: %{}
 
   """
   @type delete_custom_model_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_model_invocation_job_response() :: %{
+        "jobArn" => String.t()
+      }
+
+  """
+  @type create_model_invocation_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_inference_profiles_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_inference_profiles_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_evaluation_job_error() :: %{
+        "code" => [String.t()],
+        "jobIdentifier" => String.t(),
+        "message" => [String.t()]
+      }
+
+  """
+  @type batch_delete_evaluation_job_error() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -229,6 +286,24 @@ defmodule AWS.Bedrock do
 
   """
   @type guardrail_topic_policy_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_model_invocation_jobs_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nameContains") => String.t(),
+        optional("nextToken") => String.t(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any()),
+        optional("statusEquals") => list(any()),
+        optional("submitTimeAfter") => non_neg_integer(),
+        optional("submitTimeBefore") => non_neg_integer()
+      }
+
+  """
+  @type list_model_invocation_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -338,6 +413,25 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      get_inference_profile_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t(),
+        "inferenceProfileArn" => String.t(),
+        "inferenceProfileId" => String.t(),
+        "inferenceProfileName" => String.t(),
+        "models" => list(inference_profile_model()()),
+        "status" => list(any()),
+        "type" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_inference_profile_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       human_workflow_config() :: %{
         "flowDefinitionArn" => String.t(),
         "instructions" => String.t()
@@ -356,6 +450,24 @@ defmodule AWS.Bedrock do
 
   """
   @type guardrail_content_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_model_import_jobs_request() :: %{
+        optional("creationTimeAfter") => non_neg_integer(),
+        optional("creationTimeBefore") => non_neg_integer(),
+        optional("maxResults") => integer(),
+        optional("nameContains") => String.t(),
+        optional("nextToken") => String.t(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any()),
+        optional("statusEquals") => list(any())
+      }
+
+  """
+  @type list_model_import_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -428,6 +540,18 @@ defmodule AWS.Bedrock do
 
   """
   @type stop_evaluation_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_inference_profiles_response() :: %{
+        "inferenceProfileSummaries" => list(inference_profile_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_inference_profiles_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -507,6 +631,39 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      create_model_copy_job_request() :: %{
+        optional("clientRequestToken") => String.t(),
+        optional("modelKmsKeyId") => String.t(),
+        optional("targetModelTags") => list(tag()()),
+        required("sourceModelArn") => String.t(),
+        required("targetModelName") => String.t()
+      }
+
+  """
+  @type create_model_copy_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      model_import_job_summary() :: %{
+        "creationTime" => non_neg_integer(),
+        "endTime" => non_neg_integer(),
+        "importedModelArn" => String.t(),
+        "importedModelName" => String.t(),
+        "jobArn" => String.t(),
+        "jobName" => String.t(),
+        "lastModifiedTime" => non_neg_integer(),
+        "status" => list(any())
+      }
+
+  """
+  @type model_import_job_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_managed_words_config() :: %{
         "type" => list(any())
       }
@@ -524,6 +681,54 @@ defmodule AWS.Bedrock do
 
   """
   @type guardrail_word() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inference_profile_model() :: %{
+        "modelArn" => String.t()
+      }
+
+  """
+  @type inference_profile_model() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inference_profile_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t(),
+        "inferenceProfileArn" => String.t(),
+        "inferenceProfileId" => String.t(),
+        "inferenceProfileName" => String.t(),
+        "models" => list(inference_profile_model()()),
+        "status" => list(any()),
+        "type" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type inference_profile_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_model_invocation_job_request() :: %{
+        optional("clientRequestToken") => String.t(),
+        optional("tags") => list(tag()()),
+        optional("timeoutDurationInHours") => integer(),
+        required("inputDataConfig") => list(),
+        required("jobName") => String.t(),
+        required("modelId") => String.t(),
+        required("outputDataConfig") => list(),
+        required("roleArn") => String.t()
+      }
+
+  """
+  @type create_model_invocation_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -552,10 +757,44 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      model_invocation_job_s3_output_data_config() :: %{
+        "s3EncryptionKeyId" => String.t(),
+        "s3Uri" => String.t()
+      }
+
+  """
+  @type model_invocation_job_s3_output_data_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_foundation_model_request() :: %{}
 
   """
   @type get_foundation_model_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      imported_model_summary() :: %{
+        "creationTime" => non_neg_integer(),
+        "modelArn" => String.t(),
+        "modelName" => String.t()
+      }
+
+  """
+  @type imported_model_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_imported_model_request() :: %{}
+
+  """
+  @type get_imported_model_request() :: %{}
 
   @typedoc """
 
@@ -587,6 +826,15 @@ defmodule AWS.Bedrock do
 
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_model_copy_job_request() :: %{}
+
+  """
+  @type get_model_copy_job_request() :: %{}
 
   @typedoc """
 
@@ -624,6 +872,15 @@ defmodule AWS.Bedrock do
 
   """
   @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_inference_profile_request() :: %{}
+
+  """
+  @type get_inference_profile_request() :: %{}
 
   @typedoc """
 
@@ -698,6 +955,18 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      list_model_invocation_jobs_response() :: %{
+        "invocationJobSummaries" => list(model_invocation_job_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_model_invocation_jobs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_custom_model_response() :: %{
         "baseModelArn" => String.t(),
         "creationTime" => non_neg_integer(),
@@ -717,6 +986,27 @@ defmodule AWS.Bedrock do
 
   """
   @type get_custom_model_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      model_copy_job_summary() :: %{
+        "creationTime" => non_neg_integer(),
+        "failureMessage" => String.t(),
+        "jobArn" => String.t(),
+        "sourceAccountId" => String.t(),
+        "sourceModelArn" => String.t(),
+        "sourceModelName" => String.t(),
+        "status" => list(any()),
+        "targetModelArn" => String.t(),
+        "targetModelKmsKeyArn" => String.t(),
+        "targetModelName" => String.t(),
+        "targetModelTags" => list(tag()())
+      }
+
+  """
+  @type model_copy_job_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -807,6 +1097,18 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      batch_delete_evaluation_job_response() :: %{
+        "errors" => list(batch_delete_evaluation_job_error()()),
+        "evaluationJobs" => list(batch_delete_evaluation_job_item()())
+      }
+
+  """
+  @type batch_delete_evaluation_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_pii_entity() :: %{
         "action" => list(any()),
         "type" => list(any())
@@ -825,6 +1127,23 @@ defmodule AWS.Bedrock do
 
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_imported_models_request() :: %{
+        optional("creationTimeAfter") => non_neg_integer(),
+        optional("creationTimeBefore") => non_neg_integer(),
+        optional("maxResults") => integer(),
+        optional("nameContains") => String.t(),
+        optional("nextToken") => String.t(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any())
+      }
+
+  """
+  @type list_imported_models_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -870,10 +1189,66 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      get_model_import_job_request() :: %{}
+
+  """
+  @type get_model_import_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_model_import_job_response() :: %{
+        "creationTime" => non_neg_integer(),
+        "endTime" => non_neg_integer(),
+        "failureMessage" => String.t(),
+        "importedModelArn" => String.t(),
+        "importedModelKmsKeyArn" => String.t(),
+        "importedModelName" => String.t(),
+        "jobArn" => String.t(),
+        "jobName" => String.t(),
+        "lastModifiedTime" => non_neg_integer(),
+        "modelDataSource" => list(),
+        "roleArn" => String.t(),
+        "status" => list(any()),
+        "vpcConfig" => vpc_config()
+      }
+
+  """
+  @type get_model_import_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      model_invocation_job_s3_input_data_config() :: %{
+        "s3InputFormat" => list(any()),
+        "s3Uri" => String.t()
+      }
+
+  """
+  @type model_invocation_job_s3_input_data_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_custom_model_request() :: %{}
 
   """
   @type get_custom_model_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_imported_models_response() :: %{
+        "modelSummaries" => list(imported_model_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_imported_models_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -905,6 +1280,15 @@ defmodule AWS.Bedrock do
 
   """
   @type get_model_invocation_logging_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_imported_model_response() :: %{}
+
+  """
+  @type delete_imported_model_response() :: %{}
 
   @typedoc """
 
@@ -969,12 +1353,33 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      delete_imported_model_request() :: %{}
+
+  """
+  @type delete_imported_model_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       internal_server_exception() :: %{
         "message" => String.t()
       }
 
   """
   @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_model_copy_jobs_response() :: %{
+        "modelCopyJobSummaries" => list(model_copy_job_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_model_copy_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -995,6 +1400,27 @@ defmodule AWS.Bedrock do
 
   """
   @type validation_data_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_evaluation_job_item() :: %{
+        "jobIdentifier" => String.t(),
+        "jobStatus" => list(any())
+      }
+
+  """
+  @type batch_delete_evaluation_job_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_model_invocation_job_response() :: %{}
+
+  """
+  @type stop_model_invocation_job_response() :: %{}
 
   @typedoc """
 
@@ -1063,6 +1489,33 @@ defmodule AWS.Bedrock do
 
   """
   @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_imported_model_response() :: %{
+        "creationTime" => non_neg_integer(),
+        "jobArn" => String.t(),
+        "jobName" => String.t(),
+        "modelArchitecture" => [String.t()],
+        "modelArn" => String.t(),
+        "modelDataSource" => list(),
+        "modelKmsKeyArn" => String.t(),
+        "modelName" => String.t()
+      }
+
+  """
+  @type get_imported_model_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_model_invocation_job_request() :: %{}
+
+  """
+  @type get_model_invocation_job_request() :: %{}
 
   @typedoc """
 
@@ -1219,6 +1672,17 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      create_model_copy_job_response() :: %{
+        "jobArn" => String.t()
+      }
+
+  """
+  @type create_model_copy_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_pii_entity_config() :: %{
         "action" => list(any()),
         "type" => list(any())
@@ -1285,6 +1749,27 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      get_model_copy_job_response() :: %{
+        "creationTime" => non_neg_integer(),
+        "failureMessage" => String.t(),
+        "jobArn" => String.t(),
+        "sourceAccountId" => String.t(),
+        "sourceModelArn" => String.t(),
+        "sourceModelName" => String.t(),
+        "status" => list(any()),
+        "targetModelArn" => String.t(),
+        "targetModelKmsKeyArn" => String.t(),
+        "targetModelName" => String.t(),
+        "targetModelTags" => list(tag()())
+      }
+
+  """
+  @type get_model_copy_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_custom_models_response() :: %{
         "modelSummaries" => list(custom_model_summary()()),
         "nextToken" => String.t()
@@ -1330,6 +1815,25 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      create_model_import_job_request() :: %{
+        optional("clientRequestToken") => String.t(),
+        optional("importedModelKmsKeyId") => String.t(),
+        optional("importedModelTags") => list(tag()()),
+        optional("jobTags") => list(tag()()),
+        optional("vpcConfig") => vpc_config(),
+        required("importedModelName") => String.t(),
+        required("jobName") => String.t(),
+        required("modelDataSource") => list(),
+        required("roleArn") => String.t()
+      }
+
+  """
+  @type create_model_import_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_guardrail_version_request() :: %{
         optional("clientRequestToken") => String.t(),
         optional("description") => String.t()
@@ -1337,6 +1841,26 @@ defmodule AWS.Bedrock do
 
   """
   @type create_guardrail_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_model_copy_jobs_request() :: %{
+        optional("creationTimeAfter") => non_neg_integer(),
+        optional("creationTimeBefore") => non_neg_integer(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any()),
+        optional("sourceAccountEquals") => String.t(),
+        optional("sourceModelArnEquals") => String.t(),
+        optional("statusEquals") => list(any()),
+        optional("targetModelNameContains") => String.t()
+      }
+
+  """
+  @type list_model_copy_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1389,6 +1913,17 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      batch_delete_evaluation_job_request() :: %{
+        required("jobIdentifiers") => list(String.t()())
+      }
+
+  """
+  @type batch_delete_evaluation_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_evaluation_job_response() :: %{
         "jobArn" => String.t()
       }
@@ -1409,6 +1944,30 @@ defmodule AWS.Bedrock do
 
   """
   @type update_guardrail_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      model_invocation_job_summary() :: %{
+        "clientRequestToken" => String.t(),
+        "endTime" => non_neg_integer(),
+        "inputDataConfig" => list(),
+        "jobArn" => String.t(),
+        "jobExpirationTime" => non_neg_integer(),
+        "jobName" => String.t(),
+        "lastModifiedTime" => non_neg_integer(),
+        "message" => String.t(),
+        "modelId" => String.t(),
+        "outputDataConfig" => list(),
+        "roleArn" => String.t(),
+        "status" => list(any()),
+        "submitTime" => non_neg_integer(),
+        "timeoutDurationInHours" => integer()
+      }
+
+  """
+  @type model_invocation_job_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1469,7 +2028,8 @@ defmodule AWS.Bedrock do
         "creationTime" => non_neg_integer(),
         "customizationType" => list(any()),
         "modelArn" => String.t(),
-        "modelName" => String.t()
+        "modelName" => String.t(),
+        "ownerAccountId" => String.t()
       }
 
   """
@@ -1547,6 +2107,61 @@ defmodule AWS.Bedrock do
   """
   @type human_evaluation_config() :: %{String.t() => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      get_model_invocation_job_response() :: %{
+        "clientRequestToken" => String.t(),
+        "endTime" => non_neg_integer(),
+        "inputDataConfig" => list(),
+        "jobArn" => String.t(),
+        "jobExpirationTime" => non_neg_integer(),
+        "jobName" => String.t(),
+        "lastModifiedTime" => non_neg_integer(),
+        "message" => String.t(),
+        "modelId" => String.t(),
+        "outputDataConfig" => list(),
+        "roleArn" => String.t(),
+        "status" => list(any()),
+        "submitTime" => non_neg_integer(),
+        "timeoutDurationInHours" => integer()
+      }
+
+  """
+  @type get_model_invocation_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_model_import_jobs_response() :: %{
+        "modelImportJobSummaries" => list(model_import_job_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_model_import_jobs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_data_source() :: %{
+        "s3Uri" => String.t()
+      }
+
+  """
+  @type s3_data_source() :: %{String.t() => any()}
+
+  @type batch_delete_evaluation_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type create_evaluation_job_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1575,9 +2190,34 @@ defmodule AWS.Bedrock do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type create_model_copy_job_errors() ::
+          too_many_tags_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type create_model_customization_job_errors() ::
           too_many_tags_exception()
           | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_model_import_job_errors() ::
+          too_many_tags_exception()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_model_invocation_job_errors() ::
+          throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
@@ -1603,6 +2243,14 @@ defmodule AWS.Bedrock do
           | conflict_exception()
 
   @type delete_guardrail_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_imported_model_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -1649,7 +2297,42 @@ defmodule AWS.Bedrock do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_imported_model_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_inference_profile_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_model_copy_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_model_customization_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_model_import_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_model_invocation_job_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -1691,7 +2374,38 @@ defmodule AWS.Bedrock do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type list_imported_models_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_inference_profiles_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_model_copy_jobs_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type list_model_customization_jobs_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_model_import_jobs_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_model_invocation_jobs_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -1725,6 +2439,14 @@ defmodule AWS.Bedrock do
           | conflict_exception()
 
   @type stop_model_customization_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type stop_model_invocation_job_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -1780,11 +2502,42 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Creates a batch deletion job.
+
+  A model evaluation job can only be deleted if it has following status `FAILED`,
+  `COMPLETED`, and `STOPPED`. You can request up to 25 model evaluation jobs be
+  deleted in a single request.
+  """
+  @spec batch_delete_evaluation_job(map(), batch_delete_evaluation_job_request(), list()) ::
+          {:ok, batch_delete_evaluation_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_delete_evaluation_job_errors()}
+  def batch_delete_evaluation_job(%Client{} = client, input, options \\ []) do
+    url_path = "/evaluation-jobs/batch-delete"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   API operation for creating and managing Amazon Bedrock automatic model
   evaluation jobs and model evaluation jobs that use human workers.
 
   To learn more about the requirements for creating a model evaluation job see,
-  [Model evaluations](https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation.html).
+  [Model evaluation](https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation.html).
   """
   @spec create_evaluation_job(map(), create_evaluation_job_request(), list()) ::
           {:ok, create_evaluation_job_response(), any()}
@@ -1910,6 +2663,36 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Copies a model to another region so that it can be used there.
+
+  For more information, see [Copy models to be used in other regions](https://docs.aws.amazon.com/bedrock/latest/userguide/copy-model.html)
+  in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
+  """
+  @spec create_model_copy_job(map(), create_model_copy_job_request(), list()) ::
+          {:ok, create_model_copy_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_model_copy_job_errors()}
+  def create_model_copy_job(%Client{} = client, input, options \\ []) do
+    url_path = "/model-copy-jobs"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Creates a fine-tuning job to customize a base model.
 
   You specify the base foundation model and the location of the training data.
@@ -1925,7 +2708,7 @@ defmodule AWS.Bedrock do
   job status.
 
   For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
-  in the Amazon Bedrock User Guide.
+  in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
   """
   @spec create_model_customization_job(map(), create_model_customization_job_request(), list()) ::
           {:ok, create_model_customization_job_response(), any()}
@@ -1952,12 +2735,77 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Creates a model import job to import model that you have customized in other
+  environments, such as Amazon SageMaker.
+
+  For more information,
+  see [Import a customized model](https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html)
+  """
+  @spec create_model_import_job(map(), create_model_import_job_request(), list()) ::
+          {:ok, create_model_import_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_model_import_job_errors()}
+  def create_model_import_job(%Client{} = client, input, options \\ []) do
+    url_path = "/model-import-jobs"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a batch inference job to invoke a model on multiple prompts.
+
+  Format your data according to [Format your inference data](https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-data)
+  and upload it to an Amazon S3 bucket. For more information, see [Process multiple prompts with batch
+  inference](https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference.html).
+
+  The response returns a `jobArn` that you can use to stop or get details about
+  the job.
+  """
+  @spec create_model_invocation_job(map(), create_model_invocation_job_request(), list()) ::
+          {:ok, create_model_invocation_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_model_invocation_job_errors()}
+  def create_model_invocation_job(%Client{} = client, input, options \\ []) do
+    url_path = "/model-invocation-job"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates dedicated throughput for a base or custom model with the model units and
   for the duration that you specify.
 
   For pricing details, see [Amazon Bedrock Pricing](http://aws.amazon.com/bedrock/pricing/). For more information, see
   [Provisioned Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html)
-  in the Amazon Bedrock User Guide.
+  in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
   """
   @spec create_provisioned_model_throughput(
           map(),
@@ -1991,7 +2839,7 @@ defmodule AWS.Bedrock do
   Deletes a custom model that you created earlier.
 
   For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
-  in the Amazon Bedrock User Guide.
+  in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
   """
   @spec delete_custom_model(map(), String.t(), delete_custom_model_request(), list()) ::
           {:ok, delete_custom_model_response(), any()}
@@ -2059,6 +2907,37 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Deletes a custom model that you imported earlier.
+
+  For more information,
+  see [Import a customized model](https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html)
+  in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
+  """
+  @spec delete_imported_model(map(), String.t(), delete_imported_model_request(), list()) ::
+          {:ok, delete_imported_model_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_imported_model_errors()}
+  def delete_imported_model(%Client{} = client, model_identifier, input, options \\ []) do
+    url_path = "/imported-models/#{AWS.Util.encode_uri(model_identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Delete the invocation logging.
   """
   @spec delete_model_invocation_logging_configuration(
@@ -2094,7 +2973,7 @@ defmodule AWS.Bedrock do
 
   You can't delete a Provisioned Throughput before the commitment term is over.
   For more information, see [Provisioned Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html)
-  in the Amazon Bedrock User Guide.
+  in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
   """
   @spec delete_provisioned_model_throughput(
           map(),
@@ -2133,7 +3012,7 @@ defmodule AWS.Bedrock do
   @doc """
   Get the properties associated with a Amazon Bedrock custom model that you have
   created.For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
-  in the Amazon Bedrock User Guide.
+  in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
   """
   @spec get_custom_model(map(), String.t(), list()) ::
           {:ok, get_custom_model_response(), any()}
@@ -2153,7 +3032,7 @@ defmodule AWS.Bedrock do
   Retrieves the properties associated with a model evaluation job, including the
   status of the job.
 
-  For more information, see [Model evaluations](https://docs.aws.amazon.com/bedrock/latest/userguide/latest/userguide/model-evaluation.html).
+  For more information, see [Model evaluation](https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation.html).
   """
   @spec get_evaluation_job(map(), String.t(), list()) ::
           {:ok, get_evaluation_job_response(), any()}
@@ -2219,11 +3098,67 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Gets properties associated with a customized model you imported.
+  """
+  @spec get_imported_model(map(), String.t(), list()) ::
+          {:ok, get_imported_model_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_imported_model_errors()}
+  def get_imported_model(%Client{} = client, model_identifier, options \\ []) do
+    url_path = "/imported-models/#{AWS.Util.encode_uri(model_identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets information about an inference profile.
+
+  For more information, see the Amazon Bedrock User Guide.
+  """
+  @spec get_inference_profile(map(), String.t(), list()) ::
+          {:ok, get_inference_profile_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_inference_profile_errors()}
+  def get_inference_profile(%Client{} = client, inference_profile_identifier, options \\ []) do
+    url_path = "/inference-profiles/#{AWS.Util.encode_uri(inference_profile_identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves information about a model copy job.
+
+  For more information, see [Copy models to be used in other regions](https://docs.aws.amazon.com/bedrock/latest/userguide/copy-model.html)
+  in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
+  """
+  @spec get_model_copy_job(map(), String.t(), list()) ::
+          {:ok, get_model_copy_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_model_copy_job_errors()}
+  def get_model_copy_job(%Client{} = client, job_arn, options \\ []) do
+    url_path = "/model-copy-jobs/#{AWS.Util.encode_uri(job_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves the properties associated with a model-customization job, including
   the status of the job.
 
   For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
-  in the Amazon Bedrock User Guide.
+  in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
   """
   @spec get_model_customization_job(map(), String.t(), list()) ::
           {:ok, get_model_customization_job_response(), any()}
@@ -2231,6 +3166,48 @@ defmodule AWS.Bedrock do
           | {:error, get_model_customization_job_errors()}
   def get_model_customization_job(%Client{} = client, job_identifier, options \\ []) do
     url_path = "/model-customization-jobs/#{AWS.Util.encode_uri(job_identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the properties associated with import model job, including the status
+  of the
+  job.
+
+  For more information,
+  see [Import a customized model](https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html)
+  in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
+  """
+  @spec get_model_import_job(map(), String.t(), list()) ::
+          {:ok, get_model_import_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_model_import_job_errors()}
+  def get_model_import_job(%Client{} = client, job_identifier, options \\ []) do
+    url_path = "/model-import-jobs/#{AWS.Util.encode_uri(job_identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets details about a batch inference job.
+
+  For more information, see [View details about a batch inference job](https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-manage.html#batch-inference-view)
+  """
+  @spec get_model_invocation_job(map(), String.t(), list()) ::
+          {:ok, get_model_invocation_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_model_invocation_job_errors()}
+  def get_model_invocation_job(%Client{} = client, job_identifier, options \\ []) do
+    url_path = "/model-invocation-job/#{AWS.Util.encode_uri(job_identifier)}"
     headers = []
     query_params = []
 
@@ -2260,7 +3237,7 @@ defmodule AWS.Bedrock do
   Returns details for a Provisioned Throughput.
 
   For more information, see [Provisioned Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html)
-  in the Amazon Bedrock User Guide.
+  in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
   """
   @spec get_provisioned_model_throughput(map(), String.t(), list()) ::
           {:ok, get_provisioned_model_throughput_response(), any()}
@@ -2281,10 +3258,11 @@ defmodule AWS.Bedrock do
   `CreateModelCustomizationJob` operation.
 
   For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
-  in the Amazon Bedrock User Guide.
+  in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
   """
   @spec list_custom_models(
           map(),
+          String.t() | nil,
           String.t() | nil,
           String.t() | nil,
           String.t() | nil,
@@ -2305,6 +3283,7 @@ defmodule AWS.Bedrock do
         creation_time_after \\ nil,
         creation_time_before \\ nil,
         foundation_model_arn_equals \\ nil,
+        is_owned \\ nil,
         max_results \\ nil,
         name_contains \\ nil,
         next_token \\ nil,
@@ -2347,6 +3326,13 @@ defmodule AWS.Bedrock do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(is_owned) do
+        [{"isOwned", is_owned} | query_params]
       else
         query_params
       end
@@ -2484,7 +3470,7 @@ defmodule AWS.Bedrock do
 
   You can filter the results with the request parameters. For more information,
   see [Foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/foundation-models.html)
-  in the Amazon Bedrock User Guide.
+  in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
   """
   @spec list_foundation_models(
           map(),
@@ -2596,13 +3582,257 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Returns a list of models you've imported.
+
+  You can filter the results to return based on one or more criteria.
+  For more information,
+  see [Import a customized model](https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html)
+  in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
+  """
+  @spec list_imported_models(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_imported_models_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_imported_models_errors()}
+  def list_imported_models(
+        %Client{} = client,
+        creation_time_after \\ nil,
+        creation_time_before \\ nil,
+        max_results \\ nil,
+        name_contains \\ nil,
+        next_token \\ nil,
+        sort_by \\ nil,
+        sort_order \\ nil,
+        options \\ []
+      ) do
+    url_path = "/imported-models"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(sort_order) do
+        [{"sortOrder", sort_order} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort_by) do
+        [{"sortBy", sort_by} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(name_contains) do
+        [{"nameContains", name_contains} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(creation_time_before) do
+        [{"creationTimeBefore", creation_time_before} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(creation_time_after) do
+        [{"creationTimeAfter", creation_time_after} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of inference profiles that you can use.
+  """
+  @spec list_inference_profiles(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_inference_profiles_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_inference_profiles_errors()}
+  def list_inference_profiles(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/inference-profiles"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of model copy jobs that you have submitted.
+
+  You can filter the jobs to return based on
+  one or more criteria. For more information, see [Copy models to be used in other regions](https://docs.aws.amazon.com/bedrock/latest/userguide/copy-model.html)
+  in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
+  """
+  @spec list_model_copy_jobs(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_model_copy_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_model_copy_jobs_errors()}
+  def list_model_copy_jobs(
+        %Client{} = client,
+        creation_time_after \\ nil,
+        creation_time_before \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        sort_by \\ nil,
+        sort_order \\ nil,
+        source_account_equals \\ nil,
+        source_model_arn_equals \\ nil,
+        status_equals \\ nil,
+        target_model_name_contains \\ nil,
+        options \\ []
+      ) do
+    url_path = "/model-copy-jobs"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(target_model_name_contains) do
+        [{"outputModelNameContains", target_model_name_contains} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status_equals) do
+        [{"statusEquals", status_equals} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(source_model_arn_equals) do
+        [{"sourceModelArnEquals", source_model_arn_equals} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(source_account_equals) do
+        [{"sourceAccountEquals", source_account_equals} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort_order) do
+        [{"sortOrder", sort_order} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort_by) do
+        [{"sortBy", sort_by} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(creation_time_before) do
+        [{"creationTimeBefore", creation_time_before} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(creation_time_after) do
+        [{"creationTimeAfter", creation_time_after} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns a list of model customization jobs that you have submitted.
 
   You can filter the jobs to return based on
   one or more criteria.
 
   For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
-  in the Amazon Bedrock User Guide.
+  in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
   """
   @spec list_model_customization_jobs(
           map(),
@@ -2697,10 +3927,207 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Returns a list of import jobs you've submitted.
+
+  You can filter the results to return based on one or more criteria.
+  For more information,
+  see [Import a customized model](https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html)
+  in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
+  """
+  @spec list_model_import_jobs(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_model_import_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_model_import_jobs_errors()}
+  def list_model_import_jobs(
+        %Client{} = client,
+        creation_time_after \\ nil,
+        creation_time_before \\ nil,
+        max_results \\ nil,
+        name_contains \\ nil,
+        next_token \\ nil,
+        sort_by \\ nil,
+        sort_order \\ nil,
+        status_equals \\ nil,
+        options \\ []
+      ) do
+    url_path = "/model-import-jobs"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(status_equals) do
+        [{"statusEquals", status_equals} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort_order) do
+        [{"sortOrder", sort_order} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort_by) do
+        [{"sortBy", sort_by} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(name_contains) do
+        [{"nameContains", name_contains} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(creation_time_before) do
+        [{"creationTimeBefore", creation_time_before} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(creation_time_after) do
+        [{"creationTimeAfter", creation_time_after} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all batch inference jobs in the account.
+
+  For more information, see [View details about a batch inference job](https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-manage.html#batch-inference-view).
+  """
+  @spec list_model_invocation_jobs(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_model_invocation_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_model_invocation_jobs_errors()}
+  def list_model_invocation_jobs(
+        %Client{} = client,
+        max_results \\ nil,
+        name_contains \\ nil,
+        next_token \\ nil,
+        sort_by \\ nil,
+        sort_order \\ nil,
+        status_equals \\ nil,
+        submit_time_after \\ nil,
+        submit_time_before \\ nil,
+        options \\ []
+      ) do
+    url_path = "/model-invocation-jobs"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(submit_time_before) do
+        [{"submitTimeBefore", submit_time_before} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(submit_time_after) do
+        [{"submitTimeAfter", submit_time_after} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status_equals) do
+        [{"statusEquals", status_equals} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort_order) do
+        [{"sortOrder", sort_order} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort_by) do
+        [{"sortBy", sort_by} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(name_contains) do
+        [{"nameContains", name_contains} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists the Provisioned Throughputs in the account.
 
   For more information, see [Provisioned Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html)
-  in the Amazon Bedrock User Guide.
+  in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
   """
   @spec list_provisioned_model_throughputs(
           map(),
@@ -2807,7 +4234,7 @@ defmodule AWS.Bedrock do
   List the tags associated with the specified resource.
 
   For more information, see [Tagging resources](https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html) in
-  the Amazon Bedrock User Guide.
+  the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
   """
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -2885,7 +4312,7 @@ defmodule AWS.Bedrock do
   Stops an active model customization job.
 
   For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
-  in the Amazon Bedrock User Guide.
+  in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
   """
   @spec stop_model_customization_job(
           map(),
@@ -2917,10 +4344,40 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Stops a batch inference job.
+
+  You're only charged for tokens that were already processed. For more
+  information, see [Stop a batch inference job](https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-manage.html#batch-inference-stop).
+  """
+  @spec stop_model_invocation_job(map(), String.t(), stop_model_invocation_job_request(), list()) ::
+          {:ok, stop_model_invocation_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, stop_model_invocation_job_errors()}
+  def stop_model_invocation_job(%Client{} = client, job_identifier, input, options \\ []) do
+    url_path = "/model-invocation-job/#{AWS.Util.encode_uri(job_identifier)}/stop"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Associate tags with a resource.
 
   For more information, see [Tagging resources](https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html) in
-  the Amazon Bedrock User Guide.
+  the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
   """
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
@@ -2950,7 +4407,7 @@ defmodule AWS.Bedrock do
   Remove one or more tags from a resource.
 
   For more information, see [Tagging resources](https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html) in
-  the Amazon Bedrock User Guide.
+  the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
   """
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
@@ -3038,7 +4495,7 @@ defmodule AWS.Bedrock do
   Updates the name or associated model for a Provisioned Throughput.
 
   For more information, see [Provisioned Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html)
-  in the Amazon Bedrock User Guide.
+  in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
   """
   @spec update_provisioned_model_throughput(
           map(),

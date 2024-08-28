@@ -28,6 +28,7 @@ defmodule AWS.Amplify do
         "autoBranchCreationPatterns" => list(String.t()()),
         "basicAuthCredentials" => String.t(),
         "buildSpec" => String.t(),
+        "cacheConfig" => cache_config(),
         "createTime" => non_neg_integer(),
         "customHeaders" => String.t(),
         "customRules" => list(custom_rule()()),
@@ -165,6 +166,7 @@ defmodule AWS.Amplify do
         optional("autoBranchCreationPatterns") => list(String.t()()),
         optional("basicAuthCredentials") => String.t(),
         optional("buildSpec") => String.t(),
+        optional("cacheConfig") => cache_config(),
         optional("customHeaders") => String.t(),
         optional("customRules") => list(custom_rule()()),
         optional("description") => String.t(),
@@ -765,6 +767,17 @@ defmodule AWS.Amplify do
 
   ## Example:
 
+      cache_config() :: %{
+        "type" => list(any())
+      }
+
+  """
+  @type cache_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_backend_environments_request() :: %{
         optional("environmentName") => String.t(),
         optional("maxResults") => integer(),
@@ -957,6 +970,7 @@ defmodule AWS.Amplify do
         optional("autoBranchCreationPatterns") => list(String.t()()),
         optional("basicAuthCredentials") => String.t(),
         optional("buildSpec") => String.t(),
+        optional("cacheConfig") => cache_config(),
         optional("customHeaders") => String.t(),
         optional("customRules") => list(custom_rule()()),
         optional("description") => String.t(),

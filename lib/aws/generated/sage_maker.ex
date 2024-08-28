@@ -1287,6 +1287,8 @@ defmodule AWS.SageMaker do
         "ClarifyCheck" => clarify_check_step_metadata(),
         "Condition" => condition_step_metadata(),
         "EMR" => emr_step_metadata(),
+        "Endpoint" => endpoint_step_metadata(),
+        "EndpointConfig" => endpoint_config_step_metadata(),
         "Fail" => fail_step_metadata(),
         "Lambda" => lambda_step_metadata(),
         "Model" => model_step_metadata(),
@@ -3424,6 +3426,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      auto_ml_compute_config() :: %{
+        "EmrServerlessComputeConfig" => emr_serverless_compute_config()
+      }
+      
+  """
+  @type auto_ml_compute_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_endpoint_input() :: %{
         optional("DeploymentConfig") => deployment_config(),
         optional("Tags") => list(tag()()),
@@ -3577,6 +3590,17 @@ defmodule AWS.SageMaker do
       
   """
   @type list_hub_contents_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      endpoint_step_metadata() :: %{
+        "Arn" => String.t()
+      }
+      
+  """
+  @type endpoint_step_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6481,6 +6505,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      emr_serverless_compute_config() :: %{
+        "ExecutionRoleARN" => String.t()
+      }
+      
+  """
+  @type emr_serverless_compute_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       metric_datum() :: %{
         "MetricName" => list(any()),
         "Set" => list(any()),
@@ -8590,6 +8625,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       create_auto_ml_job_v2_request() :: %{
+        optional("AutoMLComputeConfig") => auto_ml_compute_config(),
         optional("AutoMLJobObjective") => auto_ml_job_objective(),
         optional("DataSplitConfig") => auto_ml_data_split_config(),
         optional("ModelDeployConfig") => model_deploy_config(),
@@ -9936,6 +9972,7 @@ defmodule AWS.SageMaker do
       
       canvas_app_settings() :: %{
         "DirectDeploySettings" => direct_deploy_settings(),
+        "EmrServerlessSettings" => emr_serverless_settings(),
         "GenerativeAiSettings" => generative_ai_settings(),
         "IdentityProviderOAuthSettings" => list(identity_provider_o_auth_setting()()),
         "KendraSettings" => kendra_settings(),
@@ -11335,6 +11372,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       describe_auto_ml_job_v2_response() :: %{
+        "AutoMLComputeConfig" => auto_ml_compute_config(),
         "AutoMLJobArn" => String.t(),
         "AutoMLJobArtifacts" => auto_ml_job_artifacts(),
         "AutoMLJobInputDataConfig" => list(auto_ml_job_channel()()),
@@ -14471,6 +14509,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      emr_settings() :: %{
+        "AssumableRoleArns" => list(String.t()()),
+        "ExecutionRoleArns" => list(String.t()())
+      }
+      
+  """
+  @type emr_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_cluster_nodes_response() :: %{
         "ClusterNodeSummaries" => list(cluster_node_summary()()),
         "NextToken" => String.t()
@@ -14802,6 +14852,17 @@ defmodule AWS.SageMaker do
       
   """
   @type metrics_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      endpoint_config_step_metadata() :: %{
+        "Arn" => String.t()
+      }
+      
+  """
+  @type endpoint_config_step_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -15839,6 +15900,7 @@ defmodule AWS.SageMaker do
         "CodeRepositories" => list(code_repository()()),
         "CustomImages" => list(custom_image()()),
         "DefaultResourceSpec" => resource_spec(),
+        "EmrSettings" => emr_settings(),
         "LifecycleConfigArns" => list(String.t()())
       }
       
@@ -16126,6 +16188,18 @@ defmodule AWS.SageMaker do
       
   """
   @type hyper_parameter_tuning_job_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      emr_serverless_settings() :: %{
+        "ExecutionRoleArn" => String.t(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type emr_serverless_settings() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -17649,10 +17723,34 @@ defmodule AWS.SageMaker do
   @doc """
   Creates an Autopilot job also referred to as Autopilot experiment or AutoML job.
 
+  An AutoML job in SageMaker is a fully automated process that allows you to build
+  machine
+  learning models with minimal effort and machine learning expertise. When
+  initiating an
+  AutoML job, you provide your data and optionally specify parameters tailored to
+  your use
+  case. SageMaker then automates the entire model development lifecycle, including
+  data
+  preprocessing, model training, tuning, and evaluation. AutoML jobs are designed
+  to simplify
+  and accelerate the model building process by automating various tasks and
+  exploring
+  different combinations of machine learning algorithms, data preprocessing
+  techniques, and
+  hyperparameter values. The output of an AutoML job comprises one or more trained
+  models
+  ready for deployment and inference. Additionally, SageMaker AutoML jobs generate
+  a candidate
+  model leaderboard, allowing you to select the best-performing model for
+  deployment.
+
+  For more information about AutoML jobs, see
+  [https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html](https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html) in the SageMaker developer guide.
+
   We recommend using the new versions
-  [CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html) and
-  [DescribeAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html),
-  which offer backward compatibility.
+  [CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html)
+  and
+  [DescribeAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html), which offer backward compatibility.
 
   `CreateAutoMLJobV2` can manage tabular problem types identical to those of
   its previous version `CreateAutoMLJob`, as well as time-series forecasting,
@@ -17661,7 +17759,8 @@ defmodule AWS.SageMaker do
   (LLMs fine-tuning).
 
   Find guidelines about how to migrate a `CreateAutoMLJob` to
-  `CreateAutoMLJobV2` in [Migrate a CreateAutoMLJob to CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment.html#autopilot-create-experiment-api-migrate-v1-v2).
+  `CreateAutoMLJobV2` in [Migrate a CreateAutoMLJob to
+  CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment.html#autopilot-create-experiment-api-migrate-v1-v2).
 
   You can find the best-performing model after you run an AutoML job by calling
   [DescribeAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html) (recommended) or
@@ -17681,12 +17780,42 @@ defmodule AWS.SageMaker do
   Creates an Autopilot job also referred to as Autopilot experiment or AutoML job
   V2.
 
-  [CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html) and
-  [DescribeAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html)
-  are new versions of
-  [CreateAutoMLJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html) and
-  [DescribeAutoMLJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJob.html)
-  which offer backward compatibility.
+  An AutoML job in SageMaker is a fully automated process that allows you to build
+  machine
+  learning models with minimal effort and machine learning expertise. When
+  initiating an
+  AutoML job, you provide your data and optionally specify parameters tailored to
+  your use
+  case. SageMaker then automates the entire model development lifecycle, including
+  data
+  preprocessing, model training, tuning, and evaluation. AutoML jobs are designed
+  to simplify
+  and accelerate the model building process by automating various tasks and
+  exploring
+  different combinations of machine learning algorithms, data preprocessing
+  techniques, and
+  hyperparameter values. The output of an AutoML job comprises one or more trained
+  models
+  ready for deployment and inference. Additionally, SageMaker AutoML jobs generate
+  a candidate
+  model leaderboard, allowing you to select the best-performing model for
+  deployment.
+
+  For more information about AutoML jobs, see
+  [https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html](https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html) in the SageMaker developer guide.
+
+  AutoML jobs V2 support various problem types such as regression, binary, and
+  multiclass
+  classification with tabular data, text and image classification, time-series
+  forecasting,
+  and fine-tuning of large language models (LLMs) for text generation.
+
+  [CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html)
+  and
+  [DescribeAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html) are new versions of
+  [CreateAutoMLJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html)
+  and
+  [DescribeAutoMLJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJob.html) which offer backward compatibility.
 
   `CreateAutoMLJobV2` can manage tabular problem types identical to those of
   its previous version `CreateAutoMLJob`, as well as time-series forecasting,
@@ -17695,7 +17824,8 @@ defmodule AWS.SageMaker do
   (LLMs fine-tuning).
 
   Find guidelines about how to migrate a `CreateAutoMLJob` to
-  `CreateAutoMLJobV2` in [Migrate a CreateAutoMLJob to CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment.html#autopilot-create-experiment-api-migrate-v1-v2).
+  `CreateAutoMLJobV2` in [Migrate a CreateAutoMLJob to
+  CreateAutoMLJobV2](https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment.html#autopilot-create-experiment-api-migrate-v1-v2).
 
   For the list of available problem types supported by `CreateAutoMLJobV2`, see
   [AutoMLProblemTypeConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLProblemTypeConfig.html). 

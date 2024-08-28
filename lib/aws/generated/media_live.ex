@@ -583,6 +583,18 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      srt_caller_decryption_request() :: %{
+        "Algorithm" => list(any()),
+        "PassphraseSecretArn" => String.t()
+      }
+
+  """
+  @type srt_caller_decryption_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_channel_response() :: %{
         "Channel" => channel()
       }
@@ -620,6 +632,18 @@ defmodule AWS.MediaLive do
 
   """
   @type pause_state_schedule_action_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      srt_caller_decryption() :: %{
+        "Algorithm" => list(any()),
+        "PassphraseSecretArn" => String.t()
+      }
+
+  """
+  @type srt_caller_decryption() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1614,6 +1638,21 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      srt_caller_source() :: %{
+        "Decryption" => srt_caller_decryption(),
+        "MinimumLatency" => integer(),
+        "SrtListenerAddress" => String.t(),
+        "SrtListenerPort" => String.t(),
+        "StreamId" => String.t()
+      }
+
+  """
+  @type srt_caller_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       stop_channel_request() :: %{}
 
   """
@@ -2051,6 +2090,7 @@ defmodule AWS.MediaLive do
         optional("RequestId") => String.t(),
         optional("RoleArn") => String.t(),
         optional("Sources") => list(input_source_request()()),
+        optional("SrtSettings") => srt_settings_request(),
         optional("Tags") => map(),
         optional("Type") => list(any()),
         optional("Vpc") => input_vpc_request()
@@ -2245,6 +2285,7 @@ defmodule AWS.MediaLive do
         "RoleArn" => String.t(),
         "SecurityGroups" => list(String.t()()),
         "Sources" => list(input_source()()),
+        "SrtSettings" => srt_settings(),
         "State" => list(any()),
         "Tags" => map(),
         "Type" => list(any())
@@ -2307,7 +2348,8 @@ defmodule AWS.MediaLive do
         optional("MediaConnectFlows") => list(media_connect_flow_request()()),
         optional("Name") => String.t(),
         optional("RoleArn") => String.t(),
-        optional("Sources") => list(input_source_request()())
+        optional("Sources") => list(input_source_request()()),
+        optional("SrtSettings") => srt_settings_request()
       }
 
   """
@@ -2614,6 +2656,17 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      srt_settings_request() :: %{
+        "SrtCallerSources" => list(srt_caller_source_request()())
+      }
+
+  """
+  @type srt_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_channel_response() :: %{
         "Arn" => String.t(),
         "CdiInputSpecification" => cdi_input_specification(),
@@ -2719,7 +2772,8 @@ defmodule AWS.MediaLive do
 
       update_multiplex_request() :: %{
         optional("MultiplexSettings") => multiplex_settings(),
-        optional("Name") => String.t()
+        optional("Name") => String.t(),
+        optional("PacketIdentifiersMapping") => map()
       }
 
   """
@@ -2911,6 +2965,7 @@ defmodule AWS.MediaLive do
         "RoleArn" => String.t(),
         "SecurityGroups" => list(String.t()()),
         "Sources" => list(input_source()()),
+        "SrtSettings" => srt_settings(),
         "State" => list(any()),
         "Tags" => map(),
         "Type" => list(any())
@@ -3151,9 +3206,12 @@ defmodule AWS.MediaLive do
   ## Example:
 
       multiplex_program_packet_identifiers_map() :: %{
+        "AribCaptionsPid" => integer(),
         "AudioPids" => list(integer()()),
         "DvbSubPids" => list(integer()()),
         "DvbTeletextPid" => integer(),
+        "DvbTeletextPids" => list(integer()()),
+        "EcmPid" => integer(),
         "EtvPlatformPid" => integer(),
         "EtvSignalPid" => integer(),
         "KlvDataPids" => list(integer()()),
@@ -3162,6 +3220,7 @@ defmodule AWS.MediaLive do
         "PrivateMetadataPid" => integer(),
         "Scte27Pids" => list(integer()()),
         "Scte35Pid" => integer(),
+        "Smpte2038Pid" => integer(),
         "TimedMetadataPid" => integer(),
         "VideoPid" => integer()
       }
@@ -3440,6 +3499,21 @@ defmodule AWS.MediaLive do
 
   """
   @type audio_channel_mapping() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      srt_caller_source_request() :: %{
+        "Decryption" => srt_caller_decryption_request(),
+        "MinimumLatency" => integer(),
+        "SrtListenerAddress" => String.t(),
+        "SrtListenerPort" => String.t(),
+        "StreamId" => String.t()
+      }
+
+  """
+  @type srt_caller_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4986,6 +5060,17 @@ defmodule AWS.MediaLive do
 
   """
   @type gateway_timeout_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      srt_settings() :: %{
+        "SrtCallerSources" => list(srt_caller_source()())
+      }
+
+  """
+  @type srt_settings() :: %{String.t() => any()}
 
   @typedoc """
 

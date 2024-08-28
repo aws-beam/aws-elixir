@@ -9384,10 +9384,10 @@ defmodule AWS.SSM do
   specify a node ID that isn't valid or a node that you don't own, you receive an
   error.
 
-  The `IamRole` field returned for this API operation is the Identity and Access
-  Management (IAM) role assigned to on-premises managed nodes. This operation does
-  not
-  return the IAM role for EC2 instances.
+  The `IamRole` field returned for this API operation is the role assigned to an
+  Amazon EC2 instance configured with a Systems Manager Quick Setup host
+  management configuration or
+  the role assigned to an on-premises managed node.
   """
   @spec describe_instance_information(map(), describe_instance_information_request(), list()) ::
           {:ok, describe_instance_information_result(), any()}
@@ -9448,7 +9448,8 @@ defmodule AWS.SSM do
 
   @doc """
   An API operation used by the Systems Manager console to display information
-  about Systems Manager managed nodes.
+  about Systems Manager managed
+  nodes.
   """
   @spec describe_instance_properties(map(), describe_instance_properties_request(), list()) ::
           {:ok, describe_instance_properties_result(), any()}
@@ -9754,6 +9755,11 @@ defmodule AWS.SSM do
   Valid properties: `PRODUCT` | `CLASSIFICATION` |
   `SEVERITY`
 
+  ### AMAZON_LINUX_2023
+
+  Valid properties: `PRODUCT` | `CLASSIFICATION` |
+  `SEVERITY`
+
   ### CENTOS
 
   Valid properties: `PRODUCT` | `CLASSIFICATION` |
@@ -9885,6 +9891,17 @@ defmodule AWS.SSM do
   @doc """
   Returns detailed information about command execution for an invocation or
   plugin.
+
+  The Run
+  Command API follows an eventual consistency model, due to the distributed nature
+  of the system
+  supporting the API. This means that the result of an API command you run that
+  affects your
+  resources might not be immediately visible to all subsequent commands you run.
+  You should keep
+  this in mind when you carry out an API command that immediately follows a
+  previous API
+  command.
 
   `GetCommandInvocation` only gives the execution status of a plugin in a
   document.

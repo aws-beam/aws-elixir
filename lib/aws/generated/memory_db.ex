@@ -3,14 +3,14 @@
 
 defmodule AWS.MemoryDB do
   @moduledoc """
-  MemoryDB for Redis is a fully managed, Redis-compatible, in-memory database that
+  MemoryDB is a fully managed, Redis OSS-compatible, in-memory database that
   delivers ultra-fast performance and Multi-AZ durability for modern applications
   built using microservices architectures.
 
   MemoryDB stores the entire database in-memory, enabling low latency and high
-  throughput data access. It is compatible with Redis, a popular open source data
-  store, enabling you to leverage Redis’ flexible and friendly data structures,
-  APIs, and commands.
+  throughput data access. It is compatible with Redis OSS, a popular open source
+  data store, enabling you to leverage Redis OSS’ flexible and friendly data
+  structures, APIs, and commands.
   """
 
   alias AWS.Client
@@ -2537,6 +2537,10 @@ defmodule AWS.MemoryDB do
   Deletes a cluster.
 
   It also deletes all associated nodes and node endpoints
+
+  `CreateSnapshot` permission is required to create a final snapshot.
+  Without this permission, the API call will fail with an `Access Denied`
+  exception.
   """
   @spec delete_cluster(map(), delete_cluster_request(), list()) ::
           {:ok, delete_cluster_response(), any()}
@@ -2639,7 +2643,7 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
-  Returns a list of the available Redis engine versions.
+  Returns a list of the available Redis OSS engine versions.
   """
   @spec describe_engine_versions(map(), describe_engine_versions_request(), list()) ::
           {:ok, describe_engine_versions_response(), any()}

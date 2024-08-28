@@ -207,6 +207,7 @@ defmodule AWS.Firehose do
       
       snowflake_destination_update() :: %{
         "AccountUrl" => String.t(),
+        "BufferingHints" => snowflake_buffering_hints(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
         "ContentColumnName" => String.t(),
         "DataLoadingOption" => list(any()),
@@ -228,6 +229,25 @@ defmodule AWS.Firehose do
       
   """
   @type snowflake_destination_update() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      iceberg_destination_update() :: %{
+        "BufferingHints" => buffering_hints(),
+        "CatalogConfiguration" => catalog_configuration(),
+        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
+        "DestinationTableConfigurationList" => list(destination_table_configuration()()),
+        "ProcessingConfiguration" => processing_configuration(),
+        "RetryOptions" => retry_options(),
+        "RoleARN" => String.t(),
+        "S3BackupMode" => list(any()),
+        "S3Configuration" => s3_destination_configuration()
+      }
+      
+  """
+  @type iceberg_destination_update() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -291,6 +311,7 @@ defmodule AWS.Firehose do
         optional("ElasticsearchDestinationConfiguration") => elasticsearch_destination_configuration(),
         optional("ExtendedS3DestinationConfiguration") => extended_s3_destination_configuration(),
         optional("HttpEndpointDestinationConfiguration") => http_endpoint_destination_configuration(),
+        optional("IcebergDestinationConfiguration") => iceberg_destination_configuration(),
         optional("KinesisStreamSourceConfiguration") => kinesis_stream_source_configuration(),
         optional("MSKSourceConfiguration") => m_s_k_source_configuration(),
         optional("RedshiftDestinationConfiguration") => redshift_destination_configuration(),
@@ -383,6 +404,7 @@ defmodule AWS.Firehose do
         "AuthenticationConfiguration" => authentication_configuration(),
         "DeliveryStartTimestamp" => non_neg_integer(),
         "MSKClusterARN" => String.t(),
+        "ReadFromTimestamp" => non_neg_integer(),
         "TopicName" => String.t()
       }
       
@@ -408,6 +430,7 @@ defmodule AWS.Firehose do
       m_s_k_source_configuration() :: %{
         "AuthenticationConfiguration" => authentication_configuration(),
         "MSKClusterARN" => String.t(),
+        "ReadFromTimestamp" => non_neg_integer(),
         "TopicName" => String.t()
       }
       
@@ -517,6 +540,7 @@ defmodule AWS.Firehose do
         "ElasticsearchDestinationDescription" => elasticsearch_destination_description(),
         "ExtendedS3DestinationDescription" => extended_s3_destination_description(),
         "HttpEndpointDestinationDescription" => http_endpoint_destination_description(),
+        "IcebergDestinationDescription" => iceberg_destination_description(),
         "RedshiftDestinationDescription" => redshift_destination_description(),
         "S3DestinationDescription" => s3_destination_description(),
         "SnowflakeDestinationDescription" => snowflake_destination_description(),
@@ -532,6 +556,7 @@ defmodule AWS.Firehose do
       
       snowflake_destination_description() :: %{
         "AccountUrl" => String.t(),
+        "BufferingHints" => snowflake_buffering_hints(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
         "ContentColumnName" => String.t(),
         "DataLoadingOption" => list(any()),
@@ -570,12 +595,25 @@ defmodule AWS.Firehose do
 
   ## Example:
       
+      snowflake_buffering_hints() :: %{
+        "IntervalInSeconds" => integer(),
+        "SizeInMBs" => integer()
+      }
+      
+  """
+  @type snowflake_buffering_hints() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_destination_input() :: %{
         optional("AmazonOpenSearchServerlessDestinationUpdate") => amazon_open_search_serverless_destination_update(),
         optional("AmazonopensearchserviceDestinationUpdate") => amazonopensearchservice_destination_update(),
         optional("ElasticsearchDestinationUpdate") => elasticsearch_destination_update(),
         optional("ExtendedS3DestinationUpdate") => extended_s3_destination_update(),
         optional("HttpEndpointDestinationUpdate") => http_endpoint_destination_update(),
+        optional("IcebergDestinationUpdate") => iceberg_destination_update(),
         optional("RedshiftDestinationUpdate") => redshift_destination_update(),
         optional("S3DestinationUpdate") => s3_destination_update(),
         optional("SnowflakeDestinationUpdate") => snowflake_destination_update(),
@@ -628,6 +666,25 @@ defmodule AWS.Firehose do
 
   ## Example:
       
+      iceberg_destination_configuration() :: %{
+        "BufferingHints" => buffering_hints(),
+        "CatalogConfiguration" => catalog_configuration(),
+        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
+        "DestinationTableConfigurationList" => list(destination_table_configuration()()),
+        "ProcessingConfiguration" => processing_configuration(),
+        "RetryOptions" => retry_options(),
+        "RoleARN" => String.t(),
+        "S3BackupMode" => list(any()),
+        "S3Configuration" => s3_destination_configuration()
+      }
+      
+  """
+  @type iceberg_destination_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       resource_not_found_exception() :: %{
         "message" => String.t()
       }
@@ -645,6 +702,20 @@ defmodule AWS.Firehose do
       
   """
   @type amazonopensearchservice_retry_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      destination_table_configuration() :: %{
+        "DestinationDatabaseName" => String.t(),
+        "DestinationTableName" => String.t(),
+        "S3ErrorOutputPrefix" => String.t(),
+        "UniqueKeys" => list(String.t()())
+      }
+      
+  """
+  @type destination_table_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -688,6 +759,7 @@ defmodule AWS.Firehose do
       
       snowflake_destination_configuration() :: %{
         "AccountUrl" => String.t(),
+        "BufferingHints" => snowflake_buffering_hints(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
         "ContentColumnName" => String.t(),
         "DataLoadingOption" => list(any()),
@@ -1102,6 +1174,25 @@ defmodule AWS.Firehose do
 
   ## Example:
       
+      iceberg_destination_description() :: %{
+        "BufferingHints" => buffering_hints(),
+        "CatalogConfiguration" => catalog_configuration(),
+        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
+        "DestinationTableConfigurationList" => list(destination_table_configuration()()),
+        "ProcessingConfiguration" => processing_configuration(),
+        "RetryOptions" => retry_options(),
+        "RoleARN" => String.t(),
+        "S3BackupMode" => list(any()),
+        "S3DestinationDescription" => s3_destination_description()
+      }
+      
+  """
+  @type iceberg_destination_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delivery_stream_description() :: %{
         "CreateTimestamp" => non_neg_integer(),
         "DeliveryStreamARN" => String.t(),
@@ -1274,6 +1365,17 @@ defmodule AWS.Firehose do
       
   """
   @type amazonopensearchservice_destination_update() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      catalog_configuration() :: %{
+        "CatalogARN" => String.t()
+      }
+      
+  """
+  @type catalog_configuration() :: %{String.t() => any()}
 
   @typedoc """
 

@@ -3,8 +3,8 @@
 
 defmodule AWS.Fis do
   @moduledoc """
-  Fault Injection Service is a managed service that enables you to perform fault
-  injection
+  Amazon Web Services Fault Injection Service is a managed service that enables
+  you to perform fault injection
   experiments on your Amazon Web Services workloads.
 
   For more information, see the [Fault Injection Service User Guide](https://docs.aws.amazon.com/fis/latest/userguide/).
@@ -484,6 +484,7 @@ defmodule AWS.Fis do
   ## Example:
 
       experiment_state() :: %{
+        "error" => experiment_error(),
         "reason" => String.t(),
         "status" => list(any())
       }
@@ -750,6 +751,19 @@ defmodule AWS.Fis do
 
   """
   @type list_target_account_configurations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      experiment_error() :: %{
+        "accountId" => String.t(),
+        "code" => String.t(),
+        "location" => String.t()
+      }
+
+  """
+  @type experiment_error() :: %{String.t() => any()}
 
   @typedoc """
 

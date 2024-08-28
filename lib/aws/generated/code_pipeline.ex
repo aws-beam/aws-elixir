@@ -288,6 +288,20 @@ defmodule AWS.CodePipeline do
 
   ## Example:
       
+      override_stage_condition_input() :: %{
+        required("conditionType") => list(any()),
+        required("pipelineExecutionId") => String.t(),
+        required("pipelineName") => String.t(),
+        required("stageName") => String.t()
+      }
+      
+  """
+  @type override_stage_condition_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       request_failed_exception() :: %{
         "message" => String.t()
       }
@@ -527,6 +541,21 @@ defmodule AWS.CodePipeline do
 
   ## Example:
       
+      rule_state() :: %{
+        "currentRevision" => rule_revision(),
+        "entityUrl" => String.t(),
+        "latestExecution" => rule_execution(),
+        "revisionUrl" => String.t(),
+        "ruleName" => String.t()
+      }
+      
+  """
+  @type rule_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       execution_details() :: %{
         "externalExecutionId" => String.t(),
         "percentComplete" => integer(),
@@ -540,12 +569,47 @@ defmodule AWS.CodePipeline do
 
   ## Example:
       
+      rule_type_settings() :: %{
+        "entityUrlTemplate" => String.t(),
+        "executionUrlTemplate" => String.t(),
+        "revisionUrlTemplate" => String.t(),
+        "thirdPartyConfigurationUrl" => String.t()
+      }
+      
+  """
+  @type rule_type_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       not_latest_pipeline_execution_exception() :: %{
         "message" => String.t()
       }
       
   """
   @type not_latest_pipeline_execution_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_execution_detail() :: %{
+        "input" => rule_execution_input(),
+        "lastUpdateTime" => non_neg_integer(),
+        "output" => rule_execution_output(),
+        "pipelineExecutionId" => String.t(),
+        "pipelineVersion" => integer(),
+        "ruleExecutionId" => String.t(),
+        "ruleName" => String.t(),
+        "stageName" => String.t(),
+        "startTime" => non_neg_integer(),
+        "status" => list(any()),
+        "updatedBy" => String.t()
+      }
+      
+  """
+  @type rule_execution_detail() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -687,6 +751,29 @@ defmodule AWS.CodePipeline do
 
   ## Example:
       
+      rule_execution_filter() :: %{
+        "latestInPipelineExecution" => latest_in_pipeline_execution_filter(),
+        "pipelineExecutionId" => String.t()
+      }
+      
+  """
+  @type rule_execution_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_rule_types_output() :: %{
+        "ruleTypes" => list(rule_type()())
+      }
+      
+  """
+  @type list_rule_types_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       pipeline_variable_declaration() :: %{
         "defaultValue" => String.t(),
         "description" => String.t(),
@@ -724,6 +811,7 @@ defmodule AWS.CodePipeline do
   ## Example:
       
       failure_conditions() :: %{
+        "conditions" => list(condition()()),
         "result" => list(any())
       }
       
@@ -742,6 +830,20 @@ defmodule AWS.CodePipeline do
       
   """
   @type action_revision() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_execution_result() :: %{
+        "errorDetails" => error_details(),
+        "externalExecutionId" => String.t(),
+        "externalExecutionSummary" => String.t(),
+        "externalExecutionUrl" => String.t()
+      }
+      
+  """
+  @type rule_execution_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -909,6 +1011,20 @@ defmodule AWS.CodePipeline do
 
   ## Example:
       
+      rule_type() :: %{
+        "id" => rule_type_id(),
+        "inputArtifactDetails" => artifact_details(),
+        "ruleConfigurationProperties" => list(rule_configuration_property()()),
+        "settings" => rule_type_settings()
+      }
+      
+  """
+  @type rule_type() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       pipeline_execution_filter() :: %{
         "succeededInStage" => succeeded_in_stage_filter()
       }
@@ -927,6 +1043,18 @@ defmodule AWS.CodePipeline do
       
   """
   @type execution_trigger() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_rule_types_input() :: %{
+        optional("regionFilter") => String.t(),
+        optional("ruleOwnerFilter") => list(any())
+      }
+      
+  """
+  @type list_rule_types_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -986,6 +1114,18 @@ defmodule AWS.CodePipeline do
 
   ## Example:
       
+      condition_state() :: %{
+        "latestExecution" => condition_execution(),
+        "ruleStates" => list(rule_state()())
+      }
+      
+  """
+  @type condition_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       invalid_tags_exception() :: %{
         "message" => String.t()
       }
@@ -1003,6 +1143,17 @@ defmodule AWS.CodePipeline do
       
   """
   @type invalid_webhook_filter_pattern_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_execution_output() :: %{
+        "executionResult" => rule_execution_result()
+      }
+      
+  """
+  @type rule_execution_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1153,6 +1304,18 @@ defmodule AWS.CodePipeline do
       
   """
   @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stage_conditions_execution() :: %{
+        "status" => list(any()),
+        "summary" => String.t()
+      }
+      
+  """
+  @type stage_conditions_execution() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1479,6 +1642,18 @@ defmodule AWS.CodePipeline do
 
   ## Example:
       
+      condition() :: %{
+        "result" => list(any()),
+        "rules" => list(rule_declaration()())
+      }
+      
+  """
+  @type condition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       s3_location() :: %{
         "bucket" => String.t(),
         "key" => String.t()
@@ -1497,6 +1672,17 @@ defmodule AWS.CodePipeline do
       
   """
   @type get_job_details_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      condition_not_overridable_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type condition_not_overridable_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1604,10 +1790,40 @@ defmodule AWS.CodePipeline do
 
   ## Example:
       
+      condition_execution() :: %{
+        "lastStatusChange" => non_neg_integer(),
+        "status" => list(any()),
+        "summary" => String.t()
+      }
+      
+  """
+  @type condition_execution() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       tag_resource_output() :: %{}
       
   """
   @type tag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_declaration() :: %{
+        "configuration" => map(),
+        "inputArtifacts" => list(input_artifact()()),
+        "name" => String.t(),
+        "region" => String.t(),
+        "roleArn" => String.t(),
+        "ruleTypeId" => rule_type_id(),
+        "timeoutInMinutes" => integer()
+      }
+      
+  """
+  @type rule_declaration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1619,6 +1835,18 @@ defmodule AWS.CodePipeline do
       
   """
   @type poll_for_jobs_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_rule_executions_output() :: %{
+        "nextToken" => String.t(),
+        "ruleExecutionDetails" => list(rule_execution_detail()())
+      }
+      
+  """
+  @type list_rule_executions_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1727,6 +1955,20 @@ defmodule AWS.CodePipeline do
       
   """
   @type put_action_revision_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_type_id() :: %{
+        "category" => list(any()),
+        "owner" => list(any()),
+        "provider" => String.t(),
+        "version" => String.t()
+      }
+      
+  """
+  @type rule_type_id() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1947,6 +2189,20 @@ defmodule AWS.CodePipeline do
 
   ## Example:
       
+      list_rule_executions_input() :: %{
+        optional("filter") => rule_execution_filter(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("pipelineName") => String.t()
+      }
+      
+  """
+  @type list_rule_executions_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       action_execution_input() :: %{
         "actionTypeId" => action_type_id(),
         "configuration" => map(),
@@ -2126,6 +2382,19 @@ defmodule AWS.CodePipeline do
 
   ## Example:
       
+      rule_revision() :: %{
+        "created" => non_neg_integer(),
+        "revisionChangeId" => String.t(),
+        "revisionId" => String.t()
+      }
+      
+  """
+  @type rule_revision() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       limit_exceeded_exception() :: %{
         "message" => String.t()
       }
@@ -2139,9 +2408,11 @@ defmodule AWS.CodePipeline do
       
       stage_declaration() :: %{
         "actions" => list(action_declaration()()),
+        "beforeEntry" => before_entry_conditions(),
         "blockers" => list(blocker_declaration()()),
         "name" => String.t(),
-        "onFailure" => failure_conditions()
+        "onFailure" => failure_conditions(),
+        "onSuccess" => success_conditions()
       }
       
   """
@@ -2180,6 +2451,18 @@ defmodule AWS.CodePipeline do
 
   ## Example:
       
+      stage_condition_state() :: %{
+        "conditionStates" => list(condition_state()()),
+        "latestExecution" => stage_conditions_execution()
+      }
+      
+  """
+  @type stage_condition_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       stage_execution() :: %{
         "pipelineExecutionId" => String.t(),
         "status" => list(any()),
@@ -2207,6 +2490,34 @@ defmodule AWS.CodePipeline do
 
   ## Example:
       
+      rule_configuration_property() :: %{
+        "description" => String.t(),
+        "key" => boolean(),
+        "name" => String.t(),
+        "queryable" => boolean(),
+        "required" => boolean(),
+        "secret" => boolean(),
+        "type" => list(any())
+      }
+      
+  """
+  @type rule_configuration_property() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      before_entry_conditions() :: %{
+        "conditions" => list(condition()())
+      }
+      
+  """
+  @type before_entry_conditions() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_pipeline_input() :: %{
         optional("version") => integer(),
         required("name") => String.t()
@@ -2221,10 +2532,13 @@ defmodule AWS.CodePipeline do
       
       stage_state() :: %{
         "actionStates" => list(action_state()()),
+        "beforeEntryConditionState" => stage_condition_state(),
         "inboundExecution" => stage_execution(),
         "inboundExecutions" => list(stage_execution()()),
         "inboundTransitionState" => transition_state(),
         "latestExecution" => stage_execution(),
+        "onFailureConditionState" => stage_condition_state(),
+        "onSuccessConditionState" => stage_condition_state(),
         "stageName" => String.t()
       }
       
@@ -2461,6 +2775,25 @@ defmodule AWS.CodePipeline do
 
   ## Example:
       
+      rule_execution() :: %{
+        "errorDetails" => error_details(),
+        "externalExecutionId" => String.t(),
+        "externalExecutionUrl" => String.t(),
+        "lastStatusChange" => non_neg_integer(),
+        "lastUpdatedBy" => String.t(),
+        "ruleExecutionId" => String.t(),
+        "status" => list(any()),
+        "summary" => String.t(),
+        "token" => String.t()
+      }
+      
+  """
+  @type rule_execution() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       put_approval_result_input() :: %{
         required("actionName") => String.t(),
         required("pipelineName") => String.t(),
@@ -2482,6 +2815,22 @@ defmodule AWS.CodePipeline do
       
   """
   @type lambda_executor_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_execution_input() :: %{
+        "configuration" => map(),
+        "inputArtifacts" => list(artifact_detail()()),
+        "region" => String.t(),
+        "resolvedConfiguration" => map(),
+        "roleArn" => String.t(),
+        "ruleTypeId" => rule_type_id()
+      }
+      
+  """
+  @type rule_execution_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2596,6 +2945,17 @@ defmodule AWS.CodePipeline do
       
   """
   @type action_configuration_property() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      success_conditions() :: %{
+        "conditions" => list(condition()())
+      }
+      
+  """
+  @type success_conditions() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2726,6 +3086,14 @@ defmodule AWS.CodePipeline do
 
   @type list_pipelines_errors() :: validation_exception() | invalid_next_token_exception()
 
+  @type list_rule_executions_errors() ::
+          pipeline_not_found_exception()
+          | validation_exception()
+          | pipeline_execution_not_found_exception()
+          | invalid_next_token_exception()
+
+  @type list_rule_types_errors() :: validation_exception() | invalid_next_token_exception()
+
   @type list_tags_for_resource_errors() ::
           validation_exception()
           | invalid_next_token_exception()
@@ -2734,6 +3102,15 @@ defmodule AWS.CodePipeline do
 
   @type list_webhooks_errors() :: validation_exception() | invalid_next_token_exception()
 
+  @type override_stage_condition_errors() ::
+          pipeline_not_found_exception()
+          | concurrent_pipeline_executions_limit_exceeded_exception()
+          | validation_exception()
+          | condition_not_overridable_exception()
+          | conflict_exception()
+          | not_latest_pipeline_execution_exception()
+          | stage_not_found_exception()
+
   @type poll_for_jobs_errors() :: validation_exception() | action_type_not_found_exception()
 
   @type poll_for_third_party_jobs_errors() ::
@@ -2741,6 +3118,7 @@ defmodule AWS.CodePipeline do
 
   @type put_action_revision_errors() ::
           pipeline_not_found_exception()
+          | concurrent_pipeline_executions_limit_exceeded_exception()
           | action_not_found_exception()
           | validation_exception()
           | stage_not_found_exception()
@@ -2789,6 +3167,7 @@ defmodule AWS.CodePipeline do
 
   @type retry_stage_execution_errors() ::
           pipeline_not_found_exception()
+          | concurrent_pipeline_executions_limit_exceeded_exception()
           | validation_exception()
           | stage_not_retryable_exception()
           | conflict_exception()
@@ -3204,6 +3583,33 @@ defmodule AWS.CodePipeline do
   end
 
   @doc """
+  Lists the rule executions that have occurred in a pipeline configured for
+  conditions with rules.
+  """
+  @spec list_rule_executions(map(), list_rule_executions_input(), list()) ::
+          {:ok, list_rule_executions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_rule_executions_errors()}
+  def list_rule_executions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListRuleExecutions", input, options)
+  end
+
+  @doc """
+  Lists the rules for the condition.
+  """
+  @spec list_rule_types(map(), list_rule_types_input(), list()) ::
+          {:ok, list_rule_types_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_rule_types_errors()}
+  def list_rule_types(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListRuleTypes", input, options)
+  end
+
+  @doc """
   Gets the set of key-value pairs (metadata) that are used to manage the
   resource.
   """
@@ -3232,6 +3638,19 @@ defmodule AWS.CodePipeline do
     meta = metadata()
 
     Request.request_post(client, meta, "ListWebhooks", input, options)
+  end
+
+  @doc """
+  Used to override a stage condition.
+  """
+  @spec override_stage_condition(map(), override_stage_condition_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, override_stage_condition_errors()}
+  def override_stage_condition(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "OverrideStageCondition", input, options)
   end
 
   @doc """

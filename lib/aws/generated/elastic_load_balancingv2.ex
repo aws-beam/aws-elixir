@@ -132,6 +132,17 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
+      get_resource_policy_output() :: %{
+        "Policy" => String.t()
+      }
+      
+  """
+  @type get_resource_policy_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       revocation_content() :: %{
         "RevocationType" => list(any()),
         "S3Bucket" => String.t(),
@@ -432,7 +443,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
       mutual_authentication_attributes() :: %{
         "IgnoreClientCertificateExpiry" => boolean(),
         "Mode" => String.t(),
-        "TrustStoreArn" => String.t()
+        "TrustStoreArn" => String.t(),
+        "TrustStoreAssociationStatus" => list(any())
       }
       
   """
@@ -635,6 +647,17 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
+      delete_association_same_account_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type delete_association_same_account_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       query_string_condition_config() :: %{
         "Values" => list(query_string_key_value_pair()())
       }
@@ -750,6 +773,17 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
   """
   @type redirect_action_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -999,6 +1033,18 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
+      delete_shared_trust_store_association_input() :: %{
+        required("ResourceArn") => String.t(),
+        required("TrustStoreArn") => String.t()
+      }
+      
+  """
+  @type delete_shared_trust_store_association_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_listener_input() :: %{
         required("ListenerArn") => String.t()
       }
@@ -1096,6 +1142,17 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
   """
   @type too_many_actions_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      trust_store_association_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type trust_store_association_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1518,6 +1575,17 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
   """
   @type http_request_method_condition_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_policy_input() :: %{
+        required("ResourceArn") => String.t()
+      }
+      
+  """
+  @type get_resource_policy_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2237,6 +2305,15 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
+      delete_shared_trust_store_association_output() :: %{}
+      
+  """
+  @type delete_shared_trust_store_association_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       trust_store() :: %{
         "Name" => String.t(),
         "NumberOfCaCertificates" => integer(),
@@ -2356,6 +2433,11 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   @type delete_rule_errors() :: rule_not_found_exception() | operation_not_permitted_exception()
 
+  @type delete_shared_trust_store_association_errors() ::
+          trust_store_association_not_found_exception()
+          | trust_store_not_found_exception()
+          | delete_association_same_account_exception()
+
   @type delete_target_group_errors() :: resource_in_use_exception()
 
   @type delete_trust_store_errors() ::
@@ -2405,6 +2487,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           trust_store_not_found_exception() | revocation_id_not_found_exception()
 
   @type describe_trust_stores_errors() :: trust_store_not_found_exception()
+
+  @type get_resource_policy_errors() :: resource_not_found_exception()
 
   @type get_trust_store_ca_certificates_bundle_errors() :: trust_store_not_found_exception()
 
@@ -2779,6 +2863,23 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+  Deletes a shared trust store association.
+  """
+  @spec delete_shared_trust_store_association(
+          map(),
+          delete_shared_trust_store_association_input(),
+          list()
+        ) ::
+          {:ok, delete_shared_trust_store_association_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_shared_trust_store_association_errors()}
+  def delete_shared_trust_store_association(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteSharedTrustStoreAssociation", input, options)
+  end
+
+  @doc """
   Deletes the specified target group.
 
   You can delete a target group if it is not referenced by any actions. Deleting a
@@ -3123,8 +3224,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
-  Describes the revocation files in use by the specified
-  trust store arn, or revocation ID.
+  Describes the revocation files in use by the specified trust store or revocation
+  files.
   """
   @spec describe_trust_store_revocations(map(), describe_trust_store_revocations_input(), list()) ::
           {:ok, describe_trust_store_revocations_output(), any()}
@@ -3137,8 +3238,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
-  Describes all trust stores for a given account
-  by trust store arn’s or name.
+  Describes all trust stores for the specified account.
   """
   @spec describe_trust_stores(map(), describe_trust_stores_input(), list()) ::
           {:ok, describe_trust_stores_output(), any()}
@@ -3148,6 +3248,19 @@ defmodule AWS.ElasticLoadBalancingv2 do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeTrustStores", input, options)
+  end
+
+  @doc """
+  Retrieves the resource policy for a specified resource.
+  """
+  @spec get_resource_policy(map(), get_resource_policy_input(), list()) ::
+          {:ok, get_resource_policy_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_resource_policy_errors()}
+  def get_resource_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetResourcePolicy", input, options)
   end
 
   @doc """
@@ -3288,7 +3401,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
-  Update the ca certificate bundle for a given trust store.
+  Update the ca certificate bundle for the specified trust store.
   """
   @spec modify_trust_store(map(), modify_trust_store_input(), list()) ::
           {:ok, modify_trust_store_output(), any()}

@@ -145,6 +145,23 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      data_product_listing() :: %{
+        "createdAt" => non_neg_integer(),
+        "dataProductId" => String.t(),
+        "dataProductRevision" => String.t(),
+        "forms" => String.t(),
+        "glossaryTerms" => list(detailed_glossary_term()()),
+        "items" => list(listing_summary()()),
+        "owningProjectId" => String.t()
+      }
+
+  """
+  @type data_product_listing() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_environment_action_input() :: %{
         optional("description") => [String.t()],
         required("name") => [String.t()],
@@ -165,6 +182,39 @@ defmodule AWS.DataZone do
 
   """
   @type list_environment_actions_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      listing_summary_item() :: %{
+        "glossaryTerms" => list(detailed_glossary_term()()),
+        "listingId" => String.t(),
+        "listingRevision" => String.t()
+      }
+
+  """
+  @type listing_summary_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_filter_summary() :: %{
+        "assetId" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t(),
+        "domainId" => String.t(),
+        "effectiveColumnNames" => list([String.t()]()),
+        "effectiveRowFilter" => [String.t()],
+        "errorMessage" => [String.t()],
+        "id" => String.t(),
+        "name" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type asset_filter_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -252,6 +302,18 @@ defmodule AWS.DataZone do
 
   """
   @type redshift_run_configuration_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_asset_filters_output() :: %{
+        "items" => list(asset_filter_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_asset_filters_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -427,6 +489,27 @@ defmodule AWS.DataZone do
 
   """
   @type unauthorized_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_asset_filter_output() :: %{
+        "assetId" => String.t(),
+        "configuration" => list(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t(),
+        "domainId" => String.t(),
+        "effectiveColumnNames" => list([String.t()]()),
+        "effectiveRowFilter" => [String.t()],
+        "errorMessage" => [String.t()],
+        "id" => String.t(),
+        "name" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type get_asset_filter_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -702,6 +785,23 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      create_data_product_input() :: %{
+        optional("clientToken") => String.t(),
+        optional("description") => String.t(),
+        optional("formsInput") => list(form_input()()),
+        optional("glossaryTerms") => list(String.t()()),
+        optional("items") => list(data_product_item()()),
+        required("name") => String.t(),
+        required("owningProjectIdentifier") => String.t()
+      }
+
+  """
+  @type create_data_product_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       domain_summary() :: %{
         "arn" => [String.t()],
         "createdAt" => non_neg_integer(),
@@ -716,6 +816,21 @@ defmodule AWS.DataZone do
 
   """
   @type domain_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_product_revision() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
+        "domainId" => String.t(),
+        "id" => String.t(),
+        "revision" => String.t()
+      }
+
+  """
+  @type data_product_revision() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -760,6 +875,30 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      create_data_product_revision_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
+        "description" => String.t(),
+        "domainId" => String.t(),
+        "firstRevisionCreatedAt" => non_neg_integer(),
+        "firstRevisionCreatedBy" => String.t(),
+        "formsOutput" => list(form_output()()),
+        "glossaryTerms" => list(String.t()()),
+        "id" => String.t(),
+        "items" => list(data_product_item()()),
+        "name" => String.t(),
+        "owningProjectId" => String.t(),
+        "revision" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_data_product_revision_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_data_source_input() :: %{
         optional("assetFormsInput") => list(form_input()()),
         optional("clientToken") => [String.t()],
@@ -792,27 +931,6 @@ defmodule AWS.DataZone do
 
   """
   @type create_form_type_input() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_product_summary() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t(),
-        "dataProductItems" => list(data_product_item()()),
-        "description" => String.t(),
-        "domainId" => String.t(),
-        "glossaryTerms" => list(String.t()()),
-        "id" => String.t(),
-        "name" => String.t(),
-        "owningProjectId" => String.t(),
-        "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t()
-      }
-
-  """
-  @type data_product_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -955,6 +1073,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      less_than_expression() :: %{
+        "columnName" => [String.t()],
+        "value" => [String.t()]
+      }
+
+  """
+  @type less_than_expression() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       revoke_subscription_output() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
@@ -1002,6 +1132,30 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      get_data_product_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
+        "description" => String.t(),
+        "domainId" => String.t(),
+        "firstRevisionCreatedAt" => non_neg_integer(),
+        "firstRevisionCreatedBy" => String.t(),
+        "formsOutput" => list(form_output()()),
+        "glossaryTerms" => list(String.t()()),
+        "id" => String.t(),
+        "items" => list(data_product_item()()),
+        "name" => String.t(),
+        "owningProjectId" => String.t(),
+        "revision" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type get_data_product_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_time_series_data_points_input() :: %{
         optional("clientToken") => String.t(),
         required("formName") => String.t()
@@ -1040,6 +1194,17 @@ defmodule AWS.DataZone do
 
   """
   @type create_asset_revision_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      is_not_null_expression() :: %{
+        "columnName" => [String.t()]
+      }
+
+  """
+  @type is_not_null_expression() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1186,6 +1351,32 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      greater_than_or_equal_to_expression() :: %{
+        "columnName" => [String.t()],
+        "value" => [String.t()]
+      }
+
+  """
+  @type greater_than_or_equal_to_expression() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_asset_filter_input() :: %{
+        optional("clientToken") => [String.t()],
+        optional("description") => String.t(),
+        required("configuration") => list(),
+        required("name") => String.t()
+      }
+
+  """
+  @type create_asset_filter_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       post_time_series_data_points_input() :: %{
         optional("clientToken") => String.t(),
         required("forms") => list(time_series_data_point_form_input()())
@@ -1260,6 +1451,22 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      create_data_product_revision_input() :: %{
+        optional("clientToken") => String.t(),
+        optional("description") => String.t(),
+        optional("formsInput") => list(form_input()()),
+        optional("glossaryTerms") => list(String.t()()),
+        optional("items") => list(data_product_item()()),
+        required("name") => String.t()
+      }
+
+  """
+  @type create_data_product_revision_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_notifications_input() :: %{
         optional("afterTimestamp") => [non_neg_integer()],
         optional("beforeTimestamp") => [non_neg_integer()],
@@ -1302,6 +1509,15 @@ defmodule AWS.DataZone do
 
   """
   @type list_subscriptions_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_asset_filter_input() :: %{}
+
+  """
+  @type delete_asset_filter_input() :: %{}
 
   @typedoc """
 
@@ -1436,6 +1652,7 @@ defmodule AWS.DataZone do
         "enabledRegions" => list(String.t()()),
         "environmentBlueprintId" => String.t(),
         "manageAccessRoleArn" => String.t(),
+        "provisioningConfigurations" => list(list()()),
         "provisioningRoleArn" => String.t(),
         "regionalParameters" => map(),
         "updatedAt" => [non_neg_integer()]
@@ -1467,6 +1684,15 @@ defmodule AWS.DataZone do
 
   """
   @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_product_input() :: %{}
+
+  """
+  @type delete_data_product_input() :: %{}
 
   @typedoc """
 
@@ -1714,6 +1940,7 @@ defmodule AWS.DataZone do
         "enabledRegions" => list(String.t()()),
         "environmentBlueprintId" => String.t(),
         "manageAccessRoleArn" => String.t(),
+        "provisioningConfigurations" => list(list()()),
         "provisioningRoleArn" => String.t(),
         "regionalParameters" => map(),
         "updatedAt" => [non_neg_integer()]
@@ -1973,6 +2200,19 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      asset_in_data_product_listing_item() :: %{
+        "entityId" => [String.t()],
+        "entityRevision" => [String.t()],
+        "entityType" => [String.t()]
+      }
+
+  """
+  @type asset_in_data_product_listing_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       form_entry_input() :: %{
         "required" => [boolean()],
         "typeIdentifier" => String.t(),
@@ -2062,6 +2302,17 @@ defmodule AWS.DataZone do
 
   """
   @type create_project_membership_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      is_null_expression() :: %{
+        "columnName" => [String.t()]
+      }
+
+  """
+  @type is_null_expression() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2163,6 +2414,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      like_expression() :: %{
+        "columnName" => [String.t()],
+        "value" => [String.t()]
+      }
+
+  """
+  @type like_expression() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_data_source_output() :: %{
         "assetFormsOutput" => list(form_output()()),
         "configuration" => list(),
@@ -2193,6 +2456,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      equal_to_expression() :: %{
+        "columnName" => [String.t()],
+        "value" => [String.t()]
+      }
+
+  """
+  @type equal_to_expression() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_iam_portal_login_url_output() :: %{
         "authCodeUrl" => [String.t()],
         "userProfileId" => [String.t()]
@@ -2200,6 +2475,22 @@ defmodule AWS.DataZone do
 
   """
   @type get_iam_portal_login_url_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subscribed_product_listing() :: %{
+        "assetListings" => list(asset_in_data_product_listing_item()()),
+        "description" => [String.t()],
+        "entityId" => String.t(),
+        "entityRevision" => String.t(),
+        "glossaryTerms" => list(detailed_glossary_term()()),
+        "name" => [String.t()]
+      }
+
+  """
+  @type subscribed_product_listing() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2630,10 +2921,31 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      get_asset_filter_input() :: %{}
+
+  """
+  @type get_asset_filter_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       post_lineage_event_output() :: %{}
 
   """
   @type post_lineage_event_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      not_equal_to_expression() :: %{
+        "columnName" => [String.t()],
+        "value" => [String.t()]
+      }
+
+  """
+  @type not_equal_to_expression() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2650,6 +2962,18 @@ defmodule AWS.DataZone do
 
   """
   @type time_series_data_point_form_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_like_expression() :: %{
+        "columnName" => [String.t()],
+        "value" => [String.t()]
+      }
+
+  """
+  @type not_like_expression() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2694,6 +3018,18 @@ defmodule AWS.DataZone do
 
   """
   @type glue_run_configuration_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_product_revisions_output() :: %{
+        "items" => list(data_product_revision()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_data_product_revisions_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2885,6 +3221,30 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      create_data_product_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
+        "description" => String.t(),
+        "domainId" => String.t(),
+        "firstRevisionCreatedAt" => non_neg_integer(),
+        "firstRevisionCreatedBy" => String.t(),
+        "formsOutput" => list(form_output()()),
+        "glossaryTerms" => list(String.t()()),
+        "id" => String.t(),
+        "items" => list(data_product_item()()),
+        "name" => String.t(),
+        "owningProjectId" => String.t(),
+        "revision" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_data_product_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_environment_profile_output() :: %{
         "awsAccountId" => String.t(),
         "awsAccountRegion" => String.t(),
@@ -2936,6 +3296,19 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      list_asset_filters_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("status") => list(any())
+      }
+
+  """
+  @type list_asset_filters_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       glossary_item() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
@@ -2960,6 +3333,7 @@ defmodule AWS.DataZone do
         optional("environmentId") => String.t(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
+        optional("owningProjectId") => String.t(),
         optional("sortBy") => list(any()),
         optional("sortOrder") => list(any()),
         optional("subscribedListingId") => String.t(),
@@ -3090,6 +3464,26 @@ defmodule AWS.DataZone do
 
   """
   @type delete_project_membership_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_product_result_item() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
+        "description" => String.t(),
+        "domainId" => String.t(),
+        "firstRevisionCreatedAt" => non_neg_integer(),
+        "firstRevisionCreatedBy" => String.t(),
+        "glossaryTerms" => list(String.t()()),
+        "id" => String.t(),
+        "name" => String.t(),
+        "owningProjectId" => String.t()
+      }
+
+  """
+  @type data_product_result_item() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3234,6 +3628,27 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      create_asset_filter_output() :: %{
+        "assetId" => String.t(),
+        "configuration" => list(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t(),
+        "domainId" => String.t(),
+        "effectiveColumnNames" => list([String.t()]()),
+        "effectiveRowFilter" => [String.t()],
+        "errorMessage" => [String.t()],
+        "id" => String.t(),
+        "name" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_asset_filter_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       notification_output() :: %{
         "actionLink" => String.t(),
         "creationTimestamp" => [non_neg_integer()],
@@ -3250,6 +3665,18 @@ defmodule AWS.DataZone do
 
   """
   @type notification_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      row_filter_configuration() :: %{
+        "rowFilter" => list(),
+        "sensitive" => [boolean()]
+      }
+
+  """
+  @type row_filter_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3287,12 +3714,35 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      data_product_listing_item_additional_attributes() :: %{
+        "forms" => String.t()
+      }
+
+  """
+  @type data_product_listing_item_additional_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      column_filter_configuration() :: %{
+        "includedColumnNames" => list([String.t()]())
+      }
+
+  """
+  @type column_filter_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_environment_blueprint_configuration_output() :: %{
         "createdAt" => [non_neg_integer()],
         "domainId" => String.t(),
         "enabledRegions" => list(String.t()()),
         "environmentBlueprintId" => String.t(),
         "manageAccessRoleArn" => String.t(),
+        "provisioningConfigurations" => list(list()()),
         "provisioningRoleArn" => String.t(),
         "regionalParameters" => map(),
         "updatedAt" => [non_neg_integer()]
@@ -3320,6 +3770,19 @@ defmodule AWS.DataZone do
 
   """
   @type create_domain_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      listing_summary() :: %{
+        "glossaryTerms" => list(detailed_glossary_term()()),
+        "listingId" => String.t(),
+        "listingRevision" => String.t()
+      }
+
+  """
+  @type listing_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3479,6 +3942,15 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      get_environment_credentials_input() :: %{}
+
+  """
+  @type get_environment_credentials_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_environment_blueprint_configuration_output() :: %{}
 
   """
@@ -3544,6 +4016,27 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      update_asset_filter_output() :: %{
+        "assetId" => String.t(),
+        "configuration" => list(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t(),
+        "domainId" => String.t(),
+        "effectiveColumnNames" => list([String.t()]()),
+        "effectiveRowFilter" => [String.t()],
+        "errorMessage" => [String.t()],
+        "id" => String.t(),
+        "name" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type update_asset_filter_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_project_output() :: %{
         "createdAt" => [non_neg_integer()],
         "createdBy" => String.t(),
@@ -3565,8 +4058,10 @@ defmodule AWS.DataZone do
   ## Example:
 
       data_product_item() :: %{
-        "domainId" => String.t(),
-        "itemId" => String.t()
+        "glossaryTerms" => list(String.t()()),
+        "identifier" => String.t(),
+        "itemType" => list(any()),
+        "revision" => String.t()
       }
 
   """
@@ -3597,6 +4092,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      in_expression() :: %{
+        "columnName" => [String.t()],
+        "values" => list([String.t()]())
+      }
+
+  """
+  @type in_expression() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_group_profile_input() :: %{
         optional("clientToken") => [String.t()],
         required("groupIdentifier") => String.t()
@@ -3616,6 +4123,18 @@ defmodule AWS.DataZone do
 
   """
   @type list_lineage_node_history_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_product_revisions_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_data_product_revisions_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3647,6 +4166,15 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      delete_data_product_output() :: %{}
+
+  """
+  @type delete_data_product_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       data_source_run_summary() :: %{
         "createdAt" => non_neg_integer(),
         "dataSourceId" => String.t(),
@@ -3672,6 +4200,17 @@ defmodule AWS.DataZone do
 
   """
   @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_product_input() :: %{
+        optional("revision") => String.t()
+      }
+
+  """
+  @type get_data_product_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3823,6 +4362,18 @@ defmodule AWS.DataZone do
 
   """
   @type delete_form_type_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      less_than_or_equal_to_expression() :: %{
+        "columnName" => [String.t()],
+        "value" => [String.t()]
+      }
+
+  """
+  @type less_than_or_equal_to_expression() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4005,6 +4556,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      not_in_expression() :: %{
+        "columnName" => [String.t()],
+        "values" => list([String.t()]())
+      }
+
+  """
+  @type not_in_expression() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_group_profile_input() :: %{}
 
   """
@@ -4021,6 +4584,19 @@ defmodule AWS.DataZone do
 
   """
   @type list_environment_profiles_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_asset_filter_input() :: %{
+        optional("configuration") => list(),
+        optional("description") => String.t(),
+        optional("name") => [String.t()]
+      }
+
+  """
+  @type update_asset_filter_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4465,6 +5041,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      greater_than_expression() :: %{
+        "columnName" => [String.t()],
+        "value" => [String.t()]
+      }
+
+  """
+  @type greater_than_expression() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_subscription_request_details_output() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
@@ -4633,6 +5221,20 @@ defmodule AWS.DataZone do
 
   """
   @type delete_data_source_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_environment_credentials_output() :: %{
+        "accessKeyId" => [String.t()],
+        "expiration" => [non_neg_integer()],
+        "secretAccessKey" => [String.t()],
+        "sessionToken" => [String.t()]
+      }
+
+  """
+  @type get_environment_credentials_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4854,6 +5456,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      lake_formation_configuration() :: %{
+        "locationRegistrationExcludeS3Locations" => list(String.t()()),
+        "locationRegistrationRole" => String.t()
+      }
+
+  """
+  @type lake_formation_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_listing_output() :: %{}
 
   """
@@ -4937,6 +5551,7 @@ defmodule AWS.DataZone do
 
       put_environment_blueprint_configuration_input() :: %{
         optional("manageAccessRoleArn") => String.t(),
+        optional("provisioningConfigurations") => list(list()()),
         optional("provisioningRoleArn") => String.t(),
         optional("regionalParameters") => map(),
         required("enabledRegions") => list(String.t()())
@@ -4944,6 +5559,29 @@ defmodule AWS.DataZone do
 
   """
   @type put_environment_blueprint_configuration_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_product_listing_item() :: %{
+        "additionalAttributes" => data_product_listing_item_additional_attributes(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t(),
+        "entityId" => String.t(),
+        "entityRevision" => String.t(),
+        "glossaryTerms" => list(detailed_glossary_term()()),
+        "items" => list(listing_summary_item()()),
+        "listingCreatedBy" => String.t(),
+        "listingId" => String.t(),
+        "listingRevision" => String.t(),
+        "listingUpdatedBy" => String.t(),
+        "name" => String.t(),
+        "owningProjectId" => String.t()
+      }
+
+  """
+  @type data_product_listing_item() :: %{String.t() => any()}
 
   @type accept_predictions_errors() ::
           throttling_exception()
@@ -4994,6 +5632,15 @@ defmodule AWS.DataZone do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type create_asset_filter_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type create_asset_revision_errors() ::
           throttling_exception()
           | validation_exception()
@@ -5008,6 +5655,23 @@ defmodule AWS.DataZone do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_data_product_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_data_product_revision_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
           | conflict_exception()
 
   @type create_data_source_errors() ::
@@ -5144,8 +5808,25 @@ defmodule AWS.DataZone do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_asset_filter_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type delete_asset_type_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_data_product_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -5288,7 +5969,21 @@ defmodule AWS.DataZone do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_asset_filter_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_asset_type_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_data_product_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -5344,6 +6039,13 @@ defmodule AWS.DataZone do
 
   @type get_environment_blueprint_configuration_errors() ::
           validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_environment_credentials_errors() ::
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
@@ -5459,7 +6161,21 @@ defmodule AWS.DataZone do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type list_asset_filters_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type list_asset_revisions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_data_product_revisions_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -5705,6 +6421,14 @@ defmodule AWS.DataZone do
           validation_exception() | internal_server_exception() | resource_not_found_exception()
 
   @type untag_resource_errors() :: internal_server_exception() | resource_not_found_exception()
+
+  @type update_asset_filter_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type update_data_source_errors() ::
           throttling_exception()
@@ -6004,6 +6728,41 @@ defmodule AWS.DataZone do
   end
 
   @doc """
+  Creates a data asset filter.
+  """
+  @spec create_asset_filter(map(), String.t(), String.t(), create_asset_filter_input(), list()) ::
+          {:ok, create_asset_filter_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_asset_filter_errors()}
+  def create_asset_filter(
+        %Client{} = client,
+        asset_identifier,
+        domain_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/assets/#{AWS.Util.encode_uri(asset_identifier)}/filters"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Creates a revision of the asset.
   """
   @spec create_asset_revision(
@@ -6053,6 +6812,74 @@ defmodule AWS.DataZone do
           | {:error, create_asset_type_errors()}
   def create_asset_type(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/asset-types"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a data product.
+  """
+  @spec create_data_product(map(), String.t(), create_data_product_input(), list()) ::
+          {:ok, create_data_product_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_data_product_errors()}
+  def create_data_product(%Client{} = client, domain_identifier, input, options \\ []) do
+    url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/data-products"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a data product revision.
+  """
+  @spec create_data_product_revision(
+          map(),
+          String.t(),
+          String.t(),
+          create_data_product_revision_input(),
+          list()
+        ) ::
+          {:ok, create_data_product_revision_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_data_product_revision_errors()}
+  def create_data_product_revision(
+        %Client{} = client,
+        domain_identifier,
+        identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/data-products/#{AWS.Util.encode_uri(identifier)}/revisions"
+
     headers = []
     query_params = []
 
@@ -6555,7 +7382,7 @@ defmodule AWS.DataZone do
   end
 
   @doc """
-  Delets an asset in Amazon DataZone.
+  Deletes an asset in Amazon DataZone.
   """
   @spec delete_asset(map(), String.t(), String.t(), delete_asset_input(), list()) ::
           {:ok, delete_asset_output(), any()}
@@ -6564,6 +7391,49 @@ defmodule AWS.DataZone do
   def delete_asset(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/assets/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes an asset filter.
+  """
+  @spec delete_asset_filter(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          delete_asset_filter_input(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_asset_filter_errors()}
+  def delete_asset_filter(
+        %Client{} = client,
+        asset_identifier,
+        domain_identifier,
+        identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/assets/#{AWS.Util.encode_uri(asset_identifier)}/filters/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
     query_params = []
@@ -6593,6 +7463,35 @@ defmodule AWS.DataZone do
   def delete_asset_type(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/asset-types/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes an data product in Amazon DataZone.
+  """
+  @spec delete_data_product(map(), String.t(), String.t(), delete_data_product_input(), list()) ::
+          {:ok, delete_data_product_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_data_product_errors()}
+  def delete_data_product(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/data-products/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
     query_params = []
@@ -7283,6 +8182,31 @@ defmodule AWS.DataZone do
   end
 
   @doc """
+  Gets an asset filter.
+  """
+  @spec get_asset_filter(map(), String.t(), String.t(), String.t(), list()) ::
+          {:ok, get_asset_filter_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_asset_filter_errors()}
+  def get_asset_filter(
+        %Client{} = client,
+        asset_identifier,
+        domain_identifier,
+        identifier,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/assets/#{AWS.Util.encode_uri(asset_identifier)}/filters/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets an Amazon DataZone asset type.
   """
   @spec get_asset_type(map(), String.t(), String.t(), String.t() | nil, list()) ::
@@ -7298,6 +8222,38 @@ defmodule AWS.DataZone do
       ) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/asset-types/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(revision) do
+        [{"revision", revision} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets the data product.
+  """
+  @spec get_data_product(map(), String.t(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_data_product_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_data_product_errors()}
+  def get_data_product(
+        %Client{} = client,
+        domain_identifier,
+        identifier,
+        revision \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/data-products/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
     query_params = []
@@ -7447,6 +8403,30 @@ defmodule AWS.DataZone do
       ) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environment-blueprint-configurations/#{AWS.Util.encode_uri(environment_blueprint_identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets the credentials of an environment in Amazon DataZone.
+  """
+  @spec get_environment_credentials(map(), String.t(), String.t(), list()) ::
+          {:ok, get_environment_credentials_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_environment_credentials_errors()}
+  def get_environment_credentials(
+        %Client{} = client,
+        domain_identifier,
+        environment_identifier,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments/#{AWS.Util.encode_uri(environment_identifier)}/credentials"
 
     headers = []
     query_params = []
@@ -7625,6 +8605,9 @@ defmodule AWS.DataZone do
 
   @doc """
   Gets a listing (a record of an asset at a given time).
+
+  If you specify a listing version,
+  only details that are specific to that version are returned.
   """
   @spec get_listing(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_listing_output(), any()}
@@ -7860,6 +8843,62 @@ defmodule AWS.DataZone do
   end
 
   @doc """
+  Lists asset filters.
+  """
+  @spec list_asset_filters(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_asset_filters_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_asset_filters_errors()}
+  def list_asset_filters(
+        %Client{} = client,
+        asset_identifier,
+        domain_identifier,
+        max_results \\ nil,
+        next_token \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/assets/#{AWS.Util.encode_uri(asset_identifier)}/filters"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists the revisions for the asset.
   """
   @spec list_asset_revisions(
@@ -7883,6 +8922,53 @@ defmodule AWS.DataZone do
       ) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/assets/#{AWS.Util.encode_uri(identifier)}/revisions"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists data product revisions.
+  """
+  @spec list_data_product_revisions(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_data_product_revisions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_data_product_revisions_errors()}
+  def list_data_product_revisions(
+        %Client{} = client,
+        domain_identifier,
+        identifier,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/data-products/#{AWS.Util.encode_uri(identifier)}/revisions"
 
     headers = []
     query_params = []
@@ -8887,6 +9973,7 @@ defmodule AWS.DataZone do
           String.t() | nil,
           String.t() | nil,
           String.t() | nil,
+          String.t() | nil,
           list()
         ) ::
           {:ok, list_subscription_grants_output(), any()}
@@ -8898,6 +9985,7 @@ defmodule AWS.DataZone do
         environment_id \\ nil,
         max_results \\ nil,
         next_token \\ nil,
+        owning_project_id \\ nil,
         sort_by \\ nil,
         sort_order \\ nil,
         subscribed_listing_id \\ nil,
@@ -8940,6 +10028,13 @@ defmodule AWS.DataZone do
     query_params =
       if !is_nil(sort_by) do
         [{"sortBy", sort_by} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(owning_project_id) do
+        [{"owningProjectId", owning_project_id} | query_params]
       else
         query_params
       end
@@ -9772,6 +10867,49 @@ defmodule AWS.DataZone do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an asset filter.
+  """
+  @spec update_asset_filter(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          update_asset_filter_input(),
+          list()
+        ) ::
+          {:ok, update_asset_filter_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_asset_filter_errors()}
+  def update_asset_filter(
+        %Client{} = client,
+        asset_identifier,
+        domain_identifier,
+        identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/assets/#{AWS.Util.encode_uri(asset_identifier)}/filters/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
       url_path,
       query_params,
       headers,

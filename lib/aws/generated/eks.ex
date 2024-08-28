@@ -893,6 +893,7 @@ defmodule AWS.EKS do
         optional("logging") => logging(),
         optional("outpostConfig") => outpost_config_request(),
         optional("tags") => map(),
+        optional("upgradePolicy") => upgrade_policy_request(),
         optional("version") => String.t(),
         required("name") => String.t(),
         required("resourcesVpcConfig") => vpc_config_request(),
@@ -1058,6 +1059,17 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      upgrade_policy_response() :: %{
+        "supportType" => list(any())
+      }
+
+  """
+  @type upgrade_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       associate_encryption_config_request() :: %{
         optional("clientRequestToken") => String.t(),
         required("encryptionConfig") => list(encryption_config()())
@@ -1115,6 +1127,7 @@ defmodule AWS.EKS do
         "roleArn" => String.t(),
         "status" => list(any()),
         "tags" => map(),
+        "upgradePolicy" => upgrade_policy_response(),
         "version" => String.t()
       }
 
@@ -1455,6 +1468,17 @@ defmodule AWS.EKS do
 
   """
   @type delete_fargate_profile_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      upgrade_policy_request() :: %{
+        "supportType" => list(any())
+      }
+
+  """
+  @type upgrade_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2243,7 +2267,8 @@ defmodule AWS.EKS do
         optional("accessConfig") => update_access_config_request(),
         optional("clientRequestToken") => String.t(),
         optional("logging") => logging(),
-        optional("resourcesVpcConfig") => vpc_config_request()
+        optional("resourcesVpcConfig") => vpc_config_request(),
+        optional("upgradePolicy") => upgrade_policy_request()
       }
 
   """

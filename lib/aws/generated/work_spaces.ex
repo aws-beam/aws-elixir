@@ -5284,8 +5284,8 @@ defmodule AWS.WorkSpaces do
   @doc """
   Starts the specified WorkSpaces.
 
-  You cannot start a WorkSpace unless it has a running mode of `AutoStop` and a
-  state of `STOPPED`.
+  You cannot start a WorkSpace unless it has a running mode of `AutoStop` or
+  `Manual` and a state of `STOPPED`.
   """
   @spec start_workspaces(map(), start_workspaces_request(), list()) ::
           {:ok, start_workspaces_result(), any()}
@@ -5315,9 +5315,9 @@ defmodule AWS.WorkSpaces do
   @doc """
   Stops the specified WorkSpaces.
 
-  You cannot stop a WorkSpace unless it has a running mode of `AutoStop` and a
-  state of `AVAILABLE`, `IMPAIRED`, `UNHEALTHY`, or
-  `ERROR`.
+  You cannot stop a WorkSpace unless it has a running mode of `AutoStop` or
+  `Manual` and a state of `AVAILABLE`, `IMPAIRED`,
+  `UNHEALTHY`, or `ERROR`.
   """
   @spec stop_workspaces(map(), stop_workspaces_request(), list()) ::
           {:ok, stop_workspaces_result(), any()}

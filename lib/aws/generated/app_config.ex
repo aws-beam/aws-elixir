@@ -451,6 +451,18 @@ defmodule AWS.AppConfig do
 
   ## Example:
 
+      deletion_protection_settings() :: %{
+        "Enabled" => boolean(),
+        "ProtectionPeriodInMinutes" => integer()
+      }
+
+  """
+  @type deletion_protection_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       configuration() :: %{
         optional("ConfigurationVersion") => String.t(),
         optional("Content") => binary(),
@@ -623,10 +635,12 @@ defmodule AWS.AppConfig do
 
   ## Example:
 
-      delete_configuration_profile_request() :: %{}
+      delete_configuration_profile_request() :: %{
+        optional("DeletionProtectionCheck") => list(any())
+      }
 
   """
-  @type delete_configuration_profile_request() :: %{}
+  @type delete_configuration_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -769,6 +783,17 @@ defmodule AWS.AppConfig do
 
   ## Example:
 
+      update_account_settings_request() :: %{
+        optional("DeletionProtection") => deletion_protection_settings()
+      }
+
+  """
+  @type update_account_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       environments() :: %{
         optional("Items") => list(environment()()),
         optional("NextToken") => String.t()
@@ -864,10 +889,12 @@ defmodule AWS.AppConfig do
 
   ## Example:
 
-      delete_environment_request() :: %{}
+      delete_environment_request() :: %{
+        optional("DeletionProtectionCheck") => list(any())
+      }
 
   """
-  @type delete_environment_request() :: %{}
+  @type delete_environment_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -933,6 +960,17 @@ defmodule AWS.AppConfig do
 
   """
   @type extensions() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      account_settings() :: %{
+        optional("DeletionProtection") => deletion_protection_settings()
+      }
+
+  """
+  @type account_settings() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1293,6 +1331,8 @@ defmodule AWS.AppConfig do
   @type delete_hosted_configuration_version_errors() ::
           bad_request_exception() | internal_server_exception() | resource_not_found_exception()
 
+  @type get_account_settings_errors() :: bad_request_exception() | internal_server_exception()
+
   @type get_application_errors() ::
           bad_request_exception() | internal_server_exception() | resource_not_found_exception()
 
@@ -1359,6 +1399,8 @@ defmodule AWS.AppConfig do
 
   @type untag_resource_errors() ::
           bad_request_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type update_account_settings_errors() :: bad_request_exception() | internal_server_exception()
 
   @type update_application_errors() ::
           bad_request_exception() | internal_server_exception() | resource_not_found_exception()
@@ -1698,8 +1740,14 @@ defmodule AWS.AppConfig do
   end
 
   @doc """
-  Creates a new configuration in the AppConfig hosted configuration
-  store.
+  Creates a new configuration in the AppConfig hosted configuration store.
+
+  If
+  you're creating a feature flag, we recommend you familiarize yourself with the
+  JSON schema
+  for feature flag data. For more information, see [Type reference for AWS.AppConfig.FeatureFlags](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-and-profile-feature-flags.html#appconfig-type-reference-feature-flags)
+  in the
+  *AppConfig User Guide*.
   """
   @spec create_hosted_configuration_version(
           map(),
@@ -1764,9 +1812,6 @@ defmodule AWS.AppConfig do
 
   @doc """
   Deletes an application.
-
-  Deleting an application does not delete a configuration from a
-  host.
   """
   @spec delete_application(map(), String.t(), delete_application_request(), list()) ::
           {:ok, nil, any()}
@@ -1795,8 +1840,9 @@ defmodule AWS.AppConfig do
   @doc """
   Deletes a configuration profile.
 
-  Deleting a configuration profile does not delete a
-  configuration from a host.
+  To prevent users from unintentionally deleting actively-used configuration
+  profiles,
+  enable [deletion protection](https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html).
   """
   @spec delete_configuration_profile(
           map(),
@@ -1818,7 +1864,12 @@ defmodule AWS.AppConfig do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/configurationprofiles/#{AWS.Util.encode_uri(configuration_profile_id)}"
 
-    headers = []
+    {headers, input} =
+      [
+        {"DeletionProtectionCheck", "x-amzn-deletion-protection-check"}
+      ]
+      |> Request.build_params(input)
+
     query_params = []
 
     meta = metadata()
@@ -1838,9 +1889,6 @@ defmodule AWS.AppConfig do
 
   @doc """
   Deletes a deployment strategy.
-
-  Deleting a deployment strategy does not delete a
-  configuration from a host.
   """
   @spec delete_deployment_strategy(
           map(),
@@ -1874,8 +1922,8 @@ defmodule AWS.AppConfig do
   @doc """
   Deletes an environment.
 
-  Deleting an environment does not delete a configuration from a
-  host.
+  To prevent users from unintentionally deleting actively-used environments,
+  enable [deletion protection](https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html).
   """
   @spec delete_environment(map(), String.t(), String.t(), delete_environment_request(), list()) ::
           {:ok, nil, any()}
@@ -1885,7 +1933,12 @@ defmodule AWS.AppConfig do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/environments/#{AWS.Util.encode_uri(environment_id)}"
 
-    headers = []
+    {headers, input} =
+      [
+        {"DeletionProtectionCheck", "x-amzn-deletion-protection-check"}
+      ]
+      |> Request.build_params(input)
+
     query_params = []
 
     meta = metadata()
@@ -2020,6 +2073,24 @@ defmodule AWS.AppConfig do
       options,
       204
     )
+  end
+
+  @doc """
+  Returns information about the status of the `DeletionProtection`
+  parameter.
+  """
+  @spec get_account_settings(map(), list()) ::
+          {:ok, account_settings(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_account_settings_errors()}
+  def get_account_settings(%Client{} = client, options \\ []) do
+    url_path = "/settings"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -2837,6 +2908,33 @@ defmodule AWS.AppConfig do
       input,
       options,
       204
+    )
+  end
+
+  @doc """
+  Updates the value of the `DeletionProtection` parameter.
+  """
+  @spec update_account_settings(map(), update_account_settings_request(), list()) ::
+          {:ok, account_settings(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_account_settings_errors()}
+  def update_account_settings(%Client{} = client, input, options \\ []) do
+    url_path = "/settings"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
     )
   end
 

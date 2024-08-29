@@ -11373,6 +11373,7 @@ defmodule AWS.EC2 do
         optional("CustomerOwnedIpv4Pool") => String.t(),
         optional("Domain") => list(any()),
         optional("DryRun") => boolean(),
+        optional("IpamPoolId") => String.t(),
         optional("NetworkBorderGroup") => String.t(),
         optional("PublicIpv4Pool") => String.t(),
         optional("TagSpecifications") => list(tag_specification()())
@@ -39323,9 +39324,10 @@ defmodule AWS.EC2 do
   When you're creating an instance-store backed AMI, registering the AMI
   is the final step in the creation process. For more information about creating
   AMIs, see
-  [Create your own
-  AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  [Create an AMI from a snapshot](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot)
+  and [Create an instance-store backed
+  AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-instance-store.html)
+  in the *Amazon EC2 User Guide*.
 
   For Amazon EBS-backed instances, `CreateImage` creates and registers the AMI
   in a single request, so you don't have to register the AMI yourself. We
@@ -39334,9 +39336,10 @@ defmodule AWS.EC2 do
   RegisterImage.
 
   If needed, you can deregister an AMI at any time. Any modifications you make to
-  an AMI backed by an instance store volume invalidates its registration.
-  If you make changes to an image, deregister the previous image and register the
-  new image.
+  an AMI
+  backed by an instance store volume invalidates its registration. If you make
+  changes to an
+  image, deregister the previous image and register the new image.
 
   ## Register a snapshot of a root device volume
 
@@ -39349,9 +39352,9 @@ defmodule AWS.EC2 do
   an instance
   launched from the AMI is encrypted.
 
-  For more information, see [Create a Linux AMI from a snapshot](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot)
-  and [Use encryption with Amazon EBS-backed AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  For more information, see [Create an AMI from a snapshot](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot)
+  and [Use encryption with Amazon EBS-backed AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html) in
+  the *Amazon EC2 User Guide*.
 
   ## Amazon Web Services Marketplace product codes
 
@@ -39359,24 +39362,25 @@ defmodule AWS.EC2 do
   copied to the new
   AMI.
 
-  Windows and some Linux distributions, such as Red Hat Enterprise Linux (RHEL)
-  and SUSE
-  Linux Enterprise Server (SLES), use the Amazon EC2 billing product code
-  associated with an AMI to
-  verify the subscription status for package updates. To create a new AMI for
-  operating systems
-  that require a billing product code, instead of registering the AMI, do the
-  following to
-  preserve the billing product code association:
-
-    1.
-  Launch an instance from an existing AMI with that billing product code.
-
-    2.
-  Customize the instance.
-
-    3.
-  Create an AMI from the instance using `CreateImage`.
+  In most cases, AMIs for Windows, RedHat, SUSE, and SQL Server require correct
+  licensing
+  information to be present on the AMI. For more information, see [Understand AMI billing
+  information](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html)
+  in the *Amazon EC2 User Guide*. When creating an AMI from
+  a snapshot, the `RegisterImage` operation derives the correct billing
+  information
+  from the snapshot's metadata, but this requires the appropriate metadata to be
+  present. To
+  verify if the correct billing information was applied, check the
+  `PlatformDetails`
+  field on the new AMI. If the field is empty or doesn't match the expected
+  operating system
+  code (for example, Windows, RedHat, SUSE, or SQL), the AMI creation was
+  unsuccessful, and you
+  should discard the AMI and instead create the AMI from an instance using
+  `CreateImage`. For more information, see [Create an AMI from an instance
+  ](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#how-to-create-ebs-ami)
+  in the *Amazon EC2 User Guide*.
 
   If you purchase a Reserved Instance to apply to an On-Demand Instance that was
   launched

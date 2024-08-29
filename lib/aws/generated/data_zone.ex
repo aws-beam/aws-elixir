@@ -7483,7 +7483,7 @@ defmodule AWS.DataZone do
   end
 
   @doc """
-  Deletes an data product in Amazon DataZone.
+  Deletes a data product in Amazon DataZone.
   """
   @spec delete_data_product(map(), String.t(), String.t(), delete_data_product_input(), list()) ::
           {:ok, delete_data_product_output(), any()}

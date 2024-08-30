@@ -1410,7 +1410,8 @@ defmodule AWS.SFN do
       
       validate_state_machine_definition_output() :: %{
         "diagnostics" => list(validate_state_machine_definition_diagnostic()()),
-        "result" => list(any())
+        "result" => list(any()),
+        "truncated" => boolean()
       }
       
   """
@@ -1706,6 +1707,8 @@ defmodule AWS.SFN do
   ## Example:
       
       validate_state_machine_definition_input() :: %{
+        optional("maxResults") => integer(),
+        optional("severity") => list(any()),
         optional("type") => list(any()),
         required("definition") => String.t()
       }

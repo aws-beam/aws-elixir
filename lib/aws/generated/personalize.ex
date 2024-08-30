@@ -105,6 +105,19 @@ defmodule AWS.Personalize do
 
   ## Example:
       
+      update_solution_request() :: %{
+        optional("performAutoTraining") => boolean(),
+        optional("solutionUpdateConfig") => solution_update_config(),
+        required("solutionArn") => String.t()
+      }
+      
+  """
+  @type update_solution_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_batch_segment_jobs_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
@@ -524,6 +537,7 @@ defmodule AWS.Personalize do
         "datasetGroupArn" => String.t(),
         "eventType" => String.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
+        "latestSolutionUpdate" => solution_update_summary(),
         "latestSolutionVersion" => solution_version_summary(),
         "name" => String.t(),
         "performAutoML" => boolean(),
@@ -1955,6 +1969,17 @@ defmodule AWS.Personalize do
 
   ## Example:
       
+      solution_update_config() :: %{
+        "autoTrainingConfig" => auto_training_config()
+      }
+      
+  """
+  @type solution_update_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       tag_resource_response() :: %{}
       
   """
@@ -2389,6 +2414,22 @@ defmodule AWS.Personalize do
 
   ## Example:
       
+      solution_update_summary() :: %{
+        "creationDateTime" => non_neg_integer(),
+        "failureReason" => String.t(),
+        "lastUpdatedDateTime" => non_neg_integer(),
+        "performAutoTraining" => boolean(),
+        "solutionUpdateConfig" => solution_update_config(),
+        "status" => String.t()
+      }
+      
+  """
+  @type solution_update_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_campaign_request() :: %{
         optional("campaignConfig") => campaign_config(),
         optional("minProvisionedTPS") => integer(),
@@ -2492,6 +2533,17 @@ defmodule AWS.Personalize do
       
   """
   @type data_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_solution_response() :: %{
+        "solutionArn" => String.t()
+      }
+      
+  """
+  @type update_solution_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3021,6 +3073,12 @@ defmodule AWS.Personalize do
 
   @type update_recommender_errors() ::
           invalid_input_exception() | resource_not_found_exception() | resource_in_use_exception()
+
+  @type update_solution_errors() ::
+          limit_exceeded_exception()
+          | invalid_input_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
 
   def metadata do
     %{
@@ -3722,12 +3780,13 @@ defmodule AWS.Personalize do
 
   @doc """
 
-  After you create a solution, you can’t change its configuration.
+  By default, all new solutions use automatic training.
 
-  By default, all new solutions use automatic training. With automatic training,
-  you incur training costs while
-  your solution is active. You can't stop automatic training for a solution. To
-  avoid unnecessary costs, make sure to delete the solution when you are finished.
+  With automatic training, you incur training costs while
+  your solution is active. To avoid unnecessary costs, when you are finished you
+  can
+  [update the solution](https://docs.aws.amazon.com/personalize/latest/dg/API_UpdateSolution.html)
+  to turn off automatic training.
   For information about training
   costs, see [Amazon Personalize pricing](https://aws.amazon.com/personalize/pricing/).
 
@@ -3740,7 +3799,7 @@ defmodule AWS.Personalize do
 
   By default, new solutions use automatic training to create solution versions
   every 7 days. You can change the training frequency.
-  Automatic solution version creation starts one hour after the solution is
+  Automatic solution version creation starts within one hour after the solution is
   ACTIVE. If you manually create a solution version within
   the hour, the solution skips the first automatic training. For more information,
   see [Configuring automatic training](https://docs.aws.amazon.com/personalize/latest/dg/solution-config-auto-training.html).
@@ -3787,23 +3846,27 @@ defmodule AWS.Personalize do
 
     *
 
-  [ListSolutions](https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutions.html)
+  [UpdateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_UpdateSolution.html)
 
     *
 
-  [CreateSolutionVersion](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html) 
+  [ListSolutions](https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutions.html) 
 
     *
 
-  [DescribeSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html)
+  [CreateSolutionVersion](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html)
 
     *
 
-  [DeleteSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSolution.html) 
+  [DescribeSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html) 
 
     *
 
-  [ListSolutionVersions](https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html)
+  [DeleteSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSolution.html)
+
+    *
+
+  [ListSolutionVersions](https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html) 
 
     *
 
@@ -4892,5 +4955,35 @@ defmodule AWS.Personalize do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateRecommender", input, options)
+  end
+
+  @doc """
+  Updates an Amazon Personalize solution to use a different automatic training
+  configuration.
+
+  When you update a solution,
+  you can change whether the solution uses
+  automatic training, and you can change the training frequency. For more
+  information about updating a solution, see
+  [Updating a solution](https://docs.aws.amazon.com/personalize/latest/dg/updating-solution.html).
+
+  A solution update can be in one of the
+  following states:
+
+  CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
+
+  To get the status of a solution update, call the
+  [DescribeSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html)
+  API operation and find the status
+  in the `latestSolutionUpdate`.
+  """
+  @spec update_solution(map(), update_solution_request(), list()) ::
+          {:ok, update_solution_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_solution_errors()}
+  def update_solution(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateSolution", input, options)
   end
 end

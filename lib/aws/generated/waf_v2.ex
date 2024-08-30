@@ -4661,12 +4661,10 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  Attaches an IAM policy to the specified resource.
+  Use this to share a rule group with other accounts.
 
-  Use this to share a rule group across
-  accounts.
-
-  You must be the owner of the rule group to perform this operation.
+  This action attaches an IAM policy to the specified resource. You must be the
+  owner of the rule group to perform this operation.
 
   This action is subject to the following restrictions:
 
@@ -4680,6 +4678,12 @@ defmodule AWS.WAFV2 do
 
     *
   The user making the request must be the owner of the rule group.
+
+  If a rule group has been shared with your account, you can access it through the
+  call `GetRuleGroup`,
+  and you can reference it in `CreateWebACL` and `UpdateWebACL`.
+  Rule groups that are shared with you don't appear in your WAF console rule
+  groups listing.
   """
   @spec put_permission_policy(map(), put_permission_policy_request(), list()) ::
           {:ok, put_permission_policy_response(), any()}

@@ -22,56 +22,40 @@ defmodule AWS.RedshiftData do
 
   ## Example:
       
-      active_statements_exceeded_exception() :: %{
-        "Message" => String.t()
+      cancel_statement_response() :: %{
+        "Status" => [boolean()]
       }
       
   """
-  @type active_statements_exceeded_exception() :: %{String.t() => any()}
+  @type cancel_statement_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
       
-      batch_execute_statement_exception() :: %{
-        "Message" => String.t(),
-        "StatementId" => String.t()
+      table_member() :: %{
+        "name" => String.t(),
+        "schema" => String.t(),
+        "type" => String.t()
       }
       
   """
-  @type batch_execute_statement_exception() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_execute_statement_input() :: %{
-        optional("ClientToken") => String.t(),
-        optional("ClusterIdentifier") => String.t(),
-        optional("DbUser") => String.t(),
-        optional("SecretArn") => String.t(),
-        optional("StatementName") => String.t(),
-        optional("WithEvent") => [boolean()],
-        optional("WorkgroupName") => String.t(),
-        required("Database") => String.t(),
-        required("Sqls") => list(String.t()())
-      }
-      
-  """
-  @type batch_execute_statement_input() :: %{String.t() => any()}
+  @type table_member() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_execute_statement_output() :: %{
-        optional("ClusterIdentifier") => String.t(),
-        optional("CreatedAt") => [non_neg_integer()],
-        optional("Database") => String.t(),
-        optional("DbUser") => String.t(),
-        optional("Id") => String.t(),
-        optional("SecretArn") => String.t(),
-        optional("WorkgroupName") => String.t()
+        "ClusterIdentifier" => String.t(),
+        "CreatedAt" => [non_neg_integer()],
+        "Database" => String.t(),
+        "DbGroups" => list(String.t()()),
+        "DbUser" => String.t(),
+        "Id" => String.t(),
+        "SecretArn" => String.t(),
+        "SessionId" => String.t(),
+        "WorkgroupName" => String.t()
       }
       
   """
@@ -81,23 +65,22 @@ defmodule AWS.RedshiftData do
 
   ## Example:
       
-      cancel_statement_request() :: %{
-        required("Id") => String.t()
+      statement_data() :: %{
+        "CreatedAt" => [non_neg_integer()],
+        "Id" => String.t(),
+        "IsBatchStatement" => [boolean()],
+        "QueryParameters" => list(sql_parameter()()),
+        "QueryString" => String.t(),
+        "QueryStrings" => list(String.t()()),
+        "SecretArn" => String.t(),
+        "SessionId" => String.t(),
+        "StatementName" => String.t(),
+        "Status" => String.t(),
+        "UpdatedAt" => [non_neg_integer()]
       }
       
   """
-  @type cancel_statement_request() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cancel_statement_response() :: %{
-        optional("Status") => [boolean()]
-      }
-      
-  """
-  @type cancel_statement_response() :: %{String.t() => any()}
+  @type statement_data() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -126,130 +109,39 @@ defmodule AWS.RedshiftData do
 
   ## Example:
       
-      database_connection_exception() :: %{
-        "Message" => String.t()
+      sql_parameter() :: %{
+        "name" => String.t(),
+        "value" => String.t()
       }
       
   """
-  @type database_connection_exception() :: %{String.t() => any()}
+  @type sql_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_statement_request() :: %{
+      cancel_statement_request() :: %{
         required("Id") => String.t()
       }
       
   """
-  @type describe_statement_request() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_statement_response() :: %{
-        optional("ClusterIdentifier") => String.t(),
-        optional("CreatedAt") => [non_neg_integer()],
-        optional("Database") => String.t(),
-        optional("DbUser") => String.t(),
-        optional("Duration") => float(),
-        optional("Error") => String.t(),
-        optional("HasResultSet") => [boolean()],
-        optional("QueryParameters") => list(sql_parameter()()),
-        optional("QueryString") => String.t(),
-        optional("RedshiftPid") => float(),
-        optional("RedshiftQueryId") => float(),
-        optional("ResultRows") => float(),
-        optional("ResultSize") => float(),
-        optional("SecretArn") => String.t(),
-        optional("Status") => String.t(),
-        optional("SubStatements") => list(sub_statement_data()()),
-        optional("UpdatedAt") => [non_neg_integer()],
-        optional("WorkgroupName") => String.t(),
-        required("Id") => String.t()
-      }
-      
-  """
-  @type describe_statement_response() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_table_request() :: %{
-        optional("ClusterIdentifier") => String.t(),
-        optional("ConnectedDatabase") => String.t(),
-        optional("DbUser") => String.t(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("Schema") => String.t(),
-        optional("SecretArn") => String.t(),
-        optional("Table") => String.t(),
-        optional("WorkgroupName") => String.t(),
-        required("Database") => String.t()
-      }
-      
-  """
-  @type describe_table_request() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_table_response() :: %{
-        optional("ColumnList") => list(column_metadata()()),
-        optional("NextToken") => String.t(),
-        optional("TableName") => String.t()
-      }
-      
-  """
-  @type describe_table_response() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      execute_statement_exception() :: %{
-        "Message" => String.t(),
-        "StatementId" => String.t()
-      }
-      
-  """
-  @type execute_statement_exception() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      execute_statement_input() :: %{
-        optional("ClientToken") => String.t(),
-        optional("ClusterIdentifier") => String.t(),
-        optional("DbUser") => String.t(),
-        optional("Parameters") => list(sql_parameter()()),
-        optional("SecretArn") => String.t(),
-        optional("StatementName") => String.t(),
-        optional("WithEvent") => [boolean()],
-        optional("WorkgroupName") => String.t(),
-        required("Database") => String.t(),
-        required("Sql") => String.t()
-      }
-      
-  """
-  @type execute_statement_input() :: %{String.t() => any()}
+  @type cancel_statement_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
       
       execute_statement_output() :: %{
-        optional("ClusterIdentifier") => String.t(),
-        optional("CreatedAt") => [non_neg_integer()],
-        optional("Database") => String.t(),
-        optional("DbUser") => String.t(),
-        optional("Id") => String.t(),
-        optional("SecretArn") => String.t(),
-        optional("WorkgroupName") => String.t()
+        "ClusterIdentifier" => String.t(),
+        "CreatedAt" => [non_neg_integer()],
+        "Database" => String.t(),
+        "DbGroups" => list(String.t()()),
+        "DbUser" => String.t(),
+        "Id" => String.t(),
+        "SecretArn" => String.t(),
+        "SessionId" => String.t(),
+        "WorkgroupName" => String.t()
       }
       
   """
@@ -259,67 +151,47 @@ defmodule AWS.RedshiftData do
 
   ## Example:
       
-      get_statement_result_request() :: %{
-        optional("NextToken") => String.t(),
-        required("Id") => String.t()
+      describe_table_response() :: %{
+        "ColumnList" => list(column_metadata()()),
+        "NextToken" => String.t(),
+        "TableName" => String.t()
       }
       
   """
-  @type get_statement_result_request() :: %{String.t() => any()}
+  @type describe_table_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_statement_result_response() :: %{
-        optional("ColumnMetadata") => list(column_metadata()()),
-        optional("NextToken") => String.t(),
-        optional("TotalNumRows") => float(),
-        required("Records") => list(list(list()())())
-      }
-      
-  """
-  @type get_statement_result_response() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
+      active_statements_exceeded_exception() :: %{
         "Message" => String.t()
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type active_statements_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_databases_request() :: %{
+      execute_statement_input() :: %{
+        optional("ClientToken") => String.t(),
         optional("ClusterIdentifier") => String.t(),
+        optional("Database") => String.t(),
         optional("DbUser") => String.t(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("Parameters") => list(sql_parameter()()),
         optional("SecretArn") => String.t(),
+        optional("SessionId") => String.t(),
+        optional("SessionKeepAliveSeconds") => integer(),
+        optional("StatementName") => String.t(),
+        optional("WithEvent") => [boolean()],
         optional("WorkgroupName") => String.t(),
-        required("Database") => String.t()
+        required("Sql") => String.t()
       }
       
   """
-  @type list_databases_request() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_databases_response() :: %{
-        optional("Databases") => list(String.t()()),
-        optional("NextToken") => String.t()
-      }
-      
-  """
-  @type list_databases_response() :: %{String.t() => any()}
+  @type execute_statement_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -344,116 +216,22 @@ defmodule AWS.RedshiftData do
 
   ## Example:
       
-      list_schemas_response() :: %{
-        optional("NextToken") => String.t(),
-        optional("Schemas") => list(String.t()())
-      }
-      
-  """
-  @type list_schemas_response() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_statements_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("RoleLevel") => [boolean()],
-        optional("StatementName") => String.t(),
-        optional("Status") => String.t()
-      }
-      
-  """
-  @type list_statements_request() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_statements_response() :: %{
-        optional("NextToken") => String.t(),
-        required("Statements") => list(statement_data()())
-      }
-      
-  """
-  @type list_statements_response() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tables_request() :: %{
+      batch_execute_statement_input() :: %{
+        optional("ClientToken") => String.t(),
         optional("ClusterIdentifier") => String.t(),
-        optional("ConnectedDatabase") => String.t(),
+        optional("Database") => String.t(),
         optional("DbUser") => String.t(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("SchemaPattern") => String.t(),
         optional("SecretArn") => String.t(),
-        optional("TablePattern") => String.t(),
+        optional("SessionId") => String.t(),
+        optional("SessionKeepAliveSeconds") => integer(),
+        optional("StatementName") => String.t(),
+        optional("WithEvent") => [boolean()],
         optional("WorkgroupName") => String.t(),
-        required("Database") => String.t()
+        required("Sqls") => list(String.t()())
       }
       
   """
-  @type list_tables_request() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tables_response() :: %{
-        optional("NextToken") => String.t(),
-        optional("Tables") => list(table_member()())
-      }
-      
-  """
-  @type list_tables_response() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "Message" => String.t(),
-        "ResourceId" => String.t()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sql_parameter() :: %{
-        "name" => String.t(),
-        "value" => String.t()
-      }
-      
-  """
-  @type sql_parameter() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      statement_data() :: %{
-        "CreatedAt" => [non_neg_integer()],
-        "Id" => String.t(),
-        "IsBatchStatement" => [boolean()],
-        "QueryParameters" => list(sql_parameter()()),
-        "QueryString" => String.t(),
-        "QueryStrings" => list(String.t()()),
-        "SecretArn" => String.t(),
-        "StatementName" => String.t(),
-        "Status" => String.t(),
-        "UpdatedAt" => [non_neg_integer()]
-      }
-      
-  """
-  @type statement_data() :: %{String.t() => any()}
+  @type batch_execute_statement_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -480,14 +258,149 @@ defmodule AWS.RedshiftData do
 
   ## Example:
       
-      table_member() :: %{
-        "name" => String.t(),
-        "schema" => String.t(),
-        "type" => String.t()
+      describe_statement_request() :: %{
+        required("Id") => String.t()
       }
       
   """
-  @type table_member() :: %{String.t() => any()}
+  @type describe_statement_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_statements_response() :: %{
+        "NextToken" => String.t(),
+        "Statements" => list(statement_data()())
+      }
+      
+  """
+  @type list_statements_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_databases_request() :: %{
+        optional("ClusterIdentifier") => String.t(),
+        optional("DbUser") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SecretArn") => String.t(),
+        optional("WorkgroupName") => String.t(),
+        required("Database") => String.t()
+      }
+      
+  """
+  @type list_databases_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "Message" => String.t(),
+        "ResourceId" => String.t()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tables_response() :: %{
+        "NextToken" => String.t(),
+        "Tables" => list(table_member()())
+      }
+      
+  """
+  @type list_tables_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_statement_result_response() :: %{
+        "ColumnMetadata" => list(column_metadata()()),
+        "NextToken" => String.t(),
+        "Records" => list(list(list()())()),
+        "TotalNumRows" => float()
+      }
+      
+  """
+  @type get_statement_result_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_execute_statement_exception() :: %{
+        "Message" => String.t(),
+        "StatementId" => String.t()
+      }
+      
+  """
+  @type batch_execute_statement_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_table_request() :: %{
+        optional("ClusterIdentifier") => String.t(),
+        optional("ConnectedDatabase") => String.t(),
+        optional("DbUser") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("Schema") => String.t(),
+        optional("SecretArn") => String.t(),
+        optional("Table") => String.t(),
+        optional("WorkgroupName") => String.t(),
+        required("Database") => String.t()
+      }
+      
+  """
+  @type describe_table_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      execute_statement_exception() :: %{
+        "Message" => String.t(),
+        "StatementId" => String.t()
+      }
+      
+  """
+  @type execute_statement_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_statements_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("RoleLevel") => [boolean()],
+        optional("StatementName") => String.t(),
+        optional("Status") => String.t()
+      }
+      
+  """
+  @type list_statements_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -500,41 +413,176 @@ defmodule AWS.RedshiftData do
   """
   @type validation_exception() :: %{String.t() => any()}
 
+  @typedoc """
+
+  ## Example:
+      
+      query_timeout_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type query_timeout_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      active_sessions_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type active_sessions_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_statement_result_request() :: %{
+        optional("NextToken") => String.t(),
+        required("Id") => String.t()
+      }
+      
+  """
+  @type get_statement_result_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_statement_response() :: %{
+        "ClusterIdentifier" => String.t(),
+        "CreatedAt" => [non_neg_integer()],
+        "Database" => String.t(),
+        "DbUser" => String.t(),
+        "Duration" => float(),
+        "Error" => String.t(),
+        "HasResultSet" => [boolean()],
+        "Id" => String.t(),
+        "QueryParameters" => list(sql_parameter()()),
+        "QueryString" => String.t(),
+        "RedshiftPid" => float(),
+        "RedshiftQueryId" => float(),
+        "ResultRows" => float(),
+        "ResultSize" => float(),
+        "SecretArn" => String.t(),
+        "SessionId" => String.t(),
+        "Status" => String.t(),
+        "SubStatements" => list(sub_statement_data()()),
+        "UpdatedAt" => [non_neg_integer()],
+        "WorkgroupName" => String.t()
+      }
+      
+  """
+  @type describe_statement_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_schemas_response() :: %{
+        "NextToken" => String.t(),
+        "Schemas" => list(String.t()())
+      }
+      
+  """
+  @type list_schemas_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_databases_response() :: %{
+        "Databases" => list(String.t()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type list_databases_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      database_connection_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type database_connection_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tables_request() :: %{
+        optional("ClusterIdentifier") => String.t(),
+        optional("ConnectedDatabase") => String.t(),
+        optional("DbUser") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SchemaPattern") => String.t(),
+        optional("SecretArn") => String.t(),
+        optional("TablePattern") => String.t(),
+        optional("WorkgroupName") => String.t(),
+        required("Database") => String.t()
+      }
+      
+  """
+  @type list_tables_request() :: %{String.t() => any()}
+
   @type batch_execute_statement_errors() ::
-          validation_exception()
+          active_sessions_exceeded_exception()
+          | validation_exception()
+          | internal_server_exception()
           | batch_execute_statement_exception()
           | active_statements_exceeded_exception()
 
   @type cancel_statement_errors() ::
-          validation_exception()
-          | resource_not_found_exception()
+          database_connection_exception()
+          | validation_exception()
           | internal_server_exception()
-          | database_connection_exception()
+          | resource_not_found_exception()
 
   @type describe_statement_errors() ::
-          validation_exception() | resource_not_found_exception() | internal_server_exception()
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
 
   @type describe_table_errors() ::
-          validation_exception() | internal_server_exception() | database_connection_exception()
+          database_connection_exception()
+          | query_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type execute_statement_errors() ::
-          validation_exception()
+          active_sessions_exceeded_exception()
+          | validation_exception()
+          | internal_server_exception()
           | execute_statement_exception()
           | active_statements_exceeded_exception()
 
   @type get_statement_result_errors() ::
-          validation_exception() | resource_not_found_exception() | internal_server_exception()
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
 
   @type list_databases_errors() ::
-          validation_exception() | internal_server_exception() | database_connection_exception()
+          database_connection_exception()
+          | query_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type list_schemas_errors() ::
-          validation_exception() | internal_server_exception() | database_connection_exception()
+          database_connection_exception()
+          | query_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   @type list_statements_errors() :: validation_exception() | internal_server_exception()
 
   @type list_tables_errors() ::
-          validation_exception() | internal_server_exception() | database_connection_exception()
+          database_connection_exception()
+          | query_timeout_exception()
+          | validation_exception()
+          | internal_server_exception()
 
   def metadata do
     %{

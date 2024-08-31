@@ -793,6 +793,7 @@ defmodule AWS.Backup do
         "MaxRetentionDays" => float(),
         "MinRetentionDays" => float(),
         "NumberOfRecoveryPoints" => float(),
+        "VaultState" => list(any()),
         "VaultType" => list(any())
       }
 
@@ -1940,7 +1941,9 @@ defmodule AWS.Backup do
         "Locked" => boolean(),
         "MaxRetentionDays" => float(),
         "MinRetentionDays" => float(),
-        "NumberOfRecoveryPoints" => float()
+        "NumberOfRecoveryPoints" => float(),
+        "VaultState" => list(any()),
+        "VaultType" => list(any())
       }
 
   """
@@ -3585,9 +3588,10 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  This action removes the specified legal hold on a recovery point.
+  Removes the specified legal hold on a recovery point.
 
-  This action can only be performed by a user with sufficient permissions.
+  This action can only be performed
+  by a user with sufficient permissions.
   """
   @spec cancel_legal_hold(map(), String.t(), cancel_legal_hold_input(), list()) ::
           {:ok, cancel_legal_hold_output(), any()}
@@ -3723,14 +3727,14 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  This action creates a legal hold on a recovery point (backup).
+  Creates a legal hold on a recovery point (backup).
 
-  A legal hold
-  is a restraint on altering or deleting a backup until an authorized user cancels
-  the
-  legal hold. Any actions to delete or disassociate a recovery point will fail
-  with
-  an error if one or more active legal holds are on the recovery point.
+  A legal hold is a restraint on
+  altering or deleting a backup until an authorized user cancels the legal hold.
+  Any actions
+  to delete or disassociate a recovery point will fail with an error if one or
+  more active
+  legal holds are on the recovery point.
   """
   @spec create_legal_hold(map(), create_legal_hold_input(), list()) ::
           {:ok, create_legal_hold_output(), any()}
@@ -3757,7 +3761,7 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  This request creates a logical container to where backups may be copied.
+  Creates a logical container to where backups may be copied.
 
   This request includes a name, the Region, the maximum number of retention days,
   the
@@ -3826,12 +3830,11 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  This is the first of two steps to create a restore testing
-  plan; once this request is successful, finish the procedure with
-  request CreateRestoreTestingSelection.
+  Creates a restore testing plan.
 
-  You must include the parameter RestoreTestingPlan. You may
-  optionally include CreatorRequestId and Tags.
+  The first of two steps to create a restore testing
+  plan. After this request is successful, finish the procedure using
+  CreateRestoreTestingSelection.
   """
   @spec create_restore_testing_plan(map(), create_restore_testing_plan_input(), list()) ::
           {:ok, create_restore_testing_plan_output(), any()}
@@ -5233,9 +5236,7 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Returns metadata of your saved backup plan templates, including the template ID,
-  name,
-  and the creation and deletion dates.
+  Lists the backup plan templates.
   """
   @spec list_backup_plan_templates(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_backup_plan_templates_output(), any()}
@@ -5310,12 +5311,7 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Returns a list of all active backup plans for an authenticated account.
-
-  The list
-  contains information such as Amazon Resource Names (ARNs), plan IDs, creation
-  and deletion
-  dates, version IDs, plan names, and creator request IDs.
+  Lists the active backup plans for the account.
   """
   @spec list_backup_plans(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_backup_plans_output(), any()}
@@ -5998,8 +5994,7 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Returns detailed information about all the recovery points of the type specified
-  by a
+  The information about the recovery points of the type specified by a
   resource Amazon Resource Name (ARN).
 
   For Amazon EFS and Amazon EC2, this action only lists recovery points
@@ -6529,15 +6524,9 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Returns a list of key-value pairs assigned to a target recovery point, backup
-  plan, or
+  Returns the tags assigned to the resource, such as a target recovery point,
+  backup plan, or
   backup vault.
-
-  `ListTags` only works for resource types that support full Backup
-  management of their backups. Those resource types are listed in the "Full Backup
-  management" section of the [ Feature availability by
-  resource](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource)
-  table.
   """
   @spec list_tags(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_tags_output(), any()}
@@ -6617,7 +6606,10 @@ defmodule AWS.Backup do
   that are subject to SEC 17a-4, CFTC, and FINRA regulations. For more information
   about
   how Backup Vault Lock relates to these regulations, see the
-  [Cohasset Associates Compliance Assessment.](samples/cohassetreport.zip)
+  [Cohasset Associates Compliance
+  Assessment.](https://docs.aws.amazon.com/aws-backup/latest/devguide/samples/cohassetreport.zip)
+
+  For more information, see [Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html).
   """
   @spec put_backup_vault_lock_configuration(
           map(),
@@ -6779,8 +6771,8 @@ defmodule AWS.Backup do
 
   This action is not supported for the following services:
   Amazon FSx for Windows File Server, Amazon FSx for Lustre, Amazon FSx for NetApp
-  ONTAP
-  , Amazon FSx for OpenZFS, Amazon DocumentDB (with MongoDB compatibility), Amazon
+  ONTAP,
+  Amazon FSx for OpenZFS, Amazon DocumentDB (with MongoDB compatibility), Amazon
   RDS, Amazon Aurora,
   and Amazon Neptune.
   """
@@ -6812,6 +6804,10 @@ defmodule AWS.Backup do
   Assigns a set of key-value pairs to a recovery point, backup plan, or backup
   vault
   identified by an Amazon Resource Name (ARN).
+
+  This API is supported for recovery points for resource types
+  including Aurora, Amazon DocumentDB. Amazon EBS,
+  Amazon FSx, Neptune, and Amazon RDS.
   """
   @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
           {:ok, nil, any()}
@@ -6841,6 +6837,12 @@ defmodule AWS.Backup do
   Removes a set of key-value pairs from a recovery point, backup plan, or backup
   vault
   identified by an Amazon Resource Name (ARN)
+
+  This API is not supported for recovery points for resource types
+  including Aurora, Amazon DocumentDB.
+
+  Amazon EBS,
+  Amazon FSx, Neptune, and Amazon RDS.
   """
   @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
           {:ok, nil, any()}
@@ -6867,11 +6869,9 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Updates an existing backup plan identified by its `backupPlanId` with the
-  input document in JSON format.
+  Updates the specified backup plan.
 
-  The new version is uniquely identified by a
-  `VersionId`.
+  The new version is uniquely identified by its ID.
   """
   @spec update_backup_plan(map(), String.t(), update_backup_plan_input(), list()) ::
           {:ok, update_backup_plan_output(), any()}
@@ -6898,8 +6898,7 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Updates an existing framework identified by its `FrameworkName` with the
-  input document in JSON format.
+  Updates the specified framework.
   """
   @spec update_framework(map(), String.t(), update_framework_input(), list()) ::
           {:ok, update_framework_output(), any()}
@@ -6945,6 +6944,11 @@ defmodule AWS.Backup do
   it expires. Backup transitions and expires backups automatically according to
   the lifecycle that you define.
 
+  Resource types that can transition to cold storage are listed in the [Feature availability by
+  resource](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource)
+  table. Backup ignores this expression for
+  other resource types.
+
   Backups transitioned to cold storage must be stored in cold storage for a
   minimum of 90
   days. Therefore, the “retention” setting must be 90 days greater than the
@@ -6953,13 +6957,11 @@ defmodule AWS.Backup do
   changed
   after a backup has been transitioned to cold.
 
-  Resource types that are able to be transitioned to cold storage are listed in
-  the "Lifecycle to cold storage"
-  section of the [
-  Feature availability by
-  resource](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource)
-  table. Backup ignores this expression for
-  other resource types.
+  If your lifecycle currently uses the parameters `DeleteAfterDays` and
+  `MoveToColdStorageAfterDays`, include these parameters and their values when you
+  call
+  this operation. Not including them may result in your plan updating with null
+  values.
 
   This operation does not support continuous backups.
   """
@@ -7023,8 +7025,7 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Updates an existing report plan identified by its `ReportPlanName` with the
-  input document in JSON format.
+  Updates the specified report plan.
   """
   @spec update_report_plan(map(), String.t(), update_report_plan_input(), list()) ::
           {:ok, update_report_plan_output(), any()}
@@ -7094,14 +7095,12 @@ defmodule AWS.Backup do
   end
 
   @doc """
+  Updates the specified restore testing selection.
+
   Most elements except the `RestoreTestingSelectionName`
   can be updated with this request.
 
-  `RestoreTestingSelection` can use either protected
-  resource ARNs or conditions, but not both. That is, if your selection
-  has `ProtectedResourceArns`, requesting an update with the
-  parameter `ProtectedResourceConditions` will be
-  unsuccessful.
+  You can use either protected resource ARNs or conditions, but not both.
   """
   @spec update_restore_testing_selection(
           map(),

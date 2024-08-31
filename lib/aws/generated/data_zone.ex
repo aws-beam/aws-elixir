@@ -22,6 +22,20 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      policy_grant_member() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
+        "detail" => list(),
+        "principal" => list()
+      }
+
+  """
+  @type policy_grant_member() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       asset_revision() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
@@ -54,6 +68,7 @@ defmodule AWS.DataZone do
         "id" => String.t(),
         "lastUpdatedAt" => non_neg_integer(),
         "name" => [String.t()],
+        "rootDomainUnitId" => String.t(),
         "singleSignOn" => single_sign_on()
       }
 
@@ -140,6 +155,17 @@ defmodule AWS.DataZone do
 
   """
   @type business_name_generation_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_form_type_policy_grant_detail() :: %{
+        "includeChildDomainUnits" => [boolean()]
+      }
+
+  """
+  @type create_form_type_policy_grant_detail() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -483,6 +509,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      list_policy_grants_output() :: %{
+        "grantList" => list(policy_grant_member()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_policy_grants_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       unauthorized_exception() :: %{
         "message" => String.t()
       }
@@ -524,6 +562,15 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      remove_entity_owner_output() :: %{}
+
+  """
+  @type remove_entity_owner_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       asset_listing_details() :: %{
         "listingId" => String.t(),
         "listingStatus" => list(any())
@@ -531,6 +578,15 @@ defmodule AWS.DataZone do
 
   """
   @type asset_listing_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      all_users_grant_filter() :: %{}
+
+  """
+  @type all_users_grant_filter() :: %{}
 
   @typedoc """
 
@@ -633,6 +689,7 @@ defmodule AWS.DataZone do
         "createdBy" => String.t(),
         "description" => String.t(),
         "domainId" => String.t(),
+        "domainUnitId" => String.t(),
         "failureReasons" => list(project_deletion_error()()),
         "id" => String.t(),
         "name" => String.t(),
@@ -651,6 +708,17 @@ defmodule AWS.DataZone do
 
   """
   @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_asset_type_policy_grant_detail() :: %{
+        "includeChildDomainUnits" => [boolean()]
+      }
+
+  """
+  @type create_asset_type_policy_grant_detail() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -821,6 +889,17 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      create_project_policy_grant_detail() :: %{
+        "includeChildDomainUnits" => [boolean()]
+      }
+
+  """
+  @type create_project_policy_grant_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       data_product_revision() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
@@ -870,6 +949,17 @@ defmodule AWS.DataZone do
 
   """
   @type create_subscription_request_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      owner_group_properties_output() :: %{
+        "groupId" => [String.t()]
+      }
+
+  """
+  @type owner_group_properties_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -931,6 +1021,15 @@ defmodule AWS.DataZone do
 
   """
   @type create_form_type_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_policy_grant_output() :: %{}
+
+  """
+  @type add_policy_grant_output() :: %{}
 
   @typedoc """
 
@@ -1121,12 +1220,30 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      add_entity_owner_output() :: %{}
+
+  """
+  @type add_entity_owner_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       user_details() :: %{
         "userId" => [String.t()]
       }
 
   """
   @type user_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_domain_unit_input() :: %{}
+
+  """
+  @type delete_domain_unit_input() :: %{}
 
   @typedoc """
 
@@ -1151,6 +1268,17 @@ defmodule AWS.DataZone do
 
   """
   @type get_data_product_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_environment_profile_policy_grant_detail() :: %{
+        "domainUnitId" => String.t()
+      }
+
+  """
+  @type create_environment_profile_policy_grant_detail() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1221,6 +1349,35 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      unit() :: %{}
+
+  """
+  @type unit() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_domain_unit_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
+        "description" => String.t(),
+        "domainId" => String.t(),
+        "id" => String.t(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "lastUpdatedBy" => String.t(),
+        "name" => String.t(),
+        "owners" => list(list()()),
+        "parentDomainUnitId" => String.t()
+      }
+
+  """
+  @type update_domain_unit_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_listing_input() :: %{
         optional("listingRevision") => String.t()
       }
@@ -1248,6 +1405,7 @@ defmodule AWS.DataZone do
         "createdBy" => String.t(),
         "description" => String.t(),
         "domainId" => String.t(),
+        "domainUnitId" => String.t(),
         "failureReasons" => list(project_deletion_error()()),
         "glossaryTerms" => list(String.t()()),
         "id" => String.t(),
@@ -1342,6 +1500,17 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      override_project_owners_policy_grant_detail() :: %{
+        "includeChildDomainUnits" => [boolean()]
+      }
+
+  """
+  @type override_project_owners_policy_grant_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       disassociate_environment_role_input() :: %{}
 
   """
@@ -1358,6 +1527,31 @@ defmodule AWS.DataZone do
 
   """
   @type greater_than_or_equal_to_expression() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policy_grants_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("policyType") => list(any())
+      }
+
+  """
+  @type list_policy_grants_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_unit_filter_for_project() :: %{
+        "domainUnit" => String.t(),
+        "includeChildDomainUnits" => [boolean()]
+      }
+
+  """
+  @type domain_unit_filter_for_project() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1384,6 +1578,15 @@ defmodule AWS.DataZone do
 
   """
   @type post_time_series_data_points_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_domain_unit_input() :: %{}
+
+  """
+  @type get_domain_unit_input() :: %{}
 
   @typedoc """
 
@@ -1689,6 +1892,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      remove_entity_owner_input() :: %{
+        optional("clientToken") => String.t(),
+        required("owner") => list()
+      }
+
+  """
+  @type remove_entity_owner_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_data_product_input() :: %{}
 
   """
@@ -1740,6 +1955,26 @@ defmodule AWS.DataZone do
 
   """
   @type list_data_source_run_activities_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_domain_unit_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
+        "description" => String.t(),
+        "domainId" => String.t(),
+        "id" => String.t(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "lastUpdatedBy" => String.t(),
+        "name" => String.t(),
+        "owners" => list(list()()),
+        "parentDomainUnitId" => String.t()
+      }
+
+  """
+  @type get_domain_unit_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1917,6 +2152,17 @@ defmodule AWS.DataZone do
 
   """
   @type glossary_term_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      override_domain_unit_owners_policy_grant_detail() :: %{
+        "includeChildDomainUnits" => [boolean()]
+      }
+
+  """
+  @type override_domain_unit_owners_policy_grant_detail() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2146,6 +2392,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      list_entity_owners_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_entity_owners_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_metadata_generation_run_output() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
@@ -2244,6 +2502,17 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      domain_unit_user_properties() :: %{
+        "userId" => [String.t()]
+      }
+
+  """
+  @type domain_unit_user_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_domain_input() :: %{
         optional("clientToken") => [String.t()],
         optional("skipDeletionCheck") => [boolean()]
@@ -2251,6 +2520,19 @@ defmodule AWS.DataZone do
 
   """
   @type delete_domain_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_domain_units_for_parent_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("parentDomainUnitIdentifier") => String.t()
+      }
+
+  """
+  @type list_domain_units_for_parent_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2313,6 +2595,20 @@ defmodule AWS.DataZone do
 
   """
   @type is_null_expression() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_policy_grant_input() :: %{
+        optional("clientToken") => String.t(),
+        required("detail") => list(),
+        required("policyType") => list(any()),
+        required("principal") => list()
+      }
+
+  """
+  @type add_policy_grant_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2741,6 +3037,7 @@ defmodule AWS.DataZone do
         "lastUpdatedAt" => non_neg_integer(),
         "name" => [String.t()],
         "portalUrl" => [String.t()],
+        "rootDomainUnitId" => String.t(),
         "singleSignOn" => single_sign_on(),
         "status" => list(any()),
         "tags" => map()
@@ -2988,6 +3285,17 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      owner_group_properties() :: %{
+        "groupIdentifier" => String.t()
+      }
+
+  """
+  @type owner_group_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       asset_type_item() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
@@ -3068,6 +3376,17 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      owner_user_properties() :: %{
+        "userIdentifier" => String.t()
+      }
+
+  """
+  @type owner_user_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       lineage_node_summary() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
@@ -3106,6 +3425,17 @@ defmodule AWS.DataZone do
 
   """
   @type create_subscription_grant_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_glossary_policy_grant_detail() :: %{
+        "includeChildDomainUnits" => [boolean()]
+      }
+
+  """
+  @type create_glossary_policy_grant_detail() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3469,6 +3799,47 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      add_to_project_member_pool_policy_grant_detail() :: %{
+        "includeChildDomainUnits" => [boolean()]
+      }
+
+  """
+  @type add_to_project_member_pool_policy_grant_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      owner_user_properties_output() :: %{
+        "userId" => [String.t()]
+      }
+
+  """
+  @type owner_user_properties_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_domain_unit_output() :: %{
+        "ancestorDomainUnitIds" => list(String.t()()),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
+        "description" => String.t(),
+        "domainId" => String.t(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "owners" => list(list()()),
+        "parentDomainUnitId" => String.t()
+      }
+
+  """
+  @type create_domain_unit_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       data_product_result_item() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
@@ -3555,6 +3926,7 @@ defmodule AWS.DataZone do
 
       create_project_input() :: %{
         optional("description") => String.t(),
+        optional("domainUnitId") => String.t(),
         optional("glossaryTerms") => list(String.t()()),
         required("name") => String.t()
       }
@@ -3763,6 +4135,7 @@ defmodule AWS.DataZone do
         "kmsKeyIdentifier" => String.t(),
         "name" => [String.t()],
         "portalUrl" => [String.t()],
+        "rootDomainUnitId" => String.t(),
         "singleSignOn" => single_sign_on(),
         "status" => list(any()),
         "tags" => map()
@@ -3881,6 +4254,15 @@ defmodule AWS.DataZone do
 
   """
   @type delete_asset_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_policy_grant_output() :: %{}
+
+  """
+  @type remove_policy_grant_output() :: %{}
 
   @typedoc """
 
@@ -4042,6 +4424,7 @@ defmodule AWS.DataZone do
         "createdBy" => String.t(),
         "description" => String.t(),
         "domainId" => String.t(),
+        "domainUnitId" => String.t(),
         "failureReasons" => list(project_deletion_error()()),
         "glossaryTerms" => list(String.t()()),
         "id" => String.t(),
@@ -4205,6 +4588,20 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      create_domain_unit_input() :: %{
+        optional("clientToken") => String.t(),
+        optional("description") => String.t(),
+        required("name") => String.t(),
+        required("parentDomainUnitIdentifier") => String.t()
+      }
+
+  """
+  @type create_domain_unit_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_data_product_input() :: %{
         optional("revision") => String.t()
       }
@@ -4225,6 +4622,18 @@ defmodule AWS.DataZone do
 
   """
   @type accept_predictions_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_entity_owners_output() :: %{
+        "nextToken" => String.t(),
+        "owners" => list(list()())
+      }
+
+  """
+  @type list_entity_owners_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4330,6 +4739,19 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      remove_policy_grant_input() :: %{
+        optional("clientToken") => String.t(),
+        required("policyType") => list(any()),
+        required("principal") => list()
+      }
+
+  """
+  @type remove_policy_grant_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_listing_change_set_input() :: %{
         optional("clientToken") => String.t(),
         optional("entityRevision") => String.t(),
@@ -4340,6 +4762,19 @@ defmodule AWS.DataZone do
 
   """
   @type create_listing_change_set_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_unit_policy_grant_principal() :: %{
+        "domainUnitDesignation" => list(any()),
+        "domainUnitGrantFilter" => list(),
+        "domainUnitIdentifier" => String.t()
+      }
+
+  """
+  @type domain_unit_policy_grant_principal() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4374,6 +4809,17 @@ defmodule AWS.DataZone do
 
   """
   @type less_than_or_equal_to_expression() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_domain_unit_policy_grant_detail() :: %{
+        "includeChildDomainUnits" => [boolean()]
+      }
+
+  """
+  @type create_domain_unit_policy_grant_detail() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4438,6 +4884,18 @@ defmodule AWS.DataZone do
 
   """
   @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_domain_units_for_parent_output() :: %{
+        "items" => list(domain_unit_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_domain_units_for_parent_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4509,6 +4967,7 @@ defmodule AWS.DataZone do
         "createdBy" => String.t(),
         "description" => String.t(),
         "domainId" => String.t(),
+        "domainUnitId" => String.t(),
         "failureReasons" => list(project_deletion_error()()),
         "glossaryTerms" => list(String.t()()),
         "id" => String.t(),
@@ -4602,6 +5061,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      domain_unit_summary() :: %{
+        "id" => String.t(),
+        "name" => [String.t()]
+      }
+
+  """
+  @type domain_unit_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_data_source_run_output() :: %{
         "createdAt" => non_neg_integer(),
         "dataSourceConfigurationSnapshot" => [String.t()],
@@ -4629,6 +5100,18 @@ defmodule AWS.DataZone do
 
   """
   @type get_glossary_term_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_domain_unit_input() :: %{
+        optional("description") => String.t(),
+        optional("name") => String.t()
+      }
+
+  """
+  @type update_domain_unit_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4949,6 +5432,15 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      all_domain_units_grant_filter() :: %{}
+
+  """
+  @type all_domain_units_grant_filter() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       environment_error() :: %{
         "code" => [String.t()],
         "message" => [String.t()]
@@ -4991,6 +5483,15 @@ defmodule AWS.DataZone do
 
   """
   @type delete_domain_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_domain_unit_output() :: %{}
+
+  """
+  @type delete_domain_unit_output() :: %{}
 
   @typedoc """
 
@@ -5112,6 +5613,31 @@ defmodule AWS.DataZone do
 
   """
   @type list_domains_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      project_policy_grant_principal() :: %{
+        "projectDesignation" => list(any()),
+        "projectGrantFilter" => list(),
+        "projectIdentifier" => String.t()
+      }
+
+  """
+  @type project_policy_grant_principal() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_entity_owner_input() :: %{
+        optional("clientToken") => String.t(),
+        required("owner") => list()
+      }
+
+  """
+  @type add_entity_owner_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5268,6 +5794,17 @@ defmodule AWS.DataZone do
 
   """
   @type create_subscription_request_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_unit_group_properties() :: %{
+        "groupId" => [String.t()]
+      }
+
+  """
+  @type domain_unit_group_properties() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5599,6 +6136,23 @@ defmodule AWS.DataZone do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type add_entity_owner_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type add_policy_grant_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
   @type associate_environment_role_errors() ::
           throttling_exception()
           | validation_exception()
@@ -5690,6 +6244,14 @@ defmodule AWS.DataZone do
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_domain_unit_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
 
   @type create_environment_errors() ::
@@ -5844,6 +6406,14 @@ defmodule AWS.DataZone do
           | conflict_exception()
 
   @type delete_domain_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_domain_unit_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -6014,6 +6584,13 @@ defmodule AWS.DataZone do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type get_domain_unit_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
 
   @type get_environment_errors() ::
@@ -6209,6 +6786,12 @@ defmodule AWS.DataZone do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type list_domain_units_for_parent_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type list_domains_errors() ::
           throttling_exception()
           | validation_exception()
@@ -6217,6 +6800,12 @@ defmodule AWS.DataZone do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type list_entity_owners_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
 
   @type list_environment_actions_errors() ::
           throttling_exception()
@@ -6268,6 +6857,12 @@ defmodule AWS.DataZone do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type list_policy_grants_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
 
   @type list_project_memberships_errors() ::
           throttling_exception()
@@ -6361,6 +6956,19 @@ defmodule AWS.DataZone do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type remove_entity_owner_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type remove_policy_grant_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type revoke_subscription_errors() ::
           throttling_exception()
           | validation_exception()
@@ -6445,6 +7053,14 @@ defmodule AWS.DataZone do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_domain_unit_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -6605,6 +7221,94 @@ defmodule AWS.DataZone do
     meta = metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Adds the owner of an entity (a domain unit).
+  """
+  @spec add_entity_owner(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          add_entity_owner_input(),
+          list()
+        ) ::
+          {:ok, add_entity_owner_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, add_entity_owner_errors()}
+  def add_entity_owner(
+        %Client{} = client,
+        domain_identifier,
+        entity_identifier,
+        entity_type,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/entities/#{AWS.Util.encode_uri(entity_type)}/#{AWS.Util.encode_uri(entity_identifier)}/addOwner"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Adds a policy grant (an authorization policy) to a specified entity, including
+  domain
+  units, environment blueprint configurations, or environment profiles.
+  """
+  @spec add_policy_grant(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          add_policy_grant_input(),
+          list()
+        ) ::
+          {:ok, add_policy_grant_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, add_policy_grant_errors()}
+  def add_policy_grant(
+        %Client{} = client,
+        domain_identifier,
+        entity_identifier,
+        entity_type,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/policies/managed/#{AWS.Util.encode_uri(entity_type)}/#{AWS.Util.encode_uri(entity_identifier)}/addGrant"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -6934,6 +7638,33 @@ defmodule AWS.DataZone do
           | {:error, create_domain_errors()}
   def create_domain(%Client{} = client, input, options \\ []) do
     url_path = "/v2/domains"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a domain unit in Amazon DataZone.
+  """
+  @spec create_domain_unit(map(), String.t(), create_domain_unit_input(), list()) ::
+          {:ok, create_domain_unit_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_domain_unit_errors()}
+  def create_domain_unit(%Client{} = client, domain_identifier, input, options \\ []) do
+    url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/domain-units"
     headers = []
     query_params = []
 
@@ -7576,6 +8307,35 @@ defmodule AWS.DataZone do
       input,
       options,
       202
+    )
+  end
+
+  @doc """
+  Deletes a domain unit.
+  """
+  @spec delete_domain_unit(map(), String.t(), String.t(), delete_domain_unit_input(), list()) ::
+          {:ok, delete_domain_unit_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_domain_unit_errors()}
+  def delete_domain_unit(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/domain-units/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
     )
   end
 
@@ -8317,6 +9077,25 @@ defmodule AWS.DataZone do
           | {:error, get_domain_errors()}
   def get_domain(%Client{} = client, identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets the details of the specified domain unit.
+  """
+  @spec get_domain_unit(map(), String.t(), String.t(), list()) ::
+          {:ok, get_domain_unit_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_domain_unit_errors()}
+  def get_domain_unit(%Client{} = client, domain_identifier, identifier, options \\ []) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/domain-units/#{AWS.Util.encode_uri(identifier)}"
+
     headers = []
     query_params = []
 
@@ -9193,6 +9972,58 @@ defmodule AWS.DataZone do
   end
 
   @doc """
+  Lists child domain units for the specified parent domain unit.
+  """
+  @spec list_domain_units_for_parent(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t(),
+          list()
+        ) ::
+          {:ok, list_domain_units_for_parent_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_domain_units_for_parent_errors()}
+  def list_domain_units_for_parent(
+        %Client{} = client,
+        domain_identifier,
+        max_results \\ nil,
+        next_token \\ nil,
+        parent_domain_unit_identifier,
+        options \\ []
+      ) do
+    url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/domain-units"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(parent_domain_unit_identifier) do
+        [{"parentDomainUnitIdentifier", parent_domain_unit_identifier} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists Amazon DataZone domains.
   """
   @spec list_domains(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
@@ -9216,6 +10047,55 @@ defmodule AWS.DataZone do
       else
         query_params
       end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the entity (domain units) owners.
+  """
+  @spec list_entity_owners(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_entity_owners_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_entity_owners_errors()}
+  def list_entity_owners(
+        %Client{} = client,
+        domain_identifier,
+        entity_identifier,
+        entity_type,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/entities/#{AWS.Util.encode_uri(entity_type)}/#{AWS.Util.encode_uri(entity_identifier)}/owners"
+
+    headers = []
+    query_params = []
 
     query_params =
       if !is_nil(next_token) do
@@ -9815,6 +10695,64 @@ defmodule AWS.DataZone do
     query_params =
       if !is_nil(after_timestamp) do
         [{"afterTimestamp", after_timestamp} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists policy grants.
+  """
+  @spec list_policy_grants(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t(),
+          list()
+        ) ::
+          {:ok, list_policy_grants_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_policy_grants_errors()}
+  def list_policy_grants(
+        %Client{} = client,
+        domain_identifier,
+        entity_identifier,
+        entity_type,
+        max_results \\ nil,
+        next_token \\ nil,
+        policy_type,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/policies/managed/#{AWS.Util.encode_uri(entity_type)}/#{AWS.Util.encode_uri(entity_identifier)}/grants"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(policy_type) do
+        [{"policyType", policy_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -10591,6 +11529,92 @@ defmodule AWS.DataZone do
   end
 
   @doc """
+  Removes an owner from an entity.
+  """
+  @spec remove_entity_owner(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          remove_entity_owner_input(),
+          list()
+        ) ::
+          {:ok, remove_entity_owner_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, remove_entity_owner_errors()}
+  def remove_entity_owner(
+        %Client{} = client,
+        domain_identifier,
+        entity_identifier,
+        entity_type,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/entities/#{AWS.Util.encode_uri(entity_type)}/#{AWS.Util.encode_uri(entity_identifier)}/removeOwner"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Removes a policy grant.
+  """
+  @spec remove_policy_grant(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          remove_policy_grant_input(),
+          list()
+        ) ::
+          {:ok, remove_policy_grant_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, remove_policy_grant_errors()}
+  def remove_policy_grant(
+        %Client{} = client,
+        domain_identifier,
+        entity_identifier,
+        entity_type,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/policies/managed/#{AWS.Util.encode_uri(entity_type)}/#{AWS.Util.encode_uri(entity_identifier)}/removeGrant"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Revokes a specified subscription in Amazon DataZone.
   """
   @spec revoke_subscription(map(), String.t(), String.t(), revoke_subscription_input(), list()) ::
@@ -10964,6 +11988,25 @@ defmodule AWS.DataZone do
         {"clientToken", "clientToken"}
       ]
       |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Updates the domain unit.
+  """
+  @spec update_domain_unit(map(), String.t(), String.t(), update_domain_unit_input(), list()) ::
+          {:ok, update_domain_unit_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_domain_unit_errors()}
+  def update_domain_unit(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/domain-units/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    query_params = []
 
     meta = metadata()
 

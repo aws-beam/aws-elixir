@@ -4195,6 +4195,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      accepted_asset_scope() :: %{
+        "assetId" => String.t(),
+        "filterIds" => list(String.t()())
+      }
+
+  """
+  @type accepted_asset_scope() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cancel_subscription_output() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
@@ -4711,6 +4723,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       subscribed_asset_listing() :: %{
+        "assetScope" => asset_scope(),
         "entityId" => String.t(),
         "entityRevision" => String.t(),
         "entityType" => String.t(),
@@ -5204,6 +5217,7 @@ defmodule AWS.DataZone do
       subscribed_asset() :: %{
         "assetId" => String.t(),
         "assetRevision" => String.t(),
+        "assetScope" => asset_scope(),
         "failureCause" => failure_cause(),
         "failureTimestamp" => [non_neg_integer()],
         "grantedTimestamp" => [non_neg_integer()],
@@ -5395,6 +5409,20 @@ defmodule AWS.DataZone do
 
   """
   @type failure_cause() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_scope() :: %{
+        "assetId" => String.t(),
+        "errorMessage" => [String.t()],
+        "filterIds" => list(String.t()()),
+        "status" => [String.t()]
+      }
+
+  """
+  @type asset_scope() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5811,6 +5839,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       accept_subscription_request_input() :: %{
+        optional("assetScopes") => list(accepted_asset_scope()()),
         optional("decisionComment") => String.t()
       }
 

@@ -27,11 +27,23 @@ defmodule AWS.MediaConnect do
 
       update_flow_request() :: %{
         optional("Maintenance") => update_maintenance(),
-        optional("SourceFailoverConfig") => update_failover_config()
+        optional("SourceFailoverConfig") => update_failover_config(),
+        optional("SourceMonitoringConfig") => monitoring_config()
       }
 
   """
   @type update_flow_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_flow_source_thumbnail_response() :: %{
+        "ThumbnailDetails" => thumbnail_details()
+      }
+
+  """
+  @type describe_flow_source_thumbnail_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -183,6 +195,7 @@ defmodule AWS.MediaConnect do
         optional("Outputs") => list(add_output_request()()),
         optional("Source") => set_source_request(),
         optional("SourceFailoverConfig") => failover_config(),
+        optional("SourceMonitoringConfig") => monitoring_config(),
         optional("Sources") => list(set_source_request()()),
         optional("VpcInterfaces") => list(vpc_interface_request()()),
         required("Name") => String.t()
@@ -509,6 +522,21 @@ defmodule AWS.MediaConnect do
 
   """
   @type listed_flow() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      thumbnail_details() :: %{
+        "FlowArn" => String.t(),
+        "Thumbnail" => String.t(),
+        "ThumbnailMessages" => list(message_detail()()),
+        "Timecode" => String.t(),
+        "Timestamp" => non_neg_integer()
+      }
+
+  """
+  @type thumbnail_details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1000,6 +1028,15 @@ defmodule AWS.MediaConnect do
 
   """
   @type vpc_interface() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_flow_source_thumbnail_request() :: %{}
+
+  """
+  @type describe_flow_source_thumbnail_request() :: %{}
 
   @typedoc """
 
@@ -1819,6 +1856,17 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      monitoring_config() :: %{
+        "ThumbnailState" => list(any())
+      }
+
+  """
+  @type monitoring_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_gateway_response() :: %{
         "Gateway" => gateway()
       }
@@ -2138,6 +2186,7 @@ defmodule AWS.MediaConnect do
         "Outputs" => list(output()()),
         "Source" => source(),
         "SourceFailoverConfig" => failover_config(),
+        "SourceMonitoringConfig" => monitoring_config(),
         "Sources" => list(source()()),
         "Status" => list(any()),
         "VpcInterfaces" => list(vpc_interface()())
@@ -2596,6 +2645,14 @@ defmodule AWS.MediaConnect do
           | forbidden_exception()
 
   @type describe_flow_source_metadata_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type describe_flow_source_thumbnail_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
           | service_unavailable_exception()
@@ -3314,6 +3371,23 @@ defmodule AWS.MediaConnect do
           | {:error, describe_flow_source_metadata_errors()}
   def describe_flow_source_metadata(%Client{} = client, flow_arn, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/source-metadata"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Displays the thumbnail details of a flow's source stream.
+  """
+  @spec describe_flow_source_thumbnail(map(), String.t(), list()) ::
+          {:ok, describe_flow_source_thumbnail_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_flow_source_thumbnail_errors()}
+  def describe_flow_source_thumbnail(%Client{} = client, flow_arn, options \\ []) do
+    url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/source-thumbnail"
     headers = []
     query_params = []
 

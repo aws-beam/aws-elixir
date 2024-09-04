@@ -2386,6 +2386,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      replication_status_summary() :: %{
+        "Region" => String.t(),
+        "ReplicationStatus" => list(any()),
+        "ReplicationStatusReason" => String.t()
+      }
+
+  """
+  @type replication_status_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       user_proficiency_disassociate() :: %{
         "AttributeName" => String.t(),
         "AttributeValue" => String.t()
@@ -3519,6 +3532,19 @@ defmodule AWS.Connect do
 
   """
   @type list_bots_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      replication_configuration() :: %{
+        "GlobalSignInEndpoint" => String.t(),
+        "ReplicationStatusSummaryList" => list(replication_status_summary()()),
+        "SourceRegion" => String.t()
+      }
+
+  """
+  @type replication_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6440,7 +6466,8 @@ defmodule AWS.Connect do
   ## Example:
 
       describe_instance_response() :: %{
-        "Instance" => instance()
+        "Instance" => instance(),
+        "ReplicationConfiguration" => replication_configuration()
       }
 
   """

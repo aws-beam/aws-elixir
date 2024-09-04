@@ -441,7 +441,9 @@ defmodule AWS.TimestreamInfluxDB do
   ## Example:
       
       update_db_instance_input() :: %{
+        optional("dbInstanceType") => list(any()),
         optional("dbParameterGroupIdentifier") => String.t(),
+        optional("deploymentType") => list(any()),
         optional("logDeliveryConfiguration") => log_delivery_configuration(),
         required("identifier") => String.t()
       }

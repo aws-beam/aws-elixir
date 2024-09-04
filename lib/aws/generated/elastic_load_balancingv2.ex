@@ -55,6 +55,17 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
+      describe_listener_attributes_input() :: %{
+        required("ListenerArn") => String.t()
+      }
+      
+  """
+  @type describe_listener_attributes_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       target_health() :: %{
         "Description" => String.t(),
         "Reason" => list(any()),
@@ -1056,6 +1067,17 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
+      describe_listener_attributes_output() :: %{
+        "Attributes" => list(listener_attribute()())
+      }
+      
+  """
+  @type describe_listener_attributes_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       load_balancer_state() :: %{
         "Code" => list(any()),
         "Reason" => String.t()
@@ -1490,6 +1512,17 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
   """
   @type action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_listener_attributes_output() :: %{
+        "Attributes" => list(listener_attribute()())
+      }
+      
+  """
+  @type modify_listener_attributes_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2252,6 +2285,18 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
+      listener_attribute() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
+  """
+  @type listener_attribute() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       too_many_tags_exception() :: %{
         "Message" => String.t()
       }
@@ -2269,6 +2314,18 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
   """
   @type unsupported_protocol_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_listener_attributes_input() :: %{
+        required("Attributes") => list(listener_attribute()()),
+        required("ListenerArn") => String.t()
+      }
+      
+  """
+  @type modify_listener_attributes_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2446,6 +2503,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @type deregister_targets_errors() ::
           target_group_not_found_exception() | invalid_target_exception()
 
+  @type describe_listener_attributes_errors() :: listener_not_found_exception()
+
   @type describe_listener_certificates_errors() :: listener_not_found_exception()
 
   @type describe_listeners_errors() ::
@@ -2515,6 +2574,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | certificate_not_found_exception()
           | duplicate_listener_exception()
           | invalid_configuration_request_exception()
+
+  @type modify_listener_attributes_errors() ::
+          listener_not_found_exception() | invalid_configuration_request_exception()
 
   @type modify_load_balancer_attributes_errors() ::
           load_balancer_not_found_exception() | invalid_configuration_request_exception()
@@ -2993,6 +3055,19 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+  Describes the attributes for the specified listener.
+  """
+  @spec describe_listener_attributes(map(), describe_listener_attributes_input(), list()) ::
+          {:ok, describe_listener_attributes_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_listener_attributes_errors()}
+  def describe_listener_attributes(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeListenerAttributes", input, options)
+  end
+
+  @doc """
   Describes the default certificate and the certificate list for the specified
   HTTPS or TLS
   listener.
@@ -3329,6 +3404,19 @@ defmodule AWS.ElasticLoadBalancingv2 do
     meta = metadata()
 
     Request.request_post(client, meta, "ModifyListener", input, options)
+  end
+
+  @doc """
+  Modifies the specified attributes of the specified listener.
+  """
+  @spec modify_listener_attributes(map(), modify_listener_attributes_input(), list()) ::
+          {:ok, modify_listener_attributes_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, modify_listener_attributes_errors()}
+  def modify_listener_attributes(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyListenerAttributes", input, options)
   end
 
   @doc """

@@ -3065,6 +3065,7 @@ defmodule AWS.MediaLive do
       h265_settings() :: %{
         "MvTemporalPredictor" => list(any()),
         "LookAheadRateControl" => list(any()),
+        "MinQp" => integer(),
         "TileWidth" => integer(),
         "TreeblockSize" => list(any()),
         "ColorSpaceSettings" => h265_color_space_settings(),
@@ -6270,6 +6271,7 @@ defmodule AWS.MediaLive do
 
       h264_settings() :: %{
         "LookAheadRateControl" => list(any()),
+        "MinQp" => integer(),
         "ParControl" => list(any()),
         "ColorSpaceSettings" => h264_color_space_settings(),
         "SubgopLength" => list(any()),

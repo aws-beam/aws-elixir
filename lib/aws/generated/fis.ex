@@ -147,6 +147,15 @@ defmodule AWS.Fis do
 
   ## Example:
 
+      get_safety_lever_request() :: %{}
+
+  """
+  @type get_safety_lever_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       experiment_target_account_configuration() :: %{
         "accountId" => String.t(),
         "description" => String.t(),
@@ -304,6 +313,17 @@ defmodule AWS.Fis do
 
   """
   @type update_target_account_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_safety_lever_state_response() :: %{
+        "safetyLever" => safety_lever()
+      }
+
+  """
+  @type update_safety_lever_state_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -733,6 +753,17 @@ defmodule AWS.Fis do
 
   ## Example:
 
+      update_safety_lever_state_request() :: %{
+        required("state") => update_safety_lever_state_input()
+      }
+
+  """
+  @type update_safety_lever_state_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       action_target() :: %{
         "resourceType" => String.t()
       }
@@ -875,6 +906,17 @@ defmodule AWS.Fis do
 
   ## Example:
 
+      get_safety_lever_response() :: %{
+        "safetyLever" => safety_lever()
+      }
+
+  """
+  @type get_safety_lever_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_experiment_template_response() :: %{
         "experimentTemplate" => experiment_template()
       }
@@ -1005,6 +1047,18 @@ defmodule AWS.Fis do
 
   """
   @type experiment_target_account_configuration_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_safety_lever_state_input() :: %{
+        "reason" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type update_safety_lever_state_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1232,6 +1286,19 @@ defmodule AWS.Fis do
 
   ## Example:
 
+      safety_lever() :: %{
+        "arn" => String.t(),
+        "id" => String.t(),
+        "state" => safety_lever_state()
+      }
+
+  """
+  @type safety_lever() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_experiment_template_stop_condition_input() :: %{
         "source" => String.t(),
         "value" => String.t()
@@ -1262,6 +1329,18 @@ defmodule AWS.Fis do
   """
   @type experiment_template_cloud_watch_logs_log_configuration() :: %{String.t() => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      safety_lever_state() :: %{
+        "reason" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type safety_lever_state() :: %{String.t() => any()}
+
   @type create_experiment_template_errors() ::
           validation_exception()
           | service_quota_exceeded_exception()
@@ -1289,6 +1368,8 @@ defmodule AWS.Fis do
 
   @type get_experiment_template_errors() ::
           validation_exception() | resource_not_found_exception()
+
+  @type get_safety_lever_errors() :: resource_not_found_exception()
 
   @type get_target_account_configuration_errors() ::
           validation_exception() | resource_not_found_exception()
@@ -1325,6 +1406,9 @@ defmodule AWS.Fis do
           validation_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+
+  @type update_safety_lever_state_errors() ::
+          validation_exception() | resource_not_found_exception() | conflict_exception()
 
   @type update_target_account_configuration_errors() ::
           validation_exception() | resource_not_found_exception()
@@ -1584,6 +1668,24 @@ defmodule AWS.Fis do
           | {:error, get_experiment_template_errors()}
   def get_experiment_template(%Client{} = client, id, options \\ []) do
     url_path = "/experimentTemplates/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+
+  Gets information about the specified safety lever.
+  """
+  @spec get_safety_lever(map(), String.t(), list()) ::
+          {:ok, get_safety_lever_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_safety_lever_errors()}
+  def get_safety_lever(%Client{} = client, id, options \\ []) do
+    url_path = "/safetyLevers/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -2048,6 +2150,34 @@ defmodule AWS.Fis do
           | {:error, update_experiment_template_errors()}
   def update_experiment_template(%Client{} = client, id, input, options \\ []) do
     url_path = "/experimentTemplates/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+
+  Updates the specified safety lever state.
+  """
+  @spec update_safety_lever_state(map(), String.t(), update_safety_lever_state_request(), list()) ::
+          {:ok, update_safety_lever_state_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_safety_lever_state_errors()}
+  def update_safety_lever_state(%Client{} = client, id, input, options \\ []) do
+    url_path = "/safetyLevers/#{AWS.Util.encode_uri(id)}/state"
     headers = []
     query_params = []
 

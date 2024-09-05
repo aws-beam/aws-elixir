@@ -104,7 +104,10 @@ defmodule AWS.CloudWatchLogs do
         "deliveryDestinationArn" => String.t(),
         "deliveryDestinationType" => list(any()),
         "deliverySourceName" => String.t(),
+        "fieldDelimiter" => String.t(),
         "id" => String.t(),
+        "recordFields" => list(String.t()()),
+        "s3DeliveryConfiguration" => s3_delivery_configuration(),
         "tags" => map()
       }
       
@@ -599,6 +602,15 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      update_delivery_configuration_response() :: %{}
+      
+  """
+  @type update_delivery_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       update_anomaly_request() :: %{
         optional("anomalyId") => String.t(),
         optional("patternId") => String.t(),
@@ -739,6 +751,26 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      configuration_template() :: %{
+        "allowedActionForAllowVendedLogsDeliveryForResource" => String.t(),
+        "allowedFieldDelimiters" => list(String.t()()),
+        "allowedFields" => list(record_field()()),
+        "allowedOutputFormats" => list(list(any())()),
+        "allowedSuffixPathFields" => list(String.t()()),
+        "defaultDeliveryConfigValues" => configuration_template_delivery_config_values(),
+        "deliveryDestinationType" => list(any()),
+        "logType" => String.t(),
+        "resourceType" => String.t(),
+        "service" => String.t()
+      }
+      
+  """
+  @type configuration_template() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -886,6 +918,18 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type live_tail_session_log_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_delivery_configuration() :: %{
+        "enableHiveCompatiblePath" => boolean(),
+        "suffixPath" => String.t()
+      }
+      
+  """
+  @type s3_delivery_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1452,6 +1496,20 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type get_delivery_destination_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_delivery_configuration_request() :: %{
+        optional("fieldDelimiter") => String.t(),
+        optional("recordFields") => list(String.t()()),
+        optional("s3DeliveryConfiguration") => s3_delivery_configuration(),
+        required("id") => String.t()
+      }
+      
+  """
+  @type update_delivery_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2160,6 +2218,18 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      describe_configuration_templates_response() :: %{
+        "configurationTemplates" => list(configuration_template()()),
+        "nextToken" => String.t()
+      }
+      
+  """
+  @type describe_configuration_templates_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_subscription_filter_request() :: %{
         required("filterName") => String.t(),
         required("logGroupName") => String.t()
@@ -2235,6 +2305,9 @@ defmodule AWS.CloudWatchLogs do
   ## Example:
       
       create_delivery_request() :: %{
+        optional("fieldDelimiter") => String.t(),
+        optional("recordFields") => list(String.t()()),
+        optional("s3DeliveryConfiguration") => s3_delivery_configuration(),
         optional("tags") => map(),
         required("deliveryDestinationArn") => String.t(),
         required("deliverySourceName") => String.t()
@@ -2242,6 +2315,18 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type create_delivery_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      record_field() :: %{
+        "mandatory" => boolean(),
+        "name" => String.t()
+      }
+      
+  """
+  @type record_field() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2285,6 +2370,19 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      configuration_template_delivery_config_values() :: %{
+        "fieldDelimiter" => String.t(),
+        "recordFields" => list(String.t()()),
+        "s3DeliveryConfiguration" => s3_delivery_configuration()
+      }
+      
+  """
+  @type configuration_template_delivery_config_values() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       unrecognized_client_exception() :: %{
         "message" => String.t()
       }
@@ -2303,6 +2401,22 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type too_many_tags_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_configuration_templates_request() :: %{
+        optional("deliveryDestinationTypes") => list(list(any())()),
+        optional("limit") => integer(),
+        optional("logTypes") => list(String.t()()),
+        optional("nextToken") => String.t(),
+        optional("resourceTypes") => list(String.t()()),
+        optional("service") => String.t()
+      }
+      
+  """
+  @type describe_configuration_templates_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2487,6 +2601,12 @@ defmodule AWS.CloudWatchLogs do
           | service_unavailable_exception()
           | resource_not_found_exception()
           | operation_aborted_exception()
+
+  @type describe_configuration_templates_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
 
   @type describe_deliveries_errors() ::
           throttling_exception()
@@ -2758,6 +2878,14 @@ defmodule AWS.CloudWatchLogs do
           | service_unavailable_exception()
           | resource_not_found_exception()
           | operation_aborted_exception()
+
+  @type update_delivery_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type update_log_anomaly_detector_errors() ::
           invalid_parameter_exception()
@@ -3391,6 +3519,27 @@ defmodule AWS.CloudWatchLogs do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeAccountPolicies", input, options)
+  end
+
+  @doc """
+  Use this operation to return the valid and default values that are used when
+  creating delivery sources, delivery destinations, and deliveries.
+
+  For more information about deliveries, see
+  [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html).
+  """
+  @spec describe_configuration_templates(
+          map(),
+          describe_configuration_templates_request(),
+          list()
+        ) ::
+          {:ok, describe_configuration_templates_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_configuration_templates_errors()}
+  def describe_configuration_templates(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeConfigurationTemplates", input, options)
   end
 
   @doc """
@@ -4968,6 +5117,25 @@ defmodule AWS.CloudWatchLogs do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateAnomaly", input, options)
+  end
+
+  @doc """
+  Use this operation to update the configuration of a
+  [delivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_Delivery.html)
+  to change either the
+  S3 path pattern or the format of the delivered logs.
+
+  You can't use this operation to change the
+  source or destination of the delivery.
+  """
+  @spec update_delivery_configuration(map(), update_delivery_configuration_request(), list()) ::
+          {:ok, update_delivery_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_delivery_configuration_errors()}
+  def update_delivery_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateDeliveryConfiguration", input, options)
   end
 
   @doc """

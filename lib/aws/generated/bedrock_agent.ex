@@ -770,6 +770,18 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      prompt_metadata_entry() :: %{
+        "key" => String.t(),
+        "value" => String.t()
+      }
+
+  """
+  @type prompt_metadata_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       prompt_input_variable() :: %{
         "name" => String.t()
       }
@@ -3166,6 +3178,7 @@ defmodule AWS.BedrockAgent do
 
       prompt_variant() :: %{
         "inferenceConfiguration" => list(),
+        "metadata" => list(prompt_metadata_entry()()),
         "modelId" => String.t(),
         "name" => String.t(),
         "templateConfiguration" => list(),
@@ -3733,9 +3746,13 @@ defmodule AWS.BedrockAgent do
   For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html).
 
     *
-  If you agent fails to be created, the response returns a list of
+  If your agent fails to be created, the response returns a list of
   `failureReasons` alongside a list of `recommendedActions` for you to
   troubleshoot.
+
+    *
+  The agent instructions will not be honored if your agent has only one knowledge
+  base, uses default prompts, has no action group, and user input is disabled.
   """
   @spec create_agent(map(), create_agent_request(), list()) ::
           {:ok, create_agent_response(), any()}

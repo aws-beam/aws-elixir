@@ -235,7 +235,9 @@ defmodule AWS.S3Control do
         "AccessGrantsInstanceArn" => String.t(),
         "AccessGrantsInstanceId" => String.t(),
         "CreatedAt" => non_neg_integer(),
-        "IdentityCenterArn" => String.t()
+        "IdentityCenterApplicationArn" => String.t(),
+        "IdentityCenterArn" => String.t(),
+        "IdentityCenterInstanceArn" => String.t()
       }
 
   """
@@ -846,6 +848,18 @@ defmodule AWS.S3Control do
 
   ## Example:
 
+      list_caller_access_grants_result() :: %{
+        "CallerAccessGrantsList" => list(list_caller_access_grants_entry()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_caller_access_grants_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_access_grants_instance_resource_policy_request() :: %{
         required("AccountId") => String.t()
       }
@@ -1053,7 +1067,9 @@ defmodule AWS.S3Control do
         "AccessGrantsInstanceArn" => String.t(),
         "AccessGrantsInstanceId" => String.t(),
         "CreatedAt" => non_neg_integer(),
-        "IdentityCenterArn" => String.t()
+        "IdentityCenterApplicationArn" => String.t(),
+        "IdentityCenterArn" => String.t(),
+        "IdentityCenterInstanceArn" => String.t()
       }
 
   """
@@ -1851,7 +1867,9 @@ defmodule AWS.S3Control do
         "AccessGrantsInstanceArn" => String.t(),
         "AccessGrantsInstanceId" => String.t(),
         "CreatedAt" => non_neg_integer(),
-        "IdentityCenterArn" => String.t()
+        "IdentityCenterApplicationArn" => String.t(),
+        "IdentityCenterArn" => String.t(),
+        "IdentityCenterInstanceArn" => String.t()
       }
 
   """
@@ -3040,6 +3058,21 @@ defmodule AWS.S3Control do
 
   ## Example:
 
+      list_caller_access_grants_request() :: %{
+        optional("AllowedByApplication") => boolean(),
+        optional("GrantScope") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("AccountId") => String.t()
+      }
+
+  """
+  @type list_caller_access_grants_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_job_priority_request() :: %{
         required("AccountId") => String.t(),
         required("Priority") => integer()
@@ -3576,6 +3609,19 @@ defmodule AWS.S3Control do
 
   """
   @type job_progress_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_caller_access_grants_entry() :: %{
+        "ApplicationArn" => String.t(),
+        "GrantScope" => String.t(),
+        "Permission" => list(any())
+      }
+
+  """
+  @type list_caller_access_grants_entry() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5640,6 +5686,9 @@ defmodule AWS.S3Control do
   ### Permissions
 
   You must have the `s3:GetAccessGrantsInstance` permission to use this operation.
+
+  `GetAccessGrantsInstance` is not supported for cross-account access. You can
+  only call the API from the account that owns the S3 Access Grants instance.
   """
   @spec get_access_grants_instance(map(), String.t(), list()) ::
           {:ok, get_access_grants_instance_result(), any()}
@@ -7384,6 +7433,82 @@ defmodule AWS.S3Control do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of the access grants that were given to the caller using S3
+  Access Grants and that allow the caller to access the S3 data of the Amazon Web
+  Services account specified in the request.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3:ListCallerAccessGrants` permission to use this operation.
+  """
+  @spec list_caller_access_grants(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t(),
+          list()
+        ) ::
+          {:ok, list_caller_access_grants_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def list_caller_access_grants(
+        %Client{} = client,
+        allowed_by_application \\ nil,
+        grant_scope \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        account_id,
+        options \\ []
+      ) do
+    url_path = "/v20180820/accessgrantsinstance/caller/grants"
+    headers = []
+
+    headers =
+      if !is_nil(account_id) do
+        [{"x-amz-account-id", account_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(grant_scope) do
+        [{"grantscope", grant_scope} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(allowed_by_application) do
+        [{"allowedByApplication", allowed_by_application} | query_params]
       else
         query_params
       end

@@ -5263,7 +5263,12 @@ defmodule AWS.GameLift do
   [Setting up
   fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
 
-  [Multi-location fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
+  [Update fleet locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-editing.html#fleets-update-locations)
+
+  [
+  Amazon GameLift service
+  locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html)
+  for managed hosting.
   """
   @spec create_fleet_locations(map(), create_fleet_locations_input(), list()) ::
           {:ok, create_fleet_locations_output(), any()}
@@ -6639,6 +6644,11 @@ defmodule AWS.GameLift do
 
   [Setting up Amazon GameLift
   fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
+
+  [
+  Amazon GameLift service
+  locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html)
+  for managed hosting
   """
   @spec describe_fleet_location_attributes(
           map(),
@@ -6678,6 +6688,9 @@ defmodule AWS.GameLift do
 
   [Setting up Amazon GameLift fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
 
+  [ Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html)
+  for managed hosting
+
   [GameLift metrics for fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html#gamelift-metrics-fleet)
   """
   @spec describe_fleet_location_capacity(map(), describe_fleet_location_capacity_input(), list()) ::
@@ -6709,6 +6722,9 @@ defmodule AWS.GameLift do
   ## Learn more
 
   [Setting up Amazon GameLift fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
+
+  [ Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html)
+  for managed hosting
 
   [GameLift metrics for fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html#gamelift-metrics-fleet)
   """
@@ -7460,12 +7476,6 @@ defmodule AWS.GameLift do
     *
 
   [Debug fleet issues](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html)
-
-    *
-
-  [
-  Remotely connect to a container
-  fleet](https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-remote-access.html)
   """
   @spec get_compute_access(map(), get_compute_access_input(), list()) ::
           {:ok, get_compute_access_output(), any()}

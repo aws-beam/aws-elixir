@@ -725,6 +725,20 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      idle_settings() :: %{
+        "IdleTimeoutInMinutes" => integer(),
+        "LifecycleManagement" => list(any()),
+        "MaxIdleTimeoutInMinutes" => integer(),
+        "MinIdleTimeoutInMinutes" => integer()
+      }
+      
+  """
+  @type idle_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       resource_not_found() :: %{
         "Message" => String.t()
       }
@@ -2174,6 +2188,17 @@ defmodule AWS.SageMaker do
       
   """
   @type create_model_card_export_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      space_app_lifecycle_management() :: %{
+        "IdleSettings" => space_idle_settings()
+      }
+      
+  """
+  @type space_app_lifecycle_management() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -13300,6 +13325,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      app_lifecycle_management() :: %{
+        "IdleSettings" => idle_settings()
+      }
+      
+  """
+  @type app_lifecycle_management() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       edge_deployment_model_config() :: %{
         "EdgePackagingJobName" => String.t(),
         "ModelHandle" => String.t()
@@ -15322,6 +15358,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       space_jupyter_lab_app_settings() :: %{
+        "AppLifecycleManagement" => space_app_lifecycle_management(),
         "CodeRepositories" => list(code_repository()()),
         "DefaultResourceSpec" => resource_spec()
       }
@@ -15406,6 +15443,17 @@ defmodule AWS.SageMaker do
       
   """
   @type experiment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      space_idle_settings() :: %{
+        "IdleTimeoutInMinutes" => integer()
+      }
+      
+  """
+  @type space_idle_settings() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -15898,6 +15946,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       jupyter_lab_app_settings() :: %{
+        "AppLifecycleManagement" => app_lifecycle_management(),
         "CodeRepositories" => list(code_repository()()),
         "CustomImages" => list(custom_image()()),
         "DefaultResourceSpec" => resource_spec(),
@@ -16109,6 +16158,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       space_code_editor_app_settings() :: %{
+        "AppLifecycleManagement" => space_app_lifecycle_management(),
         "DefaultResourceSpec" => resource_spec()
       }
       
@@ -16374,6 +16424,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       code_editor_app_settings() :: %{
+        "AppLifecycleManagement" => app_lifecycle_management(),
         "CustomImages" => list(custom_image()()),
         "DefaultResourceSpec" => resource_spec(),
         "LifecycleConfigArns" => list(String.t()())

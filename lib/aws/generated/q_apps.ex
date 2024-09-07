@@ -9,12 +9,23 @@ defmodule AWS.QApps do
   from
   within their web experience.
 
-  For example, users can create an Q Appthat exclusively
+  For example, users can create a Q App that exclusively
   generates marketing-related content to improve your marketing team's
   productivity or a
-  Q App for marketing content-generation like writing customer emails and creating
-  promotional content using a certain style of voice, tone, and branding.
-  For more information, see [Amazon Q App](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/purpose-built-qapps.html)
+  Q App for writing customer emails and creating promotional content using a
+  certain
+  style of voice, tone, and branding. For more information on the capabilities,
+  see
+  [Amazon Q Apps capabilities](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/deploy-experience-iam-role.html#q-apps-actions)
+  in the *Amazon Q Business User Guide*.
+
+  For an overview of the Amazon Q App APIs, see [Overview of Amazon Q Apps API
+  operations](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_Operations_QApps.html).
+
+  For information about the IAM access control permissions you need to
+  use the Amazon Q Apps API, see [
+  IAM role for the Amazon Q Business web experience including Amazon Q
+  Apps](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/deploy-experience-iam-role.html)
   in the
   *Amazon Q Business User Guide*.
   """
@@ -40,12 +51,26 @@ defmodule AWS.QApps do
 
   ## Example:
 
+      update_library_item_metadata_input() :: %{
+        optional("isVerified") => [boolean()],
+        required("instanceId") => String.t(),
+        required("libraryItemId") => String.t()
+      }
+
+  """
+  @type update_library_item_metadata_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       user_app_item() :: %{
         "appArn" => String.t(),
         "appId" => String.t(),
         "canEdit" => [boolean()],
         "createdAt" => non_neg_integer(),
         "description" => String.t(),
+        "isVerified" => [boolean()],
         "status" => [String.t()],
         "title" => String.t()
       }
@@ -60,6 +85,7 @@ defmodule AWS.QApps do
       create_library_item_output() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => [String.t()],
+        "isVerified" => [boolean()],
         "libraryItemId" => String.t(),
         "ratingCount" => [integer()],
         "status" => [String.t()],
@@ -187,6 +213,7 @@ defmodule AWS.QApps do
         "createdAt" => non_neg_integer(),
         "createdBy" => [String.t()],
         "isRatedByUser" => [boolean()],
+        "isVerified" => [boolean()],
         "libraryItemId" => String.t(),
         "ratingCount" => [integer()],
         "status" => [String.t()],
@@ -301,6 +328,7 @@ defmodule AWS.QApps do
         "createdAt" => non_neg_integer(),
         "createdBy" => [String.t()],
         "isRatedByUser" => [boolean()],
+        "isVerified" => [boolean()],
         "libraryItemId" => String.t(),
         "ratingCount" => [integer()],
         "status" => [String.t()],
@@ -390,6 +418,7 @@ defmodule AWS.QApps do
         "createdAt" => non_neg_integer(),
         "createdBy" => [String.t()],
         "isRatedByUser" => [boolean()],
+        "isVerified" => [boolean()],
         "libraryItemId" => String.t(),
         "ratingCount" => [integer()],
         "status" => [String.t()],
@@ -964,6 +993,7 @@ defmodule AWS.QApps do
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | conflict_exception()
           | unauthorized_exception()
 
   @type associate_q_app_with_user_errors() ::
@@ -1018,6 +1048,7 @@ defmodule AWS.QApps do
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | conflict_exception()
           | unauthorized_exception()
 
   @type disassociate_q_app_from_user_errors() ::
@@ -1131,6 +1162,16 @@ defmodule AWS.QApps do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | conflict_exception()
+          | unauthorized_exception()
+
+  @type update_library_item_metadata_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
           | unauthorized_exception()
 
   @type update_q_app_errors() ::
@@ -1897,7 +1938,7 @@ defmodule AWS.QApps do
   end
 
   @doc """
-  Updates the metadata and status of a library item for an Amazon Q App.
+  Updates the library item for an Amazon Q App.
   """
   @spec update_library_item(map(), update_library_item_input(), list()) ::
           {:ok, update_library_item_output(), any()}
@@ -1905,6 +1946,39 @@ defmodule AWS.QApps do
           | {:error, update_library_item_errors()}
   def update_library_item(%Client{} = client, input, options \\ []) do
     url_path = "/catalog.updateItem"
+
+    {headers, input} =
+      [
+        {"instanceId", "instance-id"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the verification status of a library item for an Amazon Q App.
+  """
+  @spec update_library_item_metadata(map(), update_library_item_metadata_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_library_item_metadata_errors()}
+  def update_library_item_metadata(%Client{} = client, input, options \\ []) do
+    url_path = "/catalog.updateItemMetadata"
 
     {headers, input} =
       [

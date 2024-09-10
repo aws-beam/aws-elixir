@@ -920,6 +920,7 @@ defmodule AWS.Kafka do
         "CopyTopicConfigurations" => boolean(),
         "DetectAndCopyNewTopics" => boolean(),
         "StartingPosition" => replication_starting_position(),
+        "TopicNameConfiguration" => replication_topic_name_configuration(),
         "TopicsToExclude" => list(String.t()()),
         "TopicsToReplicate" => list(String.t()())
       }
@@ -1412,6 +1413,17 @@ defmodule AWS.Kafka do
 
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      replication_topic_name_configuration() :: %{
+        "Type" => list(any())
+      }
+
+  """
+  @type replication_topic_name_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3390,6 +3402,12 @@ defmodule AWS.Kafka do
 
   @doc """
   A list of brokers that a client application can use to bootstrap.
+
+  This list doesn't necessarily include all of the brokers in the cluster. The
+  following Python 3.6 example shows how you can use the Amazon Resource Name
+  (ARN) of a cluster to get its bootstrap brokers. If you don't know the ARN of
+  your cluster, you can use the `ListClusters` operation to get the ARNs of all
+  the clusters in this account and Region.
   """
   @spec get_bootstrap_brokers(map(), String.t(), list()) ::
           {:ok, get_bootstrap_brokers_response(), any()}

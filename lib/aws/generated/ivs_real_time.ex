@@ -38,7 +38,7 @@ defmodule AWS.IVSRealTime do
   **Composition process** — Composites participants
   of a stage into a single video and forwards it to a set of outputs (e.g., IVS
   channels).
-  Composition endpoints support this process.
+  Composition operations support this process.
 
     *
 
@@ -53,11 +53,11 @@ defmodule AWS.IVSRealTime do
   A *tag* is a metadata label that you assign to an AWS resource. A tag
   comprises a *key* and a *value*, both set by you. For
   example, you might set a tag as `topic:nature` to label a particular video
-  category. See [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) for
-  more information, including restrictions that apply to
-  tags and "Tag naming limits and requirements"; Amazon IVS stages has no
-  service-specific
-  constraints beyond what is documented there.
+  category. See [Best practices and strategies](https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html)
+  in *Tagging AWS Resources and Tag Editor* for details, including restrictions
+  that apply to tags and "Tag naming
+  limits and requirements"; Amazon IVS stages has no service-specific constraints
+  beyond what is documented there.
 
   Tags can help you identify and organize your AWS resources. For example, you can
   use the
@@ -65,7 +65,7 @@ defmodule AWS.IVSRealTime do
   use tags to
   manage access (see [Access Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html)).
 
-  The Amazon IVS real-time API has these tag-related endpoints: `TagResource`,
+  The Amazon IVS real-time API has these tag-related operations: `TagResource`,
   `UntagResource`, and
   `ListTagsForResource`. The following resource supports tagging: Stage.
 
@@ -101,6 +101,26 @@ defmodule AWS.IVSRealTime do
 
   """
   @type update_stage_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ingest_configuration() :: %{
+        "arn" => String.t(),
+        "attributes" => map(),
+        "ingestProtocol" => list(any()),
+        "name" => String.t(),
+        "participantId" => String.t(),
+        "stageArn" => String.t(),
+        "state" => String.t(),
+        "streamKey" => String.t(),
+        "tags" => map(),
+        "userId" => String.t()
+      }
+
+  """
+  @type ingest_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -217,6 +237,7 @@ defmodule AWS.IVSRealTime do
         "osName" => String.t(),
         "osVersion" => String.t(),
         "participantId" => String.t(),
+        "protocol" => list(any()),
         "published" => boolean(),
         "recordingS3BucketName" => String.t(),
         "recordingS3Prefix" => String.t(),
@@ -228,6 +249,17 @@ defmodule AWS.IVSRealTime do
 
   """
   @type participant() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_ingest_configuration_response() :: %{
+        "ingestConfiguration" => ingest_configuration()
+      }
+
+  """
+  @type create_ingest_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -250,6 +282,23 @@ defmodule AWS.IVSRealTime do
 
   """
   @type stop_composition_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_ingest_configuration_request() :: %{
+        optional("attributes") => map(),
+        optional("insecureIngest") => boolean(),
+        optional("name") => String.t(),
+        optional("stageArn") => String.t(),
+        optional("tags") => map(),
+        optional("userId") => String.t(),
+        required("ingestProtocol") => list(any())
+      }
+
+  """
+  @type create_ingest_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -330,6 +379,17 @@ defmodule AWS.IVSRealTime do
 
   ## Example:
 
+      get_ingest_configuration_response() :: %{
+        "ingestConfiguration" => ingest_configuration()
+      }
+
+  """
+  @type get_ingest_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_compositions_request() :: %{
         optional("filterByEncoderConfigurationArn") => String.t(),
         optional("filterByStageArn") => String.t(),
@@ -360,6 +420,18 @@ defmodule AWS.IVSRealTime do
 
   ## Example:
 
+      list_ingest_configurations_response() :: %{
+        "ingestConfigurations" => list(ingest_configuration_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_ingest_configurations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       disconnect_participant_response() :: %{}
 
   """
@@ -371,6 +443,8 @@ defmodule AWS.IVSRealTime do
 
       stage_endpoints() :: %{
         "events" => String.t(),
+        "rtmp" => String.t(),
+        "rtmps" => String.t(),
         "whip" => String.t()
       }
 
@@ -424,6 +498,18 @@ defmodule AWS.IVSRealTime do
 
   """
   @type participant_token_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_ingest_configuration_request() :: %{
+        optional("stageArn") => String.t(),
+        required("arn") => String.t()
+      }
+
+  """
+  @type update_ingest_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -629,6 +715,18 @@ defmodule AWS.IVSRealTime do
 
   ## Example:
 
+      delete_ingest_configuration_request() :: %{
+        optional("force") => boolean(),
+        required("arn") => String.t()
+      }
+
+  """
+  @type delete_ingest_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_participants_response() :: %{
         "nextToken" => String.t(),
         "participants" => list(participant_summary()())
@@ -636,6 +734,20 @@ defmodule AWS.IVSRealTime do
 
   """
   @type list_participants_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_ingest_configurations_request() :: %{
+        optional("filterByStageArn") => String.t(),
+        optional("filterByState") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_ingest_configurations_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -846,6 +958,17 @@ defmodule AWS.IVSRealTime do
 
   ## Example:
 
+      update_ingest_configuration_response() :: %{
+        "ingestConfiguration" => ingest_configuration()
+      }
+
+  """
+  @type update_ingest_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       stage_session_summary() :: %{
         "endTime" => non_neg_integer(),
         "sessionId" => String.t(),
@@ -932,6 +1055,23 @@ defmodule AWS.IVSRealTime do
 
   ## Example:
 
+      ingest_configuration_summary() :: %{
+        "arn" => String.t(),
+        "ingestProtocol" => list(any()),
+        "name" => String.t(),
+        "participantId" => String.t(),
+        "stageArn" => String.t(),
+        "state" => String.t(),
+        "userId" => String.t()
+      }
+
+  """
+  @type ingest_configuration_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_public_key_response() :: %{}
 
   """
@@ -954,7 +1094,7 @@ defmodule AWS.IVSRealTime do
   ## Example:
 
       event() :: %{
-        "errorCode" => String.t(),
+        "errorCode" => list(any()),
         "eventTime" => non_neg_integer(),
         "name" => String.t(),
         "participantId" => String.t(),
@@ -1069,6 +1209,17 @@ defmodule AWS.IVSRealTime do
 
   """
   @type grid_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_ingest_configuration_request() :: %{
+        required("arn") => String.t()
+      }
+
+  """
+  @type get_ingest_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1327,6 +1478,15 @@ defmodule AWS.IVSRealTime do
   """
   @type list_participant_events_response() :: %{String.t() => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      delete_ingest_configuration_response() :: %{}
+
+  """
+  @type delete_ingest_configuration_response() :: %{}
+
   @type create_encoder_configuration_errors() ::
           pending_verification()
           | validation_exception()
@@ -1335,6 +1495,12 @@ defmodule AWS.IVSRealTime do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type create_ingest_configuration_errors() ::
+          pending_verification()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
 
   @type create_participant_token_errors() ::
           pending_verification()
@@ -1363,6 +1529,13 @@ defmodule AWS.IVSRealTime do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_ingest_configuration_errors() ::
+          pending_verification()
+          | validation_exception()
+          | access_denied_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -1410,6 +1583,9 @@ defmodule AWS.IVSRealTime do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type get_ingest_configuration_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
   @type get_participant_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
 
@@ -1450,6 +1626,8 @@ defmodule AWS.IVSRealTime do
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | conflict_exception()
+
+  @type list_ingest_configurations_errors() :: validation_exception() | access_denied_exception()
 
   @type list_participant_events_errors() :: validation_exception() | access_denied_exception()
 
@@ -1495,6 +1673,13 @@ defmodule AWS.IVSRealTime do
   @type untag_resource_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
 
+  @type update_ingest_configuration_errors() ::
+          pending_verification()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type update_stage_errors() ::
           pending_verification()
           | validation_exception()
@@ -1528,6 +1713,34 @@ defmodule AWS.IVSRealTime do
           | {:error, create_encoder_configuration_errors()}
   def create_encoder_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/CreateEncoderConfiguration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a new IngestConfiguration resource, used to specify the ingest protocol
+  for a stage.
+  """
+  @spec create_ingest_configuration(map(), create_ingest_configuration_request(), list()) ::
+          {:ok, create_ingest_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_ingest_configuration_errors()}
+  def create_ingest_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/CreateIngestConfiguration"
     headers = []
     query_params = []
 
@@ -1670,6 +1883,37 @@ defmodule AWS.IVSRealTime do
   end
 
   @doc """
+  Deletes a specified IngestConfiguration, so it can no longer be used to
+  broadcast.
+
+  An IngestConfiguration cannot be deleted if the publisher is actively streaming
+  to a stage, unless `force` is set to `true`.
+  """
+  @spec delete_ingest_configuration(map(), delete_ingest_configuration_request(), list()) ::
+          {:ok, delete_ingest_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_ingest_configuration_errors()}
+  def delete_ingest_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteIngestConfiguration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes the specified public key used to sign stage participant tokens.
 
   This invalidates future participant tokens generated using the key pair’s
@@ -1701,6 +1945,11 @@ defmodule AWS.IVSRealTime do
 
   @doc """
   Shuts down and deletes the specified stage (disconnecting all participants).
+
+  This operation also
+  removes the `stageArn` from the associated `IngestConfiguration`, if there are
+  participants
+  using the IngestConfiguration to publish to the stage.
   """
   @spec delete_stage(map(), delete_stage_request(), list()) ::
           {:ok, delete_stage_response(), any()}
@@ -1760,9 +2009,11 @@ defmodule AWS.IVSRealTime do
   end
 
   @doc """
-  Disconnects a specified participant and revokes the participant permanently from
-  a
-  specified stage.
+  Disconnects a specified participant from a specified stage.
+
+  If the participant is publishing using
+  an `IngestConfiguration`, DisconnectParticipant also updates the `stageArn`
+  in the IngestConfiguration to be an empty string.
   """
   @spec disconnect_participant(map(), disconnect_participant_request(), list()) ::
           {:ok, disconnect_participant_response(), any()}
@@ -1824,6 +2075,33 @@ defmodule AWS.IVSRealTime do
           | {:error, get_encoder_configuration_errors()}
   def get_encoder_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/GetEncoderConfiguration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Gets information about the specified IngestConfiguration.
+  """
+  @spec get_ingest_configuration(map(), get_ingest_configuration_request(), list()) ::
+          {:ok, get_ingest_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_ingest_configuration_errors()}
+  def get_ingest_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/GetIngestConfiguration"
     headers = []
     query_params = []
 
@@ -2063,6 +2341,34 @@ defmodule AWS.IVSRealTime do
   end
 
   @doc """
+  Lists all IngestConfigurations in your account, in the AWS region where the API
+  request is processed.
+  """
+  @spec list_ingest_configurations(map(), list_ingest_configurations_request(), list()) ::
+          {:ok, list_ingest_configurations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_ingest_configurations_errors()}
+  def list_ingest_configurations(%Client{} = client, input, options \\ []) do
+    url_path = "/ListIngestConfigurations"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Lists events for a specified participant that occurred during a specified stage
   session.
   """
@@ -2250,7 +2556,7 @@ defmodule AWS.IVSRealTime do
   Starts a Composition from a stage based on the configuration provided in the
   request.
 
-  A Composition is an ephemeral resource that exists after this endpoint returns
+  A Composition is an ephemeral resource that exists after this operation returns
   successfully. Composition stops and the resource is deleted:
 
     *
@@ -2375,6 +2681,36 @@ defmodule AWS.IVSRealTime do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a specified IngestConfiguration.
+
+  Only the stage ARN attached to the IngestConfiguration can be updated. An
+  IngestConfiguration that is active cannot be updated.
+  """
+  @spec update_ingest_configuration(map(), update_ingest_configuration_request(), list()) ::
+          {:ok, update_ingest_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_ingest_configuration_errors()}
+  def update_ingest_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdateIngestConfiguration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       headers,

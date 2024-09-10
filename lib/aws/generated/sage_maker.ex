@@ -1537,6 +1537,8 @@ defmodule AWS.SageMaker do
         "CreationTime" => non_neg_integer(),
         "FailureMessage" => String.t(),
         "InstanceGroups" => list(cluster_instance_group_details()()),
+        "NodeRecovery" => list(any()),
+        "Orchestrator" => cluster_orchestrator(),
         "VpcConfig" => vpc_config()
       }
       
@@ -4408,6 +4410,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      cluster_orchestrator() :: %{
+        "Eks" => cluster_orchestrator_eks_config()
+      }
+      
+  """
+  @type cluster_orchestrator() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_feature_metadata_request() :: %{
         required("FeatureGroupName") => String.t(),
         required("FeatureName") => String.t()
@@ -4914,6 +4927,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       update_cluster_request() :: %{
+        optional("NodeRecovery") => list(any()),
         required("ClusterName") => String.t(),
         required("InstanceGroups") => list(cluster_instance_group_specification()())
       }
@@ -6469,6 +6483,8 @@ defmodule AWS.SageMaker do
   ## Example:
       
       create_cluster_request() :: %{
+        optional("NodeRecovery") => list(any()),
+        optional("Orchestrator") => cluster_orchestrator(),
         optional("Tags") => list(tag()()),
         optional("VpcConfig") => vpc_config(),
         required("ClusterName") => String.t(),
@@ -7722,6 +7738,17 @@ defmodule AWS.SageMaker do
       
   """
   @type list_code_repositories_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cluster_orchestrator_eks_config() :: %{
+        "ClusterArn" => String.t()
+      }
+      
+  """
+  @type cluster_orchestrator_eks_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -14202,6 +14229,7 @@ defmodule AWS.SageMaker do
         "InstanceStorageConfigs" => list(list()()),
         "InstanceType" => list(any()),
         "LifeCycleConfig" => cluster_life_cycle_config(),
+        "OnStartDeepHealthChecks" => list(list(any())()),
         "ThreadsPerCore" => integer()
       }
       
@@ -16378,6 +16406,7 @@ defmodule AWS.SageMaker do
         "InstanceStorageConfigs" => list(list()()),
         "InstanceType" => list(any()),
         "LifeCycleConfig" => cluster_life_cycle_config(),
+        "OnStartDeepHealthChecks" => list(list(any())()),
         "TargetCount" => integer(),
         "ThreadsPerCore" => integer()
       }

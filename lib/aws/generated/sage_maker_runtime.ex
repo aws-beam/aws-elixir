@@ -83,6 +83,7 @@ defmodule AWS.SageMakerRuntime do
         optional("EnableExplanations") => String.t(),
         optional("InferenceComponentName") => String.t(),
         optional("InferenceId") => String.t(),
+        optional("SessionId") => String.t(),
         optional("TargetContainerHostname") => String.t(),
         optional("TargetModel") => String.t(),
         optional("TargetVariant") => String.t(),
@@ -98,9 +99,11 @@ defmodule AWS.SageMakerRuntime do
 
       invoke_endpoint_output() :: %{
         "Body" => binary(),
+        "ClosedSessionId" => String.t(),
         "ContentType" => String.t(),
         "CustomAttributes" => String.t(),
-        "InvokedProductionVariant" => String.t()
+        "InvokedProductionVariant" => String.t(),
+        "NewSessionId" => String.t()
       }
 
   """
@@ -116,6 +119,7 @@ defmodule AWS.SageMakerRuntime do
         optional("CustomAttributes") => String.t(),
         optional("InferenceComponentName") => String.t(),
         optional("InferenceId") => String.t(),
+        optional("SessionId") => String.t(),
         optional("TargetContainerHostname") => String.t(),
         optional("TargetVariant") => String.t(),
         required("Body") => binary()
@@ -288,6 +292,7 @@ defmodule AWS.SageMakerRuntime do
         {"EnableExplanations", "X-Amzn-SageMaker-Enable-Explanations"},
         {"InferenceComponentName", "X-Amzn-SageMaker-Inference-Component"},
         {"InferenceId", "X-Amzn-SageMaker-Inference-Id"},
+        {"SessionId", "X-Amzn-SageMaker-Session-Id"},
         {"TargetContainerHostname", "X-Amzn-SageMaker-Target-Container-Hostname"},
         {"TargetModel", "X-Amzn-SageMaker-Target-Model"},
         {"TargetVariant", "X-Amzn-SageMaker-Target-Variant"}
@@ -301,9 +306,11 @@ defmodule AWS.SageMakerRuntime do
         options,
         :response_header_parameters,
         [
+          {"X-Amzn-SageMaker-Closed-Session-Id", "ClosedSessionId"},
           {"Content-Type", "ContentType"},
           {"X-Amzn-SageMaker-Custom-Attributes", "CustomAttributes"},
-          {"x-Amzn-Invoked-Production-Variant", "InvokedProductionVariant"}
+          {"x-Amzn-Invoked-Production-Variant", "InvokedProductionVariant"},
+          {"X-Amzn-SageMaker-New-Session-Id", "NewSessionId"}
         ]
       )
 
@@ -470,6 +477,7 @@ defmodule AWS.SageMakerRuntime do
         {"CustomAttributes", "X-Amzn-SageMaker-Custom-Attributes"},
         {"InferenceComponentName", "X-Amzn-SageMaker-Inference-Component"},
         {"InferenceId", "X-Amzn-SageMaker-Inference-Id"},
+        {"SessionId", "X-Amzn-SageMaker-Session-Id"},
         {"TargetContainerHostname", "X-Amzn-SageMaker-Target-Container-Hostname"},
         {"TargetVariant", "X-Amzn-SageMaker-Target-Variant"}
       ]

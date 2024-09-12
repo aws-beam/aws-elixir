@@ -404,7 +404,10 @@ defmodule AWS.GuardDuty do
 
       get_findings_statistics_request() :: %{
         optional("FindingCriteria") => finding_criteria(),
-        required("FindingStatisticTypes") => list(list(any())())
+        optional("FindingStatisticTypes") => list(list(any())()),
+        optional("GroupBy") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("OrderBy") => list(any())
       }
 
   """
@@ -978,7 +981,8 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       get_findings_statistics_response() :: %{
-        "FindingStatistics" => finding_statistics()
+        "FindingStatistics" => finding_statistics(),
+        "NextToken" => String.t()
       }
 
   """
@@ -1254,6 +1258,19 @@ defmodule AWS.GuardDuty do
 
   """
   @type detector_feature_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      account_statistics() :: %{
+        "AccountId" => String.t(),
+        "LastGeneratedAt" => non_neg_integer(),
+        "TotalFindings" => integer()
+      }
+
+  """
+  @type account_statistics() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2447,6 +2464,21 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      resource_statistics() :: %{
+        "AccountId" => String.t(),
+        "LastGeneratedAt" => non_neg_integer(),
+        "ResourceId" => String.t(),
+        "ResourceType" => String.t(),
+        "TotalFindings" => integer()
+      }
+
+  """
+  @type resource_statistics() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_sample_findings_request() :: %{
         optional("FindingTypes") => list(String.t()())
       }
@@ -2522,6 +2554,19 @@ defmodule AWS.GuardDuty do
 
   """
   @type get_member_detectors_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      finding_type_statistics() :: %{
+        "FindingType" => String.t(),
+        "LastGeneratedAt" => non_neg_integer(),
+        "TotalFindings" => integer()
+      }
+
+  """
+  @type finding_type_statistics() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3097,6 +3142,19 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      severity_statistics() :: %{
+        "LastGeneratedAt" => non_neg_integer(),
+        "Severity" => float(),
+        "TotalFindings" => integer()
+      }
+
+  """
+  @type severity_statistics() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       anomaly_unusual() :: %{
         "Behavior" => map()
       }
@@ -3613,7 +3671,12 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       finding_statistics() :: %{
-        "CountBySeverity" => map()
+        "CountBySeverity" => map(),
+        "GroupedByAccount" => list(account_statistics()()),
+        "GroupedByDate" => list(date_statistics()()),
+        "GroupedByFindingType" => list(finding_type_statistics()()),
+        "GroupedByResource" => list(resource_statistics()()),
+        "GroupedBySeverity" => list(severity_statistics()())
       }
 
   """
@@ -4035,6 +4098,20 @@ defmodule AWS.GuardDuty do
 
   """
   @type default_server_side_encryption() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      date_statistics() :: %{
+        "Date" => non_neg_integer(),
+        "LastGeneratedAt" => non_neg_integer(),
+        "Severity" => float(),
+        "TotalFindings" => integer()
+      }
+
+  """
+  @type date_statistics() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4856,10 +4933,10 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Creates a publishing destination to export findings to.
+  Creates a publishing destination where you can export your GuardDuty findings.
 
-  The resource to export findings to
-  must exist before you use this operation.
+  Before you start exporting the
+  findings, the destination resource must exist.
   """
   @spec create_publishing_destination(
           map(),
@@ -5660,7 +5737,7 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Retrieves an Amazon GuardDuty detector specified by the detectorId.
+  Retrieves a GuardDuty detector specified by the detectorId.
 
   There might be regional differences because some data sources might not be
   available in all the Amazon Web Services Regions where GuardDuty is presently
@@ -5728,7 +5805,11 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
-  Lists Amazon GuardDuty findings statistics for the specified detector ID.
+  Lists GuardDuty findings statistics for the specified detector ID.
+
+  You must provide either `findingStatisticTypes` or
+  `groupBy` parameter, and not both. You can use the `maxResults` and `orderBy`
+  parameters only when using `groupBy`.
 
   There might be regional differences because some flags might not be available in
   all the Regions where GuardDuty

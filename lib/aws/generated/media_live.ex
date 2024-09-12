@@ -44,6 +44,23 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      create_network_response() :: %{
+        "Arn" => String.t(),
+        "AssociatedClusterIds" => list(String.t()()),
+        "Id" => String.t(),
+        "IpPools" => list(ip_pool()()),
+        "Name" => String.t(),
+        "Routes" => list(route()()),
+        "State" => list(any())
+      }
+
+  """
+  @type create_network_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       archive_s3_settings() :: %{
         "CannedAcl" => list(any())
       }
@@ -94,6 +111,42 @@ defmodule AWS.MediaLive do
 
   """
   @type update_cloud_watch_alarm_template_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      srt_output_settings() :: %{
+        "BufferMsec" => integer(),
+        "ContainerSettings" => udp_container_settings(),
+        "Destination" => output_location_ref(),
+        "EncryptionType" => list(any()),
+        "Latency" => integer()
+      }
+
+  """
+  @type srt_output_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_cluster_request() :: %{}
+
+  """
+  @type describe_cluster_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_networks_response() :: %{
+        "Networks" => list(describe_network_summary()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_networks_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -189,8 +242,27 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      describe_channel_placement_group_summary() :: %{
+        "Arn" => String.t(),
+        "Channels" => list(String.t()()),
+        "ClusterId" => String.t(),
+        "Id" => String.t(),
+        "Name" => String.t(),
+        "Nodes" => list(String.t()()),
+        "State" => list(any())
+      }
+
+  """
+  @type describe_channel_placement_group_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       input_destination() :: %{
         "Ip" => String.t(),
+        "Network" => String.t(),
+        "NetworkRoutes" => list(input_destination_route()()),
         "Port" => String.t(),
         "Url" => String.t(),
         "Vpc" => input_destination_vpc()
@@ -322,7 +394,8 @@ defmodule AWS.MediaLive do
         "Id" => String.t(),
         "MediaPackageSettings" => list(media_package_output_destination_settings()()),
         "MultiplexSettings" => multiplex_program_channel_destination_settings(),
-        "Settings" => list(output_destination_settings()())
+        "Settings" => list(output_destination_settings()()),
+        "SrtSettings" => list(srt_output_destination_settings()())
       }
 
   """
@@ -339,6 +412,17 @@ defmodule AWS.MediaLive do
 
   """
   @type video_selector_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      srt_group_settings() :: %{
+        "InputLossAction" => list(any())
+      }
+
+  """
+  @type srt_group_settings() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -443,6 +527,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       restart_channel_pipelines_response() :: %{
+        "AnywhereSettings" => describe_anywhere_settings(),
         "Arn" => String.t(),
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
@@ -606,12 +691,40 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      describe_channel_placement_group_response() :: %{
+        "Arn" => String.t(),
+        "Channels" => list(String.t()()),
+        "ClusterId" => String.t(),
+        "Id" => String.t(),
+        "Name" => String.t(),
+        "Nodes" => list(String.t()()),
+        "State" => list(any())
+      }
+
+  """
+  @type describe_channel_placement_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       scte35_return_to_network_schedule_action_settings() :: %{
         "SpliceEventId" => float()
       }
 
   """
   @type scte35_return_to_network_schedule_action_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ip_pool_update_request() :: %{
+        "Cidr" => String.t()
+      }
+
+  """
+  @type ip_pool_update_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -637,6 +750,41 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      describe_cluster_response() :: %{
+        "Arn" => String.t(),
+        "ChannelIds" => list(String.t()()),
+        "ClusterType" => list(any()),
+        "Id" => String.t(),
+        "InstanceRoleArn" => String.t(),
+        "Name" => String.t(),
+        "NetworkSettings" => cluster_network_settings(),
+        "State" => list(any())
+      }
+
+  """
+  @type describe_cluster_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_channel_placement_group_response() :: %{
+        "Arn" => String.t(),
+        "Channels" => list(String.t()()),
+        "ClusterId" => String.t(),
+        "Id" => String.t(),
+        "Name" => String.t(),
+        "Nodes" => list(String.t()()),
+        "State" => list(any())
+      }
+
+  """
+  @type update_channel_placement_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       srt_caller_decryption() :: %{
         "Algorithm" => list(any()),
         "PassphraseSecretArn" => String.t()
@@ -649,8 +797,26 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      describe_network_response() :: %{
+        "Arn" => String.t(),
+        "AssociatedClusterIds" => list(String.t()()),
+        "Id" => String.t(),
+        "IpPools" => list(ip_pool()()),
+        "Name" => String.t(),
+        "Routes" => list(route()()),
+        "State" => list(any())
+      }
+
+  """
+  @type describe_network_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       network_input_settings() :: %{
         "HlsInputSettings" => hls_input_settings(),
+        "MulticastInputSettings" => multicast_input_settings(),
         "ServerValidation" => list(any())
       }
 
@@ -721,7 +887,19 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      multicast_settings() :: %{
+        "Sources" => list(multicast_source()())
+      }
+
+  """
+  @type multicast_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_channel_response() :: %{
+        "AnywhereSettings" => describe_anywhere_settings(),
         "Arn" => String.t(),
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
@@ -755,6 +933,18 @@ defmodule AWS.MediaLive do
 
   """
   @type account_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_channel_placement_group_request() :: %{
+        optional("Name") => String.t(),
+        optional("Nodes") => list(String.t()())
+      }
+
+  """
+  @type update_channel_placement_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -842,6 +1032,39 @@ defmodule AWS.MediaLive do
 
   """
   @type caption_selector() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_node_request() :: %{
+        optional("Name") => String.t(),
+        optional("NodeInterfaceMappings") => list(node_interface_mapping_create_request()()),
+        optional("RequestId") => String.t(),
+        optional("Role") => list(any()),
+        optional("Tags") => map()
+      }
+
+  """
+  @type create_node_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_cluster_response() :: %{
+        "Arn" => String.t(),
+        "ChannelIds" => list(String.t()()),
+        "ClusterType" => list(any()),
+        "Id" => String.t(),
+        "InstanceRoleArn" => String.t(),
+        "Name" => String.t(),
+        "NetworkSettings" => cluster_network_settings(),
+        "State" => list(any())
+      }
+
+  """
+  @type create_cluster_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1122,6 +1345,23 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      create_channel_placement_group_response() :: %{
+        "Arn" => String.t(),
+        "Channels" => list(String.t()()),
+        "ClusterId" => String.t(),
+        "Id" => String.t(),
+        "Name" => String.t(),
+        "Nodes" => list(String.t()()),
+        "State" => list(any())
+      }
+
+  """
+  @type create_channel_placement_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_account_configuration_response() :: %{
         "AccountConfiguration" => account_configuration()
       }
@@ -1278,6 +1518,47 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      describe_node_summary() :: %{
+        "Arn" => String.t(),
+        "ChannelPlacementGroups" => list(String.t()()),
+        "ClusterId" => String.t(),
+        "ConnectionState" => list(any()),
+        "Id" => String.t(),
+        "InstanceArn" => String.t(),
+        "ManagedInstanceId" => String.t(),
+        "Name" => String.t(),
+        "NodeInterfaceMappings" => list(node_interface_mapping()()),
+        "Role" => list(any()),
+        "State" => list(any())
+      }
+
+  """
+  @type describe_node_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_node_state_response() :: %{
+        "Arn" => String.t(),
+        "ChannelPlacementGroups" => list(String.t()()),
+        "ClusterId" => String.t(),
+        "ConnectionState" => list(any()),
+        "Id" => String.t(),
+        "InstanceArn" => String.t(),
+        "Name" => String.t(),
+        "NodeInterfaceMappings" => list(node_interface_mapping()()),
+        "Role" => list(any()),
+        "State" => list(any())
+      }
+
+  """
+  @type update_node_state_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       multiplex_program_channel_destination_settings() :: %{
         "MultiplexId" => String.t(),
         "ProgramName" => String.t()
@@ -1285,6 +1566,19 @@ defmodule AWS.MediaLive do
 
   """
   @type multiplex_program_channel_destination_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      node_interface_mapping_create_request() :: %{
+        "LogicalInterfaceName" => String.t(),
+        "NetworkInterfaceMode" => list(any()),
+        "PhysicalInterfaceName" => String.t()
+      }
+
+  """
+  @type node_interface_mapping_create_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1313,6 +1607,18 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      route_update_request() :: %{
+        "Cidr" => String.t(),
+        "Gateway" => String.t()
+      }
+
+  """
+  @type route_update_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       rec709_settings() :: %{}
 
   """
@@ -1328,6 +1634,31 @@ defmodule AWS.MediaLive do
 
   """
   @type video_selector_pid() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multicast_settings_update_request() :: %{
+        "Sources" => list(multicast_source_update_request()())
+      }
+
+  """
+  @type multicast_settings_update_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      av1_color_space_settings() :: %{
+        "ColorSpacePassthroughSettings" => color_space_passthrough_settings(),
+        "Hdr10Settings" => hdr10_settings(),
+        "Rec601Settings" => rec601_settings(),
+        "Rec709Settings" => rec709_settings()
+      }
+
+  """
+  @type av1_color_space_settings() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1380,6 +1711,15 @@ defmodule AWS.MediaLive do
 
   """
   @type media_connect_flow() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_network_request() :: %{}
+
+  """
+  @type describe_network_request() :: %{}
 
   @typedoc """
 
@@ -1602,6 +1942,15 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      describe_channel_placement_group_request() :: %{}
+
+  """
+  @type describe_channel_placement_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       input_device_configurable_settings() :: %{
         "AudioChannelPairs" => list(input_device_configurable_audio_channel_pair_config()()),
         "Codec" => list(any()),
@@ -1624,6 +1973,26 @@ defmodule AWS.MediaLive do
 
   """
   @type event_bridge_rule_template_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_node_response() :: %{
+        "Arn" => String.t(),
+        "ChannelPlacementGroups" => list(String.t()()),
+        "ClusterId" => String.t(),
+        "ConnectionState" => list(any()),
+        "Id" => String.t(),
+        "InstanceArn" => String.t(),
+        "Name" => String.t(),
+        "NodeInterfaceMappings" => list(node_interface_mapping()()),
+        "Role" => list(any()),
+        "State" => list(any())
+      }
+
+  """
+  @type update_node_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1687,6 +2056,49 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      describe_node_response() :: %{
+        "Arn" => String.t(),
+        "ChannelPlacementGroups" => list(String.t()()),
+        "ClusterId" => String.t(),
+        "ConnectionState" => list(any()),
+        "Id" => String.t(),
+        "InstanceArn" => String.t(),
+        "Name" => String.t(),
+        "NodeInterfaceMappings" => list(node_interface_mapping()()),
+        "Role" => list(any()),
+        "State" => list(any())
+      }
+
+  """
+  @type describe_node_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_node_registration_script_response() :: %{
+        "NodeRegistrationScript" => String.t()
+      }
+
+  """
+  @type create_node_registration_script_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_cluster_request() :: %{
+        optional("Name") => String.t(),
+        optional("NetworkSettings") => cluster_network_settings_update_request()
+      }
+
+  """
+  @type update_cluster_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       reservation_resource_specification() :: %{
         "ChannelClass" => list(any()),
         "Codec" => list(any()),
@@ -1728,6 +2140,23 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      delete_network_response() :: %{
+        "Arn" => String.t(),
+        "AssociatedClusterIds" => list(String.t()()),
+        "Id" => String.t(),
+        "IpPools" => list(ip_pool()()),
+        "Name" => String.t(),
+        "Routes" => list(route()()),
+        "State" => list(any())
+      }
+
+  """
+  @type delete_network_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_delete_request() :: %{
         optional("ChannelIds") => list(String.t()()),
         optional("InputIds") => list(String.t()()),
@@ -1737,6 +2166,33 @@ defmodule AWS.MediaLive do
 
   """
   @type batch_delete_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_node_registration_script_request() :: %{
+        optional("Id") => String.t(),
+        optional("Name") => String.t(),
+        optional("NodeInterfaceMappings") => list(node_interface_mapping()()),
+        optional("RequestId") => String.t(),
+        optional("Role") => list(any())
+      }
+
+  """
+  @type create_node_registration_script_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multicast_source_update_request() :: %{
+        "SourceIp" => String.t(),
+        "Url" => String.t()
+      }
+
+  """
+  @type multicast_source_update_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1795,7 +2251,8 @@ defmodule AWS.MediaLive do
         "AutomaticInputFailoverSettings" => automatic_input_failover_settings(),
         "InputAttachmentName" => String.t(),
         "InputId" => String.t(),
-        "InputSettings" => input_settings()
+        "InputSettings" => input_settings(),
+        "LogicalInterfaceNames" => list(String.t()())
       }
 
   """
@@ -1882,6 +2339,17 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      multicast_input_settings() :: %{
+        "SourceIpAddress" => String.t()
+      }
+
+  """
+  @type multicast_input_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       pipeline_locking_settings() :: %{}
 
   """
@@ -1914,6 +2382,17 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      multicast_settings_create_request() :: %{
+        "Sources" => list(multicast_source_create_request()())
+      }
+
+  """
+  @type multicast_settings_create_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       output_group_settings() :: %{
         "ArchiveGroupSettings" => archive_group_settings(),
         "CmafIngestGroupSettings" => cmaf_ingest_group_settings(),
@@ -1923,6 +2402,7 @@ defmodule AWS.MediaLive do
         "MsSmoothGroupSettings" => ms_smooth_group_settings(),
         "MultiplexGroupSettings" => multiplex_group_settings(),
         "RtmpGroupSettings" => rtmp_group_settings(),
+        "SrtGroupSettings" => srt_group_settings(),
         "UdpGroupSettings" => udp_group_settings()
       }
 
@@ -1940,6 +2420,18 @@ defmodule AWS.MediaLive do
 
   """
   @type describe_schedule_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      interface_mapping() :: %{
+        "LogicalInterfaceName" => String.t(),
+        "NetworkId" => String.t()
+      }
+
+  """
+  @type interface_mapping() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2012,6 +2504,30 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      route_create_request() :: %{
+        "Cidr" => String.t(),
+        "Gateway" => String.t()
+      }
+
+  """
+  @type route_create_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multicast_source_create_request() :: %{
+        "SourceIp" => String.t(),
+        "Url" => String.t()
+      }
+
+  """
+  @type multicast_source_create_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       input_device_uhd_audio_channel_pair_config() :: %{
         "Id" => integer(),
         "Profile" => list(any())
@@ -2019,6 +2535,18 @@ defmodule AWS.MediaLive do
 
   """
   @type input_device_uhd_audio_channel_pair_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channel_placement_groups_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_channel_placement_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2084,8 +2612,10 @@ defmodule AWS.MediaLive do
       create_input_request() :: %{
         optional("Destinations") => list(input_destination_request()()),
         optional("InputDevices") => list(input_device_settings()()),
+        optional("InputNetworkLocation") => list(any()),
         optional("InputSecurityGroups") => list(String.t()()),
         optional("MediaConnectFlows") => list(media_connect_flow_request()()),
+        optional("MulticastSettings") => multicast_settings_create_request(),
         optional("Name") => String.t(),
         optional("RequestId") => String.t(),
         optional("RoleArn") => String.t(),
@@ -2131,6 +2661,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       channel_summary() :: %{
+        "AnywhereSettings" => describe_anywhere_settings(),
         "Arn" => String.t(),
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
@@ -2183,6 +2714,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       stop_channel_response() :: %{
+        "AnywhereSettings" => describe_anywhere_settings(),
         "Arn" => String.t(),
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
@@ -2226,6 +2758,22 @@ defmodule AWS.MediaLive do
 
   """
   @type avail_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_cluster_request() :: %{
+        optional("ClusterType") => list(any()),
+        optional("InstanceRoleArn") => String.t(),
+        optional("Name") => String.t(),
+        optional("NetworkSettings") => cluster_network_settings_create_request(),
+        optional("RequestId") => String.t(),
+        optional("Tags") => map()
+      }
+
+  """
+  @type create_cluster_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2278,9 +2826,11 @@ defmodule AWS.MediaLive do
         "Id" => String.t(),
         "InputClass" => list(any()),
         "InputDevices" => list(input_device_settings()()),
+        "InputNetworkLocation" => list(any()),
         "InputPartnerIds" => list(String.t()()),
         "InputSourceType" => list(any()),
         "MediaConnectFlows" => list(media_connect_flow()()),
+        "MulticastSettings" => multicast_settings(),
         "Name" => String.t(),
         "RoleArn" => String.t(),
         "SecurityGroups" => list(String.t()()),
@@ -2346,6 +2896,7 @@ defmodule AWS.MediaLive do
         optional("InputDevices") => list(input_device_request()()),
         optional("InputSecurityGroups") => list(String.t()()),
         optional("MediaConnectFlows") => list(media_connect_flow_request()()),
+        optional("MulticastSettings") => multicast_settings_update_request(),
         optional("Name") => String.t(),
         optional("RoleArn") => String.t(),
         optional("Sources") => list(input_source_request()()),
@@ -2379,6 +2930,23 @@ defmodule AWS.MediaLive do
 
   """
   @type schedule_action_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_network_summary() :: %{
+        "Arn" => String.t(),
+        "AssociatedClusterIds" => list(String.t()()),
+        "Id" => String.t(),
+        "IpPools" => list(ip_pool()()),
+        "Name" => String.t(),
+        "Routes" => list(route()()),
+        "State" => list(any())
+      }
+
+  """
+  @type describe_network_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2467,6 +3035,15 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      delete_network_request() :: %{}
+
+  """
+  @type delete_network_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_event_bridge_rule_template_group_request() :: %{}
 
   """
@@ -2480,6 +3057,24 @@ defmodule AWS.MediaLive do
 
   """
   @type cancel_input_device_transfer_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_cluster_summary() :: %{
+        "Arn" => String.t(),
+        "ChannelIds" => list(String.t()()),
+        "ClusterType" => list(any()),
+        "Id" => String.t(),
+        "InstanceRoleArn" => String.t(),
+        "Name" => String.t(),
+        "NetworkSettings" => cluster_network_settings(),
+        "State" => list(any())
+      }
+
+  """
+  @type describe_cluster_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2545,6 +3140,19 @@ defmodule AWS.MediaLive do
 
   """
   @type delete_input_security_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      node_interface_mapping() :: %{
+        "LogicalInterfaceName" => String.t(),
+        "NetworkInterfaceMode" => list(any()),
+        "PhysicalInterfaceName" => String.t()
+      }
+
+  """
+  @type node_interface_mapping() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2619,6 +3227,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       video_codec_settings() :: %{
+        "Av1Settings" => av1_settings(),
         "FrameCaptureSettings" => frame_capture_settings(),
         "H264Settings" => h264_settings(),
         "H265Settings" => h265_settings(),
@@ -2668,6 +3277,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       describe_channel_response() :: %{
+        "AnywhereSettings" => describe_anywhere_settings(),
         "Arn" => String.t(),
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
@@ -2778,6 +3388,30 @@ defmodule AWS.MediaLive do
 
   """
   @type update_multiplex_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cluster_network_settings() :: %{
+        "DefaultRoute" => String.t(),
+        "InterfaceMappings" => list(interface_mapping()())
+      }
+
+  """
+  @type cluster_network_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      interface_mapping_create_request() :: %{
+        "LogicalInterfaceName" => String.t(),
+        "NetworkId" => String.t()
+      }
+
+  """
+  @type interface_mapping_create_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2904,6 +3538,17 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      ip_pool() :: %{
+        "Cidr" => String.t()
+      }
+
+  """
+  @type ip_pool() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_update_schedule_response() :: %{
         "Creates" => batch_schedule_action_create_result(),
         "Deletes" => batch_schedule_action_delete_result()
@@ -2923,6 +3568,18 @@ defmodule AWS.MediaLive do
 
   """
   @type scte35_input_schedule_action_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_networks_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_networks_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2951,6 +3608,18 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      route() :: %{
+        "Cidr" => String.t(),
+        "Gateway" => String.t()
+      }
+
+  """
+  @type route() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_input_response() :: %{
         "Arn" => String.t(),
         "AttachedChannels" => list(String.t()()),
@@ -2958,9 +3627,11 @@ defmodule AWS.MediaLive do
         "Id" => String.t(),
         "InputClass" => list(any()),
         "InputDevices" => list(input_device_settings()()),
+        "InputNetworkLocation" => list(any()),
         "InputPartnerIds" => list(String.t()()),
         "InputSourceType" => list(any()),
         "MediaConnectFlows" => list(media_connect_flow()()),
+        "MulticastSettings" => multicast_settings(),
         "Name" => String.t(),
         "RoleArn" => String.t(),
         "SecurityGroups" => list(String.t()()),
@@ -2991,6 +3662,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       create_channel_request() :: %{
+        optional("AnywhereSettings") => anywhere_settings(),
         optional("CdiInputSpecification") => cdi_input_specification(),
         optional("ChannelClass") => list(any()),
         optional("Destinations") => list(output_destination()()),
@@ -3009,6 +3681,18 @@ defmodule AWS.MediaLive do
 
   """
   @type create_channel_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_nodes_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_nodes_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3206,6 +3890,18 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      input_request_destination_route() :: %{
+        "Cidr" => String.t(),
+        "Gateway" => String.t()
+      }
+
+  """
+  @type input_request_destination_route() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       multiplex_program_packet_identifiers_map() :: %{
         "AribCaptionsPid" => integer(),
         "AudioPids" => list(integer()()),
@@ -3316,6 +4012,31 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      srt_output_destination_settings() :: %{
+        "EncryptionPassphraseSecretArn" => String.t(),
+        "StreamId" => String.t(),
+        "Url" => String.t()
+      }
+
+  """
+  @type srt_output_destination_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multicast_source() :: %{
+        "SourceIp" => String.t(),
+        "Url" => String.t()
+      }
+
+  """
+  @type multicast_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       archive_cdn_settings() :: %{
         "ArchiveS3Settings" => archive_s3_settings()
       }
@@ -3333,6 +4054,23 @@ defmodule AWS.MediaLive do
 
   """
   @type describe_input_device_thumbnail_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_channel_placement_group_response() :: %{
+        "Arn" => String.t(),
+        "Channels" => list(String.t()()),
+        "ClusterId" => String.t(),
+        "Id" => String.t(),
+        "Name" => String.t(),
+        "Nodes" => list(String.t()()),
+        "State" => list(any())
+      }
+
+  """
+  @type delete_channel_placement_group_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3374,6 +4112,18 @@ defmodule AWS.MediaLive do
 
   """
   @type html_motion_graphics_settings() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_clusters_response() :: %{
+        "Clusters" => list(describe_cluster_summary()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_clusters_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3435,6 +4185,24 @@ defmodule AWS.MediaLive do
 
   """
   @type input_switch_schedule_action_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_cluster_response() :: %{
+        "Arn" => String.t(),
+        "ChannelIds" => list(String.t()()),
+        "ClusterType" => list(any()),
+        "Id" => String.t(),
+        "InstanceRoleArn" => String.t(),
+        "Name" => String.t(),
+        "NetworkSettings" => cluster_network_settings(),
+        "State" => list(any())
+      }
+
+  """
+  @type delete_cluster_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3593,6 +4361,7 @@ defmodule AWS.MediaLive do
         "MsSmoothOutputSettings" => ms_smooth_output_settings(),
         "MultiplexOutputSettings" => multiplex_output_settings(),
         "RtmpOutputSettings" => rtmp_output_settings(),
+        "SrtOutputSettings" => srt_output_settings(),
         "UdpOutputSettings" => udp_output_settings()
       }
 
@@ -3673,6 +4442,33 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      av1_settings() :: %{
+        "AfdSignaling" => list(any()),
+        "BufSize" => integer(),
+        "ColorSpaceSettings" => av1_color_space_settings(),
+        "FixedAfd" => list(any()),
+        "FramerateDenominator" => integer(),
+        "FramerateNumerator" => integer(),
+        "GopSize" => float(),
+        "GopSizeUnits" => list(any()),
+        "Level" => list(any()),
+        "LookAheadRateControl" => list(any()),
+        "MaxBitrate" => integer(),
+        "MinIInterval" => integer(),
+        "ParDenominator" => integer(),
+        "ParNumerator" => integer(),
+        "QvbrQualityLevel" => integer(),
+        "SceneChangeDetect" => list(any()),
+        "TimecodeBurninSettings" => timecode_burnin_settings()
+      }
+
+  """
+  @type av1_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       multiplex_program_service_descriptor() :: %{
         "ProviderName" => String.t(),
         "ServiceName" => String.t()
@@ -3711,6 +4507,17 @@ defmodule AWS.MediaLive do
 
   """
   @type describe_multiplex_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ip_pool_create_request() :: %{
+        "Cidr" => String.t()
+      }
+
+  """
+  @type ip_pool_create_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3818,6 +4625,18 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      list_clusters_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_clusters_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       output_location_ref() :: %{
         "DestinationRefId" => String.t()
       }
@@ -3898,6 +4717,18 @@ defmodule AWS.MediaLive do
 
   """
   @type cmaf_ingest_output_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channel_placement_groups_response() :: %{
+        "ChannelPlacementGroups" => list(describe_channel_placement_group_summary()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_channel_placement_groups_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4008,6 +4839,21 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      create_network_request() :: %{
+        optional("IpPools") => list(ip_pool_create_request()()),
+        optional("Name") => String.t(),
+        optional("RequestId") => String.t(),
+        optional("Routes") => list(route_create_request()()),
+        optional("Tags") => map()
+      }
+
+  """
+  @type create_network_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       maintenance_status() :: %{
         "MaintenanceDay" => list(any()),
         "MaintenanceDeadline" => String.t(),
@@ -4022,10 +4868,33 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      create_channel_placement_group_request() :: %{
+        optional("Name") => String.t(),
+        optional("Nodes") => list(String.t()()),
+        optional("RequestId") => String.t(),
+        optional("Tags") => map()
+      }
+
+  """
+  @type create_channel_placement_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       frame_capture_hls_settings() :: %{}
 
   """
   @type frame_capture_hls_settings() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_cluster_request() :: %{}
+
+  """
+  @type delete_cluster_request() :: %{}
 
   @typedoc """
 
@@ -4257,6 +5126,15 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      delete_channel_placement_group_request() :: %{}
+
+  """
+  @type delete_channel_placement_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       webvtt_destination_settings() :: %{
         "StyleControl" => list(any())
       }
@@ -4349,6 +5227,23 @@ defmodule AWS.MediaLive do
 
   """
   @type immediate_mode_schedule_action_start_settings() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_network_response() :: %{
+        "Arn" => String.t(),
+        "AssociatedClusterIds" => list(String.t()()),
+        "Id" => String.t(),
+        "IpPools" => list(ip_pool()()),
+        "Name" => String.t(),
+        "Routes" => list(route()()),
+        "State" => list(any())
+      }
+
+  """
+  @type update_network_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4497,6 +5392,26 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      create_node_response() :: %{
+        "Arn" => String.t(),
+        "ChannelPlacementGroups" => list(String.t()()),
+        "ClusterId" => String.t(),
+        "ConnectionState" => list(any()),
+        "Id" => String.t(),
+        "InstanceArn" => String.t(),
+        "Name" => String.t(),
+        "NodeInterfaceMappings" => list(node_interface_mapping()()),
+        "Role" => list(any()),
+        "State" => list(any())
+      }
+
+  """
+  @type create_node_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_event_bridge_rule_template_response() :: %{
         "Arn" => String.t(),
         "CreatedAt" => non_neg_integer(),
@@ -4616,6 +5531,26 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      delete_node_response() :: %{
+        "Arn" => String.t(),
+        "ChannelPlacementGroups" => list(String.t()()),
+        "ClusterId" => String.t(),
+        "ConnectionState" => list(any()),
+        "Id" => String.t(),
+        "InstanceArn" => String.t(),
+        "Name" => String.t(),
+        "NodeInterfaceMappings" => list(node_interface_mapping()()),
+        "Role" => list(any()),
+        "State" => list(any())
+      }
+
+  """
+  @type delete_node_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       input_device_summary() :: %{
         "Arn" => String.t(),
         "AvailabilityZone" => String.t(),
@@ -4730,6 +5665,15 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      delete_node_request() :: %{}
+
+  """
+  @type delete_node_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_cloud_watch_alarm_templates_response() :: %{
         "CloudWatchAlarmTemplates" => list(cloud_watch_alarm_template_summary()()),
         "NextToken" => String.t()
@@ -4838,6 +5782,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       channel() :: %{
+        "AnywhereSettings" => describe_anywhere_settings(),
         "Arn" => String.t(),
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
@@ -4898,6 +5843,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       start_channel_response() :: %{
+        "AnywhereSettings" => describe_anywhere_settings(),
         "Arn" => String.t(),
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
@@ -5164,6 +6110,9 @@ defmodule AWS.MediaLive do
   ## Example:
 
       input_destination_request() :: %{
+        "Network" => String.t(),
+        "NetworkRoutes" => list(input_request_destination_route()()),
+        "StaticIpAddress" => String.t(),
         "StreamName" => String.t()
       }
 
@@ -5339,6 +6288,15 @@ defmodule AWS.MediaLive do
 
   """
   @type batch_schedule_action_delete_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_node_request() :: %{}
+
+  """
+  @type describe_node_request() :: %{}
 
   @typedoc """
 
@@ -5553,6 +6511,19 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      update_network_request() :: %{
+        optional("IpPools") => list(ip_pool_update_request()()),
+        optional("Name") => String.t(),
+        optional("Routes") => list(route_update_request()())
+      }
+
+  """
+  @type update_network_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       audio_pid_selection() :: %{
         "Pid" => integer()
       }
@@ -5577,12 +6548,47 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      cluster_network_settings_update_request() :: %{
+        "DefaultRoute" => String.t(),
+        "InterfaceMappings" => list(interface_mapping_update_request()())
+      }
+
+  """
+  @type cluster_network_settings_update_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_anywhere_settings() :: %{
+        "ChannelPlacementGroupId" => String.t(),
+        "ClusterId" => String.t()
+      }
+
+  """
+  @type describe_anywhere_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       mpeg2_filter_settings() :: %{
         "TemporalFilterSettings" => temporal_filter_settings()
       }
 
   """
   @type mpeg2_filter_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_node_state_request() :: %{
+        optional("State") => list(any())
+      }
+
+  """
+  @type update_node_state_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5642,6 +6648,18 @@ defmodule AWS.MediaLive do
 
   """
   @type scte35_segmentation_descriptor() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      anywhere_settings() :: %{
+        "ChannelPlacementGroupId" => String.t(),
+        "ClusterId" => String.t()
+      }
+
+  """
+  @type anywhere_settings() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6024,12 +7042,60 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      update_node_request() :: %{
+        optional("Name") => String.t(),
+        optional("Role") => list(any())
+      }
+
+  """
+  @type update_node_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       fixed_mode_schedule_action_start_settings() :: %{
         "Time" => String.t()
       }
 
   """
   @type fixed_mode_schedule_action_start_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cluster_network_settings_create_request() :: %{
+        "DefaultRoute" => String.t(),
+        "InterfaceMappings" => list(interface_mapping_create_request()())
+      }
+
+  """
+  @type cluster_network_settings_create_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_destination_route() :: %{
+        "Cidr" => String.t(),
+        "Gateway" => String.t()
+      }
+
+  """
+  @type input_destination_route() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_nodes_response() :: %{
+        "NextToken" => String.t(),
+        "Nodes" => list(describe_node_summary()())
+      }
+
+  """
+  @type list_nodes_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6162,6 +7228,18 @@ defmodule AWS.MediaLive do
 
   """
   @type multiplex_statmux_video_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      interface_mapping_update_request() :: %{
+        "LogicalInterfaceName" => String.t(),
+        "NetworkId" => String.t()
+      }
+
+  """
+  @type interface_mapping_update_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6347,6 +7425,23 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      update_cluster_response() :: %{
+        "Arn" => String.t(),
+        "ChannelIds" => list(String.t()()),
+        "ClusterType" => list(any()),
+        "Id" => String.t(),
+        "Name" => String.t(),
+        "NetworkSettings" => cluster_network_settings(),
+        "State" => list(any())
+      }
+
+  """
+  @type update_cluster_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_update_signal_map_request() :: %{
         optional("CloudWatchAlarmTemplateGroupIdentifiers") => list(String.t()()),
         optional("Description") => String.t(),
@@ -6476,6 +7571,15 @@ defmodule AWS.MediaLive do
           | forbidden_exception()
           | bad_gateway_exception()
 
+  @type create_channel_placement_group_errors() ::
+          bad_request_exception()
+          | gateway_timeout_exception()
+          | internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | bad_gateway_exception()
+
   @type create_cloud_watch_alarm_template_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
@@ -6491,6 +7595,15 @@ defmodule AWS.MediaLive do
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+
+  @type create_cluster_errors() ::
+          bad_request_exception()
+          | gateway_timeout_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | bad_gateway_exception()
 
   @type create_event_bridge_rule_template_errors() ::
           bad_request_exception()
@@ -6544,6 +7657,33 @@ defmodule AWS.MediaLive do
           | forbidden_exception()
           | bad_gateway_exception()
 
+  @type create_network_errors() ::
+          bad_request_exception()
+          | gateway_timeout_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | bad_gateway_exception()
+
+  @type create_node_errors() ::
+          bad_request_exception()
+          | gateway_timeout_exception()
+          | internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | bad_gateway_exception()
+
+  @type create_node_registration_script_errors() ::
+          bad_request_exception()
+          | gateway_timeout_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | bad_gateway_exception()
+
   @type create_partner_input_errors() ::
           bad_request_exception()
           | gateway_timeout_exception()
@@ -6576,6 +7716,16 @@ defmodule AWS.MediaLive do
           | forbidden_exception()
           | bad_gateway_exception()
 
+  @type delete_channel_placement_group_errors() ::
+          bad_request_exception()
+          | gateway_timeout_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | bad_gateway_exception()
+
   @type delete_cloud_watch_alarm_template_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
@@ -6591,6 +7741,16 @@ defmodule AWS.MediaLive do
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+
+  @type delete_cluster_errors() ::
+          bad_request_exception()
+          | gateway_timeout_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | bad_gateway_exception()
 
   @type delete_event_bridge_rule_template_errors() ::
           bad_request_exception()
@@ -6638,6 +7798,26 @@ defmodule AWS.MediaLive do
           | bad_gateway_exception()
 
   @type delete_multiplex_program_errors() ::
+          bad_request_exception()
+          | gateway_timeout_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | bad_gateway_exception()
+
+  @type delete_network_errors() ::
+          bad_request_exception()
+          | gateway_timeout_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | bad_gateway_exception()
+
+  @type delete_node_errors() ::
           bad_request_exception()
           | gateway_timeout_exception()
           | internal_server_error_exception()
@@ -6697,6 +7877,24 @@ defmodule AWS.MediaLive do
           | forbidden_exception()
           | bad_gateway_exception()
 
+  @type describe_channel_placement_group_errors() ::
+          bad_request_exception()
+          | gateway_timeout_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | bad_gateway_exception()
+
+  @type describe_cluster_errors() ::
+          bad_request_exception()
+          | gateway_timeout_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | bad_gateway_exception()
+
   @type describe_input_errors() ::
           bad_request_exception()
           | gateway_timeout_exception()
@@ -6743,6 +7941,24 @@ defmodule AWS.MediaLive do
           | bad_gateway_exception()
 
   @type describe_multiplex_program_errors() ::
+          bad_request_exception()
+          | gateway_timeout_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | bad_gateway_exception()
+
+  @type describe_network_errors() ::
+          bad_request_exception()
+          | gateway_timeout_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | bad_gateway_exception()
+
+  @type describe_node_errors() ::
           bad_request_exception()
           | gateway_timeout_exception()
           | internal_server_error_exception()
@@ -6823,6 +8039,14 @@ defmodule AWS.MediaLive do
           | too_many_requests_exception()
           | forbidden_exception()
 
+  @type list_channel_placement_groups_errors() ::
+          bad_request_exception()
+          | gateway_timeout_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | bad_gateway_exception()
+
   @type list_channels_errors() ::
           bad_request_exception()
           | gateway_timeout_exception()
@@ -6844,6 +8068,14 @@ defmodule AWS.MediaLive do
           | not_found_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+
+  @type list_clusters_errors() ::
+          bad_request_exception()
+          | gateway_timeout_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | bad_gateway_exception()
 
   @type list_event_bridge_rule_template_groups_errors() ::
           bad_request_exception()
@@ -6902,6 +8134,22 @@ defmodule AWS.MediaLive do
           | bad_gateway_exception()
 
   @type list_multiplexes_errors() ::
+          bad_request_exception()
+          | gateway_timeout_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | bad_gateway_exception()
+
+  @type list_networks_errors() ::
+          bad_request_exception()
+          | gateway_timeout_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | bad_gateway_exception()
+
+  @type list_nodes_errors() ::
           bad_request_exception()
           | gateway_timeout_exception()
           | internal_server_error_exception()
@@ -7113,6 +8361,16 @@ defmodule AWS.MediaLive do
           | forbidden_exception()
           | bad_gateway_exception()
 
+  @type update_channel_placement_group_errors() ::
+          bad_request_exception()
+          | gateway_timeout_exception()
+          | internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | bad_gateway_exception()
+
   @type update_cloud_watch_alarm_template_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
@@ -7128,6 +8386,15 @@ defmodule AWS.MediaLive do
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
+
+  @type update_cluster_errors() ::
+          bad_request_exception()
+          | gateway_timeout_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | bad_gateway_exception()
 
   @type update_event_bridge_rule_template_errors() ::
           bad_request_exception()
@@ -7190,6 +8457,34 @@ defmodule AWS.MediaLive do
           | unprocessable_entity_exception()
           | not_found_exception()
           | conflict_exception()
+          | forbidden_exception()
+          | bad_gateway_exception()
+
+  @type update_network_errors() ::
+          bad_request_exception()
+          | gateway_timeout_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | bad_gateway_exception()
+
+  @type update_node_errors() ::
+          bad_request_exception()
+          | gateway_timeout_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | bad_gateway_exception()
+
+  @type update_node_state_errors() ::
+          bad_request_exception()
+          | gateway_timeout_exception()
+          | internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
 
@@ -7441,6 +8736,45 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
+  Create a ChannelPlacementGroup in the specified Cluster.
+
+  As part of the create operation, you specify the Nodes to attach the group
+  to.After you create a ChannelPlacementGroup, you add Channels to the group (you
+  do this by modifying the Channels to add them to a specific group). You now have
+  an association of Channels to ChannelPlacementGroup, and ChannelPlacementGroup
+  to Nodes. This association means that all the Channels in the group are able to
+  run on any of the Nodes associated with the group.
+  """
+  @spec create_channel_placement_group(
+          map(),
+          String.t(),
+          create_channel_placement_group_request(),
+          list()
+        ) ::
+          {:ok, create_channel_placement_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_channel_placement_group_errors()}
+  def create_channel_placement_group(%Client{} = client, cluster_id, input, options \\ []) do
+    url_path = "/prod/clusters/#{AWS.Util.encode_uri(cluster_id)}/channelplacementgroups"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Creates a cloudwatch alarm template to dynamically generate cloudwatch metric
   alarms on targeted resource types.
   """
@@ -7486,6 +8820,33 @@ defmodule AWS.MediaLive do
           | {:error, create_cloud_watch_alarm_template_group_errors()}
   def create_cloud_watch_alarm_template_group(%Client{} = client, input, options \\ []) do
     url_path = "/prod/cloudwatch-alarm-template-groups"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Create a new Cluster.
+  """
+  @spec create_cluster(map(), create_cluster_request(), list()) ::
+          {:ok, create_cluster_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_cluster_errors()}
+  def create_cluster(%Client{} = client, input, options \\ []) do
+    url_path = "/prod/clusters"
     headers = []
     query_params = []
 
@@ -7678,6 +9039,105 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
+  Create as many Networks as you need.
+
+  You will associate one or more Clusters with each Network.Each Network provides
+  MediaLive Anywhere with required information about the network in your
+  organization that you are using for video encoding using MediaLive.
+  """
+  @spec create_network(map(), create_network_request(), list()) ::
+          {:ok, create_network_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_network_errors()}
+  def create_network(%Client{} = client, input, options \\ []) do
+    url_path = "/prod/networks"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Create a Node in the specified Cluster.
+
+  You can also create Nodes using the CreateNodeRegistrationScript. Note that you
+  can't move a Node to another Cluster.
+  """
+  @spec create_node(map(), String.t(), create_node_request(), list()) ::
+          {:ok, create_node_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_node_errors()}
+  def create_node(%Client{} = client, cluster_id, input, options \\ []) do
+    url_path = "/prod/clusters/#{AWS.Util.encode_uri(cluster_id)}/nodes"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Create the Register Node script for all the nodes intended for a specific
+  Cluster.
+
+  You will then run the script on each hardware unit that is intended for that
+  Cluster. The script creates a Node in the specified Cluster. It then binds the
+  Node to this hardware unit, and activates the node hardware for use with
+  MediaLive Anywhere.
+  """
+  @spec create_node_registration_script(
+          map(),
+          String.t(),
+          create_node_registration_script_request(),
+          list()
+        ) ::
+          {:ok, create_node_registration_script_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_node_registration_script_errors()}
+  def create_node_registration_script(%Client{} = client, cluster_id, input, options \\ []) do
+    url_path = "/prod/clusters/#{AWS.Util.encode_uri(cluster_id)}/nodeRegistrationScript"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Create a partner input
   """
   @spec create_partner_input(map(), String.t(), create_partner_input_request(), list()) ::
@@ -7791,6 +9251,47 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
+  Delete the specified ChannelPlacementGroup that exists in the specified Cluster.
+  """
+  @spec delete_channel_placement_group(
+          map(),
+          String.t(),
+          String.t(),
+          delete_channel_placement_group_request(),
+          list()
+        ) ::
+          {:ok, delete_channel_placement_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_channel_placement_group_errors()}
+  def delete_channel_placement_group(
+        %Client{} = client,
+        channel_placement_group_id,
+        cluster_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/prod/clusters/#{AWS.Util.encode_uri(cluster_id)}/channelplacementgroups/#{AWS.Util.encode_uri(channel_placement_group_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes a cloudwatch alarm template.
   """
   @spec delete_cloud_watch_alarm_template(
@@ -7859,6 +9360,35 @@ defmodule AWS.MediaLive do
       input,
       options,
       204
+    )
+  end
+
+  @doc """
+  Delete a Cluster.
+
+  The Cluster must be idle.
+  """
+  @spec delete_cluster(map(), String.t(), delete_cluster_request(), list()) ::
+          {:ok, delete_cluster_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_cluster_errors()}
+  def delete_cluster(%Client{} = client, cluster_id, input, options \\ []) do
+    url_path = "/prod/clusters/#{AWS.Util.encode_uri(cluster_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
     )
   end
 
@@ -8069,6 +9599,66 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
+  Delete a Network.
+
+  The Network must have no resources associated with it.
+  """
+  @spec delete_network(map(), String.t(), delete_network_request(), list()) ::
+          {:ok, delete_network_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_network_errors()}
+  def delete_network(%Client{} = client, network_id, input, options \\ []) do
+    url_path = "/prod/networks/#{AWS.Util.encode_uri(network_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Delete a Node.
+
+  The Node must be IDLE.
+  """
+  @spec delete_node(map(), String.t(), String.t(), delete_node_request(), list()) ::
+          {:ok, delete_node_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_node_errors()}
+  def delete_node(%Client{} = client, cluster_id, node_id, input, options \\ []) do
+    url_path =
+      "/prod/clusters/#{AWS.Util.encode_uri(cluster_id)}/nodes/#{AWS.Util.encode_uri(node_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Delete an expired reservation.
   """
   @spec delete_reservation(map(), String.t(), delete_reservation_request(), list()) ::
@@ -8216,6 +9806,47 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
+  Get details about a ChannelPlacementGroup.
+  """
+  @spec describe_channel_placement_group(map(), String.t(), String.t(), list()) ::
+          {:ok, describe_channel_placement_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_channel_placement_group_errors()}
+  def describe_channel_placement_group(
+        %Client{} = client,
+        channel_placement_group_id,
+        cluster_id,
+        options \\ []
+      ) do
+    url_path =
+      "/prod/clusters/#{AWS.Util.encode_uri(cluster_id)}/channelplacementgroups/#{AWS.Util.encode_uri(channel_placement_group_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Get details about a Cluster.
+  """
+  @spec describe_cluster(map(), String.t(), list()) ::
+          {:ok, describe_cluster_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_cluster_errors()}
+  def describe_cluster(%Client{} = client, cluster_id, options \\ []) do
+    url_path = "/prod/clusters/#{AWS.Util.encode_uri(cluster_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Produces details about an input
   """
   @spec describe_input(map(), String.t(), list()) ::
@@ -8330,6 +9961,42 @@ defmodule AWS.MediaLive do
   def describe_multiplex_program(%Client{} = client, multiplex_id, program_name, options \\ []) do
     url_path =
       "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}/programs/#{AWS.Util.encode_uri(program_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Get details about a Network.
+  """
+  @spec describe_network(map(), String.t(), list()) ::
+          {:ok, describe_network_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_network_errors()}
+  def describe_network(%Client{} = client, network_id, options \\ []) do
+    url_path = "/prod/networks/#{AWS.Util.encode_uri(network_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Get details about a Node in the specified Cluster.
+  """
+  @spec describe_node(map(), String.t(), String.t(), list()) ::
+          {:ok, describe_node_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_node_errors()}
+  def describe_node(%Client{} = client, cluster_id, node_id, options \\ []) do
+    url_path =
+      "/prod/clusters/#{AWS.Util.encode_uri(cluster_id)}/nodes/#{AWS.Util.encode_uri(node_id)}"
 
     headers = []
     query_params = []
@@ -8533,6 +10200,49 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
+  Retrieve the list of ChannelPlacementGroups in the specified Cluster.
+  """
+  @spec list_channel_placement_groups(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_channel_placement_groups_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_channel_placement_groups_errors()}
+  def list_channel_placement_groups(
+        %Client{} = client,
+        cluster_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/prod/clusters/#{AWS.Util.encode_uri(cluster_id)}/channelplacementgroups"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Produces list of channels that have been created
   """
   @spec list_channels(map(), String.t() | nil, String.t() | nil, list()) ::
@@ -8681,6 +10391,37 @@ defmodule AWS.MediaLive do
     query_params =
       if !is_nil(group_identifier) do
         [{"groupIdentifier", group_identifier} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieve the list of Clusters.
+  """
+  @spec list_clusters(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_clusters_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_clusters_errors()}
+  def list_clusters(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/prod/clusters"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -8990,6 +10731,74 @@ defmodule AWS.MediaLive do
           | {:error, list_multiplexes_errors()}
   def list_multiplexes(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/prod/multiplexes"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieve the list of Networks.
+  """
+  @spec list_networks(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_networks_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_networks_errors()}
+  def list_networks(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/prod/networks"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieve the list of Nodes.
+  """
+  @spec list_nodes(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_nodes_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_nodes_errors()}
+  def list_nodes(
+        %Client{} = client,
+        cluster_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/prod/clusters/#{AWS.Util.encode_uri(cluster_id)}/nodes"
     headers = []
     query_params = []
 
@@ -9845,6 +11654,37 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
+  Change the settings for a ChannelPlacementGroup.
+  """
+  @spec update_channel_placement_group(
+          map(),
+          String.t(),
+          String.t(),
+          update_channel_placement_group_request(),
+          list()
+        ) ::
+          {:ok, update_channel_placement_group_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_channel_placement_group_errors()}
+  def update_channel_placement_group(
+        %Client{} = client,
+        channel_placement_group_id,
+        cluster_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/prod/clusters/#{AWS.Util.encode_uri(cluster_id)}/channelplacementgroups/#{AWS.Util.encode_uri(channel_placement_group_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
   Updates the specified cloudwatch alarm template.
   """
   @spec update_cloud_watch_alarm_template(
@@ -9911,6 +11751,23 @@ defmodule AWS.MediaLive do
       options,
       200
     )
+  end
+
+  @doc """
+  Change the settings for a Cluster.
+  """
+  @spec update_cluster(map(), String.t(), update_cluster_request(), list()) ::
+          {:ok, update_cluster_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_cluster_errors()}
+  def update_cluster(%Client{} = client, cluster_id, input, options \\ []) do
+    url_path = "/prod/clusters/#{AWS.Util.encode_uri(cluster_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """
@@ -10089,6 +11946,61 @@ defmodule AWS.MediaLive do
     meta = metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Change the settings for a Network.
+  """
+  @spec update_network(map(), String.t(), update_network_request(), list()) ::
+          {:ok, update_network_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_network_errors()}
+  def update_network(%Client{} = client, network_id, input, options \\ []) do
+    url_path = "/prod/networks/#{AWS.Util.encode_uri(network_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Change the settings for a Node.
+  """
+  @spec update_node(map(), String.t(), String.t(), update_node_request(), list()) ::
+          {:ok, update_node_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_node_errors()}
+  def update_node(%Client{} = client, cluster_id, node_id, input, options \\ []) do
+    url_path =
+      "/prod/clusters/#{AWS.Util.encode_uri(cluster_id)}/nodes/#{AWS.Util.encode_uri(node_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
+  end
+
+  @doc """
+  Update the state of a node.
+  """
+  @spec update_node_state(map(), String.t(), String.t(), update_node_state_request(), list()) ::
+          {:ok, update_node_state_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_node_state_errors()}
+  def update_node_state(%Client{} = client, cluster_id, node_id, input, options \\ []) do
+    url_path =
+      "/prod/clusters/#{AWS.Util.encode_uri(cluster_id)}/nodes/#{AWS.Util.encode_uri(node_id)}/state"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
   end
 
   @doc """

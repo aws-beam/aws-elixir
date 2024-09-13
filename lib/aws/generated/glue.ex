@@ -331,6 +331,17 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      retention_metrics() :: %{
+        "IcebergMetrics" => iceberg_retention_metrics()
+      }
+      
+  """
+  @type retention_metrics() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       cancel_statement_response() :: %{}
       
   """
@@ -1329,6 +1340,8 @@ defmodule AWS.Glue do
       
       table_optimizer_configuration() :: %{
         "enabled" => boolean(),
+        "orphanFileDeletionConfiguration" => orphan_file_deletion_configuration(),
+        "retentionConfiguration" => retention_configuration(),
         "roleArn" => String.t()
       }
       
@@ -1534,6 +1547,18 @@ defmodule AWS.Glue do
       
   """
   @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      iceberg_orphan_file_deletion_configuration() :: %{
+        "location" => String.t(),
+        "orphanFileRetentionPeriodInDays" => integer()
+      }
+      
+  """
+  @type iceberg_orphan_file_deletion_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1849,10 +1874,13 @@ defmodule AWS.Glue do
   ## Example:
       
       table_optimizer_run() :: %{
+        "compactionMetrics" => compaction_metrics(),
         "endTimestamp" => non_neg_integer(),
         "error" => String.t(),
         "eventType" => list(any()),
         "metrics" => run_metrics(),
+        "orphanFileDeletionMetrics" => orphan_file_deletion_metrics(),
+        "retentionMetrics" => retention_metrics(),
         "startTimestamp" => non_neg_integer()
       }
       
@@ -4638,6 +4666,17 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      retention_configuration() :: %{
+        "icebergConfiguration" => iceberg_retention_configuration()
+      }
+      
+  """
+  @type retention_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       workflow_run() :: %{
         "CompletedOn" => non_neg_integer(),
         "ErrorMessage" => String.t(),
@@ -4969,12 +5008,36 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      iceberg_orphan_file_deletion_metrics() :: %{
+        "JobDurationInHour" => float(),
+        "NumberOfDpus" => integer(),
+        "NumberOfOrphanFilesDeleted" => float()
+      }
+      
+  """
+  @type iceberg_orphan_file_deletion_metrics() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_workflow_run_properties_response() :: %{
         "RunProperties" => map()
       }
       
   """
   @type get_workflow_run_properties_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      orphan_file_deletion_metrics() :: %{
+        "IcebergMetrics" => iceberg_orphan_file_deletion_metrics()
+      }
+      
+  """
+  @type orphan_file_deletion_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5050,6 +5113,21 @@ defmodule AWS.Glue do
       
   """
   @type start_crawler_schedule_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      iceberg_retention_metrics() :: %{
+        "JobDurationInHour" => float(),
+        "NumberOfDataFilesDeleted" => float(),
+        "NumberOfDpus" => integer(),
+        "NumberOfManifestFilesDeleted" => float(),
+        "NumberOfManifestListsDeleted" => float()
+      }
+      
+  """
+  @type iceberg_retention_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6050,6 +6128,17 @@ defmodule AWS.Glue do
       
   """
   @type storage_descriptor() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      compaction_metrics() :: %{
+        "IcebergMetrics" => iceberg_compaction_metrics()
+      }
+      
+  """
+  @type compaction_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -8822,6 +8911,17 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      throttling_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       federation_source_retryable_exception() :: %{
         "Message" => String.t()
       }
@@ -8851,6 +8951,20 @@ defmodule AWS.Glue do
       
   """
   @type get_table_versions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      iceberg_compaction_metrics() :: %{
+        "JobDurationInHour" => float(),
+        "NumberOfBytesCompacted" => float(),
+        "NumberOfDpus" => integer(),
+        "NumberOfFilesCompacted" => float()
+      }
+      
+  """
+  @type iceberg_compaction_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -10150,6 +10264,17 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      orphan_file_deletion_configuration() :: %{
+        "icebergConfiguration" => iceberg_orphan_file_deletion_configuration()
+      }
+      
+  """
+  @type orphan_file_deletion_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       glue_schema() :: %{
         "Columns" => list(glue_studio_schema_column()())
       }
@@ -11016,6 +11141,19 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      iceberg_retention_configuration() :: %{
+        "cleanExpiredFiles" => boolean(),
+        "numberOfSnapshotsToRetain" => integer(),
+        "snapshotRetentionPeriodInDays" => integer()
+      }
+      
+  """
+  @type iceberg_retention_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_column_statistics_for_table_request() :: %{
         optional("CatalogId") => String.t(),
         required("ColumnStatisticsList") => list(column_statistics()()),
@@ -11149,7 +11287,12 @@ defmodule AWS.Glue do
           | operation_timeout_exception()
           | entity_not_found_exception()
 
-  @type batch_get_table_optimizer_errors() :: internal_service_exception()
+  @type batch_get_table_optimizer_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
 
   @type batch_get_triggers_errors() ::
           invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
@@ -11346,7 +11489,9 @@ defmodule AWS.Glue do
           | entity_not_found_exception()
 
   @type create_table_optimizer_errors() ::
-          access_denied_exception()
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
           | invalid_input_exception()
           | internal_service_exception()
           | already_exists_exception()
@@ -11511,7 +11656,8 @@ defmodule AWS.Glue do
           | entity_not_found_exception()
 
   @type delete_table_optimizer_errors() ::
-          access_denied_exception()
+          throttling_exception()
+          | access_denied_exception()
           | invalid_input_exception()
           | internal_service_exception()
           | entity_not_found_exception()
@@ -11853,7 +11999,8 @@ defmodule AWS.Glue do
           | entity_not_found_exception()
 
   @type get_table_optimizer_errors() ::
-          access_denied_exception()
+          throttling_exception()
+          | access_denied_exception()
           | invalid_input_exception()
           | internal_service_exception()
           | entity_not_found_exception()
@@ -12059,7 +12206,9 @@ defmodule AWS.Glue do
           | entity_not_found_exception()
 
   @type list_table_optimizer_runs_errors() ::
-          access_denied_exception()
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
           | invalid_input_exception()
           | internal_service_exception()
           | entity_not_found_exception()
@@ -12430,7 +12579,10 @@ defmodule AWS.Glue do
           | entity_not_found_exception()
 
   @type update_table_optimizer_errors() ::
-          access_denied_exception()
+          throttling_exception()
+          | validation_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
           | invalid_input_exception()
           | internal_service_exception()
           | entity_not_found_exception()

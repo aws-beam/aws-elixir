@@ -411,6 +411,7 @@ defmodule AWS.EMR do
   ## Example:
       
       spot_resizing_specification() :: %{
+        "AllocationStrategy" => list(any()),
         "TimeoutDurationMinutes" => integer()
       }
       
@@ -2170,6 +2171,8 @@ defmodule AWS.EMR do
   ## Example:
       
       on_demand_resizing_specification() :: %{
+        "AllocationStrategy" => list(any()),
+        "CapacityReservationOptions" => on_demand_capacity_reservation_options(),
         "TimeoutDurationMinutes" => integer()
       }
       
@@ -2454,6 +2457,7 @@ defmodule AWS.EMR do
       
       instance_fleet_modify_config() :: %{
         "InstanceFleetId" => String.t(),
+        "InstanceTypeConfigs" => list(instance_type_config()()),
         "ResizeSpecifications" => instance_fleet_resizing_specifications(),
         "TargetOnDemandCapacity" => integer(),
         "TargetSpotCapacity" => integer()

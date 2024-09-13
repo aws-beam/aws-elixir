@@ -24,8 +24,11 @@ defmodule AWS.MediaConvert do
 
       video_overlay() :: %{
         "EndTimecode" => String.t(),
+        "InitialPosition" => video_overlay_position(),
         "Input" => video_overlay_input(),
-        "StartTimecode" => String.t()
+        "Playback" => list(any()),
+        "StartTimecode" => String.t(),
+        "Transitions" => list(video_overlay_transition()())
       }
 
   """
@@ -709,6 +712,21 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
+      video_overlay_position() :: %{
+        "Height" => integer(),
+        "Unit" => list(any()),
+        "Width" => integer(),
+        "XPosition" => integer(),
+        "YPosition" => integer()
+      }
+
+  """
+  @type video_overlay_position() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       job_template() :: %{
         "AccelerationSettings" => acceleration_settings(),
         "Arn" => String.t(),
@@ -795,6 +813,7 @@ defmodule AWS.MediaConvert do
         optional("BillingTagsSource") => list(any()),
         optional("ClientRequestToken") => String.t(),
         optional("HopDestinations") => list(hop_destination()()),
+        optional("JobEngineVersion") => String.t(),
         optional("JobTemplate") => String.t(),
         optional("Priority") => integer(),
         optional("Queue") => String.t(),
@@ -1140,6 +1159,19 @@ defmodule AWS.MediaConvert do
 
   """
   @type audio_selector_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      video_overlay_transition() :: %{
+        "EndPosition" => video_overlay_position(),
+        "EndTimecode" => String.t(),
+        "StartTimecode" => String.t()
+      }
+
+  """
+  @type video_overlay_transition() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1575,6 +1607,18 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
+      job_engine_version() :: %{
+        "ExpirationDate" => non_neg_integer(),
+        "Version" => String.t()
+      }
+
+  """
+  @type job_engine_version() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       avc_intra_settings() :: %{
         "AvcIntraClass" => list(any()),
         "AvcIntraUhdSettings" => avc_intra_uhd_settings(),
@@ -1796,6 +1840,7 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       file_source_settings() :: %{
+        "ByteRateLimit" => list(any()),
         "Convert608To708" => list(any()),
         "ConvertPaintToPop" => list(any()),
         "Framerate" => caption_source_framerate(),
@@ -1920,6 +1965,18 @@ defmodule AWS.MediaConvert do
 
   """
   @type noise_reducer_temporal_filter_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_versions_response() :: %{
+        "NextToken" => String.t(),
+        "Versions" => list(job_engine_version()())
+      }
+
+  """
+  @type list_versions_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2797,6 +2854,8 @@ defmodule AWS.MediaConvert do
         "ErrorMessage" => String.t(),
         "HopDestinations" => list(hop_destination()()),
         "Id" => String.t(),
+        "JobEngineVersionRequested" => String.t(),
+        "JobEngineVersionUsed" => String.t(),
         "JobPercentComplete" => integer(),
         "JobTemplate" => String.t(),
         "Messages" => job_messages(),
@@ -2927,6 +2986,18 @@ defmodule AWS.MediaConvert do
 
   """
   @type get_preset_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_versions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3680,6 +3751,7 @@ defmodule AWS.MediaConvert do
         "EntropyEncoding" => list(any()),
         "FieldEncoding" => list(any()),
         "FlickerAdaptiveQuantization" => list(any()),
+        "SaliencyAwareEncoding" => list(any()),
         "Softness" => integer(),
         "AdaptiveQuantization" => list(any()),
         "CodecLevel" => list(any()),
@@ -3926,6 +3998,14 @@ defmodule AWS.MediaConvert do
           | forbidden_exception()
 
   @type list_tags_for_resource_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type list_versions_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
@@ -4722,6 +4802,38 @@ defmodule AWS.MediaConvert do
     url_path = "/2017-08-29/tags/#{AWS.Util.encode_uri(arn)}"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieve a JSON array of all available Job engine versions and the date they
+  expire.
+  """
+  @spec list_versions(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_versions_errors()}
+  def list_versions(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/2017-08-29/versions"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 

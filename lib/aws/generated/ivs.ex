@@ -99,11 +99,10 @@ defmodule AWS.Ivs do
   A *tag* is a metadata label that you assign to an Amazon Web Services
   resource. A tag comprises a *key* and a *value*, both
   set by you. For example, you might set a tag as `topic:nature` to label a
-  particular video category. See [Tagging Amazon Web Services Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) for
-  more information, including restrictions that apply to tags and "Tag naming
-  limits and
-  requirements"; Amazon IVS has no service-specific constraints beyond what is
-  documented
+  particular video category. See [Best practices and strategies](https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html)
+  in *Tagging Amazon Web Services Resources and Tag Editor* for details, including
+  restrictions that apply to tags and "Tag naming limits and requirements"; Amazon
+  IVS has no service-specific constraints beyond what is documented
   there.
 
   Tags can help you identify and organize your Amazon Web Services resources. For
@@ -112,7 +111,7 @@ defmodule AWS.Ivs do
   related. You can
   also use tags to manage access (see [ Access Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html)).
 
-  The Amazon IVS API has these tag-related endpoints: `TagResource`,
+  The Amazon IVS API has these tag-related operations: `TagResource`,
   `UntagResource`, and `ListTagsForResource`. The following
   resources support tagging: Channels, Stream Keys, Playback Key Pairs, and
   Recording

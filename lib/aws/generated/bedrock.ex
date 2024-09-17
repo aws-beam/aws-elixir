@@ -720,6 +720,7 @@ defmodule AWS.Bedrock do
         optional("clientRequestToken") => String.t(),
         optional("tags") => list(tag()()),
         optional("timeoutDurationInHours") => integer(),
+        optional("vpcConfig") => vpc_config(),
         required("inputDataConfig") => list(),
         required("jobName") => String.t(),
         required("modelId") => String.t(),
@@ -758,6 +759,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       model_invocation_job_s3_output_data_config() :: %{
+        "s3BucketOwner" => String.t(),
         "s3EncryptionKeyId" => String.t(),
         "s3Uri" => String.t()
       }
@@ -1222,6 +1224,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       model_invocation_job_s3_input_data_config() :: %{
+        "s3BucketOwner" => String.t(),
         "s3InputFormat" => list(any()),
         "s3Uri" => String.t()
       }
@@ -1963,7 +1966,8 @@ defmodule AWS.Bedrock do
         "roleArn" => String.t(),
         "status" => list(any()),
         "submitTime" => non_neg_integer(),
-        "timeoutDurationInHours" => integer()
+        "timeoutDurationInHours" => integer(),
+        "vpcConfig" => vpc_config()
       }
 
   """
@@ -2125,7 +2129,8 @@ defmodule AWS.Bedrock do
         "roleArn" => String.t(),
         "status" => list(any()),
         "submitTime" => non_neg_integer(),
-        "timeoutDurationInHours" => integer()
+        "timeoutDurationInHours" => integer(),
+        "vpcConfig" => vpc_config()
       }
 
   """

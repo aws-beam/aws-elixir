@@ -74,6 +74,18 @@ defmodule AWS.IoT do
 
   ## Example:
 
+      list_sbom_validation_results_response() :: %{
+        "nextToken" => String.t(),
+        "validationResultSummaries" => list(sbom_validation_result_summary()())
+      }
+
+  """
+  @type list_sbom_validation_results_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_billing_group_response() :: %{
         "billingGroupArn" => String.t(),
         "billingGroupId" => String.t(),
@@ -1567,10 +1579,12 @@ defmodule AWS.IoT do
 
   ## Example:
 
-      get_job_document_request() :: %{}
+      get_job_document_request() :: %{
+        optional("beforeSubstitution") => boolean()
+      }
 
   """
-  @type get_job_document_request() :: %{}
+  @type get_job_document_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2103,6 +2117,18 @@ defmodule AWS.IoT do
 
   """
   @type mqtt_headers() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_sbom_with_package_version_request() :: %{
+        optional("clientToken") => String.t(),
+        required("sbom") => sbom()
+      }
+
+  """
+  @type associate_sbom_with_package_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2893,9 +2919,11 @@ defmodule AWS.IoT do
 
       update_package_version_request() :: %{
         optional("action") => list(any()),
+        optional("artifact") => package_version_artifact(),
         optional("attributes") => map(),
         optional("clientToken") => String.t(),
-        optional("description") => String.t()
+        optional("description") => String.t(),
+        optional("recipe") => String.t()
       }
 
   """
@@ -3147,6 +3175,17 @@ defmodule AWS.IoT do
 
   """
   @type create_scheduled_audit_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sbom() :: %{
+        "s3Location" => s3_location()
+      }
+
+  """
+  @type sbom() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3634,9 +3673,11 @@ defmodule AWS.IoT do
   ## Example:
 
       create_package_version_request() :: %{
+        optional("artifact") => package_version_artifact(),
         optional("attributes") => map(),
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
+        optional("recipe") => String.t(),
         optional("tags") => map()
       }
 
@@ -4402,10 +4443,12 @@ defmodule AWS.IoT do
 
   ## Example:
 
-      describe_job_request() :: %{}
+      describe_job_request() :: %{
+        optional("beforeSubstitution") => boolean()
+      }
 
   """
-  @type describe_job_request() :: %{}
+  @type describe_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4976,6 +5019,7 @@ defmodule AWS.IoT do
   ## Example:
 
       get_package_version_response() :: %{
+        "artifact" => package_version_artifact(),
         "attributes" => map(),
         "creationDate" => non_neg_integer(),
         "description" => String.t(),
@@ -4983,6 +5027,9 @@ defmodule AWS.IoT do
         "lastModifiedDate" => non_neg_integer(),
         "packageName" => String.t(),
         "packageVersionArn" => String.t(),
+        "recipe" => String.t(),
+        "sbom" => sbom(),
+        "sbomValidationStatus" => list(any()),
         "status" => list(any()),
         "versionName" => String.t()
       }
@@ -5025,6 +5072,17 @@ defmodule AWS.IoT do
 
   """
   @type scheduled_audit_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_sbom_from_package_version_request() :: %{
+        optional("clientToken") => String.t()
+      }
+
+  """
+  @type disassociate_sbom_from_package_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6674,6 +6732,20 @@ defmodule AWS.IoT do
 
   ## Example:
 
+      sbom_validation_result_summary() :: %{
+        "errorCode" => list(any()),
+        "errorMessage" => String.t(),
+        "fileName" => String.t(),
+        "validationResult" => list(any())
+      }
+
+  """
+  @type sbom_validation_result_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       statistics() :: %{
         "average" => float(),
         "count" => integer(),
@@ -7252,6 +7324,20 @@ defmodule AWS.IoT do
 
   ## Example:
 
+      associate_sbom_with_package_version_response() :: %{
+        "packageName" => String.t(),
+        "sbom" => sbom(),
+        "sbomValidationStatus" => list(any()),
+        "versionName" => String.t()
+      }
+
+  """
+  @type associate_sbom_with_package_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_package_response() :: %{
         "description" => String.t(),
         "packageArn" => String.t(),
@@ -7311,6 +7397,19 @@ defmodule AWS.IoT do
 
   """
   @type provisioning_template_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sbom_validation_results_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("validationResult") => list(any())
+      }
+
+  """
+  @type list_sbom_validation_results_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -7524,6 +7623,15 @@ defmodule AWS.IoT do
 
   """
   @type fleet_metric_name_and_arn() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_sbom_from_package_version_response() :: %{}
+
+  """
+  @type disassociate_sbom_from_package_version_response() :: %{}
 
   @typedoc """
 
@@ -8250,6 +8358,17 @@ defmodule AWS.IoT do
 
   """
   @type audit_mitigation_actions_task_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      package_version_artifact() :: %{
+        "s3Location" => s3_location()
+      }
+
+  """
+  @type package_version_artifact() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -9147,6 +9266,14 @@ defmodule AWS.IoT do
           | resource_not_found_exception()
           | internal_failure_exception()
 
+  @type associate_sbom_with_package_version_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type associate_targets_with_job_errors() ::
           limit_exceeded_exception()
           | throttling_exception()
@@ -9999,6 +10126,13 @@ defmodule AWS.IoT do
           | invalid_request_exception()
           | unauthorized_exception()
 
+  @type disassociate_sbom_from_package_version_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type enable_topic_rule_errors() ::
           conflicting_resource_update_exception()
           | internal_exception()
@@ -10365,6 +10499,12 @@ defmodule AWS.IoT do
           | invalid_request_exception()
           | unauthorized_exception()
           | internal_failure_exception()
+
+  @type list_sbom_validation_results_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type list_scheduled_audits_errors() ::
           throttling_exception() | invalid_request_exception() | internal_failure_exception()
@@ -10835,7 +10975,8 @@ defmodule AWS.IoT do
           | internal_failure_exception()
 
   @type update_stream_errors() ::
-          throttling_exception()
+          limit_exceeded_exception()
+          | throttling_exception()
           | service_unavailable_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
@@ -10973,6 +11114,47 @@ defmodule AWS.IoT do
     url_path = "/thing-groups/addThingToThingGroup"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Associates a software bill of materials (SBOM) with a specific software package
+  version.
+
+  Requires permission to access the
+  [AssociateSbomWithPackageVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
+  action.
+  """
+  @spec associate_sbom_with_package_version(
+          map(),
+          String.t(),
+          String.t(),
+          associate_sbom_with_package_version_request(),
+          list()
+        ) ::
+          {:ok, associate_sbom_with_package_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, associate_sbom_with_package_version_errors()}
+  def associate_sbom_with_package_version(
+        %Client{} = client,
+        package_name,
+        version_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/packages/#{AWS.Util.encode_uri(package_name)}/versions/#{AWS.Util.encode_uri(version_name)}/sbom"
+
+    headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 
@@ -14281,14 +14463,21 @@ defmodule AWS.IoT do
   [DescribeJob](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec describe_job(map(), String.t(), list()) ::
+  @spec describe_job(map(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, describe_job_errors()}
-  def describe_job(%Client{} = client, job_id, options \\ []) do
+  def describe_job(%Client{} = client, job_id, before_substitution \\ nil, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(before_substitution) do
+        [{"beforeSubstitution", before_substitution} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -14803,6 +14992,57 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  Disassociates a software bill of materials (SBOM) from a specific software
+  package version.
+
+  Requires permission to access the
+  [DisassociateSbomWithPackageVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
+  action.
+  """
+  @spec disassociate_sbom_from_package_version(
+          map(),
+          String.t(),
+          String.t(),
+          disassociate_sbom_from_package_version_request(),
+          list()
+        ) ::
+          {:ok, disassociate_sbom_from_package_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disassociate_sbom_from_package_version_errors()}
+  def disassociate_sbom_from_package_version(
+        %Client{} = client,
+        package_name,
+        version_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/packages/#{AWS.Util.encode_uri(package_name)}/versions/#{AWS.Util.encode_uri(version_name)}/sbom"
+
+    headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Enables the rule.
 
   Requires permission to access the
@@ -15016,14 +15256,21 @@ defmodule AWS.IoT do
   [GetJobDocument](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec get_job_document(map(), String.t(), list()) ::
+  @spec get_job_document(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_job_document_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_job_document_errors()}
-  def get_job_document(%Client{} = client, job_id, options \\ []) do
+  def get_job_document(%Client{} = client, job_id, before_substitution \\ nil, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}/job-document"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(before_substitution) do
+        [{"beforeSubstitution", before_substitution} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -17607,6 +17854,67 @@ defmodule AWS.IoT do
     query_params =
       if !is_nil(ascending_order) do
         [{"isAscendingOrder", ascending_order} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  The validation results for all software bill of materials (SBOM) attached to a
+  specific software package version.
+
+  Requires permission to access the
+  [ListSbomValidationResults](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
+  action.
+  """
+  @spec list_sbom_validation_results(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_sbom_validation_results_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_sbom_validation_results_errors()}
+  def list_sbom_validation_results(
+        %Client{} = client,
+        package_name,
+        version_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        validation_result \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/packages/#{AWS.Util.encode_uri(package_name)}/versions/#{AWS.Util.encode_uri(version_name)}/sbom-validation-results"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(validation_result) do
+        [{"validationResult", validation_result} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end

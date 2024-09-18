@@ -297,6 +297,17 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      get_public_access_block_config_response() :: %{
+        "PublicAccessBlockConfig" => public_access_block_config()
+      }
+
+  """
+  @type get_public_access_block_config_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_function_code_signing_config_request() :: %{}
 
   """
@@ -379,6 +390,15 @@ defmodule AWS.Lambda do
 
   """
   @type policy_length_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_public_access_block_config_request() :: %{}
+
+  """
+  @type get_public_access_block_config_request() :: %{}
 
   @typedoc """
 
@@ -476,6 +496,17 @@ defmodule AWS.Lambda do
 
   """
   @type create_alias_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_public_access_block_config_request() :: %{
+        required("PublicAccessBlockConfig") => public_access_block_config()
+      }
+
+  """
+  @type put_public_access_block_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -675,6 +706,18 @@ defmodule AWS.Lambda do
 
   """
   @type delete_function_url_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_policy_response() :: %{
+        "Policy" => String.t(),
+        "RevisionId" => String.t()
+      }
+
+  """
+  @type get_resource_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1125,6 +1168,17 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      put_public_access_block_config_response() :: %{
+        "PublicAccessBlockConfig" => public_access_block_config()
+      }
+
+  """
+  @type put_public_access_block_config_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_function_url_config_response() :: %{
         "AuthType" => list(any()),
         "Cors" => cors(),
@@ -1456,6 +1510,18 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      public_access_block_config() :: %{
+        "BlockPublicPolicy" => boolean(),
+        "RestrictPublicResource" => boolean()
+      }
+
+  """
+  @type public_access_block_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_function_event_invoke_config_request() :: %{
         optional("DestinationConfig") => destination_config(),
         optional("MaximumEventAgeInSeconds") => integer(),
@@ -1547,6 +1613,15 @@ defmodule AWS.Lambda do
 
   """
   @type put_provisioned_concurrency_config_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_policy_request() :: %{}
+
+  """
+  @type get_resource_policy_request() :: %{}
 
   @typedoc """
 
@@ -1808,6 +1883,18 @@ defmodule AWS.Lambda do
 
   """
   @type invoke_with_response_stream_complete_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_resource_policy_request() :: %{
+        optional("RevisionId") => String.t(),
+        required("Policy") => String.t()
+      }
+
+  """
+  @type put_resource_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2194,6 +2281,18 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      put_resource_policy_response() :: %{
+        "Policy" => String.t(),
+        "RevisionId" => String.t()
+      }
+
+  """
+  @type put_resource_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_function_code_signing_config_response() :: %{
         "CodeSigningConfigArn" => String.t(),
         "FunctionName" => String.t()
@@ -2262,6 +2361,29 @@ defmodule AWS.Lambda do
 
   """
   @type vpc_config_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      public_policy_exception() :: %{
+        "Message" => String.t(),
+        "Type" => String.t()
+      }
+
+  """
+  @type public_policy_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_policy_request() :: %{
+        optional("RevisionId") => String.t()
+      }
+
+  """
+  @type delete_resource_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2782,6 +2904,14 @@ defmodule AWS.Lambda do
           | resource_not_found_exception()
           | too_many_requests_exception()
 
+  @type delete_resource_policy_errors() ::
+          resource_conflict_exception()
+          | precondition_failed_exception()
+          | service_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
   @type get_account_settings_errors() :: service_exception() | too_many_requests_exception()
 
   @type get_alias_errors() ::
@@ -2870,6 +3000,18 @@ defmodule AWS.Lambda do
   @type get_provisioned_concurrency_config_errors() ::
           provisioned_concurrency_config_not_found_exception()
           | service_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type get_public_access_block_config_errors() ::
+          service_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type get_resource_policy_errors() ::
+          service_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -3068,6 +3210,23 @@ defmodule AWS.Lambda do
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
+
+  @type put_public_access_block_config_errors() ::
+          resource_conflict_exception()
+          | service_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type put_resource_policy_errors() ::
+          resource_conflict_exception()
+          | precondition_failed_exception()
+          | public_policy_exception()
+          | service_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | policy_length_exceeded_exception()
 
   @type put_runtime_management_config_errors() ::
           resource_conflict_exception()
@@ -4034,6 +4193,39 @@ defmodule AWS.Lambda do
   end
 
   @doc """
+  Deletes a [resource-based policy](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html)
+  from a function.
+  """
+  @spec delete_resource_policy(map(), String.t(), delete_resource_policy_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_resource_policy_errors()}
+  def delete_resource_policy(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/2024-09-16/resource-policy/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"RevisionId", "RevisionId"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Retrieves details about your account's
   [limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html) and usage in
   an Amazon Web Services Region.
@@ -4406,6 +4598,41 @@ defmodule AWS.Lambda do
       else
         query_params
       end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieve the public-access settings for a function.
+  """
+  @spec get_public_access_block_config(map(), String.t(), list()) ::
+          {:ok, get_public_access_block_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_public_access_block_config_errors()}
+  def get_public_access_block_config(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/2024-09-16/public-access-block/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the [resource-based policy](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html)
+  attached to a function.
+  """
+  @spec get_resource_policy(map(), String.t(), list()) ::
+          {:ok, get_resource_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_resource_policy_errors()}
+  def get_resource_policy(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/2024-09-16/resource-policy/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -5501,6 +5728,67 @@ defmodule AWS.Lambda do
     meta = metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+  end
+
+  @doc """
+  Configure your function's public-access settings.
+
+  To control public access to a Lambda function, you can choose whether to allow
+  the creation of
+  [resource-based policies](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html)
+  that
+  allow public access to that function. You can also block public access to a
+  function, even if it has an existing resource-based
+  policy that allows it.
+  """
+  @spec put_public_access_block_config(
+          map(),
+          String.t(),
+          put_public_access_block_config_request(),
+          list()
+        ) ::
+          {:ok, put_public_access_block_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_public_access_block_config_errors()}
+  def put_public_access_block_config(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/2024-09-16/public-access-block/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Adds a [resource-based policy](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html)
+  to a function.
+
+  You can use resource-based policies to grant access to other
+  [Amazon Web Services accounts](https://docs.aws.amazon.com/lambda/latest/dg/permissions-function-cross-account.html),
+  [organizations](https://docs.aws.amazon.com/lambda/latest/dg/permissions-function-organization.html), or
+  [services](https://docs.aws.amazon.com/lambda/latest/dg/permissions-function-services.html).
+  Resource-based policies
+  apply to a single function, version, or alias.
+
+  Adding a resource-based policy using this API action replaces any existing
+  policy you've previously created. This means that if
+  you've previously added resource-based permissions to a function using the
+  `AddPermission` action, those
+  permissions will be overwritten by your new policy.
+  """
+  @spec put_resource_policy(map(), String.t(), put_resource_policy_request(), list()) ::
+          {:ok, put_resource_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_resource_policy_errors()}
+  def put_resource_policy(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/2024-09-16/resource-policy/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """

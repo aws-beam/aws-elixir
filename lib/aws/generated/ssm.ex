@@ -2509,6 +2509,7 @@ defmodule AWS.SSM do
         optional("Parameters") => map(),
         optional("Tags") => list(tag()()),
         optional("TargetLocations") => list(target_location()()),
+        optional("TargetLocationsURL") => String.t(),
         optional("TargetMaps") => list(map()()),
         optional("TargetParameterName") => String.t(),
         optional("Targets") => list(target()()),
@@ -2732,6 +2733,7 @@ defmodule AWS.SSM do
         "TargetMaps" => list(map()()),
         "Outputs" => map(),
         "CurrentAction" => String.t(),
+        "TargetLocationsURL" => String.t(),
         "CurrentStepName" => String.t(),
         "ScheduledTime" => non_neg_integer(),
         "Targets" => list(target()()),
@@ -5393,11 +5395,16 @@ defmodule AWS.SSM do
       
       target_location() :: %{
         "Accounts" => list(String.t()()),
+        "ExcludeAccounts" => list(String.t()()),
         "ExecutionRoleName" => String.t(),
+        "IncludeChildOrganizationUnits" => boolean(),
         "Regions" => list(String.t()()),
         "TargetLocationAlarmConfiguration" => alarm_configuration(),
         "TargetLocationMaxConcurrency" => String.t(),
-        "TargetLocationMaxErrors" => String.t()
+        "TargetLocationMaxErrors" => String.t(),
+        "Targets" => list(target()()),
+        "TargetsMaxConcurrency" => String.t(),
+        "TargetsMaxErrors" => String.t()
       }
       
   """
@@ -5898,6 +5905,7 @@ defmodule AWS.SSM do
         "Runbooks" => list(runbook()()),
         "ScheduledTime" => non_neg_integer(),
         "Target" => String.t(),
+        "TargetLocationsURL" => String.t(),
         "TargetMaps" => list(map()()),
         "TargetParameterName" => String.t(),
         "Targets" => list(target()()),
@@ -8623,11 +8631,10 @@ defmodule AWS.SSM do
   capabilities. You use the activation code and
   ID when installing SSM Agent on machines in your hybrid environment. For more
   information about
-  requirements for managing on-premises machines using Systems Manager, see
-  [Setting up Amazon Web Services Systems Manager for hybrid and multicloud
-  environments](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html)
-  in the
-  *Amazon Web Services Systems Manager User Guide*.
+  requirements for managing on-premises machines using Systems Manager, see [Using Amazon Web Services Systems Manager in
+  hybrid and multicloud
+  environments](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-hybrid-multicloud.html)
+  in the *Amazon Web Services Systems Manager User Guide*.
 
   Amazon Elastic Compute Cloud (Amazon EC2) instances, edge devices, and
   on-premises servers and VMs that are
@@ -8708,7 +8715,7 @@ defmodule AWS.SSM do
   on your managed nodes. For more information about SSM documents, including
   information about
   supported schemas, features, and syntax, see [Amazon Web Services Systems Manager
-  Documents](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html)
+  Documents](https://docs.aws.amazon.com/systems-manager/latest/userguide/documents.html)
   in the
   *Amazon Web Services Systems Manager User Guide*.
   """
@@ -8815,8 +8822,8 @@ defmodule AWS.SSM do
   to
   synchronize Inventory data from multiple Amazon Web Services Regions to a single
   Amazon Simple Storage Service (Amazon S3) bucket. For more information, see
-  [Configuring resource data sync for
-  Inventory](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html)
+  [Creatinga a resource data sync for
+  Inventory](https://docs.aws.amazon.com/systems-manager/latest/userguide/inventory-create-resource-data-sync.html)
   in the *Amazon Web Services Systems Manager User Guide*.
 
   You can configure Systems Manager Explorer to use the `SyncFromSource` type to

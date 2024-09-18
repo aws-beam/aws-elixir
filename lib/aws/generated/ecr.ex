@@ -795,8 +795,10 @@ defmodule AWS.ECR do
       enhanced_image_scan_finding() :: %{
         "awsAccountId" => String.t(),
         "description" => String.t(),
+        "exploitAvailable" => String.t(),
         "findingArn" => String.t(),
         "firstObservedAt" => non_neg_integer(),
+        "fixAvailable" => String.t(),
         "lastObservedAt" => non_neg_integer(),
         "packageVulnerabilityDetails" => package_vulnerability_details(),
         "remediation" => remediation(),
@@ -1205,6 +1207,7 @@ defmodule AWS.ECR do
         "arch" => String.t(),
         "epoch" => integer(),
         "filePath" => String.t(),
+        "fixedInVersion" => String.t(),
         "name" => String.t(),
         "packageManager" => String.t(),
         "release" => String.t(),

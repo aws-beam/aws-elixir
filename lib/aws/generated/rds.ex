@@ -12352,6 +12352,13 @@ defmodule AWS.RDS do
   `DBSnapshotIdentifier`
   must be the ARN of the shared DB snapshot.
 
+  To restore from a DB snapshot with an unsupported engine version, you must first
+  upgrade the
+  engine version of the snapshot. For more information about upgrading a RDS for
+  MySQL DB snapshot engine version, see [Upgrading a MySQL DB snapshot engine version](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mysql-upgrade-snapshot.html).
+  For more information about upgrading a RDS for PostgreSQL DB snapshot engine
+  version, [Upgrading a PostgreSQL DB snapshot engine version](https://docs.aws.amazon.com/USER_UpgradeDBSnapshot.PostgreSQL.html).
+
   This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora,
   use `RestoreDBClusterFromSnapshot`.
   """

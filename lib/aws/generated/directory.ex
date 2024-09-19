@@ -624,6 +624,17 @@ defmodule AWS.Directory do
 
   ## Example:
       
+      describe_directory_data_access_request() :: %{
+        required("DirectoryId") => String.t()
+      }
+      
+  """
+  @type describe_directory_data_access_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       enable_radius_request() :: %{
         required("DirectoryId") => String.t(),
         required("RadiusSettings") => radius_settings()
@@ -713,6 +724,17 @@ defmodule AWS.Directory do
       
   """
   @type list_schema_extensions_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_directory_data_access_request() :: %{
+        required("DirectoryId") => String.t()
+      }
+      
+  """
+  @type enable_directory_data_access_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1148,6 +1170,15 @@ defmodule AWS.Directory do
       
   """
   @type incompatible_settings_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_directory_data_access_result() :: %{}
+      
+  """
+  @type enable_directory_data_access_result() :: %{}
 
   @typedoc """
 
@@ -1710,6 +1741,17 @@ defmodule AWS.Directory do
 
   ## Example:
       
+      disable_directory_data_access_request() :: %{
+        required("DirectoryId") => String.t()
+      }
+      
+  """
+  @type disable_directory_data_access_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       trust() :: %{
         "CreatedDateTime" => non_neg_integer(),
         "DirectoryId" => String.t(),
@@ -2164,6 +2206,17 @@ defmodule AWS.Directory do
 
   ## Example:
       
+      describe_directory_data_access_result() :: %{
+        "DataAccessStatus" => list(any())
+      }
+      
+  """
+  @type describe_directory_data_access_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       directory_limit_exceeded_exception() :: %{
         "Message" => String.t(),
         "RequestId" => String.t()
@@ -2342,6 +2395,15 @@ defmodule AWS.Directory do
       
   """
   @type add_tags_to_resource_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_directory_data_access_result() :: %{}
+      
+  """
+  @type disable_directory_data_access_result() :: %{}
 
   @typedoc """
 
@@ -2764,6 +2826,13 @@ defmodule AWS.Directory do
           | invalid_next_token_exception()
           | client_exception()
 
+  @type describe_directory_data_access_errors() ::
+          access_denied_exception()
+          | service_exception()
+          | directory_does_not_exist_exception()
+          | client_exception()
+          | unsupported_operation_exception()
+
   @type describe_domain_controllers_errors() ::
           entity_does_not_exist_exception()
           | invalid_parameter_exception()
@@ -2842,6 +2911,15 @@ defmodule AWS.Directory do
           | client_exception()
           | unsupported_operation_exception()
 
+  @type disable_directory_data_access_errors() ::
+          directory_unavailable_exception()
+          | access_denied_exception()
+          | service_exception()
+          | directory_does_not_exist_exception()
+          | client_exception()
+          | directory_in_desired_state_exception()
+          | unsupported_operation_exception()
+
   @type disable_ldaps_errors() ::
           directory_unavailable_exception()
           | invalid_parameter_exception()
@@ -2868,6 +2946,15 @@ defmodule AWS.Directory do
           | directory_does_not_exist_exception()
           | client_exception()
           | no_available_certificate_exception()
+          | unsupported_operation_exception()
+
+  @type enable_directory_data_access_errors() ::
+          directory_unavailable_exception()
+          | access_denied_exception()
+          | service_exception()
+          | directory_does_not_exist_exception()
+          | client_exception()
+          | directory_in_desired_state_exception()
           | unsupported_operation_exception()
 
   @type enable_ldaps_errors() ::
@@ -3545,6 +3632,20 @@ defmodule AWS.Directory do
   end
 
   @doc """
+  Obtains status of directory data access enablement through the Directory Service
+  Data API for the specified directory.
+  """
+  @spec describe_directory_data_access(map(), describe_directory_data_access_request(), list()) ::
+          {:ok, describe_directory_data_access_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_directory_data_access_errors()}
+  def describe_directory_data_access(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDirectoryDataAccess", input, options)
+  end
+
+  @doc """
   Provides information about any domain controllers in your directory.
   """
   @spec describe_domain_controllers(map(), describe_domain_controllers_request(), list()) ::
@@ -3697,6 +3798,20 @@ defmodule AWS.Directory do
   end
 
   @doc """
+  Deactivates access to directory data via the Directory Service Data API for the
+  specified directory.
+  """
+  @spec disable_directory_data_access(map(), disable_directory_data_access_request(), list()) ::
+          {:ok, disable_directory_data_access_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disable_directory_data_access_errors()}
+  def disable_directory_data_access(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisableDirectoryDataAccess", input, options)
+  end
+
+  @doc """
   Deactivates LDAP secure calls for the specified directory.
   """
   @spec disable_ldaps(map(), disable_ldaps_request(), list()) ::
@@ -3748,6 +3863,20 @@ defmodule AWS.Directory do
     meta = metadata()
 
     Request.request_post(client, meta, "EnableClientAuthentication", input, options)
+  end
+
+  @doc """
+  Enables access to directory data via the Directory Service Data API for the
+  specified directory.
+  """
+  @spec enable_directory_data_access(map(), enable_directory_data_access_request(), list()) ::
+          {:ok, enable_directory_data_access_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, enable_directory_data_access_errors()}
+  def enable_directory_data_access(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnableDirectoryDataAccess", input, options)
   end
 
   @doc """
@@ -3984,6 +4113,9 @@ defmodule AWS.Directory do
   @doc """
   Resets the password for any user in your Managed Microsoft AD or Simple AD
   directory.
+
+  Disabled users will become enabled and can be authenticated following the API
+  call.
 
   You can reset the password for any user in your directory with the following
   exceptions:

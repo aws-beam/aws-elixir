@@ -2010,6 +2010,7 @@ defmodule AWS.GuardDuty do
         "Containers" => list(container()()),
         "DefinitionArn" => String.t(),
         "Group" => String.t(),
+        "LaunchType" => String.t(),
         "StartedAt" => non_neg_integer(),
         "StartedBy" => String.t(),
         "Tags" => list(tag()()),

@@ -3,19 +3,18 @@
 
 defmodule AWS.MailManager do
   @moduledoc """
-  AWS SES Mail Manager API
+  Amazon SES Mail Manager API
 
-  [AWS SES Mail Manager API](http://aws.amazon.com/ses) contains operations and data types
-  that comprise the Mail Manager feature of Amazon Simple Email Service.
+  The Amazon SES Mail Manager API contains operations and data types
+  that comprise the Mail Manager feature of [Amazon Simple Email Service (SES)](http://aws.amazon.com/ses).
 
   Mail Manager is a set of Amazon SES email gateway features designed to help you
   strengthen
   your organization's email infrastructure, simplify email workflow management,
   and
-  streamline email compliance control. To learn more, see the [Mail Manager
-  chapter](https://docs.aws.amazon.com/ses/latest/dg/eb.html) in the Amazon SES
+  streamline email compliance control. To learn more, see the [Mail Manager chapter](https://docs.aws.amazon.com/ses/latest/dg/eb.html) in the *Amazon SES
   Developer
-  Guide.
+  Guide*.
   """
 
   alias AWS.Client
@@ -803,7 +802,7 @@ defmodule AWS.MailManager do
       archive_string_expression() :: %{
         "Evaluate" => list(),
         "Operator" => list(any()),
-        "Values" => list([String.t()]())
+        "Values" => list(String.t()())
       }
       
   """
@@ -2560,7 +2559,7 @@ defmodule AWS.MailManager do
   end
 
   @doc """
-  >Update attributes of an already provisioned rule set.
+  Update attributes of an already provisioned rule set.
   """
   @spec update_rule_set(map(), update_rule_set_request(), list()) ::
           {:ok, update_rule_set_response(), any()}

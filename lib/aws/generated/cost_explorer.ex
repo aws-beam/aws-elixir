@@ -1589,6 +1589,7 @@ defmodule AWS.CostExplorer do
       reservation_purchase_recommendation_detail() :: %{
         "AccountId" => String.t(),
         "AverageNormalizedUnitsUsedPerHour" => String.t(),
+        "AverageNumberOfCapacityUnitsUsedPerHour" => String.t(),
         "AverageNumberOfInstancesUsedPerHour" => String.t(),
         "AverageUtilization" => String.t(),
         "CurrencyCode" => String.t(),
@@ -1599,12 +1600,16 @@ defmodule AWS.CostExplorer do
         "EstimatedReservationCostForLookbackPeriod" => String.t(),
         "InstanceDetails" => instance_details(),
         "MaximumNormalizedUnitsUsedPerHour" => String.t(),
+        "MaximumNumberOfCapacityUnitsUsedPerHour" => String.t(),
         "MaximumNumberOfInstancesUsedPerHour" => String.t(),
         "MinimumNormalizedUnitsUsedPerHour" => String.t(),
+        "MinimumNumberOfCapacityUnitsUsedPerHour" => String.t(),
         "MinimumNumberOfInstancesUsedPerHour" => String.t(),
         "RecommendedNormalizedUnitsToPurchase" => String.t(),
+        "RecommendedNumberOfCapacityUnitsToPurchase" => String.t(),
         "RecommendedNumberOfInstancesToPurchase" => String.t(),
         "RecurringStandardMonthlyCost" => String.t(),
+        "ReservedCapacityDetails" => reserved_capacity_details(),
         "UpfrontCost" => String.t()
       }
       
@@ -2427,6 +2432,18 @@ defmodule AWS.CostExplorer do
 
   ## Example:
       
+      dynamo_db_capacity_details() :: %{
+        "CapacityUnits" => String.t(),
+        "Region" => String.t()
+      }
+      
+  """
+  @type dynamo_db_capacity_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_savings_plans_purchase_recommendation_generation_response() :: %{
         "GenerationSummaryList" => list(generation_summary()()),
         "NextPageToken" => String.t()
@@ -2451,6 +2468,17 @@ defmodule AWS.CostExplorer do
       
   """
   @type get_cost_categories_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reserved_capacity_details() :: %{
+        "DynamoDBCapacityDetails" => dynamo_db_capacity_details()
+      }
+      
+  """
+  @type reserved_capacity_details() :: %{String.t() => any()}
 
   @typedoc """
 

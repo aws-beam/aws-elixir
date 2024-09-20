@@ -7343,6 +7343,15 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      test_connection_response() :: %{}
+      
+  """
+  @type test_connection_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       get_ml_transform_response() :: %{
         "CreatedOn" => non_neg_integer(),
         "Description" => String.t(),
@@ -7592,6 +7601,19 @@ defmodule AWS.Glue do
       
   """
   @type s3_delta_catalog_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      test_connection_input() :: %{
+        "AuthenticationConfiguration" => authentication_configuration_input(),
+        "ConnectionProperties" => map(),
+        "ConnectionType" => list(any())
+      }
+      
+  """
+  @type test_connection_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -10988,6 +11010,18 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      test_connection_request() :: %{
+        optional("ConnectionName") => String.t(),
+        optional("TestConnectionInput") => test_connection_input()
+      }
+      
+  """
+  @type test_connection_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_partition_response() :: %{}
       
   """
@@ -12433,6 +12467,17 @@ defmodule AWS.Glue do
 
   @type tag_resource_errors() ::
           invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type test_connection_errors() ::
+          glue_encryption_exception()
+          | access_denied_exception()
+          | federation_source_exception()
+          | invalid_input_exception()
+          | conflict_exception()
+          | resource_number_limit_exceeded_exception()
           | internal_service_exception()
           | operation_timeout_exception()
           | entity_not_found_exception()
@@ -15839,6 +15884,26 @@ defmodule AWS.Glue do
     meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
+  end
+
+  @doc """
+  Tests a connection to a service to validate the service credentials that you
+  provide.
+
+  You can either provide an existing connection name or a `TestConnectionInput`
+  for testing a non-existing connection input. Providing both at the same time
+  will cause an error.
+
+  If the action is successful, the service sends back an HTTP 200 response.
+  """
+  @spec test_connection(map(), test_connection_request(), list()) ::
+          {:ok, test_connection_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, test_connection_errors()}
+  def test_connection(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "TestConnection", input, options)
   end
 
   @doc """

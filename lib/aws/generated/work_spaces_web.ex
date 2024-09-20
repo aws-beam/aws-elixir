@@ -4,17 +4,18 @@
 defmodule AWS.WorkSpacesWeb do
   @moduledoc """
   Amazon WorkSpaces Secure Browser is a low cost, fully managed WorkSpace built
-  specifically to facilitate
-  secure, web-based workloads.
+  specifically to facilitate secure, web-based workloads.
 
-  WorkSpaces Secure Browser makes it easy for customers to safely provide
-  their employees with access to internal websites and SaaS web applications
-  without the
-  administrative burden of appliances or specialized client software. WorkSpaces
-  Secure Browser provides
-  simple policy tools tailored for user interactions, while offloading common
-  tasks like
-  capacity management, scaling, and maintaining browser images.
+  WorkSpaces Secure Browser makes it
+  easy for customers to safely provide their employees with access to internal
+  websites and
+  SaaS web applications without the administrative burden of appliances or
+  specialized client
+  software. WorkSpaces Secure Browser provides simple policy tools tailored for
+  user
+  interactions, while offloading common tasks like capacity management, scaling,
+  and
+  maintaining browser images.
   """
 
   alias AWS.Client
@@ -59,6 +60,15 @@ defmodule AWS.WorkSpacesWeb do
 
   """
   @type create_browser_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      expire_session_response() :: %{}
+
+  """
+  @type expire_session_response() :: %{}
 
   @typedoc """
 
@@ -188,6 +198,22 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
+      session_summary() :: %{
+        "endTime" => non_neg_integer(),
+        "portalArn" => String.t(),
+        "sessionId" => String.t(),
+        "startTime" => non_neg_integer(),
+        "status" => list(any()),
+        "username" => String.t()
+      }
+
+  """
+  @type session_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_identity_providers_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
@@ -195,6 +221,17 @@ defmodule AWS.WorkSpacesWeb do
 
   """
   @type list_identity_providers_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_session_response() :: %{
+        "session" => session()
+      }
+
+  """
+  @type get_session_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -476,6 +513,15 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
+      expire_session_request() :: %{}
+
+  """
+  @type expire_session_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       disassociate_browser_settings_response() :: %{}
 
   """
@@ -607,6 +653,15 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
+      get_session_request() :: %{}
+
+  """
+  @type get_session_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       associate_browser_settings_request() :: %{
         required("browserSettingsArn") => String.t()
       }
@@ -705,6 +760,18 @@ defmodule AWS.WorkSpacesWeb do
 
   """
   @type list_portals_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sessions_response() :: %{
+        "nextToken" => String.t(),
+        "sessions" => list(session_summary()())
+      }
+
+  """
+  @type list_sessions_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1044,6 +1111,22 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
+      list_sessions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("sessionId") => String.t(),
+        optional("sortBy") => list(any()),
+        optional("status") => list(any()),
+        optional("username") => String.t()
+      }
+
+  """
+  @type list_sessions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception_field() :: %{
         "message" => String.t(),
         "name" => String.t()
@@ -1072,6 +1155,23 @@ defmodule AWS.WorkSpacesWeb do
 
   """
   @type disassociate_user_access_logging_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      session() :: %{
+        "clientIpAddresses" => list(String.t()()),
+        "endTime" => non_neg_integer(),
+        "portalArn" => String.t(),
+        "sessionId" => String.t(),
+        "startTime" => non_neg_integer(),
+        "status" => list(any()),
+        "username" => String.t()
+      }
+
+  """
+  @type session() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1984,6 +2084,13 @@ defmodule AWS.WorkSpacesWeb do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type expire_session_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_browser_settings_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2020,6 +2127,13 @@ defmodule AWS.WorkSpacesWeb do
           | resource_not_found_exception()
 
   @type get_portal_service_provider_metadata_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_session_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -2083,6 +2197,13 @@ defmodule AWS.WorkSpacesWeb do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+
+  @type list_sessions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type list_tags_for_resource_errors() ::
           throttling_exception()
@@ -2543,7 +2664,8 @@ defmodule AWS.WorkSpacesWeb do
 
   @doc """
   Creates a user access logging settings resource that can be associated with a
-  web portal.
+  web
+  portal.
   """
   @spec create_user_access_logging_settings(
           map(),
@@ -3028,6 +3150,35 @@ defmodule AWS.WorkSpacesWeb do
   end
 
   @doc """
+  Expires an active secure browser session.
+  """
+  @spec expire_session(map(), String.t(), String.t(), expire_session_request(), list()) ::
+          {:ok, expire_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, expire_session_errors()}
+  def expire_session(%Client{} = client, portal_id, session_id, input, options \\ []) do
+    url_path =
+      "/portals/#{AWS.Util.encode_uri(portal_id)}/sessions/#{AWS.Util.encode_uri(session_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Gets browser settings.
   """
   @spec get_browser_settings(map(), String.t(), list()) ::
@@ -3121,6 +3272,25 @@ defmodule AWS.WorkSpacesWeb do
           | {:error, get_portal_service_provider_metadata_errors()}
   def get_portal_service_provider_metadata(%Client{} = client, portal_arn, options \\ []) do
     url_path = "/portalIdp/#{AWS.Util.encode_multi_segment_uri(portal_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets information for a secure browser session.
+  """
+  @spec get_session(map(), String.t(), String.t(), list()) ::
+          {:ok, get_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_session_errors()}
+  def get_session(%Client{} = client, portal_id, session_id, options \\ []) do
+    url_path =
+      "/portals/#{AWS.Util.encode_uri(portal_id)}/sessions/#{AWS.Util.encode_uri(session_id)}"
+
     headers = []
     query_params = []
 
@@ -3366,6 +3536,85 @@ defmodule AWS.WorkSpacesWeb do
     url_path = "/portals"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists information for multiple secure browser sessions from a specific portal.
+  """
+  @spec list_sessions(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_sessions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_sessions_errors()}
+  def list_sessions(
+        %Client{} = client,
+        portal_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        session_id \\ nil,
+        sort_by \\ nil,
+        status \\ nil,
+        username \\ nil,
+        options \\ []
+      ) do
+    url_path = "/portals/#{AWS.Util.encode_uri(portal_id)}/sessions"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(username) do
+        [{"username", username} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort_by) do
+        [{"sortBy", sort_by} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(session_id) do
+        [{"sessionId", session_id} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(next_token) do

@@ -358,6 +358,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       filter_date_time_picker_control() :: %{
+        "CommitMode" => list(any()),
         "DisplayOptions" => date_time_picker_control_display_options(),
         "FilterControlId" => String.t(),
         "SourceFilterId" => String.t(),
@@ -4456,6 +4457,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       default_relative_date_time_control_options() :: %{
+        "CommitMode" => list(any()),
         "DisplayOptions" => relative_date_time_control_display_options()
       }
 
@@ -4666,6 +4668,20 @@ defmodule AWS.QuickSight do
 
   """
   @type create_topic_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_folders_for_resource_response() :: %{
+        "Folders" => list(String.t()()),
+        "NextToken" => String.t(),
+        "RequestId" => String.t(),
+        "Status" => integer()
+      }
+
+  """
+  @type list_folders_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5799,6 +5815,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       filter_relative_date_time_control() :: %{
+        "CommitMode" => list(any()),
         "DisplayOptions" => relative_date_time_control_display_options(),
         "FilterControlId" => String.t(),
         "SourceFilterId" => String.t(),
@@ -7529,6 +7546,7 @@ defmodule AWS.QuickSight do
 
       parameter_drop_down_control() :: %{
         "CascadingControlConfiguration" => cascading_control_configuration(),
+        "CommitMode" => list(any()),
         "DisplayOptions" => drop_down_control_display_options(),
         "ParameterControlId" => String.t(),
         "SelectableValues" => parameter_selectable_values(),
@@ -8931,6 +8949,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       default_filter_drop_down_control_options() :: %{
+        "CommitMode" => list(any()),
         "DisplayOptions" => drop_down_control_display_options(),
         "SelectableValues" => filter_selectable_values(),
         "Type" => list(any())
@@ -9096,6 +9115,7 @@ defmodule AWS.QuickSight do
 
       filter_drop_down_control() :: %{
         "CascadingControlConfiguration" => cascading_control_configuration(),
+        "CommitMode" => list(any()),
         "DisplayOptions" => drop_down_control_display_options(),
         "FilterControlId" => String.t(),
         "SelectableValues" => filter_selectable_values(),
@@ -10627,6 +10647,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       default_date_time_picker_control_options() :: %{
+        "CommitMode" => list(any()),
         "DisplayOptions" => date_time_picker_control_display_options(),
         "Type" => list(any())
       }
@@ -11557,6 +11578,18 @@ defmodule AWS.QuickSight do
 
   """
   @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_folders_for_resource_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_folders_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -16571,6 +16604,15 @@ defmodule AWS.QuickSight do
           | unsupported_user_edition_exception()
           | internal_failure_exception()
 
+  @type list_folders_for_resource_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | invalid_next_token_exception()
+          | resource_not_found_exception()
+          | unsupported_user_edition_exception()
+          | internal_failure_exception()
+
   @type list_group_memberships_errors() ::
           precondition_not_met_exception()
           | throttling_exception()
@@ -21287,6 +21329,53 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  List all folders that a resource is a member of.
+  """
+  @spec list_folders_for_resource(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_folders_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_folders_for_resource_errors()}
+  def list_folders_for_resource(
+        %Client{} = client,
+        aws_account_id,
+        resource_arn,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/resource/#{AWS.Util.encode_uri(resource_arn)}/folders"
+
     headers = []
     query_params = []
 

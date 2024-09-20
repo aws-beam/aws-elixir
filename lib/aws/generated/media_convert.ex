@@ -1011,6 +1011,7 @@ defmodule AWS.MediaConvert do
       speke_key_provider_cmaf() :: %{
         "CertificateArn" => String.t(),
         "DashSignaledSystemIds" => list(String.t()()),
+        "EncryptionContractConfiguration" => encryption_contract_configuration(),
         "HlsSignaledSystemIds" => list(String.t()()),
         "ResourceId" => String.t(),
         "Url" => String.t()
@@ -1737,6 +1738,7 @@ defmodule AWS.MediaConvert do
 
       speke_key_provider() :: %{
         "CertificateArn" => String.t(),
+        "EncryptionContractConfiguration" => encryption_contract_configuration(),
         "ResourceId" => String.t(),
         "SystemIds" => list(String.t()()),
         "Url" => String.t()
@@ -2363,6 +2365,18 @@ defmodule AWS.MediaConvert do
 
   """
   @type get_job_template_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      encryption_contract_configuration() :: %{
+        "SpekeAudioPreset" => list(any()),
+        "SpekeVideoPreset" => list(any())
+      }
+
+  """
+  @type encryption_contract_configuration() :: %{String.t() => any()}
 
   @typedoc """
 

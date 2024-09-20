@@ -3962,6 +3962,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       multiplex_output_settings() :: %{
+        "ContainerSettings" => multiplex_container_settings(),
         "Destination" => output_location_ref()
       }
 
@@ -4124,6 +4125,18 @@ defmodule AWS.MediaLive do
 
   """
   @type list_clusters_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bandwidth_reduction_filter_settings() :: %{
+        "PostFilterSharpening" => list(any()),
+        "Strength" => list(any())
+      }
+
+  """
+  @type bandwidth_reduction_filter_settings() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4342,6 +4355,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       h264_filter_settings() :: %{
+        "BandwidthReductionFilterSettings" => bandwidth_reduction_filter_settings(),
         "TemporalFilterSettings" => temporal_filter_settings()
       }
 
@@ -4675,6 +4689,17 @@ defmodule AWS.MediaLive do
 
   """
   @type delete_input_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      multiplex_container_settings() :: %{
+        "MultiplexM2tsSettings" => multiplex_m2ts_settings()
+      }
+
+  """
+  @type multiplex_container_settings() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5190,6 +5215,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       h265_filter_settings() :: %{
+        "BandwidthReductionFilterSettings" => bandwidth_reduction_filter_settings(),
         "TemporalFilterSettings" => temporal_filter_settings()
       }
 
@@ -6131,6 +6157,30 @@ defmodule AWS.MediaLive do
 
   """
   @type schedule_action_start_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multiplex_m2ts_settings() :: %{
+        "AbsentInputAudioBehavior" => list(any()),
+        "Arib" => list(any()),
+        "AudioBufferModel" => list(any()),
+        "AudioFramesPerPes" => integer(),
+        "AudioStreamType" => list(any()),
+        "CcDescriptor" => list(any()),
+        "Ebif" => list(any()),
+        "EsRateInPes" => list(any()),
+        "Klv" => list(any()),
+        "NielsenId3Behavior" => list(any()),
+        "PcrControl" => list(any()),
+        "PcrPeriod" => integer(),
+        "Scte35Control" => list(any()),
+        "Scte35PrerollPullupMilliseconds" => float()
+      }
+
+  """
+  @type multiplex_m2ts_settings() :: %{String.t() => any()}
 
   @typedoc """
 

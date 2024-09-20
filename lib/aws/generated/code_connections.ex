@@ -362,6 +362,7 @@ defmodule AWS.CodeConnections do
         optional("Branch") => String.t(),
         optional("ConfigFile") => String.t(),
         optional("PublishDeploymentStatus") => list(any()),
+        optional("PullRequestComment") => list(any()),
         optional("RepositoryLinkId") => String.t(),
         optional("RoleArn") => String.t(),
         optional("TriggerResourceUpdateOn") => list(any()),
@@ -735,6 +736,7 @@ defmodule AWS.CodeConnections do
         "OwnerId" => String.t(),
         "ProviderType" => list(any()),
         "PublishDeploymentStatus" => list(any()),
+        "PullRequestComment" => list(any()),
         "RepositoryLinkId" => String.t(),
         "RepositoryName" => String.t(),
         "ResourceName" => String.t(),
@@ -951,6 +953,7 @@ defmodule AWS.CodeConnections do
       
       create_sync_configuration_input() :: %{
         optional("PublishDeploymentStatus") => list(any()),
+        optional("PullRequestComment") => list(any()),
         optional("TriggerResourceUpdateOn") => list(any()),
         required("Branch") => String.t(),
         required("ConfigFile") => String.t(),

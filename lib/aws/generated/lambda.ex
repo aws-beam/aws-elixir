@@ -1292,6 +1292,7 @@ defmodule AWS.Lambda do
       create_code_signing_config_request() :: %{
         optional("CodeSigningPolicies") => code_signing_policies(),
         optional("Description") => String.t(),
+        optional("Tags") => map(),
         required("AllowedPublishers") => allowed_publishers()
       }
 
@@ -1321,6 +1322,7 @@ defmodule AWS.Lambda do
         "DestinationConfig" => destination_config(),
         "DocumentDBEventSourceConfig" => document_db_event_source_config(),
         "EventSourceArn" => String.t(),
+        "EventSourceMappingArn" => String.t(),
         "FilterCriteria" => filter_criteria(),
         "FilterCriteriaError" => filter_criteria_error(),
         "FunctionArn" => String.t(),
@@ -1375,6 +1377,7 @@ defmodule AWS.Lambda do
         optional("SourceAccessConfigurations") => list(source_access_configuration()()),
         optional("StartingPosition") => list(any()),
         optional("StartingPositionTimestamp") => non_neg_integer(),
+        optional("Tags") => map(),
         optional("Topics") => list(String.t()()),
         optional("TumblingWindowInSeconds") => integer(),
         required("FunctionName") => String.t()
@@ -2799,6 +2802,7 @@ defmodule AWS.Lambda do
   @type add_permission_errors() ::
           resource_conflict_exception()
           | precondition_failed_exception()
+          | public_policy_exception()
           | service_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
@@ -3244,6 +3248,7 @@ defmodule AWS.Lambda do
 
   @type remove_permission_errors() ::
           precondition_failed_exception()
+          | public_policy_exception()
           | service_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
@@ -3393,9 +3398,8 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Grants an Amazon Web Servicesservice, Amazon Web Services account, or Amazon Web
-  Services organization
-  permission to use a function.
+  Grants a
+  [principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#Principal_specifying) permission to use a function.
 
   You can apply the policy at the function level, or specify a qualifier to
   restrict
@@ -3420,7 +3424,8 @@ defmodule AWS.Lambda do
 
   This operation adds a statement to a resource-based permissions policy for the
   function. For more information
-  about function policies, see [Using resource-based policies for Lambda](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html).
+  about function policies, see [Using resource-based policies for
+  Lambda](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html).
   """
   @spec add_permission(map(), String.t(), add_permission_request(), list()) ::
           {:ok, add_permission_response(), any()}
@@ -4193,6 +4198,12 @@ defmodule AWS.Lambda do
   end
 
   @doc """
+
+  The option to create and modify full JSON resource-based policies, and to use
+  the PutResourcePolicy, GetResourcePolicy, and DeleteResourcePolicy APIs, won't
+  be
+  available in all Amazon Web Services Regions until September 30, 2024.
+
   Deletes a [resource-based policy](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html)
   from a function.
   """
@@ -4605,6 +4616,11 @@ defmodule AWS.Lambda do
   end
 
   @doc """
+
+  The option to configure public-access settings, and to use the
+  PutPublicAccessBlock and GetPublicAccessBlock APIs, won't be
+  available in all Amazon Web Services Regions until September 30, 2024.
+
   Retrieve the public-access settings for a function.
   """
   @spec get_public_access_block_config(map(), String.t(), list()) ::
@@ -4622,6 +4638,12 @@ defmodule AWS.Lambda do
   end
 
   @doc """
+
+  The option to create and modify full JSON resource-based policies, and to use
+  the PutResourcePolicy, GetResourcePolicy, and DeleteResourcePolicy APIs, won't
+  be
+  available in all Amazon Web Services Regions until September 30, 2024.
+
   Retrieves the [resource-based policy](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html)
   attached to a function.
   """
@@ -5418,11 +5440,11 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Returns a function's
+  Returns a function, event source mapping, or code signing configuration's
   [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html).
 
   You can
-  also view tags with `GetFunction`.
+  also view funciton tags with `GetFunction`.
   """
   @spec list_tags(map(), String.t(), list()) ::
           {:ok, list_tags_response(), any()}
@@ -5731,6 +5753,11 @@ defmodule AWS.Lambda do
   end
 
   @doc """
+
+  The option to configure public-access settings, and to use the
+  PutPublicAccessBlock and GetPublicAccessBlock APIs, won't be
+  available in all Amazon Web Services Regions until September 30, 2024.
+
   Configure your function's public-access settings.
 
   To control public access to a Lambda function, you can choose whether to allow
@@ -5761,10 +5788,14 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Adds a [resource-based policy](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html)
-  to a function.
 
-  You can use resource-based policies to grant access to other
+  The option to create and modify full JSON resource-based policies, and to use
+  the PutResourcePolicy, GetResourcePolicy, and DeleteResourcePolicy APIs, won't
+  be
+  available in all Amazon Web Services Regions until September 30, 2024.
+
+  Adds a [resource-based policy](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html)
+  to a function. You can use resource-based policies to grant access to other
   [Amazon Web Services accounts](https://docs.aws.amazon.com/lambda/latest/dg/permissions-function-cross-account.html),
   [organizations](https://docs.aws.amazon.com/lambda/latest/dg/permissions-function-organization.html), or
   [services](https://docs.aws.amazon.com/lambda/latest/dg/permissions-function-services.html).
@@ -5915,7 +5946,7 @@ defmodule AWS.Lambda do
 
   @doc """
   Adds [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to a
-  function.
+  function, event source mapping, or code signing configuration.
   """
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
@@ -5943,7 +5974,7 @@ defmodule AWS.Lambda do
 
   @doc """
   Removes [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) from a
-  function.
+  function, event source mapping, or code signing configuration.
   """
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}

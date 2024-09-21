@@ -20,6 +20,28 @@ defmodule AWS.SageMakerMetrics do
 
   ## Example:
 
+      batch_get_metrics_request() :: %{
+        required("MetricQueries") => list(metric_query()())
+      }
+
+  """
+  @type batch_get_metrics_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_metrics_response() :: %{
+        "MetricQueryResults" => list(metric_query_result()())
+      }
+
+  """
+  @type batch_get_metrics_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_put_metrics_error() :: %{
         "Code" => list(any()),
         "MetricIndex" => integer()
@@ -55,6 +77,37 @@ defmodule AWS.SageMakerMetrics do
 
   ## Example:
 
+      metric_query() :: %{
+        "End" => float(),
+        "MetricName" => String.t(),
+        "MetricStat" => list(any()),
+        "Period" => list(any()),
+        "ResourceArn" => String.t(),
+        "Start" => float(),
+        "XAxisType" => list(any())
+      }
+
+  """
+  @type metric_query() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_query_result() :: %{
+        "Message" => String.t(),
+        "MetricValues" => list(float()()),
+        "Status" => list(any()),
+        "XAxisValues" => list(float()())
+      }
+
+  """
+  @type metric_query_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       raw_metric_data() :: %{
         "MetricName" => String.t(),
         "Step" => integer(),
@@ -82,10 +135,35 @@ defmodule AWS.SageMakerMetrics do
   end
 
   @doc """
+  Used to retrieve training metrics from SageMaker.
+  """
+  @spec batch_get_metrics(map(), batch_get_metrics_request(), list()) ::
+          {:ok, batch_get_metrics_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def batch_get_metrics(%Client{} = client, input, options \\ []) do
+    url_path = "/BatchGetMetrics"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Used to ingest training metrics into SageMaker.
 
-  These metrics can be visualized in SageMaker Studio and
-  retrieved with the `GetMetrics` API.
+  These metrics can be visualized in SageMaker Studio.
   """
   @spec batch_put_metrics(map(), batch_put_metrics_request(), list()) ::
           {:ok, batch_put_metrics_response(), any()}

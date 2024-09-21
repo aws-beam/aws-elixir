@@ -12644,6 +12644,7 @@ defmodule AWS.SageMaker do
       s3_model_data_source() :: %{
         "CompressionType" => list(any()),
         "HubAccessConfig" => inference_hub_access_config(),
+        "ManifestS3Uri" => String.t(),
         "ModelAccessConfig" => model_access_config(),
         "S3DataType" => list(any()),
         "S3Uri" => String.t()

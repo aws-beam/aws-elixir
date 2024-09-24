@@ -5205,6 +5205,7 @@ defmodule AWS.Glue do
   ## Example:
       
       connection() :: %{
+        "AthenaProperties" => map(),
         "AuthenticationConfiguration" => authentication_configuration(),
         "ConnectionProperties" => map(),
         "ConnectionType" => list(any()),
@@ -7243,6 +7244,7 @@ defmodule AWS.Glue do
   ## Example:
       
       connection_input() :: %{
+        "AthenaProperties" => map(),
         "AuthenticationConfiguration" => authentication_configuration_input(),
         "ConnectionProperties" => map(),
         "ConnectionType" => list(any()),

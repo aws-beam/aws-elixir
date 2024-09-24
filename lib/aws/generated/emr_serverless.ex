@@ -165,6 +165,7 @@ defmodule AWS.EMRServerless do
         "configurationOverrides" => configuration_overrides(),
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
+        "endedAt" => non_neg_integer(),
         "executionRole" => String.t(),
         "executionTimeoutMinutes" => float(),
         "jobDriver" => list(),
@@ -172,8 +173,10 @@ defmodule AWS.EMRServerless do
         "mode" => String.t(),
         "name" => String.t(),
         "networkConfiguration" => network_configuration(),
+        "queuedDurationMilliseconds" => [float()],
         "releaseLabel" => String.t(),
         "retryPolicy" => retry_policy(),
+        "startedAt" => non_neg_integer(),
         "state" => String.t(),
         "stateDetails" => String.t(),
         "tags" => map(),
@@ -480,6 +483,7 @@ defmodule AWS.EMRServerless do
         "networkConfiguration" => network_configuration(),
         "releaseLabel" => String.t(),
         "runtimeConfiguration" => list(configuration()()),
+        "schedulerConfiguration" => scheduler_configuration(),
         "state" => String.t(),
         "stateDetails" => String.t(),
         "tags" => map(),
@@ -518,6 +522,7 @@ defmodule AWS.EMRServerless do
         optional("name") => String.t(),
         optional("networkConfiguration") => network_configuration(),
         optional("runtimeConfiguration") => list(configuration()()),
+        optional("schedulerConfiguration") => scheduler_configuration(),
         optional("tags") => map(),
         optional("workerTypeSpecifications") => map(),
         required("clientToken") => String.t(),
@@ -611,6 +616,7 @@ defmodule AWS.EMRServerless do
         optional("networkConfiguration") => network_configuration(),
         optional("releaseLabel") => String.t(),
         optional("runtimeConfiguration") => list(configuration()()),
+        optional("schedulerConfiguration") => scheduler_configuration(),
         optional("workerTypeSpecifications") => map(),
         required("clientToken") => String.t()
       }
@@ -639,6 +645,18 @@ defmodule AWS.EMRServerless do
 
   """
   @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scheduler_configuration() :: %{
+        "maxConcurrentRuns" => [integer()],
+        "queueTimeoutMinutes" => [integer()]
+      }
+
+  """
+  @type scheduler_configuration() :: %{String.t() => any()}
 
   @typedoc """
 

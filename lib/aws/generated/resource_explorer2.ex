@@ -313,6 +313,20 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Example:
 
+      list_resources_input() :: %{
+        optional("Filters") => search_filter(),
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t()],
+        optional("ViewArn") => [String.t()]
+      }
+
+  """
+  @type list_resources_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       conflict_exception() :: %{
         "Message" => [String.t()]
       }
@@ -724,6 +738,19 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Example:
 
+      list_resources_output() :: %{
+        "NextToken" => [String.t()],
+        "Resources" => list(resource()()),
+        "ViewArn" => [String.t()]
+      }
+
+  """
+  @type list_resources_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       resource() :: %{
         "Arn" => [String.t()],
         "LastReportedAt" => [non_neg_integer()],
@@ -828,6 +855,14 @@ defmodule AWS.ResourceExplorer2 do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+
+  @type list_resources_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type list_supported_resource_types_errors() ::
           throttling_exception()
@@ -1221,9 +1256,7 @@ defmodule AWS.ResourceExplorer2 do
   linked role required to access the multi-account search feature.
 
   Only the management
-  account or a delegated administrator with service access enabled can invoke this
-  API
-  call.
+  account can invoke this API call.
   """
   @spec get_account_level_service_configuration(map(), %{}, list()) ::
           {:ok, get_account_level_service_configuration_output(), any()}
@@ -1378,6 +1411,38 @@ defmodule AWS.ResourceExplorer2 do
           | {:error, list_indexes_for_members_errors()}
   def list_indexes_for_members(%Client{} = client, input, options \\ []) do
     url_path = "/ListIndexesForMembers"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns a list of resources and their details that match the specified criteria.
+
+  This query must
+  use a view. If you don’t explicitly specify a view, then Resource Explorer uses
+  the default view for the Amazon Web Services Region
+  in which you call this operation.
+  """
+  @spec list_resources(map(), list_resources_input(), list()) ::
+          {:ok, list_resources_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_resources_errors()}
+  def list_resources(%Client{} = client, input, options \\ []) do
+    url_path = "/ListResources"
     headers = []
     query_params = []
 

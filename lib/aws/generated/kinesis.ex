@@ -891,6 +891,7 @@ defmodule AWS.Kinesis do
       create_stream_input() :: %{
         optional("ShardCount") => integer(),
         optional("StreamModeDetails") => stream_mode_details(),
+        optional("Tags") => map(),
         required("StreamName") => String.t()
       }
       
@@ -1161,6 +1162,7 @@ defmodule AWS.Kinesis do
           | invalid_argument_exception()
           | access_denied_exception()
           | resource_not_found_exception()
+          | resource_in_use_exception()
 
   @type get_shard_iterator_errors() ::
           invalid_argument_exception()
@@ -1407,6 +1409,12 @@ defmodule AWS.Kinesis do
 
   `CreateStream` has a limit of five transactions per second per
   account.
+
+  You can add tags to the stream when making a `CreateStream` request by
+  setting the `Tags` parameter. If you pass `Tags` parameter, in
+  addition to having `kinesis:createStream` permission, you must also have
+  `kinesis:addTagsToStream` permission for the stream that will be created.
+  Tags will take effect from the `CREATING` status of the stream.
   """
   @spec create_stream(map(), create_stream_input(), list()) ::
           {:ok, nil, any()}
@@ -2305,8 +2313,8 @@ defmodule AWS.Kinesis do
   You can register up to 20 consumers per stream. A given consumer can only be
   registered with one stream at a time.
 
-  For an example of how to use this operations, see [Enhanced Fan-Out Using the Kinesis Data Streams
-  API](/streams/latest/dev/building-enhanced-consumers-api.html).
+  For an example of how to use this operation, see [Enhanced Fan-Out Using the Kinesis Data Streams
+  API](https://docs.aws.amazon.com/streams/latest/dev/building-enhanced-consumers-api.html).
 
   The use of this operation has a limit of five transactions per second per
   account.
@@ -2535,8 +2543,8 @@ defmodule AWS.Kinesis do
   the previous connection expires or fails with a
   `ResourceInUseException`.
 
-  For an example of how to use this operations, see [Enhanced Fan-Out Using the Kinesis Data Streams
-  API](/streams/latest/dev/building-enhanced-consumers-api.html).
+  For an example of how to use this operation, see [Enhanced Fan-Out Using the Kinesis Data Streams
+  API](https://docs.aws.amazon.com/streams/latest/dev/building-enhanced-consumers-api.html).
   """
   @spec subscribe_to_shard(map(), subscribe_to_shard_input(), list()) ::
           {:ok, subscribe_to_shard_output(), any()}

@@ -413,6 +413,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         optional("Filters") => list(pool_filter()()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
+        optional("Owner") => String.t(),
         optional("PoolIds") => list(String.t()())
       }
       
@@ -514,6 +515,19 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type registration_type_display_hints() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_resource_policy_result() :: %{
+        "CreatedTimestamp" => [non_neg_integer()],
+        "Policy" => String.t(),
+        "ResourceArn" => String.t()
+      }
+      
+  """
+  @type put_resource_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1576,6 +1590,19 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      get_resource_policy_result() :: %{
+        "CreatedTimestamp" => [non_neg_integer()],
+        "Policy" => String.t(),
+        "ResourceArn" => String.t()
+      }
+      
+  """
+  @type get_resource_policy_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       keyword_filter() :: %{
         "Name" => String.t(),
         "Values" => list(String.t()())
@@ -1732,11 +1759,23 @@ defmodule AWS.PinpointSMSVoiceV2 do
       describe_opt_out_lists_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("OptOutListNames") => list(String.t()())
+        optional("OptOutListNames") => list(String.t()()),
+        optional("Owner") => String.t()
       }
       
   """
   @type describe_opt_out_lists_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_policy_request() :: %{
+        required("ResourceArn") => String.t()
+      }
+      
+  """
+  @type get_resource_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1827,6 +1866,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         optional("Filters") => list(sender_id_filter()()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
+        optional("Owner") => String.t(),
         optional("SenderIds") => list(sender_id_and_country()())
       }
       
@@ -2133,6 +2173,18 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type associate_protect_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_resource_policy_request() :: %{
+        required("Policy") => String.t(),
+        required("ResourceArn") => String.t()
+      }
+      
+  """
+  @type put_resource_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2504,6 +2556,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         optional("Filters") => list(phone_number_filter()()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
+        optional("Owner") => String.t(),
         optional("PhoneNumberIds") => list(String.t()())
       }
       
@@ -2639,6 +2692,17 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type delete_account_default_protect_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_resource_policy_request() :: %{
+        required("ResourceArn") => String.t()
+      }
+      
+  """
+  @type delete_resource_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2812,6 +2876,19 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type get_protect_configuration_country_rule_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_resource_policy_result() :: %{
+        "CreatedTimestamp" => [non_neg_integer()],
+        "Policy" => String.t(),
+        "ResourceArn" => String.t()
+      }
+      
+  """
+  @type delete_resource_policy_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3347,6 +3424,13 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type delete_resource_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type delete_text_message_spend_limit_override_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3525,6 +3609,13 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_resource_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type list_pool_origination_identities_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3569,6 +3660,13 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type put_resource_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type release_phone_number_errors() ::
           throttling_exception()
@@ -4283,6 +4381,22 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+  Deletes the resource-based policy document attached to the AWS End User
+  Messaging SMS and Voice resource.
+
+  A shared resource can be a Pool, Opt-out list, Sender Id, or Phone number.
+  """
+  @spec delete_resource_policy(map(), delete_resource_policy_request(), list()) ::
+          {:ok, delete_resource_policy_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_resource_policy_errors()}
+  def delete_resource_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
+  end
+
+  @doc """
   Deletes an account-level monthly spending limit override for sending text
   messages.
 
@@ -4820,6 +4934,22 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+  Retrieves the JSON text of the resource-based policy document attached to the
+  AWS End User Messaging SMS and Voice resource.
+
+  A shared resource can be a Pool, Opt-out list, Sender Id, or Phone number.
+  """
+  @spec get_resource_policy(map(), get_resource_policy_request(), list()) ::
+          {:ok, get_resource_policy_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_resource_policy_errors()}
+  def get_resource_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetResourcePolicy", input, options)
+  end
+
+  @doc """
   Lists all associated origination identities in your pool.
 
   If you specify filters, the output includes information for only those
@@ -4921,6 +5051,26 @@ defmodule AWS.PinpointSMSVoiceV2 do
     meta = metadata()
 
     Request.request_post(client, meta, "PutRegistrationFieldValue", input, options)
+  end
+
+  @doc """
+  Attaches a resource-based policy to a AWS End User Messaging SMS and Voice
+  resource(phone number, sender Id, phone poll, or opt-out list) that is used for
+  sharing the resource.
+
+  A shared resource can be a Pool, Opt-out list, Sender Id, or Phone number. For
+  more information about
+  resource-based policies, see [Working with shared resources](https://docs.aws.amazon.com/sms-voice/latest/userguide/shared-resources.html)
+  in the *AWS End User Messaging SMS User Guide*.
+  """
+  @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
+          {:ok, put_resource_policy_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_resource_policy_errors()}
+  def put_resource_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
 
   @doc """

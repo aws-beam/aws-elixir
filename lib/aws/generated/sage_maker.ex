@@ -14011,6 +14011,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      hidden_sage_maker_image() :: %{
+        "SageMakerImageName" => list(any()),
+        "VersionAliases" => list(String.t()())
+      }
+      
+  """
+  @type hidden_sage_maker_image() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_inference_component_input() :: %{
         optional("RuntimeConfig") => inference_component_runtime_config(),
         optional("Specification") => inference_component_specification(),
@@ -14850,7 +14862,9 @@ defmodule AWS.SageMaker do
       
       studio_web_portal_settings() :: %{
         "HiddenAppTypes" => list(list(any())()),
-        "HiddenMlTools" => list(list(any())())
+        "HiddenInstanceTypes" => list(list(any())()),
+        "HiddenMlTools" => list(list(any())()),
+        "HiddenSageMakerImageVersionAliases" => list(hidden_sage_maker_image()())
       }
       
   """

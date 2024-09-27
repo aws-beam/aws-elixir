@@ -677,6 +677,7 @@ defmodule AWS.SageMaker do
         optional("DefaultUserSettings") => user_settings(),
         optional("DomainSettingsForUpdate") => domain_settings_for_update(),
         optional("SubnetIds") => list(String.t()()),
+        optional("TagPropagation") => list(any()),
         required("DomainId") => String.t()
       }
       
@@ -6956,6 +6957,7 @@ defmodule AWS.SageMaker do
         optional("DomainSettings") => domain_settings(),
         optional("HomeEfsFileSystemKmsKeyId") => String.t(),
         optional("KmsKeyId") => String.t(),
+        optional("TagPropagation") => list(any()),
         optional("Tags") => list(tag()()),
         required("AuthMode") => list(any()),
         required("DefaultUserSettings") => user_settings(),
@@ -9021,6 +9023,7 @@ defmodule AWS.SageMaker do
         "SingleSignOnManagedApplicationInstanceId" => String.t(),
         "Status" => list(any()),
         "SubnetIds" => list(String.t()()),
+        "TagPropagation" => list(any()),
         "Url" => String.t(),
         "VpcId" => String.t()
       }

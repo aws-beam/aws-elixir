@@ -642,7 +642,9 @@ defmodule AWS.Chatbot do
 
       slack_workspace() :: %{
         "SlackTeamId" => String.t(),
-        "SlackTeamName" => String.t()
+        "SlackTeamName" => String.t(),
+        "State" => String.t(),
+        "StateReason" => String.t()
       }
 
   """
@@ -729,6 +731,8 @@ defmodule AWS.Chatbot do
   ## Example:
 
       configured_team() :: %{
+        "State" => String.t(),
+        "StateReason" => String.t(),
         "TeamId" => String.t(),
         "TeamName" => String.t(),
         "TenantId" => String.t()
@@ -873,6 +877,8 @@ defmodule AWS.Chatbot do
         "SlackTeamId" => String.t(),
         "SlackTeamName" => String.t(),
         "SnsTopicArns" => list(String.t()()),
+        "State" => String.t(),
+        "StateReason" => String.t(),
         "Tags" => list(tag()()),
         "UserAuthorizationRequired" => boolean()
       }
@@ -924,6 +930,8 @@ defmodule AWS.Chatbot do
         "IamRoleArn" => String.t(),
         "LoggingLevel" => String.t(),
         "SnsTopicArns" => list(String.t()()),
+        "State" => String.t(),
+        "StateReason" => String.t(),
         "Tags" => list(tag()()),
         "WebhookDescription" => String.t()
       }
@@ -1034,6 +1042,8 @@ defmodule AWS.Chatbot do
         "IamRoleArn" => String.t(),
         "LoggingLevel" => String.t(),
         "SnsTopicArns" => list(String.t()()),
+        "State" => String.t(),
+        "StateReason" => String.t(),
         "Tags" => list(tag()()),
         "TeamId" => String.t(),
         "TeamName" => String.t(),

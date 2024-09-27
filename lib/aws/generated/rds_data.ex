@@ -14,10 +14,10 @@ defmodule AWS.RDSData do
   Data API is available with the following types of Aurora databases:
 
     *
-  Aurora PostgreSQL - Serverless v2, Serverless v1, and provisioned
+  Aurora PostgreSQL - Serverless v2, provisioned, and Serverless v1
 
     *
-  Aurora MySQL - Serverless v1 only
+  Aurora MySQL - Serverless v2, provisioned, and Serverless v1
 
   For more information about the Data API, see
   [Using RDS Data API](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html)
@@ -629,8 +629,8 @@ defmodule AWS.RDSData do
   a transaction times out before it's
   committed, it's rolled back automatically.
 
-  DDL statements inside a transaction cause an implicit commit. We recommend that
-  you run each DDL statement in a separate
+  For Aurora MySQL, DDL statements inside a transaction cause an implicit commit.
+  We recommend that you run each MySQL DDL statement in a separate
   `ExecuteStatement` call with `continueAfterTimeout` enabled.
   """
   @spec begin_transaction(map(), begin_transaction_request(), list()) ::
@@ -688,10 +688,10 @@ defmodule AWS.RDSData do
   @doc """
   Runs one or more SQL statements.
 
-  This operation isn't supported for Aurora PostgreSQL Serverless v2 and
-  provisioned DB clusters, and for Aurora Serverless v1 DB clusters,
-  the operation is deprecated. Use the `BatchExecuteStatement` or
-  `ExecuteStatement` operation.
+  This operation isn't supported for Aurora Serverless v2 and provisioned DB
+  clusters.
+  For Aurora Serverless v1 DB clusters, the operation is deprecated.
+  Use the `BatchExecuteStatement` or `ExecuteStatement` operation.
   """
   @spec execute_sql(map(), execute_sql_request(), list()) ::
           {:ok, execute_sql_response(), any()}

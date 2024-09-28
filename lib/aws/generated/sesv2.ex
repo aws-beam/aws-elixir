@@ -41,7 +41,8 @@ defmodule AWS.SESv2 do
   ## Example:
 
       tracking_options() :: %{
-        "CustomRedirectDomain" => String.t()
+        "CustomRedirectDomain" => String.t(),
+        "HttpsPolicy" => list(any())
       }
 
   """
@@ -2120,7 +2121,8 @@ defmodule AWS.SESv2 do
   ## Example:
 
       put_configuration_set_tracking_options_request() :: %{
-        optional("CustomRedirectDomain") => String.t()
+        optional("CustomRedirectDomain") => String.t(),
+        optional("HttpsPolicy") => list(any())
       }
 
   """

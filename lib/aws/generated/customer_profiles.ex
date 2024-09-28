@@ -5,6 +5,14 @@ defmodule AWS.CustomerProfiles do
   @moduledoc """
   Amazon Connect Customer Profiles
 
+    *
+
+  [Customer Profiles actions](https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Customer_Profiles.html)
+
+    *
+
+  [Customer Profiles data types](https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Customer_Profiles.html)
+
   Amazon Connect Customer Profiles is a unified customer profile for your contact
   center that has pre-built connectors powered by AppFlow that make it easy to
   combine
@@ -612,6 +620,7 @@ defmodule AWS.CustomerProfiles do
         optional("FlowDefinition") => flow_definition(),
         optional("ObjectTypeName") => String.t(),
         optional("ObjectTypeNames") => map(),
+        optional("RoleArn") => String.t(),
         optional("Tags") => map(),
         optional("Uri") => String.t()
       }
@@ -717,6 +726,7 @@ defmodule AWS.CustomerProfiles do
         "LastUpdatedAt" => non_neg_integer(),
         "ObjectTypeName" => String.t(),
         "ObjectTypeNames" => map(),
+        "RoleArn" => String.t(),
         "Tags" => map(),
         "Uri" => String.t(),
         "WorkflowId" => String.t()
@@ -939,6 +949,7 @@ defmodule AWS.CustomerProfiles do
         "LastUpdatedAt" => non_neg_integer(),
         "ObjectTypeName" => String.t(),
         "ObjectTypeNames" => map(),
+        "RoleArn" => String.t(),
         "Tags" => map(),
         "Uri" => String.t(),
         "WorkflowId" => String.t()
@@ -2234,6 +2245,7 @@ defmodule AWS.CustomerProfiles do
         "LastUpdatedAt" => non_neg_integer(),
         "ObjectTypeName" => String.t(),
         "ObjectTypeNames" => map(),
+        "RoleArn" => String.t(),
         "Tags" => map(),
         "Uri" => String.t(),
         "WorkflowId" => String.t()

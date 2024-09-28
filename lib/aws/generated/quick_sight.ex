@@ -634,6 +634,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      update_q_personalization_configuration_request() :: %{
+        required("PersonalizationMode") => list(any())
+      }
+
+  """
+  @type update_q_personalization_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       drill_down_filter() :: %{
         "CategoryFilter" => category_drill_down_filter(),
         "NumericEqualityFilter" => numeric_equality_drill_down_filter(),
@@ -1392,6 +1403,19 @@ defmodule AWS.QuickSight do
 
   """
   @type asset_bundle_import_job_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_q_personalization_configuration_response() :: %{
+        "PersonalizationMode" => list(any()),
+        "RequestId" => String.t(),
+        "Status" => integer()
+      }
+
+  """
+  @type describe_q_personalization_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4381,6 +4405,15 @@ defmodule AWS.QuickSight do
 
   """
   @type filter_selectable_values() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_q_personalization_configuration_request() :: %{}
+
+  """
+  @type describe_q_personalization_configuration_request() :: %{}
 
   @typedoc """
 
@@ -9854,6 +9887,19 @@ defmodule AWS.QuickSight do
 
   """
   @type row_alternate_color_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_q_personalization_configuration_response() :: %{
+        "PersonalizationMode" => list(any()),
+        "RequestId" => String.t(),
+        "Status" => integer()
+      }
+
+  """
+  @type update_q_personalization_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -16368,6 +16414,14 @@ defmodule AWS.QuickSight do
           | resource_unavailable_exception()
           | internal_failure_exception()
 
+  @type describe_q_personalization_configuration_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | internal_failure_exception()
+
   @type describe_refresh_schedule_errors() ::
           limit_exceeded_exception()
           | throttling_exception()
@@ -17097,6 +17151,15 @@ defmodule AWS.QuickSight do
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | unsupported_pricing_plan_exception()
+          | internal_failure_exception()
+
+  @type update_q_personalization_configuration_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | resource_unavailable_exception()
           | internal_failure_exception()
 
   @type update_refresh_schedule_errors() ::
@@ -20177,6 +20240,23 @@ defmodule AWS.QuickSight do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}"
 
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Describes a personalization configuration.
+  """
+  @spec describe_q_personalization_configuration(map(), String.t(), list()) ::
+          {:ok, describe_q_personalization_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_q_personalization_configuration_errors()}
+  def describe_q_personalization_configuration(%Client{} = client, aws_account_id, options \\ []) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/q-personalization-configuration"
     headers = []
     query_params = []
 
@@ -23482,6 +23562,33 @@ defmodule AWS.QuickSight do
           | {:error, update_public_sharing_settings_errors()}
   def update_public_sharing_settings(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/public-sharing-settings"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Updates a personalization configuration.
+  """
+  @spec update_q_personalization_configuration(
+          map(),
+          String.t(),
+          update_q_personalization_configuration_request(),
+          list()
+        ) ::
+          {:ok, update_q_personalization_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_q_personalization_configuration_errors()}
+  def update_q_personalization_configuration(
+        %Client{} = client,
+        aws_account_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/q-personalization-configuration"
     headers = []
     query_params = []
 

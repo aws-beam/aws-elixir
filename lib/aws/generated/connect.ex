@@ -591,6 +591,28 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      start_outbound_chat_contact_request() :: %{
+        optional("Attributes") => map(),
+        optional("ChatDurationInMinutes") => integer(),
+        optional("ClientToken") => String.t(),
+        optional("InitialSystemMessage") => chat_message(),
+        optional("ParticipantDetails") => participant_details(),
+        optional("RelatedContactId") => String.t(),
+        optional("SupportedMessagingContentTypes") => list(String.t()()),
+        required("ContactFlowId") => String.t(),
+        required("DestinationEndpoint") => endpoint(),
+        required("InstanceId") => String.t(),
+        required("SegmentAttributes") => map(),
+        required("SourceEndpoint") => endpoint()
+      }
+
+  """
+  @type start_outbound_chat_contact_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_contact_recording_request() :: %{
         required("ContactId") => String.t(),
         required("InitialContactId") => String.t(),
@@ -7297,6 +7319,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      start_outbound_chat_contact_response() :: %{
+        "ContactId" => String.t()
+      }
+
+  """
+  @type start_outbound_chat_contact_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_integration_associations_response() :: %{
         "IntegrationAssociationSummaryList" => list(integration_association_summary()()),
         "NextToken" => String.t()
@@ -11117,6 +11150,15 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type start_outbound_chat_contact_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | internal_service_exception()
+
   @type start_outbound_voice_contact_errors() ::
           limit_exceeded_exception()
           | invalid_parameter_exception()
@@ -11628,10 +11670,9 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Associates the specified dataset for a Amazon Connect instance with the target
   account.
+
   You can associate only one dataset in a single call.
   """
   @spec associate_analytics_data_set(
@@ -12026,11 +12067,11 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Associates a list of analytics datasets for a given Amazon Connect instance to a
   target
-  account. You can associate multiple datasets in a single call.
+  account.
+
+  You can associate multiple datasets in a single call.
   """
   @spec batch_associate_analytics_data_set(
           map(),
@@ -12052,10 +12093,9 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Removes a list of analytics datasets associated with a given Amazon Connect
   instance.
+
   You can disassociate multiple datasets in a single call.
   """
   @spec batch_disassociate_analytics_data_set(
@@ -13968,12 +14008,10 @@ defmodule AWS.Connect do
 
   Describes the specified contact.
 
-  Contact information remains available in Amazon Connect for 24 months, and then
-  it is
-  deleted.
-
-  Only data from November 12, 2021, and later is returned by this
-  API.
+  Contact information remains available in Amazon Connect for 24 months from the
+  InitiationTimestamp, and then it is deleted. Only contact information that is
+  available in
+  Amazon Connect is returned by this API
   """
   @spec describe_contact(map(), String.t(), String.t(), list()) ::
           {:ok, describe_contact_response(), any()}
@@ -14530,8 +14568,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Removes the dataset ID associated with a given Amazon Connect instance.
   """
   @spec disassociate_analytics_data_set(
@@ -15566,8 +15602,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Lists the association status of requested dataset ID for a given Amazon Connect
   instance.
   """
@@ -18609,6 +18643,52 @@ defmodule AWS.Connect do
       options,
       200
     )
+  end
+
+  @doc """
+  Initiates a new outbound SMS contact to a customer.
+
+  Response of this API provides the
+  ContactId of the outbound SMS contact created.
+
+  **SourceEndpoint** only supports Endpoints with
+  `CONNECT_PHONENUMBER_ARN` as Type and **DestinationEndpoint** only supports
+  Endpoints with `TELEPHONE_NUMBER` as
+  Type. **ContactFlowId** initiates the flow to manage the new SMS
+  contact created.
+
+  This API can be used to initiate outbound SMS contacts for an agent or it can
+  also deflect
+  an ongoing contact to an outbound SMS contact by using the
+  [StartOutboundChatContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartOutboundChatContact.html) Flow Action.
+
+  For more information about using SMS in Amazon Connect, see the following topics
+  in the
+  *Amazon Connect Administrator Guide*:
+
+    *
+
+  [Set
+  up SMS
+  messaging](https://docs.aws.amazon.com/connect/latest/adminguide/setup-sms-messaging.html)
+
+    *
+
+  [Request an SMS-enabled phone number through AWS End User Messaging
+  SMS](https://docs.aws.amazon.com/connect/latest/adminguide/sms-number.html)
+  """
+  @spec start_outbound_chat_contact(map(), start_outbound_chat_contact_request(), list()) ::
+          {:ok, start_outbound_chat_contact_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_outbound_chat_contact_errors()}
+  def start_outbound_chat_contact(%Client{} = client, input, options \\ []) do
+    url_path = "/contact/outbound-chat"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """

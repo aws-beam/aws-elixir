@@ -20,56 +20,31 @@ defmodule AWS.TimestreamInfluxDB do
 
   ## Example:
       
-      access_denied_exception() :: %{
-        "message" => [String.t()]
+      tag_resource_request() :: %{
+        required("resourceArn") => String.t(),
+        required("tags") => map()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
       
-      conflict_exception() :: %{
-        "message" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()]
+      list_db_parameter_groups_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type list_db_parameter_groups_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_db_instance_input() :: %{
-        optional("bucket") => String.t(),
-        optional("dbParameterGroupIdentifier") => String.t(),
-        optional("dbStorageType") => list(any()),
-        optional("deploymentType") => list(any()),
-        optional("logDeliveryConfiguration") => log_delivery_configuration(),
-        optional("organization") => String.t(),
-        optional("publiclyAccessible") => [boolean()],
-        optional("tags") => map(),
-        optional("username") => String.t(),
-        required("allocatedStorage") => integer(),
-        required("dbInstanceType") => list(any()),
-        required("name") => String.t(),
-        required("password") => String.t(),
-        required("vpcSecurityGroupIds") => list(String.t()()),
-        required("vpcSubnetIds") => list(String.t()())
-      }
-      
-  """
-  @type create_db_instance_input() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_db_instance_output() :: %{
+      delete_db_instance_output() :: %{
         "allocatedStorage" => integer(),
         "arn" => String.t(),
         "availabilityZone" => [String.t()],
@@ -82,6 +57,7 @@ defmodule AWS.TimestreamInfluxDB do
         "influxAuthParametersSecretArn" => [String.t()],
         "logDeliveryConfiguration" => log_delivery_configuration(),
         "name" => String.t(),
+        "port" => integer(),
         "publiclyAccessible" => [boolean()],
         "secondaryAvailabilityZone" => [String.t()],
         "status" => list(any()),
@@ -90,55 +66,7 @@ defmodule AWS.TimestreamInfluxDB do
       }
       
   """
-  @type create_db_instance_output() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_db_parameter_group_input() :: %{
-        optional("description") => [String.t()],
-        optional("parameters") => list(),
-        optional("tags") => map(),
-        required("name") => String.t()
-      }
-      
-  """
-  @type create_db_parameter_group_input() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_db_parameter_group_output() :: %{
-        "arn" => String.t(),
-        "description" => [String.t()],
-        "id" => String.t(),
-        "name" => String.t(),
-        "parameters" => list()
-      }
-      
-  """
-  @type create_db_parameter_group_output() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      db_instance_summary() :: %{
-        "allocatedStorage" => integer(),
-        "arn" => String.t(),
-        "dbInstanceType" => list(any()),
-        "dbStorageType" => list(any()),
-        "deploymentType" => list(any()),
-        "endpoint" => [String.t()],
-        "id" => String.t(),
-        "name" => String.t(),
-        "status" => list(any())
-      }
-      
-  """
-  @type db_instance_summary() :: %{String.t() => any()}
+  @type delete_db_instance_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -158,6 +86,17 @@ defmodule AWS.TimestreamInfluxDB do
 
   ## Example:
       
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t()())
+      }
+      
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_db_instance_input() :: %{
         required("identifier") => String.t()
       }
@@ -169,39 +108,45 @@ defmodule AWS.TimestreamInfluxDB do
 
   ## Example:
       
-      delete_db_instance_output() :: %{
-        "allocatedStorage" => integer(),
-        "arn" => String.t(),
-        "availabilityZone" => [String.t()],
-        "dbInstanceType" => list(any()),
-        "dbParameterGroupIdentifier" => String.t(),
-        "dbStorageType" => list(any()),
-        "deploymentType" => list(any()),
-        "endpoint" => [String.t()],
-        "id" => String.t(),
-        "influxAuthParametersSecretArn" => [String.t()],
-        "logDeliveryConfiguration" => log_delivery_configuration(),
-        "name" => String.t(),
-        "publiclyAccessible" => [boolean()],
-        "secondaryAvailabilityZone" => [String.t()],
-        "status" => list(any()),
-        "vpcSecurityGroupIds" => list(String.t()()),
-        "vpcSubnetIds" => list(String.t()())
+      influx_dbv2_parameters() :: %{
+        "storageRetentionCheckInterval" => duration(),
+        "sessionRenewDisabled" => [boolean()],
+        "storageCompactThroughputBurst" => [float()],
+        "influxqlMaxSelectSeries" => [float()],
+        "storageSeriesIdSetCacheSize" => [float()],
+        "logLevel" => list(any()),
+        "pprofDisabled" => [boolean()],
+        "queryMaxMemoryBytes" => [float()],
+        "storageWalMaxWriteDelay" => duration(),
+        "fluxLogEnabled" => [boolean()],
+        "storageCacheMaxMemorySize" => [float()],
+        "influxqlMaxSelectBuckets" => [float()],
+        "queryConcurrency" => [integer()],
+        "httpReadTimeout" => duration(),
+        "sessionLength" => [integer()],
+        "metricsDisabled" => [boolean()],
+        "uiDisabled" => [boolean()],
+        "storageMaxIndexLogFileSize" => [float()],
+        "tracingType" => list(any()),
+        "noTasks" => [boolean()],
+        "queryInitialMemoryBytes" => [float()],
+        "queryQueueSize" => [integer()],
+        "storageNoValidateFieldSize" => [boolean()],
+        "storageCacheSnapshotWriteColdDuration" => duration(),
+        "httpWriteTimeout" => duration(),
+        "storageWalMaxConcurrentWrites" => [integer()],
+        "storageSeriesFileMaxConcurrentSnapshotCompactions" => [integer()],
+        "influxqlMaxSelectPoint" => [float()],
+        "queryMemoryBytes" => [float()],
+        "storageCacheSnapshotMemorySize" => [float()],
+        "httpIdleTimeout" => duration(),
+        "httpReadHeaderTimeout" => duration(),
+        "storageCompactFullWriteColdDuration" => duration(),
+        "storageMaxConcurrentCompactions" => [integer()]
       }
       
   """
-  @type delete_db_instance_output() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_db_instance_input() :: %{
-        required("identifier") => String.t()
-      }
-      
-  """
-  @type get_db_instance_input() :: %{String.t() => any()}
+  @type influx_dbv2_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -220,6 +165,7 @@ defmodule AWS.TimestreamInfluxDB do
         "influxAuthParametersSecretArn" => [String.t()],
         "logDeliveryConfiguration" => log_delivery_configuration(),
         "name" => String.t(),
+        "port" => integer(),
         "publiclyAccessible" => [boolean()],
         "secondaryAvailabilityZone" => [String.t()],
         "status" => list(any()),
@@ -234,12 +180,47 @@ defmodule AWS.TimestreamInfluxDB do
 
   ## Example:
       
-      get_db_parameter_group_input() :: %{
-        required("identifier") => String.t()
+      conflict_exception() :: %{
+        "message" => [String.t()],
+        "resourceId" => [String.t()],
+        "resourceType" => [String.t()]
       }
       
   """
-  @type get_db_parameter_group_input() :: %{String.t() => any()}
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "message" => [String.t()],
+        "resourceId" => [String.t()],
+        "resourceType" => [String.t()]
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_instance_summary() :: %{
+        "allocatedStorage" => integer(),
+        "arn" => String.t(),
+        "dbInstanceType" => list(any()),
+        "dbStorageType" => list(any()),
+        "deploymentType" => list(any()),
+        "endpoint" => [String.t()],
+        "id" => String.t(),
+        "name" => String.t(),
+        "port" => integer(),
+        "status" => list(any())
+      }
+      
+  """
+  @type db_instance_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -260,65 +241,61 @@ defmodule AWS.TimestreamInfluxDB do
 
   ## Example:
       
-      influx_dbv2_parameters() :: %{
-        "fluxLogEnabled" => [boolean()],
-        "logLevel" => list(any()),
-        "metricsDisabled" => [boolean()],
-        "noTasks" => [boolean()],
-        "queryConcurrency" => [integer()],
-        "queryQueueSize" => [integer()],
-        "tracingType" => list(any())
-      }
-      
-  """
-  @type influx_dbv2_parameters() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
+      service_quota_exceeded_exception() :: %{
         "message" => [String.t()]
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_db_instances_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+      update_db_instance_input() :: %{
+        optional("dbInstanceType") => list(any()),
+        optional("dbParameterGroupIdentifier") => String.t(),
+        optional("deploymentType") => list(any()),
+        optional("logDeliveryConfiguration") => log_delivery_configuration(),
+        optional("port") => integer(),
+        required("identifier") => String.t()
       }
       
   """
-  @type list_db_instances_input() :: %{String.t() => any()}
+  @type update_db_instance_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_db_instances_output() :: %{
-        "items" => list(db_instance_summary()()),
-        "nextToken" => String.t()
+      log_delivery_configuration() :: %{
+        "s3Configuration" => s3_configuration()
       }
       
   """
-  @type list_db_instances_output() :: %{String.t() => any()}
+  @type log_delivery_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_db_parameter_groups_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
       }
       
   """
-  @type list_db_parameter_groups_input() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_db_parameter_group_input() :: %{
+        required("identifier") => String.t()
+      }
+      
+  """
+  @type get_db_parameter_group_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -336,120 +313,89 @@ defmodule AWS.TimestreamInfluxDB do
 
   ## Example:
       
-      list_tags_for_resource_request() :: %{
-        required("resourceArn") => String.t()
+      create_db_instance_output() :: %{
+        "allocatedStorage" => integer(),
+        "arn" => String.t(),
+        "availabilityZone" => [String.t()],
+        "dbInstanceType" => list(any()),
+        "dbParameterGroupIdentifier" => String.t(),
+        "dbStorageType" => list(any()),
+        "deploymentType" => list(any()),
+        "endpoint" => [String.t()],
+        "id" => String.t(),
+        "influxAuthParametersSecretArn" => [String.t()],
+        "logDeliveryConfiguration" => log_delivery_configuration(),
+        "name" => String.t(),
+        "port" => integer(),
+        "publiclyAccessible" => [boolean()],
+        "secondaryAvailabilityZone" => [String.t()],
+        "status" => list(any()),
+        "vpcSecurityGroupIds" => list(String.t()()),
+        "vpcSubnetIds" => list(String.t()())
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type create_db_instance_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
+      list_db_instances_output() :: %{
+        "items" => list(db_instance_summary()()),
+        "nextToken" => String.t()
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_db_instances_output() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
       
-      log_delivery_configuration() :: %{
-        "s3Configuration" => s3_configuration()
-      }
-      
-  """
-  @type log_delivery_configuration() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "message" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()]
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_configuration() :: %{
-        "bucketName" => [String.t()],
-        "enabled" => [boolean()]
-      }
-      
-  """
-  @type s3_configuration() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_quota_exceeded_exception() :: %{
+      internal_server_exception() :: %{
         "message" => [String.t()]
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
       
-      tag_resource_request() :: %{
-        required("resourceArn") => String.t(),
-        required("tags") => map()
+      create_db_parameter_group_input() :: %{
+        optional("description") => [String.t()],
+        optional("parameters") => list(),
+        optional("tags") => map(),
+        required("name") => String.t()
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type create_db_parameter_group_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
       
-      throttling_exception() :: %{
-        "message" => [String.t()],
-        "retryAfterSeconds" => [integer()]
+      list_db_instances_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type list_db_instances_input() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
       
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+      access_denied_exception() :: %{
+        "message" => [String.t()]
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_db_instance_input() :: %{
-        optional("dbInstanceType") => list(any()),
-        optional("dbParameterGroupIdentifier") => String.t(),
-        optional("deploymentType") => list(any()),
-        optional("logDeliveryConfiguration") => log_delivery_configuration(),
-        required("identifier") => String.t()
-      }
-      
-  """
-  @type update_db_instance_input() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -468,6 +414,7 @@ defmodule AWS.TimestreamInfluxDB do
         "influxAuthParametersSecretArn" => [String.t()],
         "logDeliveryConfiguration" => log_delivery_configuration(),
         "name" => String.t(),
+        "port" => integer(),
         "publiclyAccessible" => [boolean()],
         "secondaryAvailabilityZone" => [String.t()],
         "status" => list(any()),
@@ -482,6 +429,18 @@ defmodule AWS.TimestreamInfluxDB do
 
   ## Example:
       
+      duration() :: %{
+        "durationType" => list(any()),
+        "value" => [float()]
+      }
+      
+  """
+  @type duration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       validation_exception() :: %{
         "message" => [String.t()],
         "reason" => list(any())
@@ -490,59 +449,146 @@ defmodule AWS.TimestreamInfluxDB do
   """
   @type validation_exception() :: %{String.t() => any()}
 
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("resourceArn") => String.t()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "message" => [String.t()],
+        "retryAfterSeconds" => [integer()]
+      }
+      
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_configuration() :: %{
+        "bucketName" => [String.t()],
+        "enabled" => [boolean()]
+      }
+      
+  """
+  @type s3_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_db_instance_input() :: %{
+        required("identifier") => String.t()
+      }
+      
+  """
+  @type get_db_instance_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_db_parameter_group_output() :: %{
+        "arn" => String.t(),
+        "description" => [String.t()],
+        "id" => String.t(),
+        "name" => String.t(),
+        "parameters" => list()
+      }
+      
+  """
+  @type create_db_parameter_group_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_db_instance_input() :: %{
+        optional("bucket") => String.t(),
+        optional("dbParameterGroupIdentifier") => String.t(),
+        optional("dbStorageType") => list(any()),
+        optional("deploymentType") => list(any()),
+        optional("logDeliveryConfiguration") => log_delivery_configuration(),
+        optional("organization") => String.t(),
+        optional("port") => integer(),
+        optional("publiclyAccessible") => [boolean()],
+        optional("tags") => map(),
+        optional("username") => String.t(),
+        required("allocatedStorage") => integer(),
+        required("dbInstanceType") => list(any()),
+        required("name") => String.t(),
+        required("password") => String.t(),
+        required("vpcSecurityGroupIds") => list(String.t()()),
+        required("vpcSubnetIds") => list(String.t()())
+      }
+      
+  """
+  @type create_db_instance_input() :: %{String.t() => any()}
+
   @type create_db_instance_errors() ::
-          validation_exception()
-          | throttling_exception()
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
           | conflict_exception()
-          | access_denied_exception()
 
   @type create_db_parameter_group_errors() ::
-          validation_exception()
-          | throttling_exception()
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
           | conflict_exception()
-          | access_denied_exception()
 
   @type delete_db_instance_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type get_db_instance_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type get_db_parameter_group_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type list_db_instances_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type list_db_parameter_groups_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type list_tags_for_resource_errors() :: resource_not_found_exception()
 
@@ -551,12 +597,12 @@ defmodule AWS.TimestreamInfluxDB do
   @type untag_resource_errors() :: resource_not_found_exception()
 
   @type update_db_instance_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   def metadata do
     %{

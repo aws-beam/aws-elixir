@@ -42,7 +42,8 @@ defmodule AWS.ResourceGroups do
   Applying, editing, and removing tags from resource groups
 
     *
-  Resolving resource group member ARNs so they can be returned as search
+  Resolving resource group member Amazon resource names (ARN)s so they can be
+  returned as search
   results
 
     *
@@ -71,6 +72,19 @@ defmodule AWS.ResourceGroups do
 
   ## Example:
 
+      list_tag_sync_tasks_input() :: %{
+        optional("Filters") => list(list_tag_sync_tasks_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_tag_sync_tasks_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       unauthorized_exception() :: %{
         "Message" => String.t()
       }
@@ -82,9 +96,28 @@ defmodule AWS.ResourceGroups do
 
   ## Example:
 
+      start_tag_sync_task_output() :: %{
+        "GroupArn" => String.t(),
+        "GroupName" => String.t(),
+        "RoleArn" => String.t(),
+        "TagKey" => String.t(),
+        "TagValue" => String.t(),
+        "TaskArn" => String.t()
+      }
+
+  """
+  @type start_tag_sync_task_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_group_input() :: %{
         optional("Configuration") => list(group_configuration_item()()),
+        optional("Criticality") => integer(),
         optional("Description") => String.t(),
+        optional("DisplayName") => String.t(),
+        optional("Owner") => String.t(),
         optional("ResourceQuery") => resource_query(),
         optional("Tags") => map(),
         required("Name") => String.t()
@@ -103,6 +136,30 @@ defmodule AWS.ResourceGroups do
 
   """
   @type update_group_query_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_tag_sync_task_input() :: %{
+        required("TaskArn") => String.t()
+      }
+
+  """
+  @type cancel_tag_sync_task_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_grouping_statuses_output() :: %{
+        "Group" => String.t(),
+        "GroupingStatuses" => list(grouping_statuses_item()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_grouping_statuses_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -167,6 +224,18 @@ defmodule AWS.ResourceGroups do
 
   ## Example:
 
+      list_tag_sync_tasks_filter() :: %{
+        "GroupArn" => String.t(),
+        "GroupName" => String.t()
+      }
+
+  """
+  @type list_tag_sync_tasks_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_group_configuration_input() :: %{
         optional("Group") => String.t()
       }
@@ -212,9 +281,27 @@ defmodule AWS.ResourceGroups do
 
   ## Example:
 
+      start_tag_sync_task_input() :: %{
+        required("Group") => String.t(),
+        required("RoleArn") => String.t(),
+        required("TagKey") => String.t(),
+        required("TagValue") => String.t()
+      }
+
+  """
+  @type start_tag_sync_task_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       group_identifier() :: %{
+        "Criticality" => integer(),
+        "Description" => String.t(),
+        "DisplayName" => String.t(),
         "GroupArn" => String.t(),
-        "GroupName" => String.t()
+        "GroupName" => String.t(),
+        "Owner" => String.t()
       }
 
   """
@@ -353,6 +440,20 @@ defmodule AWS.ResourceGroups do
 
   ## Example:
 
+      list_grouping_statuses_input() :: %{
+        optional("Filters") => list(list_grouping_statuses_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("Group") => String.t()
+      }
+
+  """
+  @type list_grouping_statuses_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       group_configuration_parameter() :: %{
         "Name" => String.t(),
         "Values" => list(String.t()())
@@ -400,6 +501,25 @@ defmodule AWS.ResourceGroups do
 
   """
   @type search_resources_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_tag_sync_task_output() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "ErrorMessage" => String.t(),
+        "GroupArn" => String.t(),
+        "GroupName" => String.t(),
+        "RoleArn" => String.t(),
+        "Status" => list(any()),
+        "TagKey" => String.t(),
+        "TagValue" => String.t(),
+        "TaskArn" => String.t()
+      }
+
+  """
+  @type get_tag_sync_task_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -462,6 +582,25 @@ defmodule AWS.ResourceGroups do
 
   """
   @type list_group_resources_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_sync_task_item() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "ErrorMessage" => String.t(),
+        "GroupArn" => String.t(),
+        "GroupName" => String.t(),
+        "RoleArn" => String.t(),
+        "Status" => list(any()),
+        "TagKey" => String.t(),
+        "TagValue" => String.t(),
+        "TaskArn" => String.t()
+      }
+
+  """
+  @type tag_sync_task_item() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -564,10 +703,24 @@ defmodule AWS.ResourceGroups do
 
   ## Example:
 
+      get_tag_sync_task_input() :: %{
+        required("TaskArn") => String.t()
+      }
+
+  """
+  @type get_tag_sync_task_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_group_input() :: %{
+        optional("Criticality") => integer(),
         optional("Description") => String.t(),
+        optional("DisplayName") => String.t(),
         optional("Group") => String.t(),
-        optional("GroupName") => String.t()
+        optional("GroupName") => String.t(),
+        optional("Owner") => String.t()
       }
 
   """
@@ -597,10 +750,30 @@ defmodule AWS.ResourceGroups do
 
   ## Example:
 
+      grouping_statuses_item() :: %{
+        "Action" => list(any()),
+        "ErrorCode" => String.t(),
+        "ErrorMessage" => String.t(),
+        "ResourceArn" => String.t(),
+        "Status" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type grouping_statuses_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       group() :: %{
+        "ApplicationTag" => map(),
+        "Criticality" => integer(),
         "Description" => String.t(),
+        "DisplayName" => String.t(),
         "GroupArn" => String.t(),
-        "Name" => String.t()
+        "Name" => String.t(),
+        "Owner" => String.t()
       }
 
   """
@@ -641,6 +814,18 @@ defmodule AWS.ResourceGroups do
 
   """
   @type list_groups_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_grouping_statuses_filter() :: %{
+        "Name" => list(any()),
+        "Values" => list(String.t()())
+      }
+
+  """
+  @type list_grouping_statuses_filter() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -719,6 +904,18 @@ defmodule AWS.ResourceGroups do
 
   ## Example:
 
+      list_tag_sync_tasks_output() :: %{
+        "NextToken" => String.t(),
+        "TagSyncTasks" => list(tag_sync_task_item()())
+      }
+
+  """
+  @type list_tag_sync_tasks_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_group_configuration_output() :: %{}
 
   """
@@ -746,6 +943,14 @@ defmodule AWS.ResourceGroups do
 
   """
   @type tag_input() :: %{String.t() => any()}
+
+  @type cancel_tag_sync_task_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | method_not_allowed_exception()
+          | forbidden_exception()
+          | unauthorized_exception()
 
   @type create_group_errors() ::
           bad_request_exception()
@@ -793,6 +998,15 @@ defmodule AWS.ResourceGroups do
           | method_not_allowed_exception()
           | forbidden_exception()
 
+  @type get_tag_sync_task_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | method_not_allowed_exception()
+          | forbidden_exception()
+          | unauthorized_exception()
+
   @type get_tags_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
@@ -818,12 +1032,27 @@ defmodule AWS.ResourceGroups do
           | forbidden_exception()
           | unauthorized_exception()
 
+  @type list_grouping_statuses_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | method_not_allowed_exception()
+          | forbidden_exception()
+
   @type list_groups_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
           | forbidden_exception()
+
+  @type list_tag_sync_tasks_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | method_not_allowed_exception()
+          | forbidden_exception()
+          | unauthorized_exception()
 
   @type put_group_configuration_errors() ::
           bad_request_exception()
@@ -836,6 +1065,15 @@ defmodule AWS.ResourceGroups do
   @type search_resources_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
+          | too_many_requests_exception()
+          | method_not_allowed_exception()
+          | forbidden_exception()
+          | unauthorized_exception()
+
+  @type start_tag_sync_task_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
           | forbidden_exception()
@@ -902,6 +1140,45 @@ defmodule AWS.ResourceGroups do
       signing_name: "resource-groups",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Cancels the specified tag-sync task.
+
+  ## Minimum permissions
+
+  To run this command, you must have the following permissions:
+
+    *
+
+  `resource-groups:CancelTagSyncTask` on the application group
+
+    *
+
+  `resource-groups:DeleteGroup`
+  """
+  @spec cancel_tag_sync_task(map(), cancel_tag_sync_task_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, cancel_tag_sync_task_errors()}
+  def cancel_tag_sync_task(%Client{} = client, input, options \\ []) do
+    url_path = "/cancel-tag-sync-task"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1128,9 +1405,44 @@ defmodule AWS.ResourceGroups do
   end
 
   @doc """
+  Returns information about a specified tag-sync task.
+
+  ## Minimum permissions
+
+  To run this command, you must have the following permissions:
+
+    *
+
+  `resource-groups:GetTagSyncTask` on the application group
+  """
+  @spec get_tag_sync_task(map(), get_tag_sync_task_input(), list()) ::
+          {:ok, get_tag_sync_task_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_tag_sync_task_errors()}
+  def get_tag_sync_task(%Client{} = client, input, options \\ []) do
+    url_path = "/get-tag-sync-task"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Returns a list of tags that are associated with a resource group, specified by
   an
-  ARN.
+  Amazon resource name (ARN).
 
   ## Minimum permissions
 
@@ -1157,9 +1469,7 @@ defmodule AWS.ResourceGroups do
   @doc """
   Adds the specified resources to the specified group.
 
-  You can use this operation with only resource groups that are configured with
-  the
-  following types:
+  You can only use this operation with the following groups:
 
     
 
@@ -1169,7 +1479,12 @@ defmodule AWS.ResourceGroups do
 
   `AWS::EC2::CapacityReservationPool`
 
-  Other resource group type and resource types aren't currently supported by this
+    
+
+  `AWS::ResourceGroups::ApplicationGroup`
+
+  Other resource group types and resource types are not currently supported by
+  this
   operation.
 
   ## Minimum permissions
@@ -1205,7 +1520,8 @@ defmodule AWS.ResourceGroups do
   end
 
   @doc """
-  Returns a list of ARNs of the resources that are members of a specified resource
+  Returns a list of Amazon resource names (ARNs) of the resources that are members
+  of a specified resource
   group.
 
   ## Minimum permissions
@@ -1253,6 +1569,34 @@ defmodule AWS.ResourceGroups do
   end
 
   @doc """
+  Returns the status of the last grouping or ungrouping action for
+  each resource in the specified application group.
+  """
+  @spec list_grouping_statuses(map(), list_grouping_statuses_input(), list()) ::
+          {:ok, list_grouping_statuses_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_grouping_statuses_errors()}
+  def list_grouping_statuses(%Client{} = client, input, options \\ []) do
+    url_path = "/list-grouping-statuses"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Returns a list of existing Resource Groups in your account.
 
   ## Minimum permissions
@@ -1277,6 +1621,43 @@ defmodule AWS.ResourceGroups do
         {"NextToken", "nextToken"}
       ]
       |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns a list of tag-sync tasks.
+
+  ## Minimum permissions
+
+  To run this command, you must have the following permissions:
+
+    *
+
+  `resource-groups:ListTagSyncTasks` with the group passed in the filters as the
+  resource
+  or * if using no filters
+  """
+  @spec list_tag_sync_tasks(map(), list_tag_sync_tasks_input(), list()) ::
+          {:ok, list_tag_sync_tasks_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_tag_sync_tasks_errors()}
+  def list_tag_sync_tasks(%Client{} = client, input, options \\ []) do
+    url_path = "/list-tag-sync-tasks"
+    headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -1385,7 +1766,52 @@ defmodule AWS.ResourceGroups do
   end
 
   @doc """
-  Adds tags to a resource group with the specified ARN.
+  Creates a new tag-sync task to onboard and sync resources tagged with a specific
+  tag key-value pair to an
+  application.
+
+  ## Minimum permissions
+
+  To run this command, you must have the following permissions:
+
+    *
+
+  `resource-groups:StartTagSyncTask` on the application group
+
+    *
+
+  `resource-groups:CreateGroup`
+
+    *
+
+  `iam:PassRole` on the role provided in the request
+  """
+  @spec start_tag_sync_task(map(), start_tag_sync_task_input(), list()) ::
+          {:ok, start_tag_sync_task_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_tag_sync_task_errors()}
+  def start_tag_sync_task(%Client{} = client, input, options \\ []) do
+    url_path = "/start-tag-sync-task"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Adds tags to a resource group with the specified Amazon resource name (ARN).
 
   Existing tags on a resource
   group are not changed if they are not specified in the request parameters.

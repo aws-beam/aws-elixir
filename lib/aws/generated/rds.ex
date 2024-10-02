@@ -3086,6 +3086,7 @@ defmodule AWS.RDS do
         optional("ComputeRedundancy") => integer(),
         optional("MinACU") => float(),
         optional("PubliclyAccessible") => boolean(),
+        optional("Tags") => list(tag()()),
         required("DBClusterIdentifier") => String.t(),
         required("DBShardGroupIdentifier") => String.t(),
         required("MaxACU") => float()
@@ -4145,7 +4146,8 @@ defmodule AWS.RDS do
         optional("MaxACU") => float(),
         optional("MinACU") => float(),
         optional("PubliclyAccessible") => boolean(),
-        optional("Status") => String.t()
+        optional("Status") => String.t(),
+        optional("TagList") => list(tag()())
       }
       
   """
@@ -4644,6 +4646,7 @@ defmodule AWS.RDS do
         optional("DBClusterParameterGroupName") => String.t(),
         optional("ServerlessV2ScalingConfiguration") => serverless_v2_scaling_configuration(),
         optional("StorageType") => String.t(),
+        optional("ClusterScalabilityType") => list(any()),
         optional("EngineMode") => String.t(),
         optional("NetworkType") => String.t(),
         optional("EngineLifecycleSupport") => String.t(),
@@ -5648,6 +5651,7 @@ defmodule AWS.RDS do
         "Iops" => integer(),
         "ScalingConfigurationInfo" => scaling_configuration_info(),
         "MonitoringInterval" => integer(),
+        "ClusterScalabilityType" => list(any()),
         "CloneGroupId" => String.t(),
         "AwsBackupRecoveryPointArn" => String.t(),
         "ActivityStreamKinesisStreamName" => String.t(),
@@ -8222,6 +8226,7 @@ defmodule AWS.RDS do
           db_cluster_not_found_fault()
           | unsupported_db_engine_version_fault()
           | invalid_db_cluster_state_fault()
+          | network_type_not_supported()
           | invalid_vpc_network_state_fault()
           | db_shard_group_already_exists_fault()
           | max_db_shard_group_limit_reached()

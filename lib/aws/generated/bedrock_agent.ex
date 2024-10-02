@@ -605,6 +605,15 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      stop_ingestion_job_request() :: %{}
+
+  """
+  @type stop_ingestion_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       update_knowledge_base_request() :: %{
         optional("description") => String.t(),
         required("knowledgeBaseConfiguration") => knowledge_base_configuration(),
@@ -2677,6 +2686,17 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      stop_ingestion_job_response() :: %{
+        "ingestionJob" => ingestion_job()
+      }
+
+  """
+  @type stop_ingestion_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_agent_response() :: %{
         "agent" => agent()
       }
@@ -3569,6 +3589,14 @@ defmodule AWS.BedrockAgent do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type stop_ingestion_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type tag_resource_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3947,12 +3975,12 @@ defmodule AWS.BedrockAgent do
   end
 
   @doc """
-  Creates a knowledge base that contains data sources from which information can
-  be queried and used by LLMs.
+  Creates a knowledge base.
 
-  To create a knowledge base, you must first set up your data sources and
-  configure a supported vector store. For more information, see [Set up your data for
-  ingestion](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html).
+  A knowledge base contains your data sources so that Large Language Models (LLMs)
+  can use your data. To create a knowledge base, you must first set up your data
+  sources and configure a supported vector store. For more information, see [Set up a knowledge
+  base](https://docs.aws.amazon.com/bedrock/latest/userguide/knowlege-base-prereq.html).
 
   If you prefer to let Amazon Bedrock create and manage a vector store for you in
   Amazon OpenSearch Service, use the console. For more information, see [Create a knowledge
@@ -4653,8 +4681,10 @@ defmodule AWS.BedrockAgent do
   end
 
   @doc """
-  Gets information about a ingestion job, in which a data source is added to a
-  knowledge base.
+  Gets information about a data ingestion job.
+
+  Data sources are ingested into your knowledge base so that Large Lanaguage
+  Models (LLMs) can use your data.
   """
   @spec get_ingestion_job(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_ingestion_job_response(), any()}
@@ -5021,7 +5051,9 @@ defmodule AWS.BedrockAgent do
   end
 
   @doc """
-  Lists the ingestion jobs for a data source and information about each of them.
+  Lists the data ingestion jobs for a data source.
+
+  The list also includes information about each job.
   """
   @spec list_ingestion_jobs(map(), String.t(), String.t(), list_ingestion_jobs_request(), list()) ::
           {:ok, list_ingestion_jobs_response(), any()}
@@ -5056,7 +5088,9 @@ defmodule AWS.BedrockAgent do
   end
 
   @doc """
-  Lists the knowledge bases in an account and information about each of them.
+  Lists the knowledge bases in an account.
+
+  The list also includesinformation about each knowledge base.
   """
   @spec list_knowledge_bases(map(), list_knowledge_bases_request(), list()) ::
           {:ok, list_knowledge_bases_response(), any()}
@@ -5206,7 +5240,10 @@ defmodule AWS.BedrockAgent do
   end
 
   @doc """
-  Begins an ingestion job, in which a data source is added to a knowledge base.
+  Begins a data ingestion job.
+
+  Data sources are ingested into your knowledge base so that Large Language Models
+  (LLMs) can use your data.
   """
   @spec start_ingestion_job(map(), String.t(), String.t(), start_ingestion_job_request(), list()) ::
           {:ok, start_ingestion_job_response(), any()}
@@ -5228,6 +5265,52 @@ defmodule AWS.BedrockAgent do
     meta = metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+  end
+
+  @doc """
+  Stops a currently running data ingestion job.
+
+  You can send a `StartIngestionJob` request again to ingest the rest of your data
+  when you are ready.
+  """
+  @spec stop_ingestion_job(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          stop_ingestion_job_request(),
+          list()
+        ) ::
+          {:ok, stop_ingestion_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, stop_ingestion_job_errors()}
+  def stop_ingestion_job(
+        %Client{} = client,
+        data_source_id,
+        ingestion_job_id,
+        knowledge_base_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/datasources/#{AWS.Util.encode_uri(data_source_id)}/ingestionjobs/#{AWS.Util.encode_uri(ingestion_job_id)}/stop"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """

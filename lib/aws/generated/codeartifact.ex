@@ -1650,6 +1650,7 @@ defmodule AWS.Codeartifact do
 
       get_repository_endpoint_request() :: %{
         optional("domainOwner") => String.t(),
+        optional("endpointType") => list(any()),
         required("domain") => String.t(),
         required("format") => list(any()),
         required("repository") => String.t()
@@ -3879,6 +3880,7 @@ defmodule AWS.Codeartifact do
           map(),
           String.t(),
           String.t() | nil,
+          String.t() | nil,
           String.t(),
           String.t(),
           list()
@@ -3890,6 +3892,7 @@ defmodule AWS.Codeartifact do
         %Client{} = client,
         domain,
         domain_owner \\ nil,
+        endpoint_type \\ nil,
         format,
         repository,
         options \\ []
@@ -3908,6 +3911,13 @@ defmodule AWS.Codeartifact do
     query_params =
       if !is_nil(format) do
         [{"format", format} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(endpoint_type) do
+        [{"endpointType", endpoint_type} | query_params]
       else
         query_params
       end

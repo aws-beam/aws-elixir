@@ -291,6 +291,7 @@ defmodule AWS.IotDeviceAdvisor do
   ## Example:
 
       create_suite_definition_request() :: %{
+        optional("clientToken") => String.t(),
         optional("tags") => map(),
         required("suiteDefinitionConfiguration") => suite_definition_configuration()
       }

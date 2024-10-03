@@ -4209,7 +4209,7 @@ defmodule AWS.WorkSpaces do
 
     
   You don't need to specify the `PCOIP` protocol for Linux bundles
-  because `WSP` is the default protocol for those bundles.
+  because `DCV` (formerly WSP) is the default protocol for those bundles.
 
     
   User-decoupled WorkSpaces are only supported by Amazon WorkSpaces

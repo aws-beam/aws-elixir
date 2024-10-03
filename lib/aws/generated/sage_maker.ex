@@ -4186,6 +4186,7 @@ defmodule AWS.SageMaker do
         "AppArn" => String.t(),
         "AppName" => String.t(),
         "AppType" => list(any()),
+        "BuiltInLifecycleConfigArn" => String.t(),
         "CreationTime" => non_neg_integer(),
         "DomainId" => String.t(),
         "FailureReason" => String.t(),
@@ -15993,6 +15994,7 @@ defmodule AWS.SageMaker do
       
       jupyter_lab_app_settings() :: %{
         "AppLifecycleManagement" => app_lifecycle_management(),
+        "BuiltInLifecycleConfigArn" => String.t(),
         "CodeRepositories" => list(code_repository()()),
         "CustomImages" => list(custom_image()()),
         "DefaultResourceSpec" => resource_spec(),
@@ -16472,6 +16474,7 @@ defmodule AWS.SageMaker do
       
       code_editor_app_settings() :: %{
         "AppLifecycleManagement" => app_lifecycle_management(),
+        "BuiltInLifecycleConfigArn" => String.t(),
         "CustomImages" => list(custom_image()()),
         "DefaultResourceSpec" => resource_spec(),
         "LifecycleConfigArns" => list(String.t()())

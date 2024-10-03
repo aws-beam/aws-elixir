@@ -51,6 +51,7 @@ defmodule AWS.BedrockRuntime do
       apply_guardrail_response() :: %{
         "action" => list(any()),
         "assessments" => list(guardrail_assessment()()),
+        "guardrailCoverage" => guardrail_coverage(),
         "outputs" => list(guardrail_output_content()()),
         "usage" => guardrail_usage()
       }
@@ -230,6 +231,18 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      guardrail_text_characters_coverage() :: %{
+        "guarded" => integer(),
+        "total" => integer()
+      }
+
+  """
+  @type guardrail_text_characters_coverage() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       content_block_start_event() :: %{
         "contentBlockIndex" => integer(),
         "start" => list()
@@ -284,6 +297,17 @@ defmodule AWS.BedrockRuntime do
 
   """
   @type guardrail_word_policy_assessment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_coverage() :: %{
+        "textCharacters" => guardrail_text_characters_coverage()
+      }
+
+  """
+  @type guardrail_coverage() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -382,6 +406,7 @@ defmodule AWS.BedrockRuntime do
       guardrail_content_filter() :: %{
         "action" => list(any()),
         "confidence" => list(any()),
+        "filterStrength" => list(any()),
         "type" => list(any())
       }
 
@@ -515,6 +540,7 @@ defmodule AWS.BedrockRuntime do
       guardrail_assessment() :: %{
         "contentPolicy" => guardrail_content_policy_assessment(),
         "contextualGroundingPolicy" => guardrail_contextual_grounding_policy_assessment(),
+        "invocationMetrics" => guardrail_invocation_metrics(),
         "sensitiveInformationPolicy" => guardrail_sensitive_information_policy_assessment(),
         "topicPolicy" => guardrail_topic_policy_assessment(),
         "wordPolicy" => guardrail_word_policy_assessment()
@@ -546,6 +572,19 @@ defmodule AWS.BedrockRuntime do
 
   """
   @type model_error_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_invocation_metrics() :: %{
+        "guardrailCoverage" => guardrail_coverage(),
+        "guardrailProcessingLatency" => float(),
+        "usage" => guardrail_usage()
+      }
+
+  """
+  @type guardrail_invocation_metrics() :: %{String.t() => any()}
 
   @typedoc """
 

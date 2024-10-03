@@ -1149,7 +1149,8 @@ defmodule AWS.S3 do
   ## Example:
 
       get_bucket_lifecycle_configuration_output() :: %{
-        "Rules" => list(lifecycle_rule()())
+        "Rules" => list(lifecycle_rule()()),
+        "TransitionDefaultMinimumObjectSize" => list(any())
       }
 
   """
@@ -1932,6 +1933,17 @@ defmodule AWS.S3 do
 
   """
   @type delete_bucket_intelligent_tiering_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bucket_lifecycle_configuration_output() :: %{
+        "TransitionDefaultMinimumObjectSize" => list(any())
+      }
+
+  """
+  @type put_bucket_lifecycle_configuration_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3757,7 +3769,8 @@ defmodule AWS.S3 do
       put_bucket_lifecycle_configuration_request() :: %{
         optional("ChecksumAlgorithm") => list(any()),
         optional("ExpectedBucketOwner") => String.t(),
-        optional("LifecycleConfiguration") => bucket_lifecycle_configuration()
+        optional("LifecycleConfiguration") => bucket_lifecycle_configuration(),
+        optional("TransitionDefaultMinimumObjectSize") => list(any())
       }
 
   """
@@ -7763,6 +7776,15 @@ defmodule AWS.S3 do
 
     query_params = []
 
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"x-amz-transition-default-minimum-object-size", "TransitionDefaultMinimumObjectSize"}
+        ]
+      )
+
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
@@ -9942,7 +9964,9 @@ defmodule AWS.S3 do
   For more information, see [Actions, resources, and condition keys for Amazon
   S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html) in the
   *Amazon S3
-  User Guide*.
+  User Guide*. For more information about the permissions to S3 API operations by
+  S3 resource types, see [Required permissions for Amazon S3 API operations](/AmazonS3/latest/userguide/using-with-s3-policy-actions.html) in the
+  *Amazon S3 User Guide*.
 
   If the object you request doesn't exist, the error that
   Amazon S3 returns depends on whether you also have the `s3:ListBucket`
@@ -12536,14 +12560,6 @@ defmodule AWS.S3 do
   [Managing your storage
   lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html).
 
-  Bucket lifecycle configuration now supports specifying a lifecycle rule using an
-  object key name prefix, one or more object tags, object size, or any combination
-  of these. Accordingly, this section describes the latest API. The previous
-  version of the API supported filtering based only on an object key name prefix,
-  which is supported for backward compatibility.
-  For the related API description, see
-  [PutBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html). 
-
   ## Definitions
 
   ### Rules
@@ -12552,7 +12568,14 @@ defmodule AWS.S3 do
   configuration is specified as XML consisting of one or more rules. An Amazon S3
   Lifecycle configuration can have up to 1,000 rules. This limit is not
   adjustable.
-  Each rule consists of the following:
+
+  Bucket lifecycle configuration supports specifying a lifecycle rule using an
+  object key name prefix, one or more object tags, object size, or any combination
+  of these. Accordingly, this section describes the latest API. The previous
+  version of the API supported filtering based only on an object key name prefix,
+  which is supported for backward compatibility.
+  For the related API description, see
+  [PutBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html).   A lifecycle rule consists of the following:
 
     
   A filter identifying a subset of objects to which the rule applies. The filter
@@ -12628,7 +12651,7 @@ defmodule AWS.S3 do
           put_bucket_lifecycle_configuration_request(),
           list()
         ) ::
-          {:ok, nil, any()}
+          {:ok, put_bucket_lifecycle_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def put_bucket_lifecycle_configuration(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?lifecycle"
@@ -12636,11 +12659,21 @@ defmodule AWS.S3 do
     {headers, input} =
       [
         {"ChecksumAlgorithm", "x-amz-sdk-checksum-algorithm"},
-        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"TransitionDefaultMinimumObjectSize", "x-amz-transition-default-minimum-object-size"}
       ]
       |> Request.build_params(input)
 
     query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"x-amz-transition-default-minimum-object-size", "TransitionDefaultMinimumObjectSize"}
+        ]
+      )
 
     meta = metadata()
 

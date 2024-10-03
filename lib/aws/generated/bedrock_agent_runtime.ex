@@ -701,7 +701,9 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       pre_processing_model_invocation_output() :: %{
+        "metadata" => metadata(),
         "parsedResponse" => pre_processing_parsed_response(),
+        "rawResponse" => raw_response(),
         "traceId" => String.t()
       }
 
@@ -1335,7 +1337,9 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       post_processing_model_invocation_output() :: %{
+        "metadata" => metadata(),
         "parsedResponse" => post_processing_parsed_response(),
+        "rawResponse" => raw_response(),
         "traceId" => String.t()
       }
 

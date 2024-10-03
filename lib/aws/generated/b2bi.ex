@@ -30,6 +30,19 @@ defmodule AWS.B2bi do
 
   ## Example:
       
+      x12_delimiters() :: %{
+        "componentSeparator" => String.t(),
+        "dataElementSeparator" => String.t(),
+        "segmentTerminator" => String.t()
+      }
+      
+  """
+  @type x12_delimiters() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       tag_resource_request() :: %{
         required("Tags") => list(tag()())
       }
@@ -48,6 +61,18 @@ defmodule AWS.B2bi do
       
   """
   @type x12_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      test_conversion_response() :: %{
+        "convertedFileContent" => [String.t()],
+        "validationMessages" => list([String.t()]())
+      }
+      
+  """
+  @type test_conversion_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -79,6 +104,7 @@ defmodule AWS.B2bi do
   ## Example:
       
       create_partnership_request() :: %{
+        optional("capabilityOptions") => capability_options(),
         optional("clientToken") => [String.t()],
         optional("phone") => String.t(),
         optional("tags") => list(tag()()),
@@ -118,6 +144,7 @@ defmodule AWS.B2bi do
       
       partnership_summary() :: %{
         "capabilities" => list(String.t()()),
+        "capabilityOptions" => capability_options(),
         "createdAt" => non_neg_integer(),
         "modifiedAt" => non_neg_integer(),
         "name" => String.t(),
@@ -148,6 +175,7 @@ defmodule AWS.B2bi do
       
       get_partnership_response() :: %{
         "capabilities" => list(String.t()()),
+        "capabilityOptions" => capability_options(),
         "createdAt" => non_neg_integer(),
         "email" => String.t(),
         "modifiedAt" => non_neg_integer(),
@@ -184,17 +212,45 @@ defmodule AWS.B2bi do
 
   ## Example:
       
+      test_conversion_request() :: %{
+        required("source") => conversion_source(),
+        required("target") => conversion_target()
+      }
+      
+  """
+  @type test_conversion_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_transformer_request() :: %{
         optional("ediType") => list(),
         optional("fileFormat") => list(any()),
+        optional("inputConversion") => input_conversion(),
+        optional("mapping") => mapping(),
         optional("mappingTemplate") => String.t(),
         optional("name") => String.t(),
+        optional("outputConversion") => output_conversion(),
         optional("sampleDocument") => String.t(),
+        optional("sampleDocuments") => sample_documents(),
         optional("status") => list(any())
       }
       
   """
   @type update_transformer_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_conversion() :: %{
+        "formatOptions" => list(),
+        "fromFormat" => list(any())
+      }
+      
+  """
+  @type input_conversion() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -225,11 +281,15 @@ defmodule AWS.B2bi do
       
       create_transformer_request() :: %{
         optional("clientToken") => [String.t()],
+        optional("ediType") => list(),
+        optional("fileFormat") => list(any()),
+        optional("inputConversion") => input_conversion(),
+        optional("mapping") => mapping(),
+        optional("mappingTemplate") => String.t(),
+        optional("outputConversion") => output_conversion(),
         optional("sampleDocument") => String.t(),
+        optional("sampleDocuments") => sample_documents(),
         optional("tags") => list(tag()()),
-        required("ediType") => list(),
-        required("fileFormat") => list(any()),
-        required("mappingTemplate") => String.t(),
         required("name") => String.t()
       }
       
@@ -244,10 +304,14 @@ defmodule AWS.B2bi do
         "createdAt" => non_neg_integer(),
         "ediType" => list(),
         "fileFormat" => list(any()),
+        "inputConversion" => input_conversion(),
+        "mapping" => mapping(),
         "mappingTemplate" => String.t(),
         "modifiedAt" => non_neg_integer(),
         "name" => String.t(),
+        "outputConversion" => output_conversion(),
         "sampleDocument" => String.t(),
+        "sampleDocuments" => sample_documents(),
         "status" => list(any()),
         "transformerArn" => String.t(),
         "transformerId" => String.t()
@@ -323,6 +387,7 @@ defmodule AWS.B2bi do
       
       update_partnership_request() :: %{
         optional("capabilities") => list(String.t()()),
+        optional("capabilityOptions") => capability_options(),
         optional("name") => String.t()
       }
       
@@ -348,14 +413,41 @@ defmodule AWS.B2bi do
 
   ## Example:
       
+      create_starter_mapping_template_response() :: %{
+        "mappingTemplate" => [String.t()]
+      }
+      
+  """
+  @type create_starter_mapping_template_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      output_conversion() :: %{
+        "formatOptions" => list(),
+        "toFormat" => list(any())
+      }
+      
+  """
+  @type output_conversion() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       transformer_summary() :: %{
         "createdAt" => non_neg_integer(),
         "ediType" => list(),
         "fileFormat" => list(any()),
+        "inputConversion" => input_conversion(),
+        "mapping" => mapping(),
         "mappingTemplate" => String.t(),
         "modifiedAt" => non_neg_integer(),
         "name" => String.t(),
+        "outputConversion" => output_conversion(),
         "sampleDocument" => String.t(),
+        "sampleDocuments" => sample_documents(),
         "status" => list(any()),
         "transformerId" => String.t()
       }
@@ -452,6 +544,17 @@ defmodule AWS.B2bi do
 
   ## Example:
       
+      x12_envelope() :: %{
+        "common" => x12_outbound_edi_headers()
+      }
+      
+  """
+  @type x12_envelope() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       service_quota_exceeded_exception() :: %{
         "message" => String.t(),
         "quotaCode" => [String.t()],
@@ -518,6 +621,19 @@ defmodule AWS.B2bi do
 
   ## Example:
       
+      x12_functional_group_headers() :: %{
+        "applicationReceiverCode" => String.t(),
+        "applicationSenderCode" => String.t(),
+        "responsibleAgencyCode" => String.t()
+      }
+      
+  """
+  @type x12_functional_group_headers() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_transformer_job_response() :: %{
         "message" => [String.t()],
         "outputFiles" => list(s3_location()()),
@@ -543,6 +659,7 @@ defmodule AWS.B2bi do
   ## Example:
       
       edi_configuration() :: %{
+        "capabilityDirection" => list(any()),
         "inputLocation" => s3_location(),
         "outputLocation" => s3_location(),
         "transformerId" => String.t(),
@@ -597,9 +714,13 @@ defmodule AWS.B2bi do
         "createdAt" => non_neg_integer(),
         "ediType" => list(),
         "fileFormat" => list(any()),
+        "inputConversion" => input_conversion(),
+        "mapping" => mapping(),
         "mappingTemplate" => String.t(),
         "name" => String.t(),
+        "outputConversion" => output_conversion(),
         "sampleDocument" => String.t(),
+        "sampleDocuments" => sample_documents(),
         "status" => list(any()),
         "transformerArn" => String.t(),
         "transformerId" => String.t()
@@ -607,6 +728,23 @@ defmodule AWS.B2bi do
       
   """
   @type create_transformer_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      x12_interchange_control_headers() :: %{
+        "acknowledgmentRequestedCode" => String.t(),
+        "receiverId" => String.t(),
+        "receiverIdQualifier" => String.t(),
+        "repetitionSeparator" => String.t(),
+        "senderId" => String.t(),
+        "senderIdQualifier" => String.t(),
+        "usageIndicatorCode" => String.t()
+      }
+      
+  """
+  @type x12_interchange_control_headers() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -628,10 +766,14 @@ defmodule AWS.B2bi do
         "createdAt" => non_neg_integer(),
         "ediType" => list(),
         "fileFormat" => list(any()),
+        "inputConversion" => input_conversion(),
+        "mapping" => mapping(),
         "mappingTemplate" => String.t(),
         "modifiedAt" => non_neg_integer(),
         "name" => String.t(),
+        "outputConversion" => output_conversion(),
         "sampleDocument" => String.t(),
+        "sampleDocuments" => sample_documents(),
         "status" => list(any()),
         "transformerArn" => String.t(),
         "transformerId" => String.t()
@@ -639,6 +781,18 @@ defmodule AWS.B2bi do
       
   """
   @type update_transformer_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sample_document_keys() :: %{
+        "input" => String.t(),
+        "output" => String.t()
+      }
+      
+  """
+  @type sample_document_keys() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -757,8 +911,33 @@ defmodule AWS.B2bi do
 
   ## Example:
       
+      sample_documents() :: %{
+        "bucketName" => String.t(),
+        "keys" => list(sample_document_keys()())
+      }
+      
+  """
+  @type sample_documents() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conversion_source() :: %{
+        "fileFormat" => list(any()),
+        "inputFile" => list()
+      }
+      
+  """
+  @type conversion_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_partnership_response() :: %{
         "capabilities" => list(String.t()()),
+        "capabilityOptions" => capability_options(),
         "createdAt" => non_neg_integer(),
         "email" => String.t(),
         "modifiedAt" => non_neg_integer(),
@@ -772,6 +951,20 @@ defmodule AWS.B2bi do
       
   """
   @type update_partnership_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      x12_outbound_edi_headers() :: %{
+        "delimiters" => x12_delimiters(),
+        "functionalGroupHeaders" => x12_functional_group_headers(),
+        "interchangeControlHeaders" => x12_interchange_control_headers(),
+        "validateEdi" => boolean()
+      }
+      
+  """
+  @type x12_outbound_edi_headers() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -802,6 +995,19 @@ defmodule AWS.B2bi do
 
   ## Example:
       
+      create_starter_mapping_template_request() :: %{
+        optional("outputSampleLocation") => s3_location(),
+        required("mappingType") => list(any()),
+        required("templateDetails") => list()
+      }
+      
+  """
+  @type create_starter_mapping_template_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_partnership_request() :: %{}
       
   """
@@ -811,8 +1017,32 @@ defmodule AWS.B2bi do
 
   ## Example:
       
+      capability_options() :: %{
+        "outboundEdi" => list()
+      }
+      
+  """
+  @type capability_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      mapping() :: %{
+        "template" => String.t(),
+        "templateLanguage" => list(any())
+      }
+      
+  """
+  @type mapping() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_partnership_response() :: %{
         "capabilities" => list(String.t()()),
+        "capabilityOptions" => capability_options(),
         "createdAt" => non_neg_integer(),
         "email" => String.t(),
         "name" => String.t(),
@@ -847,6 +1077,19 @@ defmodule AWS.B2bi do
       
   """
   @type get_capability_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      conversion_target() :: %{
+        "fileFormat" => list(any()),
+        "formatDetails" => list(),
+        "outputSampleFile" => list()
+      }
+      
+  """
+  @type conversion_target() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -913,6 +1156,12 @@ defmodule AWS.B2bi do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type create_starter_mapping_template_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type create_transformer_errors() ::
           throttling_exception()
@@ -1029,6 +1278,13 @@ defmodule AWS.B2bi do
   @type tag_resource_errors() ::
           throttling_exception()
           | validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type test_conversion_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
 
@@ -1153,11 +1409,67 @@ defmodule AWS.B2bi do
   end
 
   @doc """
+  Amazon Web Services B2B Data Interchange uses a mapping template in JSONata or
+  XSLT format to transform a customer input file into a JSON or XML file that can
+  be converted to EDI.
+
+  If you provide a sample EDI file with the same structure as the EDI files that
+  you wish to generate, then the service can generate a mapping template.
+  The starter template contains placeholder values which you can replace with
+  JSONata or XSLT expressions to take data from your input file and insert it
+  into the JSON or XML file that is used to generate the EDI.
+
+  If you do not provide a sample EDI file, then the service can generate a mapping
+  template based on the EDI settings in the `templateDetails` parameter.
+
+  Currently, we only support generating a template that can generate the input to
+  produce an Outbound X12 EDI file.
+  """
+  @spec create_starter_mapping_template(map(), create_starter_mapping_template_request(), list()) ::
+          {:ok, create_starter_mapping_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_starter_mapping_template_errors()}
+  def create_starter_mapping_template(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateStarterMappingTemplate", input, options)
+  end
+
+  @doc """
   Creates a transformer.
 
-  A transformer
-  describes how to process the incoming EDI documents and extract the necessary
-  information to the output file.
+  Amazon Web Services B2B Data Interchange currently supports two scenarios:
+
+    *
+
+  *Inbound EDI*: the Amazon Web Services customer receives an EDI file from their
+  trading partner. Amazon Web Services B2B Data Interchange
+  converts this EDI file into a JSON or XML file with a service-defined structure.
+  A mapping template provided by the customer,
+  in JSONata or XSLT format, is optionally applied to this file to produce a JSON
+  or XML file with the structure the customer requires.
+
+    *
+
+  *Outbound EDI*: the Amazon Web Services customer has a JSON or XML file
+  containing data that they wish to use
+  in an EDI file. A mapping template, provided by the customer (in either JSONata
+  or XSLT format) is applied to this file to generate
+  a JSON or XML file in the service-defined structure. This file is then converted
+  to an EDI file.
+
+  The following fields are provided for backwards compatibility only:
+  `fileFormat`,
+  `mappingTemplate`, `ediType`, and `sampleDocument`.
+
+    
+  Use the `mapping` data type in place of `mappingTemplate` and `fileFormat`
+
+    
+  Use the `sampleDocuments` data type in place of `sampleDocument`
+
+    
+  Use either the `inputConversion` or `outputConversion` in place of `ediType`
   """
   @spec create_transformer(map(), create_transformer_request(), list()) ::
           {:ok, create_transformer_response(), any()}
@@ -1221,9 +1533,10 @@ defmodule AWS.B2bi do
   @doc """
   Deletes the specified transformer.
 
-  A transformer
-  describes how to process the incoming EDI documents and extract the necessary
-  information to the output file.
+  A transformer can take an EDI file as input and transform it into a JSON-or
+  XML-formatted document. Alternatively,
+  a transformer can take a JSON-or XML-formatted document as input and transform
+  it into an EDI file.
   """
   @spec delete_transformer(map(), delete_transformer_request(), list()) ::
           {:ok, nil, any()}
@@ -1288,9 +1601,10 @@ defmodule AWS.B2bi do
   @doc """
   Retrieves the details for the transformer specified by the transformer ID.
 
-  A transformer
-  describes how to process the incoming EDI documents and extract the necessary
-  information to the output file.
+  A transformer can take an EDI file as input and transform it into a JSON-or
+  XML-formatted document. Alternatively,
+  a transformer can take a JSON-or XML-formatted document as input and transform
+  it into an EDI file.
   """
   @spec get_transformer(map(), get_transformer_request(), list()) ::
           {:ok, get_transformer_response(), any()}
@@ -1386,9 +1700,10 @@ defmodule AWS.B2bi do
   @doc """
   Lists the available transformers.
 
-  A transformer
-  describes how to process the incoming EDI documents and extract the necessary
-  information to the output file.
+  A transformer can take an EDI file as input and transform it into a JSON-or
+  XML-formatted document. Alternatively,
+  a transformer can take a JSON-or XML-formatted document as input and transform
+  it into an EDI file.
   """
   @spec list_transformers(map(), list_transformers_request(), list()) ::
           {:ok, list_transformers_response(), any()}
@@ -1402,7 +1717,7 @@ defmodule AWS.B2bi do
 
   @doc """
   Runs a job, using a transformer, to parse input EDI (electronic data
-  interchange) file into the output structures used by Amazon Web Services B2BI
+  interchange) file into the output structures used by Amazon Web Services B2B
   Data Interchange.
 
   If you only want to transform EDI (electronic data interchange) documents, you
@@ -1436,6 +1751,22 @@ defmodule AWS.B2bi do
     meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
+  end
+
+  @doc """
+  This operation mimics the latter half of a typical Outbound EDI request.
+
+  It takes an input JSON/XML in the B2Bi shape as input, converts it to an X12 EDI
+  string, and return that string.
+  """
+  @spec test_conversion(map(), test_conversion_request(), list()) ::
+          {:ok, test_conversion_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, test_conversion_errors()}
+  def test_conversion(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "TestConversion", input, options)
   end
 
   @doc """
@@ -1539,9 +1870,10 @@ defmodule AWS.B2bi do
   @doc """
   Updates the specified parameters for a transformer.
 
-  A transformer
-  describes how to process the incoming EDI documents and extract the necessary
-  information to the output file.
+  A transformer can take an EDI file as input and transform it into a JSON-or
+  XML-formatted document. Alternatively,
+  a transformer can take a JSON-or XML-formatted document as input and transform
+  it into an EDI file.
   """
   @spec update_transformer(map(), update_transformer_request(), list()) ::
           {:ok, update_transformer_response(), any()}

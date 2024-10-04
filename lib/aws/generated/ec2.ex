@@ -2934,6 +2934,20 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      modify_instance_cpu_options_request() :: %{
+        optional("DryRun") => boolean(),
+        required("CoreCount") => integer(),
+        required("InstanceId") => String.t(),
+        required("ThreadsPerCore") => integer()
+      }
+      
+  """
+  @type modify_instance_cpu_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       verified_access_log_kinesis_data_firehose_destination_options() :: %{
         "DeliveryStream" => String.t(),
         "Enabled" => boolean()
@@ -13222,6 +13236,19 @@ defmodule AWS.EC2 do
       
   """
   @type describe_host_reservations_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_instance_cpu_options_result() :: %{
+        "CoreCount" => integer(),
+        "InstanceId" => String.t(),
+        "ThreadsPerCore" => integer()
+      }
+      
+  """
+  @type modify_instance_cpu_options_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -37914,6 +37941,33 @@ defmodule AWS.EC2 do
       input,
       options
     )
+  end
+
+  @doc """
+  By default, all vCPUs for the instance type are active when you launch an
+  instance.
+
+  When you
+  configure the number of active vCPUs for the instance, it can help you save on
+  licensing costs and
+  optimize performance. The base cost of the instance remains unchanged.
+
+  The number of active vCPUs equals the number of threads per CPU core multiplied
+  by the number
+  of cores.
+
+  Some instance type options do not support this capability. For more information,
+  see
+  [Supported CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cpu-options-supported-instances-values.html)
+  in the *Amazon EC2 User Guide*.
+  """
+  @spec modify_instance_cpu_options(map(), modify_instance_cpu_options_request(), list()) ::
+          {:ok, modify_instance_cpu_options_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def modify_instance_cpu_options(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyInstanceCpuOptions", input, options)
   end
 
   @doc """

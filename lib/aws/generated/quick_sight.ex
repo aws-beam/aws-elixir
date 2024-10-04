@@ -2641,6 +2641,8 @@ defmodule AWS.QuickSight do
         "Errors" => list(asset_bundle_export_job_error()()),
         "ExportFormat" => list(any()),
         "IncludeAllDependencies" => boolean(),
+        "IncludeFolderMembers" => list(any()),
+        "IncludeFolderMemberships" => boolean(),
         "IncludePermissions" => boolean(),
         "IncludeTags" => boolean(),
         "JobStatus" => list(any()),
@@ -3115,6 +3117,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      asset_bundle_import_job_folder_override_permissions() :: %{
+        "FolderIds" => list(String.t()()),
+        "Permissions" => asset_bundle_resource_permissions()
+      }
+
+  """
+  @type asset_bundle_import_job_folder_override_permissions() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_template_request() :: %{
         optional("Definition") => template_version_definition(),
         optional("Name") => String.t(),
@@ -3365,6 +3379,18 @@ defmodule AWS.QuickSight do
 
   """
   @type create_topic_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_bundle_export_job_folder_override_properties() :: %{
+        "Arn" => String.t(),
+        "Properties" => list(list(any())())
+      }
+
+  """
+  @type asset_bundle_export_job_folder_override_properties() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3819,6 +3845,19 @@ defmodule AWS.QuickSight do
 
   """
   @type field_sort_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_bundle_import_job_folder_override_parameters() :: %{
+        "FolderId" => String.t(),
+        "Name" => String.t(),
+        "ParentFolderArn" => String.t()
+      }
+
+  """
+  @type asset_bundle_import_job_folder_override_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -7537,6 +7576,8 @@ defmodule AWS.QuickSight do
       start_asset_bundle_export_job_request() :: %{
         optional("CloudFormationOverridePropertyConfiguration") => asset_bundle_cloud_formation_override_property_configuration(),
         optional("IncludeAllDependencies") => boolean(),
+        optional("IncludeFolderMembers") => list(any()),
+        optional("IncludeFolderMemberships") => boolean(),
         optional("IncludePermissions") => boolean(),
         optional("IncludeTags") => boolean(),
         optional("ValidationStrategy") => asset_bundle_export_job_validation_strategy(),
@@ -9036,6 +9077,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       topic_details() :: %{
+        "ConfigOptions" => topic_config_options(),
         "DataSets" => list(dataset_metadata()()),
         "Description" => String.t(),
         "Name" => String.t(),
@@ -10156,6 +10198,17 @@ defmodule AWS.QuickSight do
 
   """
   @type asset_bundle_import_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      topic_config_options() :: %{
+        "QBusinessInsightsEnabled" => boolean()
+      }
+
+  """
+  @type topic_config_options() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -12054,6 +12107,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      asset_bundle_import_job_folder_override_tags() :: %{
+        "FolderIds" => list(String.t()()),
+        "Tags" => list(tag()())
+      }
+
+  """
+  @type asset_bundle_import_job_folder_override_tags() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       table_cell_style() :: %{
         "BackgroundColor" => String.t(),
         "Border" => global_table_border_options(),
@@ -13672,6 +13737,7 @@ defmodule AWS.QuickSight do
         "Dashboards" => list(asset_bundle_import_job_dashboard_override_permissions()()),
         "DataSets" => list(asset_bundle_import_job_data_set_override_permissions()()),
         "DataSources" => list(asset_bundle_import_job_data_source_override_permissions()()),
+        "Folders" => list(asset_bundle_import_job_folder_override_permissions()()),
         "Themes" => list(asset_bundle_import_job_theme_override_permissions()())
       }
 
@@ -14726,6 +14792,7 @@ defmodule AWS.QuickSight do
         "Dashboards" => list(asset_bundle_import_job_dashboard_override_parameters()()),
         "DataSets" => list(asset_bundle_import_job_data_set_override_parameters()()),
         "DataSources" => list(asset_bundle_import_job_data_source_override_parameters()()),
+        "Folders" => list(asset_bundle_import_job_folder_override_parameters()()),
         "RefreshSchedules" => list(asset_bundle_import_job_refresh_schedule_override_parameters()()),
         "ResourceIdOverrideConfiguration" => asset_bundle_import_job_resource_id_override_configuration(),
         "Themes" => list(asset_bundle_import_job_theme_override_parameters()()),
@@ -14989,6 +15056,7 @@ defmodule AWS.QuickSight do
         "Dashboards" => list(asset_bundle_import_job_dashboard_override_tags()()),
         "DataSets" => list(asset_bundle_import_job_data_set_override_tags()()),
         "DataSources" => list(asset_bundle_import_job_data_source_override_tags()()),
+        "Folders" => list(asset_bundle_import_job_folder_override_tags()()),
         "Themes" => list(asset_bundle_import_job_theme_override_tags()()),
         "VPCConnections" => list(asset_bundle_import_job_vpc_connection_override_tags()())
       }
@@ -15328,6 +15396,7 @@ defmodule AWS.QuickSight do
         "Dashboards" => list(asset_bundle_export_job_dashboard_override_properties()()),
         "DataSets" => list(asset_bundle_export_job_data_set_override_properties()()),
         "DataSources" => list(asset_bundle_export_job_data_source_override_properties()()),
+        "Folders" => list(asset_bundle_export_job_folder_override_properties()()),
         "RefreshSchedules" => list(asset_bundle_export_job_refresh_schedule_override_properties()()),
         "ResourceIdOverrideConfiguration" => asset_bundle_export_job_resource_id_override_configuration(),
         "Themes" => list(asset_bundle_export_job_theme_override_properties()()),

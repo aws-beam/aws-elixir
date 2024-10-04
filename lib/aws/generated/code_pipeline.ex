@@ -422,6 +422,7 @@ defmodule AWS.CodePipeline do
   ## Example:
       
       output_artifact() :: %{
+        "files" => list(String.t()()),
         "name" => String.t()
       }
       
@@ -1234,11 +1235,13 @@ defmodule AWS.CodePipeline do
       
       action_declaration() :: %{
         "actionTypeId" => action_type_id(),
+        "commands" => list(String.t()()),
         "configuration" => map(),
         "inputArtifacts" => list(input_artifact()()),
         "name" => String.t(),
         "namespace" => String.t(),
         "outputArtifacts" => list(output_artifact()()),
+        "outputVariables" => list(String.t()()),
         "region" => String.t(),
         "roleArn" => String.t(),
         "runOrder" => integer(),

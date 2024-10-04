@@ -227,7 +227,8 @@ defmodule AWS.MediaPackageV2 do
         "ManifestName" => String.t(),
         "ManifestWindowSeconds" => [integer()],
         "ProgramDateTimeIntervalSeconds" => [integer()],
-        "ScteHls" => scte_hls()
+        "ScteHls" => scte_hls(),
+        "StartTag" => start_tag()
       }
 
   """
@@ -334,6 +335,7 @@ defmodule AWS.MediaPackageV2 do
         "ManifestWindowSeconds" => [integer()],
         "ProgramDateTimeIntervalSeconds" => [integer()],
         "ScteHls" => scte_hls(),
+        "StartTag" => start_tag(),
         "Url" => [String.t()]
       }
 
@@ -351,6 +353,7 @@ defmodule AWS.MediaPackageV2 do
         "ManifestWindowSeconds" => [integer()],
         "ProgramDateTimeIntervalSeconds" => [integer()],
         "ScteHls" => scte_hls(),
+        "StartTag" => start_tag(),
         "Url" => [String.t()]
       }
 
@@ -417,6 +420,18 @@ defmodule AWS.MediaPackageV2 do
 
   """
   @type delete_channel_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_tag() :: %{
+        "Precise" => [boolean()],
+        "TimeOffset" => [float()]
+      }
+
+  """
+  @type start_tag() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -596,6 +611,7 @@ defmodule AWS.MediaPackageV2 do
   ## Example:
 
       filter_configuration() :: %{
+        "ClipStartTime" => [non_neg_integer()],
         "End" => [non_neg_integer()],
         "ManifestFilter" => [String.t()],
         "Start" => [non_neg_integer()],
@@ -955,7 +971,8 @@ defmodule AWS.MediaPackageV2 do
         "ManifestName" => String.t(),
         "ManifestWindowSeconds" => [integer()],
         "ProgramDateTimeIntervalSeconds" => [integer()],
-        "ScteHls" => scte_hls()
+        "ScteHls" => scte_hls(),
+        "StartTag" => start_tag()
       }
 
   """

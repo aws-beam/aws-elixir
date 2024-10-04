@@ -617,7 +617,10 @@ defmodule AWS.IoT do
   ## Example:
 
       describe_domain_configuration_response() :: %{
+        "applicationProtocol" => list(any()),
+        "authenticationType" => list(any()),
         "authorizerConfig" => authorizer_config(),
+        "clientCertificateConfig" => client_certificate_config(),
         "domainConfigurationArn" => String.t(),
         "domainConfigurationName" => String.t(),
         "domainConfigurationStatus" => list(any()),
@@ -816,7 +819,10 @@ defmodule AWS.IoT do
   ## Example:
 
       update_domain_configuration_request() :: %{
+        optional("applicationProtocol") => list(any()),
+        optional("authenticationType") => list(any()),
         optional("authorizerConfig") => authorizer_config(),
+        optional("clientCertificateConfig") => client_certificate_config(),
         optional("domainConfigurationStatus") => list(any()),
         optional("removeAuthorizerConfig") => boolean(),
         optional("serverCertificateConfig") => server_certificate_config(),
@@ -4149,6 +4155,17 @@ defmodule AWS.IoT do
 
   """
   @type list_metric_values_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      client_certificate_config() :: %{
+        "clientCertificateCallbackArn" => String.t()
+      }
+
+  """
+  @type client_certificate_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -8489,7 +8506,10 @@ defmodule AWS.IoT do
   ## Example:
 
       create_domain_configuration_request() :: %{
+        optional("applicationProtocol") => list(any()),
+        optional("authenticationType") => list(any()),
         optional("authorizerConfig") => authorizer_config(),
+        optional("clientCertificateConfig") => client_certificate_config(),
         optional("domainName") => String.t(),
         optional("serverCertificateArns") => list(String.t()()),
         optional("serverCertificateConfig") => server_certificate_config(),
@@ -11121,8 +11141,8 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Associates a software bill of materials (SBOM) with a specific software package
-  version.
+  Associates the selected software bill of materials (SBOM) with a specific
+  software package version.
 
   Requires permission to access the
   [AssociateSbomWithPackageVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -11639,6 +11659,12 @@ defmodule AWS.IoT do
 
   @doc """
   Creates a billing group.
+
+  If this call is made multiple times using
+  the same billing group name and configuration, the call will succeed. If this
+  call is made with
+  the same billing group name but different configuration a
+  `ResourceAlreadyExistsException` is thrown.
 
   Requires permission to access the
   [CreateBillingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -12397,8 +12423,18 @@ defmodule AWS.IoT do
   Creates a role alias.
 
   Requires permission to access the
-  [CreateRoleAlias](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [CreateRoleAlias](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+
+  The value of [
+  `credentialDurationSeconds`
+  ](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateRoleAlias.html#iot-CreateRoleAlias-request-credentialDurationSeconds)
+  must be less than or equal to the maximum session
+  duration of the IAM role that the role alias references. For more information,
+  see
+  [
+  Modifying a role maximum session duration (Amazon Web Services
+  API)](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-managingrole-editing-api.html#roles-modify_max-session-duration-api)
+  from the Amazon Web Services Identity and Access Management User Guide.
   """
   @spec create_role_alias(map(), String.t(), create_role_alias_request(), list()) ::
           {:ok, create_role_alias_response(), any()}
@@ -12604,6 +12640,12 @@ defmodule AWS.IoT do
 
   @doc """
   Creates a new thing type.
+
+  If this call is made multiple times using
+  the same thing type name and configuration, the call will succeed. If this call
+  is made with
+  the same thing type name but different configuration a
+  `ResourceAlreadyExistsException` is thrown.
 
   Requires permission to access the
   [CreateThingType](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -14992,8 +15034,8 @@ defmodule AWS.IoT do
   end
 
   @doc """
-  Disassociates a software bill of materials (SBOM) from a specific software
-  package version.
+  Disassociates the selected software bill of materials (SBOM) from a specific
+  software package version.
 
   Requires permission to access the
   [DisassociateSbomWithPackageVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -20590,8 +20632,18 @@ defmodule AWS.IoT do
   Updates a role alias.
 
   Requires permission to access the
-  [UpdateRoleAlias](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
-  action.
+  [UpdateRoleAlias](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+
+  The value of [
+  `credentialDurationSeconds`
+  ](https://docs.aws.amazon.com/iot/latest/apireference/API_UpdateRoleAlias.html#iot-UpdateRoleAlias-request-credentialDurationSeconds)
+  must be less than or equal to the
+  maximum session duration of the IAM role that the role alias references. For
+  more
+  information, see [ Modifying a role maximum session duration (Amazon Web Services
+  API)](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-managingrole-editing-api.html#roles-modify_max-session-duration-api)
+  from the Amazon Web Services
+  Identity and Access Management User Guide.
   """
   @spec update_role_alias(map(), String.t(), update_role_alias_request(), list()) ::
           {:ok, update_role_alias_response(), any()}

@@ -4,6 +4,13 @@
 defmodule AWS.QConnect do
   @moduledoc """
 
+    *
+
+  [Amazon Q actions](https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Q_Connect.html)
+
+    *
+
+  [Amazon Q data types](https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Q_Connect.html)
 
   **Powered by Amazon Bedrock**: Amazon Web Services implements [automated abuse detection](https://docs.aws.amazon.com/bedrock/latest/userguide/abuse-detection.html).
 
@@ -84,6 +91,15 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      delete_a_i_agent_version_response() :: %{}
+
+  """
+  @type delete_a_i_agent_version_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       query_assistant_response() :: %{
         optional("nextToken") => String.t(),
         required("results") => list(result_data()())
@@ -91,6 +107,19 @@ defmodule AWS.QConnect do
 
   """
   @type query_assistant_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_a_i_agents_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("origin") => String.t()
+      }
+
+  """
+  @type list_a_i_agents_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -132,12 +161,48 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      a_i_agent_version_summary() :: %{
+        "aiAgentSummary" => a_i_agent_summary(),
+        "versionNumber" => float()
+      }
+
+  """
+  @type a_i_agent_version_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_session_response() :: %{
         optional("session") => session_data()
       }
 
   """
   @type get_session_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_a_i_agent_versions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("origin") => String.t()
+      }
+
+  """
+  @type list_a_i_agent_versions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_assistant_a_i_agent_request() :: %{
+        required("aiAgentType") => String.t()
+      }
+
+  """
+  @type remove_assistant_a_i_agent_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -200,6 +265,18 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      fixed_size_chunking_configuration() :: %{
+        "maxTokens" => [integer()],
+        "overlapPercentage" => [integer()]
+      }
+
+  """
+  @type fixed_size_chunking_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       highlight() :: %{
         "beginOffsetInclusive" => integer(),
         "endOffsetExclusive" => integer()
@@ -224,6 +301,70 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      create_a_i_agent_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("description") => String.t(),
+        optional("tags") => map(),
+        required("configuration") => list(),
+        required("name") => String.t(),
+        required("type") => String.t(),
+        required("visibilityStatus") => String.t()
+      }
+
+  """
+  @type create_a_i_agent_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_a_i_agent_versions_response() :: %{
+        "aiAgentVersionSummaries" => list(a_i_agent_version_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_a_i_agent_versions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_a_i_agent_response() :: %{
+        "aiAgent" => a_i_agent_data()
+      }
+
+  """
+  @type create_a_i_agent_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_a_iprompt_version_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("modifiedTime") => [non_neg_integer()]
+      }
+
+  """
+  @type create_a_iprompt_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_a_i_agent_response() :: %{
+        "aiAgent" => a_i_agent_data(),
+        "versionNumber" => float()
+      }
+
+  """
+  @type get_a_i_agent_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_contents_response() :: %{
         optional("nextToken") => String.t(),
         required("contentSummaries") => list(content_summary()())
@@ -231,6 +372,17 @@ defmodule AWS.QConnect do
 
   """
   @type list_contents_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      query_text_input_data() :: %{
+        "text" => String.t()
+      }
+
+  """
+  @type query_text_input_data() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -304,6 +456,18 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      a_iprompt_version_summary() :: %{
+        "aiPromptSummary" => a_iprompt_summary(),
+        "versionNumber" => float()
+      }
+
+  """
+  @type a_iprompt_version_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       recommendation_data() :: %{
         "data" => data_summary(),
         "document" => document(),
@@ -341,6 +505,15 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      delete_a_i_agent_version_request() :: %{}
+
+  """
+  @type delete_a_i_agent_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_assistant_association_request() :: %{}
 
   """
@@ -367,6 +540,18 @@ defmodule AWS.QConnect do
 
   """
   @type assistant_integration_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      intent_detected_data_details() :: %{
+        "intent" => String.t(),
+        "intentId" => String.t()
+      }
+
+  """
+  @type intent_detected_data_details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -404,6 +589,18 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      list_a_iprompts_response() :: %{
+        "aiPromptSummaries" => list(a_iprompt_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_a_iprompts_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_assistant_response() :: %{
         optional("assistant") => assistant_data()
       }
@@ -433,6 +630,33 @@ defmodule AWS.QConnect do
 
   """
   @type request_timeout_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_a_iprompts_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("origin") => String.t()
+      }
+
+  """
+  @type list_a_iprompts_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_a_iprompt_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("description") => String.t(),
+        optional("templateConfiguration") => list(),
+        required("visibilityStatus") => String.t()
+      }
+
+  """
+  @type update_a_iprompt_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -490,6 +714,18 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      parsing_configuration() :: %{
+        "bedrockFoundationModelConfiguration" => bedrock_foundation_model_configuration_for_parsing(),
+        "parsingStrategy" => String.t()
+      }
+
+  """
+  @type parsing_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_assistant_association_response() :: %{
         optional("assistantAssociation") => assistant_association_data()
       }
@@ -517,6 +753,18 @@ defmodule AWS.QConnect do
 
   """
   @type create_quick_response_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_a_i_agent_version_response() :: %{
+        "aiAgent" => a_i_agent_data(),
+        "versionNumber" => float()
+      }
+
+  """
+  @type create_a_i_agent_version_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -552,6 +800,15 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      delete_a_iprompt_response() :: %{}
+
+  """
+  @type delete_a_iprompt_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       search_content_response() :: %{
         optional("nextToken") => String.t(),
         required("contentSummaries") => list(content_summary()())
@@ -573,12 +830,44 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      delete_a_i_agent_request() :: %{}
+
+  """
+  @type delete_a_i_agent_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       assistant_capability_configuration() :: %{
         "type" => String.t()
       }
 
   """
   @type assistant_capability_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      a_i_agent_configuration_data() :: %{
+        "aiAgentId" => String.t()
+      }
+
+  """
+  @type a_i_agent_configuration_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_a_i_agents_response() :: %{
+        "aiAgentSummaries" => list(a_i_agent_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_a_i_agents_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -629,6 +918,19 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      list_a_iprompt_versions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("origin") => String.t()
+      }
+
+  """
+  @type list_a_iprompt_versions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_content_associations_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
@@ -641,7 +943,33 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      association_configuration() :: %{
+        "associationConfigurationData" => list(),
+        "associationId" => String.t(),
+        "associationType" => String.t()
+      }
+
+  """
+  @type association_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hierarchical_chunking_configuration() :: %{
+        "levelConfigurations" => list(hierarchical_chunking_level_configuration()()),
+        "overlapTokens" => [integer()]
+      }
+
+  """
+  @type hierarchical_chunking_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_session_request() :: %{
+        optional("aiAgentConfiguration") => map(),
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
         optional("tagFilter") => list(),
@@ -667,6 +995,50 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      a_iprompt_data() :: %{
+        "aiPromptArn" => String.t(),
+        "aiPromptId" => String.t(),
+        "apiFormat" => String.t(),
+        "assistantArn" => String.t(),
+        "assistantId" => String.t(),
+        "description" => String.t(),
+        "modelId" => String.t(),
+        "modifiedTime" => [non_neg_integer()],
+        "name" => String.t(),
+        "origin" => String.t(),
+        "status" => String.t(),
+        "tags" => map(),
+        "templateConfiguration" => list(),
+        "templateType" => String.t(),
+        "type" => String.t(),
+        "visibilityStatus" => String.t()
+      }
+
+  """
+  @type a_iprompt_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_a_iprompt_version_response() :: %{}
+
+  """
+  @type delete_a_iprompt_version_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_a_i_agent_request() :: %{}
+
+  """
+  @type get_a_i_agent_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       create_knowledge_base_request() :: %{
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
@@ -674,6 +1046,7 @@ defmodule AWS.QConnect do
         optional("serverSideEncryptionConfiguration") => server_side_encryption_configuration(),
         optional("sourceConfiguration") => list(),
         optional("tags") => map(),
+        optional("vectorIngestionConfiguration") => vector_ingestion_configuration(),
         required("knowledgeBaseType") => String.t(),
         required("name") => String.t()
       }
@@ -707,11 +1080,23 @@ defmodule AWS.QConnect do
         "serverSideEncryptionConfiguration" => server_side_encryption_configuration(),
         "sourceConfiguration" => list(),
         "status" => String.t(),
-        "tags" => map()
+        "tags" => map(),
+        "vectorIngestionConfiguration" => vector_ingestion_configuration()
       }
 
   """
   @type knowledge_base_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_a_iprompt_response() :: %{
+        "aiPrompt" => a_iprompt_data()
+      }
+
+  """
+  @type create_a_iprompt_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -778,6 +1163,15 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      remove_assistant_a_i_agent_response() :: %{}
+
+  """
+  @type remove_assistant_a_i_agent_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       import_job_data() :: %{
         "createdTime" => [non_neg_integer()],
         "externalSourceConfiguration" => external_source_configuration(),
@@ -803,6 +1197,8 @@ defmodule AWS.QConnect do
 
       knowledge_base_data() :: %{
         "description" => String.t(),
+        "ingestionFailureReasons" => list(String.t()()),
+        "ingestionStatus" => String.t(),
         "knowledgeBaseArn" => String.t(),
         "knowledgeBaseId" => String.t(),
         "knowledgeBaseType" => String.t(),
@@ -812,7 +1208,8 @@ defmodule AWS.QConnect do
         "serverSideEncryptionConfiguration" => server_side_encryption_configuration(),
         "sourceConfiguration" => list(),
         "status" => String.t(),
-        "tags" => map()
+        "tags" => map(),
+        "vectorIngestionConfiguration" => vector_ingestion_configuration()
       }
 
   """
@@ -881,6 +1278,17 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      seed_url() :: %{
+        "url" => String.t()
+      }
+
+  """
+  @type seed_url() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       amazon_connect_guide_association_data() :: %{
         "flowId" => String.t()
       }
@@ -901,7 +1309,19 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      url_configuration() :: %{
+        "seedUrls" => list(seed_url()())
+      }
+
+  """
+  @type url_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       assistant_data() :: %{
+        "aiAgentConfiguration" => map(),
         "assistantArn" => String.t(),
         "assistantId" => String.t(),
         "capabilityConfiguration" => assistant_capability_configuration(),
@@ -927,6 +1347,17 @@ defmodule AWS.QConnect do
 
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      web_crawler_limits() :: %{
+        "rateLimit" => [integer()]
+      }
+
+  """
+  @type web_crawler_limits() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1026,7 +1457,31 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      a_i_agent_summary() :: %{
+        "aiAgentArn" => String.t(),
+        "aiAgentId" => String.t(),
+        "assistantArn" => String.t(),
+        "assistantId" => String.t(),
+        "configuration" => list(),
+        "description" => String.t(),
+        "modifiedTime" => [non_neg_integer()],
+        "name" => String.t(),
+        "origin" => String.t(),
+        "status" => String.t(),
+        "tags" => map(),
+        "type" => String.t(),
+        "visibilityStatus" => String.t()
+      }
+
+  """
+  @type a_i_agent_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_session_request() :: %{
+        optional("aiAgentConfiguration") => map(),
         optional("description") => String.t(),
         optional("tagFilter") => list()
       }
@@ -1045,6 +1500,29 @@ defmodule AWS.QConnect do
 
   """
   @type search_sessions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      chunking_configuration() :: %{
+        "chunkingStrategy" => String.t(),
+        "fixedSizeChunkingConfiguration" => fixed_size_chunking_configuration(),
+        "hierarchicalChunkingConfiguration" => hierarchical_chunking_configuration(),
+        "semanticChunkingConfiguration" => semantic_chunking_configuration()
+      }
+
+  """
+  @type chunking_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_a_iprompt_version_request() :: %{}
+
+  """
+  @type delete_a_iprompt_version_request() :: %{}
 
   @typedoc """
 
@@ -1112,6 +1590,17 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      intent_input_data() :: %{
+        "intentId" => String.t()
+      }
+
+  """
+  @type intent_input_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       knowledge_base_association_data() :: %{
         "knowledgeBaseArn" => String.t(),
         "knowledgeBaseId" => String.t()
@@ -1143,6 +1632,28 @@ defmodule AWS.QConnect do
 
   """
   @type query_condition_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_a_i_agent_response() :: %{
+        "aiAgent" => a_i_agent_data()
+      }
+
+  """
+  @type update_a_i_agent_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      parsing_prompt() :: %{
+        "parsingPromptText" => String.t()
+      }
+
+  """
+  @type parsing_prompt() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1181,6 +1692,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       assistant_summary() :: %{
+        "aiAgentConfiguration" => map(),
         "assistantArn" => String.t(),
         "assistantId" => String.t(),
         "capabilityConfiguration" => assistant_capability_configuration(),
@@ -1235,7 +1747,31 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      a_i_agent_data() :: %{
+        "aiAgentArn" => String.t(),
+        "aiAgentId" => String.t(),
+        "assistantArn" => String.t(),
+        "assistantId" => String.t(),
+        "configuration" => list(),
+        "description" => String.t(),
+        "modifiedTime" => [non_neg_integer()],
+        "name" => String.t(),
+        "origin" => String.t(),
+        "status" => String.t(),
+        "tags" => map(),
+        "type" => String.t(),
+        "visibilityStatus" => String.t()
+      }
+
+  """
+  @type a_i_agent_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       source_content_data_details() :: %{
+        "citationSpan" => citation_span(),
         "id" => String.t(),
         "rankingData" => ranking_data(),
         "textData" => text_data(),
@@ -1261,6 +1797,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       session_data() :: %{
+        "aiAgentConfiguration" => map(),
         "description" => String.t(),
         "integrationConfiguration" => session_integration_configuration(),
         "name" => String.t(),
@@ -1290,6 +1827,34 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      semantic_chunking_configuration() :: %{
+        "breakpointPercentileThreshold" => [integer()],
+        "bufferSize" => [integer()],
+        "maxTokens" => [integer()]
+      }
+
+  """
+  @type semantic_chunking_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      web_crawler_configuration() :: %{
+        "crawlerLimits" => web_crawler_limits(),
+        "exclusionFilters" => list(String.t()()),
+        "inclusionFilters" => list(String.t()()),
+        "scope" => String.t(),
+        "urlConfiguration" => url_configuration()
+      }
+
+  """
+  @type web_crawler_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_import_jobs_response() :: %{
         "importJobSummaries" => list(import_job_summary()()),
         "nextToken" => String.t()
@@ -1302,10 +1867,47 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      bedrock_foundation_model_configuration_for_parsing() :: %{
+        "modelArn" => String.t(),
+        "parsingPrompt" => parsing_prompt()
+      }
+
+  """
+  @type bedrock_foundation_model_configuration_for_parsing() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_content_association_response() :: %{}
 
   """
   @type delete_content_association_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      a_iprompt_summary() :: %{
+        "aiPromptArn" => String.t(),
+        "aiPromptId" => String.t(),
+        "apiFormat" => String.t(),
+        "assistantArn" => String.t(),
+        "assistantId" => String.t(),
+        "description" => String.t(),
+        "modelId" => String.t(),
+        "modifiedTime" => [non_neg_integer()],
+        "name" => String.t(),
+        "origin" => String.t(),
+        "status" => String.t(),
+        "tags" => map(),
+        "templateType" => String.t(),
+        "type" => String.t(),
+        "visibilityStatus" => String.t()
+      }
+
+  """
+  @type a_iprompt_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1345,6 +1947,47 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      get_a_iprompt_request() :: %{}
+
+  """
+  @type get_a_iprompt_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_a_iprompt_response() :: %{
+        "aiPrompt" => a_iprompt_data(),
+        "versionNumber" => float()
+      }
+
+  """
+  @type get_a_iprompt_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_a_iprompt_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("description") => String.t(),
+        optional("tags") => map(),
+        required("apiFormat") => String.t(),
+        required("modelId") => String.t(),
+        required("name") => String.t(),
+        required("templateConfiguration") => list(),
+        required("templateType") => String.t(),
+        required("type") => String.t(),
+        required("visibilityStatus") => String.t()
+      }
+
+  """
+  @type create_a_iprompt_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       notify_recommendations_received_error() :: %{
         "message" => String.t(),
         "recommendationId" => String.t()
@@ -1363,6 +2006,18 @@ defmodule AWS.QConnect do
 
   """
   @type get_import_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      manual_search_a_i_agent_configuration() :: %{
+        "answerGenerationAIPromptId" => String.t(),
+        "associationConfigurations" => list(association_configuration()())
+      }
+
+  """
+  @type manual_search_a_i_agent_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1459,9 +2114,11 @@ defmodule AWS.QConnect do
       query_assistant_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
+        optional("overrideKnowledgeBaseSearchType") => String.t(),
         optional("queryCondition") => list(list()()),
-        optional("sessionId") => String.t(),
-        required("queryText") => String.t()
+        optional("queryInputData") => list(),
+        optional("queryText") => String.t(),
+        optional("sessionId") => String.t()
       }
 
   """
@@ -1570,15 +2227,41 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      runtime_session_data() :: %{
+        "key" => String.t(),
+        "value" => list()
+      }
+
+  """
+  @type runtime_session_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       content_reference() :: %{
         "contentArn" => String.t(),
         "contentId" => String.t(),
         "knowledgeBaseArn" => String.t(),
-        "knowledgeBaseId" => String.t()
+        "knowledgeBaseId" => String.t(),
+        "referenceType" => String.t(),
+        "sourceURL" => [String.t()]
       }
 
   """
   @type content_reference() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      citation_span() :: %{
+        "beginOffsetInclusive" => integer(),
+        "endOffsetExclusive" => integer()
+      }
+
+  """
+  @type citation_span() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1640,12 +2323,59 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      update_session_data_response() :: %{
+        "data" => list(runtime_session_data()()),
+        "namespace" => String.t(),
+        "sessionArn" => String.t(),
+        "sessionId" => String.t()
+      }
+
+  """
+  @type update_session_data_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      knowledge_base_association_configuration_data() :: %{
+        "contentTagFilter" => list(),
+        "maxResults" => integer(),
+        "overrideKnowledgeBaseSearchType" => String.t()
+      }
+
+  """
+  @type knowledge_base_association_configuration_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hierarchical_chunking_level_configuration() :: %{
+        "maxTokens" => [integer()]
+      }
+
+  """
+  @type hierarchical_chunking_level_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_content_response() :: %{
         optional("content") => content_data()
       }
 
   """
   @type get_content_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_a_iprompt_request() :: %{}
+
+  """
+  @type delete_a_iprompt_request() :: %{}
 
   @typedoc """
 
@@ -1700,6 +2430,15 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      delete_a_i_agent_response() :: %{}
+
+  """
+  @type delete_a_i_agent_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_knowledge_bases_response() :: %{
         optional("nextToken") => String.t(),
         required("knowledgeBaseSummaries") => list(knowledge_base_summary()())
@@ -1745,6 +2484,20 @@ defmodule AWS.QConnect do
 
   """
   @type result_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_a_i_agent_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("configuration") => list(),
+        optional("description") => String.t(),
+        required("visibilityStatus") => String.t()
+      }
+
+  """
+  @type update_a_i_agent_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1818,6 +2571,17 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      text_full_a_iprompt_edit_template_configuration() :: %{
+        "text" => String.t()
+      }
+
+  """
+  @type text_full_a_iprompt_edit_template_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_assistant_association_request() :: %{}
 
   """
@@ -1845,6 +2609,18 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      list_a_iprompt_versions_response() :: %{
+        "aiPromptVersionSummaries" => list(a_iprompt_version_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_a_iprompt_versions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       quick_response_order_field() :: %{
         "name" => String.t(),
         "order" => String.t()
@@ -1864,6 +2640,18 @@ defmodule AWS.QConnect do
 
   """
   @type list_assistants_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_assistant_a_i_agent_request() :: %{
+        required("aiAgentType") => String.t(),
+        required("configuration") => a_i_agent_configuration_data()
+      }
+
+  """
+  @type update_assistant_a_i_agent_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1903,6 +2691,18 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      vector_ingestion_configuration() :: %{
+        "chunkingConfiguration" => chunking_configuration(),
+        "parsingConfiguration" => parsing_configuration()
+      }
+
+  """
+  @type vector_ingestion_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       grouping_configuration() :: %{
         "criteria" => String.t(),
         "values" => list(String.t()())
@@ -1924,6 +2724,20 @@ defmodule AWS.QConnect do
 
   """
   @type create_assistant_association_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      answer_recommendation_a_i_agent_configuration() :: %{
+        "answerGenerationAIPromptId" => String.t(),
+        "associationConfigurations" => list(association_configuration()()),
+        "intentLabelingGenerationAIPromptId" => String.t(),
+        "queryReformulationAIPromptId" => String.t()
+      }
+
+  """
+  @type answer_recommendation_a_i_agent_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1951,6 +2765,17 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      update_a_iprompt_response() :: %{
+        "aiPrompt" => a_iprompt_data()
+      }
+
+  """
+  @type update_a_iprompt_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_content_associations_response() :: %{
         "contentAssociationSummaries" => list(content_association_summary()()),
         "nextToken" => String.t()
@@ -1958,6 +2783,18 @@ defmodule AWS.QConnect do
 
   """
   @type list_content_associations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_a_i_agent_version_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("modifiedTime") => [non_neg_integer()]
+      }
+
+  """
+  @type create_a_i_agent_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1997,6 +2834,18 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      update_session_data_request() :: %{
+        optional("namespace") => String.t(),
+        required("data") => list(runtime_session_data()())
+      }
+
+  """
+  @type update_session_data_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_content_association_request() :: %{}
 
   """
@@ -2012,6 +2861,17 @@ defmodule AWS.QConnect do
 
   """
   @type session_integration_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_assistant_a_i_agent_response() :: %{
+        "assistant" => assistant_data()
+      }
+
+  """
+  @type update_assistant_a_i_agent_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2033,6 +2893,50 @@ defmodule AWS.QConnect do
 
   """
   @type too_many_tags_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_a_iprompt_version_response() :: %{
+        "aiPrompt" => a_iprompt_data(),
+        "versionNumber" => float()
+      }
+
+  """
+  @type create_a_iprompt_version_response() :: %{String.t() => any()}
+
+  @type create_a_i_agent_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_a_i_agent_version_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_a_iprompt_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_a_iprompt_version_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type create_assistant_errors() ::
           validation_exception()
@@ -2081,6 +2985,32 @@ defmodule AWS.QConnect do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type delete_a_i_agent_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type delete_a_i_agent_version_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_a_iprompt_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type delete_a_iprompt_version_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type delete_assistant_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
 
@@ -2107,6 +3037,18 @@ defmodule AWS.QConnect do
 
   @type delete_quick_response_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
+
+  @type get_a_i_agent_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type get_a_iprompt_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
 
   @type get_assistant_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
@@ -2137,6 +3079,30 @@ defmodule AWS.QConnect do
 
   @type get_session_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
+
+  @type list_a_i_agent_versions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type list_a_i_agents_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type list_a_iprompt_versions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type list_a_iprompts_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
 
   @type list_assistant_associations_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
@@ -2170,6 +3136,12 @@ defmodule AWS.QConnect do
           | resource_not_found_exception()
           | request_timeout_exception()
 
+  @type remove_assistant_a_i_agent_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
   @type remove_knowledge_base_template_uri_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
 
@@ -2199,6 +3171,26 @@ defmodule AWS.QConnect do
 
   @type untag_resource_errors() :: resource_not_found_exception()
 
+  @type update_a_i_agent_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_a_iprompt_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_assistant_a_i_agent_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
   @type update_content_errors() ::
           precondition_failed_exception()
           | validation_exception()
@@ -2218,6 +3210,9 @@ defmodule AWS.QConnect do
   @type update_session_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
 
+  @type update_session_data_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
   def metadata do
     %{
       api_version: "2020-10-19",
@@ -2232,6 +3227,142 @@ defmodule AWS.QConnect do
       signing_name: "wisdom",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Creates an Amazon Q in Connect AI Agent.
+  """
+  @spec create_a_i_agent(map(), String.t(), create_a_i_agent_request(), list()) ::
+          {:ok, create_a_i_agent_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_a_i_agent_errors()}
+  def create_a_i_agent(%Client{} = client, assistant_id, input, options \\ []) do
+    url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiagents"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates and Amazon Q in Connect AI Agent version.
+  """
+  @spec create_a_i_agent_version(
+          map(),
+          String.t(),
+          String.t(),
+          create_a_i_agent_version_request(),
+          list()
+        ) ::
+          {:ok, create_a_i_agent_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_a_i_agent_version_errors()}
+  def create_a_i_agent_version(
+        %Client{} = client,
+        ai_agent_id,
+        assistant_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiagents/#{AWS.Util.encode_uri(ai_agent_id)}/versions"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates an Amazon Q in Connect AI Prompt.
+  """
+  @spec create_a_iprompt(map(), String.t(), create_a_iprompt_request(), list()) ::
+          {:ok, create_a_iprompt_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_a_iprompt_errors()}
+  def create_a_iprompt(%Client{} = client, assistant_id, input, options \\ []) do
+    url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiprompts"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates an Amazon Q in Connect AI Prompt version.
+  """
+  @spec create_a_iprompt_version(
+          map(),
+          String.t(),
+          String.t(),
+          create_a_iprompt_version_request(),
+          list()
+        ) ::
+          {:ok, create_a_iprompt_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_a_iprompt_version_errors()}
+  def create_a_iprompt_version(
+        %Client{} = client,
+        ai_prompt_id,
+        assistant_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiprompts/#{AWS.Util.encode_uri(ai_prompt_id)}/versions"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2334,10 +3465,10 @@ defmodule AWS.QConnect do
   Creates an association between a content resource in a knowledge base and
   [step-by-step guides](https://docs.aws.amazon.com/connect/latest/adminguide/step-by-step-guided-experiences.html).
 
-  Step-by-step guides offer instructions to agents for resolving common
-  customer issues. You create a content association to integrate Amazon Q in
-  Connect and step-by-step
-  guides.
+  Step-by-step guides offer instructions to agents for resolving
+  common customer issues. You create a content association to integrate Amazon Q
+  in Connect and
+  step-by-step guides.
 
   After you integrate Amazon Q and step-by-step guides, when Amazon Q provides a
   recommendation to an agent based on the intent that it's detected, it also
@@ -2348,8 +3479,9 @@ defmodule AWS.QConnect do
   Note the following limitations:
 
     *
-  You can create only one content association for each
-  content resource in a knowledge base.
+  You can create only one content association for each content resource in a
+  knowledge
+  base.
 
     *
   You can associate a step-by-step guide with multiple content resources.
@@ -2507,6 +3639,150 @@ defmodule AWS.QConnect do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Deletes an Amazon Q in Connect AI Agent.
+  """
+  @spec delete_a_i_agent(map(), String.t(), String.t(), delete_a_i_agent_request(), list()) ::
+          {:ok, delete_a_i_agent_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_a_i_agent_errors()}
+  def delete_a_i_agent(%Client{} = client, ai_agent_id, assistant_id, input, options \\ []) do
+    url_path =
+      "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiagents/#{AWS.Util.encode_uri(ai_agent_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes an Amazon Q in Connect AI Agent Version.
+  """
+  @spec delete_a_i_agent_version(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          delete_a_i_agent_version_request(),
+          list()
+        ) ::
+          {:ok, delete_a_i_agent_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_a_i_agent_version_errors()}
+  def delete_a_i_agent_version(
+        %Client{} = client,
+        ai_agent_id,
+        assistant_id,
+        version_number,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiagents/#{AWS.Util.encode_uri(ai_agent_id)}/versions/#{AWS.Util.encode_uri(version_number)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes an Amazon Q in Connect AI Prompt.
+  """
+  @spec delete_a_iprompt(map(), String.t(), String.t(), delete_a_iprompt_request(), list()) ::
+          {:ok, delete_a_iprompt_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_a_iprompt_errors()}
+  def delete_a_iprompt(%Client{} = client, ai_prompt_id, assistant_id, input, options \\ []) do
+    url_path =
+      "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiprompts/#{AWS.Util.encode_uri(ai_prompt_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Delete and Amazon Q in Connect AI Prompt version.
+  """
+  @spec delete_a_iprompt_version(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          delete_a_iprompt_version_request(),
+          list()
+        ) ::
+          {:ok, delete_a_iprompt_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_a_iprompt_version_errors()}
+  def delete_a_iprompt_version(
+        %Client{} = client,
+        ai_prompt_id,
+        assistant_id,
+        version_number,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiprompts/#{AWS.Util.encode_uri(ai_prompt_id)}/versions/#{AWS.Util.encode_uri(version_number)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
     )
   end
 
@@ -2771,6 +4047,44 @@ defmodule AWS.QConnect do
   end
 
   @doc """
+  Gets an Amazon Q in Connect AI Agent.
+  """
+  @spec get_a_i_agent(map(), String.t(), String.t(), list()) ::
+          {:ok, get_a_i_agent_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_a_i_agent_errors()}
+  def get_a_i_agent(%Client{} = client, ai_agent_id, assistant_id, options \\ []) do
+    url_path =
+      "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiagents/#{AWS.Util.encode_uri(ai_agent_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets and Amazon Q in Connect AI Prompt.
+  """
+  @spec get_a_iprompt(map(), String.t(), String.t(), list()) ::
+          {:ok, get_a_iprompt_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_a_iprompt_errors()}
+  def get_a_iprompt(%Client{} = client, ai_prompt_id, assistant_id, options \\ []) do
+    url_path =
+      "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiprompts/#{AWS.Util.encode_uri(ai_prompt_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves information about an assistant.
   """
   @spec get_assistant(map(), String.t(), list()) ::
@@ -3012,6 +4326,222 @@ defmodule AWS.QConnect do
 
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  List AI Agent versions.
+  """
+  @spec list_a_i_agent_versions(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_a_i_agent_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_a_i_agent_versions_errors()}
+  def list_a_i_agent_versions(
+        %Client{} = client,
+        ai_agent_id,
+        assistant_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        origin \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiagents/#{AWS.Util.encode_uri(ai_agent_id)}/versions"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(origin) do
+        [{"origin", origin} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists AI Agents.
+  """
+  @spec list_a_i_agents(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_a_i_agents_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_a_i_agents_errors()}
+  def list_a_i_agents(
+        %Client{} = client,
+        assistant_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        origin \\ nil,
+        options \\ []
+      ) do
+    url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiagents"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(origin) do
+        [{"origin", origin} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists AI Prompt versions.
+  """
+  @spec list_a_iprompt_versions(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_a_iprompt_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_a_iprompt_versions_errors()}
+  def list_a_iprompt_versions(
+        %Client{} = client,
+        ai_prompt_id,
+        assistant_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        origin \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiprompts/#{AWS.Util.encode_uri(ai_prompt_id)}/versions"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(origin) do
+        [{"origin", origin} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the AI Prompts available on the Amazon Q in Connect assistant.
+  """
+  @spec list_a_iprompts(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_a_iprompts_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_a_iprompts_errors()}
+  def list_a_iprompts(
+        %Client{} = client,
+        assistant_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        origin \\ nil,
+        options \\ []
+      ) do
+    url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiprompts"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(origin) do
+        [{"origin", origin} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -3412,6 +4942,44 @@ defmodule AWS.QConnect do
   end
 
   @doc """
+  Removes the AI Agent that is set for use by defafult on an Amazon Q in Connect
+  Assistant.
+  """
+  @spec remove_assistant_a_i_agent(
+          map(),
+          String.t(),
+          remove_assistant_a_i_agent_request(),
+          list()
+        ) ::
+          {:ok, remove_assistant_a_i_agent_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, remove_assistant_a_i_agent_errors()}
+  def remove_assistant_a_i_agent(%Client{} = client, assistant_id, input, options \\ []) do
+    url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiagentConfiguration"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"aiAgentType", "aiAgentType"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Removes a URI template from a knowledge base.
   """
   @spec remove_knowledge_base_template_uri(
@@ -3690,6 +5258,97 @@ defmodule AWS.QConnect do
   end
 
   @doc """
+  Updates an AI Agent.
+  """
+  @spec update_a_i_agent(map(), String.t(), String.t(), update_a_i_agent_request(), list()) ::
+          {:ok, update_a_i_agent_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_a_i_agent_errors()}
+  def update_a_i_agent(%Client{} = client, ai_agent_id, assistant_id, input, options \\ []) do
+    url_path =
+      "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiagents/#{AWS.Util.encode_uri(ai_agent_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an AI Prompt.
+  """
+  @spec update_a_iprompt(map(), String.t(), String.t(), update_a_iprompt_request(), list()) ::
+          {:ok, update_a_iprompt_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_a_iprompt_errors()}
+  def update_a_iprompt(%Client{} = client, ai_prompt_id, assistant_id, input, options \\ []) do
+    url_path =
+      "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiprompts/#{AWS.Util.encode_uri(ai_prompt_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the AI Agent that is set for use by defafult on an Amazon Q in Connect
+  Assistant.
+  """
+  @spec update_assistant_a_i_agent(
+          map(),
+          String.t(),
+          update_assistant_a_i_agent_request(),
+          list()
+        ) ::
+          {:ok, update_assistant_a_i_agent_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_assistant_a_i_agent_errors()}
+  def update_assistant_a_i_agent(%Client{} = client, assistant_id, input, options \\ []) do
+    url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiagentConfiguration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates information about the content.
   """
   @spec update_content(map(), String.t(), String.t(), update_content_request(), list()) ::
@@ -3828,6 +5487,35 @@ defmodule AWS.QConnect do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the data stored on an Amazon Q in Connect Session.
+  """
+  @spec update_session_data(map(), String.t(), String.t(), update_session_data_request(), list()) ::
+          {:ok, update_session_data_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_session_data_errors()}
+  def update_session_data(%Client{} = client, assistant_id, session_id, input, options \\ []) do
+    url_path =
+      "/assistants/#{AWS.Util.encode_uri(assistant_id)}/sessions/#{AWS.Util.encode_uri(session_id)}/data"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
       url_path,
       query_params,
       headers,

@@ -1065,11 +1065,12 @@ defmodule AWS.Deadline do
         optional("maxFailedTasksCount") => integer(),
         optional("maxRetriesPerTask") => integer(),
         optional("parameters") => map(),
+        optional("sourceJobId") => String.t(),
         optional("storageProfileId") => String.t(),
         optional("targetTaskRunStatus") => list(any()),
-        required("priority") => integer(),
-        required("template") => String.t(),
-        required("templateType") => list(any())
+        optional("template") => String.t(),
+        optional("templateType") => list(any()),
+        required("priority") => integer()
       }
 
   """
@@ -1569,6 +1570,7 @@ defmodule AWS.Deadline do
         "maxRetriesPerTask" => integer(),
         "name" => String.t(),
         "priority" => integer(),
+        "sourceJobId" => String.t(),
         "startedAt" => non_neg_integer(),
         "targetTaskRunStatus" => list(any()),
         "taskRunStatus" => list(any()),
@@ -1591,6 +1593,18 @@ defmodule AWS.Deadline do
 
   """
   @type update_farm_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_job_parameter_definitions_response() :: %{
+        "jobParameterDefinitions" => list(any()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_job_parameter_definitions_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3019,6 +3033,7 @@ defmodule AWS.Deadline do
         "name" => String.t(),
         "parameters" => map(),
         "priority" => integer(),
+        "sourceJobId" => String.t(),
         "startedAt" => non_neg_integer(),
         "storageProfileId" => String.t(),
         "targetTaskRunStatus" => list(any()),
@@ -3477,6 +3492,7 @@ defmodule AWS.Deadline do
         "name" => String.t(),
         "priority" => integer(),
         "queueId" => String.t(),
+        "sourceJobId" => String.t(),
         "startedAt" => non_neg_integer(),
         "targetTaskRunStatus" => list(any()),
         "taskRunStatus" => list(any()),
@@ -3781,6 +3797,18 @@ defmodule AWS.Deadline do
 
   """
   @type worker_session_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_job_parameter_definitions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_job_parameter_definitions_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4539,6 +4567,13 @@ defmodule AWS.Deadline do
           | resource_not_found_exception()
 
   @type list_job_members_errors() ::
+          throttling_exception()
+          | internal_server_error_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type list_job_parameter_definitions_errors() ::
           throttling_exception()
           | internal_server_error_exception()
           | validation_exception()
@@ -6811,6 +6846,55 @@ defmodule AWS.Deadline do
       ) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/members"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists parameter definitions of a job.
+  """
+  @spec list_job_parameter_definitions(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_job_parameter_definitions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_job_parameter_definitions_errors()}
+  def list_job_parameter_definitions(
+        %Client{} = client,
+        farm_id,
+        job_id,
+        queue_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/parameter-definitions"
 
     headers = []
     query_params = []

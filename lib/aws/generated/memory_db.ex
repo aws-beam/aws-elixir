@@ -3,14 +3,14 @@
 
 defmodule AWS.MemoryDB do
   @moduledoc """
-  MemoryDB is a fully managed, Redis OSS-compatible, in-memory database that
+  MemoryDB for Redis is a fully managed, Redis-compatible, in-memory database that
   delivers ultra-fast performance and Multi-AZ durability for modern applications
   built using microservices architectures.
 
   MemoryDB stores the entire database in-memory, enabling low latency and high
-  throughput data access. It is compatible with Redis OSS, a popular open source
-  data store, enabling you to leverage Redis OSS’ flexible and friendly data
-  structures, APIs, and commands.
+  throughput data access. It is compatible with Redis, a popular open source data
+  store, enabling you to leverage Redis’ flexible and friendly data structures,
+  APIs, and commands.
   """
 
   alias AWS.Client
@@ -136,6 +136,7 @@ defmodule AWS.MemoryDB do
       
       describe_engine_versions_request() :: %{
         optional("DefaultOnly") => boolean(),
+        optional("Engine") => String.t(),
         optional("EngineVersion") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -723,6 +724,7 @@ defmodule AWS.MemoryDB do
       update_cluster_request() :: %{
         optional("ACLName") => String.t(),
         optional("Description") => String.t(),
+        optional("Engine") => String.t(),
         optional("EngineVersion") => String.t(),
         optional("MaintenanceWindow") => String.t(),
         optional("NodeType") => String.t(),
@@ -757,6 +759,7 @@ defmodule AWS.MemoryDB do
       
       cluster_configuration() :: %{
         "Description" => String.t(),
+        "Engine" => String.t(),
         "EngineVersion" => String.t(),
         "MaintenanceWindow" => String.t(),
         "Name" => String.t(),
@@ -853,6 +856,7 @@ defmodule AWS.MemoryDB do
         optional("AutoMinorVersionUpgrade") => boolean(),
         optional("DataTiering") => boolean(),
         optional("Description") => String.t(),
+        optional("Engine") => String.t(),
         optional("EngineVersion") => String.t(),
         optional("KmsKeyId") => String.t(),
         optional("MaintenanceWindow") => String.t(),
@@ -882,6 +886,7 @@ defmodule AWS.MemoryDB do
   ## Example:
       
       engine_version_info() :: %{
+        "Engine" => String.t(),
         "EnginePatchVersion" => String.t(),
         "EngineVersion" => String.t(),
         "ParameterGroupFamily" => String.t()
@@ -925,6 +930,7 @@ defmodule AWS.MemoryDB do
         "ClusterEndpoint" => endpoint(),
         "DataTiering" => list(any()),
         "Description" => String.t(),
+        "Engine" => String.t(),
         "EnginePatchVersion" => String.t(),
         "EngineVersion" => String.t(),
         "KmsKeyId" => String.t(),
@@ -1681,6 +1687,7 @@ defmodule AWS.MemoryDB do
         "AutoUpdateStartDate" => non_neg_integer(),
         "ClusterName" => String.t(),
         "Description" => String.t(),
+        "Engine" => String.t(),
         "NodesUpdated" => String.t(),
         "ReleaseDate" => non_neg_integer(),
         "ServiceUpdateName" => String.t(),
@@ -2537,10 +2544,6 @@ defmodule AWS.MemoryDB do
   Deletes a cluster.
 
   It also deletes all associated nodes and node endpoints
-
-  `CreateSnapshot` permission is required to create a final snapshot.
-  Without this permission, the API call will fail with an `Access Denied`
-  exception.
   """
   @spec delete_cluster(map(), delete_cluster_request(), list()) ::
           {:ok, delete_cluster_response(), any()}
@@ -2643,7 +2646,7 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
-  Returns a list of the available Redis OSS engine versions.
+  Returns a list of the available engine versions.
   """
   @spec describe_engine_versions(map(), describe_engine_versions_request(), list()) ::
           {:ok, describe_engine_versions_response(), any()}

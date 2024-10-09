@@ -1357,6 +1357,7 @@ defmodule AWS.ElastiCache do
         optional("AutomaticFailoverEnabled") => boolean(),
         optional("CacheNodeType") => String.t(),
         optional("CacheParameterGroupName") => String.t(),
+        optional("Engine") => String.t(),
         optional("EngineVersion") => String.t(),
         optional("GlobalReplicationGroupDescription") => String.t(),
         required("ApplyImmediately") => boolean(),
@@ -1815,6 +1816,7 @@ defmodule AWS.ElastiCache do
         optional("CacheParameterGroupName") => String.t(),
         optional("CacheSecurityGroupNames") => list(String.t()()),
         optional("ClusterMode") => list(any()),
+        optional("Engine") => String.t(),
         optional("EngineVersion") => String.t(),
         optional("IpDiscovery") => list(any()),
         optional("LogDeliveryConfigurations") => list(log_delivery_configuration_request()()),
@@ -2248,6 +2250,7 @@ defmodule AWS.ElastiCache do
         "ConfigurationEndpoint" => endpoint(),
         "DataTiering" => list(any()),
         "Description" => String.t(),
+        "Engine" => String.t(),
         "GlobalReplicationGroupInfo" => global_replication_group_info(),
         "IpDiscovery" => list(any()),
         "KmsKeyId" => String.t(),
@@ -3360,6 +3363,8 @@ defmodule AWS.ElastiCache do
         optional("CacheUsageLimits") => cache_usage_limits(),
         optional("DailySnapshotTime") => String.t(),
         optional("Description") => String.t(),
+        optional("Engine") => String.t(),
+        optional("MajorEngineVersion") => String.t(),
         optional("RemoveUserGroup") => boolean(),
         optional("SecurityGroupIds") => list(String.t()()),
         optional("SnapshotRetentionLimit") => integer(),
@@ -3719,6 +3724,7 @@ defmodule AWS.ElastiCache do
         optional("CacheNodeType") => String.t(),
         optional("CacheParameterGroupName") => String.t(),
         optional("CacheSecurityGroupNames") => list(String.t()()),
+        optional("Engine") => String.t(),
         optional("EngineVersion") => String.t(),
         optional("IpDiscovery") => list(any()),
         optional("LogDeliveryConfigurations") => list(log_delivery_configuration_request()()),
@@ -4513,7 +4519,7 @@ defmodule AWS.ElastiCache do
   @doc """
   Creates a copy of an existing serverless cache’s snapshot.
 
-  Available for Redis OSS and Serverless Memcached only.
+  Available for Valkey, Redis OSS and Serverless Memcached only.
   """
   @spec copy_serverless_cache_snapshot(map(), copy_serverless_cache_snapshot_request(), list()) ::
           {:ok, copy_serverless_cache_snapshot_response(), any()}
@@ -4528,7 +4534,7 @@ defmodule AWS.ElastiCache do
   @doc """
   Makes a copy of an existing snapshot.
 
-  This operation is valid for Redis OSS only.
+  This operation is valid for Valkey or Redis OSS only.
 
   Users or groups that have permissions to use the `CopySnapshot`
   operation can create their own Amazon S3 buckets and copy snapshots to it. To
@@ -4639,9 +4645,10 @@ defmodule AWS.ElastiCache do
   Creates a cluster.
 
   All nodes in the cluster run the same protocol-compliant cache
-  engine software, either Memcached or Redis OSS.
+  engine software, either Memcached, Valkey or Redis OSS.
 
-  This operation is not supported for Redis OSS (cluster mode enabled) clusters.
+  This operation is not supported for Valkey or Redis OSS (cluster mode enabled)
+  clusters.
   """
   @spec create_cache_cluster(map(), create_cache_cluster_message(), list()) ::
           {:ok, create_cache_cluster_result(), any()}
@@ -4729,12 +4736,11 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  Global Datastore for Redis OSS offers fully managed, fast, reliable and secure
+  Global Datastore offers fully managed, fast, reliable and secure
   cross-region replication.
 
-  Using Global Datastore for Redis OSS, you can create cross-region
-  read replica clusters for ElastiCache (Redis OSS) to enable low-latency reads
-  and disaster
+  Using Global Datastore with Valkey or Redis OSS, you can create cross-region
+  read replica clusters for ElastiCache to enable low-latency reads and disaster
   recovery across regions. For more information, see [Replication Across Regions Using Global
   Datastore](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html).
 
@@ -4758,21 +4764,21 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  Creates a Redis OSS (cluster mode disabled) or a Redis OSS (cluster mode
-  enabled) replication
+  Creates a Valkey or Redis OSS (cluster mode disabled) or a Valkey or Redis OSS
+  (cluster mode enabled) replication
   group.
 
   This API can be used to create a standalone regional replication group or a
   secondary
   replication group associated with a Global datastore.
 
-  A Redis OSS (cluster mode disabled) replication group is a collection of nodes,
-  where
+  A Valkey or Redis OSS (cluster mode disabled) replication group is a collection
+  of nodes, where
   one of the nodes is a read/write primary and the others are read-only replicas.
   Writes to the primary are asynchronously propagated to the replicas.
 
-  A Redis OSS cluster-mode enabled cluster is comprised of from 1 to 90 shards
-  (API/CLI:
+  A Valkey or Redis OSS cluster-mode enabled cluster is comprised of from 1 to 90
+  shards (API/CLI:
   node groups). Each shard has a primary node and up to 5 read-only replica nodes.
   The
   configuration can range from 90 shards and 0 replicas to 15 shards and 5
@@ -4780,7 +4786,7 @@ defmodule AWS.ElastiCache do
   is the maximum number or replicas allowed.
 
   The node or shard limit can be increased to a maximum of 500 per cluster if the
-  Redis OSS
+  Valkey or Redis OSS
   engine version is 5.0.6 or higher. For example, you can choose to configure a
   500 node
   cluster that ranges between 83 shards (one primary and 5 replicas per shard) and
@@ -4798,18 +4804,17 @@ defmodule AWS.ElastiCache do
   choose the limit type **Nodes per cluster per instance
   type**.
 
-  When a Redis OSS (cluster mode disabled) replication group has been successfully
-  created,
+  When a Valkey or Redis OSS (cluster mode disabled) replication group has been
+  successfully created,
   you can add one or more read replicas to it, up to a total of 5 read replicas.
   If you
   need to increase or decrease the number of node groups (console: shards), you
-  can use ElastiCache (Redis OSS) scaling.
-  For more information, see [Scaling ElastiCache (Redis OSS)
-  Clusters](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html)
+  can use scaling.
+  For more information, see [Scaling self-designed clusters](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html)
   in the *ElastiCache User
   Guide*.
 
-  This operation is valid for Redis OSS only.
+  This operation is valid for Valkey and Redis OSS only.
   """
   @spec create_replication_group(map(), create_replication_group_message(), list()) ::
           {:ok, create_replication_group_result(), any()}
@@ -4838,7 +4843,7 @@ defmodule AWS.ElastiCache do
   This API creates a copy of an entire ServerlessCache at a specific moment in
   time.
 
-  Available for Redis OSS and Serverless Memcached only.
+  Available for Valkey, Redis OSS and Serverless Memcached only.
   """
   @spec create_serverless_cache_snapshot(
           map(),
@@ -4858,7 +4863,7 @@ defmodule AWS.ElastiCache do
   Creates a copy of an entire cluster or replication group at a specific moment in
   time.
 
-  This operation is valid for Redis OSS only.
+  This operation is valid for Valkey or Redis OSS only.
   """
   @spec create_snapshot(map(), create_snapshot_message(), list()) ::
           {:ok, create_snapshot_result(), any()}
@@ -4871,7 +4876,8 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  For Redis OSS engine version 6.0 onwards: Creates a Redis OSS user.
+  For Valkey engine version 7.2 onwards and Redis OSS 6.0 and onwards: Creates a
+  user.
 
   For more information, see
   [Using Role Based Access Control (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html).
@@ -4887,7 +4893,8 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  For Redis OSS engine version 6.0 onwards: Creates a Redis OSS user group.
+  For Valkey engine version 7.2 onwards and Redis OSS 6.0 onwards: Creates a user
+  group.
 
   For more
   information, see [Using Role Based Access Control (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html)
@@ -4926,11 +4933,11 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  Dynamically decreases the number of replicas in a Redis OSS (cluster mode
-  disabled)
+  Dynamically decreases the number of replicas in a Valkey or Redis OSS (cluster
+  mode disabled)
   replication group or the number of replica nodes in one or more node groups
   (shards) of
-  a Redis OSS (cluster mode enabled) replication group.
+  a Valkey or Redis OSS (cluster mode enabled) replication group.
 
   This operation is performed with no
   cluster down time.
@@ -4958,10 +4965,10 @@ defmodule AWS.ElastiCache do
   This operation is not valid for:
 
     *
-  Redis OSS (cluster mode enabled) clusters
+  Valkey or Redis OSS (cluster mode enabled) clusters
 
     *
-  Redis OSS (cluster mode disabled) clusters
+  Valkey or Redis OSS (cluster mode disabled) clusters
 
     *
   A cluster that is the last read replica of a replication group
@@ -4973,7 +4980,7 @@ defmodule AWS.ElastiCache do
   A node group (shard) that has Multi-AZ mode enabled
 
     *
-  A cluster from a Redis OSS (cluster mode enabled) replication group
+  A cluster from a Valkey or Redis OSS (cluster mode enabled) replication group
 
     *
   A cluster that is not in the `available` state
@@ -5128,7 +5135,7 @@ defmodule AWS.ElastiCache do
   @doc """
   Deletes an existing serverless cache snapshot.
 
-  Available for Redis OSS and Serverless Memcached only.
+  Available for Valkey, Redis OSS and Serverless Memcached only.
   """
   @spec delete_serverless_cache_snapshot(
           map(),
@@ -5152,7 +5159,7 @@ defmodule AWS.ElastiCache do
   cancel or
   revert this operation.
 
-  This operation is valid for Redis OSS only.
+  This operation is valid for Valkey or Redis OSS only.
   """
   @spec delete_snapshot(map(), delete_snapshot_message(), list()) ::
           {:ok, delete_snapshot_result(), any()}
@@ -5165,7 +5172,7 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  For Redis OSS engine version 6.0 onwards: Deletes a user.
+  For Valkey engine version 7.2 onwards and Redis OSS 6.0 onwards: Deletes a user.
 
   The user will be removed from
   all user groups and in turn removed from all replication groups. For more
@@ -5183,7 +5190,8 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  For Redis OSS engine version 6.0 onwards: Deletes a user group.
+  For Valkey engine version 7.2 onwards and Redis OSS 6.0 onwards: Deletes a user
+  group.
 
   The user group must first
   be disassociated from the replication group before it can be deleted. For more
@@ -5385,7 +5393,7 @@ defmodule AWS.ElastiCache do
   specified, `DescribeReplicationGroups` returns information about all
   replication groups.
 
-  This operation is valid for Redis OSS only.
+  This operation is valid for Valkey or Redis OSS only.
   """
   @spec describe_replication_groups(map(), describe_replication_groups_message(), list()) ::
           {:ok, replication_group_message(), any()}
@@ -5435,8 +5443,8 @@ defmodule AWS.ElastiCache do
   By default, this API lists all of the customer’s serverless cache snapshots.
   It can also describe a single serverless cache snapshot, or the snapshots
   associated with
-  a particular serverless cache. Available for Redis OSS and Serverless Memcached
-  only.
+  a particular serverless cache. Available for Valkey, Redis OSS and Serverless
+  Memcached only.
   """
   @spec describe_serverless_cache_snapshots(
           map(),
@@ -5491,7 +5499,7 @@ defmodule AWS.ElastiCache do
   cache
   cluster.
 
-  This operation is valid for Redis OSS only.
+  This operation is valid for Valkey or Redis OSS only.
   """
   @spec describe_snapshots(map(), describe_snapshots_message(), list()) ::
           {:ok, describe_snapshots_list_message(), any()}
@@ -5568,7 +5576,7 @@ defmodule AWS.ElastiCache do
   Provides the functionality to export the serverless cache snapshot data to
   Amazon S3.
 
-  Available for Redis OSS only.
+  Available for Valkey and Redis OSS only.
   """
   @spec export_serverless_cache_snapshot(
           map(),
@@ -5628,11 +5636,11 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  Dynamically increases the number of replicas in a Redis OSS (cluster mode
-  disabled)
+  Dynamically increases the number of replicas in a Valkey or Redis OSS (cluster
+  mode disabled)
   replication group or the number of replica nodes in one or more node groups
   (shards) of
-  a Redis OSS (cluster mode enabled) replication group.
+  a Valkey or Redis OSS (cluster mode enabled) replication group.
 
   This operation is performed with no
   cluster down time.
@@ -5648,7 +5656,7 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  Lists all available node types that you can scale your Redis OSS cluster's or
+  Lists all available node types that you can scale with your cluster's
   replication
   group's current node type.
 
@@ -5759,11 +5767,11 @@ defmodule AWS.ElastiCache do
   @doc """
   Modifies the settings for a replication group.
 
-  This is limited to Redis OSS 7 and newer.
+  This is limited to Valkey and Redis OSS 7 and above.
 
     *
 
-  [Scaling for Amazon ElastiCache (Redis OSS) (cluster mode enabled)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/scaling-redis-cluster-mode-enabled.html)
+  [Scaling for Valkey or Redis OSS (cluster mode enabled)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/scaling-redis-cluster-mode-enabled.html)
   in
   the ElastiCache User Guide
 
@@ -5773,7 +5781,7 @@ defmodule AWS.ElastiCache do
   in the ElastiCache API
   Reference
 
-  This operation is valid for Redis OSS only.
+  This operation is valid for Valkey or Redis OSS only.
   """
   @spec modify_replication_group(map(), modify_replication_group_message(), list()) ::
           {:ok, modify_replication_group_result(), any()}
@@ -5848,10 +5856,7 @@ defmodule AWS.ElastiCache do
 
   Reserved nodes are not eligible
   for cancellation and are non-refundable. For more information, see [Managing Costs with Reserved
-  Nodes](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/reserved-nodes.html)
-  for Redis OSS or [Managing Costs with Reserved
-  Nodes](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/reserved-nodes.html)
-  for Memcached.
+  Nodes](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/reserved-nodes.html).
   """
   @spec purchase_reserved_cache_nodes_offering(
           map(),
@@ -5901,14 +5906,14 @@ defmodule AWS.ElastiCache do
 
   When the reboot is complete, a cluster event is created.
 
-  Rebooting a cluster is currently supported on Memcached and Redis OSS (cluster
-  mode
-  disabled) clusters. Rebooting is not supported on Redis OSS (cluster mode
-  enabled)
+  Rebooting a cluster is currently supported on Memcached, Valkey and Redis OSS
+  (cluster mode
+  disabled) clusters. Rebooting is not supported on Valkey or Redis OSS (cluster
+  mode enabled)
   clusters.
 
-  If you make changes to parameters that require a Redis OSS (cluster mode
-  enabled) cluster
+  If you make changes to parameters that require a Valkey or Redis OSS (cluster
+  mode enabled) cluster
   reboot for the changes to be applied, see [Rebooting a Cluster](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes.rebooting.html)
   for an alternate process.
   """
@@ -6021,8 +6026,9 @@ defmodule AWS.ElastiCache do
   groups in the API and CLI), the calls can be made concurrently.
 
     *
-  If calling this operation multiple times on different shards in the same Redis
-  OSS (cluster mode enabled) replication group, the first node replacement must
+  If calling this operation multiple times on different shards in the same Valkey
+  or Redis OSS (cluster mode enabled) replication group, the first node
+  replacement must
   complete before a subsequent call can be made.
 
     *

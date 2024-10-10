@@ -125,6 +125,9 @@ defmodule AWS.CodePipeline do
     *
   Invoke
 
+    *
+  Compute
+
   Pipelines also include *transitions*, which allow the transition
   of artifacts from one stage to the next in a pipeline after the actions in one
   stage

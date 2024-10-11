@@ -1236,21 +1236,19 @@ defmodule AWS.ACMPCA do
   end
 
   @doc """
-  Creates an audit report that lists every time that your CA private key is used.
+  Creates an audit report that lists every time that your CA private key is used
+  to issue a certificate.
 
   The
-  report is saved in the Amazon S3 bucket that you specify on input. The
   [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) and
   [RevokeCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_RevokeCertificate.html)
   actions use
   the private key.
 
-  Both Amazon Web Services Private CA and the IAM principal must have permission
-  to write to
-  the S3 bucket that you specify. If the IAM principal making the call
-  does not have permission to write to the bucket, then an exception is
-  thrown. For more information, see [Access policies for CRLs in Amazon
-  S3](https://docs.aws.amazon.com/privateca/latest/userguide/crl-planning.html#s3-policies).
+  To save the audit report to your designated Amazon S3 bucket, you must create a
+  bucket policy that grants Amazon Web Services Private CA permission to access
+  and write to it. For an example policy, see [Prepare an Amazon S3 bucket for audit
+  reports](https://docs.aws.amazon.com/privateca/latest/userguide/PcaAuditReport.html#s3-access).
 
   Amazon Web Services Private CA assets that are stored in Amazon S3 can be
   protected with encryption.
@@ -1748,62 +1746,63 @@ defmodule AWS.ACMPCA do
   certificate or chain.
 
     *
-  Basic constraints (*must* be marked critical)
-
-    *
-  Subject alternative names
-
-    *
-  Key usage
-
-    *
-  Extended key usage
-
-    *
   Authority key identifier
 
     *
-  Subject key identifier
-
-    *
-  Issuer alternative name
-
-    *
-  Subject directory attributes
-
-    *
-  Subject information access
+  Basic constraints (*must* be marked critical)
 
     *
   Certificate policies
 
     *
-  Policy mappings
+  Extended key usage
 
     *
   Inhibit anyPolicy
+
+    *
+  Issuer alternative name
+
+    *
+  Key usage
+
+    *
+  Name constraints
+
+    *
+  Policy mappings
+
+    *
+  Subject alternative name
+
+    *
+  Subject directory attributes
+
+    *
+  Subject key identifier
+
+    *
+  Subject information access
 
   Amazon Web Services Private CA rejects the following extensions when they are
   marked critical in an
   imported CA certificate or chain.
 
     *
-  Name constraints
-
-    *
-  Policy constraints
+  Authority information access
 
     *
   CRL distribution points
 
     *
-  Authority information access
-
-    *
   Freshest CRL
 
     *
-  Any other extension
+  Policy constraints
+
+  Amazon Web Services Private Certificate Authority will also reject any other
+  extension marked as critical not contained on the preceding list of allowed
+  extensions.
   """
   @spec import_certificate_authority_certificate(
           map(),

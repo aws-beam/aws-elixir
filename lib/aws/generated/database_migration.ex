@@ -880,6 +880,17 @@ defmodule AWS.DatabaseMigration do
 
   ## Example:
       
+      delete_data_migration_response() :: %{
+        "DataMigration" => data_migration()
+      }
+      
+  """
+  @type delete_data_migration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_metadata_model_exports_to_target_message() :: %{
         optional("Filters") => list(filter()()),
         optional("Marker") => String.t(),
@@ -1318,6 +1329,17 @@ defmodule AWS.DatabaseMigration do
 
   ## Example:
       
+      stop_data_migration_message() :: %{
+        required("DataMigrationIdentifier") => String.t()
+      }
+      
+  """
+  @type stop_data_migration_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       import_certificate_response() :: %{
         "Certificate" => certificate()
       }
@@ -1442,6 +1464,17 @@ defmodule AWS.DatabaseMigration do
 
   ## Example:
       
+      delete_data_migration_message() :: %{
+        required("DataMigrationIdentifier") => String.t()
+      }
+      
+  """
+  @type delete_data_migration_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       modify_replication_task_message() :: %{
         optional("CdcStartPosition") => String.t(),
         optional("CdcStartTime") => non_neg_integer(),
@@ -1534,6 +1567,24 @@ defmodule AWS.DatabaseMigration do
 
   ## Example:
       
+      modify_data_migration_message() :: %{
+        optional("DataMigrationName") => String.t(),
+        optional("DataMigrationType") => list(any()),
+        optional("EnableCloudwatchLogs") => boolean(),
+        optional("NumberOfJobs") => integer(),
+        optional("SelectionRules") => String.t(),
+        optional("ServiceAccessRoleArn") => String.t(),
+        optional("SourceDataSettings") => list(source_data_setting()()),
+        required("DataMigrationIdentifier") => String.t()
+      }
+      
+  """
+  @type modify_data_migration_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       table_statistics() :: %{
         "AppliedDdls" => float(),
         "AppliedDeletes" => float(),
@@ -1604,6 +1655,17 @@ defmodule AWS.DatabaseMigration do
       
   """
   @type describe_replication_subnet_groups_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_data_migration_response() :: %{
+        "DataMigration" => data_migration()
+      }
+      
+  """
+  @type modify_data_migration_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1815,12 +1877,42 @@ defmodule AWS.DatabaseMigration do
 
   ## Example:
       
+      failed_dependency_fault() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type failed_dependency_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       stop_replication_task_response() :: %{
         "ReplicationTask" => replication_task()
       }
       
   """
   @type stop_replication_task_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_migration_statistics() :: %{
+        "CDCLatency" => integer(),
+        "ElapsedTimeMillis" => float(),
+        "FullLoadPercentage" => integer(),
+        "StartTime" => non_neg_integer(),
+        "StopTime" => non_neg_integer(),
+        "TablesErrored" => integer(),
+        "TablesLoaded" => integer(),
+        "TablesLoading" => integer(),
+        "TablesQueued" => integer()
+      }
+      
+  """
+  @type data_migration_statistics() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2179,6 +2271,17 @@ defmodule AWS.DatabaseMigration do
 
   ## Example:
       
+      start_data_migration_response() :: %{
+        "DataMigration" => data_migration()
+      }
+      
+  """
+  @type start_data_migration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       connection() :: %{
         "EndpointArn" => String.t(),
         "EndpointIdentifier" => String.t(),
@@ -2471,6 +2574,20 @@ defmodule AWS.DatabaseMigration do
       
   """
   @type kms_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      source_data_setting() :: %{
+        "CDCStartPosition" => String.t(),
+        "CDCStartTime" => non_neg_integer(),
+        "CDCStopTime" => non_neg_integer(),
+        "SlotName" => String.t()
+      }
+      
+  """
+  @type source_data_setting() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2834,6 +2951,42 @@ defmodule AWS.DatabaseMigration do
 
   ## Example:
       
+      data_migration() :: %{
+        "DataMigrationArn" => String.t(),
+        "DataMigrationCreateTime" => non_neg_integer(),
+        "DataMigrationEndTime" => non_neg_integer(),
+        "DataMigrationName" => String.t(),
+        "DataMigrationSettings" => data_migration_settings(),
+        "DataMigrationStartTime" => non_neg_integer(),
+        "DataMigrationStatistics" => data_migration_statistics(),
+        "DataMigrationStatus" => String.t(),
+        "DataMigrationType" => list(any()),
+        "LastFailureMessage" => String.t(),
+        "MigrationProjectArn" => String.t(),
+        "PublicIpAddresses" => list(String.t()()),
+        "ServiceAccessRoleArn" => String.t(),
+        "SourceDataSettings" => list(source_data_setting()()),
+        "StopReason" => String.t()
+      }
+      
+  """
+  @type data_migration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_data_migration_response() :: %{
+        "DataMigration" => data_migration()
+      }
+      
+  """
+  @type stop_data_migration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       redshift_data_provider_settings() :: %{
         "DatabaseName" => String.t(),
         "Port" => integer(),
@@ -2911,6 +3064,17 @@ defmodule AWS.DatabaseMigration do
       
   """
   @type delete_certificate_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_data_migration_response() :: %{
+        "DataMigration" => data_migration()
+      }
+      
+  """
+  @type create_data_migration_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3212,6 +3376,34 @@ defmodule AWS.DatabaseMigration do
       
   """
   @type describe_recommendation_limitations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_data_migrations_message() :: %{
+        optional("Filters") => list(filter()()),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("WithoutSettings") => boolean(),
+        optional("WithoutStatistics") => boolean()
+      }
+      
+  """
+  @type describe_data_migrations_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_migration_settings() :: %{
+        "CloudwatchLogsEnabled" => boolean(),
+        "NumberOfJobs" => integer(),
+        "SelectionRules" => String.t()
+      }
+      
+  """
+  @type data_migration_settings() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3638,6 +3830,25 @@ defmodule AWS.DatabaseMigration do
 
   ## Example:
       
+      create_data_migration_message() :: %{
+        optional("DataMigrationName") => String.t(),
+        optional("EnableCloudwatchLogs") => boolean(),
+        optional("NumberOfJobs") => integer(),
+        optional("SelectionRules") => String.t(),
+        optional("SourceDataSettings") => list(source_data_setting()()),
+        optional("Tags") => list(tag()()),
+        required("DataMigrationType") => list(any()),
+        required("MigrationProjectIdentifier") => String.t(),
+        required("ServiceAccessRoleArn") => String.t()
+      }
+      
+  """
+  @type create_data_migration_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       replication_subnet_group() :: %{
         "ReplicationSubnetGroupDescription" => String.t(),
         "ReplicationSubnetGroupIdentifier" => String.t(),
@@ -3753,6 +3964,18 @@ defmodule AWS.DatabaseMigration do
       
   """
   @type invalid_operation_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_data_migrations_response() :: %{
+        "DataMigrations" => list(data_migration()()),
+        "Marker" => String.t()
+      }
+      
+  """
+  @type describe_data_migrations_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3888,6 +4111,18 @@ defmodule AWS.DatabaseMigration do
       
   """
   @type postgre_sql_data_provider_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_data_migration_message() :: %{
+        required("DataMigrationIdentifier") => String.t(),
+        required("StartType") => list(any())
+      }
+      
+  """
+  @type start_data_migration_message() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4700,7 +4935,8 @@ defmodule AWS.DatabaseMigration do
   """
   @type replication_task_assessment_run() :: %{String.t() => any()}
 
-  @type add_tags_to_resource_errors() :: resource_not_found_fault()
+  @type add_tags_to_resource_errors() ::
+          invalid_resource_state_fault() | resource_not_found_fault()
 
   @type apply_pending_maintenance_action_errors() :: resource_not_found_fault()
 
@@ -4710,9 +4946,17 @@ defmodule AWS.DatabaseMigration do
   @type cancel_replication_task_assessment_run_errors() ::
           access_denied_fault() | invalid_resource_state_fault() | resource_not_found_fault()
 
+  @type create_data_migration_errors() ::
+          resource_quota_exceeded_fault()
+          | invalid_operation_fault()
+          | resource_already_exists_fault()
+          | failed_dependency_fault()
+          | resource_not_found_fault()
+
   @type create_data_provider_errors() ::
           resource_quota_exceeded_fault()
           | resource_already_exists_fault()
+          | failed_dependency_fault()
           | access_denied_fault()
 
   @type create_endpoint_errors() ::
@@ -4749,6 +4993,7 @@ defmodule AWS.DatabaseMigration do
           | resource_already_exists_fault()
           | kms_key_not_accessible_fault()
           | s3_access_denied_fault()
+          | failed_dependency_fault()
           | access_denied_fault()
           | invalid_resource_state_fault()
           | resource_not_found_fault()
@@ -4758,6 +5003,7 @@ defmodule AWS.DatabaseMigration do
           | resource_quota_exceeded_fault()
           | resource_already_exists_fault()
           | s3_access_denied_fault()
+          | failed_dependency_fault()
           | access_denied_fault()
           | resource_not_found_fault()
 
@@ -4804,8 +5050,14 @@ defmodule AWS.DatabaseMigration do
   @type delete_connection_errors() ::
           access_denied_fault() | invalid_resource_state_fault() | resource_not_found_fault()
 
+  @type delete_data_migration_errors() ::
+          failed_dependency_fault() | invalid_resource_state_fault() | resource_not_found_fault()
+
   @type delete_data_provider_errors() ::
-          access_denied_fault() | invalid_resource_state_fault() | resource_not_found_fault()
+          failed_dependency_fault()
+          | access_denied_fault()
+          | invalid_resource_state_fault()
+          | resource_not_found_fault()
 
   @type delete_endpoint_errors() :: invalid_resource_state_fault() | resource_not_found_fault()
 
@@ -4813,16 +5065,22 @@ defmodule AWS.DatabaseMigration do
           invalid_resource_state_fault() | resource_not_found_fault()
 
   @type delete_fleet_advisor_collector_errors() ::
-          collector_not_found_fault() | invalid_resource_state_fault()
+          collector_not_found_fault() | access_denied_fault() | invalid_resource_state_fault()
 
   @type delete_fleet_advisor_databases_errors() ::
-          invalid_operation_fault() | resource_not_found_fault()
+          invalid_operation_fault() | access_denied_fault() | resource_not_found_fault()
 
   @type delete_instance_profile_errors() ::
-          access_denied_fault() | invalid_resource_state_fault() | resource_not_found_fault()
+          failed_dependency_fault()
+          | access_denied_fault()
+          | invalid_resource_state_fault()
+          | resource_not_found_fault()
 
   @type delete_migration_project_errors() ::
-          access_denied_fault() | invalid_resource_state_fault() | resource_not_found_fault()
+          failed_dependency_fault()
+          | access_denied_fault()
+          | invalid_resource_state_fault()
+          | resource_not_found_fault()
 
   @type delete_replication_config_errors() ::
           access_denied_fault() | invalid_resource_state_fault() | resource_not_found_fault()
@@ -4848,7 +5106,11 @@ defmodule AWS.DatabaseMigration do
 
   @type describe_conversion_configuration_errors() :: resource_not_found_fault()
 
-  @type describe_data_providers_errors() :: access_denied_fault() | resource_not_found_fault()
+  @type describe_data_migrations_errors() ::
+          failed_dependency_fault() | invalid_resource_state_fault() | resource_not_found_fault()
+
+  @type describe_data_providers_errors() ::
+          failed_dependency_fault() | access_denied_fault() | resource_not_found_fault()
 
   @type describe_endpoints_errors() :: resource_not_found_fault()
 
@@ -4864,7 +5126,8 @@ defmodule AWS.DatabaseMigration do
 
   @type describe_fleet_advisor_schemas_errors() :: invalid_resource_state_fault()
 
-  @type describe_instance_profiles_errors() :: access_denied_fault() | resource_not_found_fault()
+  @type describe_instance_profiles_errors() ::
+          failed_dependency_fault() | access_denied_fault() | resource_not_found_fault()
 
   @type describe_metadata_model_assessments_errors() :: resource_not_found_fault()
 
@@ -4876,7 +5139,8 @@ defmodule AWS.DatabaseMigration do
 
   @type describe_metadata_model_imports_errors() :: resource_not_found_fault()
 
-  @type describe_migration_projects_errors() :: access_denied_fault() | resource_not_found_fault()
+  @type describe_migration_projects_errors() ::
+          failed_dependency_fault() | access_denied_fault() | resource_not_found_fault()
 
   @type describe_pending_maintenance_actions_errors() :: resource_not_found_fault()
 
@@ -4923,13 +5187,20 @@ defmodule AWS.DatabaseMigration do
           | resource_already_exists_fault()
           | invalid_certificate_fault()
 
-  @type list_tags_for_resource_errors() :: resource_not_found_fault()
+  @type list_tags_for_resource_errors() ::
+          invalid_resource_state_fault() | resource_not_found_fault()
 
   @type modify_conversion_configuration_errors() ::
           invalid_resource_state_fault() | resource_not_found_fault()
 
+  @type modify_data_migration_errors() ::
+          failed_dependency_fault() | invalid_resource_state_fault() | resource_not_found_fault()
+
   @type modify_data_provider_errors() ::
-          access_denied_fault() | invalid_resource_state_fault() | resource_not_found_fault()
+          failed_dependency_fault()
+          | access_denied_fault()
+          | invalid_resource_state_fault()
+          | resource_not_found_fault()
 
   @type modify_endpoint_errors() ::
           resource_already_exists_fault()
@@ -4953,6 +5224,7 @@ defmodule AWS.DatabaseMigration do
           s3_resource_not_found_fault()
           | kms_key_not_accessible_fault()
           | s3_access_denied_fault()
+          | failed_dependency_fault()
           | access_denied_fault()
           | invalid_resource_state_fault()
           | resource_not_found_fault()
@@ -4960,6 +5232,7 @@ defmodule AWS.DatabaseMigration do
   @type modify_migration_project_errors() ::
           s3_resource_not_found_fault()
           | s3_access_denied_fault()
+          | failed_dependency_fault()
           | access_denied_fault()
           | invalid_resource_state_fault()
           | resource_not_found_fault()
@@ -5016,10 +5289,18 @@ defmodule AWS.DatabaseMigration do
 
   @type reload_tables_errors() :: invalid_resource_state_fault() | resource_not_found_fault()
 
-  @type remove_tags_from_resource_errors() :: resource_not_found_fault()
+  @type remove_tags_from_resource_errors() ::
+          invalid_resource_state_fault() | resource_not_found_fault()
 
   @type run_fleet_advisor_lsa_analysis_errors() ::
           invalid_resource_state_fault() | resource_not_found_fault()
+
+  @type start_data_migration_errors() ::
+          resource_quota_exceeded_fault()
+          | invalid_operation_fault()
+          | failed_dependency_fault()
+          | invalid_resource_state_fault()
+          | resource_not_found_fault()
 
   @type start_extension_pack_association_errors() ::
           s3_resource_not_found_fault()
@@ -5106,6 +5387,9 @@ defmodule AWS.DatabaseMigration do
           | access_denied_fault()
           | invalid_resource_state_fault()
           | resource_not_found_fault()
+
+  @type stop_data_migration_errors() ::
+          failed_dependency_fault() | invalid_resource_state_fault() | resource_not_found_fault()
 
   @type stop_replication_errors() ::
           access_denied_fault() | invalid_resource_state_fault() | resource_not_found_fault()
@@ -5225,6 +5509,19 @@ defmodule AWS.DatabaseMigration do
     meta = metadata()
 
     Request.request_post(client, meta, "CancelReplicationTaskAssessmentRun", input, options)
+  end
+
+  @doc """
+  Creates a data migration using the provided settings.
+  """
+  @spec create_data_migration(map(), create_data_migration_message(), list()) ::
+          {:ok, create_data_migration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_data_migration_errors()}
+  def create_data_migration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateDataMigration", input, options)
   end
 
   @doc """
@@ -5452,6 +5749,19 @@ defmodule AWS.DatabaseMigration do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteConnection", input, options)
+  end
+
+  @doc """
+  Deletes the specified data migration.
+  """
+  @spec delete_data_migration(map(), delete_data_migration_message(), list()) ::
+          {:ok, delete_data_migration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_data_migration_errors()}
+  def delete_data_migration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDataMigration", input, options)
   end
 
   @doc """
@@ -5758,6 +6068,19 @@ defmodule AWS.DatabaseMigration do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeConversionConfiguration", input, options)
+  end
+
+  @doc """
+  Returns information about data migrations.
+  """
+  @spec describe_data_migrations(map(), describe_data_migrations_message(), list()) ::
+          {:ok, describe_data_migrations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_data_migrations_errors()}
+  def describe_data_migrations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDataMigrations", input, options)
   end
 
   @doc """
@@ -6468,6 +6791,19 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+  Modifies an existing DMS data migration.
+  """
+  @spec modify_data_migration(map(), modify_data_migration_message(), list()) ::
+          {:ok, modify_data_migration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, modify_data_migration_errors()}
+  def modify_data_migration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyDataMigration", input, options)
+  end
+
+  @doc """
   Modifies the specified data provider using the provided settings.
 
   You must remove the data provider from all migration projects before you can
@@ -6749,6 +7085,19 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+  Starts the specified data migration.
+  """
+  @spec start_data_migration(map(), start_data_migration_message(), list()) ::
+          {:ok, start_data_migration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_data_migration_errors()}
+  def start_data_migration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartDataMigration", input, options)
+  end
+
+  @doc """
   Applies the extension pack to your target database.
 
   An extension pack is an add-on
@@ -6969,6 +7318,19 @@ defmodule AWS.DatabaseMigration do
     meta = metadata()
 
     Request.request_post(client, meta, "StartReplicationTaskAssessmentRun", input, options)
+  end
+
+  @doc """
+  Stops the specified data migration.
+  """
+  @spec stop_data_migration(map(), stop_data_migration_message(), list()) ::
+          {:ok, stop_data_migration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, stop_data_migration_errors()}
+  def stop_data_migration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopDataMigration", input, options)
   end
 
   @doc """

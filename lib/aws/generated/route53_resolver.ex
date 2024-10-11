@@ -1897,7 +1897,8 @@ defmodule AWS.Route53Resolver do
         "Ip" => String.t(),
         "Ipv6" => String.t(),
         "Port" => integer(),
-        "Protocol" => list(any())
+        "Protocol" => list(any()),
+        "ServerNameIndication" => String.t()
       }
       
   """

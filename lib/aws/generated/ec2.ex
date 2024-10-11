@@ -1126,7 +1126,8 @@ defmodule AWS.EC2 do
         "State" => list(any()),
         "Tags" => list(tag()()),
         "Tenancy" => list(any()),
-        "TotalInstanceCount" => integer()
+        "TotalInstanceCount" => integer(),
+        "UnusedReservationBillingOwnerId" => String.t()
       }
       
   """
@@ -1551,6 +1552,18 @@ defmodule AWS.EC2 do
       
   """
   @type spot_market_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reject_capacity_reservation_billing_ownership_request() :: %{
+        optional("DryRun") => boolean(),
+        required("CapacityReservationId") => String.t()
+      }
+      
+  """
+  @type reject_capacity_reservation_billing_ownership_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3887,6 +3900,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      disassociate_capacity_reservation_billing_owner_result() :: %{
+        "Return" => boolean()
+      }
+      
+  """
+  @type disassociate_capacity_reservation_billing_owner_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_images_result() :: %{
         "Images" => list(image()()),
         "NextToken" => String.t()
@@ -4390,6 +4414,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      capacity_reservation_info() :: %{
+        "AvailabilityZone" => String.t(),
+        "InstanceType" => String.t(),
+        "Tenancy" => list(any())
+      }
+      
+  """
+  @type capacity_reservation_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_vpc_endpoints_request() :: %{
         optional("DryRun") => boolean(),
         optional("Filters") => list(filter()()),
@@ -4802,6 +4839,19 @@ defmodule AWS.EC2 do
       
   """
   @type account_attribute_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_capacity_reservation_billing_owner_request() :: %{
+        optional("DryRun") => boolean(),
+        required("CapacityReservationId") => String.t(),
+        required("UnusedReservationBillingOwnerId") => String.t()
+      }
+      
+  """
+  @type associate_capacity_reservation_billing_owner_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6336,6 +6386,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      accept_capacity_reservation_billing_ownership_request() :: %{
+        optional("DryRun") => boolean(),
+        required("CapacityReservationId") => String.t()
+      }
+      
+  """
+  @type accept_capacity_reservation_billing_ownership_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       disable_aws_network_performance_metric_subscription_request() :: %{
         optional("Destination") => String.t(),
         optional("DryRun") => boolean(),
@@ -6501,6 +6563,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_capacity_reservation_billing_requests_result() :: %{
+        "CapacityReservationBillingRequests" => list(capacity_reservation_billing_request()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type describe_capacity_reservation_billing_requests_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       transit_gateway_multicast_registered_group_members() :: %{
         "GroupIpAddress" => String.t(),
         "RegisteredNetworkInterfaceIds" => list(String.t()()),
@@ -6575,6 +6649,22 @@ defmodule AWS.EC2 do
       
   """
   @type verified_access_trust_provider_condensed() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_capacity_reservation_billing_requests_request() :: %{
+        optional("CapacityReservationIds") => list(String.t()()),
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("Role") => list(any())
+      }
+      
+  """
+  @type describe_capacity_reservation_billing_requests_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -8653,6 +8743,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      associate_capacity_reservation_billing_owner_result() :: %{
+        "Return" => boolean()
+      }
+      
+  """
+  @type associate_capacity_reservation_billing_owner_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       ipv6_prefix_specification_request() :: %{
         "Ipv6Prefix" => String.t()
       }
@@ -9745,6 +9846,19 @@ defmodule AWS.EC2 do
       
   """
   @type delete_ipam_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_capacity_reservation_billing_owner_request() :: %{
+        optional("DryRun") => boolean(),
+        required("CapacityReservationId") => String.t(),
+        required("UnusedReservationBillingOwnerId") => String.t()
+      }
+      
+  """
+  @type disassociate_capacity_reservation_billing_owner_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -12112,6 +12226,17 @@ defmodule AWS.EC2 do
       
   """
   @type scheduled_instances_block_device_mapping() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reject_capacity_reservation_billing_ownership_result() :: %{
+        "Return" => boolean()
+      }
+      
+  """
+  @type reject_capacity_reservation_billing_ownership_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -18077,6 +18202,23 @@ defmodule AWS.EC2 do
       
   """
   @type delete_network_insights_analysis_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_reservation_billing_request() :: %{
+        "CapacityReservationId" => String.t(),
+        "CapacityReservationInfo" => capacity_reservation_info(),
+        "LastUpdateTime" => non_neg_integer(),
+        "RequestedBy" => String.t(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t(),
+        "UnusedReservationBillingOwnerId" => String.t()
+      }
+      
+  """
+  @type capacity_reservation_billing_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -25080,6 +25222,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      accept_capacity_reservation_billing_ownership_result() :: %{
+        "Return" => boolean()
+      }
+      
+  """
+  @type accept_capacity_reservation_billing_ownership_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       gpu_device_memory_info() :: %{
         "SizeInMiB" => integer()
       }
@@ -27048,6 +27201,34 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Accepts a request to assign billing of the available capacity of a shared
+  Capacity Reservation to your
+  account.
+
+  For more information, see [
+  Billing assignment for shared Amazon EC2 Capacity
+  Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html).
+  """
+  @spec accept_capacity_reservation_billing_ownership(
+          map(),
+          accept_capacity_reservation_billing_ownership_request(),
+          list()
+        ) ::
+          {:ok, accept_capacity_reservation_billing_ownership_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def accept_capacity_reservation_billing_ownership(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "AcceptCapacityReservationBillingOwnership",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Accepts the Convertible Reserved Instance exchange quote described in the
   `GetReservedInstancesExchangeQuote` call.
   """
@@ -27379,7 +27560,7 @@ defmodule AWS.EC2 do
   Assigns private IPv4 addresses to a private NAT gateway.
 
   For more information, see
-  [Work with NAT gateways](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html)
+  [Work with NAT gateways](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with)
   in the *Amazon VPC User Guide*.
   """
   @spec assign_private_nat_gateway_address(
@@ -27433,6 +27614,29 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "AssociateAddress", input, options)
+  end
+
+  @doc """
+  Initiates a request to assign billing of the unused capacity of a shared
+  Capacity Reservation to a consumer
+  account that is consolidated under the same Amazon Web Services organizations
+  payer account.
+
+  For more information, see
+  [Billing assignment for shared Amazon EC2 Capacity
+  Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html).
+  """
+  @spec associate_capacity_reservation_billing_owner(
+          map(),
+          associate_capacity_reservation_billing_owner_request(),
+          list()
+        ) ::
+          {:ok, associate_capacity_reservation_billing_owner_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def associate_capacity_reservation_billing_owner(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateCapacityReservationBillingOwner", input, options)
   end
 
   @doc """
@@ -27604,7 +27808,7 @@ defmodule AWS.EC2 do
   NAT gateway.
 
   For more information,
-  see [Work with NAT gateways](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html)
+  see [Work with NAT gateways](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with)
   in the *Amazon VPC User Guide*.
 
   By default, you can associate up to 2 Elastic IP addresses per public NAT
@@ -27613,15 +27817,14 @@ defmodule AWS.EC2 do
   in the *Amazon VPC User Guide*.
 
   When you associate an EIP or secondary EIPs with a public NAT gateway, the
-  network border group of the EIPs
-  must match the network border group of the Availability Zone (AZ) that the
-  public NAT gateway is in. If it's not the same,
+  network border group of the EIPs must match the network border group of the
+  Availability Zone (AZ) that the public NAT gateway is in. If it's not the same,
   the EIP will fail to associate. You can see the network border group for the
-  subnet's AZ by viewing the details of the subnet.
-  Similarly, you can view the network border group of an EIP by viewing the
-  details of the EIP address. For more information
-  about network border groups and EIPs, see [Allocate an Elastic IP address](https://docs.aws.amazon.com/vpc/latest/userguide/WorkWithEIPs.html) in
-  the *Amazon VPC User Guide*.
+  subnet's AZ by viewing the details of the subnet. Similarly, you can view the
+  network border group of an EIP by viewing the details of the EIP address. For
+  more information about network border groups and EIPs, see [Allocate an Elastic IP
+  address](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#allocate-eip)
+  in the *Amazon VPC User Guide*.
   """
   @spec associate_nat_gateway_address(map(), associate_nat_gateway_address_request(), list()) ::
           {:ok, associate_nat_gateway_address_result(), any()}
@@ -28534,7 +28737,7 @@ defmodule AWS.EC2 do
   specified Availability Zone in your default VPC.
 
   You can have only one default subnet
-  per Availability Zone. For more information, see [Create a default subnet](https://docs.aws.amazon.com/vpc/latest/userguide/work-with-default-vpc.html#create-default-subnet)
+  per Availability Zone. For more information, see [Create a default subnet](https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#create-default-subnet)
   in the *Amazon VPC User Guide*.
   """
   @spec create_default_subnet(map(), create_default_subnet_request(), list()) ::
@@ -28695,7 +28898,7 @@ defmodule AWS.EC2 do
   Flow log data for a monitored network interface is recorded as flow log records,
   which are log events
   consisting of fields that describe the traffic flow. For more information, see
-  [Flow log records](https://docs.aws.amazon.com/vpc/latest/userguide/flow-log-records.html)
+  [Flow log records](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records)
   in the *Amazon VPC User Guide*.
 
   When publishing to CloudWatch Logs, flow log records are published to a log
@@ -29185,17 +29388,14 @@ defmodule AWS.EC2 do
   For more information, see [NAT gateways](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html)
   in the *Amazon VPC User Guide*.
 
-  When you create a public NAT gateway and assign it an EIP or secondary EIPs,
-  the network border group of the EIPs must match the network border group of the
-  Availability Zone (AZ)
-  that the public NAT gateway is in. If it's not the same, the NAT gateway will
-  fail to launch.
-  You can see the network border group for the subnet's AZ by viewing the details
-  of the subnet.
-  Similarly, you can view the network border group of an EIP by viewing the
-  details of the EIP address.
+  When you create a public NAT gateway and assign it an EIP or secondary EIPs, the
+  network border group of the EIPs must match the network border group of the
+  Availability Zone (AZ) that the public NAT gateway is in. If it's not the same,
+  the NAT gateway will fail to launch. You can see the network border group for
+  the subnet's AZ by viewing the details of the subnet. Similarly, you can view
+  the network border group of an EIP by viewing the details of the EIP address.
   For more information about network border groups and EIPs, see [Allocate an Elastic IP
-  address](https://docs.aws.amazon.com/vpc/latest/userguide/WorkWithEIPs.html)
+  address](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#allocate-eip)
   in the *Amazon VPC User Guide*.
   """
   @spec create_nat_gateway(map(), create_nat_gateway_request(), list()) ::
@@ -29759,8 +29959,8 @@ defmodule AWS.EC2 do
   Creates a subnet CIDR reservation.
 
   For more information, see [Subnet CIDR reservations](https://docs.aws.amazon.com/vpc/latest/userguide/subnet-cidr-reservation.html)
-  in the *Amazon VPC User Guide* and [Manage prefixes for your network
-  interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-prefixes.html)
+  in the *Amazon VPC User Guide* and [Assign prefixes to network
+  interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html)
   in the *Amazon EC2 User Guide*.
   """
   @spec create_subnet_cidr_reservation(map(), create_subnet_cidr_reservation_request(), list()) ::
@@ -31576,18 +31776,12 @@ defmodule AWS.EC2 do
   @doc """
   Deletes the specified VPC.
 
-  You must detach or delete all gateways and resources that are associated
-  with the VPC before you can delete it. For example, you must terminate all
-  instances running in the VPC,
-  delete all security groups associated with the VPC (except the default one),
-  delete all route tables
-  associated with the VPC (except the default one), and so on. When you delete the
-  VPC, it deletes the
-  default security group, network ACL, and route table for the VPC.
-
-  If you created a flow log for the VPC that you are deleting, note that flow logs
-  for deleted
-  VPCs are eventually automatically removed.
+  You must detach or delete all gateways and resources that are associated with
+  the VPC before you can delete it. For example, you must terminate all instances
+  running in the VPC, delete all security groups associated with the VPC (except
+  the default one), delete all route tables associated with the VPC (except the
+  default one), and so on. When you delete the VPC, it deletes the VPC's default
+  security group, network ACL, and route table.
   """
   @spec delete_vpc(map(), delete_vpc_request(), list()) ::
           {:ok, nil, any()}
@@ -32163,6 +32357,33 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Describes a request to assign the billing of the unused capacity of a Capacity
+  Reservation.
+
+  For more information, see [
+  Billing assignment for shared Amazon EC2 Capacity
+  Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/transfer-billing.html).
+  """
+  @spec describe_capacity_reservation_billing_requests(
+          map(),
+          describe_capacity_reservation_billing_requests_request(),
+          list()
+        ) ::
+          {:ok, describe_capacity_reservation_billing_requests_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def describe_capacity_reservation_billing_requests(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "DescribeCapacityReservationBillingRequests",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Describes one or more Capacity Reservation Fleets.
   """
   @spec describe_capacity_reservation_fleets(
@@ -32385,9 +32606,6 @@ defmodule AWS.EC2 do
   @doc """
 
   Amazon Elastic Graphics reached end of life on January 8, 2024.
-
-  For workloads that require graphics acceleration,
-  we recommend that you use Amazon EC2 G4, G5, or G6 instances.
 
   Describes the Elastic Graphics accelerator associated with your instances.
   """
@@ -35554,6 +35772,34 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Cancels a pending request to assign billing of the unused capacity of a Capacity
+  Reservation to a
+  consumer account, or revokes a request that has already been accepted.
+
+  For more information, see
+  [Billing assignment for shared Amazon EC2 Capacity
+  Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html).
+  """
+  @spec disassociate_capacity_reservation_billing_owner(
+          map(),
+          disassociate_capacity_reservation_billing_owner_request(),
+          list()
+        ) ::
+          {:ok, disassociate_capacity_reservation_billing_owner_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def disassociate_capacity_reservation_billing_owner(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "DisassociateCapacityReservationBillingOwner",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Disassociates a target network from the specified Client VPN endpoint.
 
   When you disassociate the
@@ -35688,7 +35934,7 @@ defmodule AWS.EC2 do
   Disassociates secondary Elastic IP addresses (EIPs) from a public NAT gateway.
 
   You cannot disassociate your primary EIP. For more information, see [Edit secondary IP address
-  associations](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html#nat-gateway-edit-secondary)
+  associations](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary)
   in the *Amazon VPC User Guide*.
 
   While disassociating is in progress, you cannot associate/disassociate
@@ -37966,7 +38212,7 @@ defmodule AWS.EC2 do
 
   The number of active vCPUs equals the number of threads per CPU core multiplied
   by the number
-  of cores.
+  of cores. The instance must be in a `Stopped` state before you make changes.
 
   Some instance type options do not support this capability. For more information,
   see
@@ -39560,6 +39806,34 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Rejects a request to assign billing of the available capacity of a shared
+  Capacity Reservation
+  to your account.
+
+  For more information, see [
+  Billing assignment for shared Amazon EC2 Capacity
+  Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html).
+  """
+  @spec reject_capacity_reservation_billing_ownership(
+          map(),
+          reject_capacity_reservation_billing_ownership_request(),
+          list()
+        ) ::
+          {:ok, reject_capacity_reservation_billing_ownership_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def reject_capacity_reservation_billing_ownership(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "RejectCapacityReservationBillingOwnership",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Rejects a request to associate cross-account subnets with a transit gateway
   multicast domain.
   """
@@ -40749,8 +41023,8 @@ defmodule AWS.EC2 do
   @doc """
   Unassigns secondary private IPv4 addresses from a private NAT gateway.
 
-  You cannot unassign your primary private IP. For more information,
-  see [Edit secondary IP address associations](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html#nat-gateway-edit-secondary)
+  You cannot unassign your primary private IP. For more information, see [Edit secondary IP address
+  associations](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary)
   in the *Amazon VPC User Guide*.
 
   While unassigning is in progress, you cannot assign/unassign additional IP

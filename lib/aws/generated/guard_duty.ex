@@ -629,6 +629,7 @@ defmodule AWS.GuardDuty do
         "Blocked" => boolean(),
         "ConnectionDirection" => String.t(),
         "LocalIpDetails" => local_ip_details(),
+        "LocalNetworkInterface" => String.t(),
         "LocalPortDetails" => local_port_details(),
         "Protocol" => String.t(),
         "RemoteIpDetails" => remote_ip_details(),

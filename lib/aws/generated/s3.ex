@@ -440,7 +440,7 @@ defmodule AWS.S3 do
       lifecycle_rule() :: %{
         "AbortIncompleteMultipartUpload" => abort_incomplete_multipart_upload(),
         "Expiration" => lifecycle_expiration(),
-        "Filter" => list(),
+        "Filter" => lifecycle_rule_filter(),
         "ID" => String.t(),
         "NoncurrentVersionExpiration" => noncurrent_version_expiration(),
         "NoncurrentVersionTransitions" => list(noncurrent_version_transition()()),
@@ -1262,6 +1262,19 @@ defmodule AWS.S3 do
 
   ## Example:
 
+      replication_rule_filter() :: %{
+        "And" => replication_rule_and_operator(),
+        "Prefix" => String.t(),
+        "Tag" => tag()
+      }
+
+  """
+  @type replication_rule_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_bucket_inventory_configuration_request() :: %{
         optional("ExpectedBucketOwner") => String.t(),
         required("Id") => String.t()
@@ -1922,6 +1935,21 @@ defmodule AWS.S3 do
 
   """
   @type select_object_content_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lifecycle_rule_filter() :: %{
+        "And" => lifecycle_rule_and_operator(),
+        "ObjectSizeGreaterThan" => float(),
+        "ObjectSizeLessThan" => float(),
+        "Prefix" => String.t(),
+        "Tag" => tag()
+      }
+
+  """
+  @type lifecycle_rule_filter() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3195,7 +3223,7 @@ defmodule AWS.S3 do
         "DeleteMarkerReplication" => delete_marker_replication(),
         "Destination" => destination(),
         "ExistingObjectReplication" => existing_object_replication(),
-        "Filter" => list(),
+        "Filter" => replication_rule_filter(),
         "ID" => String.t(),
         "Prefix" => String.t(),
         "Priority" => integer(),

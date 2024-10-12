@@ -2755,6 +2755,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Deletes one or more worlds in a batch operation.
   """
   @spec batch_delete_worlds(map(), batch_delete_worlds_request(), list()) ::
@@ -2782,6 +2793,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Describes one or more simulation jobs.
   """
   @spec batch_describe_simulation_job(map(), batch_describe_simulation_job_request(), list()) ::
@@ -2809,10 +2831,13 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Cancels the specified deployment job.
 
-  This API will no longer be supported as of May 2, 2022. Use it to remove
-  resources that were created for Deployment Service.
+  This API is no longer supported.
+
+  For more information, see the May 2, 2022 update in the [Support policy](https://docs.aws.amazon.com/robomaker/latest/dg/chapter-support-policy.html#software-support-policy-may2022)
+  page.
+
+  Cancels the specified deployment job.
   """
   @spec cancel_deployment_job(map(), cancel_deployment_job_request(), list()) ::
           {:ok, cancel_deployment_job_response(), any()}
@@ -2839,6 +2864,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Cancels the specified simulation job.
   """
   @spec cancel_simulation_job(map(), cancel_simulation_job_request(), list()) ::
@@ -2866,9 +2902,19 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Cancels a simulation job batch.
 
-  When you cancel a simulation job batch, you are also
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
+  Cancels a simulation job batch. When you cancel a simulation job batch, you are
+  also
   cancelling all of the active simulation jobs created as part of the batch.
   """
   @spec cancel_simulation_job_batch(map(), cancel_simulation_job_batch_request(), list()) ::
@@ -2896,6 +2942,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Cancels the specified export job.
   """
   @spec cancel_world_export_job(map(), cancel_world_export_job_request(), list()) ::
@@ -2923,6 +2980,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Cancels the specified world generator job.
   """
   @spec cancel_world_generation_job(map(), cancel_world_generation_job_request(), list()) ::
@@ -2950,13 +3018,28 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Deploys a specific version of a robot application to robots in a fleet.
 
-  This API is no longer supported and will throw an error if used.
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/). 
+
+  This API is no longer supported and will throw an error if used. For more
+  information, see the January 31, 2022 update in the [Support
+  policy](https://docs.aws.amazon.com/robomaker/latest/dg/chapter-support-policy.html#software-support-policy-january2022)
+  page.
+
+  Deploys a specific version of a robot application to robots in a fleet.
 
   The robot application must have a numbered `applicationVersion` for
   consistency reasons. To create a new version, use
-  `CreateRobotApplicationVersion` or see [Creating a Robot Application Version](https://docs.aws.amazon.com/robomaker/latest/dg/create-robot-application-version.html).
+  `CreateRobotApplicationVersion` or see
+  [Creating a Robot Application Version](https://docs.aws.amazon.com/robomaker/latest/dg/create-robot-application-version.html).
 
   After 90 days, deployment jobs expire and will be deleted. They will no longer
   be
@@ -2987,9 +3070,23 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Creates a fleet, a logical group of robots running the same robot application.
 
-  This API is no longer supported and will throw an error if used.
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/). 
+
+  This API is no longer supported and will throw an error if used. For more
+  information, see the January 31, 2022 update in the [Support
+  policy](https://docs.aws.amazon.com/robomaker/latest/dg/chapter-support-policy.html#software-support-policy-january2022)
+  page.
+
+  Creates a fleet, a logical group of robots running the same robot application.
   """
   @spec create_fleet(map(), create_fleet_request(), list()) ::
           {:ok, create_fleet_response(), any()}
@@ -3016,9 +3113,23 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Creates a robot.
 
-  This API is no longer supported and will throw an error if used.
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/). 
+
+  This API is no longer supported and will throw an error if used. For more
+  information, see the January 31, 2022 update in the [Support
+  policy](https://docs.aws.amazon.com/robomaker/latest/dg/chapter-support-policy.html#software-support-policy-january2022)
+  page.
+
+  Creates a robot.
   """
   @spec create_robot(map(), create_robot_request(), list()) ::
           {:ok, create_robot_response(), any()}
@@ -3045,6 +3156,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Creates a robot application.
   """
   @spec create_robot_application(map(), create_robot_application_request(), list()) ::
@@ -3072,6 +3194,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Creates a version of a robot application.
   """
   @spec create_robot_application_version(
@@ -3103,6 +3236,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Creates a simulation application.
   """
   @spec create_simulation_application(map(), create_simulation_application_request(), list()) ::
@@ -3130,6 +3274,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Creates a simulation application with a specific revision id.
   """
   @spec create_simulation_application_version(
@@ -3161,6 +3316,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Creates a simulation job.
 
   After 90 days, simulation jobs expire and will be deleted. They will no longer
@@ -3192,6 +3358,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Creates a world export job.
   """
   @spec create_world_export_job(map(), create_world_export_job_request(), list()) ::
@@ -3219,6 +3396,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Creates worlds using the specified template.
   """
   @spec create_world_generation_job(map(), create_world_generation_job_request(), list()) ::
@@ -3246,6 +3434,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Creates a world template.
   """
   @spec create_world_template(map(), create_world_template_request(), list()) ::
@@ -3273,10 +3472,23 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Deletes a fleet.
 
-  This API will no longer be supported as of May 2, 2022. Use it to remove
-  resources that were created for Deployment Service.
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/). 
+
+  This API is no longer supported. For more information, see the May 2, 2022
+  update in the [Support
+  policy](https://docs.aws.amazon.com/robomaker/latest/dg/chapter-support-policy.html#software-support-policy-may2022)
+  page.
+
+  Deletes a fleet.
   """
   @spec delete_fleet(map(), delete_fleet_request(), list()) ::
           {:ok, delete_fleet_response(), any()}
@@ -3303,10 +3515,23 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Deletes a robot.
 
-  This API will no longer be supported as of May 2, 2022. Use it to remove
-  resources that were created for Deployment Service.
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/). 
+
+  This API is no longer supported. For more information, see the May 2, 2022
+  update in the [Support
+  policy](https://docs.aws.amazon.com/robomaker/latest/dg/chapter-support-policy.html#software-support-policy-may2022)
+  page.
+
+  Deletes a robot.
   """
   @spec delete_robot(map(), delete_robot_request(), list()) ::
           {:ok, delete_robot_response(), any()}
@@ -3333,6 +3558,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Deletes a robot application.
   """
   @spec delete_robot_application(map(), delete_robot_application_request(), list()) ::
@@ -3360,6 +3596,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Deletes a simulation application.
   """
   @spec delete_simulation_application(map(), delete_simulation_application_request(), list()) ::
@@ -3387,6 +3634,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Deletes a world template.
   """
   @spec delete_world_template(map(), delete_world_template_request(), list()) ::
@@ -3414,10 +3672,23 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Deregisters a robot.
 
-  This API will no longer be supported as of May 2, 2022. Use it to remove
-  resources that were created for Deployment Service.
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/). 
+
+  This API is no longer supported. For more information, see the May 2, 2022
+  update in the [Support
+  policy](https://docs.aws.amazon.com/robomaker/latest/dg/chapter-support-policy.html#software-support-policy-may2022)
+  page.
+
+  Deregisters a robot.
   """
   @spec deregister_robot(map(), deregister_robot_request(), list()) ::
           {:ok, deregister_robot_response(), any()}
@@ -3444,10 +3715,23 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Describes a deployment job.
 
-  This API will no longer be supported as of May 2, 2022. Use it to remove
-  resources that were created for Deployment Service.
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/). 
+
+  This API is no longer supported. For more information, see the May 2, 2022
+  update in the [Support
+  policy](https://docs.aws.amazon.com/robomaker/latest/dg/chapter-support-policy.html#software-support-policy-may2022)
+  page.
+
+  Describes a deployment job.
   """
   @spec describe_deployment_job(map(), describe_deployment_job_request(), list()) ::
           {:ok, describe_deployment_job_response(), any()}
@@ -3474,10 +3758,23 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Describes a fleet.
 
-  This API will no longer be supported as of May 2, 2022. Use it to remove
-  resources that were created for Deployment Service.
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/). 
+
+  This API is no longer supported. For more information, see the May 2, 2022
+  update in the [Support
+  policy](https://docs.aws.amazon.com/robomaker/latest/dg/chapter-support-policy.html#software-support-policy-may2022)
+  page.
+
+  Describes a fleet.
   """
   @spec describe_fleet(map(), describe_fleet_request(), list()) ::
           {:ok, describe_fleet_response(), any()}
@@ -3504,10 +3801,23 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Describes a robot.
 
-  This API will no longer be supported as of May 2, 2022. Use it to remove
-  resources that were created for Deployment Service.
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/). 
+
+  This API is no longer supported. For more information, see the May 2, 2022
+  update in the [Support
+  policy](https://docs.aws.amazon.com/robomaker/latest/dg/chapter-support-policy.html#software-support-policy-may2022)
+  page.
+
+  Describes a robot.
   """
   @spec describe_robot(map(), describe_robot_request(), list()) ::
           {:ok, describe_robot_response(), any()}
@@ -3534,6 +3844,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Describes a robot application.
   """
   @spec describe_robot_application(map(), describe_robot_application_request(), list()) ::
@@ -3561,6 +3882,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Describes a simulation application.
   """
   @spec describe_simulation_application(map(), describe_simulation_application_request(), list()) ::
@@ -3588,6 +3920,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Describes a simulation job.
   """
   @spec describe_simulation_job(map(), describe_simulation_job_request(), list()) ::
@@ -3615,6 +3958,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Describes a simulation job batch.
   """
   @spec describe_simulation_job_batch(map(), describe_simulation_job_batch_request(), list()) ::
@@ -3642,6 +3996,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Describes a world.
   """
   @spec describe_world(map(), describe_world_request(), list()) ::
@@ -3669,6 +4034,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Describes a world export job.
   """
   @spec describe_world_export_job(map(), describe_world_export_job_request(), list()) ::
@@ -3696,6 +4072,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Describes a world generation job.
   """
   @spec describe_world_generation_job(map(), describe_world_generation_job_request(), list()) ::
@@ -3723,6 +4110,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Describes a world template.
   """
   @spec describe_world_template(map(), describe_world_template_request(), list()) ::
@@ -3750,6 +4148,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Gets the world template body.
   """
   @spec get_world_template_body(map(), get_world_template_body_request(), list()) ::
@@ -3777,12 +4186,24 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Returns a list of deployment jobs for a fleet.
 
-  You can optionally provide filters to retrieve specific deployment jobs.
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
 
-  This API will no longer be supported as of May 2, 2022. Use it to remove
-  resources that were created for Deployment Service.
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/). 
+
+  This API is no longer supported. For more information, see the May 2, 2022
+  update in the [Support
+  policy](https://docs.aws.amazon.com/robomaker/latest/dg/chapter-support-policy.html#software-support-policy-may2022)
+  page.
+
+  Returns a list of deployment jobs for a fleet. You can optionally provide
+  filters to retrieve specific deployment jobs.
   """
   @spec list_deployment_jobs(map(), list_deployment_jobs_request(), list()) ::
           {:ok, list_deployment_jobs_response(), any()}
@@ -3809,12 +4230,24 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Returns a list of fleets.
 
-  You can optionally provide filters to retrieve specific fleets.
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
 
-  This API will no longer be supported as of May 2, 2022. Use it to remove
-  resources that were created for Deployment Service.
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/). 
+
+  This API is no longer supported. For more information, see the May 2, 2022
+  update in the [Support
+  policy](https://docs.aws.amazon.com/robomaker/latest/dg/chapter-support-policy.html#software-support-policy-may2022)
+  page.
+
+  Returns a list of fleets. You can optionally provide filters to retrieve
+  specific fleets.
   """
   @spec list_fleets(map(), list_fleets_request(), list()) ::
           {:ok, list_fleets_response(), any()}
@@ -3841,9 +4274,19 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Returns a list of robot application.
 
-  You can optionally provide filters to retrieve
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
+  Returns a list of robot application. You can optionally provide filters to
+  retrieve
   specific robot applications.
   """
   @spec list_robot_applications(map(), list_robot_applications_request(), list()) ::
@@ -3871,12 +4314,24 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Returns a list of robots.
 
-  You can optionally provide filters to retrieve specific robots.
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
 
-  This API will no longer be supported as of May 2, 2022. Use it to remove
-  resources that were created for Deployment Service.
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/). 
+
+  This API is no longer supported. For more information, see the May 2, 2022
+  update in the [Support
+  policy](https://docs.aws.amazon.com/robomaker/latest/dg/chapter-support-policy.html#software-support-policy-may2022)
+  page.
+
+  Returns a list of robots. You can optionally provide filters to retrieve
+  specific robots.
   """
   @spec list_robots(map(), list_robots_request(), list()) ::
           {:ok, list_robots_response(), any()}
@@ -3903,9 +4358,18 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Returns a list of simulation applications.
 
-  You can optionally provide filters to
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
+  Returns a list of simulation applications. You can optionally provide filters to
   retrieve specific simulation applications.
   """
   @spec list_simulation_applications(map(), list_simulation_applications_request(), list()) ::
@@ -3933,9 +4397,19 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Returns a list simulation job batches.
 
-  You can optionally provide filters to retrieve
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
+  Returns a list simulation job batches. You can optionally provide filters to
+  retrieve
   specific simulation batch jobs.
   """
   @spec list_simulation_job_batches(map(), list_simulation_job_batches_request(), list()) ::
@@ -3963,9 +4437,19 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Returns a list of simulation jobs.
 
-  You can optionally provide filters to retrieve
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
+  Returns a list of simulation jobs. You can optionally provide filters to
+  retrieve
   specific simulation jobs.
   """
   @spec list_simulation_jobs(map(), list_simulation_jobs_request(), list()) ::
@@ -3993,6 +4477,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Lists all tags on a AWS RoboMaker resource.
   """
   @spec list_tags_for_resource(map(), String.t(), list()) ::
@@ -4010,6 +4505,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Lists world export jobs.
   """
   @spec list_world_export_jobs(map(), list_world_export_jobs_request(), list()) ::
@@ -4037,6 +4543,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Lists world generator jobs.
   """
   @spec list_world_generation_jobs(map(), list_world_generation_jobs_request(), list()) ::
@@ -4064,6 +4581,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Lists world templates.
   """
   @spec list_world_templates(map(), list_world_templates_request(), list()) ::
@@ -4091,6 +4619,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Lists worlds.
   """
   @spec list_worlds(map(), list_worlds_request(), list()) ::
@@ -4118,9 +4657,23 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/). 
+
   Registers a robot with a fleet.
 
-  This API is no longer supported and will throw an error if used.
+  This API is no longer supported and will throw an error if used. For more
+  information, see the January 31, 2022 update in the [Support
+  policy](https://docs.aws.amazon.com/robomaker/latest/dg/chapter-support-policy.html#software-support-policy-january2022)
+  page.
   """
   @spec register_robot(map(), register_robot_request(), list()) ::
           {:ok, register_robot_response(), any()}
@@ -4147,6 +4700,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Restarts a running simulation job.
   """
   @spec restart_simulation_job(map(), restart_simulation_job_request(), list()) ::
@@ -4174,9 +4738,18 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Starts a new simulation job batch.
 
-  The batch is defined using one or more
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
+  Starts a new simulation job batch. The batch is defined using one or more
   `SimulationJobRequest` objects.
   """
   @spec start_simulation_job_batch(map(), start_simulation_job_batch_request(), list()) ::
@@ -4204,12 +4777,24 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
-  Syncrhonizes robots in a fleet to the latest deployment.
 
-  This is helpful if robots were added after a deployment.
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
 
-  This API will no longer be supported as of May 2, 2022. Use it to remove
-  resources that were created for Deployment Service.
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/). 
+
+  This API is no longer supported. For more information, see the May 2, 2022
+  update in the [Support
+  policy](https://docs.aws.amazon.com/robomaker/latest/dg/chapter-support-policy.html#software-support-policy-may2022)
+  page.
+
+  Syncrhonizes robots in a fleet to the latest deployment. This is helpful if
+  robots were added after a deployment.
   """
   @spec sync_deployment_job(map(), sync_deployment_job_request(), list()) ::
           {:ok, sync_deployment_job_response(), any()}
@@ -4236,13 +4821,25 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/). 
+
   Adds or edits tags for a AWS RoboMaker resource.
 
   Each tag consists of a tag key and a tag value. Tag keys and tag values are both
   required, but tag values can be empty strings.
 
   For information about the rules that apply to tag keys and tag values, see
-  [User-Defined Tag Restrictions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html)
+  [User-Defined Tag
+  Restrictions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html)
   in the *AWS Billing and Cost Management
   User Guide*.
   """
@@ -4271,6 +4868,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/). 
+
   Removes the specified tags from the specified AWS RoboMaker resource.
 
   To remove a tag, specify the tag key. To change the tag value of an existing tag
@@ -4309,6 +4917,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Updates a robot application.
   """
   @spec update_robot_application(map(), update_robot_application_request(), list()) ::
@@ -4336,6 +4955,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Updates a simulation application.
   """
   @spec update_simulation_application(map(), update_simulation_application_request(), list()) ::
@@ -4363,6 +4993,17 @@ defmodule AWS.RoboMaker do
   end
 
   @doc """
+
+  End of support notice: On September 10, 2025, Amazon Web Services
+  will discontinue support for Amazon Web Services RoboMaker.
+
+  After September 10, 2025, you will
+  no longer be able to access the Amazon Web Services RoboMaker console or Amazon
+  Web Services RoboMaker resources.
+  For more information on transitioning to Batch to help run containerized
+  simulations, visit
+  [https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/](https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/).
+
   Updates a world template.
   """
   @spec update_world_template(map(), update_world_template_request(), list()) ::

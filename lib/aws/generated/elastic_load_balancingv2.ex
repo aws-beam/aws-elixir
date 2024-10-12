@@ -177,6 +177,19 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
+      administrative_override() :: %{
+        "Description" => String.t(),
+        "Reason" => list(any()),
+        "State" => list(any())
+      }
+      
+  """
+  @type administrative_override() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       add_trust_store_revocations_output() :: %{
         "TrustStoreRevocations" => list(trust_store_revocation()())
       }
@@ -1242,6 +1255,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       target_health_description() :: %{
+        "AdministrativeOverride" => administrative_override(),
         "AnomalyDetection" => anomaly_detection(),
         "HealthCheckPort" => String.t(),
         "Target" => target_description(),

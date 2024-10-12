@@ -484,6 +484,7 @@ defmodule AWS.EMR do
   ## Example:
       
       instance_fleet() :: %{
+        "Context" => String.t(),
         "Id" => String.t(),
         "InstanceFleetType" => list(any()),
         "InstanceTypeSpecifications" => list(instance_type_specification()()),
@@ -2400,6 +2401,7 @@ defmodule AWS.EMR do
   ## Example:
       
       instance_fleet_config() :: %{
+        "Context" => String.t(),
         "InstanceFleetType" => list(any()),
         "InstanceTypeConfigs" => list(instance_type_config()()),
         "LaunchSpecifications" => instance_fleet_provisioning_specifications(),
@@ -2456,6 +2458,7 @@ defmodule AWS.EMR do
   ## Example:
       
       instance_fleet_modify_config() :: %{
+        "Context" => String.t(),
         "InstanceFleetId" => String.t(),
         "InstanceTypeConfigs" => list(instance_type_config()()),
         "ResizeSpecifications" => instance_fleet_resizing_specifications(),

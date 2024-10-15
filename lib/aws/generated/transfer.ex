@@ -18,8 +18,8 @@ defmodule AWS.Transfer do
   Route 53 so
   nothing changes for your customers and partners, or their applications. With
   your data in
-  Amazon S3, you can use it with Amazon Web Services for processing, analytics,
-  machine learning, and
+  Amazon S3, you can use it with Amazon Web Services services for processing,
+  analytics, machine learning, and
   archiving. Getting started with Transfer Family is easy since there is no
   infrastructure to buy and
   set up.
@@ -550,6 +550,20 @@ defmodule AWS.Transfer do
 
   ## Example:
       
+      connector_file_transfer_result() :: %{
+        "FailureCode" => String.t(),
+        "FailureMessage" => String.t(),
+        "FilePath" => String.t(),
+        "StatusCode" => list(any())
+      }
+      
+  """
+  @type connector_file_transfer_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_execution_response() :: %{
         "Execution" => described_execution(),
         "WorkflowId" => String.t()
@@ -818,6 +832,20 @@ defmodule AWS.Transfer do
       
   """
   @type create_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_file_transfer_results_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("ConnectorId") => String.t(),
+        required("TransferId") => String.t()
+      }
+      
+  """
+  @type list_file_transfer_results_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1214,6 +1242,18 @@ defmodule AWS.Transfer do
       
   """
   @type service_unavailable_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_file_transfer_results_response() :: %{
+        "FileTransferResults" => list(connector_file_transfer_result()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type list_file_transfer_results_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2501,6 +2541,12 @@ defmodule AWS.Transfer do
           | invalid_request_exception()
           | resource_not_found_exception()
 
+  @type list_file_transfer_results_errors() ::
+          internal_service_error()
+          | service_unavailable_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
   @type list_host_keys_errors() ::
           internal_service_error()
           | service_unavailable_exception()
@@ -3273,6 +3319,27 @@ defmodule AWS.Transfer do
     meta = metadata()
 
     Request.request_post(client, meta, "ListExecutions", input, options)
+  end
+
+  @doc """
+
+  Returns real-time updates and detailed information on the status of each
+  individual file being transferred in a specific file transfer operation.
+
+  You specify the file transfer by providing its `ConnectorId` and its
+  `TransferId`.
+
+  File transfer results are available up to 7 days after an operation has been
+  requested.
+  """
+  @spec list_file_transfer_results(map(), list_file_transfer_results_request(), list()) ::
+          {:ok, list_file_transfer_results_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_file_transfer_results_errors()}
+  def list_file_transfer_results(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListFileTransferResults", input, options)
   end
 
   @doc """

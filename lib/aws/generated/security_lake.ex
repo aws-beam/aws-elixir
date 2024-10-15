@@ -47,16 +47,16 @@ defmodule AWS.SecurityLake do
 
   Security Lake automates the collection of security-related log and event data
   from
-  integrated Amazon Web Services and third-party services. It also helps you
-  manage
+  integrated Amazon Web Services services and third-party services. It also helps
+  you manage
   the lifecycle of data with customizable retention and replication settings.
   Security Lake
   converts ingested data into Apache Parquet format and a standard open-source
   schema called
   the Open Cybersecurity Schema Framework (OCSF).
 
-  Other Amazon Web Services and third-party services can subscribe to the data
-  that's stored in Security Lake for
+  Other Amazon Web Services services and third-party services can subscribe to the
+  data that's stored in Security Lake for
   incident response and security data analytics.
   """
 
@@ -1417,7 +1417,8 @@ defmodule AWS.SecurityLake do
   end
 
   @doc """
-  Adds a natively supported Amazon Web Service as an Amazon Security Lake source.
+  Adds a natively supported Amazon Web Services service as an Amazon Security Lake
+  source.
 
   Enables
   source types for member accounts in required Amazon Web Services Regions, based
@@ -1425,10 +1426,11 @@ defmodule AWS.SecurityLake do
   parameters you specify. You can choose any source type in any Region for either
   accounts
   that are part of a trusted organization or standalone accounts. Once you add an
-  Amazon Web Service as a source, Security Lake starts collecting logs and events
-  from it.
+  Amazon Web Services service as a source, Security Lake starts collecting logs
+  and events from it.
 
-  You can use this API only to enable natively supported Amazon Web Services as a
+  You can use this API only to enable natively supported Amazon Web Services
+  services as a
   source. Use `CreateCustomLogSource` to enable data collection from a custom
   source.
   """
@@ -1514,7 +1516,8 @@ defmodule AWS.SecurityLake do
   configurations.
 
   When you enable Security Lake, it starts ingesting security data after the
-  `CreateAwsLogSource` call. This includes ingesting security data from
+  `CreateAwsLogSource` call and after you create subscribers using the
+  `CreateSubscriber` API. This includes ingesting security data from
   sources, storing data, and making data accessible to subscribers. Security Lake
   also enables
   all the existing settings and resources that it stores or maintains for your
@@ -1550,6 +1553,9 @@ defmodule AWS.SecurityLake do
   Creates the specified notification subscription in Amazon Security Lake for the
   organization
   you specify.
+
+  The notification subscription is created for exceptions that cannot be resolved
+  by Security Lake automatically.
   """
   @spec create_data_lake_exception_subscription(
           map(),
@@ -1616,11 +1622,12 @@ defmodule AWS.SecurityLake do
   end
 
   @doc """
-  Creates a subscription permission for accounts that are already enabled in
-  Amazon Security Lake.
+  Creates a subscriber for accounts that are already enabled in Amazon Security
+  Lake.
 
-  You can create a subscriber with access to data in the current Amazon Web
-  Services Region.
+  You can
+  create a subscriber with access to data in the current Amazon Web Services
+  Region.
   """
   @spec create_subscriber(map(), create_subscriber_request(), list()) ::
           {:ok, create_subscriber_response(), any()}
@@ -1684,8 +1691,8 @@ defmodule AWS.SecurityLake do
   end
 
   @doc """
-  Removes a natively supported Amazon Web Service as an Amazon Security Lake
-  source.
+  Removes a natively supported Amazon Web Services service as an Amazon Security
+  Lake source.
 
   You
   can remove a source for one or more Regions. When you remove the source,
@@ -1905,7 +1912,7 @@ defmodule AWS.SecurityLake do
   end
 
   @doc """
-  Deletes the specified notification subscription in Amazon Security Lake for the
+  Deletes the specified subscription notification in Amazon Security Lake for the
   organization
   you specify.
   """
@@ -1976,8 +1983,8 @@ defmodule AWS.SecurityLake do
   end
 
   @doc """
-  Retrieves the details of exception notifications for the account in Amazon
-  Security Lake.
+  Retrieves the protocol and endpoint that were provided when subscribing to
+  Amazon SNS topics for exception notifications.
   """
   @spec get_data_lake_exception_subscription(map(), list()) ::
           {:ok, get_data_lake_exception_subscription_response(), any()}
@@ -2122,7 +2129,7 @@ defmodule AWS.SecurityLake do
   end
 
   @doc """
-  Retrieves the log sources in the current Amazon Web Services Region.
+  Retrieves the log sources.
   """
   @spec list_log_sources(map(), list_log_sources_request(), list()) ::
           {:ok, list_log_sources_response(), any()}
@@ -2149,7 +2156,7 @@ defmodule AWS.SecurityLake do
   end
 
   @doc """
-  List all subscribers for the specific Amazon Security Lake account ID.
+  Lists all subscribers for the specific Amazon Security Lake account ID.
 
   You can retrieve a list
   of subscriptions associated with a specific organization or Amazon Web Services
@@ -2315,10 +2322,29 @@ defmodule AWS.SecurityLake do
   end
 
   @doc """
-  Specifies where to store your security data and for how long.
+  You can use `UpdateDataLake` to specify where to store your security data, how
+  it should
+  be encrypted at rest and for how long.
 
-  You can add a rollup
-  Region to consolidate data from multiple Amazon Web Services Regions.
+  You can add a [Rollup Region](https://docs.aws.amazon.com/security-lake/latest/userguide/manage-regions.html#add-rollup-region)
+  to consolidate data from multiple Amazon Web Services Regions, replace
+  default encryption (SSE-S3) with [Customer Manged Key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk),
+  or specify transition and expiration actions through storage [Lifecycle management](https://docs.aws.amazon.com/security-lake/latest/userguide/lifecycle-management.html).
+  The `UpdateDataLake` API works as an "upsert" operation that performs an insert
+  if the specified item or record does not exist, or an update if it
+  already exists. Security Lake securely stores your data at rest using Amazon Web
+  Services encryption solutions. For more details, see [Data protection in Amazon Security
+  Lake](https://docs.aws.amazon.com/security-lake/latest/userguide/data-protection.html).
+
+  For example, omitting the key `encryptionConfiguration` from a Region that is
+  included in an update call that currently uses KMS will leave that Region's KMS
+  key in
+  place, but specifying `encryptionConfiguration: {kmsKeyId: 'S3_MANAGED_KEY'}`
+  for that same Region will reset the key to `S3-managed`.
+
+  For more details about lifecycle management and how to update retention settings
+  for one or more Regions after enabling Security Lake, see the [Amazon Security Lake User
+  Guide](https://docs.aws.amazon.com/security-lake/latest/userguide/lifecycle-management.html).
   """
   @spec update_data_lake(map(), update_data_lake_request(), list()) ::
           {:ok, update_data_lake_response(), any()}

@@ -149,6 +149,17 @@ defmodule AWS.SupplyChain do
 
   ## Example:
 
+      create_instance_response() :: %{
+        "instance" => instance()
+      }
+
+  """
+  @type create_instance_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_data_integration_flow_response() :: %{
         "instanceId" => String.t(),
         "name" => String.t()
@@ -209,6 +220,15 @@ defmodule AWS.SupplyChain do
 
   """
   @type update_data_integration_flow_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_instance_request() :: %{}
+
+  """
+  @type get_instance_request() :: %{}
 
   @typedoc """
 
@@ -347,6 +367,29 @@ defmodule AWS.SupplyChain do
 
   ## Example:
 
+      update_instance_request() :: %{
+        optional("instanceDescription") => String.t(),
+        optional("instanceName") => String.t()
+      }
+
+  """
+  @type update_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_instance_response() :: %{
+        "instance" => instance()
+      }
+
+  """
+  @type get_instance_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       data_lake_dataset_schema() :: %{
         "fields" => list(data_lake_dataset_schema_field()()),
         "name" => String.t()
@@ -394,12 +437,38 @@ defmodule AWS.SupplyChain do
 
   ## Example:
 
+      list_instances_request() :: %{
+        optional("instanceNameFilter") => list(String.t()()),
+        optional("instanceStateFilter") => list(list(any())()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_instances_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_data_lake_dataset_response() :: %{
         "dataset" => data_lake_dataset()
       }
 
   """
   @type create_data_lake_dataset_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_instances_response() :: %{
+        "instances" => list(instance()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_instances_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -439,6 +508,41 @@ defmodule AWS.SupplyChain do
 
   ## Example:
 
+      create_instance_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("instanceDescription") => String.t(),
+        optional("instanceName") => String.t(),
+        optional("kmsKeyArn") => String.t(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      instance() :: %{
+        "awsAccountId" => String.t(),
+        "createdTime" => [non_neg_integer()],
+        "instanceDescription" => String.t(),
+        "instanceId" => String.t(),
+        "instanceName" => String.t(),
+        "kmsKeyArn" => String.t(),
+        "lastModifiedTime" => [non_neg_integer()],
+        "state" => list(any()),
+        "versionNumber" => [float()],
+        "webAppDnsDomain" => String.t()
+      }
+
+  """
+  @type instance() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       access_denied_exception() :: %{
         "message" => [String.t()]
       }
@@ -454,6 +558,17 @@ defmodule AWS.SupplyChain do
 
   """
   @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_instance_response() :: %{
+        "instance" => instance()
+      }
+
+  """
+  @type delete_instance_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -496,6 +611,15 @@ defmodule AWS.SupplyChain do
 
   """
   @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_instance_request() :: %{}
+
+  """
+  @type delete_instance_request() :: %{}
 
   @typedoc """
 
@@ -570,6 +694,17 @@ defmodule AWS.SupplyChain do
 
   """
   @type list_data_integration_flows_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_instance_response() :: %{
+        "instance" => instance()
+      }
+
+  """
+  @type update_instance_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -677,6 +812,14 @@ defmodule AWS.SupplyChain do
           | service_quota_exceeded_exception()
           | conflict_exception()
 
+  @type create_instance_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
   @type delete_data_integration_flow_errors() ::
           throttling_exception()
           | access_denied_exception()
@@ -684,6 +827,13 @@ defmodule AWS.SupplyChain do
           | resource_not_found_exception()
 
   @type delete_data_lake_dataset_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type delete_instance_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -711,6 +861,13 @@ defmodule AWS.SupplyChain do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_instance_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type list_data_integration_flows_errors() ::
           throttling_exception()
           | validation_exception()
@@ -723,6 +880,12 @@ defmodule AWS.SupplyChain do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type list_instances_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
 
   @type list_tags_for_resource_errors() ::
           throttling_exception()
@@ -762,6 +925,13 @@ defmodule AWS.SupplyChain do
           | resource_not_found_exception()
 
   @type update_data_lake_dataset_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_instance_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -885,6 +1055,39 @@ defmodule AWS.SupplyChain do
   end
 
   @doc """
+  Create a new instance for AWS Supply Chain.
+
+  This is an asynchronous operation. Upon receiving a CreateInstance request, AWS
+  Supply Chain immediately returns the instance resource, with instance ID, and
+  the initializing state while simultaneously creating all required Amazon Web
+  Services resources for an instance creation. You can use GetInstance to check
+  the status of the instance.
+  """
+  @spec create_instance(map(), create_instance_request(), list()) ::
+          {:ok, create_instance_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_instance_errors()}
+  def create_instance(%Client{} = client, input, options \\ []) do
+    url_path = "/api/instance"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Delete the DataIntegrationFlow.
   """
   @spec delete_data_integration_flow(
@@ -963,6 +1166,39 @@ defmodule AWS.SupplyChain do
   end
 
   @doc """
+  Delete the instance.
+
+  This is an asynchronous operation. Upon receiving a DeleteInstance request, AWS
+  Supply Chain immediately returns a response with the instance resource, delete
+  state while cleaning up all Amazon Web Services resources created during the
+  instance creation process. You can use the GetInstance action to check the
+  instance status.
+  """
+  @spec delete_instance(map(), String.t(), delete_instance_request(), list()) ::
+          {:ok, delete_instance_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_instance_errors()}
+  def delete_instance(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/api/instance/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Get status and details of a BillOfMaterialsImportJob.
   """
   @spec get_bill_of_materials_import_job(map(), String.t(), String.t(), list()) ::
@@ -1011,6 +1247,23 @@ defmodule AWS.SupplyChain do
     url_path =
       "/api/datalake/instance/#{AWS.Util.encode_uri(instance_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/datasets/#{AWS.Util.encode_uri(name)}"
 
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Get the AWS Supply Chain instance details.
+  """
+  @spec get_instance(map(), String.t(), list()) ::
+          {:ok, get_instance_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_instance_errors()}
+  def get_instance(%Client{} = client, instance_id, options \\ []) do
+    url_path = "/api/instance/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     query_params = []
 
@@ -1096,6 +1349,65 @@ defmodule AWS.SupplyChain do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  List all the AWS Supply Chain instances in a paginated way.
+  """
+  @spec list_instances(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_instances_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_instances_errors()}
+  def list_instances(
+        %Client{} = client,
+        instance_name_filter \\ nil,
+        instance_state_filter \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/api/instance"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(instance_state_filter) do
+        [{"instanceStateFilter", instance_state_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(instance_name_filter) do
+        [{"instanceNameFilter", instance_name_filter} | query_params]
       else
         query_params
       end
@@ -1281,6 +1593,33 @@ defmodule AWS.SupplyChain do
     url_path =
       "/api/datalake/instance/#{AWS.Util.encode_uri(instance_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/datasets/#{AWS.Util.encode_uri(name)}"
 
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Update the instance.
+  """
+  @spec update_instance(map(), String.t(), update_instance_request(), list()) ::
+          {:ok, update_instance_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_instance_errors()}
+  def update_instance(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/api/instance/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     query_params = []
 

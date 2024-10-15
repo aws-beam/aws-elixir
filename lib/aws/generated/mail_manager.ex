@@ -96,7 +96,9 @@ defmodule AWS.MailManager do
   ## Example:
       
       get_archive_message_response() :: %{
-        "MessageDownloadLink" => String.t()
+        "Envelope" => envelope(),
+        "MessageDownloadLink" => String.t(),
+        "Metadata" => metadata()
       }
       
   """
@@ -398,6 +400,7 @@ defmodule AWS.MailManager do
       
       start_archive_export_request() :: %{
         optional("Filters") => archive_filters(),
+        optional("IncludeMetadata") => [boolean()],
         optional("MaxResults") => integer(),
         required("ArchiveId") => String.t(),
         required("ExportDestinationConfiguration") => list(),
@@ -432,6 +435,24 @@ defmodule AWS.MailManager do
       
   """
   @type list_addon_instances_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      metadata() :: %{
+        "IngressPointId" => String.t(),
+        "RuleSetId" => String.t(),
+        "SenderHostname" => [String.t()],
+        "SenderIpAddress" => String.t(),
+        "Timestamp" => [non_neg_integer()],
+        "TlsCipherSuite" => [String.t()],
+        "TlsProtocol" => [String.t()],
+        "TrafficPolicyId" => String.t()
+      }
+      
+  """
+  @type metadata() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -885,6 +906,19 @@ defmodule AWS.MailManager do
 
   ## Example:
       
+      envelope() :: %{
+        "From" => [String.t()],
+        "Helo" => [String.t()],
+        "To" => list([String.t()]())
+      }
+      
+  """
+  @type envelope() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       tag() :: %{
         "Key" => String.t(),
         "Value" => String.t()
@@ -924,12 +958,16 @@ defmodule AWS.MailManager do
         "ArchivedMessageId" => String.t(),
         "Cc" => [String.t()],
         "Date" => [String.t()],
+        "Envelope" => envelope(),
         "From" => [String.t()],
         "HasAttachments" => [boolean()],
         "InReplyTo" => [String.t()],
+        "IngressPointId" => String.t(),
         "MessageId" => [String.t()],
         "ReceivedHeaders" => list([String.t()]()),
         "ReceivedTimestamp" => [non_neg_integer()],
+        "SenderHostname" => [String.t()],
+        "SenderIpAddress" => String.t(),
         "Subject" => [String.t()],
         "To" => [String.t()],
         "XMailer" => [String.t()],

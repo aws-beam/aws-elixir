@@ -816,7 +816,8 @@ defmodule AWS.CodePipeline do
       
       failure_conditions() :: %{
         "conditions" => list(condition()()),
-        "result" => list(any())
+        "result" => list(any()),
+        "retryConfiguration" => retry_configuration()
       }
       
   """
@@ -859,6 +860,19 @@ defmodule AWS.CodePipeline do
       
   """
   @type stage_context() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      retry_stage_metadata() :: %{
+        "autoStageRetryAttempt" => integer(),
+        "latestRetryTrigger" => list(any()),
+        "manualStageRetryAttempt" => integer()
+      }
+      
+  """
+  @type retry_stage_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1275,6 +1289,17 @@ defmodule AWS.CodePipeline do
       
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      retry_configuration() :: %{
+        "retryMode" => list(any())
+      }
+      
+  """
+  @type retry_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2545,6 +2570,7 @@ defmodule AWS.CodePipeline do
         "latestExecution" => stage_execution(),
         "onFailureConditionState" => stage_condition_state(),
         "onSuccessConditionState" => stage_condition_state(),
+        "retryStageMetadata" => retry_stage_metadata(),
         "stageName" => String.t()
       }
       
@@ -3590,7 +3616,8 @@ defmodule AWS.CodePipeline do
 
   @doc """
   Lists the rule executions that have occurred in a pipeline configured for
-  conditions with rules.
+  conditions
+  with rules.
   """
   @spec list_rule_executions(map(), list_rule_executions_input(), list()) ::
           {:ok, list_rule_executions_output(), any()}

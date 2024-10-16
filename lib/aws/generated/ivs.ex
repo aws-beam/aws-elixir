@@ -818,6 +818,7 @@ defmodule AWS.Ivs do
   ## Example:
 
       stream_event() :: %{
+        "code" => String.t(),
         "eventTime" => non_neg_integer(),
         "name" => String.t(),
         "type" => String.t()

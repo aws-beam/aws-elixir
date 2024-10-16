@@ -59,6 +59,17 @@ defmodule AWS.Redshift do
 
   ## Example:
       
+      integration_source_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type integration_source_not_found_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_scheduled_actions_message() :: %{
         optional("Active") => boolean(),
         optional("EndTime") => non_neg_integer(),
@@ -155,6 +166,17 @@ defmodule AWS.Redshift do
       
   """
   @type describe_data_shares_for_producer_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      integration_target_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type integration_target_not_found_fault() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -454,6 +476,17 @@ defmodule AWS.Redshift do
 
   ## Example:
       
+      integration_already_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type integration_already_exists_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       availability_zone() :: %{
         "Name" => String.t(),
         "SupportedPlatforms" => list(supported_platform()())
@@ -615,6 +648,27 @@ defmodule AWS.Redshift do
 
   ## Example:
       
+      integration() :: %{
+        optional("AdditionalEncryptionContext") => map(),
+        optional("CreateTime") => non_neg_integer(),
+        optional("Description") => String.t(),
+        optional("Errors") => list(integration_error()()),
+        optional("IntegrationArn") => String.t(),
+        optional("IntegrationName") => String.t(),
+        optional("KMSKeyId") => String.t(),
+        optional("SourceArn") => String.t(),
+        optional("Status") => list(any()),
+        optional("Tags") => list(tag()()),
+        optional("TargetArn") => String.t()
+      }
+      
+  """
+  @type integration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_tags_message() :: %{
         required("ResourceName") => String.t(),
         required("Tags") => list(tag()())
@@ -622,6 +676,18 @@ defmodule AWS.Redshift do
       
   """
   @type create_tags_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_integrations_filter() :: %{
+        "Name" => list(any()),
+        "Values" => list(String.t()())
+      }
+      
+  """
+  @type describe_integrations_filter() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1937,6 +2003,17 @@ defmodule AWS.Redshift do
 
   ## Example:
       
+      integration_conflict_operation_fault() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type integration_conflict_operation_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       modify_cluster_result() :: %{
         "Cluster" => cluster()
       }
@@ -2005,6 +2082,17 @@ defmodule AWS.Redshift do
       
   """
   @type delete_hsm_configuration_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_integration_message() :: %{
+        required("IntegrationArn") => String.t()
+      }
+      
+  """
+  @type delete_integration_message() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2112,6 +2200,17 @@ defmodule AWS.Redshift do
       
   """
   @type authorization_not_found_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      integration_quota_exceeded_fault() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type integration_quota_exceeded_fault() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3355,6 +3454,19 @@ defmodule AWS.Redshift do
 
   ## Example:
       
+      modify_integration_message() :: %{
+        optional("Description") => String.t(),
+        optional("IntegrationName") => String.t(),
+        required("IntegrationArn") => String.t()
+      }
+      
+  """
+  @type modify_integration_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       events_message() :: %{
         "Events" => list(event()()),
         "Marker" => String.t()
@@ -3568,6 +3680,23 @@ defmodule AWS.Redshift do
       
   """
   @type s_n_s_invalid_topic_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_integration_message() :: %{
+        optional("AdditionalEncryptionContext") => map(),
+        optional("Description") => String.t(),
+        optional("KMSKeyId") => String.t(),
+        optional("TagList") => list(tag()()),
+        required("IntegrationName") => String.t(),
+        required("SourceArn") => String.t(),
+        required("TargetArn") => String.t()
+      }
+      
+  """
+  @type create_integration_message() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4658,6 +4787,18 @@ defmodule AWS.Redshift do
 
   ## Example:
       
+      integrations_message() :: %{
+        "Integrations" => list(integration()()),
+        "Marker" => String.t()
+      }
+      
+  """
+  @type integrations_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       copy_to_region_disabled_fault() :: %{
         "message" => String.t()
       }
@@ -4757,6 +4898,20 @@ defmodule AWS.Redshift do
       
   """
   @type delete_cluster_security_group_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_integrations_message() :: %{
+        optional("Filters") => list(describe_integrations_filter()()),
+        optional("IntegrationArn") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer()
+      }
+      
+  """
+  @type describe_integrations_message() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5137,6 +5292,17 @@ defmodule AWS.Redshift do
       
   """
   @type invalid_table_restore_argument_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      integration_conflict_state_fault() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type integration_conflict_state_fault() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5979,6 +6145,17 @@ defmodule AWS.Redshift do
           | hsm_configuration_quota_exceeded_fault()
           | invalid_tag_fault()
 
+  @type create_integration_errors() ::
+          tag_limit_exceeded_fault()
+          | invalid_cluster_state_fault()
+          | integration_quota_exceeded_fault()
+          | integration_conflict_operation_fault()
+          | invalid_tag_fault()
+          | unsupported_operation_fault()
+          | integration_already_exists_fault()
+          | integration_target_not_found_fault()
+          | integration_source_not_found_fault()
+
   @type create_redshift_idc_application_errors() ::
           dependent_service_unavailable_fault()
           | redshift_idc_application_quota_exceeded_fault()
@@ -6077,6 +6254,12 @@ defmodule AWS.Redshift do
   @type delete_hsm_configuration_errors() ::
           invalid_hsm_configuration_state_fault() | hsm_configuration_not_found_fault()
 
+  @type delete_integration_errors() ::
+          integration_conflict_state_fault()
+          | integration_not_found_fault()
+          | integration_conflict_operation_fault()
+          | unsupported_operation_fault()
+
   @type delete_partner_errors() ::
           partner_not_found_fault()
           | unauthorized_partner_integration_fault()
@@ -6163,6 +6346,9 @@ defmodule AWS.Redshift do
           integration_not_found_fault()
           | invalid_namespace_fault()
           | unsupported_operation_fault()
+
+  @type describe_integrations_errors() ::
+          integration_not_found_fault() | unsupported_operation_fault()
 
   @type describe_logging_status_errors() ::
           unsupported_operation_fault() | cluster_not_found_fault()
@@ -6379,6 +6565,13 @@ defmodule AWS.Redshift do
           | source_not_found_fault()
           | subscription_event_id_not_found_fault()
           | subscription_severity_not_found_fault()
+
+  @type modify_integration_errors() ::
+          integration_conflict_state_fault()
+          | integration_not_found_fault()
+          | integration_conflict_operation_fault()
+          | unsupported_operation_fault()
+          | integration_already_exists_fault()
 
   @type modify_redshift_idc_application_errors() ::
           dependent_service_unavailable_fault()
@@ -7021,6 +7214,19 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+  Creates a zero-ETL integration with Amazon Redshift.
+  """
+  @spec create_integration(map(), create_integration_message(), list()) ::
+          {:ok, integration(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_integration_errors()}
+  def create_integration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateIntegration", input, options)
+  end
+
+  @doc """
   Creates an Amazon Redshift application for use with IAM Identity Center.
   """
   @spec create_redshift_idc_application(map(), create_redshift_idc_application_message(), list()) ::
@@ -7323,6 +7529,19 @@ defmodule AWS.Redshift do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteHsmConfiguration", input, options)
+  end
+
+  @doc """
+  Deletes a zero-ETL integration with Amazon Redshift.
+  """
+  @spec delete_integration(map(), delete_integration_message(), list()) ::
+          {:ok, integration(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_integration_errors()}
+  def delete_integration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteIntegration", input, options)
   end
 
   @doc """
@@ -7970,6 +8189,19 @@ defmodule AWS.Redshift do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeInboundIntegrations", input, options)
+  end
+
+  @doc """
+  Describes one or more zero-ETL integrations with Amazon Redshift.
+  """
+  @spec describe_integrations(map(), describe_integrations_message(), list()) ::
+          {:ok, integrations_message(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_integrations_errors()}
+  def describe_integrations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeIntegrations", input, options)
   end
 
   @doc """
@@ -8773,6 +9005,19 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+  Modifies a zero-ETL integration with Amazon Redshift.
+  """
+  @spec modify_integration(map(), modify_integration_message(), list()) ::
+          {:ok, integration(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, modify_integration_errors()}
+  def modify_integration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyIntegration", input, options)
+  end
+
+  @doc """
   Changes an existing Amazon Redshift IAM Identity Center application.
   """
   @spec modify_redshift_idc_application(map(), modify_redshift_idc_application_message(), list()) ::
@@ -8983,6 +9228,9 @@ defmodule AWS.Redshift do
 
       *
   dc2.8xlarge
+
+      *
+  ra3.large
 
       *
   ra3.xlplus

@@ -858,6 +858,7 @@ defmodule AWS.QBusiness do
       create_web_experience_request() :: %{
         optional("clientToken") => String.t(),
         optional("identityProviderConfiguration") => list(),
+        optional("origins") => list(String.t()()),
         optional("roleArn") => String.t(),
         optional("samplePromptsControlMode") => list(any()),
         optional("subtitle") => String.t(),
@@ -984,6 +985,7 @@ defmodule AWS.QBusiness do
         "defaultEndpoint" => String.t(),
         "error" => error_detail(),
         "identityProviderConfiguration" => list(),
+        "origins" => list(String.t()()),
         "roleArn" => String.t(),
         "samplePromptsControlMode" => list(any()),
         "status" => list(any()),
@@ -1156,6 +1158,7 @@ defmodule AWS.QBusiness do
       update_web_experience_request() :: %{
         optional("authenticationConfiguration") => list(),
         optional("identityProviderConfiguration") => list(),
+        optional("origins") => list(String.t()()),
         optional("roleArn") => String.t(),
         optional("samplePromptsControlMode") => list(any()),
         optional("subtitle") => String.t(),

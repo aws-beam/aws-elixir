@@ -201,6 +201,18 @@ defmodule AWS.CodeBuild do
 
   ## Example:
       
+      proxy_configuration() :: %{
+        "defaultBehavior" => list(any()),
+        "orderedProxyRules" => list(fleet_proxy_rule()())
+      }
+      
+  """
+  @type proxy_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       logs_config() :: %{
         "cloudWatchLogs" => cloud_watch_logs_config(),
         "s3Logs" => s3_logs_config()
@@ -1454,6 +1466,7 @@ defmodule AWS.CodeBuild do
         optional("fleetServiceRole") => String.t(),
         optional("imageId") => String.t(),
         optional("overflowBehavior") => list(any()),
+        optional("proxyConfiguration") => proxy_configuration(),
         optional("scalingConfiguration") => scaling_configuration_input(),
         optional("tags") => list(tag()()),
         optional("vpcConfig") => vpc_config(),
@@ -1471,6 +1484,7 @@ defmodule AWS.CodeBuild do
         optional("fleetServiceRole") => String.t(),
         optional("imageId") => String.t(),
         optional("overflowBehavior") => list(any()),
+        optional("proxyConfiguration") => proxy_configuration(),
         optional("scalingConfiguration") => scaling_configuration_input(),
         optional("tags") => list(tag()()),
         optional("vpcConfig") => vpc_config(),
@@ -1529,6 +1543,19 @@ defmodule AWS.CodeBuild do
       
   """
   @type logs_location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      fleet_proxy_rule() :: %{
+        "effect" => list(any()),
+        "entities" => list(String.t()()),
+        "type" => list(any())
+      }
+      
+  """
+  @type fleet_proxy_rule() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2163,6 +2190,7 @@ defmodule AWS.CodeBuild do
         "lastModified" => non_neg_integer(),
         "name" => String.t(),
         "overflowBehavior" => list(any()),
+        "proxyConfiguration" => proxy_configuration(),
         "scalingConfiguration" => scaling_configuration_output(),
         "status" => fleet_status(),
         "tags" => list(tag()()),

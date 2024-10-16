@@ -496,6 +496,8 @@ defmodule AWS.Amplify do
         "jobArn" => String.t(),
         "jobId" => String.t(),
         "jobType" => list(any()),
+        "sourceUrl" => String.t(),
+        "sourceUrlType" => list(any()),
         "startTime" => non_neg_integer(),
         "status" => list(any())
       }
@@ -1266,7 +1268,8 @@ defmodule AWS.Amplify do
 
       start_deployment_request() :: %{
         optional("jobId") => String.t(),
-        optional("sourceUrl") => String.t()
+        optional("sourceUrl") => String.t(),
+        optional("sourceUrlType") => list(any())
       }
 
   """
@@ -1632,7 +1635,7 @@ defmodule AWS.Amplify do
   Creates a deployment for a manually deployed Amplify app.
 
   Manually deployed apps are
-  not connected to a repository.
+  not connected to a Git repository.
 
   The maximum duration between the `CreateDeployment` call and the
   `StartDeployment` call cannot exceed 8 hours. If the duration exceeds 8
@@ -2384,7 +2387,7 @@ defmodule AWS.Amplify do
   Starts a deployment for a manually deployed app.
 
   Manually deployed apps are not
-  connected to a repository.
+  connected to a Git repository.
 
   The maximum duration between the `CreateDeployment` call and the
   `StartDeployment` call cannot exceed 8 hours. If the duration exceeds 8

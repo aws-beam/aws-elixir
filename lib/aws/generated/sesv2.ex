@@ -2307,6 +2307,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       put_configuration_set_delivery_options_request() :: %{
+        optional("MaxDeliverySeconds") => float(),
         optional("SendingPoolName") => String.t(),
         optional("TlsPolicy") => list(any())
       }
@@ -2788,6 +2789,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       delivery_options() :: %{
+        "MaxDeliverySeconds" => float(),
         "SendingPoolName" => String.t(),
         "TlsPolicy" => list(any())
       }

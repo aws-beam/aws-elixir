@@ -2048,7 +2048,8 @@ defmodule AWS.S3 do
       list_buckets_output() :: %{
         "Buckets" => list(bucket()()),
         "ContinuationToken" => String.t(),
-        "Owner" => owner()
+        "Owner" => owner(),
+        "Prefix" => String.t()
       }
 
   """
@@ -2895,6 +2896,7 @@ defmodule AWS.S3 do
   ## Example:
 
       bucket() :: %{
+        "BucketRegion" => String.t(),
         "CreationDate" => non_neg_integer(),
         "Name" => String.t()
       }
@@ -3109,8 +3111,10 @@ defmodule AWS.S3 do
   ## Example:
 
       list_buckets_request() :: %{
+        optional("BucketRegion") => String.t(),
         optional("ContinuationToken") => String.t(),
-        optional("MaxBuckets") => integer()
+        optional("MaxBuckets") => integer(),
+        optional("Prefix") => String.t()
       }
 
   """
@@ -5638,7 +5642,7 @@ defmodule AWS.S3 do
   the session.
 
   Only 1 [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk)
-  is supported per directory bucket for the lifetime of the bucket. [Amazon Web Services managed
+  is supported per directory bucket for the lifetime of the bucket. The [Amazon Web Services managed
   key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk)
   (`aws/s3`) isn't supported.
   After you specify SSE-KMS as your bucket's default encryption configuration with
@@ -6704,41 +6708,34 @@ defmodule AWS.S3 do
   @doc """
   Removes an object from a bucket.
 
-  The behavior depends on the bucket's versioning state:
+  The behavior depends on the bucket's versioning state.
+  For more information, see [Best practices to consider before deleting an
+  object](https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeletingObjects.html#DeletingObjects-best-practices).
 
-    *
-  If bucket versioning is not enabled, the operation permanently deletes the
-  object.
-
-    *
-  If bucket versioning is enabled, the operation inserts a delete marker, which
-  becomes the current version of the object. To permanently delete an object in a
-  versioned bucket, you must include the object’s `versionId` in the request. For
-  more information about versioning-enabled buckets, see [Deleting object versions from a versioning-enabled
-  bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeletingObjectVersions.html).
-
-    *
-  If bucket versioning is suspended, the operation removes the object that has a
-  null `versionId`, if there is one, and inserts a delete marker that becomes the
-  current version of the object. If there isn't an object with a null `versionId`,
-  and all versions of the object have a `versionId`, Amazon S3 does not remove the
-  object and only inserts a delete marker. To permanently delete an object that
-  has a `versionId`, you must include the object’s `versionId` in the request. For
-  more information about versioning-suspended buckets, see [Deleting objects from versioning-suspended
-  buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeletingObjectsfromVersioningSuspendedBuckets.html).
+  To remove a specific version, you must use the `versionId` query parameter.
+  Using this query parameter permanently deletes the version. If the object
+  deleted is a
+  delete marker, Amazon S3 sets the response header `x-amz-delete-marker` to true.
+  If
+  the object you want to delete is in a bucket where the bucket versioning
+  configuration is
+  MFA delete enabled, you must include the `x-amz-mfa` request header in the
+  DELETE `versionId` request. Requests that include `x-amz-mfa` must
+  use HTTPS. For more information about MFA delete and to see example requests,
+  see [Using MFA delete](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMFADelete.html) and
+  [Sample request](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectDELETE.html#ExampleVersionObjectDelete)
+  in the *Amazon S3 User Guide*.
 
     
-
-  **Directory buckets** - S3 Versioning isn't enabled and supported for directory
-  buckets. For this API operation, only the `null` value of the version ID is
-  supported by directory buckets. You can only specify `null`
-  to the `versionId` query parameter in the request.
+  S3 Versioning isn't enabled and supported for directory buckets. For this API
+  operation, only the `null` value of the version ID is supported by directory
+  buckets. You can only specify `null` to the
+  `versionId` query parameter in the request.
 
     
-
-  **Directory buckets** - For directory buckets, you must make requests for this
-  API operation to the Zonal endpoint. These endpoints support
-  virtual-hosted-style requests in the format
+  For directory buckets, you must make requests for this API operation to the
+  Zonal endpoint. These endpoints support virtual-hosted-style requests in the
+  format
 
   ```
   https://*bucket_name*.s3express-*az_id*.*region*.amazonaws.com/*key-name*
@@ -6750,30 +6747,8 @@ defmodule AWS.S3 do
   in the
   *Amazon S3 User Guide*.
 
-  To remove a specific version, you must use the `versionId` query parameter.
-  Using this
-  query parameter permanently deletes the version. If the object deleted is a
-  delete marker, Amazon S3
-  sets the response header `x-amz-delete-marker` to true.
-
-  If the object you want to delete is in a bucket where the bucket versioning
-  configuration is MFA Delete enabled, you must include the `x-amz-mfa` request
-  header in the DELETE `versionId` request. Requests that include
-  `x-amz-mfa` must use HTTPS. For more information about MFA Delete, see [Using MFA Delete](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMFADelete.html)
-  in the *Amazon S3
-  User Guide*. To see sample
-  requests that use versioning, see [Sample Request](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectDELETE.html#ExampleVersionObjectDelete).
-
-  **Directory buckets** - MFA delete is not supported by directory buckets.
-
-  You can delete objects by explicitly calling DELETE Object or calling
-  ([PutBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html)) to enable Amazon S3 to remove them for you. If you want to block
-  users or accounts from removing or deleting objects from your bucket, you must
-  deny them
-  the `s3:DeleteObject`, `s3:DeleteObjectVersion`, and
-  `s3:PutLifeCycleConfiguration` actions.
-
-  **Directory buckets** - S3 Lifecycle is not supported by directory buckets.
+    
+  MFA delete is not supported by directory buckets.
 
   ## Definitions
 
@@ -6781,42 +6756,41 @@ defmodule AWS.S3 do
 
     
 
-  **General purpose bucket permissions##  - The following permissions are required
-  in your policies when your
+  **General purpose bucket permissions##  - The
+  following permissions are required in your policies when your
   `DeleteObjects` request includes specific headers.
 
       
 
 
   `s3:DeleteObject`
-  ##  - To delete an object from a bucket, you must always have the
+  ## 
+  - To delete an object from a bucket, you must always have the
   `s3:DeleteObject` permission.
+
+  You can also use `PutBucketLifecycle` to delete
+  objects in Amazon S3.
 
       
 
 
   `s3:DeleteObjectVersion`
-  ** - To delete a specific version of an object from a versioning-enabled bucket,
-  you must have the `s3:DeleteObjectVersion` permission.
+  ** - To delete a specific version of an object from a
+  versioning-enabled bucket, you must have the
+  `s3:DeleteObjectVersion` permission.
+
+      
+  If you want to block users or accounts from removing or deleting
+  objects from your bucket, you must deny them the
+  `s3:DeleteObject`, `s3:DeleteObjectVersion`,
+  and `s3:PutLifeCycleConfiguration` permissions.
 
     
 
-  **Directory bucket permissions** - To grant access to this API operation on a
-  directory bucket, we recommend that you use the [
-  `CreateSession`
-  ](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html) API
-  operation for session-based authorization. Specifically, you grant the
-  `s3express:CreateSession` permission to the directory bucket in a bucket policy
-  or an IAM identity-based policy. Then, you make the `CreateSession` API call on
-  the bucket to obtain a session token. With the session token in your request
-  header, you can make API requests to this operation. After the session token
-  expires, you make another `CreateSession` API call to generate a new session
-  token for use.
-  Amazon Web Services CLI or SDKs create session and refresh the session token
-  automatically to avoid service interruptions when a session expires. For more
-  information about authorization, see [
-  `CreateSession`
-  ](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html).
+  **Directory buckets permissions** -
+  To grant access to this API operation on a directory bucket, we recommend
+  that you use the `CreateSession` API operation for
+  session-based authorization.
 
   ### HTTP Host header syntax
 
@@ -10561,18 +10535,34 @@ defmodule AWS.S3 do
   For information about Amazon S3 buckets, see [Creating, configuring, and working with Amazon S3
   buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html).
   """
-  @spec list_buckets(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_buckets(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
           {:ok, list_buckets_output(), any()}
           | {:error, {:unexpected_response, any()}}
   def list_buckets(
         %Client{} = client,
+        bucket_region \\ nil,
         continuation_token \\ nil,
         max_buckets \\ nil,
+        prefix \\ nil,
         options \\ []
       ) do
     url_path = "/?x-id=ListBuckets"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(prefix) do
+        [{"prefix", prefix} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(max_buckets) do
@@ -10584,6 +10574,13 @@ defmodule AWS.S3 do
     query_params =
       if !is_nil(continuation_token) do
         [{"continuation-token", continuation_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(bucket_region) do
+        [{"bucket-region", bucket_region} | query_params]
       else
         query_params
       end
@@ -12242,7 +12239,7 @@ defmodule AWS.S3 do
       
   Your SSE-KMS configuration can only support 1 [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk)
   per directory bucket for the lifetime of the bucket.
-  [Amazon Web Services managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk)
+  The [Amazon Web Services managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk)
   (`aws/s3`) isn't supported.
 
       
@@ -14443,10 +14440,6 @@ defmodule AWS.S3 do
 
   This operation is not supported by directory buckets.
 
-  The `SELECT` job type for the RestoreObject operation is no longer available to
-  new customers. Existing customers of Amazon S3 Select can continue to use the
-  feature as usual. [Learn more](http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/)
-
   Restores an archived copy of an object back into Amazon S3
 
   This functionality is not supported for Amazon S3 on Outposts.
@@ -14717,10 +14710,6 @@ defmodule AWS.S3 do
   @doc """
 
   This operation is not supported by directory buckets.
-
-  The SelectObjectContent operation is no longer available to new customers.
-  Existing customers of Amazon S3 Select can continue to use the operation as
-  usual. [Learn more](http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/)
 
   This action filters the contents of an Amazon S3 object based on a simple
   structured query

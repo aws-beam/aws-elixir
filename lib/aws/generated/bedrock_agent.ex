@@ -2406,7 +2406,6 @@ defmodule AWS.BedrockAgent do
         "maxTokens" => integer(),
         "stopSequences" => list([String.t()]()),
         "temperature" => float(),
-        "topK" => integer(),
         "topP" => float()
       }
 
@@ -4683,8 +4682,8 @@ defmodule AWS.BedrockAgent do
   @doc """
   Gets information about a data ingestion job.
 
-  Data sources are ingested into your knowledge base so that Large Lanaguage
-  Models (LLMs) can use your data.
+  Data sources are ingested into your knowledge base so that Large Language Models
+  (LLMs) can use your data.
   """
   @spec get_ingestion_job(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_ingestion_job_response(), any()}

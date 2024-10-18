@@ -859,6 +859,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      start_dashboard_snapshot_job_schedule_response() :: %{
+        "RequestId" => String.t(),
+        "Status" => integer()
+      }
+
+  """
+  @type start_dashboard_snapshot_job_schedule_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_template_alias_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer(),
@@ -2660,10 +2672,12 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
-      restore_analysis_request() :: %{}
+      restore_analysis_request() :: %{
+        optional("RestoreToFolders") => boolean()
+      }
 
   """
-  @type restore_analysis_request() :: %{}
+  @type restore_analysis_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6635,6 +6649,15 @@ defmodule AWS.QuickSight do
 
   """
   @type invalid_topic_reviewed_answer() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_dashboard_snapshot_job_schedule_request() :: %{}
+
+  """
+  @type start_dashboard_snapshot_job_schedule_request() :: %{}
 
   @typedoc """
 
@@ -12589,6 +12612,7 @@ defmodule AWS.QuickSight do
         "AnalysisId" => String.t(),
         "Arn" => String.t(),
         "RequestId" => String.t(),
+        "RestorationFailedFolderArns" => list(String.t()()),
         "Status" => integer()
       }
 
@@ -16948,7 +16972,9 @@ defmodule AWS.QuickSight do
           | internal_failure_exception()
 
   @type restore_analysis_errors() ::
-          throttling_exception()
+          precondition_not_met_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
           | conflict_exception()
@@ -17034,6 +17060,15 @@ defmodule AWS.QuickSight do
           | resource_not_found_exception()
           | unsupported_user_edition_exception()
           | unsupported_pricing_plan_exception()
+          | internal_failure_exception()
+
+  @type start_dashboard_snapshot_job_schedule_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | unsupported_user_edition_exception()
           | internal_failure_exception()
 
   @type tag_resource_errors() ::
@@ -22525,7 +22560,12 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/restore/analyses/#{AWS.Util.encode_uri(analysis_id)}"
 
     headers = []
-    query_params = []
+
+    {query_params, input} =
+      [
+        {"RestoreToFolders", "restore-to-folders"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 
@@ -22920,6 +22960,57 @@ defmodule AWS.QuickSight do
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}/snapshot-jobs"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Starts an asynchronous job that runs an existing dashboard schedule and sends
+  the dashboard snapshot through email.
+
+  Only one job can run simultaneously in a given schedule. Repeated requests are
+  skipped with a `202` HTTP status code.
+
+  For more information, see [Scheduling and sending Amazon QuickSight reports by email](https://docs.aws.amazon.com/quicksight/latest/user/sending-reports.html)
+  and [Configuring email report settings for a Amazon QuickSight dashboard](https://docs.aws.amazon.com/quicksight/latest/user/email-reports-from-dashboard.html)
+  in the *Amazon QuickSight User Guide*.
+  """
+  @spec start_dashboard_snapshot_job_schedule(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          start_dashboard_snapshot_job_schedule_request(),
+          list()
+        ) ::
+          {:ok, start_dashboard_snapshot_job_schedule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_dashboard_snapshot_job_schedule_errors()}
+  def start_dashboard_snapshot_job_schedule(
+        %Client{} = client,
+        aws_account_id,
+        dashboard_id,
+        schedule_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}/schedules/#{AWS.Util.encode_uri(schedule_id)}"
 
     headers = []
     query_params = []

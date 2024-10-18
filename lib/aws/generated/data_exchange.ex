@@ -4,39 +4,40 @@
 defmodule AWS.DataExchange do
   @moduledoc """
   AWS Data Exchange is a service that makes it easy for AWS customers to exchange
-  data in the cloud.
+  data in
+  the cloud.
 
   You can use the AWS Data Exchange APIs to create, update, manage, and access
   file-based data set in the AWS Cloud.
 
   As a subscriber, you can view and access the data sets that you have an
-  entitlement to through
-  a subscription. You can use the APIs to download or copy your entitled data sets
-  to Amazon
-  Simple Storage Service (Amazon S3) for use across a variety of AWS analytics and
-  machine
-  learning services.
+  entitlement to
+  through a subscription. You can use the APIs to download or copy your entitled
+  data sets to
+  Amazon Simple Storage Service (Amazon S3) for use across a variety of AWS
+  analytics and
+  machine learning services.
 
   As a provider, you can create and manage your data sets that you would like to
-  publish to a
-  product. Being able to package and provide your data sets into products requires
-  a few
+  publish
+  to a product. Being able to package and provide your data sets into products
+  requires a few
   steps to determine eligibility. For more information, visit the *AWS Data
   Exchange
   User Guide*.
 
   A data set is a collection of data that can be changed or updated over time.
-  Data sets can be
-  updated using revisions, which represent a new version or incremental change to
-  a data set.
-  A revision contains one or more assets. An asset in AWS Data Exchange is a piece
-  of data
-  that can be stored as an Amazon S3 object, Redshift datashare, API Gateway API,
-  AWS Lake
-  Formation data permission, or Amazon S3 data access. The asset can be a
-  structured data
-  file, an image file, or some other data file. Jobs are asynchronous import or
-  export
+  Data sets
+  can be updated using revisions, which represent a new version or incremental
+  change to a
+  data set. A revision contains one or more assets. An asset in AWS Data Exchange
+  is a piece
+  of data that can be stored as an Amazon S3 object, Redshift datashare, API
+  Gateway API, AWS
+  Lake Formation data permission, or Amazon S3 data access. The asset can be a
+  structured
+  data file, an image file, or some other data file. Jobs are asynchronous import
+  or export
   operations used to create or copy assets.
   """
 
@@ -143,6 +144,15 @@ defmodule AWS.DataExchange do
 
   ## Example:
 
+      accept_data_grant_request() :: %{}
+
+  """
+  @type accept_data_grant_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_request() :: %{
         required("Tags") => map()
       }
@@ -197,6 +207,19 @@ defmodule AWS.DataExchange do
 
   ## Example:
 
+      list_received_data_grants_request() :: %{
+        optional("AcceptanceState") => list(String.t()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_received_data_grants_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_data_sets_response() :: %{
         optional("DataSets") => list(data_set_entry()()),
         optional("NextToken") => String.t()
@@ -241,6 +264,29 @@ defmodule AWS.DataExchange do
 
   ## Example:
 
+      get_received_data_grant_response() :: %{
+        "AcceptanceState" => String.t(),
+        "AcceptedAt" => non_neg_integer(),
+        "Arn" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "DataSetId" => String.t(),
+        "Description" => String.t(),
+        "EndsAt" => non_neg_integer(),
+        "GrantDistributionScope" => String.t(),
+        "Id" => String.t(),
+        "Name" => String.t(),
+        "ReceiverPrincipal" => String.t(),
+        "SenderPrincipal" => String.t(),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_received_data_grant_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       l_f_tag() :: %{
         "TagKey" => [String.t()],
         "TagValues" => list([String.t()]())
@@ -248,6 +294,18 @@ defmodule AWS.DataExchange do
 
   """
   @type l_f_tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_received_data_grants_response() :: %{
+        "DataGrantSummaries" => list(received_data_grant_summaries_entry()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_received_data_grants_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -320,6 +378,31 @@ defmodule AWS.DataExchange do
 
   """
   @type list_jobs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_grant_response() :: %{
+        "AcceptanceState" => String.t(),
+        "AcceptedAt" => non_neg_integer(),
+        "Arn" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "DataSetId" => String.t(),
+        "Description" => String.t(),
+        "EndsAt" => non_neg_integer(),
+        "GrantDistributionScope" => String.t(),
+        "Id" => String.t(),
+        "Name" => String.t(),
+        "ReceiverPrincipal" => String.t(),
+        "SenderPrincipal" => String.t(),
+        "SourceDataSetId" => String.t(),
+        "Tags" => map(),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type create_data_grant_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -578,6 +661,32 @@ defmodule AWS.DataExchange do
 
   ## Example:
 
+      create_data_grant_request() :: %{
+        optional("Description") => String.t(),
+        optional("EndsAt") => non_neg_integer(),
+        optional("Tags") => map(),
+        required("GrantDistributionScope") => String.t(),
+        required("Name") => String.t(),
+        required("ReceiverPrincipal") => String.t(),
+        required("SourceDataSetId") => String.t()
+      }
+
+  """
+  @type create_data_grant_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_received_data_grant_request() :: %{}
+
+  """
+  @type get_received_data_grant_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_data_set_revisions_response() :: %{
         optional("NextToken") => String.t(),
         optional("Revisions") => list(revision_entry()())
@@ -693,6 +802,29 @@ defmodule AWS.DataExchange do
 
   """
   @type export_assets_to_s3_request_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      accept_data_grant_response() :: %{
+        "AcceptanceState" => String.t(),
+        "AcceptedAt" => non_neg_integer(),
+        "Arn" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "DataSetId" => String.t(),
+        "Description" => String.t(),
+        "EndsAt" => non_neg_integer(),
+        "GrantDistributionScope" => String.t(),
+        "Id" => String.t(),
+        "Name" => String.t(),
+        "ReceiverPrincipal" => String.t(),
+        "SenderPrincipal" => String.t(),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type accept_data_grant_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1024,6 +1156,7 @@ defmodule AWS.DataExchange do
   ## Example:
 
       origin_details() :: %{
+        "DataGrantId" => String.t(),
         "ProductId" => String.t()
       }
 
@@ -1271,6 +1404,28 @@ defmodule AWS.DataExchange do
 
   ## Example:
 
+      data_grant_summary_entry() :: %{
+        "AcceptanceState" => String.t(),
+        "AcceptedAt" => non_neg_integer(),
+        "Arn" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "DataSetId" => String.t(),
+        "EndsAt" => non_neg_integer(),
+        "Id" => String.t(),
+        "Name" => String.t(),
+        "ReceiverPrincipal" => String.t(),
+        "SenderPrincipal" => String.t(),
+        "SourceDataSetId" => String.t(),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type data_grant_summary_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_job_response() :: %{
         optional("Arn") => String.t(),
         optional("CreatedAt") => non_neg_integer(),
@@ -1284,6 +1439,15 @@ defmodule AWS.DataExchange do
 
   """
   @type get_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_grant_request() :: %{}
+
+  """
+  @type get_data_grant_request() :: %{}
 
   @typedoc """
 
@@ -1368,6 +1532,18 @@ defmodule AWS.DataExchange do
 
   ## Example:
 
+      list_data_grants_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_data_grants_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_job_request() :: %{}
 
   """
@@ -1383,6 +1559,15 @@ defmodule AWS.DataExchange do
 
   """
   @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_grant_request() :: %{}
+
+  """
+  @type delete_data_grant_request() :: %{}
 
   @typedoc """
 
@@ -1467,6 +1652,18 @@ defmodule AWS.DataExchange do
 
   ## Example:
 
+      list_data_grants_response() :: %{
+        "DataGrantSummaries" => list(data_grant_summary_entry()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_data_grants_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_data_set_revisions_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
@@ -1487,6 +1684,31 @@ defmodule AWS.DataExchange do
 
   """
   @type asset_destination_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_grant_response() :: %{
+        "AcceptanceState" => String.t(),
+        "AcceptedAt" => non_neg_integer(),
+        "Arn" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "DataSetId" => String.t(),
+        "Description" => String.t(),
+        "EndsAt" => non_neg_integer(),
+        "GrantDistributionScope" => String.t(),
+        "Id" => String.t(),
+        "Name" => String.t(),
+        "ReceiverPrincipal" => String.t(),
+        "SenderPrincipal" => String.t(),
+        "SourceDataSetId" => String.t(),
+        "Tags" => map(),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_data_grant_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1606,6 +1828,27 @@ defmodule AWS.DataExchange do
 
   ## Example:
 
+      received_data_grant_summaries_entry() :: %{
+        "AcceptanceState" => String.t(),
+        "AcceptedAt" => non_neg_integer(),
+        "Arn" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "DataSetId" => String.t(),
+        "EndsAt" => non_neg_integer(),
+        "Id" => String.t(),
+        "Name" => String.t(),
+        "ReceiverPrincipal" => String.t(),
+        "SenderPrincipal" => String.t(),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type received_data_grant_summaries_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_revision_request() :: %{
         optional("Comment") => String.t(),
         optional("Finalized") => boolean()
@@ -1717,12 +1960,28 @@ defmodule AWS.DataExchange do
   """
   @type create_event_action_response() :: %{String.t() => any()}
 
+  @type accept_data_grant_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type cancel_job_errors() ::
           throttling_exception()
           | validation_exception()
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type create_data_grant_errors() ::
+          throttling_exception()
+          | service_limit_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type create_data_set_errors() ::
           throttling_exception()
@@ -1761,6 +2020,13 @@ defmodule AWS.DataExchange do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type delete_data_grant_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type delete_data_set_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1789,6 +2055,13 @@ defmodule AWS.DataExchange do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_data_grant_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_data_set_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1807,9 +2080,23 @@ defmodule AWS.DataExchange do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_received_data_grant_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_revision_errors() ::
           throttling_exception()
           | validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_data_grants_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
 
@@ -1834,6 +2121,13 @@ defmodule AWS.DataExchange do
   @type list_jobs_errors() ::
           throttling_exception()
           | validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_received_data_grants_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
 
@@ -1921,9 +2215,37 @@ defmodule AWS.DataExchange do
   end
 
   @doc """
+  This operation accepts a data grant.
+  """
+  @spec accept_data_grant(map(), String.t(), accept_data_grant_request(), list()) ::
+          {:ok, accept_data_grant_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, accept_data_grant_errors()}
+  def accept_data_grant(%Client{} = client, data_grant_arn, input, options \\ []) do
+    url_path = "/v1/data-grants/#{AWS.Util.encode_uri(data_grant_arn)}/accept"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   This operation cancels a job.
 
-  Jobs can be cancelled only when they are in the WAITING state.
+  Jobs can be cancelled only when they are in the WAITING
+  state.
   """
   @spec cancel_job(map(), String.t(), cancel_job_request(), list()) ::
           {:ok, nil, any()}
@@ -1946,6 +2268,33 @@ defmodule AWS.DataExchange do
       input,
       options,
       204
+    )
+  end
+
+  @doc """
+  This operation creates a data grant.
+  """
+  @spec create_data_grant(map(), create_data_grant_request(), list()) ::
+          {:ok, create_data_grant_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_data_grant_errors()}
+  def create_data_grant(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/data-grants"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
     )
   end
 
@@ -2087,6 +2436,33 @@ defmodule AWS.DataExchange do
   end
 
   @doc """
+  This operation deletes a data grant.
+  """
+  @spec delete_data_grant(map(), String.t(), delete_data_grant_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_data_grant_errors()}
+  def delete_data_grant(%Client{} = client, data_grant_id, input, options \\ []) do
+    url_path = "/v1/data-grants/#{AWS.Util.encode_uri(data_grant_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   This operation deletes a data set.
   """
   @spec delete_data_set(map(), String.t(), delete_data_set_request(), list()) ::
@@ -2189,6 +2565,23 @@ defmodule AWS.DataExchange do
   end
 
   @doc """
+  This operation returns information about a data grant.
+  """
+  @spec get_data_grant(map(), String.t(), list()) ::
+          {:ok, get_data_grant_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_data_grant_errors()}
+  def get_data_grant(%Client{} = client, data_grant_id, options \\ []) do
+    url_path = "/v1/data-grants/#{AWS.Util.encode_uri(data_grant_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   This operation returns information about a data set.
   """
   @spec get_data_set(map(), String.t(), list()) ::
@@ -2240,6 +2633,23 @@ defmodule AWS.DataExchange do
   end
 
   @doc """
+  This operation returns information about a received data grant.
+  """
+  @spec get_received_data_grant(map(), String.t(), list()) ::
+          {:ok, get_received_data_grant_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_received_data_grant_errors()}
+  def get_received_data_grant(%Client{} = client, data_grant_arn, options \\ []) do
+    url_path = "/v1/received-data-grants/#{AWS.Util.encode_uri(data_grant_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   This operation returns information about a revision.
   """
   @spec get_revision(map(), String.t(), String.t(), list()) ::
@@ -2252,6 +2662,37 @@ defmodule AWS.DataExchange do
 
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  This operation returns information about all data grants.
+  """
+  @spec list_data_grants(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_data_grants_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_data_grants_errors()}
+  def list_data_grants(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/v1/data-grants"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -2299,9 +2740,9 @@ defmodule AWS.DataExchange do
   @doc """
   This operation lists your data sets.
 
-  When listing by origin OWNED, results are sorted by CreatedAt in descending
-  order. When listing by origin ENTITLED, there is no order and the maxResults
-  parameter is ignored.
+  When listing by origin OWNED, results are sorted by
+  CreatedAt in descending order. When listing by origin ENTITLED, there is no
+  order.
   """
   @spec list_data_sets(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_data_sets_response(), any()}
@@ -2448,6 +2889,56 @@ defmodule AWS.DataExchange do
   end
 
   @doc """
+  This operation returns information about all received data grants.
+  """
+  @spec list_received_data_grants(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_received_data_grants_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_received_data_grants_errors()}
+  def list_received_data_grants(
+        %Client{} = client,
+        acceptance_state \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/received-data-grants"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(acceptance_state) do
+        [{"acceptanceState", acceptance_state} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   This operation lists a revision's assets sorted alphabetically in descending
   order.
   """
@@ -2543,7 +3034,8 @@ defmodule AWS.DataExchange do
   @doc """
   This operation invokes an API Gateway API asset.
 
-  The request is proxied to the provider’s API Gateway API.
+  The request is proxied to the
+  provider’s API Gateway API.
   """
   @spec send_api_asset(map(), send_api_asset_request(), list()) ::
           {:ok, send_api_asset_response(), any()}

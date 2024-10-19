@@ -782,6 +782,8 @@ defmodule AWS.Bedrock do
 
       imported_model_summary() :: %{
         "creationTime" => non_neg_integer(),
+        "instructSupported" => boolean(),
+        "modelArchitecture" => String.t(),
         "modelArn" => String.t(),
         "modelName" => String.t()
       }
@@ -1499,6 +1501,7 @@ defmodule AWS.Bedrock do
 
       get_imported_model_response() :: %{
         "creationTime" => non_neg_integer(),
+        "instructSupported" => boolean(),
         "jobArn" => String.t(),
         "jobName" => String.t(),
         "modelArchitecture" => [String.t()],

@@ -72,9 +72,6 @@ defmodule AWS.Athena do
       
       data_catalog_summary() :: %{
         "CatalogName" => String.t(),
-        "ConnectionType" => list(any()),
-        "Error" => String.t(),
-        "Status" => list(any()),
         "Type" => list(any())
       }
       
@@ -828,12 +825,9 @@ defmodule AWS.Athena do
   ## Example:
       
       data_catalog() :: %{
-        "ConnectionType" => list(any()),
         "Description" => String.t(),
-        "Error" => String.t(),
         "Name" => String.t(),
         "Parameters" => map(),
-        "Status" => list(any()),
         "Type" => list(any())
       }
       
@@ -1360,12 +1354,10 @@ defmodule AWS.Athena do
 
   ## Example:
       
-      delete_data_catalog_output() :: %{
-        "DataCatalog" => data_catalog()
-      }
+      delete_data_catalog_output() :: %{}
       
   """
-  @type delete_data_catalog_output() :: %{String.t() => any()}
+  @type delete_data_catalog_output() :: %{}
 
   @typedoc """
 
@@ -1526,12 +1518,10 @@ defmodule AWS.Athena do
 
   ## Example:
       
-      create_data_catalog_output() :: %{
-        "DataCatalog" => data_catalog()
-      }
+      create_data_catalog_output() :: %{}
       
   """
-  @type create_data_catalog_output() :: %{String.t() => any()}
+  @type create_data_catalog_output() :: %{}
 
   @typedoc """
 

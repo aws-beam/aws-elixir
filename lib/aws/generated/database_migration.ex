@@ -2953,6 +2953,7 @@ defmodule AWS.DatabaseMigration do
       
       data_migration() :: %{
         "DataMigrationArn" => String.t(),
+        "DataMigrationCidrBlocks" => list(String.t()()),
         "DataMigrationCreateTime" => non_neg_integer(),
         "DataMigrationEndTime" => non_neg_integer(),
         "DataMigrationName" => String.t(),
@@ -3138,6 +3139,21 @@ defmodule AWS.DatabaseMigration do
       
   """
   @type test_connection_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      replication_task_assessment_run_result_statistic() :: %{
+        "Cancelled" => integer(),
+        "Error" => integer(),
+        "Failed" => integer(),
+        "Passed" => integer(),
+        "Warning" => integer()
+      }
+      
+  """
+  @type replication_task_assessment_run_result_statistic() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3909,6 +3925,7 @@ defmodule AWS.DatabaseMigration do
         optional("ResultEncryptionMode") => String.t(),
         optional("ResultKmsKeyArn") => String.t(),
         optional("ResultLocationFolder") => String.t(),
+        optional("Tags") => list(tag()()),
         required("AssessmentRunName") => String.t(),
         required("ReplicationTaskArn") => String.t(),
         required("ResultLocationBucket") => String.t(),
@@ -4920,6 +4937,7 @@ defmodule AWS.DatabaseMigration do
       replication_task_assessment_run() :: %{
         "AssessmentProgress" => replication_task_assessment_run_progress(),
         "AssessmentRunName" => String.t(),
+        "IsLatestTaskAssessmentRun" => boolean(),
         "LastFailureMessage" => String.t(),
         "ReplicationTaskArn" => String.t(),
         "ReplicationTaskAssessmentRunArn" => String.t(),
@@ -4928,6 +4946,7 @@ defmodule AWS.DatabaseMigration do
         "ResultKmsKeyArn" => String.t(),
         "ResultLocationBucket" => String.t(),
         "ResultLocationFolder" => String.t(),
+        "ResultStatistic" => replication_task_assessment_run_result_statistic(),
         "ServiceAccessRoleArn" => String.t(),
         "Status" => String.t()
       }

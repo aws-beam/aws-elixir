@@ -988,6 +988,9 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       orchestration_configuration() :: %{
+        "additionalModelRequestFields" => map(),
+        "inferenceConfig" => inference_config(),
+        "promptTemplate" => prompt_template(),
         "queryTransformationConfiguration" => query_transformation_configuration()
       }
 

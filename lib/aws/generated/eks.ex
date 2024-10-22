@@ -884,6 +884,17 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      zonal_shift_config_request() :: %{
+        "enabled" => boolean()
+      }
+
+  """
+  @type zonal_shift_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_cluster_request() :: %{
         optional("accessConfig") => create_access_config_request(),
         optional("bootstrapSelfManagedAddons") => boolean(),
@@ -895,6 +906,7 @@ defmodule AWS.EKS do
         optional("tags") => map(),
         optional("upgradePolicy") => upgrade_policy_request(),
         optional("version") => String.t(),
+        optional("zonalShiftConfig") => zonal_shift_config_request(),
         required("name") => String.t(),
         required("resourcesVpcConfig") => vpc_config_request(),
         required("roleArn") => String.t()
@@ -1059,6 +1071,17 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      zonal_shift_config_response() :: %{
+        "enabled" => boolean()
+      }
+
+  """
+  @type zonal_shift_config_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       upgrade_policy_response() :: %{
         "supportType" => list(any())
       }
@@ -1128,7 +1151,8 @@ defmodule AWS.EKS do
         "status" => list(any()),
         "tags" => map(),
         "upgradePolicy" => upgrade_policy_response(),
-        "version" => String.t()
+        "version" => String.t(),
+        "zonalShiftConfig" => zonal_shift_config_response()
       }
 
   """
@@ -2268,7 +2292,8 @@ defmodule AWS.EKS do
         optional("clientRequestToken") => String.t(),
         optional("logging") => logging(),
         optional("resourcesVpcConfig") => vpc_config_request(),
-        optional("upgradePolicy") => upgrade_policy_request()
+        optional("upgradePolicy") => upgrade_policy_request(),
+        optional("zonalShiftConfig") => zonal_shift_config_request()
       }
 
   """
@@ -4959,6 +4984,10 @@ defmodule AWS.EKS do
   in the *
   *Amazon EKS User Guide*
   *.
+
+  You can also use this API operation to enable or disable ARC zonal shift. If
+  zonal shift is enabled, Amazon Web Services
+  configures zonal autoshift for the cluster.
 
   Cluster updates are asynchronous, and they should finish within a few minutes.
   During

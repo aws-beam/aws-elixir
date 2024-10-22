@@ -368,7 +368,8 @@ defmodule AWS.ApplicationInsights do
   ## Example:
       
       describe_problem_response() :: %{
-        "Problem" => problem()
+        "Problem" => problem(),
+        "SNSNotificationArn" => String.t()
       }
       
   """
@@ -388,7 +389,8 @@ defmodule AWS.ApplicationInsights do
         "OpsCenterEnabled" => boolean(),
         "OpsItemSNSTopicArn" => String.t(),
         "Remarks" => String.t(),
-        "ResourceGroupName" => String.t()
+        "ResourceGroupName" => String.t(),
+        "SNSNotificationArn" => String.t()
       }
       
   """
@@ -414,6 +416,7 @@ defmodule AWS.ApplicationInsights do
       
       workload() :: %{
         "ComponentName" => String.t(),
+        "MissingWorkloadConfig" => boolean(),
         "Tier" => list(any()),
         "WorkloadId" => String.t(),
         "WorkloadName" => String.t(),
@@ -570,6 +573,7 @@ defmodule AWS.ApplicationInsights do
         optional("OpsCenterEnabled") => boolean(),
         optional("OpsItemSNSTopicArn") => String.t(),
         optional("ResourceGroupName") => String.t(),
+        optional("SNSNotificationArn") => String.t(),
         optional("Tags") => list(tag()())
       }
       
@@ -669,6 +673,7 @@ defmodule AWS.ApplicationInsights do
         optional("OpsCenterEnabled") => boolean(),
         optional("OpsItemSNSTopicArn") => String.t(),
         optional("RemoveSNSTopic") => boolean(),
+        optional("SNSNotificationArn") => String.t(),
         required("ResourceGroupName") => String.t()
       }
       
@@ -777,6 +782,7 @@ defmodule AWS.ApplicationInsights do
         "ResolutionMethod" => list(any()),
         "ResourceGroupName" => String.t(),
         "SeverityLevel" => list(any()),
+        "ShortName" => String.t(),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
         "Title" => String.t(),

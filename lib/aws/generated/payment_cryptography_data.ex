@@ -49,7 +49,7 @@ defmodule AWS.PaymentCryptographyData do
   ## Example:
 
       asymmetric_encryption_attributes() :: %{
-        "PaddingType" => String.t()
+        "PaddingType" => list(any())
       }
 
   """
@@ -67,6 +67,18 @@ defmodule AWS.PaymentCryptographyData do
 
   """
   @type discover_dynamic_card_verification_code() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      current_pin_attributes() :: %{
+        "CurrentEncryptedPinBlock" => String.t(),
+        "CurrentPinPekIdentifier" => String.t()
+      }
+
+  """
+  @type current_pin_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -153,6 +165,22 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Example:
 
+      visa_attributes() :: %{
+        "ApplicationTransactionCounter" => String.t(),
+        "AuthorizationRequestKeyIdentifier" => String.t(),
+        "CurrentPinAttributes" => current_pin_attributes(),
+        "MajorKeyDerivationMode" => list(any()),
+        "PanSequenceNumber" => String.t(),
+        "PrimaryAccountNumber" => String.t()
+      }
+
+  """
+  @type visa_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cryptogram_verification_arpc_method1() :: %{
         "AuthResponseCode" => String.t()
       }
@@ -204,13 +232,29 @@ defmodule AWS.PaymentCryptographyData do
   ## Example:
 
       mac_algorithm_dukpt() :: %{
-        "DukptDerivationType" => String.t(),
-        "DukptKeyVariant" => String.t(),
+        "DukptDerivationType" => list(any()),
+        "DukptKeyVariant" => list(any()),
         "KeySerialNumber" => String.t()
       }
 
   """
   @type mac_algorithm_dukpt() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      amex_attributes() :: %{
+        "ApplicationTransactionCounter" => String.t(),
+        "AuthorizationRequestKeyIdentifier" => String.t(),
+        "CurrentPinAttributes" => current_pin_attributes(),
+        "MajorKeyDerivationMode" => list(any()),
+        "PanSequenceNumber" => String.t(),
+        "PrimaryAccountNumber" => String.t()
+      }
+
+  """
+  @type amex_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -293,7 +337,7 @@ defmodule AWS.PaymentCryptographyData do
   ## Example:
 
       dukpt_attributes() :: %{
-        "DukptDerivationType" => String.t(),
+        "DukptDerivationType" => list(any()),
         "KeySerialNumber" => String.t()
       }
 
@@ -306,8 +350,8 @@ defmodule AWS.PaymentCryptographyData do
 
       emv_encryption_attributes() :: %{
         "InitializationVector" => String.t(),
-        "MajorKeyDerivationMode" => String.t(),
-        "Mode" => String.t(),
+        "MajorKeyDerivationMode" => list(any()),
+        "Mode" => list(any()),
         "PanSequenceNumber" => String.t(),
         "PrimaryAccountNumber" => String.t(),
         "SessionDerivationData" => String.t()
@@ -340,7 +384,7 @@ defmodule AWS.PaymentCryptographyData do
         required("EncryptionKeyIdentifier") => String.t(),
         required("GenerationAttributes") => list(),
         required("GenerationKeyIdentifier") => String.t(),
-        required("PinBlockFormat") => String.t(),
+        required("PinBlockFormat") => list(any()),
         required("PrimaryAccountNumber") => String.t()
       }
 
@@ -401,10 +445,10 @@ defmodule AWS.PaymentCryptographyData do
   ## Example:
 
       mac_algorithm_emv() :: %{
-        "MajorKeyDerivationMode" => String.t(),
+        "MajorKeyDerivationMode" => list(any()),
         "PanSequenceNumber" => String.t(),
         "PrimaryAccountNumber" => String.t(),
-        "SessionKeyDerivationMode" => String.t(),
+        "SessionKeyDerivationMode" => list(any()),
         "SessionKeyDerivationValue" => list()
       }
 
@@ -422,6 +466,23 @@ defmodule AWS.PaymentCryptographyData do
 
   """
   @type validation_exception_field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      generate_mac_emv_pin_change_input() :: %{
+        required("DerivationMethodAttributes") => list(),
+        required("MessageData") => String.t(),
+        required("NewEncryptedPinBlock") => String.t(),
+        required("NewPinPekIdentifier") => String.t(),
+        required("PinBlockFormat") => list(any()),
+        required("SecureMessagingConfidentialityKeyIdentifier") => String.t(),
+        required("SecureMessagingIntegrityKeyIdentifier") => String.t()
+      }
+
+  """
+  @type generate_mac_emv_pin_change_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -466,6 +527,53 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Example:
 
+      generate_mac_emv_pin_change_output() :: %{
+        "EncryptedPinBlock" => String.t(),
+        "Mac" => String.t(),
+        "NewPinPekArn" => String.t(),
+        "NewPinPekKeyCheckValue" => String.t(),
+        "SecureMessagingConfidentialityKeyArn" => String.t(),
+        "SecureMessagingConfidentialityKeyCheckValue" => String.t(),
+        "SecureMessagingIntegrityKeyArn" => String.t(),
+        "SecureMessagingIntegrityKeyCheckValue" => String.t(),
+        "VisaAmexDerivationOutputs" => visa_amex_derivation_outputs()
+      }
+
+  """
+  @type generate_mac_emv_pin_change_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      master_card_attributes() :: %{
+        "ApplicationCryptogram" => String.t(),
+        "MajorKeyDerivationMode" => list(any()),
+        "PanSequenceNumber" => String.t(),
+        "PrimaryAccountNumber" => String.t()
+      }
+
+  """
+  @type master_card_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      emv2000_attributes() :: %{
+        "ApplicationTransactionCounter" => String.t(),
+        "MajorKeyDerivationMode" => list(any()),
+        "PanSequenceNumber" => String.t(),
+        "PrimaryAccountNumber" => String.t()
+      }
+
+  """
+  @type emv2000_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       ibm3624_natural_pin() :: %{
         "DecimalizationTable" => String.t(),
         "PinValidationData" => String.t(),
@@ -505,8 +613,8 @@ defmodule AWS.PaymentCryptographyData do
 
       symmetric_encryption_attributes() :: %{
         "InitializationVector" => String.t(),
-        "Mode" => String.t(),
-        "PaddingType" => String.t()
+        "Mode" => list(any()),
+        "PaddingType" => list(any())
       }
 
   """
@@ -523,6 +631,23 @@ defmodule AWS.PaymentCryptographyData do
 
   """
   @type verify_card_validation_data_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      emv_common_attributes() :: %{
+        "ApplicationCryptogram" => String.t(),
+        "MajorKeyDerivationMode" => list(any()),
+        "Mode" => list(any()),
+        "PanSequenceNumber" => String.t(),
+        "PinBlockLengthPosition" => list(any()),
+        "PinBlockPaddingType" => list(any()),
+        "PrimaryAccountNumber" => String.t()
+      }
+
+  """
+  @type emv_common_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -556,7 +681,7 @@ defmodule AWS.PaymentCryptographyData do
         optional("PinDataLength") => integer(),
         required("EncryptedPinBlock") => String.t(),
         required("EncryptionKeyIdentifier") => String.t(),
-        required("PinBlockFormat") => String.t(),
+        required("PinBlockFormat") => list(any()),
         required("PrimaryAccountNumber") => String.t(),
         required("VerificationAttributes") => list(),
         required("VerificationKeyIdentifier") => String.t()
@@ -695,7 +820,7 @@ defmodule AWS.PaymentCryptographyData do
         optional("AuthResponseAttributes") => list(),
         required("AuthRequestCryptogram") => String.t(),
         required("KeyIdentifier") => String.t(),
-        required("MajorKeyDerivationMode") => String.t(),
+        required("MajorKeyDerivationMode") => list(any()),
         required("SessionKeyDerivationAttributes") => list(),
         required("TransactionData") => String.t()
       }
@@ -727,6 +852,20 @@ defmodule AWS.PaymentCryptographyData do
 
   """
   @type generate_card_validation_data_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      visa_amex_derivation_outputs() :: %{
+        "AuthorizationRequestKeyArn" => String.t(),
+        "AuthorizationRequestKeyCheckValue" => String.t(),
+        "CurrentPinPekArn" => String.t(),
+        "CurrentPinPekKeyCheckValue" => String.t()
+      }
+
+  """
+  @type visa_amex_derivation_outputs() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -821,8 +960,8 @@ defmodule AWS.PaymentCryptographyData do
   ## Example:
 
       dukpt_derivation_attributes() :: %{
-        "DukptKeyDerivationType" => String.t(),
-        "DukptKeyVariant" => String.t(),
+        "DukptKeyDerivationType" => list(any()),
+        "DukptKeyVariant" => list(any()),
         "KeySerialNumber" => String.t()
       }
 
@@ -834,11 +973,11 @@ defmodule AWS.PaymentCryptographyData do
   ## Example:
 
       dukpt_encryption_attributes() :: %{
-        "DukptKeyDerivationType" => String.t(),
-        "DukptKeyVariant" => String.t(),
+        "DukptKeyDerivationType" => list(any()),
+        "DukptKeyVariant" => list(any()),
         "InitializationVector" => String.t(),
         "KeySerialNumber" => String.t(),
-        "Mode" => String.t()
+        "Mode" => list(any())
       }
 
   """
@@ -866,6 +1005,13 @@ defmodule AWS.PaymentCryptographyData do
           | resource_not_found_exception()
 
   @type generate_mac_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type generate_mac_emv_pin_change_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -948,14 +1094,24 @@ defmodule AWS.PaymentCryptographyData do
   For more information, see [Decrypt data](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/decrypt-data.html)
   in the *Amazon Web Services Payment Cryptography User Guide*.
 
-  You can use an encryption key generated within Amazon Web Services Payment
-  Cryptography, or you can import your own encryption key by calling
+  You can use an decryption key generated within Amazon Web Services Payment
+  Cryptography, or you can import your own decryption key by calling
   [ImportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html). For this operation, the key must have `KeyModesOfUse` set to `Decrypt`. In
   asymmetric decryption, Amazon Web Services Payment Cryptography decrypts the
   ciphertext using the private component of the asymmetric encryption key pair.
   For data encryption outside of Amazon Web Services Payment Cryptography, you can
   export the public component of the asymmetric key pair by calling
   [GetPublicCertificate](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetPublicKeyCertificate.html).
+
+  This operation also supports dynamic keys, allowing you to pass a dynamic
+  decryption key as a TR-31 WrappedKeyBlock. This can be used when key material is
+  frequently rotated, such as during every card transaction, and there is need to
+  avoid importing short-lived keys into Amazon Web Services Payment Cryptography.
+  To decrypt using dynamic keys, the `keyARN` is the Key Encryption Key (KEK) of
+  the TR-31 wrapped decryption key material. The incoming wrapped key shall have a
+  key purpose of D0 with a mode of use of B or D. For more information, see [Using Dynamic
+  Keys](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/use-cases-acquirers-dynamickeys.html)
+  in the *Amazon Web Services Payment Cryptography User Guide*.
 
   For symmetric and DUKPT decryption, Amazon Web Services Payment Cryptography
   supports `TDES` and `AES` algorithms. For EMV decryption, Amazon Web Services
@@ -1023,11 +1179,23 @@ defmodule AWS.PaymentCryptographyData do
   Cryptography by calling
   [CreateKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html). You can import your own encryption key by calling
   [ImportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html).
+
   For this operation, the key must have `KeyModesOfUse` set to `Encrypt`. In
   asymmetric encryption, plaintext is encrypted using public component. You can
   import the public component of an asymmetric key pair created outside Amazon Web
   Services Payment Cryptography by calling
-  [ImportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html).   For symmetric and DUKPT encryption, Amazon Web Services Payment Cryptography
+  [ImportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html).   This operation also supports dynamic keys, allowing you to pass a dynamic
+  encryption key as a TR-31 WrappedKeyBlock. This can be used when key material is
+  frequently rotated, such as during every card transaction, and there is need to
+  avoid importing short-lived keys into Amazon Web Services Payment Cryptography.
+  To encrypt using dynamic keys, the `keyARN` is the Key Encryption Key (KEK) of
+  the TR-31 wrapped encryption key material. The incoming wrapped key shall have a
+  key purpose of D0 with a mode of use of B or D. For more information, see [Using
+  Dynamic
+  Keys](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/use-cases-acquirers-dynamickeys.html)
+  in the *Amazon Web Services Payment Cryptography User Guide*.
+
+  For symmetric and DUKPT encryption, Amazon Web Services Payment Cryptography
   supports `TDES` and `AES` algorithms. For EMV encryption, Amazon Web Services
   Payment Cryptography supports `TDES` algorithms.For asymmetric encryption,
   Amazon Web Services Payment Cryptography supports `RSA`.
@@ -1039,11 +1207,11 @@ defmodule AWS.PaymentCryptographyData do
   To encrypt using DUKPT, you must already have a BDK (Base Derivation Key) key in
   your account with `KeyModesOfUse` set to `DeriveKey`, or you can generate a new
   DUKPT key by calling
-  [CreateKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html).
-  To encrypt using EMV, you must already have an IMK (Issuer Master Key) key in
+  [CreateKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html). To encrypt using EMV, you must already have an IMK (Issuer Master Key) key in
   your account with `KeyModesOfUse` set to `DeriveKey`.
 
-  For information about valid keys for this operation, see [Understanding key attributes](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-validattributes.html)
+  For information about valid keys for this operation, see [Understanding key
+  attributes](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-validattributes.html)
   and [Key types for specific data operations](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/crypto-ops-validkeys-ops.html)
   in the *Amazon Web Services Payment Cryptography User Guide*.
 
@@ -1207,6 +1375,73 @@ defmodule AWS.PaymentCryptographyData do
   end
 
   @doc """
+  Generates an issuer script mac for EMV payment cards that use offline PINs as
+  the cardholder verification method (CVM).
+
+  This operation generates an authenticated issuer script response by appending
+  the incoming message data (APDU command) with the target encrypted PIN block in
+  ISO2 format. The command structure and method to send the issuer script update
+  to the card is not defined by this operation and is typically determined by the
+  applicable payment card scheme.
+
+  The primary inputs to this operation include the incoming new encrypted
+  pinblock, PIN encryption key (PEK), issuer master key (IMK), primary account
+  number (PAN), and the payment card derivation method.
+
+  The operation uses two issuer master keys - secure messaging for confidentiality
+  (IMK-SMC) and secure messaging for integrity (IMK-SMI). The SMC key is used to
+  internally derive a key to secure the pin, while SMI key is used to internally
+  derive a key to authenticate the script reponse as per the [EMV 4.4 - Book 2 - Security and Key Management](https://www.emvco.com/specifications/)
+  specification.
+
+  This operation supports Amex, EMV2000, EMVCommon, Mastercard and Visa derivation
+  methods, each requiring specific input parameters. Users must follow the
+  specific derivation method and input parameters defined by the respective
+  payment card scheme.
+
+  Use `GenerateMac` operation when sending a script update to an EMV card that
+  does not involve PIN change. When assigning IAM permissions, it is important to
+  understand that `EncryptData` using EMV keys and `GenerateMac` perform similar
+  functions to this command.
+
+  **Cross-account use**: This operation can't be used across different Amazon Web
+  Services accounts.
+
+  ## Related operations:
+
+    *
+
+  `EncryptData`
+
+    *
+
+  `GenerateMac`
+  """
+  @spec generate_mac_emv_pin_change(map(), generate_mac_emv_pin_change_input(), list()) ::
+          {:ok, generate_mac_emv_pin_change_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, generate_mac_emv_pin_change_errors()}
+  def generate_mac_emv_pin_change(%Client{} = client, input, options \\ []) do
+    url_path = "/macemvpinchange/generate"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Generates pin-related data such as PIN, PIN Verification Value (PVV), PIN Block,
   and PIN Offset during new card issuance or reissuance.
 
@@ -1273,6 +1508,16 @@ defmodule AWS.PaymentCryptographyData do
   [ImportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html).
   The `KeyArn` for use with this operation must be in a compatible key state with
   `KeyModesOfUse` set to `Encrypt`.
+
+  This operation also supports dynamic keys, allowing you to pass a dynamic
+  encryption key as a TR-31 WrappedKeyBlock. This can be used when key material is
+  frequently rotated, such as during every card transaction, and there is need to
+  avoid importing short-lived keys into Amazon Web Services Payment Cryptography.
+  To re-encrypt using dynamic keys, the `keyARN` is the Key Encryption Key (KEK)
+  of the TR-31 wrapped encryption key material. The incoming wrapped key shall
+  have a key purpose of D0 with a mode of use of B or D. For more information, see
+  [Using Dynamic Keys](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/use-cases-acquirers-dynamickeys.html)
+  in the *Amazon Web Services Payment Cryptography User Guide*.
 
   For symmetric and DUKPT encryption, Amazon Web Services Payment Cryptography
   supports `TDES` and `AES` algorithms. To encrypt using DUKPT, a DUKPT key must
@@ -1341,6 +1586,16 @@ defmodule AWS.PaymentCryptographyData do
   Key) to BDK (Base Derivation Key) for DUKPT or from BDK for DUKPT to PEK. Amazon
   Web Services Payment Cryptography supports `TDES` and `AES` key derivation type
   for DUKPT translations.
+
+  This operation also supports dynamic keys, allowing you to pass a dynamic PEK as
+  a TR-31 WrappedKeyBlock. This can be used when key material is frequently
+  rotated, such as during every card transaction, and there is need to avoid
+  importing short-lived keys into Amazon Web Services Payment Cryptography. To
+  translate PIN block using dynamic keys, the `keyARN` is the Key Encryption Key
+  (KEK) of the TR-31 wrapped PEK. The incoming wrapped key shall have a key
+  purpose of P0 with a mode of use of B or D. For more information, see [Using Dynamic
+  Keys](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/use-cases-acquirers-dynamickeys.html)
+  in the *Amazon Web Services Payment Cryptography User Guide*.
 
   The allowed combinations of PIN block format translations are guided by PCI. It
   is important to note that not all encrypted PIN block formats (example, format

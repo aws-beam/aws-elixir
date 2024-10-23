@@ -305,7 +305,7 @@ defmodule AWS.M2 do
 
       create_deployment_request() :: %{
         "applicationVersion" => integer(),
-        "clientToken" => [String.t()],
+        "clientToken" => String.t(),
         "environmentId" => String.t()
       }
 
@@ -501,10 +501,12 @@ defmodule AWS.M2 do
 
   ## Example:
 
-      cancel_batch_job_execution_request() :: %{}
+      cancel_batch_job_execution_request() :: %{
+        optional("authSecretsManagerArn") => String.t()
+      }
 
   """
-  @type cancel_batch_job_execution_request() :: %{}
+  @type cancel_batch_job_execution_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -521,10 +523,12 @@ defmodule AWS.M2 do
 
   ## Example:
 
-      list_batch_job_restart_points_request() :: %{}
+      list_batch_job_restart_points_request() :: %{
+        optional("authSecretsManagerArn") => String.t()
+      }
 
   """
-  @type list_batch_job_restart_points_request() :: %{}
+  @type list_batch_job_restart_points_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -652,7 +656,7 @@ defmodule AWS.M2 do
   ## Example:
 
       create_application_request() :: %{
-        optional("clientToken") => [String.t()],
+        optional("clientToken") => String.t(),
         optional("description") => String.t(),
         optional("kmsKeyId") => [String.t()],
         optional("roleArn") => String.t(),
@@ -770,7 +774,7 @@ defmodule AWS.M2 do
   ## Example:
 
       create_data_set_import_task_request() :: %{
-        optional("clientToken") => [String.t()],
+        optional("clientToken") => String.t(),
         required("importConfig") => list()
       }
 
@@ -1257,7 +1261,7 @@ defmodule AWS.M2 do
   ## Example:
 
       create_environment_request() :: %{
-        optional("clientToken") => [String.t()],
+        optional("clientToken") => String.t(),
         optional("description") => String.t(),
         optional("engineVersion") => String.t(),
         optional("highAvailabilityConfig") => high_availability_config(),
@@ -1338,6 +1342,7 @@ defmodule AWS.M2 do
   ## Example:
 
       start_batch_job_request() :: %{
+        optional("authSecretsManagerArn") => String.t(),
         optional("jobParams") => map(),
         required("batchJobIdentifier") => list()
       }
@@ -2416,11 +2421,11 @@ defmodule AWS.M2 do
   end
 
   @doc """
-  Lists all the job steps for JCL files to restart a batch job.
+  Lists all the job steps for a JCL file to restart a batch job.
 
   This is only applicable for Micro Focus engine with versions 8.0.6 and above.
   """
-  @spec list_batch_job_restart_points(map(), String.t(), String.t(), list()) ::
+  @spec list_batch_job_restart_points(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, list_batch_job_restart_points_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_batch_job_restart_points_errors()}
@@ -2428,6 +2433,7 @@ defmodule AWS.M2 do
         %Client{} = client,
         application_id,
         execution_id,
+        auth_secrets_manager_arn \\ nil,
         options \\ []
       ) do
     url_path =
@@ -2435,6 +2441,13 @@ defmodule AWS.M2 do
 
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(auth_secrets_manager_arn) do
+        [{"authSecretsManagerArn", auth_secrets_manager_arn} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 

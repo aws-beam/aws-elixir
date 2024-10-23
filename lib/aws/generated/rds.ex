@@ -3541,6 +3541,7 @@ defmodule AWS.RDS do
       global_cluster() :: %{
         "DatabaseName" => String.t(),
         "DeletionProtection" => boolean(),
+        "Endpoint" => String.t(),
         "Engine" => String.t(),
         "EngineLifecycleSupport" => String.t(),
         "EngineVersion" => String.t(),
@@ -8601,6 +8602,7 @@ defmodule AWS.RDS do
 
   @type modify_global_cluster_errors() ::
           invalid_db_instance_state_fault()
+          | global_cluster_already_exists_fault()
           | global_cluster_not_found_fault()
           | invalid_db_cluster_state_fault()
           | invalid_global_cluster_state_fault()

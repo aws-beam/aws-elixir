@@ -34,6 +34,67 @@ defmodule AWS.Repostspace do
 
   ## Example:
 
+      batch_add_role_input() :: %{
+        required("accessorIds") => list(String.t()()),
+        required("role") => list(any())
+      }
+
+  """
+  @type batch_add_role_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_add_role_output() :: %{
+        "addedAccessorIds" => list(String.t()()),
+        "errors" => list(batch_error()())
+      }
+
+  """
+  @type batch_add_role_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_error() :: %{
+        "accessorId" => String.t(),
+        "error" => integer(),
+        "message" => String.t()
+      }
+
+  """
+  @type batch_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_remove_role_input() :: %{
+        required("accessorIds") => list(String.t()()),
+        required("role") => list(any())
+      }
+
+  """
+  @type batch_remove_role_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_remove_role_output() :: %{
+        "errors" => list(batch_error()()),
+        "removedAccessorIds" => list(String.t()())
+      }
+
+  """
+  @type batch_remove_role_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       conflict_exception() :: %{
         "message" => [String.t()],
         "resourceId" => [String.t()],
@@ -114,6 +175,7 @@ defmodule AWS.Repostspace do
         "groupAdmins" => list(String.t()()),
         "name" => String.t(),
         "randomDomain" => String.t(),
+        "roles" => map(),
         "spaceId" => String.t(),
         "status" => String.t(),
         "storageLimit" => float(),
@@ -352,6 +414,20 @@ defmodule AWS.Repostspace do
   """
   @type validation_exception_field() :: %{String.t() => any()}
 
+  @type batch_add_role_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type batch_remove_role_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type create_space_errors() ::
           validation_exception()
           | throttling_exception()
@@ -445,6 +521,60 @@ defmodule AWS.Repostspace do
       signing_name: "repostspace",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Add role to multiple users or groups in a private re:Post.
+  """
+  @spec batch_add_role(map(), String.t(), batch_add_role_input(), list()) ::
+          {:ok, batch_add_role_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_add_role_errors()}
+  def batch_add_role(%Client{} = client, space_id, input, options \\ []) do
+    url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}/roles"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Remove role from multiple users or groups in a private re:Post.
+  """
+  @spec batch_remove_role(map(), String.t(), batch_remove_role_input(), list()) ::
+          {:ok, batch_remove_role_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_remove_role_errors()}
+  def batch_remove_role(%Client{} = client, space_id, input, options \\ []) do
+    url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}/roles"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

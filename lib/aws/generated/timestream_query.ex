@@ -59,6 +59,17 @@ defmodule AWS.TimestreamQuery do
 
   ## Example:
       
+      query_insights() :: %{
+        "Mode" => list(any())
+      }
+      
+  """
+  @type query_insights() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       untag_resource_response() :: %{}
       
   """
@@ -208,6 +219,7 @@ defmodule AWS.TimestreamQuery do
         "ExecutionStats" => execution_stats(),
         "FailureReason" => String.t(),
         "InvocationTime" => non_neg_integer(),
+        "QueryInsightsResponse" => scheduled_query_insights_response(),
         "RunStatus" => list(any()),
         "TriggerTime" => non_neg_integer()
       }
@@ -273,6 +285,21 @@ defmodule AWS.TimestreamQuery do
 
   ## Example:
       
+      scheduled_query_insights_response() :: %{
+        "OutputBytes" => float(),
+        "OutputRows" => float(),
+        "QuerySpatialCoverage" => query_spatial_coverage(),
+        "QueryTableCount" => float(),
+        "QueryTemporalRange" => query_temporal_range()
+      }
+      
+  """
+  @type scheduled_query_insights_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       untag_resource_request() :: %{
         required("ResourceARN") => String.t(),
         required("TagKeys") => list(String.t()())
@@ -280,6 +307,18 @@ defmodule AWS.TimestreamQuery do
       
   """
   @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      query_temporal_range_max() :: %{
+        "TableArn" => String.t(),
+        "Value" => float()
+      }
+      
+  """
+  @type query_temporal_range_max() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -351,6 +390,7 @@ defmodule AWS.TimestreamQuery do
         "ColumnInfo" => list(column_info()()),
         "NextToken" => String.t(),
         "QueryId" => String.t(),
+        "QueryInsightsResponse" => query_insights_response(),
         "QueryStatus" => query_status(),
         "Rows" => list(row()())
       }
@@ -408,6 +448,19 @@ defmodule AWS.TimestreamQuery do
 
   ## Example:
       
+      query_spatial_coverage_max() :: %{
+        "PartitionKey" => list(String.t()()),
+        "TableArn" => String.t(),
+        "Value" => float()
+      }
+      
+  """
+  @type query_spatial_coverage_max() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_tags_for_resource_response() :: %{
         "NextToken" => String.t(),
         "Tags" => list(tag()())
@@ -446,6 +499,7 @@ defmodule AWS.TimestreamQuery do
       
       execute_scheduled_query_request() :: %{
         optional("ClientToken") => String.t(),
+        optional("QueryInsights") => scheduled_query_insights(),
         required("InvocationTime") => non_neg_integer(),
         required("ScheduledQueryArn") => String.t()
       }
@@ -525,6 +579,17 @@ defmodule AWS.TimestreamQuery do
       
   """
   @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      query_temporal_range() :: %{
+        "Max" => query_temporal_range_max()
+      }
+      
+  """
+  @type query_temporal_range() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -644,6 +709,24 @@ defmodule AWS.TimestreamQuery do
 
   ## Example:
       
+      query_insights_response() :: %{
+        "OutputBytes" => float(),
+        "OutputRows" => float(),
+        "QuerySpatialCoverage" => query_spatial_coverage(),
+        "QueryTableCount" => float(),
+        "QueryTemporalRange" => query_temporal_range(),
+        "UnloadPartitionCount" => float(),
+        "UnloadWrittenBytes" => float(),
+        "UnloadWrittenRows" => float()
+      }
+      
+  """
+  @type query_insights_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       throttling_exception() :: %{
         "Message" => String.t()
       }
@@ -737,6 +820,7 @@ defmodule AWS.TimestreamQuery do
         optional("ClientToken") => String.t(),
         optional("MaxRows") => integer(),
         optional("NextToken") => String.t(),
+        optional("QueryInsights") => query_insights(),
         required("QueryString") => String.t()
       }
       
@@ -765,6 +849,17 @@ defmodule AWS.TimestreamQuery do
       
   """
   @type column_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      query_spatial_coverage() :: %{
+        "Max" => query_spatial_coverage_max()
+      }
+      
+  """
+  @type query_spatial_coverage() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -800,6 +895,17 @@ defmodule AWS.TimestreamQuery do
       
   """
   @type dimension_mapping() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scheduled_query_insights() :: %{
+        "Mode" => list(any())
+      }
+      
+  """
+  @type scheduled_query_insights() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1061,6 +1167,10 @@ defmodule AWS.TimestreamQuery do
 
   @doc """
   You can use this API to run a scheduled query manually.
+
+  If you enabled `QueryInsights`, this API also returns insights and metrics
+  related to the query that you executed as part of an Amazon SNS notification.
+  `QueryInsights` helps with performance tuning of your query.
   """
   @spec execute_scheduled_query(map(), execute_scheduled_query_request(), list()) ::
           {:ok, nil, any()}
@@ -1122,6 +1232,14 @@ defmodule AWS.TimestreamQuery do
 
   `Query` is a synchronous operation that enables you to run a query against
   your Amazon Timestream data.
+
+  If you enabled `QueryInsights`, this API also returns insights and metrics
+  related to the query that you executed. `QueryInsights` helps with performance
+  tuning of your query.
+
+  The maximum number of `Query` API requests you're allowed to make with
+  `QueryInsights` enabled is 1 query per second (QPS). If you exceed this query
+  rate, it might result in throttling.
 
   `Query` will time out after 60 seconds.
   You must update the default timeout in the SDK to support a timeout of 60

@@ -62,9 +62,14 @@ defmodule AWS.MWAA do
 
   [CreateWebLoginToken](https://docs.aws.amazon.com/mwaa/latest/API/API_CreateWebLoginToken.html)
 
+      *
+
+  [InvokeRestApi](https://docs.aws.amazon.com/mwaa/latest/API/API_InvokeRestApi.html) 
+
   ## Regions
 
-  For a list of supported regions, see [Amazon MWAA endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/mwaa.html) in the *Amazon
+  For a list of supported regions, see [Amazon MWAA endpoints and
+  quotas](https://docs.aws.amazon.com/general/latest/gr/mwaa.html) in the *Amazon
   Web Services General Reference*.
   """
 
@@ -81,6 +86,18 @@ defmodule AWS.MWAA do
 
   """
   @type get_environment_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_rest_api_response() :: %{
+        "RestApiResponse" => any(),
+        "RestApiStatusCode" => [integer()]
+      }
+
+  """
+  @type invoke_rest_api_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -377,10 +394,36 @@ defmodule AWS.MWAA do
 
   ## Example:
 
+      rest_api_client_exception() :: %{
+        "RestApiResponse" => any(),
+        "RestApiStatusCode" => [integer()]
+      }
+
+  """
+  @type rest_api_client_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_web_login_token_request() :: %{}
 
   """
   @type create_web_login_token_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_rest_api_request() :: %{
+        optional("Body") => any(),
+        optional("QueryParameters") => [any()],
+        required("Method") => String.t(),
+        required("Path") => String.t()
+      }
+
+  """
+  @type invoke_rest_api_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -476,6 +519,18 @@ defmodule AWS.MWAA do
 
   """
   @type create_cli_token_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      rest_api_server_exception() :: %{
+        "RestApiResponse" => any(),
+        "RestApiStatusCode" => [integer()]
+      }
+
+  """
+  @type rest_api_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -594,6 +649,14 @@ defmodule AWS.MWAA do
   @type get_environment_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
 
+  @type invoke_rest_api_errors() ::
+          validation_exception()
+          | rest_api_server_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | rest_api_client_exception()
+          | resource_not_found_exception()
+
   @type list_environments_errors() :: validation_exception() | internal_server_exception()
 
   @type list_tags_for_resource_errors() ::
@@ -656,7 +719,8 @@ defmodule AWS.MWAA do
   end
 
   @doc """
-  Creates an Amazon Managed Workflows for Apache Airflow (MWAA) environment.
+  Creates an Amazon Managed Workflows for Apache Airflow (Amazon MWAA)
+  environment.
   """
   @spec create_environment(map(), String.t(), create_environment_input(), list()) ::
           {:ok, create_environment_output(), any()}
@@ -702,7 +766,8 @@ defmodule AWS.MWAA do
   end
 
   @doc """
-  Deletes an Amazon Managed Workflows for Apache Airflow (MWAA) environment.
+  Deletes an Amazon Managed Workflows for Apache Airflow (Amazon MWAA)
+  environment.
   """
   @spec delete_environment(map(), String.t(), delete_environment_input(), list()) ::
           {:ok, delete_environment_output(), any()}
@@ -743,6 +808,36 @@ defmodule AWS.MWAA do
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Invokes the Apache Airflow REST API on the webserver with the specified inputs.
+
+  To
+  learn more, see [Using the Apache Airflow REST API](https://docs.aws.amazon.com/mwaa/latest/userguide/access-mwaa-apache-airflow-rest-api.html)
+  """
+  @spec invoke_rest_api(map(), String.t(), invoke_rest_api_request(), list()) ::
+          {:ok, invoke_rest_api_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invoke_rest_api_errors()}
+  def invoke_rest_api(%Client{} = client, name, input, options \\ []) do
+    url_path = "/restapi/#{AWS.Util.encode_uri(name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "env.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

@@ -276,6 +276,7 @@ defmodule AWS.Connect do
   ## Example:
 
       participant_capabilities() :: %{
+        "ScreenShare" => list(any()),
         "Video" => list(any())
       }
 
@@ -4895,6 +4896,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      start_screen_sharing_request() :: %{
+        optional("ClientToken") => String.t(),
+        required("ContactId") => String.t(),
+        required("InstanceId") => String.t()
+      }
+
+  """
+  @type start_screen_sharing_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       associate_analytics_data_set_request() :: %{
         optional("TargetAccountId") => String.t(),
         required("DataSetId") => String.t()
@@ -8301,6 +8315,15 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      start_screen_sharing_response() :: %{}
+
+  """
+  @type start_screen_sharing_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       media_concurrency() :: %{
         "Channel" => list(any()),
         "Concurrency" => integer(),
@@ -11168,6 +11191,14 @@ defmodule AWS.Connect do
           | internal_service_exception()
           | outbound_contact_not_permitted_exception()
 
+  @type start_screen_sharing_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type start_task_contact_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
@@ -12004,6 +12035,10 @@ defmodule AWS.Connect do
 
   @doc """
   Associates an agent with a traffic distribution group.
+
+  This API can be called only in the Region where the traffic distribution group
+  is
+  created.
   """
   @spec associate_traffic_distribution_group_user(
           map(),
@@ -15023,6 +15058,10 @@ defmodule AWS.Connect do
 
   @doc """
   Disassociates an agent from a traffic distribution group.
+
+  This API can be called only in the Region where the traffic distribution group
+  is
+  created.
   """
   @spec disassociate_traffic_distribution_group_user(
           map(),
@@ -15384,7 +15423,8 @@ defmodule AWS.Connect do
   ability to filter and group data by channels, queues, routing profiles, agents,
   and agent
   hierarchy levels. It can retrieve historical data for the last 3 months, at
-  varying intervals.
+  varying intervals. It
+  does not support agent queues.
 
   For a description of the historical metrics that are supported by
   `GetMetricDataV2` and `GetMetricData`, see [Historical metrics
@@ -18725,6 +18765,27 @@ defmodule AWS.Connect do
           | {:error, start_outbound_voice_contact_errors()}
   def start_outbound_voice_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/outbound-voice"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Starts screen sharing for a contact.
+
+  For more information about screen sharing, see [Set up in-app, web, video calling, and screen sharing
+  capabilities](https://docs.aws.amazon.com/connect/latest/adminguide/inapp-calling.html)
+  in the *Amazon Connect Administrator Guide*.
+  """
+  @spec start_screen_sharing(map(), start_screen_sharing_request(), list()) ::
+          {:ok, start_screen_sharing_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_screen_sharing_errors()}
+  def start_screen_sharing(%Client{} = client, input, options \\ []) do
+    url_path = "/contact/screen-sharing"
     headers = []
     query_params = []
 

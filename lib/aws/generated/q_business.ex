@@ -2012,6 +2012,7 @@ defmodule AWS.QBusiness do
       action_review_payload_field() :: %{
         "allowedFormat" => String.t(),
         "allowedValues" => list(action_review_payload_field_allowed_value()()),
+        "arrayItemJsonSchema" => any(),
         "displayDescription" => String.t(),
         "displayName" => String.t(),
         "displayOrder" => integer(),

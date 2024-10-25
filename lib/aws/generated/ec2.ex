@@ -15028,6 +15028,24 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      image_metadata() :: %{
+        "CreationDate" => String.t(),
+        "DeprecationTime" => String.t(),
+        "ImageId" => String.t(),
+        "ImageOwnerAlias" => String.t(),
+        "IsPublic" => boolean(),
+        "Name" => String.t(),
+        "OwnerId" => String.t(),
+        "State" => list(any())
+      }
+      
+  """
+  @type image_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_transit_gateway_prefix_list_references_result() :: %{
         "NextToken" => String.t(),
         "TransitGatewayPrefixListReferences" => list(transit_gateway_prefix_list_reference()())
@@ -16528,6 +16546,21 @@ defmodule AWS.EC2 do
       
   """
   @type modify_transit_gateway_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_instance_image_metadata_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()()),
+        optional("InstanceIds") => list(String.t()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type describe_instance_image_metadata_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -24308,6 +24341,25 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      instance_image_metadata() :: %{
+        "AvailabilityZone" => String.t(),
+        "ImageMetadata" => image_metadata(),
+        "InstanceId" => String.t(),
+        "InstanceType" => list(any()),
+        "LaunchTime" => non_neg_integer(),
+        "OwnerId" => String.t(),
+        "State" => instance_state(),
+        "Tags" => list(tag()()),
+        "ZoneId" => String.t()
+      }
+      
+  """
+  @type instance_image_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       reset_fpga_image_attribute_request() :: %{
         optional("Attribute") => list(any()),
         optional("DryRun") => boolean(),
@@ -24948,6 +25000,18 @@ defmodule AWS.EC2 do
       
   """
   @type traffic_mirror_session() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_instance_image_metadata_result() :: %{
+        "InstanceImageMetadata" => list(instance_image_metadata()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type describe_instance_image_metadata_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -33144,6 +33208,54 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeInstanceEventWindows", input, options)
+  end
+
+  @doc """
+  Describes the AMI that was used to launch an instance, even if the AMI is
+  deprecated,
+  deregistered, or made private (no longer public or shared with your account).
+
+  If you specify instance IDs, the output includes information for only the
+  specified
+  instances. If you specify filters, the output includes information for only
+  those instances
+  that meet the filter criteria. If you do not specify instance IDs or filters,
+  the output
+  includes information for all instances, which can affect performance.
+
+  If you specify an instance ID that is not valid, an instance that doesn't exist,
+  or an
+  instance that you do not own, an error (`InvalidInstanceID.NotFound`) is
+  returned.
+
+  Recently terminated instances might appear in the returned results. This
+  interval is
+  usually less than one hour.
+
+  In the rare case where an Availability Zone is experiencing a service disruption
+  and you
+  specify instance IDs that are in the affected Availability Zone, or do not
+  specify any
+  instance IDs at all, the call fails. If you specify only instance IDs that are
+  in an
+  unaffected Availability Zone, the call works normally.
+
+  The order of the elements in the response, including those within nested
+  structures,
+  might vary. Applications should not assume the elements appear in a particular
+  order.
+  """
+  @spec describe_instance_image_metadata(
+          map(),
+          describe_instance_image_metadata_request(),
+          list()
+        ) ::
+          {:ok, describe_instance_image_metadata_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def describe_instance_image_metadata(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeInstanceImageMetadata", input, options)
   end
 
   @doc """

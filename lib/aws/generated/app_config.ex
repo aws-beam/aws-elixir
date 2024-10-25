@@ -206,10 +206,12 @@ defmodule AWS.AppConfig do
 
   ## Example:
 
-      stop_deployment_request() :: %{}
+      stop_deployment_request() :: %{
+        optional("AllowRevert") => boolean()
+      }
 
   """
-  @type stop_deployment_request() :: %{}
+  @type stop_deployment_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2805,8 +2807,11 @@ defmodule AWS.AppConfig do
   Stops a deployment.
 
   This API action works only on deployments that have a status of
-  `DEPLOYING`. This action moves the deployment to a status of
-  `ROLLED_BACK`.
+  `DEPLOYING`, unless an `AllowRevert` parameter is supplied. If the
+  `AllowRevert` parameter is supplied, the status of an in-progress deployment
+  will be `ROLLED_BACK`. The status of a completed deployment will be
+  `REVERTED`. AppConfig only allows a revert within 72 hours of
+  deployment completion.
   """
   @spec stop_deployment(
           map(),
@@ -2830,7 +2835,12 @@ defmodule AWS.AppConfig do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/environments/#{AWS.Util.encode_uri(environment_id)}/deployments/#{AWS.Util.encode_uri(deployment_number)}"
 
-    headers = []
+    {headers, input} =
+      [
+        {"AllowRevert", "Allow-Revert"}
+      ]
+      |> Request.build_params(input)
+
     query_params = []
 
     meta = metadata()

@@ -1107,6 +1107,7 @@ defmodule AWS.CloudWatchLogs do
       pattern_token() :: %{
         "dynamicTokenPosition" => integer(),
         "enumerations" => map(),
+        "inferredTokenName" => String.t(),
         "isDynamic" => boolean(),
         "tokenString" => String.t()
       }
@@ -3032,9 +3033,7 @@ defmodule AWS.CloudWatchLogs do
 
     *
   If you are delivering logs cross-account, you must use
-  [PutDeliveryDestinationPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationPolicy.html)
-
-  in the destination account to assign an IAM policy to the
+  [PutDeliveryDestinationPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationPolicy.html)  in the destination account to assign an IAM policy to the
   destination. This policy allows delivery to that destination.
 
     *
@@ -3046,8 +3045,8 @@ defmodule AWS.CloudWatchLogs do
   can also create multiple deliveries to configure multiple delivery sources to
   send logs to the same delivery destination.
 
-  You can't update an existing delivery. You can only create and delete
-  deliveries.
+  To update an existing delivery configuration, use
+  [UpdateDeliveryConfiguration](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateDeliveryConfiguration.html).
   """
   @spec create_delivery(map(), create_delivery_request(), list()) ::
           {:ok, create_delivery_response(), any()}
@@ -3635,7 +3634,7 @@ defmodule AWS.CloudWatchLogs do
   You can list all your log groups or filter the results by prefix.
   The results are ASCII-sorted by log group name.
 
-  CloudWatch Logs doesn’t support IAM policies that control access to the
+  CloudWatch Logs doesn't support IAM policies that control access to the
   `DescribeLogGroups` action by using the
 
   ```
@@ -4716,7 +4715,7 @@ defmodule AWS.CloudWatchLogs do
   configure the number of days for which to retain log events in the specified log
   group.
 
-  CloudWatch Logs doesn’t immediately delete log events when they reach their
+  CloudWatch Logs doesn't immediately delete log events when they reach their
   retention
   setting. It typically takes up to 72 hours after that before log events are
   deleted, but in
@@ -4724,7 +4723,7 @@ defmodule AWS.CloudWatchLogs do
 
   To illustrate, imagine that you change a log group to have a longer retention
   setting
-  when it contains log events that are past the expiration date, but haven’t been
+  when it contains log events that are past the expiration date, but haven't been
   deleted.
   Those log events will take up to 72 hours to be deleted after the new retention
   date is
@@ -4965,7 +4964,7 @@ defmodule AWS.CloudWatchLogs do
   Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#log-group-tagging)
   in the *Amazon CloudWatch Logs User Guide*.
 
-  CloudWatch Logs doesn’t support IAM policies that prevent users from assigning
+  CloudWatch Logs doesn't support IAM policies that prevent users from assigning
   specified tags to
   log groups using the
 
@@ -5053,7 +5052,7 @@ defmodule AWS.CloudWatchLogs do
   To add tags, use
   [TagResource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagResource.html).
 
-  CloudWatch Logs doesn’t support IAM policies that prevent users from assigning
+  CloudWatch Logs doesn't support IAM policies that prevent users from assigning
   specified tags to
   log groups using the
 
@@ -5092,10 +5091,10 @@ defmodule AWS.CloudWatchLogs do
   pattern.
 
   If you suppress
-  an anomaly, CloudWatch Logs won’t report new occurrences of that anomaly and
+  an anomaly, CloudWatch Logs won't report new occurrences of that anomaly and
   won't
   update that anomaly
-  with new data. If you suppress a pattern, CloudWatch Logs won’t report any
+  with new data. If you suppress a pattern, CloudWatch Logs won't report any
   anomalies related to that pattern.
 
   You must specify either `anomalyId` or `patternId`, but you can't specify both

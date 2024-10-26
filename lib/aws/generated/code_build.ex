@@ -249,38 +249,39 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       build() :: %{
-        "arn" => String.t(),
-        "artifacts" => build_artifacts(),
-        "buildBatchArn" => String.t(),
-        "buildComplete" => boolean(),
-        "buildNumber" => float(),
-        "buildStatus" => list(any()),
-        "cache" => project_cache(),
-        "currentPhase" => String.t(),
-        "debugSession" => debug_session(),
-        "encryptionKey" => String.t(),
-        "endTime" => non_neg_integer(),
-        "environment" => project_environment(),
-        "exportedEnvironmentVariables" => list(exported_environment_variable()()),
         "fileSystemLocations" => list(project_file_system_location()()),
+        "cache" => project_cache(),
         "id" => String.t(),
-        "initiator" => String.t(),
-        "logs" => logs_location(),
-        "networkInterface" => network_interface(),
         "phases" => list(build_phase()()),
-        "projectName" => String.t(),
-        "queuedTimeoutInMinutes" => integer(),
+        "artifacts" => build_artifacts(),
         "reportArns" => list(String.t()()),
-        "resolvedSourceVersion" => String.t(),
-        "secondaryArtifacts" => list(build_artifacts()()),
-        "secondarySourceVersions" => list(project_source_version()()),
-        "secondarySources" => list(project_source()()),
+        "buildNumber" => float(),
         "serviceRole" => String.t(),
-        "source" => project_source(),
+        "secondarySources" => list(project_source()()),
+        "buildStatus" => list(any()),
         "sourceVersion" => String.t(),
+        "secondaryArtifacts" => list(build_artifacts()()),
+        "queuedTimeoutInMinutes" => integer(),
+        "buildComplete" => boolean(),
+        "source" => project_source(),
+        "resolvedSourceVersion" => String.t(),
+        "logs" => logs_location(),
+        "exportedEnvironmentVariables" => list(exported_environment_variable()()),
         "startTime" => non_neg_integer(),
+        "secondarySourceVersions" => list(project_source_version()()),
+        "networkInterface" => network_interface(),
+        "environment" => project_environment(),
+        "arn" => String.t(),
+        "projectName" => String.t(),
+        "endTime" => non_neg_integer(),
+        "autoRetryConfig" => auto_retry_config(),
+        "initiator" => String.t(),
+        "vpcConfig" => vpc_config(),
+        "buildBatchArn" => String.t(),
         "timeoutInMinutes" => integer(),
-        "vpcConfig" => vpc_config()
+        "encryptionKey" => String.t(),
+        "currentPhase" => String.t(),
+        "debugSession" => debug_session()
       }
       
   """
@@ -292,6 +293,7 @@ defmodule AWS.CodeBuild do
       
       update_project_input() :: %{
         optional("artifacts") => project_artifacts(),
+        optional("autoRetryLimit") => integer(),
         optional("badgeEnabled") => boolean(),
         optional("buildBatchConfig") => project_build_batch_config(),
         optional("cache") => project_cache(),
@@ -888,38 +890,39 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       start_build_input() :: %{
-        optional("artifactsOverride") => project_artifacts(),
-        optional("buildStatusConfigOverride") => build_status_config(),
-        optional("buildspecOverride") => String.t(),
-        optional("cacheOverride") => project_cache(),
+        optional("encryptionKeyOverride") => String.t(),
+        optional("idempotencyToken") => String.t(),
         optional("certificateOverride") => String.t(),
         optional("computeTypeOverride") => list(any()),
-        optional("debugSessionEnabled") => boolean(),
-        optional("encryptionKeyOverride") => String.t(),
-        optional("environmentTypeOverride") => list(any()),
-        optional("environmentVariablesOverride") => list(environment_variable()()),
-        optional("fleetOverride") => project_fleet(),
-        optional("gitCloneDepthOverride") => integer(),
+        optional("autoRetryLimitOverride") => integer(),
+        optional("artifactsOverride") => project_artifacts(),
+        optional("buildStatusConfigOverride") => build_status_config(),
         optional("gitSubmodulesConfigOverride") => git_submodules_config(),
-        optional("idempotencyToken") => String.t(),
+        optional("debugSessionEnabled") => boolean(),
+        optional("buildspecOverride") => String.t(),
+        optional("environmentTypeOverride") => list(any()),
+        optional("sourceAuthOverride") => source_auth(),
+        optional("fleetOverride") => project_fleet(),
+        optional("cacheOverride") => project_cache(),
+        optional("timeoutInMinutesOverride") => integer(),
+        optional("sourceTypeOverride") => list(any()),
+        optional("reportBuildStatusOverride") => boolean(),
+        optional("privilegedModeOverride") => boolean(),
+        optional("gitCloneDepthOverride") => integer(),
+        optional("queuedTimeoutInMinutesOverride") => integer(),
+        optional("secondarySourcesVersionOverride") => list(project_source_version()()),
+        optional("environmentVariablesOverride") => list(environment_variable()()),
+        required("projectName") => String.t(),
+        optional("secondarySourcesOverride") => list(project_source()()),
+        optional("sourceVersion") => String.t(),
+        optional("sourceLocationOverride") => String.t(),
+        optional("serviceRoleOverride") => String.t(),
+        optional("logsConfigOverride") => logs_config(),
+        optional("secondaryArtifactsOverride") => list(project_artifacts()()),
         optional("imageOverride") => String.t(),
         optional("imagePullCredentialsTypeOverride") => list(any()),
-        optional("insecureSslOverride") => boolean(),
-        optional("logsConfigOverride") => logs_config(),
-        optional("privilegedModeOverride") => boolean(),
-        optional("queuedTimeoutInMinutesOverride") => integer(),
         optional("registryCredentialOverride") => registry_credential(),
-        optional("reportBuildStatusOverride") => boolean(),
-        optional("secondaryArtifactsOverride") => list(project_artifacts()()),
-        optional("secondarySourcesOverride") => list(project_source()()),
-        optional("secondarySourcesVersionOverride") => list(project_source_version()()),
-        optional("serviceRoleOverride") => String.t(),
-        optional("sourceAuthOverride") => source_auth(),
-        optional("sourceLocationOverride") => String.t(),
-        optional("sourceTypeOverride") => list(any()),
-        optional("sourceVersion") => String.t(),
-        optional("timeoutInMinutesOverride") => integer(),
-        required("projectName") => String.t()
+        optional("insecureSslOverride") => boolean()
       }
       
   """
@@ -1063,6 +1066,7 @@ defmodule AWS.CodeBuild do
       project() :: %{
         "arn" => String.t(),
         "artifacts" => project_artifacts(),
+        "autoRetryLimit" => integer(),
         "badge" => project_badge(),
         "buildBatchConfig" => project_build_batch_config(),
         "cache" => project_cache(),
@@ -1215,6 +1219,20 @@ defmodule AWS.CodeBuild do
       
   """
   @type vpc_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      auto_retry_config() :: %{
+        "autoRetryLimit" => integer(),
+        "autoRetryNumber" => integer(),
+        "nextAutoRetry" => String.t(),
+        "previousAutoRetry" => String.t()
+      }
+      
+  """
+  @type auto_retry_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1401,6 +1419,7 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       create_project_input() :: %{
+        optional("autoRetryLimit") => integer(),
         optional("badgeEnabled") => boolean(),
         optional("buildBatchConfig") => project_build_batch_config(),
         optional("cache") => project_cache(),

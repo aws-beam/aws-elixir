@@ -216,6 +216,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       prompt_flow_node_inline_configuration() :: %{
+        "additionalModelRequestFields" => [any()],
         "inferenceConfiguration" => list(),
         "modelId" => String.t(),
         "templateConfiguration" => list(),
@@ -3196,6 +3197,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       prompt_variant() :: %{
+        "additionalModelRequestFields" => [any()],
         "inferenceConfiguration" => list(),
         "metadata" => list(prompt_metadata_entry()()),
         "modelId" => String.t(),

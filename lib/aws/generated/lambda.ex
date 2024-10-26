@@ -753,7 +753,8 @@ defmodule AWS.Lambda do
         "Code" => function_code_location(),
         "Concurrency" => concurrency(),
         "Configuration" => function_configuration(),
-        "Tags" => map()
+        "Tags" => map(),
+        "TagsError" => tags_error()
       }
 
   """
@@ -2352,6 +2353,18 @@ defmodule AWS.Lambda do
 
   """
   @type environment_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tags_error() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+
+  """
+  @type tags_error() :: %{String.t() => any()}
 
   @typedoc """
 

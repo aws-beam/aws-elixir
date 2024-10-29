@@ -1105,6 +1105,19 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      node_config() :: %{
+        "Count" => integer(),
+        "Enabled" => boolean(),
+        "Type" => list(any())
+      }
+
+  """
+  @type node_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       conflict_exception() :: %{
         "message" => String.t()
       }
@@ -2274,6 +2287,18 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      node_option() :: %{
+        "NodeConfig" => node_config(),
+        "NodeType" => list(any())
+      }
+
+  """
+  @type node_option() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_domains_for_package_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
@@ -2668,6 +2693,7 @@ defmodule AWS.OpenSearch do
         "InstanceCount" => integer(),
         "InstanceType" => list(any()),
         "MultiAZWithStandbyEnabled" => boolean(),
+        "NodeOptions" => list(node_option()()),
         "WarmCount" => integer(),
         "WarmEnabled" => boolean(),
         "WarmType" => list(any()),

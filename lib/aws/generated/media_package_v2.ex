@@ -59,6 +59,15 @@ defmodule AWS.MediaPackageV2 do
 
   ## Example:
 
+      cancel_harvest_job_response() :: %{}
+
+  """
+  @type cancel_harvest_job_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_channel_request() :: %{}
 
   """
@@ -121,6 +130,18 @@ defmodule AWS.MediaPackageV2 do
 
   """
   @type channel_list_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harvester_schedule_configuration() :: %{
+        "EndTime" => [non_neg_integer()],
+        "StartTime" => [non_neg_integer()]
+      }
+
+  """
+  @type harvester_schedule_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -287,6 +308,17 @@ defmodule AWS.MediaPackageV2 do
 
   ## Example:
 
+      harvested_dash_manifest() :: %{
+        "ManifestName" => String.t()
+      }
+
+  """
+  @type harvested_dash_manifest() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_origin_endpoint_policy_request() :: %{
         required("Policy") => String.t()
       }
@@ -305,6 +337,21 @@ defmodule AWS.MediaPackageV2 do
 
   """
   @type dash_utc_timing() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_harvest_jobs_request() :: %{
+        optional("ChannelName") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t()],
+        optional("OriginEndpointName") => String.t(),
+        optional("Status") => list(any())
+      }
+
+  """
+  @type list_harvest_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -420,6 +467,34 @@ defmodule AWS.MediaPackageV2 do
 
   """
   @type delete_channel_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_harvest_job_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("Description") => String.t(),
+        optional("HarvestJobName") => String.t(),
+        optional("Tags") => map(),
+        required("Destination") => destination(),
+        required("HarvestedManifests") => harvested_manifests(),
+        required("ScheduleConfiguration") => harvester_schedule_configuration()
+      }
+
+  """
+  @type create_harvest_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harvested_low_latency_hls_manifest() :: %{
+        "ManifestName" => String.t()
+      }
+
+  """
+  @type harvested_low_latency_hls_manifest() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -745,6 +820,17 @@ defmodule AWS.MediaPackageV2 do
 
   ## Example:
 
+      harvested_hls_manifest() :: %{
+        "ManifestName" => String.t()
+      }
+
+  """
+  @type harvested_hls_manifest() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       scte_dash() :: %{
         "AdMarkerDash" => list(any())
       }
@@ -763,6 +849,17 @@ defmodule AWS.MediaPackageV2 do
 
   """
   @type list_channel_groups_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_harvest_job_request() :: %{
+        optional("ETag") => String.t()
+      }
+
+  """
+  @type cancel_harvest_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -802,6 +899,15 @@ defmodule AWS.MediaPackageV2 do
 
   ## Example:
 
+      get_harvest_job_request() :: %{}
+
+  """
+  @type get_harvest_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception() :: %{
         "Message" => [String.t()],
         "ValidationExceptionType" => list(any())
@@ -818,6 +924,17 @@ defmodule AWS.MediaPackageV2 do
 
   """
   @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      destination() :: %{
+        "S3Destination" => s3_destination_config()
+      }
+
+  """
+  @type destination() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -842,6 +959,55 @@ defmodule AWS.MediaPackageV2 do
 
   """
   @type list_low_latency_hls_manifest_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_harvest_job_response() :: %{
+        "Arn" => [String.t()],
+        "ChannelGroupName" => String.t(),
+        "ChannelName" => String.t(),
+        "CreatedAt" => [non_neg_integer()],
+        "Description" => String.t(),
+        "Destination" => destination(),
+        "ETag" => String.t(),
+        "ErrorMessage" => [String.t()],
+        "HarvestJobName" => String.t(),
+        "HarvestedManifests" => harvested_manifests(),
+        "ModifiedAt" => [non_neg_integer()],
+        "OriginEndpointName" => String.t(),
+        "ScheduleConfiguration" => harvester_schedule_configuration(),
+        "Status" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type get_harvest_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harvest_job() :: %{
+        "Arn" => [String.t()],
+        "ChannelGroupName" => String.t(),
+        "ChannelName" => String.t(),
+        "CreatedAt" => [non_neg_integer()],
+        "Description" => String.t(),
+        "Destination" => destination(),
+        "ETag" => String.t(),
+        "ErrorMessage" => [String.t()],
+        "HarvestJobName" => String.t(),
+        "HarvestedManifests" => harvested_manifests(),
+        "ModifiedAt" => [non_neg_integer()],
+        "OriginEndpointName" => String.t(),
+        "ScheduleConfiguration" => harvester_schedule_configuration(),
+        "Status" => list(any())
+      }
+
+  """
+  @type harvest_job() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -882,6 +1048,43 @@ defmodule AWS.MediaPackageV2 do
 
   """
   @type get_channel_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_harvest_job_response() :: %{
+        "Arn" => [String.t()],
+        "ChannelGroupName" => String.t(),
+        "ChannelName" => String.t(),
+        "CreatedAt" => [non_neg_integer()],
+        "Description" => String.t(),
+        "Destination" => destination(),
+        "ETag" => String.t(),
+        "ErrorMessage" => [String.t()],
+        "HarvestJobName" => String.t(),
+        "HarvestedManifests" => harvested_manifests(),
+        "ModifiedAt" => [non_neg_integer()],
+        "OriginEndpointName" => String.t(),
+        "ScheduleConfiguration" => harvester_schedule_configuration(),
+        "Status" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type create_harvest_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_harvest_jobs_response() :: %{
+        "Items" => list(harvest_job()()),
+        "NextToken" => [String.t()]
+      }
+
+  """
+  @type list_harvest_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1000,6 +1203,19 @@ defmodule AWS.MediaPackageV2 do
 
   ## Example:
 
+      harvested_manifests() :: %{
+        "DashManifests" => list(harvested_dash_manifest()()),
+        "HlsManifests" => list(harvested_hls_manifest()()),
+        "LowLatencyHlsManifests" => list(harvested_low_latency_hls_manifest()())
+      }
+
+  """
+  @type harvested_manifests() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_origin_endpoint_response() :: %{
         "Arn" => [String.t()],
         "ChannelGroupName" => String.t(),
@@ -1050,6 +1266,18 @@ defmodule AWS.MediaPackageV2 do
 
   ## Example:
 
+      s3_destination_config() :: %{
+        "BucketName" => String.t(),
+        "DestinationPath" => String.t()
+      }
+
+  """
+  @type s3_destination_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_origin_endpoint_policy_response() :: %{
         "ChannelGroupName" => String.t(),
         "ChannelName" => String.t(),
@@ -1086,6 +1314,14 @@ defmodule AWS.MediaPackageV2 do
   """
   @type get_origin_endpoint_response() :: %{String.t() => any()}
 
+  @type cancel_harvest_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type create_channel_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1096,6 +1332,15 @@ defmodule AWS.MediaPackageV2 do
           | conflict_exception()
 
   @type create_channel_group_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_harvest_job_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -1168,6 +1413,13 @@ defmodule AWS.MediaPackageV2 do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_harvest_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_origin_endpoint_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1189,6 +1441,13 @@ defmodule AWS.MediaPackageV2 do
           | internal_server_exception()
 
   @type list_channels_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_harvest_jobs_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -1266,6 +1525,46 @@ defmodule AWS.MediaPackageV2 do
   end
 
   @doc """
+  Cancels an in-progress harvest job.
+  """
+  @spec cancel_harvest_job(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          cancel_harvest_job_request(),
+          list()
+        ) ::
+          {:ok, cancel_harvest_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, cancel_harvest_job_errors()}
+  def cancel_harvest_job(
+        %Client{} = client,
+        channel_group_name,
+        channel_name,
+        harvest_job_name,
+        origin_endpoint_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}/channel/#{AWS.Util.encode_uri(channel_name)}/originEndpoint/#{AWS.Util.encode_uri(origin_endpoint_name)}/harvestJob/#{AWS.Util.encode_uri(harvest_job_name)}"
+
+    {headers, input} =
+      [
+        {"ETag", "x-amzn-update-if-match"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
   Create a channel to start receiving content streams.
 
   The channel represents the input to MediaPackage for incoming live content from
@@ -1321,6 +1620,55 @@ defmodule AWS.MediaPackageV2 do
           | {:error, create_channel_group_errors()}
   def create_channel_group(%Client{} = client, input, options \\ []) do
     url_path = "/channelGroup"
+
+    {headers, input} =
+      [
+        {"ClientToken", "x-amzn-client-token"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a new harvest job to export content from a MediaPackage v2 channel to an
+  S3 bucket.
+  """
+  @spec create_harvest_job(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          create_harvest_job_request(),
+          list()
+        ) ::
+          {:ok, create_harvest_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_harvest_job_errors()}
+  def create_harvest_job(
+        %Client{} = client,
+        channel_group_name,
+        channel_name,
+        origin_endpoint_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}/channel/#{AWS.Util.encode_uri(channel_name)}/originEndpoint/#{AWS.Util.encode_uri(origin_endpoint_name)}/harvestJob"
 
     {headers, input} =
       [
@@ -1654,6 +2002,32 @@ defmodule AWS.MediaPackageV2 do
   end
 
   @doc """
+  Retrieves the details of a specific harvest job.
+  """
+  @spec get_harvest_job(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
+          {:ok, get_harvest_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_harvest_job_errors()}
+  def get_harvest_job(
+        %Client{} = client,
+        channel_group_name,
+        channel_name,
+        harvest_job_name,
+        origin_endpoint_name,
+        options \\ []
+      ) do
+    url_path =
+      "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}/channel/#{AWS.Util.encode_uri(channel_name)}/originEndpoint/#{AWS.Util.encode_uri(origin_endpoint_name)}/harvestJob/#{AWS.Util.encode_uri(harvest_job_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves the specified origin endpoint that's configured in AWS Elemental
   MediaPackage to obtain its playback URL and to view the packaging settings that
   it's currently using.
@@ -1773,6 +2147,76 @@ defmodule AWS.MediaPackageV2 do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves a list of harvest jobs that match the specified criteria.
+  """
+  @spec list_harvest_jobs(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_harvest_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_harvest_jobs_errors()}
+  def list_harvest_jobs(
+        %Client{} = client,
+        channel_group_name,
+        channel_name \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        origin_endpoint_name \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}/harvestJob"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"includeStatus", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(origin_endpoint_name) do
+        [{"originEndpointName", origin_endpoint_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(channel_name) do
+        [{"channelName", channel_name} | query_params]
       else
         query_params
       end

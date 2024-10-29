@@ -5,13 +5,17 @@ defmodule AWS.StorageGateway do
   @moduledoc """
   Storage Gateway Service
 
+  Amazon FSx File Gateway is no longer available to new customers.
+
+  Existing
+  customers of FSx File Gateway can continue to use the service normally. For
+  capabilities similar to FSx File Gateway, visit [this blog post](https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/).
+
   Storage Gateway is the service that connects an on-premises software appliance
   with cloud-based storage to provide seamless and secure integration between an
   organization's on-premises IT environment and the Amazon Web Services storage
-  infrastructure.
-
-  The service enables you to securely upload data to the Amazon Web Services Cloud
-  for cost effective backup and rapid disaster recovery.
+  infrastructure. The service enables you to securely upload data to the Amazon
+  Web Services Cloud for cost effective backup and rapid disaster recovery.
 
   Use the following links to get started using the *Storage Gateway
   Service API Reference*:

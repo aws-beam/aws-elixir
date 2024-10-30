@@ -613,6 +613,7 @@ defmodule AWS.CloudWatchLogs do
       
       update_anomaly_request() :: %{
         optional("anomalyId") => String.t(),
+        optional("baseline") => boolean(),
         optional("patternId") => String.t(),
         optional("suppressionPeriod") => suppression_period(),
         optional("suppressionType") => list(any()),

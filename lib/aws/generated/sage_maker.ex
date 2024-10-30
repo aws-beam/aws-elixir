@@ -17967,14 +17967,14 @@ defmodule AWS.SageMaker do
   @doc """
   Creates a Git repository as a resource in your SageMaker account.
 
-  You can associate the
-  repository with notebook instances so that you can use Git source control for
-  the
-  notebooks you create. The Git repository is a resource in your SageMaker
-  account, so it can
-  be associated with more than one notebook instance, and it persists
-  independently from
-  the lifecycle of any notebook instances it is associated with.
+  You can
+  associate the repository with notebook instances so that you can use Git source
+  control
+  for the notebooks you create. The Git repository is a resource in your SageMaker
+  account, so it can be associated with more than one notebook instance, and it
+  persists
+  independently from the lifecycle of any notebook instances it is associated
+  with.
 
   The repository can be hosted either in [Amazon Web Services CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html)
   or in any other Git repository.
@@ -18931,19 +18931,18 @@ defmodule AWS.SageMaker do
   @doc """
   Creates an SageMaker notebook instance.
 
-  A notebook instance is a machine learning (ML)
-  compute instance running on a Jupyter notebook.
+  A notebook instance is a machine
+  learning (ML) compute instance running on a Jupyter notebook.
 
   In a `CreateNotebookInstance` request, specify the type of ML compute
   instance that you want to run. SageMaker launches the instance, installs common
-  libraries
-  that you can use to explore datasets for model training, and attaches an ML
-  storage
-  volume to the notebook instance.
+  libraries that you can use to explore datasets for model training, and attaches
+  an ML
+  storage volume to the notebook instance.
 
-  SageMaker also provides a set of example notebooks. Each notebook demonstrates
-  how to
-  use SageMaker with a specific algorithm or with a machine learning framework.
+  SageMaker also provides a set of example notebooks. Each notebook
+  demonstrates how to use SageMaker with a specific algorithm or with a machine
+  learning framework.
 
   After receiving the request, SageMaker does the following:
 
@@ -18951,31 +18950,29 @@ defmodule AWS.SageMaker do
   Creates a network interface in the SageMaker VPC.
 
     2.
-  (Option) If you specified `SubnetId`, SageMaker creates a network
-  interface in your own VPC, which is inferred from the subnet ID that you provide
-  in the input. When creating this network interface, SageMaker attaches the
-  security
-  group that you specified in the request to the network interface that it creates
-  in your VPC.
+  (Option) If you specified `SubnetId`, SageMaker creates
+  a network interface in your own VPC, which is inferred from the subnet ID that
+  you provide in the input. When creating this network interface, SageMaker
+  attaches the security group that you specified in the request to the network
+  interface that it creates in your VPC.
 
     3.
-  Launches an EC2 instance of the type specified in the request in the SageMaker
-  VPC. If you specified `SubnetId` of your VPC, SageMaker specifies both
-  network interfaces when launching this instance. This enables inbound traffic
-  from your own VPC to the notebook instance, assuming that the security groups
-  allow it.
+  Launches an EC2 instance of the type specified in the request in the
+  SageMaker VPC. If you specified `SubnetId` of your VPC,
+  SageMaker specifies both network interfaces when launching this
+  instance. This enables inbound traffic from your own VPC to the notebook
+  instance, assuming that the security groups allow it.
 
-  After creating the notebook instance, SageMaker returns its Amazon Resource Name
-  (ARN).
-  You can't change the name of a notebook instance after you create it.
+  After creating the notebook instance, SageMaker returns its Amazon Resource
+  Name (ARN). You can't change the name of a notebook instance after you create
+  it.
 
-  After SageMaker creates the notebook instance, you can connect to the Jupyter
-  server and
-  work in Jupyter notebooks. For example, you can write code to explore a dataset
-  that you
-  can use for model training, train a model, host models by creating SageMaker
-  endpoints, and
-  validate hosted models.
+  After SageMaker creates the notebook instance, you can connect to the
+  Jupyter server and work in Jupyter notebooks. For example, you can write code to
+  explore
+  a dataset that you can use for model training, train a model, host models by
+  creating
+  SageMaker endpoints, and validate hosted models.
 
   For more information, see [How It Works](https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html).
   """
@@ -19003,8 +19000,8 @@ defmodule AWS.SageMaker do
   scripts is `/sbin:bin:/usr/sbin:/usr/bin`.
 
   View Amazon CloudWatch Logs for notebook instance lifecycle configurations in
-  log group
-  `/aws/sagemaker/NotebookInstances` in log stream
+  log
+  group `/aws/sagemaker/NotebookInstances` in log stream
   `[notebook-instance-name]/[LifecycleConfigHook]`.   Lifecycle configuration scripts cannot run for longer than 5 minutes. If a
   script runs
   for longer than 5 minutes, it fails and the notebook instance is not created or
@@ -19128,19 +19125,18 @@ defmodule AWS.SageMaker do
   Returns a URL that you can use to connect to the Jupyter server from a notebook
   instance.
 
-  In the SageMaker console, when you choose `Open` next to a notebook
-  instance, SageMaker opens a new tab showing the Jupyter server home page from
-  the notebook
-  instance. The console uses this API to get the URL and show the page.
+  In the SageMaker console, when you choose `Open` next to a
+  notebook instance, SageMaker opens a new tab showing the Jupyter server home
+  page from the notebook instance. The console uses this API to get the URL and
+  show the
+  page.
 
-  The IAM role or user used to call this API defines the permissions to access the
-  notebook instance. Once the presigned URL is created, no additional permission
-  is
-  required to access this URL. IAM authorization policies for this API are also
-  enforced
-  for every HTTP request and WebSocket frame that attempts to connect to the
-  notebook
-  instance.
+  The IAM role or user used to call this API defines the permissions to
+  access the notebook instance. Once the presigned URL is created, no additional
+  permission is required to access this URL. IAM authorization policies for
+  this API are also enforced for every HTTP request and WebSocket frame that
+  attempts to
+  connect to the notebook instance.
 
   You can restrict access to this API and to the URL that it returns to a list of
   IP
@@ -20171,14 +20167,12 @@ defmodule AWS.SageMaker do
   @doc """
   Deletes an SageMaker notebook instance.
 
-  Before you can delete a notebook instance, you
-  must call the `StopNotebookInstance` API.
+  Before you can delete a notebook
+  instance, you must call the `StopNotebookInstance` API.
 
   When you delete a notebook instance, you lose all of your data. SageMaker
-  removes
-  the ML compute instance, and deletes the ML storage volume and the network
-  interface
-  associated with the notebook instance.
+  removes the ML compute instance, and deletes the ML storage volume and the
+  network interface associated with the notebook instance.
   """
   @spec delete_notebook_instance(map(), delete_notebook_instance_input(), list()) ::
           {:ok, nil, any()}
@@ -22251,9 +22245,8 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
-  Returns a list of the SageMaker notebook instances in the requester's account in
-  an
-  Amazon Web Services Region.
+  Returns a list of the SageMaker notebook instances in the requester's
+  account in an Amazon Web Services Region.
   """
   @spec list_notebook_instances(map(), list_notebook_instances_input(), list()) ::
           {:ok, list_notebook_instances_output(), any()}
@@ -22813,9 +22806,10 @@ defmodule AWS.SageMaker do
   Launches an ML compute instance with the latest version of the libraries and
   attaches your ML storage volume.
 
-  After configuring the notebook instance, SageMaker sets the
-  notebook instance status to `InService`. A notebook instance's status must be
-  `InService` before you can connect to your Jupyter notebook.
+  After configuring the notebook instance, SageMaker sets the notebook instance
+  status to `InService`. A notebook
+  instance's status must be `InService` before you can connect to your Jupyter
+  notebook.
   """
   @spec start_notebook_instance(map(), start_notebook_instance_input(), list()) ::
           {:ok, nil, any()}
@@ -22996,11 +22990,10 @@ defmodule AWS.SageMaker do
   @doc """
   Terminates the ML compute instance.
 
-  Before terminating the instance, SageMaker
-  disconnects the ML storage volume from it. SageMaker preserves the ML storage
-  volume. SageMaker
-  stops charging you for the ML compute instance when you call
-  `StopNotebookInstance`.
+  Before terminating the instance, SageMaker disconnects the ML storage volume
+  from it. SageMaker preserves the
+  ML storage volume. SageMaker stops charging you for the ML compute instance when
+  you call `StopNotebookInstance`.
 
   To access data on the ML storage volume for a notebook instance that has been
   terminated, call the `StartNotebookInstance` API.

@@ -2123,7 +2123,8 @@ defmodule AWS.IoTFleetWise do
           | internal_server_exception()
 
   @type batch_update_vehicle_errors() ::
-          throttling_exception()
+          limit_exceeded_exception()
+          | throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
@@ -2473,7 +2474,8 @@ defmodule AWS.IoTFleetWise do
           | conflict_exception()
 
   @type update_vehicle_errors() ::
-          throttling_exception()
+          limit_exceeded_exception()
+          | throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()

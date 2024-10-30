@@ -30,7 +30,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       configured_table_summary() :: %{
-        "analysisMethod" => String.t(),
+        "analysisMethod" => list(any()),
         "analysisRuleTypes" => list(list(any())()),
         "arn" => String.t(),
         "createTime" => [non_neg_integer()],
@@ -245,7 +245,7 @@ defmodule AWS.CleanRooms do
         optional("description") => String.t(),
         optional("tags") => map(),
         required("allowedColumns") => list(String.t()()),
-        required("analysisMethod") => String.t(),
+        required("analysisMethod") => list(any()),
         required("name") => String.t(),
         required("tableReference") => list()
       }
@@ -304,7 +304,7 @@ defmodule AWS.CleanRooms do
         "createTime" => [non_neg_integer()],
         "creatorAccountId" => String.t(),
         "description" => String.t(),
-        "format" => String.t(),
+        "format" => list(any()),
         "id" => String.t(),
         "name" => String.t(),
         "schema" => analysis_schema(),
@@ -736,6 +736,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       collaboration() :: %{
+        "analyticsEngine" => list(any()),
         "arn" => String.t(),
         "createTime" => [non_neg_integer()],
         "creatorAccountId" => String.t(),
@@ -747,7 +748,7 @@ defmodule AWS.CleanRooms do
         "membershipArn" => String.t(),
         "membershipId" => String.t(),
         "name" => String.t(),
-        "queryLogStatus" => String.t(),
+        "queryLogStatus" => list(any()),
         "updateTime" => [non_neg_integer()]
       }
 
@@ -1312,6 +1313,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       protected_query() :: %{
+        "computeConfiguration" => list(),
         "createTime" => [non_neg_integer()],
         "differentialPrivacy" => differential_privacy_parameters(),
         "error" => protected_query_error(),
@@ -1472,7 +1474,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       schema_summary() :: %{
-        "analysisMethod" => String.t(),
+        "analysisMethod" => list(any()),
         "analysisRuleTypes" => list(list(any())()),
         "collaborationArn" => String.t(),
         "collaborationId" => String.t(),
@@ -1599,6 +1601,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       collaboration_summary() :: %{
+        "analyticsEngine" => list(any()),
         "arn" => String.t(),
         "createTime" => [non_neg_integer()],
         "creatorAccountId" => String.t(),
@@ -1619,7 +1622,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       schema() :: %{
-        "analysisMethod" => String.t(),
+        "analysisMethod" => list(any()),
         "analysisRuleTypes" => list(list(any())()),
         "collaborationArn" => String.t(),
         "collaborationId" => String.t(),
@@ -1767,7 +1770,7 @@ defmodule AWS.CleanRooms do
         "collaborationName" => String.t(),
         "createTime" => [non_neg_integer()],
         "id" => String.t(),
-        "memberAbilities" => list(String.t()()),
+        "memberAbilities" => list(list(any())()),
         "paymentConfiguration" => membership_payment_configuration(),
         "status" => String.t(),
         "updateTime" => [non_neg_integer()]
@@ -2013,15 +2016,16 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       create_collaboration_input() :: %{
+        optional("analyticsEngine") => list(any()),
         optional("creatorPaymentConfiguration") => payment_configuration(),
         optional("dataEncryptionMetadata") => data_encryption_metadata(),
         optional("tags") => map(),
         required("creatorDisplayName") => String.t(),
-        required("creatorMemberAbilities") => list(String.t()()),
+        required("creatorMemberAbilities") => list(list(any())()),
         required("description") => String.t(),
         required("members") => list(member_specification()()),
         required("name") => String.t(),
-        required("queryLogStatus") => String.t()
+        required("queryLogStatus") => list(any())
       }
 
   """
@@ -2192,6 +2196,17 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      billed_resource_utilization() :: %{
+        "units" => [float()]
+      }
+
+  """
+  @type billed_resource_utilization() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_schema_analysis_rule_input() :: %{}
 
   """
@@ -2353,7 +2368,7 @@ defmodule AWS.CleanRooms do
         "collaborationId" => String.t(),
         "createTime" => [non_neg_integer()],
         "description" => String.t(),
-        "format" => String.t(),
+        "format" => list(any()),
         "id" => String.t(),
         "membershipArn" => String.t(),
         "membershipId" => String.t(),
@@ -2366,6 +2381,18 @@ defmodule AWS.CleanRooms do
 
   """
   @type analysis_template() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      worker_compute_configuration() :: %{
+        "number" => [integer()],
+        "type" => list(any())
+      }
+
+  """
+  @type worker_compute_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2684,6 +2711,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       protected_query_statistics() :: %{
+        "billedResourceUtilization" => billed_resource_utilization(),
         "totalDurationInMillis" => [float()]
       }
 
@@ -2749,7 +2777,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       member_summary() :: %{
-        "abilities" => list(String.t()()),
+        "abilities" => list(list(any())()),
         "accountId" => String.t(),
         "createTime" => [non_neg_integer()],
         "displayName" => String.t(),
@@ -2898,6 +2926,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       start_protected_query_input() :: %{
+        optional("computeConfiguration") => list(),
         optional("resultConfiguration") => protected_query_result_configuration(),
         required("sqlParameters") => protected_query_s_q_l_parameters(),
         required("type") => String.t()
@@ -2941,7 +2970,7 @@ defmodule AWS.CleanRooms do
 
       configured_table() :: %{
         "allowedColumns" => list(String.t()()),
-        "analysisMethod" => String.t(),
+        "analysisMethod" => list(any()),
         "analysisRuleTypes" => list(list(any())()),
         "arn" => String.t(),
         "createTime" => [non_neg_integer()],
@@ -3015,7 +3044,7 @@ defmodule AWS.CleanRooms do
         optional("analysisParameters") => list(analysis_parameter()()),
         optional("description") => String.t(),
         optional("tags") => map(),
-        required("format") => String.t(),
+        required("format") => list(any()),
         required("name") => String.t(),
         required("source") => list()
       }
@@ -3099,7 +3128,8 @@ defmodule AWS.CleanRooms do
       protected_query_s3_output_configuration() :: %{
         "bucket" => [String.t()],
         "keyPrefix" => String.t(),
-        "resultFormat" => String.t()
+        "resultFormat" => String.t(),
+        "singleFileOutput" => [boolean()]
       }
 
   """
@@ -3161,7 +3191,7 @@ defmodule AWS.CleanRooms do
       member_specification() :: %{
         "accountId" => String.t(),
         "displayName" => String.t(),
-        "memberAbilities" => list(String.t()()),
+        "memberAbilities" => list(list(any())()),
         "paymentConfiguration" => payment_configuration()
       }
 
@@ -3202,7 +3232,7 @@ defmodule AWS.CleanRooms do
         "createTime" => [non_neg_integer()],
         "defaultResultConfiguration" => membership_protected_query_result_configuration(),
         "id" => String.t(),
-        "memberAbilities" => list(String.t()()),
+        "memberAbilities" => list(list(any())()),
         "paymentConfiguration" => membership_payment_configuration(),
         "queryLogStatus" => String.t(),
         "status" => String.t(),
@@ -3819,6 +3849,7 @@ defmodule AWS.CleanRooms do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -4662,8 +4693,7 @@ defmodule AWS.CleanRooms do
   end
 
   @doc """
-  Deletes
-  an analysis rule for a configured table association.
+  Deletes an analysis rule for a configured table association.
   """
   @spec delete_configured_table_association_analysis_rule(
           map(),
@@ -5129,9 +5159,7 @@ defmodule AWS.CleanRooms do
   end
 
   @doc """
-
-  Retrieves
-  the analysis rule for a configured table association.
+  Retrieves the analysis rule for a configured table association.
   """
   @spec get_configured_table_association_analysis_rule(
           map(),
@@ -6524,9 +6552,7 @@ defmodule AWS.CleanRooms do
   end
 
   @doc """
-
-  Updates
-  the analysis rule for a configured table association.
+  Updates the analysis rule for a configured table association.
   """
   @spec update_configured_table_association_analysis_rule(
           map(),

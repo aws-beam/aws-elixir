@@ -72,6 +72,7 @@ defmodule AWS.RedshiftData do
         "QueryParameters" => list(sql_parameter()()),
         "QueryString" => String.t(),
         "QueryStrings" => list(String.t()()),
+        "ResultFormat" => String.t(),
         "SecretArn" => String.t(),
         "SessionId" => String.t(),
         "StatementName" => String.t(),
@@ -181,6 +182,7 @@ defmodule AWS.RedshiftData do
         optional("Database") => String.t(),
         optional("DbUser") => String.t(),
         optional("Parameters") => list(sql_parameter()()),
+        optional("ResultFormat") => String.t(),
         optional("SecretArn") => String.t(),
         optional("SessionId") => String.t(),
         optional("SessionKeepAliveSeconds") => integer(),
@@ -221,6 +223,7 @@ defmodule AWS.RedshiftData do
         optional("ClusterIdentifier") => String.t(),
         optional("Database") => String.t(),
         optional("DbUser") => String.t(),
+        optional("ResultFormat") => String.t(),
         optional("SecretArn") => String.t(),
         optional("SessionId") => String.t(),
         optional("SessionKeepAliveSeconds") => integer(),
@@ -451,6 +454,18 @@ defmodule AWS.RedshiftData do
 
   ## Example:
       
+      get_statement_result_v2_request() :: %{
+        optional("NextToken") => String.t(),
+        required("Id") => String.t()
+      }
+      
+  """
+  @type get_statement_result_v2_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_statement_response() :: %{
         "ClusterIdentifier" => String.t(),
         "CreatedAt" => [non_neg_integer()],
@@ -464,6 +479,7 @@ defmodule AWS.RedshiftData do
         "QueryString" => String.t(),
         "RedshiftPid" => float(),
         "RedshiftQueryId" => float(),
+        "ResultFormat" => String.t(),
         "ResultRows" => float(),
         "ResultSize" => float(),
         "SecretArn" => String.t(),
@@ -516,6 +532,21 @@ defmodule AWS.RedshiftData do
 
   ## Example:
       
+      get_statement_result_v2_response() :: %{
+        "ColumnMetadata" => list(column_metadata()()),
+        "NextToken" => String.t(),
+        "Records" => list(list()()),
+        "ResultFormat" => String.t(),
+        "TotalNumRows" => float()
+      }
+      
+  """
+  @type get_statement_result_v2_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_tables_request() :: %{
         optional("ClusterIdentifier") => String.t(),
         optional("ConnectedDatabase") => String.t(),
@@ -562,6 +593,9 @@ defmodule AWS.RedshiftData do
           | active_statements_exceeded_exception()
 
   @type get_statement_result_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type get_statement_result_v2_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
 
   @type list_databases_errors() ::
@@ -830,8 +864,11 @@ defmodule AWS.RedshiftData do
   end
 
   @doc """
-  Fetches the temporarily cached result of an SQL statement.
+  Fetches the temporarily cached result of an SQL statement in JSON format.
 
+  The `ExecuteStatement` or `BatchExecuteStatement` operation that ran the SQL
+  statement must have specified `ResultFormat` as `JSON`
+  , or let the format default to JSON.
   A token is returned to page through the statement results.
 
   For more information about the Amazon Redshift Data API and CLI usage examples,
@@ -847,6 +884,28 @@ defmodule AWS.RedshiftData do
     meta = metadata()
 
     Request.request_post(client, meta, "GetStatementResult", input, options)
+  end
+
+  @doc """
+  Fetches the temporarily cached result of an SQL statement in CSV format.
+
+  The `ExecuteStatement` or `BatchExecuteStatement` operation that ran the SQL
+  statement must have specified `ResultFormat` as `CSV`.
+  A token is returned to page through the statement results.
+
+  For more information about the Amazon Redshift Data API and CLI usage examples,
+  see
+  [Using the Amazon Redshift Data API](https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html) in the
+  *Amazon Redshift Management Guide*.
+  """
+  @spec get_statement_result_v2(map(), get_statement_result_v2_request(), list()) ::
+          {:ok, get_statement_result_v2_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_statement_result_v2_errors()}
+  def get_statement_result_v2(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetStatementResultV2", input, options)
   end
 
   @doc """

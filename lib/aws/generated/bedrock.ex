@@ -171,7 +171,8 @@ defmodule AWS.Bedrock do
 
       list_inference_profiles_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t(),
+        optional("typeEquals") => list(any())
       }
 
   """
@@ -388,6 +389,18 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      create_inference_profile_response() :: %{
+        "inferenceProfileArn" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_inference_profile_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       automated_evaluation_config() :: %{
         "datasetMetricConfigs" => list(evaluation_dataset_metric_config()())
       }
@@ -570,6 +583,15 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      delete_inference_profile_request() :: %{}
+
+  """
+  @type delete_inference_profile_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       logging_config() :: %{
         "cloudWatchConfig" => cloud_watch_config(),
         "embeddingDataDeliveryEnabled" => [boolean()],
@@ -592,6 +614,21 @@ defmodule AWS.Bedrock do
 
   """
   @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_inference_profile_request() :: %{
+        optional("clientRequestToken") => String.t(),
+        optional("description") => String.t(),
+        optional("tags") => list(tag()()),
+        required("inferenceProfileName") => String.t(),
+        required("modelSource") => list()
+      }
+
+  """
+  @type create_inference_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1096,6 +1133,15 @@ defmodule AWS.Bedrock do
 
   """
   @type vpc_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_inference_profile_response() :: %{}
+
+  """
+  @type delete_inference_profile_response() :: %{}
 
   @typedoc """
 
@@ -2198,6 +2244,16 @@ defmodule AWS.Bedrock do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type create_inference_profile_errors() ::
+          too_many_tags_exception()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type create_model_copy_job_errors() ::
           too_many_tags_exception()
           | access_denied_exception()
@@ -2259,6 +2315,14 @@ defmodule AWS.Bedrock do
           | conflict_exception()
 
   @type delete_imported_model_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_inference_profile_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -2671,6 +2735,42 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Creates an application inference profile to track metrics and costs when
+  invoking a model.
+
+  To create an application inference profile for a foundation model in one region,
+  specify the ARN of the model in that region. To create an application inference
+  profile for a foundation model across multiple regions, specify the ARN of the
+  system-defined inference profile that contains the regions that you want to
+  route requests to. For more information, see [Increase throughput and resilience with cross-region inference in Amazon
+  Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html).
+  in the Amazon Bedrock User Guide.
+  """
+  @spec create_inference_profile(map(), create_inference_profile_request(), list()) ::
+          {:ok, create_inference_profile_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_inference_profile_errors()}
+  def create_inference_profile(%Client{} = client, input, options \\ []) do
+    url_path = "/inference-profiles"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Copies a model to another region so that it can be used there.
 
   For more information, see [Copy models to be used in other regions](https://docs.aws.amazon.com/bedrock/latest/userguide/copy-model.html)
@@ -2946,6 +3046,42 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Deletes an application inference profile.
+
+  For more information, see [Increase throughput and resilience with cross-region inference in Amazon
+  Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html).
+  in the Amazon Bedrock User Guide.
+  """
+  @spec delete_inference_profile(map(), String.t(), delete_inference_profile_request(), list()) ::
+          {:ok, delete_inference_profile_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_inference_profile_errors()}
+  def delete_inference_profile(
+        %Client{} = client,
+        inference_profile_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path = "/inference-profiles/#{AWS.Util.encode_uri(inference_profile_identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Delete the invocation logging.
   """
   @spec delete_model_invocation_logging_configuration(
@@ -3125,7 +3261,9 @@ defmodule AWS.Bedrock do
   @doc """
   Gets information about an inference profile.
 
-  For more information, see the Amazon Bedrock User Guide.
+  For more information, see [Increase throughput and resilience with cross-region inference in Amazon
+  Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html).
+  in the Amazon Bedrock User Guide.
   """
   @spec get_inference_profile(map(), String.t(), list()) ::
           {:ok, get_inference_profile_response(), any()}
@@ -3682,8 +3820,18 @@ defmodule AWS.Bedrock do
 
   @doc """
   Returns a list of inference profiles that you can use.
+
+  For more information, see [Increase throughput and resilience with cross-region inference in Amazon
+  Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html).
+  in the Amazon Bedrock User Guide.
   """
-  @spec list_inference_profiles(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_inference_profiles(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
           {:ok, list_inference_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_inference_profiles_errors()}
@@ -3691,11 +3839,19 @@ defmodule AWS.Bedrock do
         %Client{} = client,
         max_results \\ nil,
         next_token \\ nil,
+        type_equals \\ nil,
         options \\ []
       ) do
     url_path = "/inference-profiles"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(type_equals) do
+        [{"type", type_equals} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(next_token) do
@@ -4241,8 +4397,8 @@ defmodule AWS.Bedrock do
   @doc """
   List the tags associated with the specified resource.
 
-  For more information, see [Tagging resources](https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html) in
-  the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
+  For more information, see [Tagging resources](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html)
+  in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
   """
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -4384,8 +4540,8 @@ defmodule AWS.Bedrock do
   @doc """
   Associate tags with a resource.
 
-  For more information, see [Tagging resources](https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html) in
-  the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
+  For more information, see [Tagging resources](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html)
+  in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
   """
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
@@ -4414,8 +4570,8 @@ defmodule AWS.Bedrock do
   @doc """
   Remove one or more tags from a resource.
 
-  For more information, see [Tagging resources](https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html) in
-  the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
+  For more information, see [Tagging resources](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html)
+  in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
   """
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}

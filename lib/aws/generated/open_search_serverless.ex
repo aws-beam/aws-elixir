@@ -88,6 +88,22 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
+      iam_identity_center_config_options() :: %{
+        "applicationArn" => String.t(),
+        "applicationDescription" => [String.t()],
+        "applicationName" => [String.t()],
+        "groupAttribute" => String.t(),
+        "instanceArn" => String.t(),
+        "userAttribute" => String.t()
+      }
+      
+  """
+  @type iam_identity_center_config_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       collection_error_detail() :: %{
         "errorCode" => [String.t()],
         "errorMessage" => [String.t()],
@@ -514,6 +530,7 @@ defmodule AWS.OpenSearchServerless do
       update_security_config_request() :: %{
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
+        optional("iamIdentityCenterOptionsUpdates") => update_iam_identity_center_config_options(),
         optional("samlOptions") => saml_config_options(),
         required("configVersion") => String.t(),
         required("id") => String.t()
@@ -800,6 +817,18 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
+      update_iam_identity_center_config_options() :: %{
+        "groupAttribute" => String.t(),
+        "userAttribute" => String.t()
+      }
+      
+  """
+  @type update_iam_identity_center_config_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       security_policy_stats() :: %{
         "EncryptionPolicyCount" => [float()],
         "NetworkPolicyCount" => [float()]
@@ -911,6 +940,7 @@ defmodule AWS.OpenSearchServerless do
         "configVersion" => String.t(),
         "createdDate" => [float()],
         "description" => String.t(),
+        "iamIdentityCenterOptions" => iam_identity_center_config_options(),
         "id" => String.t(),
         "lastModifiedDate" => [float()],
         "samlOptions" => saml_config_options(),
@@ -1359,9 +1389,23 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
+      create_iam_identity_center_config_options() :: %{
+        "groupAttribute" => String.t(),
+        "instanceArn" => String.t(),
+        "userAttribute" => String.t()
+      }
+      
+  """
+  @type create_iam_identity_center_config_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_security_config_request() :: %{
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
+        optional("iamIdentityCenterOptions") => create_iam_identity_center_config_options(),
         optional("samlOptions") => saml_config_options(),
         required("name") => String.t(),
         required("type") => String.t()

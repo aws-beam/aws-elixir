@@ -553,6 +553,7 @@ defmodule AWS.OpenSearch do
         "EncryptionAtRestOptions" => encryption_at_rest_options_status(),
         "EngineVersion" => version_status(),
         "IPAddressType" => ip_address_type_status(),
+        "IdentityCenterOptions" => identity_center_options_status(),
         "LogPublishingOptions" => log_publishing_options_status(),
         "ModifyingProperties" => list(modifying_properties()()),
         "NodeToNodeEncryptionOptions" => node_to_node_encryption_options_status(),
@@ -768,6 +769,20 @@ defmodule AWS.OpenSearch do
 
   """
   @type reject_inbound_connection_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      identity_center_options_input() :: %{
+        "EnabledAPIAccess" => boolean(),
+        "IdentityCenterInstanceARN" => String.t(),
+        "RolesKey" => list(any()),
+        "SubjectKey" => list(any())
+      }
+
+  """
+  @type identity_center_options_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1164,6 +1179,7 @@ defmodule AWS.OpenSearch do
         optional("EncryptionAtRestOptions") => encryption_at_rest_options(),
         optional("EngineVersion") => String.t(),
         optional("IPAddressType") => list(any()),
+        optional("IdentityCenterOptions") => identity_center_options_input(),
         optional("LogPublishingOptions") => map(),
         optional("NodeToNodeEncryptionOptions") => node_to_node_encryption_options(),
         optional("OffPeakWindowOptions") => off_peak_window_options(),
@@ -1374,6 +1390,7 @@ defmodule AWS.OpenSearch do
         optional("EBSOptions") => ebs_options(),
         optional("EncryptionAtRestOptions") => encryption_at_rest_options(),
         optional("IPAddressType") => list(any()),
+        optional("IdentityCenterOptions") => identity_center_options_input(),
         optional("LogPublishingOptions") => map(),
         optional("NodeToNodeEncryptionOptions") => node_to_node_encryption_options(),
         optional("OffPeakWindowOptions") => off_peak_window_options(),
@@ -1620,6 +1637,22 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      create_application_request() :: %{
+        optional("appConfigs") => list(app_config()()),
+        optional("clientToken") => String.t(),
+        optional("dataSources") => list(data_source()()),
+        optional("iamIdentityCenterOptions") => iam_identity_center_options_input(),
+        optional("tagList") => list(tag()()),
+        required("name") => String.t()
+      }
+
+  """
+  @type create_application_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       version_status() :: %{
         "Options" => String.t(),
         "Status" => option_status()
@@ -1718,6 +1751,24 @@ defmodule AWS.OpenSearch do
 
   """
   @type scheduled_auto_tune_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_application_response() :: %{
+        "appConfigs" => list(app_config()()),
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "dataSources" => list(data_source()()),
+        "iamIdentityCenterOptions" => iam_identity_center_options(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "tagList" => list(tag()())
+      }
+
+  """
+  @type create_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1847,12 +1898,35 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      delete_application_response() :: %{}
+
+  """
+  @type delete_application_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       s3_glue_data_catalog() :: %{
         "RoleArn" => String.t()
       }
 
   """
   @type s3_glue_data_catalog() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      iam_identity_center_options() :: %{
+        "enabled" => boolean(),
+        "iamIdentityCenterApplicationArn" => String.t(),
+        "iamIdentityCenterInstanceArn" => String.t(),
+        "iamRoleForIdentityCenterApplicationArn" => String.t()
+      }
+
+  """
+  @type iam_identity_center_options() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1897,6 +1971,52 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      update_application_request() :: %{
+        optional("appConfigs") => list(app_config()()),
+        optional("dataSources") => list(data_source()())
+      }
+
+  """
+  @type update_application_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_application_response() :: %{
+        "appConfigs" => list(app_config()()),
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "dataSources" => list(data_source()()),
+        "iamIdentityCenterOptions" => iam_identity_center_options(),
+        "id" => String.t(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t()
+      }
+
+  """
+  @type update_application_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      identity_center_options() :: %{
+        "EnabledAPIAccess" => boolean(),
+        "IdentityCenterApplicationARN" => String.t(),
+        "IdentityCenterInstanceARN" => String.t(),
+        "IdentityStoreId" => String.t(),
+        "RolesKey" => list(any()),
+        "SubjectKey" => list(any())
+      }
+
+  """
+  @type identity_center_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       domain_status() :: %{
         "UpgradeProcessing" => boolean(),
         "AIMLOptions" => a_i_ml_options_output(),
@@ -1904,6 +2024,7 @@ defmodule AWS.OpenSearch do
         "VPCOptions" => vpc_derived_info(),
         "AdvancedSecurityOptions" => advanced_security_options(),
         "ServiceSoftwareOptions" => service_software_options(),
+        "IdentityCenterOptions" => identity_center_options(),
         "ARN" => String.t(),
         "DomainId" => String.t(),
         "ModifyingProperties" => list(modifying_properties()()),
@@ -2011,6 +2132,26 @@ defmodule AWS.OpenSearch do
 
   """
   @type cancelled_change_property() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_application_response() :: %{
+        "appConfigs" => list(app_config()()),
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "dataSources" => list(data_source()()),
+        "endpoint" => String.t(),
+        "iamIdentityCenterOptions" => iam_identity_center_options(),
+        "id" => String.t(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type get_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2157,6 +2298,19 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      list_applications_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("statuses") => list(list(any())())
+      }
+
+  """
+  @type list_applications_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       dissociate_package_response() :: %{
         "DomainPackageDetails" => domain_package_details()
       }
@@ -2197,6 +2351,31 @@ defmodule AWS.OpenSearch do
 
   """
   @type internal_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      iam_identity_center_options_input() :: %{
+        "enabled" => boolean(),
+        "iamIdentityCenterInstanceArn" => String.t(),
+        "iamRoleForIdentityCenterApplicationArn" => String.t()
+      }
+
+  """
+  @type iam_identity_center_options_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      app_config() :: %{
+        "key" => list(any()),
+        "value" => String.t()
+      }
+
+  """
+  @type app_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2336,7 +2515,8 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       authorize_vpc_endpoint_access_request() :: %{
-        required("Account") => String.t()
+        optional("Account") => String.t(),
+        optional("Service") => list(any())
       }
 
   """
@@ -2618,8 +2798,26 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      application_summary() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "endpoint" => String.t(),
+        "id" => String.t(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type application_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       revoke_vpc_endpoint_access_request() :: %{
-        required("Account") => String.t()
+        optional("Account") => String.t(),
+        optional("Service") => list(any())
       }
 
   """
@@ -2714,6 +2912,30 @@ defmodule AWS.OpenSearch do
 
   """
   @type create_vpc_endpoint_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_applications_response() :: %{
+        "ApplicationSummaries" => list(application_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_applications_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      identity_center_options_status() :: %{
+        "Options" => identity_center_options(),
+        "Status" => option_status()
+      }
+
+  """
+  @type identity_center_options_status() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2831,6 +3053,18 @@ defmodule AWS.OpenSearch do
 
   """
   @type resource_already_exists_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_source() :: %{
+        "dataSourceArn" => String.t(),
+        "dataSourceDescription" => String.t()
+      }
+
+  """
+  @type data_source() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3007,6 +3241,15 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      get_application_request() :: %{}
+
+  """
+  @type get_application_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       vpc_endpoint_error() :: %{
         "ErrorCode" => list(any()),
         "ErrorMessage" => String.t(),
@@ -3137,6 +3380,15 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      delete_application_request() :: %{}
+
+  """
+  @type delete_application_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_domains_for_package_response() :: %{
         "DomainPackageDetailsList" => list(domain_package_details()()),
         "NextToken" => String.t()
@@ -3229,6 +3481,14 @@ defmodule AWS.OpenSearch do
           | internal_exception()
           | resource_not_found_exception()
 
+  @type create_application_errors() ::
+          base_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | conflict_exception()
+          | disabled_operation_exception()
+
   @type create_domain_errors() ::
           resource_already_exists_exception()
           | limit_exceeded_exception()
@@ -3258,6 +3518,15 @@ defmodule AWS.OpenSearch do
           | base_exception()
           | validation_exception()
           | internal_exception()
+          | conflict_exception()
+          | disabled_operation_exception()
+
+  @type delete_application_errors() ::
+          base_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | resource_not_found_exception()
           | conflict_exception()
           | disabled_operation_exception()
 
@@ -3391,6 +3660,14 @@ defmodule AWS.OpenSearch do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type get_application_errors() ::
+          base_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | disabled_operation_exception()
+
   @type get_compatible_versions_errors() ::
           base_exception()
           | validation_exception()
@@ -3430,6 +3707,14 @@ defmodule AWS.OpenSearch do
   @type get_upgrade_status_errors() ::
           base_exception()
           | validation_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | disabled_operation_exception()
+
+  @type list_applications_errors() ::
+          base_exception()
+          | validation_exception()
+          | access_denied_exception()
           | internal_exception()
           | resource_not_found_exception()
           | disabled_operation_exception()
@@ -3537,6 +3822,15 @@ defmodule AWS.OpenSearch do
           | validation_exception()
           | internal_exception()
           | resource_not_found_exception()
+
+  @type update_application_errors() ::
+          base_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | disabled_operation_exception()
 
   @type update_data_source_errors() ::
           base_exception()
@@ -3825,6 +4119,33 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
+  Creates an OpenSearch Application.
+  """
+  @spec create_application(map(), create_application_request(), list()) ::
+          {:ok, create_application_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_application_errors()}
+  def create_application(%Client{} = client, input, options \\ []) do
+    url_path = "/2021-01-01/opensearch/application"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates an Amazon OpenSearch Service domain.
 
   For more information, see [Creating and managing Amazon OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html).
@@ -3933,6 +4254,33 @@ defmodule AWS.OpenSearch do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes an existing OpenSearch Application.
+  """
+  @spec delete_application(map(), String.t(), delete_application_request(), list()) ::
+          {:ok, delete_application_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_application_errors()}
+  def delete_application(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2021-01-01/opensearch/application/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
       url_path,
       query_params,
       headers,
@@ -4627,6 +4975,23 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
+  Check the configuration and status of an existing OpenSearch Application.
+  """
+  @spec get_application(map(), String.t(), list()) ::
+          {:ok, get_application_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_application_errors()}
+  def get_application(%Client{} = client, id, options \\ []) do
+    url_path = "/2021-01-01/opensearch/application/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns a map of OpenSearch or Elasticsearch versions and the versions you can
   upgrade them
   to.
@@ -4796,6 +5161,50 @@ defmodule AWS.OpenSearch do
     url_path = "/2021-01-01/opensearch/upgradeDomain/#{AWS.Util.encode_uri(domain_name)}/status"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  List all OpenSearch Applications under your account.
+  """
+  @spec list_applications(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_applications_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_applications_errors()}
+  def list_applications(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        statuses \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2021-01-01/opensearch/list-applications"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(statuses) do
+        [{"statuses", statuses} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -5435,6 +5844,23 @@ defmodule AWS.OpenSearch do
       options,
       200
     )
+  end
+
+  @doc """
+  Update the OpenSearch Application.
+  """
+  @spec update_application(map(), String.t(), update_application_request(), list()) ::
+          {:ok, update_application_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_application_errors()}
+  def update_application(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2021-01-01/opensearch/application/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """

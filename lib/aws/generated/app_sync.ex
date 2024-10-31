@@ -3,9 +3,8 @@
 
 defmodule AWS.AppSync do
   @moduledoc """
-  AppSync provides API actions for creating and interacting with data sources
-  using GraphQL
-  from your application.
+  AppSync provides API actions for creating and interacting with data
+  sources using GraphQL from your application.
   """
 
   alias AWS.Client
@@ -22,6 +21,15 @@ defmodule AWS.AppSync do
 
   """
   @type data_source_introspection_model_index() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_channel_namespace_request() :: %{}
+
+  """
+  @type get_channel_namespace_request() :: %{}
 
   @typedoc """
 
@@ -418,6 +426,29 @@ defmodule AWS.AppSync do
 
   ## Example:
 
+      create_api_response() :: %{
+        "api" => api()
+      }
+
+  """
+  @type create_api_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channel_namespaces_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_channel_namespaces_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_schema_creation_status_response() :: %{
         "details" => String.t(),
         "status" => list(any())
@@ -449,6 +480,19 @@ defmodule AWS.AppSync do
 
   """
   @type api_key_limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cognito_config() :: %{
+        "appIdClientRegex" => String.t(),
+        "awsRegion" => String.t(),
+        "userPoolId" => String.t()
+      }
+
+  """
+  @type cognito_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -549,6 +593,19 @@ defmodule AWS.AppSync do
 
   ## Example:
 
+      update_channel_namespace_request() :: %{
+        optional("codeHandlers") => String.t(),
+        optional("publishAuthModes") => list(auth_mode()()),
+        optional("subscribeAuthModes") => list(auth_mode()())
+      }
+
+  """
+  @type update_channel_namespace_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       untag_resource_request() :: %{
         required("tagKeys") => list(String.t()())
       }
@@ -572,6 +629,18 @@ defmodule AWS.AppSync do
 
   ## Example:
 
+      event_log_config() :: %{
+        "cloudWatchLogsRoleArn" => String.t(),
+        "logLevel" => list(any())
+      }
+
+  """
+  @type event_log_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       rds_http_endpoint_config() :: %{
         "awsRegion" => String.t(),
         "awsSecretStoreArn" => String.t(),
@@ -582,6 +651,18 @@ defmodule AWS.AppSync do
 
   """
   @type rds_http_endpoint_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_apis_response() :: %{
+        "apis" => list(api()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_apis_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -644,6 +725,26 @@ defmodule AWS.AppSync do
 
   """
   @type update_function_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_channel_namespace_request() :: %{}
+
+  """
+  @type delete_channel_namespace_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      auth_mode() :: %{
+        "authType" => list(any())
+      }
+
+  """
+  @type auth_mode() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -805,6 +906,21 @@ defmodule AWS.AppSync do
 
   ## Example:
 
+      create_channel_namespace_request() :: %{
+        optional("codeHandlers") => String.t(),
+        optional("publishAuthModes") => list(auth_mode()()),
+        optional("subscribeAuthModes") => list(auth_mode()()),
+        optional("tags") => map(),
+        required("name") => String.t()
+      }
+
+  """
+  @type create_channel_namespace_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_data_source_response() :: %{}
 
   """
@@ -859,6 +975,17 @@ defmodule AWS.AppSync do
 
   ## Example:
 
+      conflict_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_resolver_request() :: %{
         optional("cachingConfig") => caching_config(),
         optional("code") => String.t(),
@@ -889,6 +1016,28 @@ defmodule AWS.AppSync do
 
   """
   @type user_pool_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_api_response() :: %{
+        "api" => api()
+      }
+
+  """
+  @type get_api_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_channel_namespace_response() :: %{
+        "channelNamespace" => channel_namespace()
+      }
+
+  """
+  @type get_channel_namespace_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -978,6 +1127,28 @@ defmodule AWS.AppSync do
 
   """
   @type list_resolvers_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_api_response() :: %{
+        "api" => api()
+      }
+
+  """
+  @type update_api_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1312,6 +1483,21 @@ defmodule AWS.AppSync do
 
   ## Example:
 
+      event_config() :: %{
+        "authProviders" => list(auth_provider()()),
+        "connectionAuthModes" => list(auth_mode()()),
+        "defaultPublishAuthModes" => list(auth_mode()()),
+        "defaultSubscribeAuthModes" => list(auth_mode()()),
+        "logConfig" => event_log_config()
+      }
+
+  """
+  @type event_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_functions_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
@@ -1381,6 +1567,17 @@ defmodule AWS.AppSync do
 
   ## Example:
 
+      create_channel_namespace_response() :: %{
+        "channelNamespace" => channel_namespace()
+      }
+
+  """
+  @type create_channel_namespace_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_schema_merge_request() :: %{}
 
   """
@@ -1398,6 +1595,41 @@ defmodule AWS.AppSync do
 
   """
   @type rds_data_api_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_channel_namespace_response() :: %{}
+
+  """
+  @type delete_channel_namespace_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_apis_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_apis_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auth_provider() :: %{
+        "authType" => list(any()),
+        "cognitoConfig" => cognito_config(),
+        "lambdaAuthorizerConfig" => lambda_authorizer_config(),
+        "openIDConnectConfig" => open_id_connect_config()
+      }
+
+  """
+  @type auth_provider() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1430,6 +1662,25 @@ defmodule AWS.AppSync do
 
   """
   @type error_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_namespace() :: %{
+        "apiId" => String.t(),
+        "channelNamespaceArn" => String.t(),
+        "codeHandlers" => String.t(),
+        "created" => non_neg_integer(),
+        "lastModified" => non_neg_integer(),
+        "name" => String.t(),
+        "publishAuthModes" => list(auth_mode()()),
+        "subscribeAuthModes" => list(auth_mode()()),
+        "tags" => map()
+      }
+
+  """
+  @type channel_namespace() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1564,6 +1815,19 @@ defmodule AWS.AppSync do
 
   ## Example:
 
+      update_api_request() :: %{
+        optional("eventConfig") => event_config(),
+        optional("ownerContact") => String.t(),
+        required("name") => String.t()
+      }
+
+  """
+  @type update_api_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       domain_name_config() :: %{
         "appsyncDomainName" => String.t(),
         "certificateArn" => String.t(),
@@ -1628,6 +1892,18 @@ defmodule AWS.AppSync do
 
   """
   @type start_schema_creation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channel_namespaces_response() :: %{
+        "channelNamespaces" => list(channel_namespace()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_channel_namespaces_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1753,6 +2029,20 @@ defmodule AWS.AppSync do
 
   ## Example:
 
+      create_api_request() :: %{
+        optional("eventConfig") => event_config(),
+        optional("ownerContact") => String.t(),
+        optional("tags") => map(),
+        required("name") => String.t()
+      }
+
+  """
+  @type create_api_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_api_cache_response() :: %{}
 
   """
@@ -1800,6 +2090,37 @@ defmodule AWS.AppSync do
 
   """
   @type data_source_introspection_model() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      api() :: %{
+        "apiArn" => String.t(),
+        "apiId" => String.t(),
+        "created" => non_neg_integer(),
+        "dns" => map(),
+        "eventConfig" => event_config(),
+        "name" => String.t(),
+        "ownerContact" => String.t(),
+        "tags" => map(),
+        "wafWebAclArn" => String.t(),
+        "xrayEnabled" => boolean()
+      }
+
+  """
+  @type api() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_channel_namespace_response() :: %{
+        "channelNamespace" => channel_namespace()
+      }
+
+  """
+  @type update_channel_namespace_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1963,6 +2284,7 @@ defmodule AWS.AppSync do
 
       update_graphql_api_request() :: %{
         optional("additionalAuthenticationProviders") => list(additional_authentication_provider()()),
+        optional("authenticationType") => list(any()),
         optional("enhancedMetricsConfig") => enhanced_metrics_config(),
         optional("introspectionConfig") => list(any()),
         optional("lambdaAuthorizerConfig") => lambda_authorizer_config(),
@@ -1974,7 +2296,6 @@ defmodule AWS.AppSync do
         optional("resolverCountLimit") => integer(),
         optional("userPoolConfig") => user_pool_config(),
         optional("xrayEnabled") => boolean(),
-        required("authenticationType") => list(any()),
         required("name") => String.t()
       }
 
@@ -2230,6 +2551,15 @@ defmodule AWS.AppSync do
 
   ## Example:
 
+      get_api_request() :: %{}
+
+  """
+  @type get_api_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       graph_q_l_schema_exception() :: %{
         "message" => String.t()
       }
@@ -2274,6 +2604,24 @@ defmodule AWS.AppSync do
   """
   @type associate_merged_graphql_api_request() :: %{String.t() => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      delete_api_request() :: %{}
+
+  """
+  @type delete_api_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_api_response() :: %{}
+
+  """
+  @type delete_api_response() :: %{}
+
   @type associate_api_errors() ::
           bad_request_exception()
           | access_denied_exception()
@@ -2296,6 +2644,13 @@ defmodule AWS.AppSync do
           | unauthorized_exception()
           | internal_failure_exception()
 
+  @type create_api_errors() ::
+          bad_request_exception()
+          | concurrent_modification_exception()
+          | service_quota_exceeded_exception()
+          | unauthorized_exception()
+          | internal_failure_exception()
+
   @type create_api_cache_errors() ::
           bad_request_exception()
           | concurrent_modification_exception()
@@ -2309,6 +2664,15 @@ defmodule AWS.AppSync do
           | api_key_validity_out_of_bounds_exception()
           | not_found_exception()
           | api_key_limit_exceeded_exception()
+          | unauthorized_exception()
+          | internal_failure_exception()
+
+  @type create_channel_namespace_errors() ::
+          bad_request_exception()
+          | concurrent_modification_exception()
+          | not_found_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
           | unauthorized_exception()
           | internal_failure_exception()
 
@@ -2351,6 +2715,14 @@ defmodule AWS.AppSync do
           | unauthorized_exception()
           | internal_failure_exception()
 
+  @type delete_api_errors() ::
+          bad_request_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | unauthorized_exception()
+          | internal_failure_exception()
+
   @type delete_api_cache_errors() ::
           bad_request_exception()
           | concurrent_modification_exception()
@@ -2360,6 +2732,14 @@ defmodule AWS.AppSync do
 
   @type delete_api_key_errors() ::
           bad_request_exception()
+          | not_found_exception()
+          | unauthorized_exception()
+          | internal_failure_exception()
+
+  @type delete_channel_namespace_errors() ::
+          bad_request_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
           | not_found_exception()
           | unauthorized_exception()
           | internal_failure_exception()
@@ -2441,6 +2821,13 @@ defmodule AWS.AppSync do
           | unauthorized_exception()
           | internal_failure_exception()
 
+  @type get_api_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | unauthorized_exception()
+          | internal_failure_exception()
+
   @type get_api_association_errors() ::
           bad_request_exception()
           | access_denied_exception()
@@ -2450,6 +2837,13 @@ defmodule AWS.AppSync do
   @type get_api_cache_errors() ::
           bad_request_exception()
           | concurrent_modification_exception()
+          | not_found_exception()
+          | unauthorized_exception()
+          | internal_failure_exception()
+
+  @type get_channel_namespace_errors() ::
+          bad_request_exception()
+          | access_denied_exception()
           | not_found_exception()
           | unauthorized_exception()
           | internal_failure_exception()
@@ -2516,6 +2910,15 @@ defmodule AWS.AppSync do
           | internal_failure_exception()
 
   @type list_api_keys_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | unauthorized_exception()
+          | internal_failure_exception()
+
+  @type list_apis_errors() ::
+          bad_request_exception() | unauthorized_exception() | internal_failure_exception()
+
+  @type list_channel_namespaces_errors() ::
           bad_request_exception()
           | not_found_exception()
           | unauthorized_exception()
@@ -2623,6 +3026,14 @@ defmodule AWS.AppSync do
           | unauthorized_exception()
           | internal_failure_exception()
 
+  @type update_api_errors() ::
+          bad_request_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | unauthorized_exception()
+          | internal_failure_exception()
+
   @type update_api_cache_errors() ::
           bad_request_exception()
           | concurrent_modification_exception()
@@ -2634,6 +3045,14 @@ defmodule AWS.AppSync do
           bad_request_exception()
           | limit_exceeded_exception()
           | api_key_validity_out_of_bounds_exception()
+          | not_found_exception()
+          | unauthorized_exception()
+          | internal_failure_exception()
+
+  @type update_channel_namespace_errors() ::
+          bad_request_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
           | not_found_exception()
           | unauthorized_exception()
           | internal_failure_exception()
@@ -2733,7 +3152,8 @@ defmodule AWS.AppSync do
 
   @doc """
   Creates an association between a Merged API and source API using the source
-  API's identifier.
+  API's
+  identifier.
   """
   @spec associate_merged_graphql_api(
           map(),
@@ -2773,7 +3193,8 @@ defmodule AWS.AppSync do
 
   @doc """
   Creates an association between a Merged API and source API using the Merged
-  API's identifier.
+  API's
+  identifier.
   """
   @spec associate_source_graphql_api(
           map(),
@@ -2793,6 +3214,38 @@ defmodule AWS.AppSync do
     url_path =
       "/v1/mergedApis/#{AWS.Util.encode_uri(merged_api_identifier)}/sourceApiAssociations"
 
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates an `Api` object.
+
+  Use this operation to create an AppSync
+  API with your preferred configuration, such as an Event API that provides
+  real-time message
+  publishing and message subscriptions over WebSockets.
+  """
+  @spec create_api(map(), create_api_request(), list()) ::
+          {:ok, create_api_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_api_errors()}
+  def create_api(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/apis"
     headers = []
     query_params = []
 
@@ -2847,6 +3300,33 @@ defmodule AWS.AppSync do
           | {:error, create_api_key_errors()}
   def create_api_key(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/apikeys"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a `ChannelNamespace` for an `Api`.
+  """
+  @spec create_channel_namespace(map(), String.t(), create_channel_namespace_request(), list()) ::
+          {:ok, create_channel_namespace_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_channel_namespace_errors()}
+  def create_channel_namespace(%Client{} = client, api_id, input, options \\ []) do
+    url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/channelNamespaces"
     headers = []
     query_params = []
 
@@ -2923,7 +3403,8 @@ defmodule AWS.AppSync do
   Creates a `Function` object.
 
   A function is a reusable entity. You can use multiple functions to compose the
-  resolver logic.
+  resolver
+  logic.
   """
   @spec create_function(map(), String.t(), create_function_request(), list()) ::
           {:ok, create_function_response(), any()}
@@ -2980,8 +3461,8 @@ defmodule AWS.AppSync do
   Creates a `Resolver` object.
 
   A resolver converts incoming requests into a format that a data source can
-  understand, and converts the data
-  source's responses into GraphQL.
+  understand,
+  and converts the data source's responses into GraphQL.
   """
   @spec create_resolver(map(), String.t(), String.t(), create_resolver_request(), list()) ::
           {:ok, create_resolver_response(), any()}
@@ -3037,6 +3518,33 @@ defmodule AWS.AppSync do
   end
 
   @doc """
+  Deletes an `Api` object
+  """
+  @spec delete_api(map(), String.t(), delete_api_request(), list()) ::
+          {:ok, delete_api_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_api_errors()}
+  def delete_api(%Client{} = client, api_id, input, options \\ []) do
+    url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes an `ApiCache` object.
   """
   @spec delete_api_cache(map(), String.t(), delete_api_cache_request(), list()) ::
@@ -3072,6 +3580,41 @@ defmodule AWS.AppSync do
           | {:error, delete_api_key_errors()}
   def delete_api_key(%Client{} = client, api_id, id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/apikeys/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a `ChannelNamespace`.
+  """
+  @spec delete_channel_namespace(
+          map(),
+          String.t(),
+          String.t(),
+          delete_channel_namespace_request(),
+          list()
+        ) ::
+          {:ok, delete_channel_namespace_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_channel_namespace_errors()}
+  def delete_channel_namespace(%Client{} = client, api_id, name, input, options \\ []) do
+    url_path =
+      "/v2/apis/#{AWS.Util.encode_uri(api_id)}/channelNamespaces/#{AWS.Util.encode_uri(name)}"
+
     headers = []
     query_params = []
 
@@ -3292,8 +3835,8 @@ defmodule AWS.AppSync do
 
   @doc """
   Deletes an association between a Merged API and source API using the source
-  API's identifier and the
-  association ID.
+  API's
+  identifier and the association ID.
   """
   @spec disassociate_merged_graphql_api(
           map(),
@@ -3335,8 +3878,8 @@ defmodule AWS.AppSync do
 
   @doc """
   Deletes an association between a Merged API and source API using the Merged
-  API's identifier and the
-  association ID.
+  API's
+  identifier and the association ID.
   """
   @spec disassociate_source_graphql_api(
           map(),
@@ -3379,14 +3922,15 @@ defmodule AWS.AppSync do
   @doc """
   Evaluates the given code and returns the response.
 
-  The code definition requirements depend on the specified
-  runtime. For `APPSYNC_JS` runtimes, the code defines the request and response
-  functions. The request
-  function takes the incoming request after a GraphQL operation is parsed and
-  converts it into a request
-  configuration for the selected data source operation. The response function
-  interprets responses from the data
-  source and maps it to the shape of the GraphQL field output type.
+  The code definition requirements
+  depend on the specified runtime. For `APPSYNC_JS` runtimes, the code defines the
+  request and response functions. The request function takes the incoming request
+  after a
+  GraphQL operation is parsed and converts it into a request configuration for the
+  selected
+  data source operation. The response function interprets responses from the data
+  source and
+  maps it to the shape of the GraphQL field output type.
   """
   @spec evaluate_code(map(), evaluate_code_request(), list()) ::
           {:ok, evaluate_code_response(), any()}
@@ -3415,14 +3959,16 @@ defmodule AWS.AppSync do
   @doc """
   Evaluates a given template and returns the response.
 
-  The mapping template can be a request or response
-  template.
+  The mapping template can be a
+  request or response template.
 
   Request templates take the incoming request after a GraphQL operation is parsed
-  and convert it into a
-  request configuration for the selected data source operation. Response templates
-  interpret responses from the
-  data source and map it to the shape of the GraphQL field output type.
+  and
+  convert it into a request configuration for the selected data source operation.
+  Response
+  templates interpret responses from the data source and map it to the shape of
+  the GraphQL
+  field output type.
 
   Mapping templates are written in the Apache Velocity Template Language (VTL).
   """
@@ -3478,6 +4024,23 @@ defmodule AWS.AppSync do
   end
 
   @doc """
+  Retrieves an `Api` object.
+  """
+  @spec get_api(map(), String.t(), list()) ::
+          {:ok, get_api_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_api_errors()}
+  def get_api(%Client{} = client, api_id, options \\ []) do
+    url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves an `ApiAssociation` object.
   """
   @spec get_api_association(map(), String.t(), list()) ::
@@ -3512,6 +4075,25 @@ defmodule AWS.AppSync do
   end
 
   @doc """
+  Retrieves the channel namespace for a specified `Api`.
+  """
+  @spec get_channel_namespace(map(), String.t(), String.t(), list()) ::
+          {:ok, get_channel_namespace_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_channel_namespace_errors()}
+  def get_channel_namespace(%Client{} = client, api_id, name, options \\ []) do
+    url_path =
+      "/v2/apis/#{AWS.Util.encode_uri(api_id)}/channelNamespaces/#{AWS.Util.encode_uri(name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves a `DataSource` object.
   """
   @spec get_data_source(map(), String.t(), String.t(), list()) ::
@@ -3531,10 +4113,10 @@ defmodule AWS.AppSync do
   @doc """
   Retrieves the record of an existing introspection.
 
-  If the retrieval is successful, the result of the
-  instrospection will also be returned. If the retrieval fails the operation, an
-  error message will be returned
-  instead.
+  If the retrieval is successful, the
+  result of the instrospection will also be returned. If the retrieval fails the
+  operation,
+  an error message will be returned instead.
   """
   @spec get_data_source_introspection(
           map(),
@@ -3640,7 +4222,8 @@ defmodule AWS.AppSync do
 
   @doc """
   Retrieves the list of environmental variable key-value pairs associated with an
-  API by its ID value.
+  API by
+  its ID value.
   """
   @spec get_graphql_api_environment_variables(map(), String.t(), list()) ::
           {:ok, get_graphql_api_environment_variables_response(), any()}
@@ -3781,10 +4364,11 @@ defmodule AWS.AppSync do
   Lists the API keys for a given API.
 
   API keys are deleted automatically 60 days after they expire. However, they may
-  still be included in the
-  response until they have actually been deleted. You can safely call
-  `DeleteApiKey` to manually
-  delete a key before it's automatically deleted.
+  still
+  be included in the response until they have actually been deleted. You can
+  safely call
+  `DeleteApiKey` to manually delete a key before it's automatically
+  deleted.
   """
   @spec list_api_keys(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_api_keys_response(), any()}
@@ -3798,6 +4382,81 @@ defmodule AWS.AppSync do
         options \\ []
       ) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/apikeys"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the APIs in your AppSync account.
+
+  `ListApis` returns only the high level API details. For more detailed
+  information about an API, use `GetApi`.
+  """
+  @spec list_apis(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_apis_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_apis_errors()}
+  def list_apis(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/v2/apis"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the channel namespaces for a specified `Api`.
+
+  `ListChannelNamespaces` returns only high level details for the channel
+  namespace. To retrieve code handlers, use
+  `GetChannelNamespace`.
+  """
+  @spec list_channel_namespaces(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_channel_namespaces_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_channel_namespaces_errors()}
+  def list_channel_namespaces(
+        %Client{} = client,
+        api_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/channelNamespaces"
     headers = []
     query_params = []
 
@@ -4248,15 +4907,15 @@ defmodule AWS.AppSync do
 
     *
   Any defined value in an environmental variable is considered a string literal
-  and not
-  expanded.
+  and not expanded.
 
     *
-  Variable evaluations should ideally be performed in the function code.
+  Variable evaluations should ideally be performed in the function
+  code.
 
   When creating an environmental variable key-value pair, it must follow the
-  additional constraints
-  below:
+  additional
+  constraints below:
 
     *
   Keys must begin with a letter.
@@ -4265,7 +4924,8 @@ defmodule AWS.AppSync do
   Keys must be at least two characters long.
 
     *
-  Keys can only contain letters, numbers, and the underscore character (_).
+  Keys can only contain letters, numbers, and the underscore character
+  (_).
 
     *
   Values can be up to 512 characters long.
@@ -4274,16 +4934,14 @@ defmodule AWS.AppSync do
   You can configure up to 50 key-value pairs in a GraphQL API.
 
   You can create a list of environmental variables by adding it to the
-  `environmentVariables`
-  payload as a list in the format `{"key1":"value1","key2":"value2", …}`. Note
-  that each call of the
-  `PutGraphqlApiEnvironmentVariables` action will result in the overwriting of the
-  existing
-  environmental variable list of that API. This means the existing environmental
-  variables will be lost. To avoid
-  this, you must include all existing and new environmental variables in the list
-  each time you call this
-  action.
+  `environmentVariables` payload as a list in the format
+  `{"key1":"value1","key2":"value2", …}`. Note that each call of the
+  `PutGraphqlApiEnvironmentVariables` action will result in the overwriting of
+  the existing environmental variable list of that API. This means the existing
+  environmental
+  variables will be lost. To avoid this, you must include all existing and new
+  environmental
+  variables in the list each time you call this action.
   """
   @spec put_graphql_api_environment_variables(
           map(),
@@ -4307,8 +4965,8 @@ defmodule AWS.AppSync do
   @doc """
   Creates a new introspection.
 
-  Returns the `introspectionId` of the new introspection after its
-  creation.
+  Returns the `introspectionId` of the new
+  introspection after its creation.
   """
   @spec start_data_source_introspection(map(), start_data_source_introspection_request(), list()) ::
           {:ok, start_data_source_introspection_response(), any()}
@@ -4337,8 +4995,8 @@ defmodule AWS.AppSync do
   @doc """
   Adds a new schema to your GraphQL API.
 
-  This operation is asynchronous. Use to determine when it has
-  completed.
+  This operation is asynchronous. Use to
+  determine when it has completed.
   """
   @spec start_schema_creation(map(), String.t(), start_schema_creation_request(), list()) ::
           {:ok, start_schema_creation_response(), any()}
@@ -4367,7 +5025,8 @@ defmodule AWS.AppSync do
   @doc """
   Initiates a merge operation.
 
-  Returns a status that shows the result of the merge operation.
+  Returns a status that shows the result of the merge
+  operation.
   """
   @spec start_schema_merge(map(), String.t(), String.t(), start_schema_merge_request(), list()) ::
           {:ok, start_schema_merge_response(), any()}
@@ -4461,6 +5120,33 @@ defmodule AWS.AppSync do
   end
 
   @doc """
+  Updates an `Api`.
+  """
+  @spec update_api(map(), String.t(), update_api_request(), list()) ::
+          {:ok, update_api_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_api_errors()}
+  def update_api(%Client{} = client, api_id, input, options \\ []) do
+    url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates the cache for the GraphQL API.
   """
   @spec update_api_cache(map(), String.t(), update_api_cache_request(), list()) ::
@@ -4498,6 +5184,41 @@ defmodule AWS.AppSync do
           | {:error, update_api_key_errors()}
   def update_api_key(%Client{} = client, api_id, id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/apikeys/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a `ChannelNamespace` associated with an `Api`.
+  """
+  @spec update_channel_namespace(
+          map(),
+          String.t(),
+          String.t(),
+          update_channel_namespace_request(),
+          list()
+        ) ::
+          {:ok, update_channel_namespace_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_channel_namespace_errors()}
+  def update_channel_namespace(%Client{} = client, api_id, name, input, options \\ []) do
+    url_path =
+      "/v2/apis/#{AWS.Util.encode_uri(api_id)}/channelNamespaces/#{AWS.Util.encode_uri(name)}"
+
     headers = []
     query_params = []
 

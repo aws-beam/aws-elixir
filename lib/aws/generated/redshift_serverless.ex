@@ -760,6 +760,7 @@ defmodule AWS.RedshiftServerless do
         "namespaceName" => [String.t()],
         "patchVersion" => [String.t()],
         "port" => [integer()],
+        "pricePerformanceTarget" => performance_target(),
         "publiclyAccessible" => [boolean()],
         "securityGroupIds" => list(String.t()()),
         "status" => String.t(),
@@ -1076,6 +1077,7 @@ defmodule AWS.RedshiftServerless do
         optional("ipAddressType") => String.t(),
         optional("maxCapacity") => [integer()],
         optional("port") => [integer()],
+        optional("pricePerformanceTarget") => performance_target(),
         optional("publiclyAccessible") => [boolean()],
         optional("securityGroupIds") => list(String.t()()),
         optional("subnetIds") => list(String.t()()),
@@ -1647,6 +1649,7 @@ defmodule AWS.RedshiftServerless do
         optional("ipAddressType") => String.t(),
         optional("maxCapacity") => [integer()],
         optional("port") => [integer()],
+        optional("pricePerformanceTarget") => performance_target(),
         optional("publiclyAccessible") => [boolean()],
         optional("securityGroupIds") => list(String.t()()),
         optional("subnetIds") => list(String.t()()),
@@ -1708,6 +1711,18 @@ defmodule AWS.RedshiftServerless do
       
   """
   @type create_usage_limit_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      performance_target() :: %{
+        "level" => [integer()],
+        "status" => String.t()
+      }
+      
+  """
+  @type performance_target() :: %{String.t() => any()}
 
   @typedoc """
 

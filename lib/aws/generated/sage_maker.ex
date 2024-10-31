@@ -5558,6 +5558,7 @@ defmodule AWS.SageMaker do
         "MetadataProperties" => metadata_properties(),
         "ModelApprovalStatus" => list(any()),
         "ModelCard" => model_package_model_card(),
+        "ModelLifeCycle" => model_life_cycle(),
         "ModelMetrics" => model_metrics(),
         "ModelPackageArn" => String.t(),
         "ModelPackageDescription" => String.t(),
@@ -9653,11 +9654,13 @@ defmodule AWS.SageMaker do
       update_model_package_input() :: %{
         optional("AdditionalInferenceSpecificationsToAdd") => list(additional_inference_specification_definition()()),
         optional("ApprovalDescription") => String.t(),
+        optional("ClientToken") => String.t(),
         optional("CustomerMetadataProperties") => map(),
         optional("CustomerMetadataPropertiesToRemove") => list(String.t()()),
         optional("InferenceSpecification") => inference_specification(),
         optional("ModelApprovalStatus") => list(any()),
         optional("ModelCard") => model_package_model_card(),
+        optional("ModelLifeCycle") => model_life_cycle(),
         optional("SourceUri") => String.t(),
         required("ModelPackageArn") => String.t()
       }
@@ -10162,6 +10165,7 @@ defmodule AWS.SageMaker do
         optional("MetadataProperties") => metadata_properties(),
         optional("ModelApprovalStatus") => list(any()),
         optional("ModelCard") => model_package_model_card(),
+        optional("ModelLifeCycle") => model_life_cycle(),
         optional("ModelMetrics") => model_metrics(),
         optional("ModelPackageDescription") => String.t(),
         optional("ModelPackageGroupName") => String.t(),
@@ -16145,6 +16149,7 @@ defmodule AWS.SageMaker do
         "MetadataProperties" => metadata_properties(),
         "ModelApprovalStatus" => list(any()),
         "ModelCard" => model_package_model_card(),
+        "ModelLifeCycle" => model_life_cycle(),
         "ModelMetrics" => model_metrics(),
         "ModelPackageArn" => String.t(),
         "ModelPackageDescription" => String.t(),
@@ -16557,6 +16562,19 @@ defmodule AWS.SageMaker do
       
   """
   @type associate_trial_component_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      model_life_cycle() :: %{
+        "Stage" => String.t(),
+        "StageDescription" => String.t(),
+        "StageStatus" => String.t()
+      }
+      
+  """
+  @type model_life_cycle() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -19085,10 +19103,16 @@ defmodule AWS.SageMaker do
   Endpoint](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-interface-endpoint.html)
   .
 
-  The URL that you get from a call to `CreatePresignedDomainUrl` has a default
-  timeout of 5 minutes. You can configure this value using `ExpiresInSeconds`. If
-  you try to use the URL after the timeout limit expires, you are directed to the
-  Amazon Web Services console sign-in page.
+    
+  The URL that you get from a call to `CreatePresignedDomainUrl` has a
+  default timeout of 5 minutes. You can configure this value using
+  `ExpiresInSeconds`. If you try to use the URL after the timeout limit
+  expires, you are directed to the Amazon Web Services console sign-in page.
+
+    
+  The JupyterLab session default expiration time is 12 hours. You can configure
+  this
+  value using SessionExpirationDurationInSeconds.
   """
   @spec create_presigned_domain_url(map(), create_presigned_domain_url_request(), list()) ::
           {:ok, create_presigned_domain_url_response(), any()}

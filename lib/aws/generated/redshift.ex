@@ -7214,7 +7214,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
-  Creates a zero-ETL integration with Amazon Redshift.
+  Creates a zero-ETL integration or S3 event integration with Amazon Redshift.
   """
   @spec create_integration(map(), create_integration_message(), list()) ::
           {:ok, integration(), any()}
@@ -7532,7 +7532,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
-  Deletes a zero-ETL integration with Amazon Redshift.
+  Deletes a zero-ETL integration or S3 event integration with Amazon Redshift.
   """
   @spec delete_integration(map(), delete_integration_message(), list()) ::
           {:ok, integration(), any()}
@@ -8192,7 +8192,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
-  Describes one or more zero-ETL integrations with Amazon Redshift.
+  Describes one or more zero-ETL or S3 event integrations with Amazon Redshift.
   """
   @spec describe_integrations(map(), describe_integrations_message(), list()) ::
           {:ok, integrations_message(), any()}
@@ -9005,7 +9005,7 @@ defmodule AWS.Redshift do
   end
 
   @doc """
-  Modifies a zero-ETL integration with Amazon Redshift.
+  Modifies a zero-ETL integration or S3 event integration with Amazon Redshift.
   """
   @spec modify_integration(map(), modify_integration_message(), list()) ::
           {:ok, integration(), any()}

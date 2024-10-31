@@ -105,6 +105,20 @@ defmodule AWS.DataSync do
 
   ## Example:
       
+      task_execution_files_failed_detail() :: %{
+        "Delete" => float(),
+        "Prepare" => float(),
+        "Transfer" => float(),
+        "Verify" => float()
+      }
+      
+  """
+  @type task_execution_files_failed_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       fsx_protocol_nfs() :: %{
         "MountOptions" => nfs_mount_options()
       }
@@ -465,6 +479,7 @@ defmodule AWS.DataSync do
         optional("Options") => options(),
         optional("Schedule") => task_schedule(),
         optional("Tags") => list(tag_list_entry()()),
+        optional("TaskMode") => list(any()),
         optional("TaskReportConfig") => task_report_config(),
         required("DestinationLocationArn") => String.t(),
         required("SourceLocationArn") => String.t()
@@ -505,7 +520,8 @@ defmodule AWS.DataSync do
       task_list_entry() :: %{
         "Name" => String.t(),
         "Status" => list(any()),
-        "TaskArn" => String.t()
+        "TaskArn" => String.t(),
+        "TaskMode" => list(any())
       }
       
   """
@@ -1143,6 +1159,7 @@ defmodule AWS.DataSync do
         "SourceNetworkInterfaceArns" => list(String.t()()),
         "Status" => list(any()),
         "TaskArn" => String.t(),
+        "TaskMode" => list(any()),
         "TaskReportConfig" => task_report_config()
       }
       
@@ -1188,7 +1205,8 @@ defmodule AWS.DataSync do
       
       task_execution_list_entry() :: %{
         "Status" => list(any()),
-        "TaskExecutionArn" => String.t()
+        "TaskExecutionArn" => String.t(),
+        "TaskMode" => list(any())
       }
       
   """
@@ -1431,6 +1449,18 @@ defmodule AWS.DataSync do
 
   ## Example:
       
+      task_execution_files_listed_detail() :: %{
+        "AtDestinationForDelete" => float(),
+        "AtSource" => float()
+      }
+      
+  """
+  @type task_execution_files_listed_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_location_smb_request() :: %{
         required("LocationArn") => String.t()
       }
@@ -1466,6 +1496,9 @@ defmodule AWS.DataSync do
         "EstimatedFilesToTransfer" => float(),
         "Excludes" => list(filter_rule()()),
         "FilesDeleted" => float(),
+        "FilesFailed" => task_execution_files_failed_detail(),
+        "FilesListed" => task_execution_files_listed_detail(),
+        "FilesPrepared" => float(),
         "FilesSkipped" => float(),
         "FilesTransferred" => float(),
         "FilesVerified" => float(),
@@ -1477,6 +1510,7 @@ defmodule AWS.DataSync do
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
         "TaskExecutionArn" => String.t(),
+        "TaskMode" => list(any()),
         "TaskReportConfig" => task_report_config()
       }
       
@@ -2508,25 +2542,12 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Activates an DataSync agent that you've deployed in your storage
-  environment.
+  Activates an DataSync agent that you deploy in your storage environment.
 
   The activation process associates the agent with your Amazon Web Services
   account.
 
-  If you haven't deployed an agent yet, see the following topics to learn more:
-
-    *
-
-  [Agent requirements](https://docs.aws.amazon.com/datasync/latest/userguide/agent-requirements.html)
-
-    *
-
-  [Create an agent](https://docs.aws.amazon.com/datasync/latest/userguide/configure-agent.html)
-
-  If you're transferring between Amazon Web Services storage services, you don't
-  need a
-  DataSync agent.
+  If you haven't deployed an agent yet, see [Do I need a DataSync agent?](https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html)
   """
   @spec create_agent(map(), create_agent_request(), list()) ::
           {:ok, create_agent_response(), any()}
@@ -3110,9 +3131,14 @@ defmodule AWS.DataSync do
   Provides information about an execution of your DataSync task.
 
   You can
-  use this operation to help monitor the progress of an ongoing transfer or check
-  the results of
-  the transfer.
+  use this operation to help monitor the progress of an ongoing data transfer or
+  check the
+  results of the transfer.
+
+  Some `DescribeTaskExecution` response elements are only relevant to a
+  specific task mode. For information, see [Understanding task mode differences](https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html#task-mode-differences)
+  and [Understanding data transfer performance
+  metrics](https://docs.aws.amazon.com/datasync/latest/userguide/transfer-performance-metrics.html).
   """
   @spec describe_task_execution(map(), describe_task_execution_request(), list()) ::
           {:ok, describe_task_execution_response(), any()}
@@ -3305,7 +3331,7 @@ defmodule AWS.DataSync do
   For each task, you can only run one task
   execution at a time.
 
-  There are several phases to a task execution. For more information, see [Task execution
+  There are several steps to a task execution. For more information, see [Task execution
   statuses](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#understand-task-execution-statuses).
 
   If you're planning to transfer data to or from an Amazon S3 location, review

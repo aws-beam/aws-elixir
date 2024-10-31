@@ -55,6 +55,30 @@ defmodule AWS.Keyspaces do
 
   ## Example:
       
+      get_type_request() :: %{
+        required("keyspaceName") => String.t(),
+        required("typeName") => String.t()
+      }
+      
+  """
+  @type get_type_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_type_request() :: %{
+        required("keyspaceName") => String.t(),
+        required("typeName") => String.t()
+      }
+      
+  """
+  @type delete_type_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       tag_resource_request() :: %{
         required("resourceArn") => String.t(),
         required("tags") => list(tag()())
@@ -62,6 +86,18 @@ defmodule AWS.Keyspaces do
       
   """
   @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_type_response() :: %{
+        "keyspaceArn" => String.t(),
+        "typeName" => String.t()
+      }
+      
+  """
+  @type delete_type_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -83,6 +119,18 @@ defmodule AWS.Keyspaces do
       
   """
   @type update_table_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_types_response() :: %{
+        "nextToken" => String.t(),
+        "types" => list(String.t()())
+      }
+      
+  """
+  @type list_types_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -294,6 +342,19 @@ defmodule AWS.Keyspaces do
 
   ## Example:
       
+      create_type_request() :: %{
+        required("fieldDefinitions") => list(field_definition()()),
+        required("keyspaceName") => String.t(),
+        required("typeName") => String.t()
+      }
+      
+  """
+  @type create_type_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       capacity_specification() :: %{
         "readCapacityUnits" => float(),
         "throughputMode" => String.t(),
@@ -340,6 +401,25 @@ defmodule AWS.Keyspaces do
       
   """
   @type auto_scaling_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_type_response() :: %{
+        "directParentTypes" => list(String.t()()),
+        "directReferringTables" => list(String.t()()),
+        "fieldDefinitions" => list(field_definition()()),
+        "keyspaceArn" => String.t(),
+        "keyspaceName" => String.t(),
+        "lastModifiedTimestamp" => non_neg_integer(),
+        "maxNestingDepth" => integer(),
+        "status" => String.t(),
+        "typeName" => String.t()
+      }
+      
+  """
+  @type get_type_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -443,6 +523,30 @@ defmodule AWS.Keyspaces do
       
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      field_definition() :: %{
+        "name" => String.t(),
+        "type" => String.t()
+      }
+      
+  """
+  @type field_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_type_response() :: %{
+        "keyspaceArn" => String.t(),
+        "typeName" => String.t()
+      }
+      
+  """
+  @type create_type_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -726,6 +830,19 @@ defmodule AWS.Keyspaces do
 
   ## Example:
       
+      list_types_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("keyspaceName") => String.t()
+      }
+      
+  """
+  @type list_types_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       static_column() :: %{
         "name" => String.t()
       }
@@ -784,6 +901,14 @@ defmodule AWS.Keyspaces do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type create_type_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type delete_keyspace_errors() ::
           validation_exception()
           | access_denied_exception()
@@ -793,6 +918,14 @@ defmodule AWS.Keyspaces do
           | conflict_exception()
 
   @type delete_table_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_type_errors() ::
           validation_exception()
           | access_denied_exception()
           | internal_server_exception()
@@ -821,6 +954,13 @@ defmodule AWS.Keyspaces do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
 
+  @type get_type_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
   @type list_keyspaces_errors() ::
           validation_exception()
           | access_denied_exception()
@@ -842,6 +982,13 @@ defmodule AWS.Keyspaces do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
 
+  @type list_types_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
   @type restore_table_errors() ::
           validation_exception()
           | access_denied_exception()
@@ -856,6 +1003,7 @@ defmodule AWS.Keyspaces do
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | conflict_exception()
 
   @type untag_resource_errors() ::
           validation_exception()
@@ -899,7 +1047,7 @@ defmodule AWS.Keyspaces do
   status of the new keyspace
   by using the `GetKeyspace` operation.
 
-  For more information, see [Creating keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/working-with-keyspaces.html#keyspaces-create)
+  For more information, see [Create a keyspace](https://docs.aws.amazon.com/keyspaces/latest/devguide/getting-started.keyspaces.html)
   in the *Amazon Keyspaces Developer
   Guide*.
   """
@@ -925,7 +1073,7 @@ defmodule AWS.Keyspaces do
   operation, which returns the current `status` of the table. You can start using
   a table when the status is `ACTIVE`.
 
-  For more information, see [Creating tables](https://docs.aws.amazon.com/keyspaces/latest/devguide/working-with-tables.html#tables-create)
+  For more information, see [Create a table](https://docs.aws.amazon.com/keyspaces/latest/devguide/getting-started.tables.html)
   in the *Amazon Keyspaces Developer
   Guide*.
   """
@@ -937,6 +1085,25 @@ defmodule AWS.Keyspaces do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateTable", input, options)
+  end
+
+  @doc """
+
+  The `CreateType` operation creates a new user-defined type in the specified
+  keyspace.
+
+  For more information, see [User-defined types (UDTs)](https://docs.aws.amazon.com/keyspaces/latest/devguide/udts.html) in the
+  *Amazon Keyspaces Developer
+  Guide*.
+  """
+  @spec create_type(map(), create_type_request(), list()) ::
+          {:ok, create_type_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_type_errors()}
+  def create_type(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateType", input, options)
   end
 
   @doc """
@@ -976,6 +1143,23 @@ defmodule AWS.Keyspaces do
   end
 
   @doc """
+
+  The `DeleteType` operation deletes a user-defined type (UDT).
+
+  You can only delete a type that is not used in a table
+  or another UDT.
+  """
+  @spec delete_type(map(), delete_type_request(), list()) ::
+          {:ok, delete_type_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_type_errors()}
+  def delete_type(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteType", input, options)
+  end
+
+  @doc """
   Returns the name and the Amazon Resource Name (ARN) of the specified table.
   """
   @spec get_keyspace(map(), get_keyspace_request(), list()) ::
@@ -993,9 +1177,9 @@ defmodule AWS.Keyspaces do
   status, the keyspace name,
   configuration settings, and metadata.
 
-  To read table metadata using `GetTable`, `Select` action
-  permissions for the table and system tables are required to complete the
-  operation.
+  To read table metadata using `GetTable`, the
+  IAM principal needs `Select` action
+  permissions for the table and the system keyspace.
   """
   @spec get_table(map(), get_table_request(), list()) ::
           {:ok, get_table_response(), any()}
@@ -1047,7 +1231,28 @@ defmodule AWS.Keyspaces do
   end
 
   @doc """
-  Returns a list of keyspaces.
+
+  The `GetType` operation returns information about the type, for example the
+  field definitions, the timestamp when the type
+  was last modified, the level of nesting, the status, and details about if the
+  type is used in other types and tables.
+
+  To read keyspace metadata using `GetType`, the
+  IAM principal needs `Select` action
+  permissions for the system keyspace.
+  """
+  @spec get_type(map(), get_type_request(), list()) ::
+          {:ok, get_type_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_type_errors()}
+  def get_type(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetType", input, options)
+  end
+
+  @doc """
+  The `ListKeyspaces` operation returns a list of keyspaces.
   """
   @spec list_keyspaces(map(), list_keyspaces_request(), list()) ::
           {:ok, list_keyspaces_response(), any()}
@@ -1060,7 +1265,11 @@ defmodule AWS.Keyspaces do
   end
 
   @doc """
-  Returns a list of tables for a specified keyspace.
+  The `ListTables` operation returns a list of tables for a specified keyspace.
+
+  To read keyspace metadata using `ListTables`, the
+  IAM principal needs `Select` action
+  permissions for the system keyspace.
   """
   @spec list_tables(map(), list_tables_request(), list()) ::
           {:ok, list_tables_response(), any()}
@@ -1075,6 +1284,10 @@ defmodule AWS.Keyspaces do
   @doc """
   Returns a list of all tags associated with the specified Amazon Keyspaces
   resource.
+
+  To read keyspace metadata using `ListTagsForResource`, the
+  IAM principal needs `Select` action
+  permissions for the specified resource and the system keyspace.
   """
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1084,6 +1297,24 @@ defmodule AWS.Keyspaces do
     meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
+  end
+
+  @doc """
+
+  The `ListTypes` operation returns a list of types for a specified keyspace.
+
+  To read keyspace metadata using `ListTypes`, the
+  IAM principal needs `Select` action
+  permissions for the system keyspace.
+  """
+  @spec list_types(map(), list_types_request(), list()) ::
+          {:ok, list_types_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_types_errors()}
+  def list_types(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTypes", input, options)
   end
 
   @doc """

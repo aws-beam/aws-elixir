@@ -1028,6 +1028,27 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      revoked_security_group_rule() :: %{
+        "CidrIpv4" => String.t(),
+        "CidrIpv6" => String.t(),
+        "Description" => String.t(),
+        "FromPort" => integer(),
+        "GroupId" => String.t(),
+        "IpProtocol" => String.t(),
+        "IsEgress" => boolean(),
+        "PrefixListId" => String.t(),
+        "ReferencedGroupId" => String.t(),
+        "SecurityGroupRuleId" => String.t(),
+        "ToPort" => integer()
+      }
+      
+  """
+  @type revoked_security_group_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_snapshot_request() :: %{
         optional("DryRun") => boolean(),
         required("SnapshotId") => String.t()
@@ -2102,6 +2123,21 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      security_group_vpc_association() :: %{
+        "GroupId" => String.t(),
+        "State" => list(any()),
+        "StateReason" => String.t(),
+        "VpcId" => String.t(),
+        "VpcOwnerId" => String.t()
+      }
+      
+  """
+  @type security_group_vpc_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       verified_access_log_s3_destination_options() :: %{
         "BucketName" => String.t(),
         "BucketOwner" => String.t(),
@@ -2701,6 +2737,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      associate_security_group_vpc_request() :: %{
+        optional("DryRun") => boolean(),
+        required("GroupId") => String.t(),
+        required("VpcId") => String.t()
+      }
+      
+  """
+  @type associate_security_group_vpc_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       reset_instance_attribute_request() :: %{
         optional("DryRun") => boolean(),
         required("Attribute") => list(any()),
@@ -3043,6 +3092,7 @@ defmodule AWS.EC2 do
       
       revoke_security_group_egress_result() :: %{
         "Return" => boolean(),
+        "RevokedSecurityGroupRules" => list(revoked_security_group_rule()()),
         "UnknownIpPermissions" => list(ip_permission()())
       }
       
@@ -4695,6 +4745,20 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_security_group_vpc_associations_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type describe_security_group_vpc_associations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_security_groups_result() :: %{
         "NextToken" => String.t(),
         "SecurityGroups" => list(security_group()())
@@ -5279,6 +5343,17 @@ defmodule AWS.EC2 do
       
   """
   @type load_permission_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_security_group_vpc_result() :: %{
+        "State" => list(any())
+      }
+      
+  """
+  @type disassociate_security_group_vpc_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -9504,6 +9579,19 @@ defmodule AWS.EC2 do
       
   """
   @type attach_verified_access_trust_provider_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_security_group_vpc_request() :: %{
+        optional("DryRun") => boolean(),
+        required("GroupId") => String.t(),
+        required("VpcId") => String.t()
+      }
+      
+  """
+  @type disassociate_security_group_vpc_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -14449,6 +14537,7 @@ defmodule AWS.EC2 do
         "IpPermissions" => list(ip_permission()()),
         "IpPermissionsEgress" => list(ip_permission()()),
         "OwnerId" => String.t(),
+        "SecurityGroupArn" => String.t(),
         "Tags" => list(tag()()),
         "VpcId" => String.t()
       }
@@ -16502,6 +16591,7 @@ defmodule AWS.EC2 do
       
       create_security_group_result() :: %{
         "GroupId" => String.t(),
+        "SecurityGroupArn" => String.t(),
         "Tags" => list(tag()())
       }
       
@@ -17300,6 +17390,18 @@ defmodule AWS.EC2 do
       
   """
   @type modify_instance_placement_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_security_group_vpc_associations_result() :: %{
+        "NextToken" => String.t(),
+        "SecurityGroupVpcAssociations" => list(security_group_vpc_association()())
+      }
+      
+  """
+  @type describe_security_group_vpc_associations_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -23639,6 +23741,7 @@ defmodule AWS.EC2 do
       
       revoke_security_group_ingress_result() :: %{
         "Return" => boolean(),
+        "RevokedSecurityGroupRules" => list(revoked_security_group_rule()()),
         "UnknownIpPermissions" => list(ip_permission()())
       }
       
@@ -23712,6 +23815,17 @@ defmodule AWS.EC2 do
       
   """
   @type fleet_spot_maintenance_strategies_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_security_group_vpc_result() :: %{
+        "State" => list(any())
+      }
+      
+  """
+  @type associate_security_group_vpc_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -25867,6 +25981,7 @@ defmodule AWS.EC2 do
         "IsEgress" => boolean(),
         "PrefixListId" => String.t(),
         "ReferencedGroupInfo" => referenced_security_group(),
+        "SecurityGroupRuleArn" => String.t(),
         "SecurityGroupRuleId" => String.t(),
         "Tags" => list(tag()()),
         "ToPort" => integer()
@@ -27923,6 +28038,38 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "AssociateRouteTable", input, options)
+  end
+
+  @doc """
+  Associates a security group with another VPC in the same Region.
+
+  This enables you to use the same security group with network interfaces and
+  instances in the specified VPC.
+
+    
+  The VPC you want to associate the security group with must be in the same
+  Region.
+
+    
+  You can associate the security group with another VPC if your account owns the
+  VPC or if the VPC was shared with you.
+
+    
+  You must own the security group and the VPC that it was created in.
+
+    
+  You cannot use this feature with default security groups.
+
+    
+  You cannot use this feature with the default VPC.
+  """
+  @spec associate_security_group_vpc(map(), associate_security_group_vpc_request(), list()) ::
+          {:ok, associate_security_group_vpc_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def associate_security_group_vpc(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateSecurityGroupVpc", input, options)
   end
 
   @doc """
@@ -30122,7 +30269,7 @@ defmodule AWS.EC2 do
   transit gateway.
 
   By default, no traffic is mirrored. Use
-  [CreateTrafficMirrorFilter](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorFilter.htm)
+  [CreateTrafficMirrorFilter](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorFilter.html)
   to
   create filter rules that specify the traffic to mirror.
   """
@@ -31427,8 +31574,9 @@ defmodule AWS.EC2 do
   Deletes a security group.
 
   If you attempt to delete a security group that is associated with an instance or
-  network interface or is
-  referenced by another security group in the same VPC, the operation fails with
+  network interface, is
+  referenced by another security group in the same VPC, or has a VPC association,
+  the operation fails with
   `DependencyViolation`.
   """
   @spec delete_security_group(map(), delete_security_group_request(), list()) ::
@@ -34305,8 +34453,9 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Describes the VPCs on the other side of a VPC peering connection that are
-  referencing the security groups you've specified in this request.
+  Describes the VPCs on the other side of a VPC peering or Transit Gateway
+  connection that are referencing the security groups you've specified in this
+  request.
   """
   @spec describe_security_group_references(
           map(),
@@ -34331,6 +34480,23 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeSecurityGroupRules", input, options)
+  end
+
+  @doc """
+  Describes security group VPC associations made with
+  [AssociateSecurityGroupVpc](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateSecurityGroupVpc.html).
+  """
+  @spec describe_security_group_vpc_associations(
+          map(),
+          describe_security_group_vpc_associations_request(),
+          list()
+        ) ::
+          {:ok, describe_security_group_vpc_associations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def describe_security_group_vpc_associations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeSecurityGroupVpcAssociations", input, options)
   end
 
   @doc """
@@ -34584,12 +34750,20 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Describes the stale security group rules for security groups in a specified VPC.
+  Describes the stale security group rules for security groups referenced across a
+  VPC
+  peering connection, transit gateway connection, or with a security group VPC
+  association.
 
-  Rules are stale when they reference a deleted security group in a peered VPC.
-  Rules can also be stale if they reference a security group in a peer VPC for
-  which the VPC peering connection has
-  been deleted.
+  Rules are stale when they reference a deleted security group. Rules can
+  also be stale if they reference a security group in a peer VPC for which the VPC
+  peering
+  connection has been deleted, across a transit gateway where the transit gateway
+  has been
+  deleted (or [the transit gateway security group referencing
+  feature](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#vpc-attachment-security)
+  has been disabled), or if a
+  security group VPC association has been disassociated.
   """
   @spec describe_stale_security_groups(map(), describe_stale_security_groups_request(), list()) ::
           {:ok, describe_stale_security_groups_result(), any()}
@@ -36101,6 +36275,25 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "DisassociateRouteTable", input, options)
+  end
+
+  @doc """
+  Disassociates a security group from a VPC.
+
+  You cannot disassociate the security group if any Elastic network interfaces in
+  the associated VPC are still associated with the security group.
+
+  Note that the disassociation is asynchronous and you can check the status of the
+  request with
+  [DescribeSecurityGroupVpcAssociations](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupVpcAssociations.html).
+  """
+  @spec disassociate_security_group_vpc(map(), disassociate_security_group_vpc_request(), list()) ::
+          {:ok, disassociate_security_group_vpc_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def disassociate_security_group_vpc(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateSecurityGroupVpc", input, options)
   end
 
   @doc """

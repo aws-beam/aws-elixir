@@ -465,6 +465,17 @@ defmodule AWS.WorkMail do
 
   ## Example:
       
+      delete_identity_center_application_request() :: %{
+        required("ApplicationArn") => String.t()
+      }
+      
+  """
+  @type delete_identity_center_application_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       untag_resource_response() :: %{}
       
   """
@@ -509,6 +520,23 @@ defmodule AWS.WorkMail do
 
   ## Example:
       
+      personal_access_token_summary() :: %{
+        "DateCreated" => non_neg_integer(),
+        "DateLastUsed" => non_neg_integer(),
+        "ExpiresTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "PersonalAccessTokenId" => String.t(),
+        "Scopes" => list(String.t()()),
+        "UserId" => String.t()
+      }
+      
+  """
+  @type personal_access_token_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_primary_email_address_request() :: %{
         required("Email") => String.t(),
         required("EntityId") => String.t(),
@@ -517,6 +545,20 @@ defmodule AWS.WorkMail do
       
   """
   @type update_primary_email_address_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_personal_access_tokens_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("UserId") => String.t(),
+        required("OrganizationId") => String.t()
+      }
+      
+  """
+  @type list_personal_access_tokens_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -623,6 +665,7 @@ defmodule AWS.WorkMail do
       
       list_users_filters() :: %{
         "DisplayNamePrefix" => String.t(),
+        "IdentityProviderUserIdPrefix" => String.t(),
         "PrimaryEmailPrefix" => String.t(),
         "State" => list(any()),
         "UsernamePrefix" => String.t()
@@ -665,6 +708,19 @@ defmodule AWS.WorkMail do
       
   """
   @type domain() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_identity_provider_configuration_response() :: %{
+        "AuthenticationMode" => list(any()),
+        "IdentityCenterConfiguration" => identity_center_configuration(),
+        "PersonalAccessTokenConfiguration" => personal_access_token_configuration()
+      }
+      
+  """
+  @type describe_identity_provider_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -769,6 +825,23 @@ defmodule AWS.WorkMail do
 
   ## Example:
       
+      get_personal_access_token_metadata_response() :: %{
+        "DateCreated" => non_neg_integer(),
+        "DateLastUsed" => non_neg_integer(),
+        "ExpiresTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "PersonalAccessTokenId" => String.t(),
+        "Scopes" => list(String.t()()),
+        "UserId" => String.t()
+      }
+      
+  """
+  @type get_personal_access_token_metadata_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_resource_delegates_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -791,6 +864,18 @@ defmodule AWS.WorkMail do
       
   """
   @type ews_availability_provider() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_personal_access_token_request() :: %{
+        required("OrganizationId") => String.t(),
+        required("PersonalAccessTokenId") => String.t()
+      }
+      
+  """
+  @type delete_personal_access_token_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1005,6 +1090,17 @@ defmodule AWS.WorkMail do
 
   ## Example:
       
+      create_identity_center_application_response() :: %{
+        "ApplicationArn" => String.t()
+      }
+      
+  """
+  @type create_identity_center_application_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_mailbox_details_request() :: %{
         required("OrganizationId") => String.t(),
         required("UserId") => String.t()
@@ -1012,6 +1108,18 @@ defmodule AWS.WorkMail do
       
   """
   @type get_mailbox_details_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      personal_access_token_configuration() :: %{
+        "LifetimeInDays" => integer(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type personal_access_token_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1117,6 +1225,17 @@ defmodule AWS.WorkMail do
 
   ## Example:
       
+      delete_identity_provider_configuration_request() :: %{
+        required("OrganizationId") => String.t()
+      }
+      
+  """
+  @type delete_identity_provider_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       cancel_mailbox_export_job_response() :: %{}
       
   """
@@ -1153,6 +1272,15 @@ defmodule AWS.WorkMail do
       
   """
   @type get_mail_domain_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_personal_access_token_response() :: %{}
+      
+  """
+  @type delete_personal_access_token_response() :: %{}
 
   @typedoc """
 
@@ -1319,6 +1447,17 @@ defmodule AWS.WorkMail do
 
   ## Example:
       
+      describe_identity_provider_configuration_request() :: %{
+        required("OrganizationId") => String.t()
+      }
+      
+  """
+  @type describe_identity_provider_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_organization_response() :: %{
         "OrganizationId" => String.t(),
         "State" => String.t()
@@ -1390,6 +1529,15 @@ defmodule AWS.WorkMail do
       
   """
   @type update_availability_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_identity_provider_configuration_response() :: %{}
+      
+  """
+  @type put_identity_provider_configuration_response() :: %{}
 
   @typedoc """
 
@@ -1667,6 +1815,8 @@ defmodule AWS.WorkMail do
         "EnabledDate" => non_neg_integer(),
         "FirstName" => String.t(),
         "HiddenFromGlobalAddressList" => boolean(),
+        "IdentityProviderIdentityStoreId" => String.t(),
+        "IdentityProviderUserId" => String.t(),
         "Initials" => String.t(),
         "JobTitle" => String.t(),
         "LastName" => String.t(),
@@ -1832,6 +1982,18 @@ defmodule AWS.WorkMail do
       
   """
   @type update_mailbox_quota_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_personal_access_token_metadata_request() :: %{
+        required("OrganizationId") => String.t(),
+        required("PersonalAccessTokenId") => String.t()
+      }
+      
+  """
+  @type get_personal_access_token_metadata_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2011,6 +2173,7 @@ defmodule AWS.WorkMail do
         optional("DisplayName") => String.t(),
         optional("FirstName") => String.t(),
         optional("HiddenFromGlobalAddressList") => boolean(),
+        optional("IdentityProviderUserId") => String.t(),
         optional("Initials") => String.t(),
         optional("JobTitle") => String.t(),
         optional("LastName") => String.t(),
@@ -2130,6 +2293,18 @@ defmodule AWS.WorkMail do
 
   ## Example:
       
+      identity_center_configuration() :: %{
+        "ApplicationArn" => String.t(),
+        "InstanceArn" => String.t()
+      }
+      
+  """
+  @type identity_center_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_mailbox_permissions_request() :: %{
         required("EntityId") => String.t(),
         required("GranteeId") => String.t(),
@@ -2208,6 +2383,8 @@ defmodule AWS.WorkMail do
         "Email" => String.t(),
         "EnabledDate" => non_neg_integer(),
         "Id" => String.t(),
+        "IdentityProviderIdentityStoreId" => String.t(),
+        "IdentityProviderUserId" => String.t(),
         "Name" => String.t(),
         "State" => list(any()),
         "UserRole" => list(any())
@@ -2387,6 +2564,7 @@ defmodule AWS.WorkMail do
       
       delete_organization_request() :: %{
         optional("ClientToken") => String.t(),
+        optional("DeleteIdentityCenterApplication") => boolean(),
         optional("ForceDelete") => boolean(),
         required("DeleteDirectory") => boolean(),
         required("OrganizationId") => String.t()
@@ -2452,6 +2630,18 @@ defmodule AWS.WorkMail do
 
   ## Example:
       
+      list_personal_access_tokens_response() :: %{
+        "NextToken" => String.t(),
+        "PersonalAccessTokenSummaries" => list(personal_access_token_summary()())
+      }
+      
+  """
+  @type list_personal_access_tokens_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       associate_member_to_group_request() :: %{
         required("GroupId") => String.t(),
         required("MemberId") => String.t(),
@@ -2510,6 +2700,15 @@ defmodule AWS.WorkMail do
 
   ## Example:
       
+      delete_identity_provider_configuration_response() :: %{}
+      
+  """
+  @type delete_identity_provider_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       list_mail_domains_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -2561,6 +2760,20 @@ defmodule AWS.WorkMail do
       
   """
   @type reserved_name_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_identity_provider_configuration_request() :: %{
+        required("AuthenticationMode") => list(any()),
+        required("IdentityCenterConfiguration") => identity_center_configuration(),
+        required("OrganizationId") => String.t(),
+        required("PersonalAccessTokenConfiguration") => personal_access_token_configuration()
+      }
+      
+  """
+  @type put_identity_provider_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2654,6 +2867,15 @@ defmodule AWS.WorkMail do
       
   """
   @type update_group_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_identity_center_application_response() :: %{}
+      
+  """
+  @type delete_identity_center_application_response() :: %{}
 
   @typedoc """
 
@@ -2771,6 +2993,7 @@ defmodule AWS.WorkMail do
       create_user_request() :: %{
         optional("FirstName") => String.t(),
         optional("HiddenFromGlobalAddressList") => boolean(),
+        optional("IdentityProviderUserId") => String.t(),
         optional("LastName") => String.t(),
         optional("Password") => String.t(),
         optional("Role") => list(any()),
@@ -2815,6 +3038,19 @@ defmodule AWS.WorkMail do
       
   """
   @type resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_identity_center_application_request() :: %{
+        optional("ClientToken") => String.t(),
+        required("InstanceArn") => String.t(),
+        required("Name") => String.t()
+      }
+      
+  """
+  @type create_identity_center_application_request() :: %{String.t() => any()}
 
   @type associate_delegate_to_resource_errors() ::
           invalid_parameter_exception()
@@ -2873,6 +3109,8 @@ defmodule AWS.WorkMail do
           | name_availability_exception()
           | organization_state_exception()
           | unsupported_operation_exception()
+
+  @type create_identity_center_application_errors() :: invalid_parameter_exception()
 
   @type create_impersonation_role_errors() ::
           limit_exceeded_exception()
@@ -2943,6 +3181,14 @@ defmodule AWS.WorkMail do
           | entity_state_exception()
           | unsupported_operation_exception()
 
+  @type delete_identity_center_application_errors() ::
+          invalid_parameter_exception() | organization_state_exception()
+
+  @type delete_identity_provider_configuration_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+
   @type delete_impersonation_role_errors() ::
           invalid_parameter_exception()
           | organization_not_found_exception()
@@ -2967,6 +3213,11 @@ defmodule AWS.WorkMail do
           | organization_state_exception()
 
   @type delete_organization_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+
+  @type delete_personal_access_token_errors() ::
           invalid_parameter_exception()
           | organization_not_found_exception()
           | organization_state_exception()
@@ -3024,6 +3275,12 @@ defmodule AWS.WorkMail do
           | organization_state_exception()
           | entity_not_found_exception()
 
+  @type describe_identity_provider_configuration_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | resource_not_found_exception()
+          | organization_state_exception()
+
   @type describe_inbound_dmarc_settings_errors() ::
           organization_not_found_exception() | organization_state_exception()
 
@@ -3044,7 +3301,9 @@ defmodule AWS.WorkMail do
           | entity_not_found_exception()
 
   @type describe_user_errors() ::
-          invalid_parameter_exception()
+          directory_service_authentication_failed_exception()
+          | directory_unavailable_exception()
+          | invalid_parameter_exception()
           | organization_not_found_exception()
           | organization_state_exception()
           | entity_not_found_exception()
@@ -3118,6 +3377,12 @@ defmodule AWS.WorkMail do
           | organization_state_exception()
           | entity_not_found_exception()
 
+  @type get_personal_access_token_metadata_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | resource_not_found_exception()
+          | organization_state_exception()
+
   @type list_access_control_rules_errors() ::
           organization_not_found_exception() | organization_state_exception()
 
@@ -3129,7 +3394,9 @@ defmodule AWS.WorkMail do
           | entity_not_found_exception()
 
   @type list_availability_configurations_errors() ::
-          organization_not_found_exception() | organization_state_exception()
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
 
   @type list_group_members_errors() ::
           invalid_parameter_exception()
@@ -3185,6 +3452,13 @@ defmodule AWS.WorkMail do
 
   @type list_organizations_errors() :: invalid_parameter_exception()
 
+  @type list_personal_access_tokens_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | organization_state_exception()
+          | entity_state_exception()
+          | entity_not_found_exception()
+
   @type list_resource_delegates_errors() ::
           invalid_parameter_exception()
           | organization_not_found_exception()
@@ -3215,6 +3489,12 @@ defmodule AWS.WorkMail do
           | entity_not_found_exception()
 
   @type put_email_monitoring_configuration_errors() ::
+          invalid_parameter_exception()
+          | organization_not_found_exception()
+          | resource_not_found_exception()
+          | organization_state_exception()
+
+  @type put_identity_provider_configuration_errors() ::
           invalid_parameter_exception()
           | organization_not_found_exception()
           | resource_not_found_exception()
@@ -3495,6 +3775,28 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
+
+  Creates the WorkMail application in IAM Identity Center that can be used later
+  in the WorkMail - IdC integration.
+
+  For more information, see PutIdentityProviderConfiguration. This action does not
+  affect the authentication settings for any WorkMail organizations.
+  """
+  @spec create_identity_center_application(
+          map(),
+          create_identity_center_application_request(),
+          list()
+        ) ::
+          {:ok, create_identity_center_application_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_identity_center_application_errors()}
+  def create_identity_center_application(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateIdentityCenterApplication", input, options)
+  end
+
+  @doc """
   Creates an impersonation role for the given WorkMail organization.
 
   *Idempotency* ensures that an API request completes no more than one
@@ -3670,6 +3972,49 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
+
+  Deletes the IAM Identity Center application from WorkMail.
+
+  This action does not affect the authentication settings for any WorkMail
+  organizations.
+  """
+  @spec delete_identity_center_application(
+          map(),
+          delete_identity_center_application_request(),
+          list()
+        ) ::
+          {:ok, delete_identity_center_application_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_identity_center_application_errors()}
+  def delete_identity_center_application(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteIdentityCenterApplication", input, options)
+  end
+
+  @doc """
+
+  Disables the integration between IdC and WorkMail.
+
+  Authentication will continue with the directory as it was before the IdC
+  integration. You might have to reset your directory passwords and reconfigure
+  your desktop and mobile email clients.
+  """
+  @spec delete_identity_provider_configuration(
+          map(),
+          delete_identity_provider_configuration_request(),
+          list()
+        ) ::
+          {:ok, delete_identity_provider_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_identity_provider_configuration_errors()}
+  def delete_identity_provider_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteIdentityProviderConfiguration", input, options)
+  end
+
+  @doc """
   Deletes an impersonation role for the given WorkMail organization.
   """
   @spec delete_impersonation_role(map(), delete_impersonation_role_request(), list()) ::
@@ -3754,6 +4099,20 @@ defmodule AWS.WorkMail do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteOrganization", input, options)
+  end
+
+  @doc """
+
+  Deletes the Personal Access Token from the provided WorkMail Organization.
+  """
+  @spec delete_personal_access_token(map(), delete_personal_access_token_request(), list()) ::
+          {:ok, delete_personal_access_token_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_personal_access_token_errors()}
+  def delete_personal_access_token(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeletePersonalAccessToken", input, options)
   end
 
   @doc """
@@ -3881,6 +4240,25 @@ defmodule AWS.WorkMail do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeGroup", input, options)
+  end
+
+  @doc """
+
+  Returns detailed information on the current IdC setup for the WorkMail
+  organization.
+  """
+  @spec describe_identity_provider_configuration(
+          map(),
+          describe_identity_provider_configuration_request(),
+          list()
+        ) ::
+          {:ok, describe_identity_provider_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_identity_provider_configuration_errors()}
+  def describe_identity_provider_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeIdentityProviderConfiguration", input, options)
   end
 
   @doc """
@@ -4099,6 +4477,25 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
+
+  Requests details of a specific Personal Access Token within the WorkMail
+  organization.
+  """
+  @spec get_personal_access_token_metadata(
+          map(),
+          get_personal_access_token_metadata_request(),
+          list()
+        ) ::
+          {:ok, get_personal_access_token_metadata_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_personal_access_token_metadata_errors()}
+  def get_personal_access_token_metadata(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetPersonalAccessTokenMetadata", input, options)
+  end
+
+  @doc """
   Lists the access control rules for the specified organization.
   """
   @spec list_access_control_rules(map(), list_access_control_rules_request(), list()) ::
@@ -4284,6 +4681,20 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
+
+  Returns a summary of your Personal Access Tokens.
+  """
+  @spec list_personal_access_tokens(map(), list_personal_access_tokens_request(), list()) ::
+          {:ok, list_personal_access_tokens_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_personal_access_tokens_errors()}
+  def list_personal_access_tokens(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListPersonalAccessTokens", input, options)
+  end
+
+  @doc """
   Lists the delegates associated with a resource.
 
   Users and groups can be resource
@@ -4374,6 +4785,31 @@ defmodule AWS.WorkMail do
     meta = metadata()
 
     Request.request_post(client, meta, "PutEmailMonitoringConfiguration", input, options)
+  end
+
+  @doc """
+
+  Enables integration between IAM Identity Center (IdC) and WorkMail to proxy
+  authentication requests for mailbox users.
+
+  You can connect your IdC directory or your external directory to WorkMail
+  through
+  IdC and manage access to WorkMail mailboxes in a single place. For enhanced
+  protection, you could enable Multifactor Authentication (MFA) and Personal
+  Access Tokens.
+  """
+  @spec put_identity_provider_configuration(
+          map(),
+          put_identity_provider_configuration_request(),
+          list()
+        ) ::
+          {:ok, put_identity_provider_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_identity_provider_configuration_errors()}
+  def put_identity_provider_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutIdentityProviderConfiguration", input, options)
   end
 
   @doc """
@@ -4600,7 +5036,7 @@ defmodule AWS.WorkMail do
   end
 
   @doc """
-  Updates attibutes in a group.
+  Updates attributes in a group.
   """
   @spec update_group(map(), update_group_request(), list()) ::
           {:ok, update_group_response(), any()}

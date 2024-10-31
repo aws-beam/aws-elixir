@@ -40,9 +40,8 @@ defmodule AWS.NetworkFirewall do
   gateway, NAT gateway, or over VPN or Direct Connect. Network Firewall uses rules
   that are compatible
   with Suricata, a free, open source network analysis and threat detection engine.
-  Network Firewall supports Suricata version 6.0.9. For information about
-  Suricata,
-  see the [Suricata website](https://suricata.io/).   You can use Network Firewall to monitor and protect your VPC traffic in a number
+
+  You can use Network Firewall to monitor and protect your VPC traffic in a number
   of ways.
   The following are just a few examples:
 
@@ -66,8 +65,7 @@ defmodule AWS.NetworkFirewall do
 
   To enable Network Firewall for your VPCs, you perform steps in both Amazon VPC
   and in
-  Network Firewall. For information about using Amazon VPC, see [Amazon VPC User
-  Guide](https://docs.aws.amazon.com/vpc/latest/userguide/).
+  Network Firewall. For information about using Amazon VPC, see [Amazon VPC User Guide](https://docs.aws.amazon.com/vpc/latest/userguide/).
 
   To start using Network Firewall, do the following:
 
@@ -308,6 +306,7 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       stateful_engine_options() :: %{
+        "FlowTimeouts" => flow_timeouts(),
         "RuleOrder" => list(any()),
         "StreamExceptionPolicy" => list(any())
       }
@@ -1127,6 +1126,17 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type describe_t_l_s_inspection_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      flow_timeouts() :: %{
+        "TcpIdleTimeoutSeconds" => integer()
+      }
+      
+  """
+  @type flow_timeouts() :: %{String.t() => any()}
 
   @typedoc """
 

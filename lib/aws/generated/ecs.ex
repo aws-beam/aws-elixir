@@ -100,6 +100,22 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      list_service_deployments_request() :: %{
+        optional("cluster") => String.t(),
+        optional("createdAt") => created_at(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("status") => list(list(any())()),
+        required("service") => String.t()
+      }
+      
+  """
+  @type list_service_deployments_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       task_set() :: %{
         "capacityProviderStrategy" => list(capacity_provider_strategy_item()()),
         "clusterArn" => String.t(),
@@ -281,6 +297,19 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      service_deployment_circuit_breaker() :: %{
+        "failureCount" => integer(),
+        "status" => list(any()),
+        "threshold" => integer()
+      }
+      
+  """
+  @type service_deployment_circuit_breaker() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       inference_accelerator() :: %{
         "deviceName" => String.t(),
         "deviceType" => String.t()
@@ -420,6 +449,18 @@ defmodule AWS.ECS do
       
   """
   @type task_override() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_service_deployments_response() :: %{
+        "failures" => list(failure()()),
+        "serviceDeployments" => list(service_deployment()())
+      }
+      
+  """
+  @type describe_service_deployments_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -663,6 +704,20 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      service_revision_summary() :: %{
+        "arn" => String.t(),
+        "pendingTaskCount" => integer(),
+        "requestedTaskCount" => integer(),
+        "runningTaskCount" => integer()
+      }
+      
+  """
+  @type service_revision_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       target_not_connected_exception() :: %{
         "message" => String.t()
       }
@@ -748,6 +803,25 @@ defmodule AWS.ECS do
       
   """
   @type list_task_definitions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_deployment_brief() :: %{
+        "clusterArn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "finishedAt" => non_neg_integer(),
+        "serviceArn" => String.t(),
+        "serviceDeploymentArn" => String.t(),
+        "startedAt" => non_neg_integer(),
+        "status" => list(any()),
+        "statusReason" => String.t(),
+        "targetServiceRevisionArn" => String.t()
+      }
+      
+  """
+  @type service_deployment_brief() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1083,6 +1157,19 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      rollback() :: %{
+        "reason" => String.t(),
+        "serviceRevisionArn" => String.t(),
+        "startedAt" => non_neg_integer()
+      }
+      
+  """
+  @type rollback() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_cluster_request() :: %{
         optional("capacityProviders") => list(String.t()()),
         optional("clusterName") => String.t(),
@@ -1108,6 +1195,18 @@ defmodule AWS.ECS do
       
   """
   @type container_restart_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_service_deployments_response() :: %{
+        "nextToken" => String.t(),
+        "serviceDeployments" => list(service_deployment_brief()())
+      }
+      
+  """
+  @type list_service_deployments_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1381,6 +1480,31 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      describe_service_revisions_response() :: %{
+        "failures" => list(failure()()),
+        "serviceRevisions" => list(service_revision()())
+      }
+      
+  """
+  @type describe_service_revisions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_deployment_alarms() :: %{
+        "alarmNames" => list(String.t()()),
+        "status" => list(any()),
+        "triggeredAlarmNames" => list(String.t()())
+      }
+      
+  """
+  @type service_deployment_alarms() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       service_not_active_exception() :: %{
         "message" => String.t()
       }
@@ -1500,6 +1624,19 @@ defmodule AWS.ECS do
       
   """
   @type list_task_definition_families_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      container_image() :: %{
+        "containerName" => String.t(),
+        "image" => String.t(),
+        "imageDigest" => String.t()
+      }
+      
+  """
+  @type container_image() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1654,6 +1791,32 @@ defmodule AWS.ECS do
       
   """
   @type network_binding() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_deployment() :: %{
+        "alarms" => service_deployment_alarms(),
+        "clusterArn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "deploymentCircuitBreaker" => service_deployment_circuit_breaker(),
+        "deploymentConfiguration" => deployment_configuration(),
+        "finishedAt" => non_neg_integer(),
+        "rollback" => rollback(),
+        "serviceArn" => String.t(),
+        "serviceDeploymentArn" => String.t(),
+        "sourceServiceRevisions" => list(service_revision_summary()()),
+        "startedAt" => non_neg_integer(),
+        "status" => list(any()),
+        "statusReason" => String.t(),
+        "stoppedAt" => non_neg_integer(),
+        "targetServiceRevision" => service_revision_summary(),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type service_deployment() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2238,6 +2401,18 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      created_at() :: %{
+        "after" => non_neg_integer(),
+        "before" => non_neg_integer()
+      }
+      
+  """
+  @type created_at() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       volume() :: %{
         "configuredAtLaunch" => boolean(),
         "dockerVolumeConfiguration" => docker_volume_configuration(),
@@ -2628,6 +2803,17 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      describe_service_deployments_request() :: %{
+        required("serviceDeploymentArns") => list(String.t()())
+      }
+      
+  """
+  @type describe_service_deployments_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       cluster_contains_services_exception() :: %{
         "message" => String.t()
       }
@@ -2859,6 +3045,33 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      service_revision() :: %{
+        "capacityProviderStrategy" => list(capacity_provider_strategy_item()()),
+        "clusterArn" => String.t(),
+        "containerImages" => list(container_image()()),
+        "createdAt" => non_neg_integer(),
+        "fargateEphemeralStorage" => deployment_ephemeral_storage(),
+        "guardDutyEnabled" => boolean(),
+        "launchType" => list(any()),
+        "loadBalancers" => list(load_balancer()()),
+        "networkConfiguration" => network_configuration(),
+        "platformFamily" => String.t(),
+        "platformVersion" => String.t(),
+        "serviceArn" => String.t(),
+        "serviceConnectConfiguration" => service_connect_configuration(),
+        "serviceRegistries" => list(service_registry()()),
+        "serviceRevisionArn" => String.t(),
+        "taskDefinition" => String.t(),
+        "volumeConfigurations" => list(service_volume_configuration()())
+      }
+      
+  """
+  @type service_revision() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_attributes_request() :: %{
         optional("attributeName") => String.t(),
         optional("attributeValue") => String.t(),
@@ -2964,6 +3177,17 @@ defmodule AWS.ECS do
       
   """
   @type service_volume_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_service_revisions_request() :: %{
+        required("serviceRevisionArns") => list(String.t()())
+      }
+      
+  """
+  @type describe_service_revisions_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3441,6 +3665,24 @@ defmodule AWS.ECS do
           | client_exception()
           | cluster_not_found_exception()
 
+  @type describe_service_deployments_errors() ::
+          server_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | client_exception()
+          | unsupported_feature_exception()
+          | service_not_found_exception()
+          | cluster_not_found_exception()
+
+  @type describe_service_revisions_errors() ::
+          server_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | client_exception()
+          | unsupported_feature_exception()
+          | service_not_found_exception()
+          | cluster_not_found_exception()
+
   @type describe_services_errors() ::
           server_exception()
           | invalid_parameter_exception()
@@ -3498,6 +3740,14 @@ defmodule AWS.ECS do
           | invalid_parameter_exception()
           | client_exception()
           | cluster_not_found_exception()
+
+  @type list_service_deployments_errors() ::
+          server_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | client_exception()
+          | unsupported_feature_exception()
+          | service_not_found_exception()
 
   @type list_services_errors() ::
           server_exception()
@@ -3733,16 +3983,14 @@ defmodule AWS.ECS do
   your own
   cluster with a unique name.
 
-  When you call the
-  [CreateCluster](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCluster.html) API operation, Amazon ECS attempts to
+  When you call the `CreateCluster` API operation, Amazon ECS attempts to
   create the Amazon ECS service-linked role for your account. This is so that it
   can manage
   required resources in other Amazon Web Services services on your behalf.
   However, if the user that
   makes the call doesn't have permissions to create the service-linked role, it
   isn't
-  created. For more information, see [Using
-  service-linked roles for Amazon
+  created. For more information, see [Using service-linked roles for Amazon
   ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html)
   in the *Amazon Elastic Container Service Developer Guide*.
   """
@@ -3764,8 +4012,8 @@ defmodule AWS.ECS do
   the number of tasks running in a service drops below the `desiredCount`,
   Amazon ECS runs another copy of the task in the specified cluster. To update an
   existing
-  service, use
-  [UpdateService](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html). 
+  service, see the `UpdateService` action.
+
   On March 21, 2024, a change was made to resolve the task definition revision
   before authorization. When a task definition revision is not specified,
   authorization will occur using the latest revision of a task definition.
@@ -3777,8 +4025,7 @@ defmodule AWS.ECS do
   balancers
   distribute traffic across the tasks that are associated with the service. For
   more
-  information, see [Service load
-  balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html)
+  information, see [Service load balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html)
   in the *Amazon Elastic Container Service Developer Guide*.
 
   You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume
@@ -4223,6 +4470,44 @@ defmodule AWS.ECS do
   end
 
   @doc """
+  Describes one or more of your service deployments.
+
+  A service deployment happens when you release a software update for the service.
+  For more information, see [Amazon ECS service deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-deployments.html).
+  """
+  @spec describe_service_deployments(map(), describe_service_deployments_request(), list()) ::
+          {:ok, describe_service_deployments_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_service_deployments_errors()}
+  def describe_service_deployments(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeServiceDeployments", input, options)
+  end
+
+  @doc """
+  Describes one or more service revisions.
+
+  A service revision is a version of the service that includes the values for the
+  Amazon ECS
+  resources (for example, task definition) and the environment resources (for
+  example,
+  load balancers, subnets, and security groups). For more information, see [Amazon ECS service
+  revisions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-revision.html).
+
+  You can't describe a service revision that was created before October 25, 2024.
+  """
+  @spec describe_service_revisions(map(), describe_service_revisions_request(), list()) ::
+          {:ok, describe_service_revisions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_service_revisions_errors()}
+  def describe_service_revisions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeServiceRevisions", input, options)
+  end
+
+  @doc """
   Describes the specified services running in your cluster.
   """
   @spec describe_services(map(), describe_services_request(), list()) ::
@@ -4415,6 +4700,29 @@ defmodule AWS.ECS do
     meta = metadata()
 
     Request.request_post(client, meta, "ListContainerInstances", input, options)
+  end
+
+  @doc """
+  This operation lists all the service deployments that meet the specified filter
+  criteria.
+
+  A service deployment happens when you release a softwre update for the service.
+  You
+  route traffic from the running service revisions to the new service revison and
+  control
+  the number of running tasks.
+
+  This API returns the values that you use for the request parameters in
+  [DescribeServiceRevisions](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeServiceRevisions.html).
+  """
+  @spec list_service_deployments(map(), list_service_deployments_request(), list()) ::
+          {:ok, list_service_deployments_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_service_deployments_errors()}
+  def list_service_deployments(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListServiceDeployments", input, options)
   end
 
   @doc """

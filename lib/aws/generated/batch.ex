@@ -1090,6 +1090,7 @@ defmodule AWS.Batch do
         "initContainers" => list(eks_attempt_container_detail()()),
         "nodeName" => String.t(),
         "podName" => String.t(),
+        "podNamespace" => String.t(),
         "startedAt" => float(),
         "statusReason" => String.t(),
         "stoppedAt" => float()
@@ -1418,6 +1419,7 @@ defmodule AWS.Batch do
   ## Example:
 
       eks_attempt_container_detail() :: %{
+        "containerID" => String.t(),
         "exitCode" => integer(),
         "name" => String.t(),
         "reason" => String.t()

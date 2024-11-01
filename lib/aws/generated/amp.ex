@@ -63,6 +63,20 @@ defmodule AWS.Amp do
 
   ## Example:
 
+      update_scraper_request() :: %{
+        optional("alias") => String.t(),
+        optional("clientToken") => String.t(),
+        optional("destination") => list(),
+        optional("scrapeConfiguration") => list()
+      }
+
+  """
+  @type update_scraper_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_rule_groups_namespaces_response() :: %{
         "nextToken" => String.t(),
         "ruleGroupsNamespaces" => list(rule_groups_namespace_summary()())
@@ -274,6 +288,20 @@ defmodule AWS.Amp do
 
   """
   @type put_rule_groups_namespace_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_scraper_response() :: %{
+        "arn" => String.t(),
+        "scraperId" => String.t(),
+        "status" => scraper_status(),
+        "tags" => map()
+      }
+
+  """
+  @type update_scraper_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1082,6 +1110,15 @@ defmodule AWS.Amp do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type update_scraper_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type update_workspace_alias_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1226,26 +1263,25 @@ defmodule AWS.Amp do
   A
   scraper pulls metrics from Prometheus-compatible sources within an Amazon EKS
   cluster, and sends them to your Amazon Managed Service for Prometheus workspace.
-  You can configure the
-  scraper to control what metrics are collected, and what transformations are
-  applied
-  prior to sending them to your workspace.
+  Scrapers are
+  flexible, and can be configured to control what metrics are collected, the
+  frequency of collection, what transformations are applied to the metrics, and
+  more.
 
-  If needed, an IAM role will be created for you that gives Amazon Managed Service
-  for Prometheus access to the metrics in your cluster. For more information, see
-  [Using roles for scraping metrics from EKS](https://docs.aws.amazon.com/prometheus/latest/userguide/using-service-linked-roles.html#using-service-linked-roles-prom-scraper)
-  in the *Amazon Managed Service for Prometheus User
-  Guide*.
+  An IAM role will be created for you that Amazon Managed Service for Prometheus
+  uses
+  to access the metrics in your cluster. You must configure this role with a
+  policy that
+  allows it to scrape metrics from your cluster. For more information, see
+  [Configuring your Amazon EKS cluster](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-eks-setup)
+  in the *Amazon Managed Service for Prometheus User Guide*.
 
-  You cannot update a scraper. If you want to change the configuration of the
-  scraper,
-  create a new scraper and delete the old one.
-
-  The `scrapeConfiguration` parameter contains the base64-encoded version of
-  the YAML configuration file.
+  The `scrapeConfiguration` parameter contains the base-64 encoded YAML
+  configuration for the scraper.
 
   For more information about collectors, including what metrics are collected, and
-  how to configure the scraper, see [Amazon Web Services managed collectors](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector.html)
+  how to configure the scraper, see [Using an Amazon Web Services managed
+  collector](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html)
   in the *Amazon Managed Service for Prometheus User
   Guide*.
   """
@@ -1703,7 +1739,7 @@ defmodule AWS.Amp do
   with an Amazon Managed Service for Prometheus resource.
 
   Currently, the only resources that can be
-  tagged are workspaces and rule groups namespaces.
+  tagged are scrapers, workspaces, and rule groups namespaces.
   """
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1835,8 +1871,8 @@ defmodule AWS.Amp do
   Prometheus
   resource.
 
-  The only resources that can be tagged are workspaces and rule groups
-  namespaces.
+  The only resources that can be tagged are rule groups namespaces, scrapers,
+  and workspaces.
 
   If you specify a new tag key for the resource, this tag is appended to the list
   of
@@ -1844,7 +1880,7 @@ defmodule AWS.Amp do
   associated
   with the resource, the new tag value that you specify replaces the previous
   value for
-  that tag.
+  that tag. To remove a tag, use `UntagResource`.
   """
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
@@ -1875,7 +1911,7 @@ defmodule AWS.Amp do
   resource.
 
   The only resources
-  that can be tagged are workspaces and rule groups namespaces.
+  that can be tagged are rule groups namespaces, scrapers, and workspaces.
   """
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
@@ -1921,6 +1957,27 @@ defmodule AWS.Amp do
           | {:error, update_logging_configuration_errors()}
   def update_logging_configuration(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/logging"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+  end
+
+  @doc """
+  Updates an existing scraper.
+
+  You can't use this function to update the source from which the scraper is
+  collecting metrics. To change the source, delete the scraper and create a new
+  one.
+  """
+  @spec update_scraper(map(), String.t(), update_scraper_request(), list()) ::
+          {:ok, update_scraper_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_scraper_errors()}
+  def update_scraper(%Client{} = client, scraper_id, input, options \\ []) do
+    url_path = "/scrapers/#{AWS.Util.encode_uri(scraper_id)}"
     headers = []
     query_params = []
 

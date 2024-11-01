@@ -132,6 +132,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
       availability_zone() :: %{
         "LoadBalancerAddresses" => list(load_balancer_address()()),
         "OutpostId" => String.t(),
+        "SourceNatIpv6Prefixes" => list(String.t()()),
         "SubnetId" => String.t(),
         "ZoneName" => String.t()
       }
@@ -364,6 +365,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       set_subnets_input() :: %{
+        optional("EnablePrefixForIpv6SourceNat") => list(any()),
         optional("IpAddressType") => list(any()),
         optional("SubnetMappings") => list(subnet_mapping()()),
         optional("Subnets") => list(String.t()()),
@@ -381,6 +383,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
         "AllocationId" => String.t(),
         "IPv6Address" => String.t(),
         "PrivateIPv4Address" => String.t(),
+        "SourceNatIpv6Prefix" => String.t(),
         "SubnetId" => String.t()
       }
       
@@ -982,6 +985,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
       set_subnets_output() :: %{
         "AvailabilityZones" => list(availability_zone()()),
+        "EnablePrefixForIpv6SourceNat" => list(any()),
         "IpAddressType" => list(any())
       }
       
@@ -1706,6 +1710,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
       create_load_balancer_input() :: %{
         optional("CustomerOwnedIpv4Pool") => String.t(),
+        optional("EnablePrefixForIpv6SourceNat") => list(any()),
         optional("IpAddressType") => list(any()),
         optional("Scheme") => list(any()),
         optional("SecurityGroups") => list(String.t()()),
@@ -1790,6 +1795,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
         "CreatedTime" => non_neg_integer(),
         "CustomerOwnedIpv4Pool" => String.t(),
         "DNSName" => String.t(),
+        "EnablePrefixForIpv6SourceNat" => list(any()),
         "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic" => String.t(),
         "IpAddressType" => list(any()),
         "LoadBalancerArn" => String.t(),
@@ -3529,7 +3535,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   target group
   multiple times using different ports.
 
-  With a Network Load Balancer, you cannot register instances by instance ID if
+  With a Network Load Balancer, you can't register instances by instance ID if
   they have
   the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1,
   HS1, M1, M2, M3,

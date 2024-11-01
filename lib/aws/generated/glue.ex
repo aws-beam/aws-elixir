@@ -418,6 +418,15 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      delete_column_statistics_task_settings_response() :: %{}
+      
+  """
+  @type delete_column_statistics_task_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       job_bookmarks_encryption() :: %{
         "JobBookmarksEncryptionMode" => list(any()),
         "KmsKeyArn" => String.t()
@@ -2809,6 +2818,18 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      delete_column_statistics_task_settings_request() :: %{
+        required("DatabaseName") => String.t(),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type delete_column_statistics_task_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       batch_get_jobs_request() :: %{
         required("JobNames") => list(String.t()())
       }
@@ -3629,6 +3650,15 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      update_column_statistics_task_settings_response() :: %{}
+      
+  """
+  @type update_column_statistics_task_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       resource_number_limit_exceeded_exception() :: %{
         "Message" => String.t()
       }
@@ -4331,6 +4361,18 @@ defmodule AWS.Glue do
       
   """
   @type s3_hudi_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_column_statistics_task_run_schedule_request() :: %{
+        required("DatabaseName") => String.t(),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type stop_column_statistics_task_run_schedule_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -7054,6 +7096,7 @@ defmodule AWS.Glue do
         "CatalogID" => String.t(),
         "ColumnNameList" => list(String.t()()),
         "ColumnStatisticsTaskRunId" => String.t(),
+        "ComputationType" => list(any()),
         "CreationTime" => non_neg_integer(),
         "CustomerId" => String.t(),
         "DPUSeconds" => float(),
@@ -7608,6 +7651,15 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      create_column_statistics_task_settings_response() :: %{}
+      
+  """
+  @type create_column_statistics_task_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       test_connection_input() :: %{
         "AuthenticationConfiguration" => authentication_configuration_input(),
         "ConnectionProperties" => map(),
@@ -7653,6 +7705,18 @@ defmodule AWS.Glue do
       
   """
   @type table_version() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_column_statistics_task_settings_request() :: %{
+        required("DatabaseName") => String.t(),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type get_column_statistics_task_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -8135,6 +8199,25 @@ defmodule AWS.Glue do
       
   """
   @type column_importance() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_column_statistics_task_settings_request() :: %{
+        optional("CatalogID") => String.t(),
+        optional("ColumnNameList") => list(String.t()()),
+        optional("SampleSize") => float(),
+        optional("Schedule") => String.t(),
+        optional("SecurityConfiguration") => String.t(),
+        optional("Tags") => map(),
+        required("DatabaseName") => String.t(),
+        required("Role") => String.t(),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type create_column_statistics_task_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -8793,6 +8876,18 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      start_column_statistics_task_run_schedule_request() :: %{
+        required("DatabaseName") => String.t(),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type start_column_statistics_task_run_schedule_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       s3_catalog_source() :: %{
         "AdditionalOptions" => s3_source_additional_options(),
         "Database" => String.t(),
@@ -8894,6 +8989,15 @@ defmodule AWS.Glue do
       
   """
   @type evaluate_data_quality() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_column_statistics_task_run_schedule_response() :: %{}
+      
+  """
+  @type start_column_statistics_task_run_schedule_response() :: %{}
 
   @typedoc """
 
@@ -9110,6 +9214,15 @@ defmodule AWS.Glue do
       
   """
   @type get_unfiltered_partitions_metadata_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_column_statistics_task_run_schedule_response() :: %{}
+      
+  """
+  @type stop_column_statistics_task_run_schedule_response() :: %{}
 
   @typedoc """
 
@@ -10729,6 +10842,24 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      column_statistics_task_settings() :: %{
+        "CatalogID" => String.t(),
+        "ColumnNameList" => list(String.t()()),
+        "DatabaseName" => String.t(),
+        "Role" => String.t(),
+        "SampleSize" => float(),
+        "Schedule" => schedule(),
+        "SecurityConfiguration" => String.t(),
+        "TableName" => String.t()
+      }
+      
+  """
+  @type column_statistics_task_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_database_request() :: %{
         optional("CatalogId") => String.t(),
         optional("Tags") => map(),
@@ -11077,6 +11208,24 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      update_column_statistics_task_settings_request() :: %{
+        optional("CatalogID") => String.t(),
+        optional("ColumnNameList") => list(String.t()()),
+        optional("Role") => String.t(),
+        optional("SampleSize") => float(),
+        optional("Schedule") => String.t(),
+        optional("SecurityConfiguration") => String.t(),
+        required("DatabaseName") => String.t(),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type update_column_statistics_task_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       start_ml_labeling_set_generation_task_run_request() :: %{
         required("OutputS3Path") => String.t(),
         required("TransformId") => String.t()
@@ -11158,6 +11307,17 @@ defmodule AWS.Glue do
       
   """
   @type task_run() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_column_statistics_task_settings_response() :: %{
+        "ColumnStatisticsTaskSettings" => column_statistics_task_settings()
+      }
+      
+  """
+  @type get_column_statistics_task_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -11391,6 +11551,15 @@ defmodule AWS.Glue do
   @type create_classifier_errors() ::
           invalid_input_exception() | already_exists_exception() | operation_timeout_exception()
 
+  @type create_column_statistics_task_settings_errors() ::
+          column_statistics_task_running_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
+          | already_exists_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
   @type create_connection_errors() ::
           glue_encryption_exception()
           | invalid_input_exception()
@@ -11587,6 +11756,9 @@ defmodule AWS.Glue do
           | operation_timeout_exception()
           | entity_not_found_exception()
 
+  @type delete_column_statistics_task_settings_errors() ::
+          invalid_input_exception() | operation_timeout_exception() | entity_not_found_exception()
+
   @type delete_connection_errors() :: operation_timeout_exception() | entity_not_found_exception()
 
   @type delete_crawler_errors() ::
@@ -11770,6 +11942,9 @@ defmodule AWS.Glue do
           invalid_input_exception() | operation_timeout_exception() | entity_not_found_exception()
 
   @type get_column_statistics_task_runs_errors() :: operation_timeout_exception()
+
+  @type get_column_statistics_task_settings_errors() ::
+          invalid_input_exception() | operation_timeout_exception() | entity_not_found_exception()
 
   @type get_connection_errors() ::
           glue_encryption_exception()
@@ -12350,6 +12525,12 @@ defmodule AWS.Glue do
           | operation_timeout_exception()
           | entity_not_found_exception()
 
+  @type start_column_statistics_task_run_schedule_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
   @type start_crawler_errors() ::
           crawler_running_exception()
           | operation_timeout_exception()
@@ -12433,6 +12614,9 @@ defmodule AWS.Glue do
           | entity_not_found_exception()
           | column_statistics_task_stopping_exception()
 
+  @type stop_column_statistics_task_run_schedule_errors() ::
+          invalid_input_exception() | operation_timeout_exception() | entity_not_found_exception()
+
   @type stop_crawler_errors() ::
           crawler_not_running_exception()
           | crawler_stopping_exception()
@@ -12515,6 +12699,13 @@ defmodule AWS.Glue do
           glue_encryption_exception()
           | invalid_input_exception()
           | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type update_column_statistics_task_settings_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | version_mismatch_exception()
           | operation_timeout_exception()
           | entity_not_found_exception()
 
@@ -13066,6 +13257,23 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Creates settings for a column statistics task.
+  """
+  @spec create_column_statistics_task_settings(
+          map(),
+          create_column_statistics_task_settings_request(),
+          list()
+        ) ::
+          {:ok, create_column_statistics_task_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_column_statistics_task_settings_errors()}
+  def create_column_statistics_task_settings(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateColumnStatisticsTaskSettings", input, options)
+  end
+
+  @doc """
   Creates a connection definition in the Data Catalog.
 
   Connections used for creating federated resources require the IAM
@@ -13456,6 +13664,23 @@ defmodule AWS.Glue do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteColumnStatisticsForTable", input, options)
+  end
+
+  @doc """
+  Deletes settings for a column statistics task.
+  """
+  @spec delete_column_statistics_task_settings(
+          map(),
+          delete_column_statistics_task_settings_request(),
+          list()
+        ) ::
+          {:ok, delete_column_statistics_task_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_column_statistics_task_settings_errors()}
+  def delete_column_statistics_task_settings(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteColumnStatisticsTaskSettings", input, options)
   end
 
   @doc """
@@ -13970,6 +14195,23 @@ defmodule AWS.Glue do
     meta = metadata()
 
     Request.request_post(client, meta, "GetColumnStatisticsTaskRuns", input, options)
+  end
+
+  @doc """
+  Gets settings for a column statistics task.
+  """
+  @spec get_column_statistics_task_settings(
+          map(),
+          get_column_statistics_task_settings_request(),
+          list()
+        ) ::
+          {:ok, get_column_statistics_task_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_column_statistics_task_settings_errors()}
+  def get_column_statistics_task_settings(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetColumnStatisticsTaskSettings", input, options)
   end
 
   @doc """
@@ -15544,6 +15786,23 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Starts a column statistics task run schedule.
+  """
+  @spec start_column_statistics_task_run_schedule(
+          map(),
+          start_column_statistics_task_run_schedule_request(),
+          list()
+        ) ::
+          {:ok, start_column_statistics_task_run_schedule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_column_statistics_task_run_schedule_errors()}
+  def start_column_statistics_task_run_schedule(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartColumnStatisticsTaskRunSchedule", input, options)
+  end
+
+  @doc """
   Starts a crawl using the specified crawler, regardless
   of what is scheduled.
 
@@ -15805,6 +16064,23 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Stops a column statistics task run schedule.
+  """
+  @spec stop_column_statistics_task_run_schedule(
+          map(),
+          stop_column_statistics_task_run_schedule_request(),
+          list()
+        ) ::
+          {:ok, stop_column_statistics_task_run_schedule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, stop_column_statistics_task_run_schedule_errors()}
+  def stop_column_statistics_task_run_schedule(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopColumnStatisticsTaskRunSchedule", input, options)
+  end
+
+  @doc """
   If the specified crawler is running, stops the crawl.
   """
   @spec stop_crawler(map(), stop_crawler_request(), list()) ::
@@ -15987,6 +16263,23 @@ defmodule AWS.Glue do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateColumnStatisticsForTable", input, options)
+  end
+
+  @doc """
+  Updates settings for a column statistics task.
+  """
+  @spec update_column_statistics_task_settings(
+          map(),
+          update_column_statistics_task_settings_request(),
+          list()
+        ) ::
+          {:ok, update_column_statistics_task_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_column_statistics_task_settings_errors()}
+  def update_column_statistics_task_settings(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateColumnStatisticsTaskSettings", input, options)
   end
 
   @doc """

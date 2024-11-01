@@ -2927,6 +2927,7 @@ defmodule AWS.SESv2 do
       template() :: %{
         "Headers" => list(message_header()()),
         "TemplateArn" => String.t(),
+        "TemplateContent" => email_template_content(),
         "TemplateData" => String.t(),
         "TemplateName" => String.t()
       }

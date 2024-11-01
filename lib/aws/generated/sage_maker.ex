@@ -10743,6 +10743,7 @@ defmodule AWS.SageMaker do
       training_job_summary() :: %{
         "CreationTime" => non_neg_integer(),
         "LastModifiedTime" => non_neg_integer(),
+        "SecondaryStatus" => list(any()),
         "TrainingEndTime" => non_neg_integer(),
         "TrainingJobArn" => String.t(),
         "TrainingJobName" => String.t(),
@@ -12176,6 +12177,19 @@ defmodule AWS.SageMaker do
       
   """
   @type hyper_parameter_tuning_job_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_delete_cluster_nodes_error() :: %{
+        "Code" => list(any()),
+        "Message" => String.t(),
+        "NodeId" => String.t()
+      }
+      
+  """
+  @type batch_delete_cluster_nodes_error() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -13719,6 +13733,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      batch_delete_cluster_nodes_response() :: %{
+        "Failed" => list(batch_delete_cluster_nodes_error()()),
+        "Successful" => list(String.t()())
+      }
+      
+  """
+  @type batch_delete_cluster_nodes_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       put_model_package_group_policy_output() :: %{
         "ModelPackageGroupArn" => String.t()
       }
@@ -13738,6 +13764,18 @@ defmodule AWS.SageMaker do
       
   """
   @type cognito_member_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_delete_cluster_nodes_request() :: %{
+        required("ClusterName") => String.t(),
+        required("NodeIds") => list(String.t()())
+      }
+      
+  """
+  @type batch_delete_cluster_nodes_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -17144,6 +17182,8 @@ defmodule AWS.SageMaker do
 
   @type associate_trial_component_errors() :: resource_limit_exceeded() | resource_not_found()
 
+  @type batch_delete_cluster_nodes_errors() :: resource_not_found()
+
   @type create_action_errors() :: resource_limit_exceeded()
 
   @type create_app_errors() :: resource_limit_exceeded() | resource_in_use()
@@ -17736,6 +17776,35 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "AssociateTrialComponent", input, options)
+  end
+
+  @doc """
+  Deletes specific nodes within a SageMaker HyperPod cluster.
+
+  `BatchDeleteClusterNodes`
+  accepts a cluster name and a list of node IDs.
+
+    
+  To safeguard your work, back up your data to Amazon S3 or an FSx for
+  Lustre file system before invoking the API on a worker node group. This will
+  help
+  prevent any potential data loss from the instance root volume. For more
+  information about backup, see [Use the backup script provided by SageMaker HyperPod](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-operate-cli-command.html#sagemaker-hyperpod-operate-cli-command-update-cluster-software-backup).
+
+    
+  If you want to invoke this API on an existing cluster, you'll first need to
+  patch the cluster by running the [UpdateClusterSoftware API](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateClusterSoftware.html).
+  For more information about patching a
+  cluster, see [Update the SageMaker HyperPod platform software of a cluster](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-operate-cli-command.html#sagemaker-hyperpod-operate-cli-command-update-cluster-software).
+  """
+  @spec batch_delete_cluster_nodes(map(), batch_delete_cluster_nodes_request(), list()) ::
+          {:ok, batch_delete_cluster_nodes_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_delete_cluster_nodes_errors()}
+  def batch_delete_cluster_nodes(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchDeleteClusterNodes", input, options)
   end
 
   @doc """
@@ -23206,6 +23275,11 @@ defmodule AWS.SageMaker do
 
   To learn how to
   use this API, see [Update the SageMaker HyperPod platform software of a cluster](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-operate.html#sagemaker-hyperpod-operate-cli-command-update-cluster-software).
+
+  The `UpgradeClusterSoftware` API call may impact your SageMaker HyperPod cluster
+  uptime and availability. Plan accordingly to mitigate potential disruptions to
+  your
+  workloads.
   """
   @spec update_cluster_software(map(), update_cluster_software_request(), list()) ::
           {:ok, update_cluster_software_response(), any()}

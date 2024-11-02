@@ -33,6 +33,20 @@ defmodule AWS.DocDBElastic do
 
   ## Example:
 
+      apply_pending_maintenance_action_input() :: %{
+        optional("applyOn") => String.t(),
+        required("applyAction") => String.t(),
+        required("optInType") => String.t(),
+        required("resourceArn") => String.t()
+      }
+
+  """
+  @type apply_pending_maintenance_action_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cluster_snapshot_in_list() :: %{
         "clusterArn" => [String.t()],
         "snapshotArn" => [String.t()],
@@ -211,6 +225,18 @@ defmodule AWS.DocDBElastic do
 
   """
   @type list_clusters_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_pending_maintenance_actions_output() :: %{
+        "nextToken" => String.t(),
+        "resourcePendingMaintenanceActions" => list(resource_pending_maintenance_action()())
+      }
+
+  """
+  @type list_pending_maintenance_actions_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -510,6 +536,29 @@ defmodule AWS.DocDBElastic do
 
   ## Example:
 
+      resource_pending_maintenance_action() :: %{
+        "pendingMaintenanceActionDetails" => list(pending_maintenance_action_details()()),
+        "resourceArn" => [String.t()]
+      }
+
+  """
+  @type resource_pending_maintenance_action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      apply_pending_maintenance_action_output() :: %{
+        "resourcePendingMaintenanceAction" => resource_pending_maintenance_action()
+      }
+
+  """
+  @type apply_pending_maintenance_action_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_cluster_snapshot_input() :: %{
         optional("tags") => map(),
         required("clusterArn") => [String.t()],
@@ -549,6 +598,17 @@ defmodule AWS.DocDBElastic do
 
   ## Example:
 
+      get_pending_maintenance_action_output() :: %{
+        "resourcePendingMaintenanceAction" => resource_pending_maintenance_action()
+      }
+
+  """
+  @type get_pending_maintenance_action_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cluster_in_list() :: %{
         "clusterArn" => [String.t()],
         "clusterName" => [String.t()],
@@ -571,6 +631,15 @@ defmodule AWS.DocDBElastic do
 
   ## Example:
 
+      get_pending_maintenance_action_input() :: %{}
+
+  """
+  @type get_pending_maintenance_action_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_cluster_snapshot_output() :: %{
         required("snapshot") => cluster_snapshot()
       }
@@ -588,6 +657,42 @@ defmodule AWS.DocDBElastic do
 
   """
   @type copy_cluster_snapshot_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_pending_maintenance_actions_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_pending_maintenance_actions_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pending_maintenance_action_details() :: %{
+        "action" => [String.t()],
+        "autoAppliedAfterDate" => [String.t()],
+        "currentApplyDate" => [String.t()],
+        "description" => [String.t()],
+        "forcedApplyDate" => [String.t()],
+        "optInStatus" => [String.t()]
+      }
+
+  """
+  @type pending_maintenance_action_details() :: %{String.t() => any()}
+
+  @type apply_pending_maintenance_action_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type copy_cluster_snapshot_errors() ::
           throttling_exception()
@@ -645,6 +750,14 @@ defmodule AWS.DocDBElastic do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_pending_maintenance_action_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type list_cluster_snapshots_errors() ::
           throttling_exception()
           | validation_exception()
@@ -652,6 +765,12 @@ defmodule AWS.DocDBElastic do
           | internal_server_exception()
 
   @type list_clusters_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_pending_maintenance_actions_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -720,6 +839,33 @@ defmodule AWS.DocDBElastic do
       signing_name: "docdb-elastic",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  The type of pending maintenance action to be applied to the resource.
+  """
+  @spec apply_pending_maintenance_action(map(), apply_pending_maintenance_action_input(), list()) ::
+          {:ok, apply_pending_maintenance_action_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, apply_pending_maintenance_action_errors()}
+  def apply_pending_maintenance_action(%Client{} = client, input, options \\ []) do
+    url_path = "/pending-action"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -893,6 +1039,23 @@ defmodule AWS.DocDBElastic do
   end
 
   @doc """
+  Retrieves all maintenance actions that are pending.
+  """
+  @spec get_pending_maintenance_action(map(), String.t(), list()) ::
+          {:ok, get_pending_maintenance_action_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_pending_maintenance_action_errors()}
+  def get_pending_maintenance_action(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/pending-action/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns information about snapshots for a specified elastic cluster.
   """
   @spec list_cluster_snapshots(
@@ -960,6 +1123,42 @@ defmodule AWS.DocDBElastic do
           | {:error, list_clusters_errors()}
   def list_clusters(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/clusters"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves a list of all maintenance actions that are pending.
+  """
+  @spec list_pending_maintenance_actions(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_pending_maintenance_actions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_pending_maintenance_actions_errors()}
+  def list_pending_maintenance_actions(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/pending-actions"
     headers = []
     query_params = []
 

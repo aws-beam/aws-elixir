@@ -141,7 +141,9 @@ defmodule AWS.TaxSettings do
   ## Example:
 
       malaysia_additional_info() :: %{
-        "serviceTaxCodes" => list(list(any())())
+        "businessRegistrationNumber" => String.t(),
+        "serviceTaxCodes" => list(list(any())()),
+        "taxInformationNumber" => String.t()
       }
 
   """
@@ -196,6 +198,17 @@ defmodule AWS.TaxSettings do
 
   ## Example:
 
+      put_supplemental_tax_registration_request() :: %{
+        required("taxRegistrationEntry") => supplemental_tax_registration_entry()
+      }
+
+  """
+  @type put_supplemental_tax_registration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_put_tax_registration_request() :: %{
         required("accountIds") => list(String.t()()),
         required("taxRegistrationEntry") => tax_registration_entry()
@@ -203,6 +216,17 @@ defmodule AWS.TaxSettings do
 
   """
   @type batch_put_tax_registration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_supplemental_tax_registration_request() :: %{
+        required("authorityId") => String.t()
+      }
+
+  """
+  @type delete_supplemental_tax_registration_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -261,6 +285,20 @@ defmodule AWS.TaxSettings do
 
   """
   @type additional_info_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      supplemental_tax_registration_entry() :: %{
+        "address" => address(),
+        "legalName" => String.t(),
+        "registrationId" => String.t(),
+        "registrationType" => list(any())
+      }
+
+  """
+  @type supplemental_tax_registration_entry() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -364,6 +402,18 @@ defmodule AWS.TaxSettings do
 
   """
   @type spain_additional_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_supplemental_tax_registration_response() :: %{
+        "authorityId" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type put_supplemental_tax_registration_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -564,6 +614,18 @@ defmodule AWS.TaxSettings do
 
   ## Example:
 
+      list_supplemental_tax_registrations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_supplemental_tax_registrations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tax_registration_with_jurisdiction() :: %{
         "additionalTaxInformation" => additional_info_response(),
         "certifiedEmailId" => String.t(),
@@ -583,6 +645,15 @@ defmodule AWS.TaxSettings do
 
   ## Example:
 
+      delete_supplemental_tax_registration_response() :: %{}
+
+  """
+  @type delete_supplemental_tax_registration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception() :: %{
         "errorCode" => list(any()),
         "fieldList" => list(validation_exception_field()()),
@@ -591,6 +662,18 @@ defmodule AWS.TaxSettings do
 
   """
   @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_supplemental_tax_registrations_response() :: %{
+        "nextToken" => String.t(),
+        "taxRegistrations" => list(supplemental_tax_registration()())
+      }
+
+  """
+  @type list_supplemental_tax_registrations_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -634,6 +717,22 @@ defmodule AWS.TaxSettings do
 
   """
   @type israel_additional_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      supplemental_tax_registration() :: %{
+        "address" => address(),
+        "authorityId" => String.t(),
+        "legalName" => String.t(),
+        "registrationId" => String.t(),
+        "registrationType" => list(any()),
+        "status" => list(any())
+      }
+
+  """
+  @type supplemental_tax_registration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -701,6 +800,12 @@ defmodule AWS.TaxSettings do
   @type batch_put_tax_registration_errors() ::
           validation_exception() | internal_server_exception() | conflict_exception()
 
+  @type delete_supplemental_tax_registration_errors() ::
+          validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type delete_tax_registration_errors() ::
           validation_exception()
           | internal_server_exception()
@@ -713,8 +818,14 @@ defmodule AWS.TaxSettings do
   @type get_tax_registration_document_errors() ::
           validation_exception() | internal_server_exception()
 
+  @type list_supplemental_tax_registrations_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
   @type list_tax_registrations_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type put_supplemental_tax_registration_errors() ::
+          validation_exception() | internal_server_exception() | conflict_exception()
 
   @type put_tax_registration_errors() ::
           validation_exception() | internal_server_exception() | conflict_exception()
@@ -817,31 +928,39 @@ defmodule AWS.TaxSettings do
   ## Malaysia
 
     *
-  If you use this operation to set a tax registration number (TRN) in Malaysia,
-  only
-  resellers with a valid sales and service tax (SST) number are required to
-  provide tax
-  registration information.
+  The sector valid values are `Business` and `Individual`.
 
     *
-  By using this API operation to set a TRN in Malaysia, Amazon Web Services will
-  regard you as
-  self-declaring that you're an authorized business reseller registered with the
-  Royal
-  Malaysia Customs Department (RMCD) and have a valid SST number.
+
+  `RegistrationType` valid values are `NRIC` for individual, and TIN and sales and
+  service tax (SST) for Business.
+
+    *
+  For individual, you can specify the `taxInformationNumber` in
+  `MalaysiaAdditionalInfo` with NRIC type, and a valid `MyKad` or NRIC number.
+
+    *
+  For business, you must specify a `businessRegistrationNumber` in
+  `MalaysiaAdditionalInfo` with a TIN type and tax identification number.
+
+    *
+  For business resellers, you must specify a `businessRegistrationNumber` and
+  `taxInformationNumber` in `MalaysiaAdditionalInfo` with a sales and service tax
+  (SST) type and a valid SST number.
+
+    *
+  For business resellers with service codes, you must specify
+  `businessRegistrationNumber`, `taxInformationNumber`, and distinct
+  `serviceTaxCodes` in `MalaysiaAdditionalInfo` with a SST type and valid sales
+  and service tax (SST) number. By using this API operation, Amazon Web Services
+  registers your self-declaration that you’re an authorized business reseller
+  registered with the Royal Malaysia Customs Department (RMCD), and have a valid
+  SST number.
 
     *
   Amazon Web Services reserves the right to seek additional information and/or
   take other actions to
   support your self-declaration as appropriate.
-
-    *
-  If you're not a reseller of Amazon Web Services, we don't recommend that you use
-  this operation to set the TRN in Malaysia.
-
-    *
-  Only use this API operation to upload the TRNs for accounts through which you're
-  reselling Amazon Web Services.
 
     *
   Amazon Web Services is currently registered under the following service tax
@@ -964,6 +1083,38 @@ defmodule AWS.TaxSettings do
   end
 
   @doc """
+
+  Deletes a supplemental tax registration for a single account.
+  """
+  @spec delete_supplemental_tax_registration(
+          map(),
+          delete_supplemental_tax_registration_request(),
+          list()
+        ) ::
+          {:ok, delete_supplemental_tax_registration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_supplemental_tax_registration_errors()}
+  def delete_supplemental_tax_registration(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteSupplementalTaxRegistration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes tax registration for a single account.
 
   This API operation can't be used to delete your tax registration in Brazil. Use
@@ -1050,6 +1201,38 @@ defmodule AWS.TaxSettings do
   end
 
   @doc """
+
+  Retrieves supplemental tax registrations for a single account.
+  """
+  @spec list_supplemental_tax_registrations(
+          map(),
+          list_supplemental_tax_registrations_request(),
+          list()
+        ) ::
+          {:ok, list_supplemental_tax_registrations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_supplemental_tax_registrations_errors()}
+  def list_supplemental_tax_registrations(%Client{} = client, input, options \\ []) do
+    url_path = "/ListSupplementalTaxRegistrations"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves the tax registration of accounts listed in a consolidated billing
   family.
 
@@ -1063,6 +1246,38 @@ defmodule AWS.TaxSettings do
           | {:error, list_tax_registrations_errors()}
   def list_tax_registrations(%Client{} = client, input, options \\ []) do
     url_path = "/ListTaxRegistrations"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+
+  Stores supplemental tax registration for a single account.
+  """
+  @spec put_supplemental_tax_registration(
+          map(),
+          put_supplemental_tax_registration_request(),
+          list()
+        ) ::
+          {:ok, put_supplemental_tax_registration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_supplemental_tax_registration_errors()}
+  def put_supplemental_tax_registration(%Client{} = client, input, options \\ []) do
+    url_path = "/PutSupplementalTaxRegistration"
     headers = []
     query_params = []
 
@@ -1128,31 +1343,39 @@ defmodule AWS.TaxSettings do
   ## Malaysia
 
     *
-  If you use this operation to set a tax registration number (TRN) in Malaysia,
-  only
-  resellers with a valid sales and service tax (SST) number are required to
-  provide tax
-  registration information.
+  The sector valid values are `Business` and `Individual`.
 
     *
-  By using this API operation to set a TRN in Malaysia, Amazon Web Services will
-  regard you as
-  self-declaring that you're an authorized business reseller registered with the
-  Royal
-  Malaysia Customs Department (RMCD) and have a valid SST number.
+
+  `RegistrationType` valid values are `NRIC` for individual, and TIN and sales and
+  service tax (SST) for Business.
+
+    *
+  For individual, you can specify the `taxInformationNumber` in
+  `MalaysiaAdditionalInfo` with NRIC type, and a valid `MyKad` or NRIC number.
+
+    *
+  For business, you must specify a `businessRegistrationNumber` in
+  `MalaysiaAdditionalInfo` with a TIN type and tax identification number.
+
+    *
+  For business resellers, you must specify a `businessRegistrationNumber` and
+  `taxInformationNumber` in `MalaysiaAdditionalInfo` with a sales and service tax
+  (SST) type and a valid SST number.
+
+    *
+  For business resellers with service codes, you must specify
+  `businessRegistrationNumber`, `taxInformationNumber`, and distinct
+  `serviceTaxCodes` in `MalaysiaAdditionalInfo` with a SST type and valid sales
+  and service tax (SST) number. By using this API operation, Amazon Web Services
+  registers your self-declaration that you’re an authorized business reseller
+  registered with the Royal Malaysia Customs Department (RMCD), and have a valid
+  SST number.
 
     *
   Amazon Web Services reserves the right to seek additional information and/or
   take other actions to
   support your self-declaration as appropriate.
-
-    *
-  If you're not a reseller of Amazon Web Services, we don't recommend that you use
-  this operation to set the TRN in Malaysia.
-
-    *
-  Only use this API operation to upload the TRNs for accounts through which you're
-  reselling Amazon Web Services.
 
     *
   Amazon Web Services is currently registered under the following service tax

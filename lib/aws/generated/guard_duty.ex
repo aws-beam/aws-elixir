@@ -873,6 +873,23 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      rds_limitless_db_details() :: %{
+        "DbClusterIdentifier" => String.t(),
+        "DbShardGroupArn" => String.t(),
+        "DbShardGroupIdentifier" => String.t(),
+        "DbShardGroupResourceId" => String.t(),
+        "Engine" => String.t(),
+        "EngineVersion" => String.t(),
+        "Tags" => list(tag()())
+      }
+
+  """
+  @type rds_limitless_db_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_publishing_destination_response() :: %{
         "DestinationId" => String.t(),
         "DestinationProperties" => destination_properties(),
@@ -4384,6 +4401,7 @@ defmodule AWS.GuardDuty do
         "LambdaDetails" => lambda_details(),
         "RdsDbInstanceDetails" => rds_db_instance_details(),
         "RdsDbUserDetails" => rds_db_user_details(),
+        "RdsLimitlessDbDetails" => rds_limitless_db_details(),
         "ResourceType" => String.t(),
         "S3BucketDetails" => list(s3_bucket_detail()())
       }

@@ -148,6 +148,20 @@ defmodule AWS.LakeFormation do
 
   ## Example:
 
+      l_f_tag_expression() :: %{
+        "CatalogId" => String.t(),
+        "Description" => String.t(),
+        "Expression" => list(l_f_tag()()),
+        "Name" => String.t()
+      }
+
+  """
+  @type l_f_tag_expression() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_resource_response() :: %{
         "ResourceInfo" => resource_info()
       }
@@ -313,6 +327,7 @@ defmodule AWS.LakeFormation do
       l_f_tag_policy_resource() :: %{
         "CatalogId" => String.t(),
         "Expression" => list(l_f_tag()()),
+        "ExpressionName" => String.t(),
         "ResourceType" => list(any())
       }
 
@@ -397,6 +412,19 @@ defmodule AWS.LakeFormation do
 
   ## Example:
 
+      list_l_f_tag_expressions_request() :: %{
+        optional("CatalogId") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_l_f_tag_expressions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_lake_formation_identity_center_configuration_request() :: %{
         optional("CatalogId") => String.t(),
         optional("ExternalFiltering") => external_filtering_configuration(),
@@ -470,6 +498,20 @@ defmodule AWS.LakeFormation do
 
   ## Example:
 
+      create_l_f_tag_expression_request() :: %{
+        optional("CatalogId") => String.t(),
+        optional("Description") => String.t(),
+        required("Expression") => list(l_f_tag()()),
+        required("Name") => String.t()
+      }
+
+  """
+  @type create_l_f_tag_expression_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tagged_table() :: %{
         "LFTagOnDatabase" => list(l_f_tag_pair()()),
         "LFTagsOnColumns" => list(column_l_f_tag()()),
@@ -522,6 +564,20 @@ defmodule AWS.LakeFormation do
 
   """
   @type search_tables_by_l_f_tags_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_l_f_tag_expression_request() :: %{
+        optional("CatalogId") => String.t(),
+        optional("Description") => String.t(),
+        required("Expression") => list(l_f_tag()()),
+        required("Name") => String.t()
+      }
+
+  """
+  @type update_l_f_tag_expression_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -677,6 +733,18 @@ defmodule AWS.LakeFormation do
 
   ## Example:
 
+      list_l_f_tag_expressions_response() :: %{
+        "LFTagExpressions" => list(l_f_tag_expression()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_l_f_tag_expressions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_transactions_request() :: %{
         optional("CatalogId") => String.t(),
         optional("MaxResults") => integer(),
@@ -792,6 +860,18 @@ defmodule AWS.LakeFormation do
 
   """
   @type data_cells_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_l_f_tag_expression_request() :: %{
+        optional("CatalogId") => String.t(),
+        required("Name") => String.t()
+      }
+
+  """
+  @type delete_l_f_tag_expression_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1126,6 +1206,18 @@ defmodule AWS.LakeFormation do
 
   ## Example:
 
+      l_f_tag_expression_resource() :: %{
+        "CatalogId" => String.t(),
+        "Name" => String.t()
+      }
+
+  """
+  @type l_f_tag_expression_resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       transaction_description() :: %{
         "TransactionEndTime" => non_neg_integer(),
         "TransactionId" => String.t(),
@@ -1148,6 +1240,20 @@ defmodule AWS.LakeFormation do
 
   """
   @type get_resource_l_f_tags_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_l_f_tag_expression_response() :: %{
+        "CatalogId" => String.t(),
+        "Description" => String.t(),
+        "Expression" => list(l_f_tag()()),
+        "Name" => String.t()
+      }
+
+  """
+  @type get_l_f_tag_expression_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1709,6 +1815,15 @@ defmodule AWS.LakeFormation do
 
   ## Example:
 
+      create_l_f_tag_expression_response() :: %{}
+
+  """
+  @type create_l_f_tag_expression_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       batch_revoke_permissions_request() :: %{
         optional("CatalogId") => String.t(),
         required("Entries") => list(batch_permissions_request_entry()())
@@ -1949,6 +2064,18 @@ defmodule AWS.LakeFormation do
 
   ## Example:
 
+      get_l_f_tag_expression_request() :: %{
+        optional("CatalogId") => String.t(),
+        required("Name") => String.t()
+      }
+
+  """
+  @type get_l_f_tag_expression_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       remove_l_f_tags_from_resource_request() :: %{
         optional("CatalogId") => String.t(),
         required("LFTags") => list(l_f_tag_pair()()),
@@ -2047,6 +2174,15 @@ defmodule AWS.LakeFormation do
 
   ## Example:
 
+      update_l_f_tag_expression_response() :: %{}
+
+  """
+  @type update_l_f_tag_expression_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_table_storage_optimizers_request() :: %{
         optional("CatalogId") => String.t(),
         optional("MaxResults") => integer(),
@@ -2087,6 +2223,15 @@ defmodule AWS.LakeFormation do
 
   """
   @type grant_permissions_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_l_f_tag_expression_response() :: %{}
+
+  """
+  @type delete_l_f_tag_expression_response() :: %{}
 
   @typedoc """
 
@@ -2134,6 +2279,7 @@ defmodule AWS.LakeFormation do
         "DataLocation" => data_location_resource(),
         "Database" => database_resource(),
         "LFTag" => l_f_tag_key_resource(),
+        "LFTagExpression" => l_f_tag_expression_resource(),
         "LFTagPolicy" => l_f_tag_policy_resource(),
         "Table" => table_resource(),
         "TableWithColumns" => table_with_columns_resource()
@@ -2197,6 +2343,14 @@ defmodule AWS.LakeFormation do
           | operation_timeout_exception()
           | entity_not_found_exception()
 
+  @type create_l_f_tag_expression_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
   @type create_lake_formation_identity_center_configuration_errors() ::
           concurrent_modification_exception()
           | access_denied_exception()
@@ -2221,6 +2375,13 @@ defmodule AWS.LakeFormation do
           | entity_not_found_exception()
 
   @type delete_l_f_tag_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type delete_l_f_tag_expression_errors() ::
           access_denied_exception()
           | invalid_input_exception()
           | internal_service_exception()
@@ -2313,6 +2474,13 @@ defmodule AWS.LakeFormation do
           | operation_timeout_exception()
           | entity_not_found_exception()
 
+  @type get_l_f_tag_expression_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
   @type get_query_state_errors() ::
           access_denied_exception() | invalid_input_exception() | internal_service_exception()
 
@@ -2381,6 +2549,13 @@ defmodule AWS.LakeFormation do
           | invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
+
+  @type list_l_f_tag_expressions_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
 
   @type list_l_f_tags_errors() ::
           access_denied_exception()
@@ -2472,6 +2647,14 @@ defmodule AWS.LakeFormation do
           concurrent_modification_exception()
           | access_denied_exception()
           | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type update_l_f_tag_expression_errors() ::
+          access_denied_exception()
+          | invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
           | internal_service_exception()
           | operation_timeout_exception()
           | entity_not_found_exception()
@@ -2761,6 +2944,45 @@ defmodule AWS.LakeFormation do
   end
 
   @doc """
+  Creates a new LF-Tag expression with the provided name, description, catalog ID,
+  and
+  expression body.
+
+  This call fails if a LF-Tag expression with the same name already exists in
+  the caller’s account or if the underlying LF-Tags don't exist. To call this API
+  operation,
+  caller needs the following Lake Formation permissions:
+
+  `CREATE_LF_TAG_EXPRESSION` on the root catalog resource.
+
+  `GRANT_WITH_LF_TAG_EXPRESSION` on all underlying LF-Tag key:value pairs
+  included in the expression.
+  """
+  @spec create_l_f_tag_expression(map(), create_l_f_tag_expression_request(), list()) ::
+          {:ok, create_l_f_tag_expression_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_l_f_tag_expression_errors()}
+  def create_l_f_tag_expression(%Client{} = client, input, options \\ []) do
+    url_path = "/CreateLFTagExpression"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates an IAM Identity Center connection with Lake Formation to allow IAM
   Identity Center users and groups to access Data Catalog resources.
   """
@@ -2866,6 +3088,38 @@ defmodule AWS.LakeFormation do
           | {:error, delete_l_f_tag_errors()}
   def delete_l_f_tag(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteLFTag"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes the LF-Tag expression.
+
+  The caller must be a data lake admin or have `DROP` permissions on the LF-Tag
+  expression.
+  Deleting a LF-Tag expression will also delete all `LFTagPolicy` permissions
+  referencing the LF-Tag expression.
+  """
+  @spec delete_l_f_tag_expression(map(), delete_l_f_tag_expression_request(), list()) ::
+          {:ok, delete_l_f_tag_expression_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_l_f_tag_expression_errors()}
+  def delete_l_f_tag_expression(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteLFTagExpression"
     headers = []
     query_params = []
 
@@ -3281,6 +3535,36 @@ defmodule AWS.LakeFormation do
   end
 
   @doc """
+  Returns the details about the LF-Tag expression.
+
+  The caller must be a data lake admin or must have `DESCRIBE` permission on the
+  LF-Tag expression resource.
+  """
+  @spec get_l_f_tag_expression(map(), get_l_f_tag_expression_request(), list()) ::
+          {:ok, get_l_f_tag_expression_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_l_f_tag_expression_errors()}
+  def get_l_f_tag_expression(%Client{} = client, input, options \\ []) do
+    url_path = "/GetLFTagExpression"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Returns the state of a query previously submitted.
 
   Clients are expected to poll `GetQueryState` to monitor the current state of the
@@ -3436,6 +3720,9 @@ defmodule AWS.LakeFormation do
   In order to vend such credentials, Lake Formation assumes the role associated
   with a registered location, for example an Amazon S3 bucket, with a scope down
   policy which restricts the access to a single prefix.
+
+  To call this API, the role that the service assumes must have
+  `lakeformation:GetDataAccess` permission on the resource.
   """
   @spec get_temporary_glue_table_credentials(
           map(),
@@ -3561,6 +3848,37 @@ defmodule AWS.LakeFormation do
           | {:error, list_data_cells_filter_errors()}
   def list_data_cells_filter(%Client{} = client, input, options \\ []) do
     url_path = "/ListDataCellsFilter"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns the LF-Tag expressions in caller’s account filtered based on caller's
+  permissions.
+
+  Data Lake and read only admins implicitly can see all tag expressions in their
+  account, else caller needs DESCRIBE permissions on tag expression.
+  """
+  @spec list_l_f_tag_expressions(map(), list_l_f_tag_expressions_request(), list()) ::
+          {:ok, list_l_f_tag_expressions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_l_f_tag_expressions_errors()}
+  def list_l_f_tag_expressions(%Client{} = client, input, options \\ []) do
+    url_path = "/ListLFTagExpressions"
     headers = []
     query_params = []
 
@@ -3807,7 +4125,7 @@ defmodule AWS.LakeFormation do
   permission to use the service-linked role to access that location.
 
   ```
-  ResourceArn = arn:aws:s3:::my-bucket
+  ResourceArn = arn:aws:s3:::my-bucket/
   UseServiceLinkedRole = true
   ```
 
@@ -4064,6 +4382,38 @@ defmodule AWS.LakeFormation do
           | {:error, update_l_f_tag_errors()}
   def update_l_f_tag(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateLFTag"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the name of the LF-Tag expression to the new description and expression
+  body provided.
+
+  Updating a LF-Tag expression immediately changes the permission boundaries of
+  all existing `LFTagPolicy` permission grants that reference the given LF-Tag
+  expression.
+  """
+  @spec update_l_f_tag_expression(map(), update_l_f_tag_expression_request(), list()) ::
+          {:ok, update_l_f_tag_expression_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_l_f_tag_expression_errors()}
+  def update_l_f_tag_expression(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdateLFTagExpression"
     headers = []
     query_params = []
 

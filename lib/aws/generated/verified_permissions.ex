@@ -368,6 +368,17 @@ defmodule AWS.VerifiedPermissions do
 
   ## Example:
       
+      batch_get_policy_input() :: %{
+        required("requests") => list(batch_get_policy_input_item()())
+      }
+      
+  """
+  @type batch_get_policy_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       batch_is_authorized_with_token_output_item() :: %{
         "decision" => list(any()),
         "determiningPolicies" => list(determining_policy_item()()),
@@ -447,6 +458,20 @@ defmodule AWS.VerifiedPermissions do
       
   """
   @type create_policy_store_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_policy_error_item() :: %{
+        "code" => list(any()),
+        "message" => [String.t()],
+        "policyId" => [String.t()],
+        "policyStoreId" => [String.t()]
+      }
+      
+  """
+  @type batch_get_policy_error_item() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1226,6 +1251,18 @@ defmodule AWS.VerifiedPermissions do
 
   ## Example:
       
+      batch_get_policy_output() :: %{
+        "errors" => list(batch_get_policy_error_item()()),
+        "results" => list(batch_get_policy_output_item()())
+      }
+      
+  """
+  @type batch_get_policy_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_policy_output() :: %{
         "actions" => list(action_identifier()()),
         "createdDate" => non_neg_integer(),
@@ -1419,6 +1456,18 @@ defmodule AWS.VerifiedPermissions do
 
   ## Example:
       
+      batch_get_policy_input_item() :: %{
+        "policyId" => String.t(),
+        "policyStoreId" => String.t()
+      }
+      
+  """
+  @type batch_get_policy_input_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       static_policy_definition_detail() :: %{
         "description" => String.t(),
         "statement" => String.t()
@@ -1448,6 +1497,22 @@ defmodule AWS.VerifiedPermissions do
       
   """
   @type entity_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_policy_output_item() :: %{
+        "createdDate" => non_neg_integer(),
+        "definition" => list(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "policyId" => String.t(),
+        "policyStoreId" => String.t(),
+        "policyType" => list(any())
+      }
+      
+  """
+  @type batch_get_policy_output_item() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1599,6 +1664,23 @@ defmodule AWS.VerifiedPermissions do
       signing_name: "verifiedpermissions",
       target_prefix: "VerifiedPermissions"
     }
+  end
+
+  @doc """
+  Retrieves information about a group (batch) of policies.
+
+  The `BatchGetPolicy` operation doesn't have its own IAM
+  permission. To authorize this operation for Amazon Web Services principals,
+  include the permission
+  `verifiedpermissions:GetPolicy` in their IAM policies.
+  """
+  @spec batch_get_policy(map(), batch_get_policy_input(), list()) ::
+          {:ok, batch_get_policy_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def batch_get_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchGetPolicy", input, options)
   end
 
   @doc """

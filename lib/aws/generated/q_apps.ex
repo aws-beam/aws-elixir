@@ -179,6 +179,42 @@ defmodule AWS.QApps do
 
   ## Example:
 
+      batch_create_category_input() :: %{
+        required("categories") => list(batch_create_category_input_category()()),
+        required("instanceId") => String.t()
+      }
+
+  """
+  @type batch_create_category_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_categories_output() :: %{
+        "categories" => list(category()())
+      }
+
+  """
+  @type list_categories_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      category_input() :: %{
+        "color" => [String.t()],
+        "id" => String.t(),
+        "title" => [String.t()]
+      }
+
+  """
+  @type category_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       app_definition_input() :: %{
         "cards" => list(list()()),
         "initialPrompt" => String.t()
@@ -527,6 +563,31 @@ defmodule AWS.QApps do
 
   ## Example:
 
+      batch_delete_category_input() :: %{
+        required("categories") => list(String.t()()),
+        required("instanceId") => String.t()
+      }
+
+  """
+  @type batch_delete_category_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_create_category_input_category() :: %{
+        "color" => [String.t()],
+        "id" => String.t(),
+        "title" => [String.t()]
+      }
+
+  """
+  @type batch_create_category_input_category() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       q_plugin_card_input() :: %{
         "id" => String.t(),
         "pluginId" => String.t(),
@@ -660,6 +721,17 @@ defmodule AWS.QApps do
 
   """
   @type create_q_app_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_categories_input() :: %{
+        required("instanceId") => String.t()
+      }
+
+  """
+  @type list_categories_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -850,6 +922,8 @@ defmodule AWS.QApps do
   ## Example:
 
       category() :: %{
+        "appCount" => [integer()],
+        "color" => [String.t()],
         "id" => String.t(),
         "title" => [String.t()]
       }
@@ -966,6 +1040,18 @@ defmodule AWS.QApps do
 
   ## Example:
 
+      batch_update_category_input() :: %{
+        required("categories") => list(category_input()()),
+        required("instanceId") => String.t()
+      }
+
+  """
+  @type batch_update_category_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_q_app_session_output() :: %{
         "sessionArn" => [String.t()],
         "sessionId" => [String.t()]
@@ -1003,6 +1089,33 @@ defmodule AWS.QApps do
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | unauthorized_exception()
+
+  @type batch_create_category_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | unauthorized_exception()
+
+  @type batch_delete_category_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | unauthorized_exception()
+
+  @type batch_update_category_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
           | unauthorized_exception()
 
   @type create_library_item_errors() ::
@@ -1091,6 +1204,14 @@ defmodule AWS.QApps do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
+
+  @type list_categories_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
 
@@ -1260,6 +1381,114 @@ defmodule AWS.QApps do
           | {:error, associate_q_app_with_user_errors()}
   def associate_q_app_with_user(%Client{} = client, input, options \\ []) do
     url_path = "/apps.install"
+
+    {headers, input} =
+      [
+        {"instanceId", "instance-id"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates Categories for the Amazon Q Business application environment instance.
+
+  Web experience users use Categories to tag and filter library items. For more
+  information, see [Custom labels for Amazon Q Apps](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qapps-custom-labels.html).
+  """
+  @spec batch_create_category(map(), batch_create_category_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_create_category_errors()}
+  def batch_create_category(%Client{} = client, input, options \\ []) do
+    url_path = "/catalog.createCategories"
+
+    {headers, input} =
+      [
+        {"instanceId", "instance-id"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes Categories for the Amazon Q Business application environment instance.
+
+  Web experience users use Categories to tag and filter library items. For more
+  information, see [Custom labels for Amazon Q Apps](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qapps-custom-labels.html).
+  """
+  @spec batch_delete_category(map(), batch_delete_category_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_delete_category_errors()}
+  def batch_delete_category(%Client{} = client, input, options \\ []) do
+    url_path = "/catalog.deleteCategories"
+
+    {headers, input} =
+      [
+        {"instanceId", "instance-id"}
+      ]
+      |> Request.build_params(input)
+
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates Categories for the Amazon Q Business application environment instance.
+
+  Web experience users use Categories to tag and filter library items. For more
+  information, see [Custom labels for Amazon Q Apps](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qapps-custom-labels.html).
+  """
+  @spec batch_update_category(map(), batch_update_category_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_update_category_errors()}
+  def batch_update_category(%Client{} = client, input, options \\ []) do
+    url_path = "/catalog.updateCategories"
 
     {headers, input} =
       [
@@ -1643,6 +1872,33 @@ defmodule AWS.QApps do
       options,
       200
     )
+  end
+
+  @doc """
+  Lists the categories of a Amazon Q Business application environment instance.
+
+  For more information, see [Custom labels for Amazon Q Apps](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qapps-custom-labels.html).
+  """
+  @spec list_categories(map(), String.t(), list()) ::
+          {:ok, list_categories_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_categories_errors()}
+  def list_categories(%Client{} = client, instance_id, options \\ []) do
+    url_path = "/catalog.listCategories"
+    headers = []
+
+    headers =
+      if !is_nil(instance_id) do
+        [{"instance-id", instance_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """

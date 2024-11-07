@@ -1480,6 +1480,7 @@ defmodule AWS.CodeBuild do
       
       update_fleet_input() :: %{
         optional("baseCapacity") => integer(),
+        optional("computeConfiguration") => compute_configuration(),
         optional("computeType") => list(any()),
         optional("environmentType") => list(any()),
         optional("fleetServiceRole") => String.t(),
@@ -1500,6 +1501,7 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       create_fleet_input() :: %{
+        optional("computeConfiguration") => compute_configuration(),
         optional("fleetServiceRole") => String.t(),
         optional("imageId") => String.t(),
         optional("overflowBehavior") => list(any()),
@@ -2200,6 +2202,7 @@ defmodule AWS.CodeBuild do
       fleet() :: %{
         "arn" => String.t(),
         "baseCapacity" => integer(),
+        "computeConfiguration" => compute_configuration(),
         "computeType" => list(any()),
         "created" => non_neg_integer(),
         "environmentType" => list(any()),
@@ -2261,6 +2264,7 @@ defmodule AWS.CodeBuild do
       
       project_environment() :: %{
         "certificate" => String.t(),
+        "computeConfiguration" => compute_configuration(),
         "computeType" => list(any()),
         "environmentVariables" => list(environment_variable()()),
         "fleet" => project_fleet(),
@@ -2296,6 +2300,20 @@ defmodule AWS.CodeBuild do
       
   """
   @type batch_get_report_groups_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      compute_configuration() :: %{
+        "disk" => float(),
+        "machineType" => list(any()),
+        "memory" => float(),
+        "vCpu" => float()
+      }
+      
+  """
+  @type compute_configuration() :: %{String.t() => any()}
 
   @typedoc """
 

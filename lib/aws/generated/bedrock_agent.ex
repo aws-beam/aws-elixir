@@ -13,6 +13,17 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      validate_flow_definition_response() :: %{
+        "validations" => list(flow_validation()())
+      }
+
+  """
+  @type validate_flow_definition_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       knowledge_base_configuration() :: %{
         "type" => list(any()),
         "vectorKnowledgeBaseConfiguration" => vector_knowledge_base_configuration()
@@ -107,6 +118,18 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      missing_node_input_flow_validation_details() :: %{
+        "input" => String.t(),
+        "node" => String.t()
+      }
+
+  """
+  @type missing_node_input_flow_validation_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_request() :: %{
         required("tags") => map()
       }
@@ -142,6 +165,28 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      missing_default_condition_flow_validation_details() :: %{
+        "node" => String.t()
+      }
+
+  """
+  @type missing_default_condition_flow_validation_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      specific_tool_choice() :: %{
+        "name" => String.t()
+      }
+
+  """
+  @type specific_tool_choice() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_flow_alias_response() :: %{
         "arn" => String.t(),
         "createdAt" => non_neg_integer(),
@@ -167,6 +212,28 @@ defmodule AWS.BedrockAgent do
 
   """
   @type memory_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unreachable_node_flow_validation_details() :: %{
+        "node" => String.t()
+      }
+
+  """
+  @type unreachable_node_flow_validation_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      missing_connection_configuration_flow_validation_details() :: %{
+        "connection" => String.t()
+      }
+
+  """
+  @type missing_connection_configuration_flow_validation_details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -375,6 +442,15 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      any_tool_choice() :: %{}
+
+  """
+  @type any_tool_choice() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       inference_configuration() :: %{
         "maximumLength" => integer(),
         "stopSequences" => list([String.t()]()),
@@ -426,6 +502,28 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      auto_tool_choice() :: %{}
+
+  """
+  @type auto_tool_choice() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      mismatched_node_input_type_flow_validation_details() :: %{
+        "expectedType" => list(any()),
+        "input" => String.t(),
+        "node" => String.t()
+      }
+
+  """
+  @type mismatched_node_input_type_flow_validation_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       custom_transformation_configuration() :: %{
         "intermediateStorage" => intermediate_storage(),
         "transformations" => list(transformation()())
@@ -455,6 +553,17 @@ defmodule AWS.BedrockAgent do
 
   """
   @type create_agent_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unknown_connection_source_flow_validation_details() :: %{
+        "connection" => String.t()
+      }
+
+  """
+  @type unknown_connection_source_flow_validation_details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -631,8 +740,10 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       flow_validation() :: %{
+        "details" => list(),
         "message" => String.t(),
-        "severity" => list(any())
+        "severity" => list(any()),
+        "type" => list(any())
       }
 
   """
@@ -933,6 +1044,19 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      malformed_node_input_expression_flow_validation_details() :: %{
+        "cause" => String.t(),
+        "input" => String.t(),
+        "node" => String.t()
+      }
+
+  """
+  @type malformed_node_input_expression_flow_validation_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       share_point_crawler_configuration() :: %{
         "filterConfiguration" => crawl_filter_configuration()
       }
@@ -960,6 +1084,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       knowledge_base_flow_node_configuration() :: %{
+        "guardrailConfiguration" => guardrail_configuration(),
         "knowledgeBaseId" => String.t(),
         "modelId" => String.t()
       }
@@ -1140,6 +1265,19 @@ defmodule AWS.BedrockAgent do
 
   """
   @type delete_agent_action_group_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      mismatched_node_output_type_flow_validation_details() :: %{
+        "expectedType" => list(any()),
+        "node" => String.t(),
+        "output" => String.t()
+      }
+
+  """
+  @type mismatched_node_output_type_flow_validation_details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1375,6 +1513,18 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      duplicate_condition_expression_flow_validation_details() :: %{
+        "expression" => String.t(),
+        "node" => String.t()
+      }
+
+  """
+  @type duplicate_condition_expression_flow_validation_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_knowledge_bases_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
@@ -1591,6 +1741,28 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      validate_flow_definition_request() :: %{
+        required("definition") => flow_definition()
+      }
+
+  """
+  @type validate_flow_definition_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unknown_connection_source_output_flow_validation_details() :: %{
+        "connection" => String.t()
+      }
+
+  """
+  @type unknown_connection_source_output_flow_validation_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       service_quota_exceeded_exception() :: %{
         "message" => String.t()
       }
@@ -1663,6 +1835,19 @@ defmodule AWS.BedrockAgent do
 
   """
   @type bedrock_foundation_model_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tool_specification() :: %{
+        "description" => String.t(),
+        "inputSchema" => list(),
+        "name" => String.t()
+      }
+
+  """
+  @type tool_specification() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2042,6 +2227,29 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      unknown_connection_target_flow_validation_details() :: %{
+        "connection" => String.t()
+      }
+
+  """
+  @type unknown_connection_target_flow_validation_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multiple_node_input_connections_flow_validation_details() :: %{
+        "input" => String.t(),
+        "node" => String.t()
+      }
+
+  """
+  @type multiple_node_input_connections_flow_validation_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       confluence_source_configuration() :: %{
         "authType" => list(any()),
         "credentialsSecretArn" => String.t(),
@@ -2082,6 +2290,15 @@ defmodule AWS.BedrockAgent do
 
   """
   @type server_side_encryption_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      missing_ending_nodes_flow_validation_details() :: %{}
+
+  """
+  @type missing_ending_nodes_flow_validation_details() :: %{}
 
   @typedoc """
 
@@ -2135,6 +2352,15 @@ defmodule AWS.BedrockAgent do
 
   """
   @type semantic_chunking_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      missing_starting_nodes_flow_validation_details() :: %{}
+
+  """
+  @type missing_starting_nodes_flow_validation_details() :: %{}
 
   @typedoc """
 
@@ -2403,6 +2629,18 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      tool_configuration() :: %{
+        "toolChoice" => list(),
+        "tools" => list(list()())
+      }
+
+  """
+  @type tool_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       prompt_model_inference_configuration() :: %{
         "maxTokens" => integer(),
         "stopSequences" => list([String.t()]()),
@@ -2505,6 +2743,17 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      cyclic_connection_flow_validation_details() :: %{
+        "connection" => String.t()
+      }
+
+  """
+  @type cyclic_connection_flow_validation_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_agent_request() :: %{
         optional("skipResourceInUseCheck") => [boolean()]
       }
@@ -2522,6 +2771,33 @@ defmodule AWS.BedrockAgent do
 
   """
   @type condition_flow_node_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      chat_prompt_template_configuration() :: %{
+        "inputVariables" => list(prompt_input_variable()()),
+        "messages" => list(message()()),
+        "system" => list(list()()),
+        "toolConfiguration" => tool_configuration()
+      }
+
+  """
+  @type chat_prompt_template_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      malformed_condition_expression_flow_validation_details() :: %{
+        "cause" => String.t(),
+        "condition" => String.t(),
+        "node" => String.t()
+      }
+
+  """
+  @type malformed_condition_expression_flow_validation_details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2686,6 +2962,18 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      duplicate_connections_flow_validation_details() :: %{
+        "source" => String.t(),
+        "target" => String.t()
+      }
+
+  """
+  @type duplicate_connections_flow_validation_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       stop_ingestion_job_response() :: %{
         "ingestionJob" => ingestion_job()
       }
@@ -2714,6 +3002,17 @@ defmodule AWS.BedrockAgent do
 
   """
   @type hierarchical_chunking_level_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unsatisfied_connection_conditions_flow_validation_details() :: %{
+        "connection" => String.t()
+      }
+
+  """
+  @type unsatisfied_connection_conditions_flow_validation_details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2827,6 +3126,17 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      incompatible_connection_data_type_flow_validation_details() :: %{
+        "connection" => String.t()
+      }
+
+  """
+  @type incompatible_connection_data_type_flow_validation_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       disassociate_agent_knowledge_base_response() :: %{}
 
   """
@@ -2883,6 +3193,18 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      missing_node_output_flow_validation_details() :: %{
+        "node" => String.t(),
+        "output" => String.t()
+      }
+
+  """
+  @type missing_node_output_flow_validation_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_ingestion_job_response() :: %{
         "ingestionJob" => ingestion_job()
       }
@@ -2914,6 +3236,15 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      unspecified_flow_validation_details() :: %{}
+
+  """
+  @type unspecified_flow_validation_details() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       update_flow_response() :: %{
         "arn" => String.t(),
         "createdAt" => non_neg_integer(),
@@ -2930,6 +3261,17 @@ defmodule AWS.BedrockAgent do
 
   """
   @type update_flow_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      prompt_agent_resource() :: %{
+        "agentIdentifier" => String.t()
+      }
+
+  """
+  @type prompt_agent_resource() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2998,6 +3340,18 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      unfulfilled_node_input_flow_validation_details() :: %{
+        "input" => String.t(),
+        "node" => String.t()
+      }
+
+  """
+  @type unfulfilled_node_input_flow_validation_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       associate_agent_knowledge_base_request() :: %{
         optional("knowledgeBaseState") => list(any()),
         required("description") => String.t(),
@@ -3006,6 +3360,17 @@ defmodule AWS.BedrockAgent do
 
   """
   @type associate_agent_knowledge_base_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unknown_connection_target_input_flow_validation_details() :: %{
+        "connection" => String.t()
+      }
+
+  """
+  @type unknown_connection_target_input_flow_validation_details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3042,6 +3407,17 @@ defmodule AWS.BedrockAgent do
 
   """
   @type vector_ingestion_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unknown_connection_condition_flow_validation_details() :: %{
+        "connection" => String.t()
+      }
+
+  """
+  @type unknown_connection_condition_flow_validation_details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3131,7 +3507,19 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      missing_node_configuration_flow_validation_details() :: %{
+        "node" => String.t()
+      }
+
+  """
+  @type missing_node_configuration_flow_validation_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       prompt_flow_node_configuration() :: %{
+        "guardrailConfiguration" => guardrail_configuration(),
         "sourceConfiguration" => list()
       }
 
@@ -3196,8 +3584,21 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      message() :: %{
+        "content" => list(list()()),
+        "role" => list(any())
+      }
+
+  """
+  @type message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       prompt_variant() :: %{
         "additionalModelRequestFields" => [any()],
+        "genAiResource" => list(),
         "inferenceConfiguration" => list(),
         "metadata" => list(prompt_metadata_entry()()),
         "modelId" => String.t(),
@@ -3690,6 +4091,12 @@ defmodule AWS.BedrockAgent do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type validate_flow_definition_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
 
   def metadata do
     %{
@@ -5618,5 +6025,32 @@ defmodule AWS.BedrockAgent do
     meta = metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Validates the definition of a flow.
+  """
+  @spec validate_flow_definition(map(), validate_flow_definition_request(), list()) ::
+          {:ok, validate_flow_definition_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, validate_flow_definition_errors()}
+  def validate_flow_definition(%Client{} = client, input, options \\ []) do
+    url_path = "/flows/validate-definition"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 end

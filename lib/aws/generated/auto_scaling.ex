@@ -1473,6 +1473,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       create_auto_scaling_group_type() :: %{
+        optional("AvailabilityZoneDistribution") => availability_zone_distribution(),
         optional("AvailabilityZones") => list(String.t()()),
         optional("CapacityRebalance") => boolean(),
         optional("Context") => String.t(),
@@ -1908,6 +1909,7 @@ defmodule AWS.AutoScaling do
         "CapacityRebalance" => boolean(),
         "Instances" => list(instance()()),
         "TerminationPolicies" => list(String.t()()),
+        "AvailabilityZoneDistribution" => availability_zone_distribution(),
         "LaunchConfigurationName" => String.t(),
         "HealthCheckType" => String.t(),
         "PlacementGroup" => String.t(),
@@ -2020,6 +2022,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       update_auto_scaling_group_type() :: %{
+        optional("AvailabilityZoneDistribution") => availability_zone_distribution(),
         optional("AvailabilityZones") => list(String.t()()),
         optional("CapacityRebalance") => boolean(),
         optional("Context") => String.t(),
@@ -2280,6 +2283,17 @@ defmodule AWS.AutoScaling do
       
   """
   @type rollback_instance_refresh_type() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      availability_zone_distribution() :: %{
+        "CapacityDistributionStrategy" => list(any())
+      }
+      
+  """
+  @type availability_zone_distribution() :: %{String.t() => any()}
 
   @typedoc """
 

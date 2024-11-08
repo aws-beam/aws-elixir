@@ -125,6 +125,7 @@ defmodule AWS.Synthetics do
       create_canary_request() :: %{
         optional("ArtifactConfig") => artifact_config_input(),
         optional("FailureRetentionPeriodInDays") => integer(),
+        optional("ProvisionedResourceCleanup") => list(any()),
         optional("ResourcesToReplicateTags") => list(list(any())()),
         optional("RunConfig") => canary_run_config_input(),
         optional("SuccessRetentionPeriodInDays") => integer(),
@@ -349,6 +350,7 @@ defmodule AWS.Synthetics do
         optional("Code") => canary_code_input(),
         optional("ExecutionRoleArn") => String.t(),
         optional("FailureRetentionPeriodInDays") => integer(),
+        optional("ProvisionedResourceCleanup") => list(any()),
         optional("RunConfig") => canary_run_config_input(),
         optional("RuntimeVersion") => String.t(),
         optional("Schedule") => canary_schedule_input(),
@@ -680,6 +682,7 @@ defmodule AWS.Synthetics do
         "FailureRetentionPeriodInDays" => integer(),
         "Id" => String.t(),
         "Name" => String.t(),
+        "ProvisionedResourceCleanup" => list(any()),
         "RunConfig" => canary_run_config_output(),
         "RuntimeVersion" => String.t(),
         "Schedule" => canary_schedule_output(),
@@ -1195,12 +1198,13 @@ defmodule AWS.Synthetics do
   @doc """
   Permanently deletes the specified canary.
 
-  If you specify `DeleteLambda` to `true`, CloudWatch Synthetics also deletes
+  If the canary's `ProvisionedResourceCleanup` field is set to `AUTOMATIC`
+  or you specify `DeleteLambda` in this operation as `true`, CloudWatch Synthetics
+  also deletes
   the Lambda functions and layers that are used by the canary.
 
   Other resources used and created by the canary are not automatically deleted.
-  After you delete a canary that you do not intend to
-  use again, you
+  After you delete a canary, you
   should also delete the following:
 
     *

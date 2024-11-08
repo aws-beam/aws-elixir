@@ -245,6 +245,18 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Example:
 
+      list_managed_views_output() :: %{
+        "ManagedViews" => list([String.t()]()),
+        "NextToken" => [String.t()]
+      }
+
+  """
+  @type list_managed_views_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_supported_resource_types_input() :: %{
         optional("MaxResults") => [integer()],
         optional("NextToken") => [String.t()]
@@ -361,6 +373,19 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Example:
 
+      list_managed_views_input() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t()],
+        optional("ServicePrincipal") => [String.t()]
+      }
+
+  """
+  @type list_managed_views_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_get_view_error() :: %{
         "ErrorMessage" => [String.t()],
         "ViewArn" => [String.t()]
@@ -455,6 +480,17 @@ defmodule AWS.ResourceExplorer2 do
 
   """
   @type tag_resource_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_managed_view_input() :: %{
+        required("ManagedViewArn") => [String.t()]
+      }
+
+  """
+  @type get_managed_view_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -751,6 +787,26 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Example:
 
+      managed_view() :: %{
+        "Filters" => search_filter(),
+        "IncludedProperties" => list(included_property()()),
+        "LastUpdatedAt" => [non_neg_integer()],
+        "ManagedViewArn" => [String.t()],
+        "ManagedViewName" => [String.t()],
+        "Owner" => [String.t()],
+        "ResourcePolicy" => [String.t()],
+        "Scope" => [String.t()],
+        "TrustedService" => [String.t()],
+        "Version" => [String.t()]
+      }
+
+  """
+  @type managed_view() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       resource() :: %{
         "Arn" => [String.t()],
         "LastReportedAt" => [non_neg_integer()],
@@ -763,6 +819,17 @@ defmodule AWS.ResourceExplorer2 do
 
   """
   @type resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_managed_view_output() :: %{
+        "ManagedView" => managed_view()
+      }
+
+  """
+  @type get_managed_view_output() :: %{String.t() => any()}
 
   @type associate_default_view_errors() ::
           throttling_exception()
@@ -836,6 +903,14 @@ defmodule AWS.ResourceExplorer2 do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_managed_view_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
+
   @type get_view_errors() ::
           throttling_exception()
           | validation_exception()
@@ -855,6 +930,13 @@ defmodule AWS.ResourceExplorer2 do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+
+  @type list_managed_views_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | unauthorized_exception()
 
   @type list_resources_errors() ::
           throttling_exception()
@@ -1342,6 +1424,33 @@ defmodule AWS.ResourceExplorer2 do
   end
 
   @doc """
+  Retrieves details of the specified [Amazon Web Services-managed view](https://docs.aws.amazon.com/resource-explorer/latest/userguide/aws-managed-views.html).
+  """
+  @spec get_managed_view(map(), get_managed_view_input(), list()) ::
+          {:ok, get_managed_view_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_managed_view_errors()}
+  def get_managed_view(%Client{} = client, input, options \\ []) do
+    url_path = "/GetManagedView"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves details of the specified view.
   """
   @spec get_view(map(), get_view_input(), list()) ::
@@ -1411,6 +1520,36 @@ defmodule AWS.ResourceExplorer2 do
           | {:error, list_indexes_for_members_errors()}
   def list_indexes_for_members(%Client{} = client, input, options \\ []) do
     url_path = "/ListIndexesForMembers"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists the Amazon resource names (ARNs) of the
+  [Amazon Web Services-managed views](https://docs.aws.amazon.com/resource-explorer/latest/userguide/aws-managed-views.html)
+  available
+  in the Amazon Web Services Region in which you call this operation.
+  """
+  @spec list_managed_views(map(), list_managed_views_input(), list()) ::
+          {:ok, list_managed_views_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_managed_views_errors()}
+  def list_managed_views(%Client{} = client, input, options \\ []) do
+    url_path = "/ListManagedViews"
     headers = []
     query_params = []
 

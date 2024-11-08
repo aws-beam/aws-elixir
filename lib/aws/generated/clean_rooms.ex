@@ -922,6 +922,28 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      model_inference_payment_config() :: %{
+        "isResponsible" => [boolean()]
+      }
+
+  """
+  @type model_inference_payment_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ml_member_abilities() :: %{
+        "customMLMemberAbilities" => list(list(any())())
+      }
+
+  """
+  @type ml_member_abilities() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_tags_for_resource_output() :: %{
         "tags" => map()
       }
@@ -1113,6 +1135,17 @@ defmodule AWS.CleanRooms do
 
   """
   @type get_protected_query_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      membership_model_inference_payment_config() :: %{
+        "isResponsible" => [boolean()]
+      }
+
+  """
+  @type membership_model_inference_payment_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1771,6 +1804,7 @@ defmodule AWS.CleanRooms do
         "createTime" => [non_neg_integer()],
         "id" => String.t(),
         "memberAbilities" => list(list(any())()),
+        "mlMemberAbilities" => ml_member_abilities(),
         "paymentConfiguration" => membership_payment_configuration(),
         "status" => String.t(),
         "updateTime" => [non_neg_integer()]
@@ -2017,6 +2051,7 @@ defmodule AWS.CleanRooms do
 
       create_collaboration_input() :: %{
         optional("analyticsEngine") => list(any()),
+        optional("creatorMLMemberAbilities") => ml_member_abilities(),
         optional("creatorPaymentConfiguration") => payment_configuration(),
         optional("dataEncryptionMetadata") => data_encryption_metadata(),
         optional("tags") => map(),
@@ -2783,6 +2818,7 @@ defmodule AWS.CleanRooms do
         "displayName" => String.t(),
         "membershipArn" => String.t(),
         "membershipId" => String.t(),
+        "mlAbilities" => ml_member_abilities(),
         "paymentConfiguration" => payment_configuration(),
         "status" => String.t(),
         "updateTime" => [non_neg_integer()]
@@ -2874,6 +2910,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       membership_payment_configuration() :: %{
+        "machineLearning" => membership_ml_payment_config(),
         "queryCompute" => membership_query_compute_payment_config()
       }
 
@@ -2888,6 +2925,18 @@ defmodule AWS.CleanRooms do
 
   """
   @type get_membership_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      membership_ml_payment_config() :: %{
+        "modelInference" => membership_model_inference_payment_config(),
+        "modelTraining" => membership_model_training_payment_config()
+      }
+
+  """
+  @type membership_ml_payment_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2958,6 +3007,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       payment_configuration() :: %{
+        "machineLearning" => ml_payment_config(),
         "queryCompute" => query_compute_payment_config()
       }
 
@@ -2999,6 +3049,18 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      ml_payment_config() :: %{
+        "modelInference" => model_inference_payment_config(),
+        "modelTraining" => model_training_payment_config()
+      }
+
+  """
+  @type ml_payment_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       analysis_template_validation_status_reason() :: %{
         "message" => [String.t()]
       }
@@ -3014,6 +3076,17 @@ defmodule AWS.CleanRooms do
 
   """
   @type get_configured_table_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      model_training_payment_config() :: %{
+        "isResponsible" => [boolean()]
+      }
+
+  """
+  @type model_training_payment_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3153,6 +3226,17 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      membership_model_training_payment_config() :: %{
+        "isResponsible" => [boolean()]
+      }
+
+  """
+  @type membership_model_training_payment_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       id_namespace_association_input_reference_properties_summary() :: %{
         "idNamespaceType" => list(any())
       }
@@ -3192,6 +3276,7 @@ defmodule AWS.CleanRooms do
         "accountId" => String.t(),
         "displayName" => String.t(),
         "memberAbilities" => list(list(any())()),
+        "mlMemberAbilities" => ml_member_abilities(),
         "paymentConfiguration" => payment_configuration()
       }
 
@@ -3233,6 +3318,7 @@ defmodule AWS.CleanRooms do
         "defaultResultConfiguration" => membership_protected_query_result_configuration(),
         "id" => String.t(),
         "memberAbilities" => list(list(any())()),
+        "mlMemberAbilities" => ml_member_abilities(),
         "paymentConfiguration" => membership_payment_configuration(),
         "queryLogStatus" => String.t(),
         "status" => String.t(),

@@ -134,9 +134,10 @@ defmodule AWS.BedrockRuntime do
         optional("additionalModelResponseFieldPaths") => list([String.t()]()),
         optional("guardrailConfig") => guardrail_configuration(),
         optional("inferenceConfig") => inference_configuration(),
+        optional("messages") => list(message()()),
+        optional("promptVariables") => map(),
         optional("system") => list(list()()),
-        optional("toolConfig") => tool_configuration(),
-        required("messages") => list(message()())
+        optional("toolConfig") => tool_configuration()
       }
 
   """
@@ -315,11 +316,11 @@ defmodule AWS.BedrockRuntime do
 
       invoke_model_request() :: %{
         optional("accept") => String.t(),
+        optional("body") => binary(),
         optional("contentType") => String.t(),
         optional("guardrailIdentifier") => String.t(),
         optional("guardrailVersion") => String.t(),
-        optional("trace") => list(any()),
-        required("body") => binary()
+        optional("trace") => list(any())
       }
 
   """
@@ -342,11 +343,11 @@ defmodule AWS.BedrockRuntime do
 
       invoke_model_with_response_stream_request() :: %{
         optional("accept") => String.t(),
+        optional("body") => binary(),
         optional("contentType") => String.t(),
         optional("guardrailIdentifier") => String.t(),
         optional("guardrailVersion") => String.t(),
-        optional("trace") => list(any()),
-        required("body") => binary()
+        optional("trace") => list(any())
       }
 
   """
@@ -607,9 +608,10 @@ defmodule AWS.BedrockRuntime do
         optional("additionalModelResponseFieldPaths") => list([String.t()]()),
         optional("guardrailConfig") => guardrail_stream_configuration(),
         optional("inferenceConfig") => inference_configuration(),
+        optional("messages") => list(message()()),
+        optional("promptVariables") => map(),
         optional("system") => list(list()()),
-        optional("toolConfig") => tool_configuration(),
-        required("messages") => list(message()())
+        optional("toolConfig") => tool_configuration()
       }
 
   """
@@ -984,6 +986,19 @@ defmodule AWS.BedrockRuntime do
   Amazon Bedrock doesn't store any text, images, or documents that you provide as
   content. The data is only used to generate the response.
 
+  You can submit a prompt by including it in the `messages` field, specifying the
+  `modelId` of a foundation model or inference profile to run inference on it, and
+  including any other fields that are relevant to your use case.
+
+  You can also submit a prompt from Prompt management by specifying the ARN of the
+  prompt version and including a map of variables to values in the
+  `promptVariables` field. You can append more messages to the prompt by using the
+  `messages` field. If you use a prompt from Prompt management, you can't include
+  the following fields in the request: `additionalModelRequestFields`,
+  `inferenceConfig`, `system`, or `toolConfig`. Instead, these fields must be
+  defined through Prompt management. For more information, see [Use a prompt from Prompt
+  management](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-use.html).
+
   For information about the Converse API, see *Use the Converse API* in the
   *Amazon Bedrock User Guide*.
   To use a guardrail, see *Use a guardrail with the Converse API* in the *Amazon
@@ -1032,14 +1047,27 @@ defmodule AWS.BedrockRuntime do
   model.
 
   To find out if a model supports streaming, call
-  [GetFoundationModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetFoundationModel.html)
-  and check the `responseStreamingSupported` field in the response.
+  [GetFoundationModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetFoundationModel.html) and check the `responseStreamingSupported` field in the response.
 
   The CLI doesn't support streaming operations in Amazon Bedrock, including
   `ConverseStream`.
 
   Amazon Bedrock doesn't store any text, images, or documents that you provide as
   content. The data is only used to generate the response.
+
+  You can submit a prompt by including it in the `messages` field, specifying the
+  `modelId` of a foundation model or inference profile to run inference on it, and
+  including any other fields that are relevant to your use case.
+
+  You can also submit a prompt from Prompt management by specifying the ARN of the
+  prompt version and including a map of variables to values in the
+  `promptVariables` field. You can append more messages to the prompt by using the
+  `messages` field. If you use a prompt from Prompt management, you can't include
+  the following fields in the request: `additionalModelRequestFields`,
+  `inferenceConfig`, `system`, or `toolConfig`. Instead, these fields must be
+  defined through Prompt management. For more information, see [Use a prompt from
+  Prompt
+  management](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-use.html).
 
   For information about the Converse API, see *Use the Converse API* in the
   *Amazon Bedrock User Guide*.

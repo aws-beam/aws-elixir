@@ -5308,8 +5308,11 @@ defmodule AWS.QuickSight do
   ## Example:
 
       starburst_parameters() :: %{
+        "AuthenticationType" => list(any()),
         "Catalog" => String.t(),
+        "DatabaseAccessControlRole" => String.t(),
         "Host" => String.t(),
+        "OAuthParameters" => o_auth_parameters(),
         "Port" => integer(),
         "ProductType" => list(any())
       }
@@ -6455,8 +6458,11 @@ defmodule AWS.QuickSight do
   ## Example:
 
       snowflake_parameters() :: %{
+        "AuthenticationType" => list(any()),
         "Database" => String.t(),
+        "DatabaseAccessControlRole" => String.t(),
         "Host" => String.t(),
+        "OAuthParameters" => o_auth_parameters(),
         "Warehouse" => String.t()
       }
 
@@ -10288,6 +10294,20 @@ defmodule AWS.QuickSight do
 
   """
   @type snapshot_job_result_file_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      o_auth_parameters() :: %{
+        "IdentityProviderResourceUri" => String.t(),
+        "IdentityProviderVpcConnectionProperties" => vpc_connection_properties(),
+        "OAuthScope" => String.t(),
+        "TokenProviderUrl" => String.t()
+      }
+
+  """
+  @type o_auth_parameters() :: %{String.t() => any()}
 
   @typedoc """
 

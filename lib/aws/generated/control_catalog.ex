@@ -110,6 +110,17 @@ defmodule AWS.ControlCatalog do
 
   ## Example:
 
+      control_parameter() :: %{
+        "Name" => [String.t()]
+      }
+
+  """
+  @type control_parameter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       control_summary() :: %{
         "Arn" => String.t(),
         "Description" => [String.t()],
@@ -164,12 +175,25 @@ defmodule AWS.ControlCatalog do
         "Arn" => String.t(),
         "Behavior" => list(any()),
         "Description" => [String.t()],
+        "Implementation" => implementation_details(),
         "Name" => [String.t()],
+        "Parameters" => list(control_parameter()()),
         "RegionConfiguration" => region_configuration()
       }
 
   """
   @type get_control_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      implementation_details() :: %{
+        "Type" => String.t()
+      }
+
+  """
+  @type implementation_details() :: %{String.t() => any()}
 
   @typedoc """
 

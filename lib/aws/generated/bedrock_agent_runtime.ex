@@ -438,6 +438,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      flow_trace_node_input_field() :: %{
+        "content" => list(),
+        "nodeInputName" => String.t()
+      }
+
+  """
+  @type flow_trace_node_input_field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_custom_word() :: %{
         "action" => list(any()),
         "match" => [String.t()]
@@ -505,6 +517,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      flow_trace_event() :: %{
+        "trace" => list()
+      }
+
+  """
+  @type flow_trace_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       span() :: %{
         "end" => [integer()],
         "start" => [integer()]
@@ -512,6 +535,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type span() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_trace_node_input_event() :: %{
+        "fields" => list(flow_trace_node_input_field()()),
+        "nodeName" => String.t(),
+        "timestamp" => non_neg_integer()
+      }
+
+  """
+  @type flow_trace_node_input_event() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -778,6 +814,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      flow_trace_condition() :: %{
+        "conditionName" => [String.t()]
+      }
+
+  """
+  @type flow_trace_condition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       reprompt_response() :: %{
         "source" => list(any()),
         "text" => [String.t()]
@@ -879,6 +926,31 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type filter_attribute() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_trace_node_output_field() :: %{
+        "content" => list(),
+        "nodeOutputName" => String.t()
+      }
+
+  """
+  @type flow_trace_node_output_field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_trace_node_output_event() :: %{
+        "fields" => list(flow_trace_node_output_field()()),
+        "nodeName" => String.t(),
+        "timestamp" => non_neg_integer()
+      }
+
+  """
+  @type flow_trace_node_output_event() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1078,6 +1150,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type flow_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_trace_condition_node_result_event() :: %{
+        "nodeName" => String.t(),
+        "satisfiedConditions" => list(flow_trace_condition()()),
+        "timestamp" => non_neg_integer()
+      }
+
+  """
+  @type flow_trace_condition_node_result_event() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1380,6 +1465,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       invoke_flow_request() :: %{
+        optional("enableTrace") => [boolean()],
         required("inputs") => list(flow_input()())
       }
 

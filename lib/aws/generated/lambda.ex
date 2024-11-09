@@ -195,6 +195,7 @@ defmodule AWS.Lambda do
         "S3Bucket" => String.t(),
         "S3Key" => String.t(),
         "S3ObjectVersion" => String.t(),
+        "SourceKMSKeyArn" => String.t(),
         "ZipFile" => binary()
       }
 
@@ -448,7 +449,8 @@ defmodule AWS.Lambda do
         "ImageUri" => String.t(),
         "Location" => String.t(),
         "RepositoryType" => String.t(),
-        "ResolvedImageUri" => String.t()
+        "ResolvedImageUri" => String.t(),
+        "SourceKMSKeyArn" => String.t()
       }
 
   """
@@ -1226,6 +1228,7 @@ defmodule AWS.Lambda do
         optional("S3Bucket") => String.t(),
         optional("S3Key") => String.t(),
         optional("S3ObjectVersion") => String.t(),
+        optional("SourceKMSKeyArn") => String.t(),
         optional("ZipFile") => binary()
       }
 

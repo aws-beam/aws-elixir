@@ -2107,7 +2107,8 @@ defmodule AWS.QBusiness do
 
       group_members() :: %{
         "memberGroups" => list(member_group()()),
-        "memberUsers" => list(member_user()())
+        "memberUsers" => list(member_user()()),
+        "s3PathForGroupMembers" => s3()
       }
 
   """
@@ -2668,6 +2669,7 @@ defmodule AWS.QBusiness do
 
       put_group_request() :: %{
         optional("dataSourceId") => String.t(),
+        optional("roleArn") => String.t(),
         required("groupMembers") => group_members(),
         required("groupName") => String.t(),
         required("type") => list(any())
@@ -3352,6 +3354,14 @@ defmodule AWS.QBusiness do
   tiers](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#user-sub-tiers).
   You must use the Amazon Q Business console to assign
   subscription tiers to users.
+
+  A Amazon Q Apps service linked role will be created if it's absent in the
+  Amazon Web Services account when the QAppsConfiguration is enabled in the
+  request.
+  For more information, see
+  [
+  Using service-linked roles for Q Apps
+  ](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles-qapps.html)
   """
   @spec create_application(map(), create_application_request(), list()) ::
           {:ok, create_application_response(), any()}
@@ -4903,6 +4913,13 @@ defmodule AWS.QBusiness do
 
   @doc """
   Updates an existing Amazon Q Business application.
+
+  A Amazon Q Apps service-linked role will be created if it's absent in the Amazon
+  Web Services account
+  when the QAppsConfiguration is enabled in the request.
+  For more information, see [
+  Using service-linked roles for Q Apps
+  ](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles-qapps.html)
   """
   @spec update_application(map(), String.t(), update_application_request(), list()) ::
           {:ok, update_application_response(), any()}

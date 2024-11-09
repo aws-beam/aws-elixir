@@ -1464,6 +1464,20 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      launch_template_specification_override() :: %{
+        "launchTemplateId" => String.t(),
+        "launchTemplateName" => String.t(),
+        "targetInstanceTypes" => list(String.t()()),
+        "version" => String.t()
+      }
+
+  """
+  @type launch_template_specification_override() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       runtime_platform() :: %{
         "cpuArchitecture" => String.t(),
         "operatingSystemFamily" => String.t()
@@ -1629,6 +1643,7 @@ defmodule AWS.Batch do
       launch_template_specification() :: %{
         "launchTemplateId" => String.t(),
         "launchTemplateName" => String.t(),
+        "overrides" => list(launch_template_specification_override()()),
         "version" => String.t()
       }
 

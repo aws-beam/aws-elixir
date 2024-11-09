@@ -718,15 +718,29 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
   ## Example:
 
+      sse_aws_key_management_params() :: %{
+        "AwsKmsEncryptionContext" => String.t(),
+        "AwsKmsKeyId" => String.t()
+      }
+
+  """
+  @type sse_aws_key_management_params() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       media_capture_pipeline() :: %{
         "ChimeSdkMeetingConfiguration" => chime_sdk_meeting_configuration(),
         "CreatedTimestamp" => non_neg_integer(),
         "MediaPipelineArn" => String.t(),
         "MediaPipelineId" => String.t(),
         "SinkArn" => String.t(),
+        "SinkIamRoleArn" => String.t(),
         "SinkType" => list(any()),
         "SourceArn" => String.t(),
         "SourceType" => list(any()),
+        "SseAwsKeyManagementParams" => sse_aws_key_management_params(),
         "Status" => list(any()),
         "UpdatedTimestamp" => non_neg_integer()
       }
@@ -1374,6 +1388,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
       create_media_capture_pipeline_request() :: %{
         optional("ChimeSdkMeetingConfiguration") => chime_sdk_meeting_configuration(),
         optional("ClientRequestToken") => String.t(),
+        optional("SinkIamRoleArn") => String.t(),
+        optional("SseAwsKeyManagementParams") => sse_aws_key_management_params(),
         optional("Tags") => list(tag()()),
         required("SinkArn") => String.t(),
         required("SinkType") => list(any()),

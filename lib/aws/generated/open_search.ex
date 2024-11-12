@@ -125,6 +125,19 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      update_package_scope_request() :: %{
+        required("Operation") => list(any()),
+        required("PackageID") => String.t(),
+        required("PackageUserList") => list(String.t()())
+      }
+
+  """
+  @type update_package_scope_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_domain_response() :: %{
         "DomainStatus" => domain_status()
       }
@@ -143,6 +156,17 @@ defmodule AWS.OpenSearch do
 
   """
   @type describe_domain_auto_tunes_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      package_vending_options() :: %{
+        "VendingEnabled" => boolean()
+      }
+
+  """
+  @type package_vending_options() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -209,6 +233,19 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      update_package_scope_response() :: %{
+        "Operation" => list(any()),
+        "PackageID" => String.t(),
+        "PackageUserList" => list(String.t()())
+      }
+
+  """
+  @type update_package_scope_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       snapshot_options() :: %{
         "AutomatedSnapshotStartHour" => integer()
       }
@@ -226,6 +263,17 @@ defmodule AWS.OpenSearch do
 
   """
   @type auto_tune_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dissociate_packages_response() :: %{
+        "DomainPackageDetailsList" => list(domain_package_details()())
+      }
+
+  """
+  @type dissociate_packages_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -255,6 +303,8 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       package_details() :: %{
+        "AllowListedUserList" => list(String.t()()),
+        "AvailablePackageConfiguration" => package_configuration(),
         "AvailablePackageVersion" => String.t(),
         "AvailablePluginProperties" => plugin_properties(),
         "CreatedAt" => non_neg_integer(),
@@ -262,10 +312,13 @@ defmodule AWS.OpenSearch do
         "ErrorDetails" => error_details(),
         "LastUpdatedAt" => non_neg_integer(),
         "PackageDescription" => String.t(),
+        "PackageEncryptionOptions" => package_encryption_options(),
         "PackageID" => String.t(),
         "PackageName" => String.t(),
+        "PackageOwner" => String.t(),
         "PackageStatus" => list(any()),
-        "PackageType" => list(any())
+        "PackageType" => list(any()),
+        "PackageVendingOptions" => package_vending_options()
       }
 
   """
@@ -314,7 +367,11 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       create_package_request() :: %{
+        optional("EngineVersion") => String.t(),
+        optional("PackageConfiguration") => package_configuration(),
         optional("PackageDescription") => String.t(),
+        optional("PackageEncryptionOptions") => package_encryption_options(),
+        optional("PackageVendingOptions") => package_vending_options(),
         required("PackageName") => String.t(),
         required("PackageSource") => package_source(),
         required("PackageType") => list(any())
@@ -338,6 +395,20 @@ defmodule AWS.OpenSearch do
 
   """
   @type auto_tune_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      package_configuration() :: %{
+        "ConfigurationRequirement" => list(any()),
+        "LicenseFilepath" => String.t(),
+        "LicenseRequirement" => list(any()),
+        "RequiresRestartForConfigurationUpdate" => boolean()
+      }
+
+  """
+  @type package_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -488,6 +559,17 @@ defmodule AWS.OpenSearch do
 
   """
   @type instance_type_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      package_association_configuration() :: %{
+        "KeyStoreAccessOption" => key_store_access_option()
+      }
+
+  """
+  @type package_association_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -746,6 +828,17 @@ defmodule AWS.OpenSearch do
 
   """
   @type update_data_source_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_packages_response() :: %{
+        "DomainPackageDetailsList" => list(domain_package_details()())
+      }
+
+  """
+  @type associate_packages_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1815,7 +1908,9 @@ defmodule AWS.OpenSearch do
 
       update_package_request() :: %{
         optional("CommitMessage") => String.t(),
+        optional("PackageConfiguration") => package_configuration(),
         optional("PackageDescription") => String.t(),
+        optional("PackageEncryptionOptions") => package_encryption_options(),
         required("PackageID") => String.t(),
         required("PackageSource") => package_source()
       }
@@ -1862,10 +1957,13 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
-      associate_package_request() :: %{}
+      associate_package_request() :: %{
+        optional("AssociationConfiguration") => package_association_configuration(),
+        optional("PrerequisitePackageIDList") => list(String.t()())
+      }
 
   """
-  @type associate_package_request() :: %{}
+  @type associate_package_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2311,6 +2409,18 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      key_store_access_option() :: %{
+        "KeyAccessRoleArn" => String.t(),
+        "KeyStoreAccessEnabled" => boolean()
+      }
+
+  """
+  @type key_store_access_option() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       dissociate_package_response() :: %{
         "DomainPackageDetails" => domain_package_details()
       }
@@ -2364,6 +2474,19 @@ defmodule AWS.OpenSearch do
 
   """
   @type iam_identity_center_options_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      package_details_for_association() :: %{
+        "AssociationConfiguration" => package_association_configuration(),
+        "PackageID" => String.t(),
+        "PrerequisitePackageIDList" => list(String.t()())
+      }
+
+  """
+  @type package_details_for_association() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2473,6 +2596,18 @@ defmodule AWS.OpenSearch do
 
   """
   @type node_option() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      package_encryption_options() :: %{
+        "EncryptionEnabled" => boolean(),
+        "KmsKeyIdentifier" => String.t()
+      }
+
+  """
+  @type package_encryption_options() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2967,6 +3102,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       domain_package_details() :: %{
+        "AssociationConfiguration" => package_association_configuration(),
         "DomainName" => String.t(),
         "DomainPackageStatus" => list(any()),
         "ErrorDetails" => error_details(),
@@ -2975,6 +3111,7 @@ defmodule AWS.OpenSearch do
         "PackageName" => String.t(),
         "PackageType" => list(any()),
         "PackageVersion" => String.t(),
+        "PrerequisitePackageIDList" => list(String.t()()),
         "ReferencePath" => String.t()
       }
 
@@ -3036,6 +3173,7 @@ defmodule AWS.OpenSearch do
       package_version_history() :: %{
         "CommitMessage" => String.t(),
         "CreatedAt" => non_neg_integer(),
+        "PackageConfiguration" => package_configuration(),
         "PackageVersion" => String.t(),
         "PluginProperties" => plugin_properties()
       }
@@ -3089,6 +3227,18 @@ defmodule AWS.OpenSearch do
 
   """
   @type remove_tags_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_packages_request() :: %{
+        required("DomainName") => String.t(),
+        required("PackageList") => list(package_details_for_association()())
+      }
+
+  """
+  @type associate_packages_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3423,6 +3573,18 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      dissociate_packages_request() :: %{
+        required("DomainName") => String.t(),
+        required("PackageList") => list(String.t()())
+      }
+
+  """
+  @type dissociate_packages_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       master_user_options() :: %{
         "MasterUserARN" => String.t(),
         "MasterUserName" => String.t(),
@@ -3459,6 +3621,14 @@ defmodule AWS.OpenSearch do
           | internal_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type associate_packages_errors() ::
+          base_exception()
+          | validation_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | disabled_operation_exception()
 
   @type authorize_vpc_endpoint_access_errors() ::
           limit_exceeded_exception()
@@ -3660,6 +3830,14 @@ defmodule AWS.OpenSearch do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type dissociate_packages_errors() ::
+          base_exception()
+          | validation_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | disabled_operation_exception()
+
   @type get_application_errors() ::
           base_exception()
           | validation_exception()
@@ -3856,6 +4034,13 @@ defmodule AWS.OpenSearch do
           | internal_exception()
           | resource_not_found_exception()
 
+  @type update_package_scope_errors() ::
+          base_exception()
+          | validation_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | disabled_operation_exception()
+
   @type update_scheduled_action_errors() ::
           limit_exceeded_exception()
           | base_exception()
@@ -3998,6 +4183,34 @@ defmodule AWS.OpenSearch do
     url_path =
       "/2021-01-01/packages/associate/#{AWS.Util.encode_uri(package_id)}/#{AWS.Util.encode_uri(domain_name)}"
 
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Operation in the Amazon OpenSearch Service API for associating multiple packages
+  with a domain simultaneously.
+  """
+  @spec associate_packages(map(), associate_packages_request(), list()) ::
+          {:ok, associate_packages_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, associate_packages_errors()}
+  def associate_packages(%Client{} = client, input, options \\ []) do
+    url_path = "/2021-01-01/packages/associateMultiple"
     headers = []
     query_params = []
 
@@ -4975,6 +5188,33 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
+  Dissociates multiple packages from a domain simulatneously.
+  """
+  @spec dissociate_packages(map(), dissociate_packages_request(), list()) ::
+          {:ok, dissociate_packages_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, dissociate_packages_errors()}
+  def dissociate_packages(%Client{} = client, input, options \\ []) do
+    url_path = "/2021-01-01/packages/dissociateMultiple"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Check the configuration and status of an existing OpenSearch Application.
   """
   @spec get_application(map(), String.t(), list()) ::
@@ -5925,6 +6165,35 @@ defmodule AWS.OpenSearch do
           | {:error, update_package_errors()}
   def update_package(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/packages/update"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the scope of a package.
+
+  Scope of the package defines users who can view and associate a package.
+  """
+  @spec update_package_scope(map(), update_package_scope_request(), list()) ::
+          {:ok, update_package_scope_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_package_scope_errors()}
+  def update_package_scope(%Client{} = client, input, options \\ []) do
+    url_path = "/2021-01-01/packages/updateScope"
     headers = []
     query_params = []
 

@@ -10429,8 +10429,8 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Gets the list of CloudFront origin access controls in this Amazon Web Services
-  account.
+  Gets the list of CloudFront origin access controls (OACs) in this Amazon Web
+  Services account.
 
   You can optionally specify the maximum number of items to receive in the
   response. If
@@ -10440,6 +10440,11 @@ defmodule AWS.CloudFront do
   another
   request that specifies the `NextMarker` value from the current response as
   the `Marker` value in the next request.
+
+  If you're not using origin access controls for your Amazon Web Services account,
+  the
+  `ListOriginAccessControls` operation doesn't return the
+  `Items` element in the response.
   """
   @spec list_origin_access_controls(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_origin_access_controls_result(), any()}
@@ -11069,16 +11074,15 @@ defmodule AWS.CloudFront do
   the following important requirements and restrictions:
 
       *
-  You must rename the `ETag` field to `IfMatch`,
-  leaving the value unchanged. (Set the value of `IfMatch` to
-  the value of `ETag`, then remove the `ETag`
-  field.)
+  You must copy the `ETag` field value from the response. (You'll use it for the
+  `IfMatch` parameter in your request.) Then, remove the `ETag`
+  field from the distribution configuration.
 
       *
   You can't change the value of `CallerReference`.
 
     3.
-  Submit an `UpdateDistribution` request, providing the distribution
+  Submit an `UpdateDistribution` request, providing the updated distribution
   configuration. The new configuration replaces the existing configuration. The
   values that you specify in an `UpdateDistribution` request are not
   merged into your existing configuration. Make sure to include all fields: the

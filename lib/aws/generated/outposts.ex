@@ -35,7 +35,7 @@ defmodule AWS.Outposts do
       get_outpost_supported_instance_types_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        required("OrderId") => String.t()
+        optional("OrderId") => String.t()
       }
 
   """
@@ -64,6 +64,19 @@ defmodule AWS.Outposts do
 
   """
   @type instance_type_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      blocking_instance() :: %{
+        "AccountId" => String.t(),
+        "AwsServiceName" => list(any()),
+        "InstanceId" => String.t()
+      }
+
+  """
+  @type blocking_instance() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -101,6 +114,22 @@ defmodule AWS.Outposts do
 
   """
   @type list_assets_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_asset_instances_input() :: %{
+        optional("AccountIdFilter") => list(String.t()()),
+        optional("AssetIdFilter") => list(String.t()()),
+        optional("AwsServiceFilter") => list(list(any())()),
+        optional("InstanceTypeFilter") => list(String.t()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_asset_instances_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -399,6 +428,18 @@ defmodule AWS.Outposts do
 
   ## Example:
 
+      list_asset_instances_output() :: %{
+        "AssetInstances" => list(asset_instance()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_asset_instances_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       conflict_exception() :: %{
         "Message" => String.t(),
         "ResourceId" => String.t(),
@@ -407,6 +448,18 @@ defmodule AWS.Outposts do
 
   """
   @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_instance_type_capacity() :: %{
+        "Count" => integer(),
+        "InstanceType" => String.t()
+      }
+
+  """
+  @type asset_instance_type_capacity() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -505,6 +558,18 @@ defmodule AWS.Outposts do
 
   """
   @type list_sites_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_blocking_instances_for_capacity_task_output() :: %{
+        "BlockingInstances" => list(blocking_instance()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_blocking_instances_for_capacity_task_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -609,10 +674,12 @@ defmodule AWS.Outposts do
         "CreationDate" => non_neg_integer(),
         "DryRun" => boolean(),
         "Failed" => capacity_task_failure(),
+        "InstancesToExclude" => instances_to_exclude(),
         "LastModifiedDate" => non_neg_integer(),
         "OrderId" => String.t(),
         "OutpostId" => String.t(),
-        "RequestedInstancePools" => list(instance_type_capacity()())
+        "RequestedInstancePools" => list(instance_type_capacity()()),
+        "TaskActionOnBlockingInstances" => list(any())
       }
 
   """
@@ -636,8 +703,10 @@ defmodule AWS.Outposts do
 
       start_capacity_task_input() :: %{
         optional("DryRun") => boolean(),
-        required("InstancePools") => list(instance_type_capacity()()),
-        required("OrderId") => String.t()
+        optional("InstancesToExclude") => instances_to_exclude(),
+        optional("OrderId") => String.t(),
+        optional("TaskActionOnBlockingInstances") => list(any()),
+        required("InstancePools") => list(instance_type_capacity()())
       }
 
   """
@@ -690,6 +759,8 @@ defmodule AWS.Outposts do
       compute_attributes() :: %{
         "HostId" => String.t(),
         "InstanceFamilies" => list(String.t()()),
+        "InstanceTypeCapacities" => list(asset_instance_type_capacity()()),
+        "MaxVcpus" => integer(),
         "State" => list(any())
       }
 
@@ -770,6 +841,19 @@ defmodule AWS.Outposts do
 
   """
   @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      instances_to_exclude() :: %{
+        "AccountIds" => list(String.t()()),
+        "Instances" => list(String.t()()),
+        "Services" => list(list(any())())
+      }
+
+  """
+  @type instances_to_exclude() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -882,6 +966,18 @@ defmodule AWS.Outposts do
 
   """
   @type list_capacity_tasks_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_blocking_instances_for_capacity_task_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_blocking_instances_for_capacity_task_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1052,6 +1148,21 @@ defmodule AWS.Outposts do
 
   ## Example:
 
+      asset_instance() :: %{
+        "AccountId" => String.t(),
+        "AssetId" => String.t(),
+        "AwsServiceName" => list(any()),
+        "InstanceId" => String.t(),
+        "InstanceType" => String.t()
+      }
+
+  """
+  @type asset_instance() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_site_rack_physical_properties_output() :: %{
         "Site" => site()
       }
@@ -1109,10 +1220,12 @@ defmodule AWS.Outposts do
         "CreationDate" => non_neg_integer(),
         "DryRun" => boolean(),
         "Failed" => capacity_task_failure(),
+        "InstancesToExclude" => instances_to_exclude(),
         "LastModifiedDate" => non_neg_integer(),
         "OrderId" => String.t(),
         "OutpostId" => String.t(),
-        "RequestedInstancePools" => list(instance_type_capacity()())
+        "RequestedInstancePools" => list(instance_type_capacity()()),
+        "TaskActionOnBlockingInstances" => list(any())
       }
 
   """
@@ -1234,7 +1347,19 @@ defmodule AWS.Outposts do
           | internal_server_exception()
           | not_found_exception()
 
+  @type list_asset_instances_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | not_found_exception()
+
   @type list_assets_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | not_found_exception()
+
+  @type list_blocking_instances_for_capacity_task_errors() ::
           validation_exception()
           | access_denied_exception()
           | internal_server_exception()
@@ -1665,20 +1790,18 @@ defmodule AWS.Outposts do
   end
 
   @doc """
-  Gets the instance types that an
-  Outpost can support in `InstanceTypeCapacity`.
+  Gets the instance types that an Outpost can support in `InstanceTypeCapacity`.
 
-  This will generally include instance types that
-  are not currently configured and therefore cannot be launched with the current
-  Outpost
-  capacity configuration.
+  This will generally include instance types that are not currently configured and
+  therefore
+  cannot be launched with the current Outpost capacity configuration.
   """
   @spec get_outpost_supported_instance_types(
           map(),
           String.t(),
           String.t() | nil,
           String.t() | nil,
-          String.t(),
+          String.t() | nil,
           list()
         ) ::
           {:ok, get_outpost_supported_instance_types_output(), any()}
@@ -1689,7 +1812,7 @@ defmodule AWS.Outposts do
         outpost_identifier,
         max_results \\ nil,
         next_token \\ nil,
-        order_id,
+        order_id \\ nil,
         options \\ []
       ) do
     url_path = "/outposts/#{AWS.Util.encode_uri(outpost_identifier)}/supportedInstanceTypes"
@@ -1764,6 +1887,88 @@ defmodule AWS.Outposts do
   end
 
   @doc """
+  A list of Amazon EC2 instances, belonging to all accounts, running on the
+  specified Outpost.
+
+  Does not include Amazon EBS or Amazon S3 instances.
+  """
+  @spec list_asset_instances(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_asset_instances_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_asset_instances_errors()}
+  def list_asset_instances(
+        %Client{} = client,
+        outpost_identifier,
+        account_id_filter \\ nil,
+        asset_id_filter \\ nil,
+        aws_service_filter \\ nil,
+        instance_type_filter \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/outposts/#{AWS.Util.encode_uri(outpost_identifier)}/assetInstances"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(instance_type_filter) do
+        [{"InstanceTypeFilter", instance_type_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(aws_service_filter) do
+        [{"AwsServiceFilter", aws_service_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(asset_id_filter) do
+        [{"AssetIdFilter", asset_id_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(account_id_filter) do
+        [{"AccountIdFilter", account_id_filter} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists the hardware assets for the specified Outpost.
 
   Use filters to return specific results. If you specify multiple filters, the
@@ -1821,6 +2026,58 @@ defmodule AWS.Outposts do
     query_params =
       if !is_nil(host_id_filter) do
         [{"HostIdFilter", host_id_filter} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  A list of Amazon EC2 instances running on the Outpost and belonging to the
+  account that
+  initiated the capacity task.
+
+  Use this list to specify the instances you cannot stop to free up
+  capacity to run the capacity task.
+  """
+  @spec list_blocking_instances_for_capacity_task(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_blocking_instances_for_capacity_task_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_blocking_instances_for_capacity_task_errors()}
+  def list_blocking_instances_for_capacity_task(
+        %Client{} = client,
+        capacity_task_id,
+        outpost_identifier,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/outposts/#{AWS.Util.encode_uri(outpost_identifier)}/capacity/#{AWS.Util.encode_uri(capacity_task_id)}/blockingInstances"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
       else
         query_params
       end
@@ -2190,7 +2447,7 @@ defmodule AWS.Outposts do
   @doc """
   Starts the specified capacity task.
 
-  You can have one active capacity task for an order.
+  You can have one active capacity task per order or Outpost.
   """
   @spec start_capacity_task(map(), String.t(), start_capacity_task_input(), list()) ::
           {:ok, start_capacity_task_output(), any()}

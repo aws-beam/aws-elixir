@@ -3069,6 +3069,7 @@ defmodule AWS.Inspector2 do
       package_filter() :: %{
         "architecture" => string_filter(),
         "epoch" => number_filter(),
+        "filePath" => string_filter(),
         "name" => string_filter(),
         "release" => string_filter(),
         "sourceLambdaLayerArn" => string_filter(),
@@ -4998,7 +4999,7 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
-  Lists coverage details for you environment.
+  Lists coverage details for your environment.
   """
   @spec list_coverage(map(), list_coverage_request(), list()) ::
           {:ok, list_coverage_response(), any()}
@@ -5355,7 +5356,7 @@ defmodule AWS.Inspector2 do
 
   This API is used by the Amazon Inspector SSM plugin to communicate with the
   Amazon Inspector service.
-  The Amazon Inspector SSM plugin calls this API to start a CIS scan session for
+  The Amazon Inspector SSM plugin calls this API to stop a CIS scan session for
   the scan ID supplied by the service.
   """
   @spec stop_cis_session(map(), stop_cis_session_request(), list()) ::

@@ -70,6 +70,17 @@ defmodule AWS.Fis do
 
   ## Example:
 
+      experiment_report_configuration_outputs() :: %{
+        "s3Configuration" => experiment_report_configuration_outputs_s3_configuration()
+      }
+
+  """
+  @type experiment_report_configuration_outputs() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_request() :: %{
         required("tags") => map()
       }
@@ -104,6 +115,20 @@ defmodule AWS.Fis do
 
   """
   @type get_experiment_target_account_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_experiment_template_report_configuration_input() :: %{
+        "dataSources" => experiment_template_report_configuration_data_sources_input(),
+        "outputs" => experiment_template_report_configuration_outputs_input(),
+        "postExperimentDuration" => String.t(),
+        "preExperimentDuration" => String.t()
+      }
+
+  """
+  @type create_experiment_template_report_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -178,6 +203,17 @@ defmodule AWS.Fis do
 
   ## Example:
 
+      experiment_report_configuration_data_sources() :: %{
+        "cloudWatchDashboards" => list(experiment_report_configuration_cloud_watch_dashboard()())
+      }
+
+  """
+  @type experiment_report_configuration_data_sources() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_experiment_templates_response() :: %{
         "experimentTemplates" => list(experiment_template_summary()()),
         "nextToken" => String.t()
@@ -194,6 +230,7 @@ defmodule AWS.Fis do
         optional("actions") => map(),
         optional("description") => String.t(),
         optional("experimentOptions") => update_experiment_template_experiment_options_input(),
+        optional("experimentReportConfiguration") => update_experiment_template_report_configuration_input(),
         optional("logConfiguration") => update_experiment_template_log_configuration_input(),
         optional("roleArn") => String.t(),
         optional("stopConditions") => list(update_experiment_template_stop_condition_input()()),
@@ -268,6 +305,18 @@ defmodule AWS.Fis do
 
   """
   @type target_account_configuration_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      experiment_report_s3_report() :: %{
+        "arn" => String.t(),
+        "reportType" => String.t()
+      }
+
+  """
+  @type experiment_report_s3_report() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -362,12 +411,36 @@ defmodule AWS.Fis do
 
   ## Example:
 
+      report_configuration_s3_output_input() :: %{
+        "bucketName" => String.t(),
+        "prefix" => String.t()
+      }
+
+  """
+  @type report_configuration_s3_output_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_target_account_configuration_response() :: %{
         "targetAccountConfiguration" => target_account_configuration()
       }
 
   """
   @type create_target_account_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      experiment_report_configuration_outputs_s3_configuration() :: %{
+        "bucketName" => String.t(),
+        "prefix" => String.t()
+      }
+
+  """
+  @type experiment_report_configuration_outputs_s3_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -380,6 +453,17 @@ defmodule AWS.Fis do
 
   """
   @type list_experiment_target_account_configurations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      experiment_report_configuration_cloud_watch_dashboard() :: %{
+        "dashboardIdentifier" => String.t()
+      }
+
+  """
+  @type experiment_report_configuration_cloud_watch_dashboard() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -473,6 +557,17 @@ defmodule AWS.Fis do
 
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      report_configuration_cloud_watch_dashboard_input() :: %{
+        "dashboardIdentifier" => String.t()
+      }
+
+  """
+  @type report_configuration_cloud_watch_dashboard_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -603,6 +698,17 @@ defmodule AWS.Fis do
 
   ## Example:
 
+      experiment_template_report_configuration_data_sources_input() :: %{
+        "cloudWatchDashboards" => list(report_configuration_cloud_watch_dashboard_input()())
+      }
+
+  """
+  @type experiment_template_report_configuration_data_sources_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       target_resource_type_parameter() :: %{
         "description" => String.t(),
         "required" => boolean()
@@ -617,6 +723,7 @@ defmodule AWS.Fis do
 
       create_experiment_template_request() :: %{
         optional("experimentOptions") => create_experiment_template_experiment_options_input(),
+        optional("experimentReportConfiguration") => create_experiment_template_report_configuration_input(),
         optional("logConfiguration") => create_experiment_template_log_configuration_input(),
         optional("tags") => map(),
         optional("targets") => map(),
@@ -638,6 +745,31 @@ defmodule AWS.Fis do
 
   """
   @type get_action_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      experiment_template_report_configuration_cloud_watch_dashboard() :: %{
+        "dashboardIdentifier" => String.t()
+      }
+
+  """
+  @type experiment_template_report_configuration_cloud_watch_dashboard() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      experiment_report_configuration() :: %{
+        "dataSources" => experiment_report_configuration_data_sources(),
+        "outputs" => experiment_report_configuration_outputs(),
+        "postExperimentDuration" => String.t(),
+        "preExperimentDuration" => String.t()
+      }
+
+  """
+  @type experiment_report_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -711,6 +843,29 @@ defmodule AWS.Fis do
 
   """
   @type list_actions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      experiment_report() :: %{
+        "s3Reports" => list(experiment_report_s3_report()()),
+        "state" => experiment_report_state()
+      }
+
+  """
+  @type experiment_report() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      experiment_template_report_configuration_outputs_input() :: %{
+        "s3Configuration" => report_configuration_s3_output_input()
+      }
+
+  """
+  @type experiment_template_report_configuration_outputs_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -800,6 +955,30 @@ defmodule AWS.Fis do
 
   ## Example:
 
+      experiment_report_state() :: %{
+        "error" => experiment_report_error(),
+        "reason" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type experiment_report_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      experiment_template_report_configuration_outputs() :: %{
+        "s3Configuration" => report_configuration_s3_output()
+      }
+
+  """
+  @type experiment_template_report_configuration_outputs() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       stop_experiment_request() :: %{}
 
   """
@@ -847,6 +1026,17 @@ defmodule AWS.Fis do
 
   ## Example:
 
+      experiment_template_report_configuration_data_sources() :: %{
+        "cloudWatchDashboards" => list(experiment_template_report_configuration_cloud_watch_dashboard()())
+      }
+
+  """
+  @type experiment_template_report_configuration_data_sources() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       action() :: %{
         "arn" => String.t(),
         "description" => String.t(),
@@ -869,6 +1059,7 @@ defmodule AWS.Fis do
         "creationTime" => non_neg_integer(),
         "description" => String.t(),
         "experimentOptions" => experiment_template_experiment_options(),
+        "experimentReportConfiguration" => experiment_template_report_configuration(),
         "id" => String.t(),
         "lastUpdateTime" => non_neg_integer(),
         "logConfiguration" => experiment_template_log_configuration(),
@@ -996,6 +1187,17 @@ defmodule AWS.Fis do
 
   ## Example:
 
+      experiment_report_error() :: %{
+        "code" => String.t()
+      }
+
+  """
+  @type experiment_report_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception() :: %{
         "message" => String.t()
       }
@@ -1104,6 +1306,20 @@ defmodule AWS.Fis do
 
   ## Example:
 
+      update_experiment_template_report_configuration_input() :: %{
+        "dataSources" => experiment_template_report_configuration_data_sources_input(),
+        "outputs" => experiment_template_report_configuration_outputs_input(),
+        "postExperimentDuration" => String.t(),
+        "preExperimentDuration" => String.t()
+      }
+
+  """
+  @type update_experiment_template_report_configuration_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_experiment_template_experiment_options_input() :: %{
         "accountTargeting" => list(any()),
         "emptyTargetResolutionMode" => list(any())
@@ -1176,6 +1392,18 @@ defmodule AWS.Fis do
 
   ## Example:
 
+      report_configuration_s3_output() :: %{
+        "bucketName" => String.t(),
+        "prefix" => String.t()
+      }
+
+  """
+  @type report_configuration_s3_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       action_parameter() :: %{
         "description" => String.t(),
         "required" => boolean()
@@ -1237,6 +1465,20 @@ defmodule AWS.Fis do
 
   ## Example:
 
+      experiment_template_report_configuration() :: %{
+        "dataSources" => experiment_template_report_configuration_data_sources(),
+        "outputs" => experiment_template_report_configuration_outputs(),
+        "postExperimentDuration" => String.t(),
+        "preExperimentDuration" => String.t()
+      }
+
+  """
+  @type experiment_template_report_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_experiment_template_experiment_options_input() :: %{
         "emptyTargetResolutionMode" => list(any())
       }
@@ -1254,6 +1496,8 @@ defmodule AWS.Fis do
         "creationTime" => non_neg_integer(),
         "endTime" => non_neg_integer(),
         "experimentOptions" => experiment_options(),
+        "experimentReport" => experiment_report(),
+        "experimentReportConfiguration" => experiment_report_configuration(),
         "experimentTemplateId" => String.t(),
         "id" => String.t(),
         "logConfiguration" => experiment_log_configuration(),

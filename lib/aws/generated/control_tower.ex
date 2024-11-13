@@ -517,6 +517,17 @@ defmodule AWS.ControlTower do
 
   ## Example:
 
+      reset_enabled_control_input() :: %{
+        required("enabledControlIdentifier") => String.t()
+      }
+
+  """
+  @type reset_enabled_control_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_landing_zones_input() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => [String.t()]
@@ -1375,6 +1386,17 @@ defmodule AWS.ControlTower do
 
   ## Example:
 
+      reset_enabled_control_output() :: %{
+        "operationIdentifier" => String.t()
+      }
+
+  """
+  @type reset_enabled_control_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       control_operation_summary() :: %{
         "controlIdentifier" => String.t(),
         "enabledControlIdentifier" => String.t(),
@@ -1542,6 +1564,15 @@ defmodule AWS.ControlTower do
           validation_exception() | internal_server_exception() | resource_not_found_exception()
 
   @type reset_enabled_baseline_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type reset_enabled_control_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -2260,6 +2291,33 @@ defmodule AWS.ControlTower do
   end
 
   @doc """
+  Resets an enabled control.
+  """
+  @spec reset_enabled_control(map(), reset_enabled_control_input(), list()) ::
+          {:ok, reset_enabled_control_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, reset_enabled_control_errors()}
+  def reset_enabled_control(%Client{} = client, input, options \\ []) do
+    url_path = "/reset-enabled-control"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   This API call resets a landing zone.
 
   It starts an asynchronous operation that resets the
@@ -2405,10 +2463,11 @@ defmodule AWS.ControlTower do
   Services Control Tower updates the control to match any valid parameters that
   you supply.
 
-  If the `DriftSummary` status for the control shows as DRIFTED, you cannot call
-  this API. Instead, you can update the control by calling `DisableControl` and
-  again calling `EnableControl`, or you can run an extending governance operation.
-  For usage examples, see the [
+  If the `DriftSummary` status for the control shows as `DRIFTED`, you cannot call
+  this API. Instead, you can update the control by calling the
+  `ResetEnabledControl` API. Alternatively, you can call `DisableControl` and then
+  call `EnableControl` again. Also, you can run an extending governance operation
+  to repair drift. For usage examples, see the [
   *Controls Reference Guide*
   ](https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html).
   """

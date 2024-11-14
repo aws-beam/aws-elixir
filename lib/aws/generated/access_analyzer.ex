@@ -220,6 +220,7 @@ defmodule AWS.AccessAnalyzer do
         "isPublic" => [boolean()],
         "principal" => map(),
         "resource" => [String.t()],
+        "resourceControlPolicyRestriction" => String.t(),
         "resourceOwnerAccount" => [String.t()],
         "resourceType" => String.t(),
         "sources" => list(finding_source()()),
@@ -600,6 +601,7 @@ defmodule AWS.AccessAnalyzer do
         "isPublic" => [boolean()],
         "principal" => map(),
         "resource" => [String.t()],
+        "resourceControlPolicyRestriction" => String.t(),
         "resourceOwnerAccount" => [String.t()],
         "resourceType" => String.t(),
         "sources" => list(finding_source()()),
@@ -787,6 +789,7 @@ defmodule AWS.AccessAnalyzer do
         "isPublic" => [boolean()],
         "principal" => map(),
         "resource" => [String.t()],
+        "resourceControlPolicyRestriction" => String.t(),
         "resourceOwnerAccount" => [String.t()],
         "resourceType" => String.t(),
         "sources" => list(finding_source()()),
@@ -1140,6 +1143,7 @@ defmodule AWS.AccessAnalyzer do
         "condition" => map(),
         "isPublic" => [boolean()],
         "principal" => map(),
+        "resourceControlPolicyRestriction" => String.t(),
         "sources" => list(finding_source()())
       }
 

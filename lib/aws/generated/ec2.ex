@@ -18149,8 +18149,10 @@ defmodule AWS.EC2 do
         "PlatformDetails" => String.t(),
         "KernelId" => String.t(),
         "ImageType" => list(any()),
+        "SourceImageId" => String.t(),
         "StateReason" => state_reason(),
         "State" => list(any()),
+        "SourceImageRegion" => String.t(),
         "UsageOperation" => String.t(),
         "EnaSupport" => boolean(),
         "Hypervisor" => list(any()),
@@ -28794,8 +28796,8 @@ defmodule AWS.EC2 do
 
   @doc """
 
-  Create a new Capacity Reservation by splitting the available capacity of the
-  source Capacity Reservation.
+  Create a new Capacity Reservation by splitting the capacity of the source
+  Capacity Reservation.
 
   The new Capacity Reservation will have the same attributes as the source
   Capacity Reservation except for tags. The source Capacity Reservation must be
@@ -29381,7 +29383,7 @@ defmodule AWS.EC2 do
 
   @doc """
   Creates an ED25519 or 2048-bit RSA key pair with the specified name and in the
-  specified PEM or PPK format.
+  specified format.
 
   Amazon EC2 stores the public key and displays the private
   key for you to save to a file. The private key is returned as an unencrypted PEM
@@ -29400,7 +29402,7 @@ defmodule AWS.EC2 do
 
   For more information, see [Amazon EC2 key pairs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html)
   in the
-  *Amazon Elastic Compute Cloud User Guide*.
+  *Amazon EC2 User Guide*.
   """
   @spec create_key_pair(map(), create_key_pair_request(), list()) ::
           {:ok, key_pair(), any()}
@@ -29952,10 +29954,10 @@ defmodule AWS.EC2 do
   For more information, see
   [Amazon EC2 security groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html)
   in
-  the *Amazon Elastic Compute Cloud User Guide* and
+  the *Amazon EC2 User Guide* and
   [Security groups for your VPC](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html)
   in the
-  *Amazon Virtual Private Cloud User Guide*.
+  *Amazon VPC User Guide*.
 
   When you create a security group, you specify a friendly name of your choice.
   You can't have two security groups for the same VPC with the same name.
@@ -33757,7 +33759,7 @@ defmodule AWS.EC2 do
   Describes the specified key pairs or all of your key pairs.
 
   For more information about key pairs, see [Amazon EC2 key pairs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  in the *Amazon EC2 User Guide*.
   """
   @spec describe_key_pairs(map(), describe_key_pairs_request(), list()) ::
           {:ok, describe_key_pairs_result(), any()}
@@ -37973,17 +37975,15 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Imports the public key from an RSA or ED25519 key pair that you created with a
+  Imports the public key from an RSA or ED25519 key pair that you created using a
   third-party tool.
 
-  Compare this with `CreateKeyPair`, in which Amazon Web Services creates the key
-  pair and gives the keys to you
-  (Amazon Web Services keeps a copy of the public key). With ImportKeyPair, you
-  create the key pair and give Amazon Web Services just the public key.
-  The private key is never transferred between you and Amazon Web Services.
+  You give Amazon Web Services only the public key. The private key is never
+  transferred between you and Amazon Web Services.
 
-  For more information about key pairs, see [Amazon EC2 key pairs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  For more information about the requirements for importing a key pair, see
+  [Create a key pair and import the public key to Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html#how-to-generate-your-own-key-and-import-it-to-aws)
+  in the *Amazon EC2 User Guide*.
   """
   @spec import_key_pair(map(), import_key_pair_request(), list()) ::
           {:ok, import_key_pair_result(), any()}

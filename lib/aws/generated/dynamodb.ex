@@ -66,7 +66,8 @@ defmodule AWS.DynamoDB do
         "TableId" => String.t(),
         "TableName" => String.t(),
         "TableSizeBytes" => float(),
-        "TableStatus" => list(any())
+        "TableStatus" => list(any()),
+        "WarmThroughput" => table_warm_throughput_description()
       }
       
   """
@@ -630,6 +631,7 @@ defmodule AWS.DynamoDB do
         optional("StreamSpecification") => stream_specification(),
         optional("TableClass") => list(any()),
         optional("Tags") => list(tag()()),
+        optional("WarmThroughput") => warm_throughput(),
         required("AttributeDefinitions") => list(attribute_definition()()),
         required("KeySchema") => list(key_schema_element()()),
         required("TableName") => String.t()
@@ -1086,6 +1088,19 @@ defmodule AWS.DynamoDB do
 
   ## Example:
       
+      table_warm_throughput_description() :: %{
+        "ReadUnitsPerSecond" => float(),
+        "Status" => list(any()),
+        "WriteUnitsPerSecond" => float()
+      }
+      
+  """
+  @type table_warm_throughput_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_tables_input() :: %{
         optional("ExclusiveStartTableName") => String.t(),
         optional("Limit") => integer()
@@ -1451,7 +1466,8 @@ defmodule AWS.DynamoDB do
         "KeySchema" => list(key_schema_element()()),
         "OnDemandThroughput" => on_demand_throughput(),
         "Projection" => projection(),
-        "ProvisionedThroughput" => provisioned_throughput()
+        "ProvisionedThroughput" => provisioned_throughput(),
+        "WarmThroughput" => warm_throughput()
       }
       
   """
@@ -1645,6 +1661,31 @@ defmodule AWS.DynamoDB do
       
   """
   @type export_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      warm_throughput() :: %{
+        "ReadUnitsPerSecond" => float(),
+        "WriteUnitsPerSecond" => float()
+      }
+      
+  """
+  @type warm_throughput() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      global_secondary_index_warm_throughput_description() :: %{
+        "ReadUnitsPerSecond" => float(),
+        "Status" => list(any()),
+        "WriteUnitsPerSecond" => float()
+      }
+      
+  """
+  @type global_secondary_index_warm_throughput_description() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2278,7 +2319,8 @@ defmodule AWS.DynamoDB do
         "KeySchema" => list(key_schema_element()()),
         "OnDemandThroughput" => on_demand_throughput(),
         "Projection" => projection(),
-        "ProvisionedThroughput" => provisioned_throughput_description()
+        "ProvisionedThroughput" => provisioned_throughput_description(),
+        "WarmThroughput" => global_secondary_index_warm_throughput_description()
       }
       
   """
@@ -2338,7 +2380,8 @@ defmodule AWS.DynamoDB do
       replica_global_secondary_index_description() :: %{
         "IndexName" => String.t(),
         "OnDemandThroughputOverride" => on_demand_throughput_override(),
-        "ProvisionedThroughputOverride" => provisioned_throughput_override()
+        "ProvisionedThroughputOverride" => provisioned_throughput_override(),
+        "WarmThroughput" => global_secondary_index_warm_throughput_description()
       }
       
   """
@@ -2526,7 +2569,8 @@ defmodule AWS.DynamoDB do
         "KeySchema" => list(key_schema_element()()),
         "OnDemandThroughput" => on_demand_throughput(),
         "Projection" => projection(),
-        "ProvisionedThroughput" => provisioned_throughput()
+        "ProvisionedThroughput" => provisioned_throughput(),
+        "WarmThroughput" => warm_throughput()
       }
       
   """
@@ -2669,7 +2713,8 @@ defmodule AWS.DynamoDB do
         "ReplicaStatus" => list(any()),
         "ReplicaStatusDescription" => String.t(),
         "ReplicaStatusPercentProgress" => String.t(),
-        "ReplicaTableClassSummary" => table_class_summary()
+        "ReplicaTableClassSummary" => table_class_summary(),
+        "WarmThroughput" => table_warm_throughput_description()
       }
       
   """
@@ -2775,7 +2820,8 @@ defmodule AWS.DynamoDB do
       update_global_secondary_index_action() :: %{
         "IndexName" => String.t(),
         "OnDemandThroughput" => on_demand_throughput(),
-        "ProvisionedThroughput" => provisioned_throughput()
+        "ProvisionedThroughput" => provisioned_throughput(),
+        "WarmThroughput" => warm_throughput()
       }
       
   """
@@ -3046,6 +3092,7 @@ defmodule AWS.DynamoDB do
         optional("SSESpecification") => sse_specification(),
         optional("StreamSpecification") => stream_specification(),
         optional("TableClass") => list(any()),
+        optional("WarmThroughput") => warm_throughput(),
         required("TableName") => String.t()
       }
       

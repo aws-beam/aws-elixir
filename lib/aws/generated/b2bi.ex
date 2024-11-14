@@ -256,6 +256,18 @@ defmodule AWS.B2bi do
 
   ## Example:
       
+      generate_mapping_response() :: %{
+        "mappingAccuracy" => [float()],
+        "mappingTemplate" => [String.t()]
+      }
+      
+  """
+  @type generate_mapping_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       untag_resource_request() :: %{
         required("TagKeys") => list(String.t()())
       }
@@ -733,6 +745,19 @@ defmodule AWS.B2bi do
 
   ## Example:
       
+      generate_mapping_request() :: %{
+        required("inputFileContent") => String.t(),
+        required("mappingType") => list(any()),
+        required("outputFileContent") => String.t()
+      }
+      
+  """
+  @type generate_mapping_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       x12_interchange_control_headers() :: %{
         "acknowledgmentRequestedCode" => String.t(),
         "receiverId" => String.t(),
@@ -1204,6 +1229,12 @@ defmodule AWS.B2bi do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type generate_mapping_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type get_capability_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1546,6 +1577,29 @@ defmodule AWS.B2bi do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteTransformer", input, options)
+  end
+
+  @doc """
+  Takes sample input and output documents and uses Amazon Bedrock to generate a
+  mapping automatically.
+
+  Depending on the accuracy and other factors, you can then edit the mapping for
+  your needs.
+
+  Before you can use the AI-assisted feature for Amazon Web Services B2B Data
+  Interchange you must enable models in Amazon Bedrock. For details, see
+  [AI-assisted template mapping prerequisites](https://docs.aws.amazon.com/b2bi/latest/userguide/ai-assisted-mapping.html#ai-assist-prereq)
+  in
+  the *Amazon Web Services B2B Data Interchange User guide*.
+  """
+  @spec generate_mapping(map(), generate_mapping_request(), list()) ::
+          {:ok, generate_mapping_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, generate_mapping_errors()}
+  def generate_mapping(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GenerateMapping", input, options)
   end
 
   @doc """

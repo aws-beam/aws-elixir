@@ -131,6 +131,7 @@ defmodule AWS.CloudTrail do
         "DeliveryS3Uri" => String.t(),
         "DeliveryStatus" => list(any()),
         "ErrorMessage" => String.t(),
+        "Prompt" => String.t(),
         "QueryId" => String.t(),
         "QueryStatistics" => query_statistics_for_describe_query(),
         "QueryStatus" => list(any()),
@@ -749,6 +750,18 @@ defmodule AWS.CloudTrail do
 
   ## Example:
       
+      generate_query_response() :: %{
+        "QueryAlias" => String.t(),
+        "QueryStatement" => String.t()
+      }
+      
+  """
+  @type generate_query_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_queries_response() :: %{
         "NextToken" => String.t(),
         "Queries" => list(query()())
@@ -1327,6 +1340,18 @@ defmodule AWS.CloudTrail do
       
   """
   @type create_event_data_store_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      generate_query_request() :: %{
+        required("EventDataStores") => list(String.t()()),
+        required("Prompt") => String.t()
+      }
+      
+  """
+  @type generate_query_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2345,6 +2370,17 @@ defmodule AWS.CloudTrail do
 
   ## Example:
       
+      generate_response_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type generate_response_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       invalid_event_data_store_status_exception() :: %{
         "Message" => String.t()
       }
@@ -2849,6 +2885,16 @@ defmodule AWS.CloudTrail do
           | event_data_store_arn_invalid_exception()
           | unsupported_operation_exception()
 
+  @type generate_query_errors() ::
+          generate_response_exception()
+          | event_data_store_not_found_exception()
+          | invalid_parameter_exception()
+          | inactive_event_data_store_exception()
+          | operation_not_permitted_exception()
+          | no_management_account_s_l_r_exists_exception()
+          | event_data_store_arn_invalid_exception()
+          | unsupported_operation_exception()
+
   @type get_channel_errors() ::
           channel_arn_invalid_exception()
           | operation_not_permitted_exception()
@@ -3063,6 +3109,7 @@ defmodule AWS.CloudTrail do
           | not_organization_master_account_exception()
           | operation_not_permitted_exception()
           | resource_not_found_exception()
+          | conflict_exception()
           | no_management_account_s_l_r_exists_exception()
           | invalid_tag_parameter_exception()
           | channel_not_found_exception()
@@ -3525,6 +3572,40 @@ defmodule AWS.CloudTrail do
     meta = metadata()
 
     Request.request_post(client, meta, "EnableFederation", input, options)
+  end
+
+  @doc """
+
+  Generates a query from a natural language prompt.
+
+  This operation uses generative artificial intelligence
+  (generative AI) to produce a ready-to-use SQL query from the prompt.
+
+  The prompt can be a question or a statement about the event data
+  in your event data store. For example, you can enter prompts like "What are my
+  top errors in the past month?" and “Give me a list of users that used SNS.”
+
+  The prompt must be in English. For information about limitations, permissions,
+  and supported Regions, see
+  [Create CloudTrail Lake queries from natural language prompts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/lake-query-generator.html)
+  in the *CloudTrail * user guide.
+
+  Do not include any personally identifying, confidential, or sensitive
+  information
+  in your prompts.
+
+  This feature uses generative AI large language models (LLMs); we recommend
+  double-checking the
+  LLM response.
+  """
+  @spec generate_query(map(), generate_query_request(), list()) ::
+          {:ok, generate_query_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, generate_query_errors()}
+  def generate_query(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GenerateQuery", input, options)
   end
 
   @doc """

@@ -268,6 +268,7 @@ defmodule AWS.ApplicationSignals do
   ## Example:
 
       create_service_level_objective_input() :: %{
+        optional("BurnRateConfigurations") => list(burn_rate_configuration()()),
         optional("Description") => String.t(),
         optional("Goal") => goal(),
         optional("RequestBasedSliConfig") => request_based_service_level_indicator_config(),
@@ -285,6 +286,7 @@ defmodule AWS.ApplicationSignals do
 
       service_level_objective() :: %{
         "Arn" => String.t(),
+        "BurnRateConfigurations" => list(burn_rate_configuration()()),
         "CreatedTime" => [non_neg_integer()],
         "Description" => String.t(),
         "EvaluationType" => list(any()),
@@ -505,6 +507,17 @@ defmodule AWS.ApplicationSignals do
 
   ## Example:
 
+      burn_rate_configuration() :: %{
+        "LookBackWindowMinutes" => integer()
+      }
+
+  """
+  @type burn_rate_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_tags_for_resource_response() :: %{
         "Tags" => list(tag()())
       }
@@ -679,6 +692,7 @@ defmodule AWS.ApplicationSignals do
   ## Example:
 
       update_service_level_objective_input() :: %{
+        optional("BurnRateConfigurations") => list(burn_rate_configuration()()),
         optional("Description") => String.t(),
         optional("Goal") => goal(),
         optional("RequestBasedSliConfig") => request_based_service_level_indicator_config(),

@@ -914,6 +914,18 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
+      participating_gateways_multicast() :: %{
+        "GatewayList" => list(String.t()()),
+        "TransmissionInterval" => integer()
+      }
+
+  """
+  @type participating_gateways_multicast() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       trace_content() :: %{
         "LogLevel" => list(any()),
         "MulticastFrameInfo" => list(any()),
@@ -997,6 +1009,7 @@ defmodule AWS.IoTWireless do
         "Arn" => String.t(),
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t(),
+        "Descriptor" => String.t(),
         "FirmwareUpdateImage" => String.t(),
         "FirmwareUpdateRole" => String.t(),
         "FragmentIntervalMS" => integer(),
@@ -1986,6 +1999,7 @@ defmodule AWS.IoTWireless do
       create_fuota_task_request() :: %{
         optional("ClientRequestToken") => String.t(),
         optional("Description") => String.t(),
+        optional("Descriptor") => String.t(),
         optional("FragmentIntervalMS") => integer(),
         optional("FragmentSizeBytes") => integer(),
         optional("LoRaWAN") => lo_ra_w_a_n_fuota_task(),
@@ -2570,6 +2584,19 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
+      fuota_task_log_option() :: %{
+        "Events" => list(fuota_task_event_log_option()()),
+        "LogLevel" => list(any()),
+        "Type" => list(any())
+      }
+
+  """
+  @type fuota_task_log_option() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       wireless_gateway_log_option() :: %{
         "Events" => list(wireless_gateway_event_log_option()()),
         "LogLevel" => list(any()),
@@ -2823,6 +2850,7 @@ defmodule AWS.IoTWireless do
 
       update_log_levels_by_resource_types_request() :: %{
         optional("DefaultLogLevel") => list(any()),
+        optional("FuotaTaskLogOptions") => list(fuota_task_log_option()()),
         optional("WirelessDeviceLogOptions") => list(wireless_device_log_option()()),
         optional("WirelessGatewayLogOptions") => list(wireless_gateway_log_option()())
       }
@@ -3358,6 +3386,18 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
+      fuota_task_event_log_option() :: %{
+        "Event" => list(any()),
+        "LogLevel" => list(any())
+      }
+
+  """
+  @type fuota_task_event_log_option() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       throttling_exception() :: %{
         "Message" => String.t()
       }
@@ -3449,6 +3489,7 @@ defmodule AWS.IoTWireless do
 
       lo_ra_w_a_n_multicast() :: %{
         "DlClass" => list(any()),
+        "ParticipatingGateways" => participating_gateways_multicast(),
         "RfRegion" => list(any())
       }
 
@@ -3501,6 +3542,7 @@ defmodule AWS.IoTWireless do
         "DlClass" => list(any()),
         "NumberOfDevicesInGroup" => integer(),
         "NumberOfDevicesRequested" => integer(),
+        "ParticipatingGateways" => participating_gateways_multicast(),
         "RfRegion" => list(any())
       }
 
@@ -3543,6 +3585,7 @@ defmodule AWS.IoTWireless do
 
       get_log_levels_by_resource_types_response() :: %{
         "DefaultLogLevel" => list(any()),
+        "FuotaTaskLogOptions" => list(fuota_task_log_option()()),
         "WirelessDeviceLogOptions" => list(wireless_device_log_option()()),
         "WirelessGatewayLogOptions" => list(wireless_gateway_log_option()())
       }
@@ -4209,6 +4252,7 @@ defmodule AWS.IoTWireless do
 
       update_fuota_task_request() :: %{
         optional("Description") => String.t(),
+        optional("Descriptor") => String.t(),
         optional("FirmwareUpdateImage") => String.t(),
         optional("FirmwareUpdateRole") => String.t(),
         optional("FragmentIntervalMS") => integer(),
@@ -6700,7 +6744,7 @@ defmodule AWS.IoTWireless do
   resource-type.
 
   It
-  can be used for a wireless device or a wireless gateway.
+  can be used for a wireless device, wireless gateway or fuota task.
   """
   @spec get_resource_log_level(map(), String.t(), String.t(), list()) ::
           {:ok, get_resource_log_level_response(), any()}
@@ -7772,9 +7816,8 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
-  Removes the log-level overrides for all resources; both wireless devices and
-  wireless
-  gateways.
+  Removes the log-level overrides for all resources; wireless devices, wireless
+  gateways, and fuota tasks.
   """
   @spec reset_all_resource_log_levels(map(), reset_all_resource_log_levels_request(), list()) ::
           {:ok, reset_all_resource_log_levels_response(), any()}
@@ -7804,7 +7847,7 @@ defmodule AWS.IoTWireless do
   Removes the log-level override, if any, for a specific resource-ID and
   resource-type.
 
-  It can be used for a wireless device or a wireless gateway.
+  It can be used for a wireless device, a wireless gateway, or a fuota task.
   """
   @spec reset_resource_log_level(map(), String.t(), reset_resource_log_level_request(), list()) ::
           {:ok, reset_resource_log_level_response(), any()}

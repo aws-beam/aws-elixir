@@ -4240,7 +4240,7 @@ defmodule AWS.S3 do
   bucket until all the in-progress multipart uploads are aborted or completed.
   To delete these in-progress multipart uploads, use the
   `ListMultipartUploads` operation to list the in-progress multipart
-  uploads in the bucket and use the `AbortMultupartUpload` operation to
+  uploads in the bucket and use the `AbortMultipartUpload` operation to
   abort all the in-progress multipart uploads.
 
     
@@ -10534,6 +10534,16 @@ defmodule AWS.S3 do
 
   For information about Amazon S3 buckets, see [Creating, configuring, and working with Amazon S3
   buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html).
+
+  We strongly recommend using only paginated requests. Unpaginated requests are
+  only supported for
+  Amazon Web Services accounts set to the default general purpose bucket quota of
+  10,000. If you have an approved
+  general purpose bucket quota above 10,000, you must send paginated requests to
+  list your account’s buckets.
+  All unpaginated ListBuckets requests will be rejected for Amazon Web Services
+  accounts with a general purpose bucket quota
+  greater than 10,000.
   """
   @spec list_buckets(
           map(),
@@ -10627,6 +10637,9 @@ defmodule AWS.S3 do
 
   **Directory buckets ** - The HTTP Host header syntax is
   `s3express-control.*region*.amazonaws.com`.
+
+  The `BucketRegion` response element is not part of the `ListDirectoryBuckets`
+  Response Syntax.
   """
   @spec list_directory_buckets(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_directory_buckets_output(), any()}
@@ -10673,7 +10686,7 @@ defmodule AWS.S3 do
   bucket until all the in-progress multipart uploads are aborted or completed.
   To delete these in-progress multipart uploads, use the `ListMultipartUploads`
   operation to list the in-progress multipart
-  uploads in the bucket and use the `AbortMultupartUpload` operation to abort all
+  uploads in the bucket and use the `AbortMultipartUpload` operation to abort all
   the in-progress multipart uploads.
 
   The `ListMultipartUploads` operation returns a maximum of 1,000 multipart

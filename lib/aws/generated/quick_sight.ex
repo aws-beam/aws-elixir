@@ -173,6 +173,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      delete_brand_assignment_response() :: %{
+        "RequestId" => String.t()
+      }
+
+  """
+  @type delete_brand_assignment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_dashboard_permissions_response() :: %{
         "DashboardArn" => String.t(),
         "DashboardId" => String.t(),
@@ -352,6 +363,23 @@ defmodule AWS.QuickSight do
 
   """
   @type filled_map_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      brand_summary() :: %{
+        "Arn" => String.t(),
+        "BrandId" => String.t(),
+        "BrandName" => String.t(),
+        "BrandStatus" => list(any()),
+        "CreatedTime" => [non_neg_integer()],
+        "Description" => String.t(),
+        "LastUpdatedTime" => [non_neg_integer()]
+      }
+
+  """
+  @type brand_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -602,6 +630,19 @@ defmodule AWS.QuickSight do
 
   """
   @type data_set_refresh_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_custom_permissions_request() :: %{
+        optional("Capabilities") => capabilities(),
+        optional("Tags") => list(tag()()),
+        required("CustomPermissionsName") => String.t()
+      }
+
+  """
+  @type create_custom_permissions_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1365,6 +1406,20 @@ defmodule AWS.QuickSight do
 
   """
   @type describe_refresh_schedule_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_custom_permissions_response() :: %{
+        "CustomPermissionsList" => list(custom_permissions()()),
+        "NextToken" => String.t(),
+        "RequestId" => String.t(),
+        "Status" => integer()
+      }
+
+  """
+  @type list_custom_permissions_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2261,6 +2316,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      update_user_custom_permission_response() :: %{
+        "RequestId" => String.t(),
+        "Status" => integer()
+      }
+
+  """
+  @type update_user_custom_permission_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_asset_bundle_import_jobs_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
@@ -2398,6 +2465,17 @@ defmodule AWS.QuickSight do
 
   """
   @type search_folders_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_set_configuration() :: %{
+        "Original" => image_configuration()
+      }
+
+  """
+  @type image_set_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2554,6 +2632,18 @@ defmodule AWS.QuickSight do
 
   """
   @type funnel_chart_sort_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_custom_permissions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_custom_permissions_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2748,6 +2838,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      update_brand_request() :: %{
+        optional("BrandDefinition") => brand_definition()
+      }
+
+  """
+  @type update_brand_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       parameter_text_field_control() :: %{
         "DisplayOptions" => text_field_control_display_options(),
         "ParameterControlId" => String.t(),
@@ -2786,6 +2887,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      logo() :: %{
+        "AltText" => String.t(),
+        "LogoSet" => logo_set()
+      }
+
+  """
+  @type logo() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       asset_bundle_import_job_theme_override_permissions() :: %{
         "Permissions" => asset_bundle_resource_permissions(),
         "ThemeIds" => list(String.t()())
@@ -2805,6 +2918,19 @@ defmodule AWS.QuickSight do
 
   """
   @type gauge_chart_primary_value_conditional_formatting() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_brand_published_version_response() :: %{
+        "BrandDefinition" => brand_definition(),
+        "BrandDetail" => brand_detail(),
+        "RequestId" => String.t()
+      }
+
+  """
+  @type describe_brand_published_version_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3504,6 +3630,15 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      delete_custom_permissions_request() :: %{}
+
+  """
+  @type delete_custom_permissions_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       search_data_sources_response() :: %{
         "DataSourceSummaries" => list(data_source_summary()()),
         "NextToken" => String.t(),
@@ -3513,6 +3648,19 @@ defmodule AWS.QuickSight do
 
   """
   @type search_data_sources_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_custom_permissions_response() :: %{
+        "Arn" => String.t(),
+        "RequestId" => String.t(),
+        "Status" => integer()
+      }
+
+  """
+  @type create_custom_permissions_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3720,6 +3868,29 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      describe_brand_request() :: %{
+        optional("VersionId") => String.t()
+      }
+
+  """
+  @type describe_brand_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_brands_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_brands_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       scatter_plot_categorically_aggregated_field_wells() :: %{
         "Category" => list(dimension_field()()),
         "Label" => list(dimension_field()()),
@@ -3820,6 +3991,15 @@ defmodule AWS.QuickSight do
 
   """
   @type error_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_user_custom_permission_request() :: %{}
+
+  """
+  @type delete_user_custom_permission_request() :: %{}
 
   @typedoc """
 
@@ -4554,6 +4734,19 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      update_brand_response() :: %{
+        "BrandDefinition" => brand_definition(),
+        "BrandDetail" => brand_detail(),
+        "RequestId" => String.t()
+      }
+
+  """
+  @type update_brand_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_folder_permissions_response() :: %{
         "Arn" => String.t(),
         "FolderId" => String.t(),
@@ -4715,6 +4908,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      update_user_custom_permission_request() :: %{
+        required("CustomPermissionsName") => String.t()
+      }
+
+  """
+  @type update_user_custom_permission_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       dashboard_version_summary() :: %{
         "Arn" => String.t(),
         "CreatedTime" => non_neg_integer(),
@@ -4768,6 +4972,17 @@ defmodule AWS.QuickSight do
 
   """
   @type list_folders_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      brand_element_style() :: %{
+        "NavbarStyle" => navbar_style()
+      }
+
+  """
+  @type brand_element_style() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5195,6 +5410,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      logo_set() :: %{
+        "Favicon" => image_set(),
+        "Primary" => image_set()
+      }
+
+  """
+  @type logo_set() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       unsupported_user_edition_exception() :: %{
         "Message" => String.t(),
         "RequestId" => String.t()
@@ -5324,6 +5551,15 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      describe_brand_published_version_request() :: %{}
+
+  """
+  @type describe_brand_published_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       shape_conditional_format() :: %{
         "BackgroundColor" => conditional_formatting_color()
       }
@@ -5342,6 +5578,19 @@ defmodule AWS.QuickSight do
 
   """
   @type list_data_sources_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_custom_permissions_response() :: %{
+        "Arn" => String.t(),
+        "RequestId" => String.t(),
+        "Status" => integer()
+      }
+
+  """
+  @type delete_custom_permissions_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5463,6 +5712,18 @@ defmodule AWS.QuickSight do
 
   """
   @type heat_map_aggregated_field_wells() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_brand_published_version_response() :: %{
+        "RequestId" => String.t(),
+        "VersionId" => String.t()
+      }
+
+  """
+  @type update_brand_published_version_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -7268,6 +7529,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      logo_configuration() :: %{
+        "AltText" => String.t(),
+        "LogoSet" => logo_set_configuration()
+      }
+
+  """
+  @type logo_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_topic_refresh_schedule_request() :: %{}
 
   """
@@ -7384,6 +7657,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      delete_user_custom_permission_response() :: %{
+        "RequestId" => String.t(),
+        "Status" => integer()
+      }
+
+  """
+  @type delete_user_custom_permission_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_refresh_schedule_request() :: %{}
 
   """
@@ -7465,6 +7750,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      describe_brand_assignment_response() :: %{
+        "BrandArn" => String.t(),
+        "RequestId" => String.t()
+      }
+
+  """
+  @type describe_brand_assignment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       parameter_slider_control() :: %{
         "DisplayOptions" => slider_control_display_options(),
         "MaximumValue" => float(),
@@ -7504,6 +7801,18 @@ defmodule AWS.QuickSight do
 
   """
   @type custom_filter_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_brand_request() :: %{
+        optional("BrandDefinition") => brand_definition(),
+        optional("Tags") => list(tag()())
+      }
+
+  """
+  @type create_brand_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -8048,6 +8357,17 @@ defmodule AWS.QuickSight do
 
   """
   @type asset_bundle_import_job_refresh_schedule_override_parameters() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_brand_assignment_request() :: %{
+        required("BrandArn") => String.t()
+      }
+
+  """
+  @type update_brand_assignment_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -8895,12 +9215,35 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      list_brands_response() :: %{
+        "Brands" => list(brand_summary()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_brands_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       range_ends_label_type() :: %{
         "Visibility" => list(any())
       }
 
   """
   @type range_ends_label_type() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_custom_permissions_request() :: %{
+        optional("Capabilities") => capabilities()
+      }
+
+  """
+  @type update_custom_permissions_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -9201,6 +9544,19 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      custom_permissions() :: %{
+        "Arn" => String.t(),
+        "Capabilities" => capabilities(),
+        "CustomPermissionsName" => String.t()
+      }
+
+  """
+  @type custom_permissions() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       bar_chart_sort_configuration() :: %{
         "CategoryItemsLimit" => items_limit_configuration(),
         "CategorySort" => list(field_sort_options()()),
@@ -9330,6 +9686,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      logo_set_configuration() :: %{
+        "Favicon" => image_set_configuration(),
+        "Primary" => image_set_configuration()
+      }
+
+  """
+  @type logo_set_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       destination_parameter_value_configuration() :: %{
         "CustomValuesConfiguration" => custom_values_configuration(),
         "SelectAllValueOptions" => list(any()),
@@ -9394,6 +9762,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      palette() :: %{
+        "Background" => String.t(),
+        "Foreground" => String.t()
+      }
+
+  """
+  @type palette() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_template_response() :: %{
         "Arn" => String.t(),
         "CreationStatus" => list(any()),
@@ -9443,6 +9823,17 @@ defmodule AWS.QuickSight do
 
   """
   @type filter_list_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "Message" => [String.t()]
+      }
+
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -9775,6 +10166,15 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      describe_brand_assignment_request() :: %{}
+
+  """
+  @type describe_brand_assignment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       describe_user_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer(),
@@ -9867,6 +10267,15 @@ defmodule AWS.QuickSight do
 
   """
   @type tooltip_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_custom_permissions_request() :: %{}
+
+  """
+  @type describe_custom_permissions_request() :: %{}
 
   @typedoc """
 
@@ -10350,6 +10759,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      image() :: %{
+        "GeneratedImageUrl" => String.t(),
+        "Source" => list()
+      }
+
+  """
+  @type image() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_account_subscription_response() :: %{
         "RequestId" => String.t(),
         "SignupResponse" => signup_response(),
@@ -10512,6 +10933,19 @@ defmodule AWS.QuickSight do
 
   """
   @type what_if_point_scenario() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_brand_response() :: %{
+        "BrandDefinition" => brand_definition(),
+        "BrandDetail" => brand_detail(),
+        "RequestId" => String.t()
+      }
+
+  """
+  @type describe_brand_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -10734,6 +11168,25 @@ defmodule AWS.QuickSight do
 
   """
   @type asset_bundle_export_job_analysis_override_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      brand_detail() :: %{
+        "Arn" => String.t(),
+        "BrandId" => String.t(),
+        "BrandStatus" => list(any()),
+        "CreatedTime" => [non_neg_integer()],
+        "Errors" => list(String.t()()),
+        "LastUpdatedTime" => [non_neg_integer()],
+        "Logo" => logo(),
+        "VersionId" => String.t(),
+        "VersionStatus" => list(any())
+      }
+
+  """
+  @type brand_detail() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -11041,6 +11494,18 @@ defmodule AWS.QuickSight do
 
   """
   @type tag_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_brand_assignment_response() :: %{
+        "BrandArn" => String.t(),
+        "RequestId" => String.t()
+      }
+
+  """
+  @type update_brand_assignment_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -11711,6 +12176,19 @@ defmodule AWS.QuickSight do
 
   """
   @type heat_map_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_custom_permissions_response() :: %{
+        "Arn" => String.t(),
+        "RequestId" => String.t(),
+        "Status" => integer()
+      }
+
+  """
+  @type update_custom_permissions_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -12514,6 +12992,15 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      delete_brand_assignment_request() :: %{}
+
+  """
+  @type delete_brand_assignment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       iam_policy_assignment_summary() :: %{
         "AssignmentName" => String.t(),
         "AssignmentStatus" => list(any())
@@ -13074,6 +13561,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      delete_brand_response() :: %{
+        "RequestId" => String.t()
+      }
+
+  """
+  @type delete_brand_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cascading_control_source() :: %{
         "ColumnToMatch" => column_identifier(),
         "SourceSheetControlId" => String.t()
@@ -13273,6 +13771,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      application_theme() :: %{
+        "BrandColorPalette" => brand_color_palette(),
+        "BrandElementStyle" => brand_element_style()
+      }
+
+  """
+  @type application_theme() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_ip_restriction_response() :: %{
         "AwsAccountId" => String.t(),
         "RequestId" => String.t(),
@@ -13464,6 +13974,18 @@ defmodule AWS.QuickSight do
 
   """
   @type identity_type_not_supported_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      navbar_style() :: %{
+        "ContextualNavbar" => palette(),
+        "GlobalNavbar" => palette()
+      }
+
+  """
+  @type navbar_style() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -14158,6 +14680,19 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      describe_custom_permissions_response() :: %{
+        "CustomPermissions" => custom_permissions(),
+        "RequestId" => String.t(),
+        "Status" => integer()
+      }
+
+  """
+  @type describe_custom_permissions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       conditional_formatting_solid_color() :: %{
         "Color" => String.t(),
         "Expression" => String.t()
@@ -14165,6 +14700,19 @@ defmodule AWS.QuickSight do
 
   """
   @type conditional_formatting_solid_color() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_set() :: %{
+        "Height32" => image(),
+        "Height64" => image(),
+        "Original" => image()
+      }
+
+  """
+  @type image_set() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -14343,6 +14891,17 @@ defmodule AWS.QuickSight do
 
   """
   @type pivot_table_conditional_formatting() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_configuration() :: %{
+        "Source" => list()
+      }
+
+  """
+  @type image_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -14961,6 +15520,20 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      brand_definition() :: %{
+        "ApplicationTheme" => application_theme(),
+        "BrandName" => String.t(),
+        "Description" => String.t(),
+        "LogoConfiguration" => logo_configuration()
+      }
+
+  """
+  @type brand_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       oracle_parameters() :: %{
         "Database" => String.t(),
         "Host" => String.t(),
@@ -15036,6 +15609,19 @@ defmodule AWS.QuickSight do
 
   """
   @type update_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_brand_response() :: %{
+        "BrandDefinition" => brand_definition(),
+        "BrandDetail" => brand_detail(),
+        "RequestId" => String.t()
+      }
+
+  """
+  @type create_brand_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -15288,6 +15874,25 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      brand_color_palette() :: %{
+        "Accent" => palette(),
+        "Danger" => palette(),
+        "Dimension" => palette(),
+        "Info" => palette(),
+        "Measure" => palette(),
+        "Primary" => palette(),
+        "Secondary" => palette(),
+        "Success" => palette(),
+        "Warning" => palette()
+      }
+
+  """
+  @type brand_color_palette() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_asset_bundle_export_jobs_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
@@ -15339,6 +15944,15 @@ defmodule AWS.QuickSight do
 
   """
   @type list_theme_versions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_brand_request() :: %{}
+
+  """
+  @type delete_brand_request() :: %{}
 
   @typedoc """
 
@@ -15461,6 +16075,33 @@ defmodule AWS.QuickSight do
 
   """
   @type box_plot_aggregated_field_wells() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      capabilities() :: %{
+        "AddOrRunAnomalyDetectionForAnalyses" => list(any()),
+        "CreateAndUpdateDashboardEmailReports" => list(any()),
+        "CreateAndUpdateDataSources" => list(any()),
+        "CreateAndUpdateDatasets" => list(any()),
+        "CreateAndUpdateThemes" => list(any()),
+        "CreateAndUpdateThresholdAlerts" => list(any()),
+        "CreateSPICEDataset" => list(any()),
+        "CreateSharedFolders" => list(any()),
+        "ExportToCsv" => list(any()),
+        "ExportToExcel" => list(any()),
+        "RenameSharedFolders" => list(any()),
+        "ShareAnalyses" => list(any()),
+        "ShareDashboards" => list(any()),
+        "ShareDataSources" => list(any()),
+        "ShareDatasets" => list(any()),
+        "SubscribeDashboardEmailReports" => list(any()),
+        "ViewAccountSPICECapacity" => list(any())
+      }
+
+  """
+  @type capabilities() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -15797,6 +16438,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      update_brand_published_version_request() :: %{
+        required("VersionId") => String.t()
+      }
+
+  """
+  @type update_brand_published_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_dashboard_versions_response() :: %{
         "DashboardVersionSummaryList" => list(dashboard_version_summary()()),
         "NextToken" => String.t(),
@@ -15891,6 +16543,26 @@ defmodule AWS.QuickSight do
           | resource_not_found_exception()
           | conflict_exception()
           | unsupported_user_edition_exception()
+          | internal_failure_exception()
+
+  @type create_brand_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | invalid_request_exception()
+          | conflict_exception()
+
+  @type create_custom_permissions_errors() ::
+          precondition_not_met_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | resource_exists_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | resource_unavailable_exception()
           | internal_failure_exception()
 
   @type create_dashboard_errors() ::
@@ -16113,6 +16785,33 @@ defmodule AWS.QuickSight do
           | unsupported_user_edition_exception()
           | internal_failure_exception()
 
+  @type delete_brand_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_brand_assignment_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_custom_permissions_errors() ::
+          precondition_not_met_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | resource_exists_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | resource_unavailable_exception()
+          | internal_failure_exception()
+
   @type delete_dashboard_errors() ::
           throttling_exception()
           | invalid_parameter_value_exception()
@@ -16300,6 +16999,16 @@ defmodule AWS.QuickSight do
           | resource_unavailable_exception()
           | internal_failure_exception()
 
+  @type delete_user_custom_permission_errors() ::
+          precondition_not_met_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | resource_unavailable_exception()
+          | internal_failure_exception()
+
   @type delete_vpc_connection_errors() ::
           throttling_exception()
           | access_denied_exception()
@@ -16367,6 +17076,39 @@ defmodule AWS.QuickSight do
           throttling_exception()
           | resource_not_found_exception()
           | unsupported_user_edition_exception()
+
+  @type describe_brand_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type describe_brand_assignment_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type describe_brand_published_version_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type describe_custom_permissions_errors() ::
+          precondition_not_met_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | resource_unavailable_exception()
+          | internal_failure_exception()
 
   @type describe_dashboard_errors() ::
           throttling_exception()
@@ -16724,6 +17466,21 @@ defmodule AWS.QuickSight do
           | invalid_next_token_exception()
           | resource_not_found_exception()
           | unsupported_user_edition_exception()
+
+  @type list_brands_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | invalid_request_exception()
+
+  @type list_custom_permissions_errors() ::
+          precondition_not_met_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | resource_unavailable_exception()
+          | internal_failure_exception()
 
   @type list_dashboard_versions_errors() ::
           throttling_exception()
@@ -17141,6 +17898,40 @@ defmodule AWS.QuickSight do
           | unsupported_user_edition_exception()
           | internal_failure_exception()
 
+  @type update_brand_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_brand_assignment_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_brand_published_version_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_custom_permissions_errors() ::
+          precondition_not_met_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | resource_unavailable_exception()
+          | internal_failure_exception()
+
   @type update_dashboard_errors() ::
           limit_exceeded_exception()
           | throttling_exception()
@@ -17401,6 +18192,16 @@ defmodule AWS.QuickSight do
           | access_denied_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | resource_unavailable_exception()
+          | internal_failure_exception()
+
+  @type update_user_custom_permission_errors() ::
+          precondition_not_met_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
           | resource_unavailable_exception()
           | internal_failure_exception()
 
@@ -17712,6 +18513,62 @@ defmodule AWS.QuickSight do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/analyses/#{AWS.Util.encode_uri(analysis_id)}"
 
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates an Amazon QuickSight brand.
+  """
+  @spec create_brand(map(), String.t(), String.t(), create_brand_request(), list()) ::
+          {:ok, create_brand_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_brand_errors()}
+  def create_brand(%Client{} = client, aws_account_id, brand_id, input, options \\ []) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/brands/#{AWS.Util.encode_uri(brand_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a custom permissions profile.
+  """
+  @spec create_custom_permissions(map(), String.t(), create_custom_permissions_request(), list()) ::
+          {:ok, create_custom_permissions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_custom_permissions_errors()}
+  def create_custom_permissions(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/custom-permissions"
     headers = []
     query_params = []
 
@@ -18596,6 +19453,103 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Deletes an Amazon QuickSight brand.
+  """
+  @spec delete_brand(map(), String.t(), String.t(), delete_brand_request(), list()) ::
+          {:ok, delete_brand_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_brand_errors()}
+  def delete_brand(%Client{} = client, aws_account_id, brand_id, input, options \\ []) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/brands/#{AWS.Util.encode_uri(brand_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a brand assignment.
+  """
+  @spec delete_brand_assignment(map(), String.t(), delete_brand_assignment_request(), list()) ::
+          {:ok, delete_brand_assignment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_brand_assignment_errors()}
+  def delete_brand_assignment(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/brandassignments"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a custom permissions profile.
+  """
+  @spec delete_custom_permissions(
+          map(),
+          String.t(),
+          String.t(),
+          delete_custom_permissions_request(),
+          list()
+        ) ::
+          {:ok, delete_custom_permissions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_custom_permissions_errors()}
+  def delete_custom_permissions(
+        %Client{} = client,
+        aws_account_id,
+        custom_permissions_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/custom-permissions/#{AWS.Util.encode_uri(custom_permissions_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes a dashboard.
   """
   @spec delete_dashboard(map(), String.t(), String.t(), delete_dashboard_request(), list()) ::
@@ -19449,6 +20403,49 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Deletes a custom permissions profile from a user.
+  """
+  @spec delete_user_custom_permission(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          delete_user_custom_permission_request(),
+          list()
+        ) ::
+          {:ok, delete_user_custom_permission_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_user_custom_permission_errors()}
+  def delete_user_custom_permission(
+        %Client{} = client,
+        aws_account_id,
+        namespace,
+        user_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/users/#{AWS.Util.encode_uri(user_name)}/custom-permission"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes a VPC connection.
   """
   @spec delete_vpc_connection(
@@ -19763,6 +20760,103 @@ defmodule AWS.QuickSight do
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/asset-bundle-import-jobs/#{AWS.Util.encode_uri(asset_bundle_import_job_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Describes a brand.
+  """
+  @spec describe_brand(map(), String.t(), String.t(), String.t() | nil, list()) ::
+          {:ok, describe_brand_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_brand_errors()}
+  def describe_brand(
+        %Client{} = client,
+        aws_account_id,
+        brand_id,
+        version_id \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/brands/#{AWS.Util.encode_uri(brand_id)}"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(version_id) do
+        [{"versionId", version_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Describes a brand assignment.
+  """
+  @spec describe_brand_assignment(map(), String.t(), list()) ::
+          {:ok, describe_brand_assignment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_brand_assignment_errors()}
+  def describe_brand_assignment(%Client{} = client, aws_account_id, options \\ []) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/brandassignments"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Describes the published version of the brand.
+  """
+  @spec describe_brand_published_version(map(), String.t(), String.t(), list()) ::
+          {:ok, describe_brand_published_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_brand_published_version_errors()}
+  def describe_brand_published_version(
+        %Client{} = client,
+        aws_account_id,
+        brand_id,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/brands/#{AWS.Util.encode_uri(brand_id)}/publishedversion"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Describes a custom permissions profile.
+  """
+  @spec describe_custom_permissions(map(), String.t(), String.t(), list()) ::
+          {:ok, describe_custom_permissions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_custom_permissions_errors()}
+  def describe_custom_permissions(
+        %Client{} = client,
+        aws_account_id,
+        custom_permissions_name,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/custom-permissions/#{AWS.Util.encode_uri(custom_permissions_name)}"
 
     headers = []
     query_params = []
@@ -21286,6 +22380,80 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/asset-bundle-import-jobs"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all brands in an Amazon QuickSight account.
+  """
+  @spec list_brands(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_brands_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_brands_errors()}
+  def list_brands(
+        %Client{} = client,
+        aws_account_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/brands"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of all the custom permissions profiles.
+  """
+  @spec list_custom_permissions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_custom_permissions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_custom_permissions_errors()}
+  def list_custom_permissions(
+        %Client{} = client,
+        aws_account_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/custom-permissions"
     headers = []
     query_params = []
 
@@ -23244,6 +24412,104 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Updates a brand.
+  """
+  @spec update_brand(map(), String.t(), String.t(), update_brand_request(), list()) ::
+          {:ok, update_brand_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_brand_errors()}
+  def update_brand(%Client{} = client, aws_account_id, brand_id, input, options \\ []) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/brands/#{AWS.Util.encode_uri(brand_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Updates a brand assignment.
+  """
+  @spec update_brand_assignment(map(), String.t(), update_brand_assignment_request(), list()) ::
+          {:ok, update_brand_assignment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_brand_assignment_errors()}
+  def update_brand_assignment(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/brandassignments"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Updates the published version of a brand.
+  """
+  @spec update_brand_published_version(
+          map(),
+          String.t(),
+          String.t(),
+          update_brand_published_version_request(),
+          list()
+        ) ::
+          {:ok, update_brand_published_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_brand_published_version_errors()}
+  def update_brand_published_version(
+        %Client{} = client,
+        aws_account_id,
+        brand_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/brands/#{AWS.Util.encode_uri(brand_id)}/publishedversion"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Updates a custom permissions profile.
+  """
+  @spec update_custom_permissions(
+          map(),
+          String.t(),
+          String.t(),
+          update_custom_permissions_request(),
+          list()
+        ) ::
+          {:ok, update_custom_permissions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_custom_permissions_errors()}
+  def update_custom_permissions(
+        %Client{} = client,
+        aws_account_id,
+        custom_permissions_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/custom-permissions/#{AWS.Util.encode_uri(custom_permissions_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
   Updates a dashboard in an Amazon Web Services account.
 
   Updating a Dashboard creates a new dashboard version but does not immediately
@@ -24202,6 +25468,39 @@ defmodule AWS.QuickSight do
   def update_user(%Client{} = client, aws_account_id, namespace, user_name, input, options \\ []) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/users/#{AWS.Util.encode_uri(user_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Updates a custom permissions profile for a user.
+  """
+  @spec update_user_custom_permission(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          update_user_custom_permission_request(),
+          list()
+        ) ::
+          {:ok, update_user_custom_permission_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_user_custom_permission_errors()}
+  def update_user_custom_permission(
+        %Client{} = client,
+        aws_account_id,
+        namespace,
+        user_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/users/#{AWS.Util.encode_uri(user_name)}/custom-permission"
 
     headers = []
     query_params = []

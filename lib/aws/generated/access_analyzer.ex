@@ -68,6 +68,17 @@ defmodule AWS.AccessAnalyzer do
 
   ## Example:
 
+      update_analyzer_request() :: %{
+        optional("configuration") => list()
+      }
+
+  """
+  @type update_analyzer_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cloud_trail_details() :: %{
         "accessRole" => String.t(),
         "endTime" => non_neg_integer(),
@@ -77,6 +88,17 @@ defmodule AWS.AccessAnalyzer do
 
   """
   @type cloud_trail_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_analyzer_response() :: %{
+        "configuration" => list()
+      }
+
+  """
+  @type update_analyzer_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -123,6 +145,17 @@ defmodule AWS.AccessAnalyzer do
 
   """
   @type vpc_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      analysis_rule() :: %{
+        "exclusions" => list(analysis_rule_criteria()())
+      }
+
+  """
+  @type analysis_rule() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -260,6 +293,7 @@ defmodule AWS.AccessAnalyzer do
   ## Example:
 
       unused_access_configuration() :: %{
+        "analysisRule" => analysis_rule(),
         "unusedAccessAge" => [integer()]
       }
 
@@ -474,6 +508,18 @@ defmodule AWS.AccessAnalyzer do
 
   """
   @type list_analyzers_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      analysis_rule_criteria() :: %{
+        "accountIds" => list([String.t()]()),
+        "resourceTags" => list(map()())
+      }
+
+  """
+  @type analysis_rule_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2028,6 +2074,14 @@ defmodule AWS.AccessAnalyzer do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type update_analyzer_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type update_archive_rule_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2703,10 +2757,7 @@ defmodule AWS.AccessAnalyzer do
   @doc """
   Retrieves a list of resources of the specified type that have been analyzed by
   the
-  specified external access analyzer.
-
-  This action is not supported for unused access
-  analyzers.
+  specified analyzer.
   """
   @spec list_analyzed_resources(map(), list_analyzed_resources_request(), list()) ::
           {:ok, list_analyzed_resources_response(), any()}
@@ -3053,6 +3104,23 @@ defmodule AWS.AccessAnalyzer do
       options,
       200
     )
+  end
+
+  @doc """
+  Modifies the configuration of an existing analyzer.
+  """
+  @spec update_analyzer(map(), String.t(), update_analyzer_request(), list()) ::
+          {:ok, update_analyzer_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_analyzer_errors()}
+  def update_analyzer(%Client{} = client, analyzer_name, input, options \\ []) do
+    url_path = "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
   end
 
   @doc """

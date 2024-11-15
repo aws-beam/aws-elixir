@@ -17,9 +17,10 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
       stop_product_subscription_request() :: %{
         optional("Domain") => [String.t()],
-        required("IdentityProvider") => list(),
-        required("Product") => [String.t()],
-        required("Username") => [String.t()]
+        optional("IdentityProvider") => list(),
+        optional("Product") => [String.t()],
+        optional("ProductUserArn") => String.t(),
+        optional("Username") => [String.t()]
       }
 
   """
@@ -29,11 +30,35 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
   ## Example:
 
+      list_license_server_endpoints_response() :: %{
+        "LicenseServerEndpoints" => list(license_server_endpoint()()),
+        "NextToken" => [String.t()]
+      }
+
+  """
+  @type list_license_server_endpoints_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       disassociate_user_request() :: %{
         optional("Domain") => [String.t()],
-        required("IdentityProvider") => list(),
-        required("InstanceId") => [String.t()],
-        required("Username") => [String.t()]
+        optional("IdentityProvider") => list(),
+        optional("InstanceId") => [String.t()],
+        optional("InstanceUserArn") => String.t(),
+        optional("Username") => [String.t()]
       }
 
   """
@@ -44,6 +69,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   ## Example:
 
       list_identity_providers_request() :: %{
+        optional("Filters") => list(filter()()),
         optional("MaxResults") => integer(),
         optional("NextToken") => [String.t()]
       }
@@ -55,16 +81,37 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
   ## Example:
 
+      create_license_server_endpoint_response() :: %{
+        "IdentityProviderArn" => String.t(),
+        "LicenseServerEndpointArn" => String.t()
+      }
+
+  """
+  @type create_license_server_endpoint_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_product_subscriptions_request() :: %{
         optional("Filters") => list(filter()()),
         optional("MaxResults") => integer(),
         optional("NextToken") => [String.t()],
-        required("IdentityProvider") => list(),
-        required("Product") => [String.t()]
+        optional("Product") => [String.t()],
+        required("IdentityProvider") => list()
       }
 
   """
   @type list_product_subscriptions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
@@ -76,6 +123,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
         "Domain" => [String.t()],
         "IdentityProvider" => list(),
         "InstanceId" => [String.t()],
+        "InstanceUserArn" => String.t(),
         "Status" => [String.t()],
         "StatusMessage" => [String.t()],
         "Username" => [String.t()]
@@ -83,6 +131,31 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
   """
   @type instance_user_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_license_server_endpoint_request() :: %{
+        optional("Tags") => map(),
+        required("IdentityProviderArn") => String.t(),
+        required("LicenseServerSettings") => license_server_settings()
+      }
+
+  """
+  @type create_license_server_endpoint_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_license_server_endpoint_request() :: %{
+        required("LicenseServerEndpointArn") => String.t(),
+        required("ServerType") => String.t()
+      }
+
+  """
+  @type delete_license_server_endpoint_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -101,9 +174,46 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
   ## Example:
 
+      untag_resource_request() :: %{
+        required("TagKeys") => list([String.t()]())
+      }
+
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      active_directory_settings() :: %{
+        "DomainCredentialsProvider" => list(),
+        "DomainIpv4List" => list(String.t()()),
+        "DomainName" => [String.t()],
+        "DomainNetworkSettings" => domain_network_settings()
+      }
+
+  """
+  @type active_directory_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      server_endpoint() :: %{
+        "Endpoint" => [String.t()]
+      }
+
+  """
+  @type server_endpoint() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       deregister_identity_provider_request() :: %{
-        required("IdentityProvider") => list(),
-        required("Product") => [String.t()]
+        optional("IdentityProvider") => list(),
+        optional("IdentityProviderArn") => String.t(),
+        optional("Product") => [String.t()]
       }
 
   """
@@ -114,8 +224,8 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   ## Example:
 
       list_user_associations_response() :: %{
-        optional("InstanceUserSummaries") => list(instance_user_summary()()),
-        optional("NextToken") => [String.t()]
+        "InstanceUserSummaries" => list(instance_user_summary()()),
+        "NextToken" => [String.t()]
       }
 
   """
@@ -126,7 +236,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   ## Example:
 
       update_identity_provider_settings_response() :: %{
-        required("IdentityProviderSummary") => identity_provider_summary()
+        "IdentityProviderSummary" => identity_provider_summary()
       }
 
   """
@@ -159,7 +269,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   ## Example:
 
       register_identity_provider_response() :: %{
-        required("IdentityProviderSummary") => identity_provider_summary()
+        "IdentityProviderSummary" => identity_provider_summary()
       }
 
   """
@@ -193,7 +303,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   ## Example:
 
       stop_product_subscription_response() :: %{
-        required("ProductUserSummary") => product_user_summary()
+        "ProductUserSummary" => product_user_summary()
       }
 
   """
@@ -204,7 +314,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   ## Example:
 
       disassociate_user_response() :: %{
-        required("InstanceUserSummary") => instance_user_summary()
+        "InstanceUserSummary" => instance_user_summary()
       }
 
   """
@@ -215,7 +325,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   ## Example:
 
       associate_user_response() :: %{
-        required("InstanceUserSummary") => instance_user_summary()
+        "InstanceUserSummary" => instance_user_summary()
       }
 
   """
@@ -225,10 +335,33 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
   ## Example:
 
+      secrets_manager_credentials_provider() :: %{
+        "SecretId" => [String.t()]
+      }
+
+  """
+  @type secrets_manager_credentials_provider() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "Tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       product_user_summary() :: %{
         "Domain" => [String.t()],
         "IdentityProvider" => list(),
         "Product" => [String.t()],
+        "ProductUserArn" => String.t(),
         "Status" => [String.t()],
         "StatusMessage" => [String.t()],
         "SubscriptionEndDate" => [String.t()],
@@ -246,6 +379,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       identity_provider_summary() :: %{
         "FailureMessage" => [String.t()],
         "IdentityProvider" => list(),
+        "IdentityProviderArn" => String.t(),
         "Product" => [String.t()],
         "Settings" => settings(),
         "Status" => [String.t()]
@@ -253,6 +387,17 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
   """
   @type identity_provider_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_network_settings() :: %{
+        "Subnets" => list(String.t()())
+      }
+
+  """
+  @type domain_network_settings() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -285,8 +430,8 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   ## Example:
 
       list_product_subscriptions_response() :: %{
-        optional("NextToken") => [String.t()],
-        optional("ProductUserSummaries") => list(product_user_summary()())
+        "NextToken" => [String.t()],
+        "ProductUserSummaries" => list(product_user_summary()())
       }
 
   """
@@ -297,12 +442,23 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   ## Example:
 
       list_instances_response() :: %{
-        optional("InstanceSummaries") => list(instance_summary()()),
-        optional("NextToken") => [String.t()]
+        "InstanceSummaries" => list(instance_summary()()),
+        "NextToken" => [String.t()]
       }
 
   """
   @type list_instances_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_license_server_endpoint_response() :: %{
+        "LicenseServerEndpoint" => license_server_endpoint()
+      }
+
+  """
+  @type delete_license_server_endpoint_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -319,9 +475,23 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
   ## Example:
 
+      list_license_server_endpoints_request() :: %{
+        optional("Filters") => list(filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t()]
+      }
+
+  """
+  @type list_license_server_endpoints_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_identity_provider_settings_request() :: %{
-        required("IdentityProvider") => list(),
-        required("Product") => [String.t()],
+        optional("IdentityProvider") => list(),
+        optional("IdentityProviderArn") => String.t(),
+        optional("Product") => [String.t()],
         required("UpdateSettings") => update_settings()
       }
 
@@ -334,6 +504,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
       register_identity_provider_request() :: %{
         optional("Settings") => settings(),
+        optional("Tags") => map(),
         required("IdentityProvider") => list(),
         required("Product") => [String.t()]
       }
@@ -346,7 +517,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   ## Example:
 
       deregister_identity_provider_response() :: %{
-        required("IdentityProviderSummary") => identity_provider_summary()
+        "IdentityProviderSummary" => identity_provider_summary()
       }
 
   """
@@ -367,6 +538,34 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
   ## Example:
 
+      license_server_endpoint() :: %{
+        "CreationTime" => [non_neg_integer()],
+        "IdentityProviderArn" => [String.t()],
+        "LicenseServerEndpointArn" => String.t(),
+        "LicenseServerEndpointId" => String.t(),
+        "LicenseServerEndpointProvisioningStatus" => String.t(),
+        "LicenseServers" => list(license_server()()),
+        "ServerEndpoint" => server_endpoint(),
+        "ServerType" => String.t(),
+        "StatusMessage" => [String.t()]
+      }
+
+  """
+  @type license_server_endpoint() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception() :: %{
         "message" => [String.t()]
       }
@@ -378,9 +577,18 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
   ## Example:
 
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_identity_providers_response() :: %{
-        optional("NextToken") => [String.t()],
-        required("IdentityProviderSummaries") => list(identity_provider_summary()())
+        "IdentityProviderSummaries" => list(identity_provider_summary()()),
+        "NextToken" => [String.t()]
       }
 
   """
@@ -416,8 +624,21 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
   ## Example:
 
+      license_server_settings() :: %{
+        "ServerSettings" => list(),
+        "ServerType" => String.t()
+      }
+
+  """
+  @type license_server_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_product_subscription_request() :: %{
         optional("Domain") => [String.t()],
+        optional("Tags") => map(),
         required("IdentityProvider") => list(),
         required("Product") => [String.t()],
         required("Username") => [String.t()]
@@ -431,7 +652,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   ## Example:
 
       start_product_subscription_response() :: %{
-        required("ProductUserSummary") => product_user_summary()
+        "ProductUserSummary" => product_user_summary()
       }
 
   """
@@ -443,6 +664,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
       associate_user_request() :: %{
         optional("Domain") => [String.t()],
+        optional("Tags") => map(),
         required("IdentityProvider") => list(),
         required("InstanceId") => [String.t()],
         required("Username") => [String.t()]
@@ -450,6 +672,19 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
   """
   @type associate_user_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      license_server() :: %{
+        "HealthStatus" => String.t(),
+        "Ipv4Address" => [String.t()],
+        "ProvisioningStatus" => String.t()
+      }
+
+  """
+  @type license_server() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -471,13 +706,44 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   ## Example:
 
       active_directory_identity_provider() :: %{
-        "DirectoryId" => [String.t()]
+        "ActiveDirectorySettings" => active_directory_settings(),
+        "ActiveDirectoryType" => String.t(),
+        "DirectoryId" => String.t()
       }
 
   """
   @type active_directory_identity_provider() :: %{String.t() => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      rds_sal_settings() :: %{
+        "RdsSalCredentialsProvider" => list()
+      }
+
+  """
+  @type rds_sal_settings() :: %{String.t() => any()}
+
   @type associate_user_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_license_server_endpoint_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_license_server_endpoint_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -522,6 +788,14 @@ defmodule AWS.LicenseManagerUserSubscriptions do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type list_license_server_endpoints_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
   @type list_product_subscriptions_errors() ::
           throttling_exception()
           | validation_exception()
@@ -530,6 +804,9 @@ defmodule AWS.LicenseManagerUserSubscriptions do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type list_tags_for_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
 
   @type list_user_associations_errors() ::
           throttling_exception()
@@ -566,6 +843,11 @@ defmodule AWS.LicenseManagerUserSubscriptions do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type tag_resource_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type untag_resource_errors() :: internal_server_exception() | resource_not_found_exception()
 
   @type update_identity_provider_settings_errors() ::
           throttling_exception()
@@ -625,7 +907,62 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   end
 
   @doc """
-  Deregisters the identity provider from providing user-based subscriptions.
+  Creates a network endpoint for the Remote Desktop Services (RDS) license server.
+  """
+  @spec create_license_server_endpoint(map(), create_license_server_endpoint_request(), list()) ::
+          {:ok, create_license_server_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_license_server_endpoint_errors()}
+  def create_license_server_endpoint(%Client{} = client, input, options \\ []) do
+    url_path = "/license-server/CreateLicenseServerEndpoint"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a `LicenseServerEndpoint` resource.
+  """
+  @spec delete_license_server_endpoint(map(), delete_license_server_endpoint_request(), list()) ::
+          {:ok, delete_license_server_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_license_server_endpoint_errors()}
+  def delete_license_server_endpoint(%Client{} = client, input, options \\ []) do
+    url_path = "/license-server/DeleteLicenseServerEndpoint"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deregisters the Active Directory identity provider from License Manager
+  user-based subscriptions.
   """
   @spec deregister_identity_provider(map(), deregister_identity_provider_request(), list()) ::
           {:ok, deregister_identity_provider_response(), any()}
@@ -679,7 +1016,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   end
 
   @doc """
-  Lists the identity providers for user-based subscriptions.
+  Lists the Active Directory identity providers for user-based subscriptions.
   """
   @spec list_identity_providers(map(), list_identity_providers_request(), list()) ::
           {:ok, list_identity_providers_response(), any()}
@@ -733,6 +1070,33 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   end
 
   @doc """
+  List the Remote Desktop Services (RDS) License Server endpoints
+  """
+  @spec list_license_server_endpoints(map(), list_license_server_endpoints_request(), list()) ::
+          {:ok, list_license_server_endpoints_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_license_server_endpoints_errors()}
+  def list_license_server_endpoints(%Client{} = client, input, options \\ []) do
+    url_path = "/license-server/ListLicenseServerEndpoints"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Lists the user-based subscription products available from an identity provider.
   """
   @spec list_product_subscriptions(map(), list_product_subscriptions_request(), list()) ::
@@ -757,6 +1121,23 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       options,
       200
     )
+  end
+
+  @doc """
+  Returns the list of tags for the specified resource.
+  """
+  @spec list_tags_for_resource(map(), String.t(), list()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_tags_for_resource_errors()}
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -866,6 +1247,55 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Adds tags to a resource.
+  """
+  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_resource_errors()}
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Removes tags from a resource.
+  """
+  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_resource_errors()}
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"TagKeys", "tagKeys"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
       url_path,
       query_params,
       headers,

@@ -2899,6 +2899,17 @@ defmodule AWS.Redshift do
 
   ## Example:
       
+      read_write_access() :: %{
+        "Authorization" => list(any())
+      }
+      
+  """
+  @type read_write_access() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       modify_usage_limit_message() :: %{
         optional("Amount") => float(),
         optional("BreachAction") => list(any()),

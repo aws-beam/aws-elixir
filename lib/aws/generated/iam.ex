@@ -55,6 +55,18 @@ defmodule AWS.IAM do
 
   ## Example:
       
+      enable_organizations_root_credentials_management_response() :: %{
+        "EnabledFeatures" => list(list(any())()),
+        "OrganizationId" => String.t()
+      }
+      
+  """
+  @type enable_organizations_root_credentials_management_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       virtual_mfa_device() :: %{
         "Base32StringSeed" => binary(),
         "EnableDate" => non_neg_integer(),
@@ -354,6 +366,15 @@ defmodule AWS.IAM do
 
   ## Example:
       
+      enable_organizations_root_credentials_management_request() :: %{}
+      
+  """
+  @type enable_organizations_root_credentials_management_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       list_attached_group_policies_request() :: %{
         optional("Marker") => String.t(),
         optional("MaxItems") => integer(),
@@ -387,6 +408,15 @@ defmodule AWS.IAM do
       
   """
   @type delete_user_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_organizations_root_sessions_request() :: %{}
+      
+  """
+  @type disable_organizations_root_sessions_request() :: %{}
 
   @typedoc """
 
@@ -508,6 +538,18 @@ defmodule AWS.IAM do
       
   """
   @type create_service_specific_credential_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_organizations_features_response() :: %{
+        "EnabledFeatures" => list(list(any())()),
+        "OrganizationId" => String.t()
+      }
+      
+  """
+  @type list_organizations_features_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1119,6 +1161,17 @@ defmodule AWS.IAM do
 
   ## Example:
       
+      account_not_management_or_delegated_administrator_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type account_not_management_or_delegated_administrator_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_ssh_public_key_request() :: %{
         required("SSHPublicKeyId") => String.t(),
         required("Status") => list(any()),
@@ -1187,6 +1240,18 @@ defmodule AWS.IAM do
       
   """
   @type position() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_organizations_root_sessions_response() :: %{
+        "EnabledFeatures" => list(list(any())()),
+        "OrganizationId" => String.t()
+      }
+      
+  """
+  @type enable_organizations_root_sessions_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1357,6 +1422,17 @@ defmodule AWS.IAM do
       
   """
   @type get_service_last_accessed_details_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_access_not_enabled_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type service_access_not_enabled_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1569,6 +1645,17 @@ defmodule AWS.IAM do
 
   ## Example:
       
+      organization_not_in_all_features_mode_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type organization_not_in_all_features_mode_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_service_linked_role_request() :: %{
         optional("CustomSuffix") => String.t(),
         optional("Description") => String.t(),
@@ -1628,8 +1715,8 @@ defmodule AWS.IAM do
   ## Example:
       
       deactivate_mfa_device_request() :: %{
-        required("SerialNumber") => String.t(),
-        required("UserName") => String.t()
+        optional("UserName") => String.t(),
+        required("SerialNumber") => String.t()
       }
       
   """
@@ -1722,6 +1809,17 @@ defmodule AWS.IAM do
       
   """
   @type update_server_certificate_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      organization_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type organization_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1822,6 +1920,15 @@ defmodule AWS.IAM do
 
   ## Example:
       
+      disable_organizations_root_credentials_management_request() :: %{}
+      
+  """
+  @type disable_organizations_root_credentials_management_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_saml_provider_request() :: %{
         required("SAMLProviderArn") => String.t()
       }
@@ -1900,6 +2007,18 @@ defmodule AWS.IAM do
       
   """
   @type password_policy_violation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_organizations_root_sessions_response() :: %{
+        "EnabledFeatures" => list(list(any())()),
+        "OrganizationId" => String.t()
+      }
+      
+  """
+  @type disable_organizations_root_sessions_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1986,11 +2105,20 @@ defmodule AWS.IAM do
   ## Example:
       
       delete_login_profile_request() :: %{
-        required("UserName") => String.t()
+        optional("UserName") => String.t()
       }
       
   """
   @type delete_login_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_organizations_root_sessions_request() :: %{}
+      
+  """
+  @type enable_organizations_root_sessions_request() :: %{}
 
   @typedoc """
 
@@ -2355,6 +2483,15 @@ defmodule AWS.IAM do
 
   ## Example:
       
+      list_organizations_features_request() :: %{}
+      
+  """
+  @type list_organizations_features_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       mfa_device() :: %{
         "EnableDate" => non_neg_integer(),
         "SerialNumber" => String.t(),
@@ -2513,6 +2650,18 @@ defmodule AWS.IAM do
       
   """
   @type get_account_authorization_details_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_organizations_root_credentials_management_response() :: %{
+        "EnabledFeatures" => list(list(any())()),
+        "OrganizationId" => String.t()
+      }
+      
+  """
+  @type disable_organizations_root_credentials_management_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2831,7 +2980,7 @@ defmodule AWS.IAM do
   ## Example:
       
       get_login_profile_request() :: %{
-        required("UserName") => String.t()
+        optional("UserName") => String.t()
       }
       
   """
@@ -3376,6 +3525,17 @@ defmodule AWS.IAM do
 
   ## Example:
       
+      caller_is_not_management_account_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type caller_is_not_management_account_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_saml_provider_tags_request() :: %{
         optional("Marker") => String.t(),
         optional("MaxItems") => integer(),
@@ -3757,9 +3917,9 @@ defmodule AWS.IAM do
   ## Example:
       
       create_login_profile_request() :: %{
+        optional("Password") => String.t(),
         optional("PasswordResetRequired") => boolean(),
-        required("Password") => String.t(),
-        required("UserName") => String.t()
+        optional("UserName") => String.t()
       }
       
   """
@@ -4324,6 +4484,18 @@ defmodule AWS.IAM do
           | service_failure_exception()
           | no_such_entity_exception()
 
+  @type disable_organizations_root_credentials_management_errors() ::
+          organization_not_found_exception()
+          | organization_not_in_all_features_mode_exception()
+          | service_access_not_enabled_exception()
+          | account_not_management_or_delegated_administrator_exception()
+
+  @type disable_organizations_root_sessions_errors() ::
+          organization_not_found_exception()
+          | organization_not_in_all_features_mode_exception()
+          | service_access_not_enabled_exception()
+          | account_not_management_or_delegated_administrator_exception()
+
   @type enable_mfa_device_errors() ::
           limit_exceeded_exception()
           | concurrent_modification_exception()
@@ -4332,6 +4504,20 @@ defmodule AWS.IAM do
           | service_failure_exception()
           | no_such_entity_exception()
           | entity_already_exists_exception()
+
+  @type enable_organizations_root_credentials_management_errors() ::
+          caller_is_not_management_account_exception()
+          | organization_not_found_exception()
+          | organization_not_in_all_features_mode_exception()
+          | service_access_not_enabled_exception()
+          | account_not_management_or_delegated_administrator_exception()
+
+  @type enable_organizations_root_sessions_errors() ::
+          caller_is_not_management_account_exception()
+          | organization_not_found_exception()
+          | organization_not_in_all_features_mode_exception()
+          | service_access_not_enabled_exception()
+          | account_not_management_or_delegated_administrator_exception()
 
   @type generate_credential_report_errors() ::
           limit_exceeded_exception() | service_failure_exception()
@@ -4446,6 +4632,12 @@ defmodule AWS.IAM do
           invalid_input_exception() | service_failure_exception() | no_such_entity_exception()
 
   @type list_open_id_connect_providers_errors() :: service_failure_exception()
+
+  @type list_organizations_features_errors() ::
+          organization_not_found_exception()
+          | organization_not_in_all_features_mode_exception()
+          | service_access_not_enabled_exception()
+          | account_not_management_or_delegated_administrator_exception()
 
   @type list_policies_errors() :: service_failure_exception()
 
@@ -6022,6 +6214,59 @@ defmodule AWS.IAM do
   end
 
   @doc """
+  Disables the management of privileged root user credentials across member
+  accounts in
+  your organization.
+
+  When you disable this feature, the management account and the
+  delegated admininstrator for IAM can no longer manage root user credentials for
+  member
+  accounts in your organization.
+  """
+  @spec disable_organizations_root_credentials_management(
+          map(),
+          disable_organizations_root_credentials_management_request(),
+          list()
+        ) ::
+          {:ok, disable_organizations_root_credentials_management_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disable_organizations_root_credentials_management_errors()}
+  def disable_organizations_root_credentials_management(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "DisableOrganizationsRootCredentialsManagement",
+      input,
+      options
+    )
+  end
+
+  @doc """
+  Disables root user sessions for privileged tasks across member accounts in your
+  organization.
+
+  When you disable this feature, the management account and the delegated
+  admininstrator for IAM can no longer perform privileged tasks on member accounts
+  in
+  your organization.
+  """
+  @spec disable_organizations_root_sessions(
+          map(),
+          disable_organizations_root_sessions_request(),
+          list()
+        ) ::
+          {:ok, disable_organizations_root_sessions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disable_organizations_root_sessions_errors()}
+  def disable_organizations_root_sessions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisableOrganizationsRootSessions", input, options)
+  end
+
+  @doc """
   Enables the specified MFA device and associates it with the specified IAM user.
 
   When
@@ -6036,6 +6281,92 @@ defmodule AWS.IAM do
     meta = metadata()
 
     Request.request_post(client, meta, "EnableMFADevice", input, options)
+  end
+
+  @doc """
+  Enables the management of privileged root user credentials across member
+  accounts in your
+  organization.
+
+  When you enable root credentials management for [centralized root access](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user-access-management),
+  the management account and the delegated
+  admininstrator for IAM can manage root user credentials for member accounts in
+  your
+  organization.
+
+  Before you enable centralized root access, you must have an account configured
+  with
+  the following settings:
+
+    *
+  You must manage your Amazon Web Services accounts in
+  [Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html). 
+
+    *
+  Enable trusted access for Identity and Access Management in Organizations. For
+  details, see
+  [IAM and
+  Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-ra.html)
+  in the *Organizations User
+  Guide*.
+  """
+  @spec enable_organizations_root_credentials_management(
+          map(),
+          enable_organizations_root_credentials_management_request(),
+          list()
+        ) ::
+          {:ok, enable_organizations_root_credentials_management_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, enable_organizations_root_credentials_management_errors()}
+  def enable_organizations_root_credentials_management(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "EnableOrganizationsRootCredentialsManagement",
+      input,
+      options
+    )
+  end
+
+  @doc """
+  Allows the management account or delegated administrator to perform privileged
+  tasks
+  on member accounts in your organization.
+
+  For more information, see [Centrally manage root access for member accounts](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user-access-management)
+  in the *Identity and Access Management
+  User Guide*.
+
+  Before you enable this feature, you must have an account configured with the
+  following
+  settings:
+
+    *
+  You must manage your Amazon Web Services accounts in
+  [Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html). 
+
+    *
+  Enable trusted access for Identity and Access Management in Organizations. For
+  details, see
+  [IAM and
+  Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-ra.html)
+  in the *Organizations User
+  Guide*.
+  """
+  @spec enable_organizations_root_sessions(
+          map(),
+          enable_organizations_root_sessions_request(),
+          list()
+        ) ::
+          {:ok, enable_organizations_root_sessions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, enable_organizations_root_sessions_errors()}
+  def enable_organizations_root_sessions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnableOrganizationsRootSessions", input, options)
   end
 
   @doc """
@@ -7135,9 +7466,9 @@ defmodule AWS.IAM do
   one).
 
   For information about using an Amazon Web Services account alias, see [Creating, deleting, and listing an Amazon Web Services account
-  alias](https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html#CreateAccountAlias)
-  in the
-  *IAM User Guide*.
+  alias](https://docs.aws.amazon.com/signin/latest/userguide/CreateAccountAlias.html)
+  in the *Amazon Web Services Sign-In
+  User Guide*.
   """
   @spec list_account_aliases(map(), list_account_aliases_request(), list()) ::
           {:ok, list_account_aliases_response(), any()}
@@ -7458,6 +7789,22 @@ defmodule AWS.IAM do
     meta = metadata()
 
     Request.request_post(client, meta, "ListOpenIDConnectProviders", input, options)
+  end
+
+  @doc """
+  Lists the centralized root access features enabled for your organization.
+
+  For more
+  information, see [Centrally manage root access for member accounts](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user-access-management).
+  """
+  @spec list_organizations_features(map(), list_organizations_features_request(), list()) ::
+          {:ok, list_organizations_features_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_organizations_features_errors()}
+  def list_organizations_features(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListOrganizationsFeatures", input, options)
   end
 
   @doc """

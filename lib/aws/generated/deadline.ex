@@ -1278,6 +1278,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       service_managed_ec2_instance_capabilities() :: %{
+        "acceleratorCapabilities" => accelerator_capabilities(),
         "allowedInstanceTypes" => list(String.t()()),
         "cpuArchitectureType" => list(any()),
         "customAmounts" => list(fleet_amount_capability()()),
@@ -1742,6 +1743,18 @@ defmodule AWS.Deadline do
 
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      accelerator_capabilities() :: %{
+        "count" => accelerator_count_range(),
+        "selections" => list(accelerator_selection()())
+      }
+
+  """
+  @type accelerator_capabilities() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3328,6 +3341,18 @@ defmodule AWS.Deadline do
 
   """
   @type list_tasks_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      accelerator_selection() :: %{
+        "name" => list(any()),
+        "runtime" => String.t()
+      }
+
+  """
+  @type accelerator_selection() :: %{String.t() => any()}
 
   @typedoc """
 

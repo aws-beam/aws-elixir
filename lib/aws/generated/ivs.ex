@@ -741,6 +741,7 @@ defmodule AWS.Ivs do
         "channel" => channel(),
         "endTime" => non_neg_integer(),
         "ingestConfiguration" => ingest_configuration(),
+        "ingestConfigurations" => ingest_configurations(),
         "recordingConfiguration" => recording_configuration(),
         "startTime" => non_neg_integer(),
         "streamId" => String.t(),
@@ -800,8 +801,10 @@ defmodule AWS.Ivs do
 
       create_channel_request() :: %{
         optional("authorized") => boolean(),
+        optional("containerFormat") => String.t(),
         optional("insecureIngest") => boolean(),
         optional("latencyMode") => String.t(),
+        optional("multitrackInputConfiguration") => multitrack_input_configuration(),
         optional("name") => String.t(),
         optional("playbackRestrictionPolicyArn") => String.t(),
         optional("preset") => list(any()),
@@ -856,8 +859,10 @@ defmodule AWS.Ivs do
 
       update_channel_request() :: %{
         optional("authorized") => boolean(),
+        optional("containerFormat") => String.t(),
         optional("insecureIngest") => boolean(),
         optional("latencyMode") => String.t(),
+        optional("multitrackInputConfiguration") => multitrack_input_configuration(),
         optional("name") => String.t(),
         optional("playbackRestrictionPolicyArn") => String.t(),
         optional("preset") => list(any()),
@@ -1012,7 +1017,8 @@ defmodule AWS.Ivs do
         "channels" => float(),
         "codec" => String.t(),
         "sampleRate" => float(),
-        "targetBitrate" => float()
+        "targetBitrate" => float(),
+        "track" => String.t()
       }
 
   """
@@ -1102,6 +1108,18 @@ defmodule AWS.Ivs do
 
   ## Example:
 
+      ingest_configurations() :: %{
+        "audioConfigurations" => list(audio_configuration()()),
+        "videoConfigurations" => list(video_configuration()())
+      }
+
+  """
+  @type ingest_configurations() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_stream_key_response() :: %{
         optional("streamKey") => stream_key()
       }
@@ -1139,9 +1157,11 @@ defmodule AWS.Ivs do
       channel() :: %{
         "arn" => String.t(),
         "authorized" => boolean(),
+        "containerFormat" => String.t(),
         "ingestEndpoint" => String.t(),
         "insecureIngest" => boolean(),
         "latencyMode" => String.t(),
+        "multitrackInputConfiguration" => multitrack_input_configuration(),
         "name" => String.t(),
         "playbackRestrictionPolicyArn" => String.t(),
         "playbackUrl" => String.t(),
@@ -1301,8 +1321,11 @@ defmodule AWS.Ivs do
         "avcProfile" => String.t(),
         "codec" => String.t(),
         "encoder" => String.t(),
+        "level" => String.t(),
+        "profile" => String.t(),
         "targetBitrate" => float(),
         "targetFramerate" => float(),
+        "track" => String.t(),
         "videoHeight" => float(),
         "videoWidth" => float()
       }
@@ -1347,6 +1370,19 @@ defmodule AWS.Ivs do
 
   """
   @type get_stream_session_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multitrack_input_configuration() :: %{
+        "enabled" => boolean(),
+        "maximumResolution" => list(any()),
+        "policy" => list(any())
+      }
+
+  """
+  @type multitrack_input_configuration() :: %{String.t() => any()}
 
   @typedoc """
 

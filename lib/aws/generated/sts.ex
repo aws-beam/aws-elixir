@@ -124,6 +124,31 @@ defmodule AWS.STS do
 
   ## Example:
       
+      assume_root_request() :: %{
+        optional("DurationSeconds") => integer(),
+        required("TargetPrincipal") => String.t(),
+        required("TaskPolicyArn") => policy_descriptor_type()
+      }
+      
+  """
+  @type assume_root_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      assume_root_response() :: %{
+        "Credentials" => credentials(),
+        "SourceIdentity" => String.t()
+      }
+      
+  """
+  @type assume_root_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       assumed_role_user() :: %{
         "Arn" => String.t(),
         "AssumedRoleId" => String.t()
@@ -422,6 +447,8 @@ defmodule AWS.STS do
           | id_p_communication_error_exception()
           | expired_token_exception()
 
+  @type assume_root_errors() :: region_disabled_exception() | expired_token_exception()
+
   @type decode_authorization_message_errors() :: invalid_authorization_message_exception()
 
   @type get_federation_token_errors() ::
@@ -456,8 +483,7 @@ defmodule AWS.STS do
   and a security token. Typically, you use `AssumeRole` within your account or for
   cross-account access. For a comparison of `AssumeRole` with other API operations
   that produce temporary credentials, see [Requesting Temporary Security Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html)
-  and [Comparing the Amazon Web Services STS API
-  operations](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison)
+  and [Compare STS credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_sts-comparison.html)
   in the *IAM User Guide*.
 
   ## Permissions
@@ -468,16 +494,15 @@ defmodule AWS.STS do
   Amazon Web Services STS `GetFederationToken` or `GetSessionToken` API
   operations.
 
-  (Optional) You can pass inline or managed [session policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session)
-  to
-  this operation. You can pass a single JSON policy document to use as an inline
-  session
-  policy. You can also specify up to 10 managed policy Amazon Resource Names
-  (ARNs) to use as
-  managed session policies. The plaintext that you use for both inline and managed
-  session
-  policies can't exceed 2,048 characters. Passing policies to this operation
-  returns new
+  (Optional) You can pass inline or managed session policies to this operation.
+  You can
+  pass a single JSON policy document to use as an inline session policy. You can
+  also specify
+  up to 10 managed policy Amazon Resource Names (ARNs) to use as managed session
+  policies.
+  The plaintext that you use for both inline and managed session policies can't
+  exceed 2,048
+  characters. Passing policies to this operation returns new
   temporary credentials. The resulting session's permissions are the intersection
   of the
   role's identity-based policy and the session policies. You can use the role's
@@ -599,8 +624,7 @@ defmodule AWS.STS do
   credentials or configuration. For a comparison of `AssumeRoleWithSAML` with the
   other API operations that produce temporary credentials, see [Requesting Temporary Security
   Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html)
-  and [Comparing the Amazon Web Services STS API
-  operations](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison)
+  and [Compare STS credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_sts-comparison.html)
   in the *IAM User Guide*.
 
   The temporary security credentials returned by this operation consist of an
@@ -812,8 +836,7 @@ defmodule AWS.STS do
   using a token from the web identity provider. For a comparison of
   `AssumeRoleWithWebIdentity` with the other API operations that produce
   temporary credentials, see [Requesting Temporary Security Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html)
-  and [Comparing the Amazon Web Services STS API
-  operations](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison)
+  and [Compare STS credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_sts-comparison.html)
   in the *IAM User Guide*.
 
   The temporary security credentials returned by this API consist of an access key
@@ -831,8 +854,8 @@ defmodule AWS.STS do
   duration
   setting for the role. This setting can have a value from 1 hour to 12 hours. To
   learn how
-  to view the maximum value for your role, see [View the Maximum Session Duration Setting for a
-  Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session)
+  to view the maximum value for your role, see [Update the maximum session duration for a role
+  ](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_update-role-settings.html#id_roles_update-session-duration)
   in the
   *IAM User Guide*. The maximum session duration limit applies when
   you use the `AssumeRole*` API operations or the `assume-role*` CLI
@@ -938,7 +961,7 @@ defmodule AWS.STS do
   in the OIDC
   specification](http://openid.net/specs/openid-connect-core-1_0.html#SubjectIDTypes).
 
-  For more information about how to use web identity federation and the
+  For more information about how to use OIDC federation and the
   `AssumeRoleWithWebIdentity` API, see the following resources:
 
     *
@@ -948,28 +971,11 @@ defmodule AWS.STS do
 
     *
 
-  [ Web Identity Federation Playground](https://aws.amazon.com/blogs/aws/the-aws-web-identity-federation-playground/).
-  Walk through the process of
-  authenticating through Login with Amazon, Facebook, or Google, getting temporary
-  security credentials, and then using those credentials to make a request to
-  Amazon Web Services.
-
-    *
-
   [Amazon Web Services SDK for iOS Developer Guide](http://aws.amazon.com/sdkforios/) and [Amazon Web Services SDK for Android Developer Guide](http://aws.amazon.com/sdkforandroid/). These toolkits
   contain sample apps that show how to invoke the identity providers. The toolkits
   then
   show how to use the information from these providers to get and use temporary
   security credentials.
-
-    *
-
-  [Web Identity Federation with Mobile
-  Applications](http://aws.amazon.com/articles/web-identity-federation-with-mobile-applications).
-  This article discusses web identity
-  federation and shows an example of how to use web identity federation to get
-  access
-  to content in Amazon S3.
   """
   @spec assume_role_with_web_identity(map(), assume_role_with_web_identity_request(), list()) ::
           {:ok, assume_role_with_web_identity_response(), any()}
@@ -979,6 +985,40 @@ defmodule AWS.STS do
     meta = metadata()
 
     Request.request_post(client, meta, "AssumeRoleWithWebIdentity", input, options)
+  end
+
+  @doc """
+  Returns a set of short term credentials you can use to perform privileged tasks
+  in a
+  member account.
+
+  Before you can launch a privileged session, you must have enabled centralized
+  root
+  access in your organization. For steps to enable this feature, see [Centralize root access for member
+  accounts](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-enable-root-access.html)
+  in the *IAM User
+  Guide*.
+
+  The global endpoint is not supported for AssumeRoot. You must send this request
+  to a
+  Regional STS endpoint. For more information, see
+  [Endpoints](https://docs.aws.amazon.com/STS/latest/APIReference/welcome.html#sts-endpoints). 
+
+  You can track AssumeRoot in CloudTrail logs to determine what actions were
+  performed in a
+  session. For more information, see [Track privileged tasks
+  in
+  CloudTrail](https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-track-privileged-tasks.html)
+  in the *IAM User Guide*.
+  """
+  @spec assume_root(map(), assume_root_request(), list()) ::
+          {:ok, assume_root_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, assume_root_errors()}
+  def assume_root(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssumeRoot", input, options)
   end
 
   @doc """
@@ -1119,8 +1159,7 @@ defmodule AWS.STS do
   application.
   For a comparison of `GetFederationToken` with the other API operations that
   produce temporary credentials, see [Requesting Temporary Security Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html)
-  and [Comparing the Amazon Web Services STS API
-  operations](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison)
+  and [Compare STS credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_sts-comparison.html)
   in the *IAM User Guide*.
 
   Although it is possible to call `GetFederationToken` using the security
@@ -1266,8 +1305,7 @@ defmodule AWS.STS do
   API to return an access denied error. For a comparison of `GetSessionToken` with
   the other API operations that produce temporary credentials, see [Requesting Temporary Security
   Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html)
-  and [Comparing the Amazon Web Services STS API
-  operations](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison)
+  and [Compare STS credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_sts-comparison.html)
   in the *IAM User Guide*.
 
   No permissions are required for users to perform this operation. The purpose of

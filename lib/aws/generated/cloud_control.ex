@@ -242,6 +242,7 @@ defmodule AWS.CloudControl do
       progress_event() :: %{
         "ErrorCode" => String.t(),
         "EventTime" => non_neg_integer(),
+        "HooksRequestToken" => String.t(),
         "Identifier" => String.t(),
         "Operation" => String.t(),
         "OperationStatus" => String.t(),
@@ -295,6 +296,7 @@ defmodule AWS.CloudControl do
   ## Example:
       
       get_resource_request_status_output() :: %{
+        optional("HooksProgressEvent") => list(hook_progress_event()()),
         optional("ProgressEvent") => progress_event()
       }
       
@@ -312,6 +314,24 @@ defmodule AWS.CloudControl do
       
   """
   @type resource_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      hook_progress_event() :: %{
+        "FailureMode" => String.t(),
+        "HookEventTime" => non_neg_integer(),
+        "HookStatus" => String.t(),
+        "HookStatusMessage" => String.t(),
+        "HookTypeArn" => String.t(),
+        "HookTypeName" => String.t(),
+        "HookTypeVersionId" => String.t(),
+        "InvocationPoint" => String.t()
+      }
+      
+  """
+  @type hook_progress_event() :: %{String.t() => any()}
 
   @typedoc """
 

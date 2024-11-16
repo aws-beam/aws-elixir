@@ -4,28 +4,27 @@
 defmodule AWS.CloudWatch do
   @moduledoc """
   Amazon CloudWatch monitors your Amazon Web Services (Amazon Web Services)
-  resources and the
-  applications you run on Amazon Web Services in real time.
+  resources and the applications you run on Amazon Web Services in real time.
 
-  You can use CloudWatch to collect and track
-  metrics, which are the variables you want to measure for your resources and
-  applications.
+  You can use
+  CloudWatch to collect and track metrics, which are the variables you want to
+  measure for your resources and applications.
 
   CloudWatch alarms send notifications or automatically change the resources you
-  are monitoring based on rules
-  that you define. For example, you can monitor the CPU usage and disk reads and
-  writes of your Amazon EC2
-  instances. Then, use this data to determine whether you should launch
-  additional instances to handle increased load. You can also use this data to
-  stop
-  under-used instances to save
-  money.
+  are
+  monitoring based on rules that you define. For example, you can monitor the CPU
+  usage
+  and disk reads and writes of your Amazon EC2 instances. Then, use this data to
+  determine
+  whether you should launch additional instances to handle increased load. You can
+  also
+  use this data to stop under-used instances to save money.
 
   In addition to monitoring the built-in metrics that come with Amazon Web
-  Services, you can monitor
-  your own custom metrics. With CloudWatch, you gain system-wide visibility into
-  resource
-  utilization, application performance, and operational health.
+  Services,
+  you can monitor your own custom metrics. With CloudWatch, you gain system-wide
+  visibility into resource utilization, application performance, and operational
+  health.
   """
 
   alias AWS.Client
@@ -214,6 +213,18 @@ defmodule AWS.CloudWatch do
       
   """
   @type alarm_history_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      entity() :: %{
+        "Attributes" => map(),
+        "KeyAttributes" => map()
+      }
+      
+  """
+  @type entity() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -950,7 +961,9 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       put_metric_data_input() :: %{
-        required("MetricData") => list(metric_datum()()),
+        optional("EntityMetricData") => list(entity_metric_data()()),
+        optional("MetricData") => list(metric_datum()()),
+        optional("StrictEntityValidation") => boolean(),
         required("Namespace") => String.t()
       }
       
@@ -1540,6 +1553,18 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
+      entity_metric_data() :: %{
+        "Entity" => entity(),
+        "MetricData" => list(metric_datum()())
+      }
+      
+  """
+  @type entity_metric_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_dashboard_input() :: %{
         required("DashboardName") => String.t()
       }
@@ -1755,35 +1780,34 @@ defmodule AWS.CloudWatch do
   @doc """
   Deletes the specified alarms.
 
-  You can delete up to 100 alarms in one operation. However, this total can
-  include no more
-  than one composite alarm. For example, you could delete 99 metric alarms and one
-  composite alarms with one operation, but you can't
+  You can delete up to 100 alarms in one operation.
+  However, this total can include no more than one composite alarm. For example,
+  you could
+  delete 99 metric alarms and one composite alarms with one operation, but you
+  can't
   delete two composite alarms with one operation.
 
   If you specify an incorrect alarm name or make any other error in the operation,
-  no alarms are
-  deleted. To confirm that alarms were deleted successfully, you can use
-  the
+  no alarms are deleted. To confirm that alarms were deleted successfully, you can
+  use the
   [DescribeAlarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html)
-  operation after using
-  `DeleteAlarms`.
+  operation after using `DeleteAlarms`.
 
   It is possible to create a loop or cycle of composite alarms, where composite
-  alarm A depends on composite alarm B, and
-  composite alarm B also depends on composite alarm A. In this scenario, you can't
-  delete any composite alarm that is part of the cycle
-  because there is always still a composite alarm that depends on that alarm that
-  you want to delete.
+  alarm A depends on composite alarm B, and composite alarm B also depends on
+  composite alarm A. In this scenario, you can't delete any composite alarm that
+  is
+  part of the cycle because there is always still a composite alarm that depends
+  on
+  that alarm that you want to delete.
 
-  To get out of such a situation, you must
-  break the cycle by changing the rule of one of the composite alarms in the cycle
-  to remove a dependency that creates the cycle. The simplest
-  change to make to break a cycle is to change the `AlarmRule` of one of the
-  alarms to `false`.
+  To get out of such a situation, you must break the cycle by changing the rule of
+  one of the composite alarms in the cycle to remove a dependency that creates the
+  cycle. The simplest change to make to break a cycle is to change the
+  `AlarmRule` of one of the alarms to `false`.
 
-  Additionally, the evaluation of composite alarms stops if CloudWatch detects a
-  cycle in the evaluation path.
+  Additionally, the evaluation of composite alarms stops if CloudWatch
+  detects a cycle in the evaluation path.
   """
   @spec delete_alarms(map(), delete_alarms_input(), list()) ::
           {:ok, nil, any()}
@@ -1796,15 +1820,13 @@ defmodule AWS.CloudWatch do
   end
 
   @doc """
-
-  Deletes the specified anomaly detection model
-  from your account.
+  Deletes the specified anomaly detection model from your account.
 
   For more information
-  about
-  how to delete an anomaly detection model,
-  see [Deleting an anomaly detection model](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Anomaly_Detection_Alarm.html#Delete_Anomaly_Detection_Model)
-  in the *CloudWatch User Guide*.
+  about how to delete an anomaly detection model, see [Deleting an anomaly detection
+  model](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Anomaly_Detection_Alarm.html#Delete_Anomaly_Detection_Model)
+  in the *CloudWatch User
+  Guide*.
   """
   @spec delete_anomaly_detector(map(), delete_anomaly_detector_input(), list()) ::
           {:ok, delete_anomaly_detector_output(), any()}
@@ -1819,10 +1841,8 @@ defmodule AWS.CloudWatch do
   @doc """
   Deletes all dashboards that you specify.
 
-  You
-  can specify up to 100 dashboards to delete. If there is an error during this
-  call, no dashboards are
-  deleted.
+  You can specify up to 100 dashboards to
+  delete. If there is an error during this call, no dashboards are deleted.
   """
   @spec delete_dashboards(map(), delete_dashboards_input(), list()) ::
           {:ok, delete_dashboards_output(), any()}
@@ -1838,9 +1858,8 @@ defmodule AWS.CloudWatch do
   Permanently deletes the specified Contributor Insights rules.
 
   If you create a rule, delete it, and then re-create it with the same name,
-  historical data from the first time
-  the rule was created might
-  not be available.
+  historical
+  data from the first time the rule was created might not be available.
   """
   @spec delete_insight_rules(map(), delete_insight_rules_input(), list()) ::
           {:ok, delete_insight_rules_output(), any()}
@@ -1868,18 +1887,18 @@ defmodule AWS.CloudWatch do
   @doc """
   Retrieves the history for the specified alarm.
 
-  You can filter the results by date range or item type.
-  If an alarm name is not specified, the histories for either all metric alarms or
-  all composite alarms are returned.
+  You can filter the results by date
+  range or item type. If an alarm name is not specified, the histories for either
+  all
+  metric alarms or all composite alarms are returned.
 
   CloudWatch retains the history of an alarm even if you delete the alarm.
 
   To use this operation and return information about a composite alarm, you must
-  be signed on with
-  the `cloudwatch:DescribeAlarmHistory` permission that is scoped to `*`. You
-  can't return information
-  about composite alarms if your `cloudwatch:DescribeAlarmHistory` permission has
-  a narrower scope.
+  be
+  signed on with the `cloudwatch:DescribeAlarmHistory` permission that is
+  scoped to `*`. You can't return information about composite alarms if your
+  `cloudwatch:DescribeAlarmHistory` permission has a narrower scope.
   """
   @spec describe_alarm_history(map(), describe_alarm_history_input(), list()) ::
           {:ok, describe_alarm_history_output(), any()}
@@ -1894,15 +1913,13 @@ defmodule AWS.CloudWatch do
   @doc """
   Retrieves the specified alarms.
 
-  You can filter the results by specifying a prefix for the alarm
-  name, the alarm state, or a prefix for any action.
+  You can filter the results by specifying a prefix
+  for the alarm name, the alarm state, or a prefix for any action.
 
   To use this operation and return information about composite alarms, you must be
-  signed on with
-  the `cloudwatch:DescribeAlarms` permission that is scoped to `*`. You can't
-  return information
-  about composite alarms if your `cloudwatch:DescribeAlarms` permission has a
-  narrower scope.
+  signed on with the `cloudwatch:DescribeAlarms` permission that is scoped to
+  `*`. You can't return information about composite alarms if your
+  `cloudwatch:DescribeAlarms` permission has a narrower scope.
   """
   @spec describe_alarms(map(), describe_alarms_input(), list()) ::
           {:ok, describe_alarms_output(), any()}
@@ -1917,12 +1934,13 @@ defmodule AWS.CloudWatch do
   @doc """
   Retrieves the alarms for the specified metric.
 
-  To
-  filter the results, specify a statistic, period, or unit.
+  To filter the results, specify a
+  statistic, period, or unit.
 
-  This operation retrieves only standard alarms that are based on
-  the specified metric. It does not return alarms based on math expressions that
-  use the specified metric, or composite alarms that use the specified metric.
+  This operation retrieves only standard alarms that are based on the specified
+  metric. It does not return alarms based on math expressions that use the
+  specified
+  metric, or composite alarms that use the specified metric.
   """
   @spec describe_alarms_for_metric(map(), describe_alarms_for_metric_input(), list()) ::
           {:ok, describe_alarms_for_metric_output(), any()}
@@ -1936,13 +1954,14 @@ defmodule AWS.CloudWatch do
   @doc """
   Lists the anomaly detection models that you have created in your account.
 
-  For single metric anomaly detectors,
-  you can list all of the models in your account or filter the results
-  to only the models that are related to a certain namespace, metric name, or
-  metric dimension.
-  For metric math anomaly detectors,
-  you can list them by adding `METRIC_MATH` to the `AnomalyDetectorTypes` array.
-  This will return all metric math anomaly detectors in your account.
+  For single
+  metric anomaly detectors, you can list all of the models in your account or
+  filter the
+  results to only the models that are related to a certain namespace, metric name,
+  or
+  metric dimension. For metric math anomaly detectors, you can list them by adding
+  `METRIC_MATH` to the `AnomalyDetectorTypes` array. This will
+  return all metric math anomaly detectors in your account.
   """
   @spec describe_anomaly_detectors(map(), describe_anomaly_detectors_input(), list()) ::
           {:ok, describe_anomaly_detectors_output(), any()}
@@ -1957,8 +1976,8 @@ defmodule AWS.CloudWatch do
   @doc """
   Returns a list of all the Contributor Insights rules in your account.
 
-  For more information about Contributor Insights, see
-  [Using Contributor Insights to Analyze High-Cardinality Data](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html).
+  For more information about Contributor Insights, see [Using Contributor Insights to Analyze High-Cardinality
+  Data](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html).
   """
   @spec describe_insight_rules(map(), describe_insight_rules_input(), list()) ::
           {:ok, describe_insight_rules_output(), any()}
@@ -1973,8 +1992,8 @@ defmodule AWS.CloudWatch do
   @doc """
   Disables the actions for the specified alarms.
 
-  When an alarm's actions are disabled, the
-  alarm actions do not execute when the alarm state changes.
+  When an alarm's actions are
+  disabled, the alarm actions do not execute when the alarm state changes.
   """
   @spec disable_alarm_actions(map(), disable_alarm_actions_input(), list()) ::
           {:ok, nil, any()}
@@ -1988,8 +2007,8 @@ defmodule AWS.CloudWatch do
   @doc """
   Disables the specified Contributor Insights rules.
 
-  When rules are disabled, they do not analyze log groups and do
-  not incur costs.
+  When rules are disabled, they do
+  not analyze log groups and do not incur costs.
   """
   @spec disable_insight_rules(map(), disable_insight_rules_input(), list()) ::
           {:ok, disable_insight_rules_output(), any()}
@@ -2016,7 +2035,8 @@ defmodule AWS.CloudWatch do
   @doc """
   Enables the specified Contributor Insights rules.
 
-  When rules are enabled, they immediately begin analyzing log data.
+  When rules are enabled, they
+  immediately begin analyzing log data.
   """
   @spec enable_insight_rules(map(), enable_insight_rules_input(), list()) ::
           {:ok, enable_insight_rules_output(), any()}
@@ -2032,10 +2052,8 @@ defmodule AWS.CloudWatch do
   Displays the details of the dashboard that you specify.
 
   To copy an existing dashboard, use `GetDashboard`, and then use the data
-  returned
-  within `DashboardBody` as the template for the new dashboard when you call
-  `PutDashboard` to create
-  the copy.
+  returned within `DashboardBody` as the template for the new dashboard when
+  you call `PutDashboard` to create the copy.
   """
   @spec get_dashboard(map(), get_dashboard_input(), list()) ::
           {:ok, get_dashboard_output(), any()}
@@ -2051,51 +2069,52 @@ defmodule AWS.CloudWatch do
   This operation returns the time series data collected by a Contributor Insights
   rule.
 
-  The data includes the identity and number of
-  contributors to the log group.
+  The data includes the identity and number of contributors to the log group.
 
   You can also optionally return one or more statistics about each data point in
-  the time series. These statistics can include the following:
+  the
+  time series. These statistics can include the following:
 
     *
 
-  `UniqueContributors` -- the number of unique contributors for each data point.
+  `UniqueContributors` -- the number of unique contributors for each
+  data point.
 
     *
 
-  `MaxContributorValue` -- the value of the top contributor for each data point.
-  The identity of the
-  contributor might change for each data point in the graph.
+  `MaxContributorValue` -- the value of the top contributor for each
+  data point. The identity of the contributor might change for each data point in
+  the graph.
 
-  If this rule aggregates by COUNT, the top contributor for each data point is the
-  contributor with the
-  most occurrences in that period. If the rule aggregates by SUM, the top
-  contributor is the contributor with the highest sum in the log field specified
-  by the rule's `Value`, during that period.
-
-    *
-
-  `SampleCount` -- the number of data points matched by the rule.
+  If this rule aggregates by COUNT, the top contributor for each data point is
+  the contributor with the most occurrences in that period. If the rule aggregates
+  by SUM, the top contributor is the contributor with the highest sum in the log
+  field specified by the rule's `Value`, during that period.
 
     *
 
-  `Sum` -- the sum of the values from all contributors during the time period
-  represented by that data point.
+  `SampleCount` -- the number of data points matched by the
+  rule.
 
     *
 
-  `Minimum` -- the minimum value from a single observation during the time period
-  represented by that data point.
+  `Sum` -- the sum of the values from all contributors during the
+  time period represented by that data point.
 
     *
 
-  `Maximum` -- the maximum value from a single observation during the time period
-  represented by that data point.
+  `Minimum` -- the minimum value from a single observation during the
+  time period represented by that data point.
 
     *
 
-  `Average` -- the average value from all contributors during the time period
-  represented by that data point.
+  `Maximum` -- the maximum value from a single observation during the
+  time period represented by that data point.
+
+    *
+
+  `Average` -- the average value from all contributors during the
+  time period represented by that data point.
   """
   @spec get_insight_rule_report(map(), get_insight_rule_report_input(), list()) ::
           {:ok, get_insight_rule_report_output(), any()}
@@ -2108,81 +2127,94 @@ defmodule AWS.CloudWatch do
   end
 
   @doc """
-  You can use the `GetMetricData` API to retrieve CloudWatch metric values.
+  You can use the `GetMetricData` API to retrieve CloudWatch metric
+  values.
 
-  The operation
-  can also include a CloudWatch Metrics Insights query, and one or more metric
-  math functions.
+  The operation can also include a CloudWatch Metrics Insights query, and
+  one or more metric math functions.
 
-  A `GetMetricData` operation that does not include a query can retrieve as many
-  as 500 different
-  metrics in a single request, with a total of as many as 100,800 data points. You
-  can also
-  optionally perform metric math expressions on the values of the returned
-  statistics, to create
-  new time series that represent new insights into your data. For example, using
-  Lambda
-  metrics, you could divide the Errors metric by the Invocations metric to get an
-  error
-  rate time series. For more information about metric math expressions, see
-  [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax)
+  A `GetMetricData` operation that does not include a query can retrieve
+  as many as 500 different metrics in a single request, with a total of as many as
+  100,800
+  data points. You can also optionally perform metric math expressions on the
+  values of
+  the returned statistics, to create new time series that represent new insights
+  into your
+  data. For example, using Lambda metrics, you could divide the Errors metric by
+  the
+  Invocations metric to get an error rate time series. For more information about
+  metric
+  math expressions, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax)
   in the *Amazon CloudWatch User
   Guide*.
 
   If you include a Metrics Insights query, each `GetMetricData` operation can
-  include only one
-  query. But the same `GetMetricData` operation can also retrieve other metrics.
-  Metrics Insights queries
-  can query only the most recent three hours of metric data. For more information
-  about Metrics Insights,
-  see [Query your metrics with CloudWatch Metrics Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/query_with_cloudwatch-metrics-insights.html).
+  include only one query. But the same `GetMetricData` operation can also
+  retrieve other metrics. Metrics Insights queries can query only the most recent
+  three
+  hours of metric data. For more information about Metrics Insights, see [Query your metrics with CloudWatch Metrics
+  Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/query_with_cloudwatch-metrics-insights.html).
 
   Calls to the `GetMetricData` API have a different pricing structure than
   calls to `GetMetricStatistics`. For more information about pricing, see
-  [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/).   Amazon CloudWatch retains metric data as follows:
+  [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/).
+
+  Amazon CloudWatch retains metric data as follows:
 
     *
-  Data points with a period of less than 60 seconds are available for 3 hours.
-  These data points are high-resolution
-  metrics and are available only for custom metrics that have been defined with a
-  `StorageResolution` of 1.
+  Data points with a period of less than 60 seconds are available for 3
+  hours. These data points are high-resolution metrics and are available only for
+  custom metrics that have been defined with a `StorageResolution` of
+  1.
 
     *
-  Data points with a period of 60 seconds (1-minute) are available for 15 days.
+  Data points with a period of 60 seconds (1-minute) are available for 15
+  days.
 
     *
-  Data points with a period of 300 seconds (5-minute) are available for 63 days.
+  Data points with a period of 300 seconds (5-minute) are available for 63
+  days.
 
     *
-  Data points with a period of 3600 seconds (1 hour) are available for 455 days
-  (15 months).
+  Data points with a period of 3600 seconds (1 hour) are available for 455
+  days (15 months).
 
   Data points that are initially published with a shorter period are aggregated
-  together for long-term storage. For example, if you collect
-  data using a period of 1 minute, the data remains available for 15 days with
-  1-minute resolution. After 15 days, this data is still available,
-  but is aggregated and retrievable only with a resolution of 5 minutes. After 63
-  days, the data is further aggregated and is available with
-  a resolution of 1 hour.
+  together for long-term storage. For example, if you collect data using a period
+  of 1
+  minute, the data remains available for 15 days with 1-minute resolution. After
+  15 days,
+  this data is still available, but is aggregated and retrievable only with a
+  resolution
+  of 5 minutes. After 63 days, the data is further aggregated and is available
+  with a
+  resolution of 1 hour.
 
-  If you omit `Unit` in your request, all data that was collected with any unit is
-  returned, along with the corresponding units that were specified
-  when the data was reported to CloudWatch. If you specify a unit, the operation
-  returns only data that was collected with that unit specified.
-  If you specify a unit that does not match the data collected, the results of the
-  operation are null. CloudWatch does not perform unit conversions.
+  If you omit `Unit` in your request, all data that was collected with any
+  unit is returned, along with the corresponding units that were specified when
+  the data
+  was reported to CloudWatch. If you specify a unit, the operation returns only
+  data that
+  was collected with that unit specified. If you specify a unit that does not
+  match the
+  data collected, the results of the operation are null. CloudWatch does not
+  perform unit
+  conversions.
 
-  ## Using Metrics Insights queries with metric math
+  ## Using Metrics Insights queries with metric
+  math
 
   You can't mix a Metric Insights query and metric math syntax in the same
-  expression, but
-  you can reference results from a Metrics Insights query within other Metric math
-  expressions. A Metrics Insights
-  query without a **GROUP BY** clause returns a single time-series (TS),
-  and can be used as input for a metric math expression that expects a single time
-  series. A Metrics Insights
-  query with a **GROUP BY** clause returns an array of time-series (TS[]),
-  and can be used as input for a metric math expression that expects an array of
+  expression,
+  but you can reference results from a Metrics Insights query within other Metric
+  math
+  expressions. A Metrics Insights query without a **GROUP
+  BY** clause returns a single time-series (TS), and can be used as input for
+  a metric math expression that expects a single time series. A Metrics Insights
+  query
+  with a **GROUP BY** clause returns an array of time-series
+  (TS[]), and can be used as input for a metric math expression that expects an
+  array of
   time series.
   """
   @spec get_metric_data(map(), get_metric_data_input(), list()) ::
@@ -2198,25 +2230,29 @@ defmodule AWS.CloudWatch do
   @doc """
   Gets statistics for the specified metric.
 
-  The maximum number of data points returned from a single call is 1,440. If
-  you request more than 1,440 data points, CloudWatch returns an error.
-  To reduce the number of data points, you can narrow the specified time range and
-  make
-  multiple requests across adjacent time ranges, or you can increase the specified
-  period.
-  Data points are not returned in chronological order.
+  The maximum number of data points returned from a single call is 1,440. If you
+  request more than 1,440 data points, CloudWatch returns an error. To reduce the
+  number
+  of data points, you can narrow the specified time range and make multiple
+  requests
+  across adjacent time ranges, or you can increase the specified period. Data
+  points are
+  not returned in chronological order.
 
-  CloudWatch aggregates data points based on the length of the period
-  that you specify. For example, if you request statistics with a one-hour period,
-  CloudWatch aggregates all data points with time stamps that fall within each
-  one-hour period. Therefore, the number of values aggregated by CloudWatch is
-  larger than
-  the number of data points returned.
+  CloudWatch aggregates data points based on the length of the period that you
+  specify. For example, if you request statistics with a one-hour period,
+  CloudWatch
+  aggregates all data points with time stamps that fall within each one-hour
+  period.
+  Therefore, the number of values aggregated by CloudWatch is larger than the
+  number of
+  data points returned.
 
   CloudWatch needs raw data points to calculate percentile statistics. If you
   publish
-  data using a statistic set instead, you can only retrieve
-  percentile statistics for this data if one of the following conditions is true:
+  data using a statistic set instead, you can only retrieve percentile statistics
+  for this
+  data if one of the following conditions is true:
 
     *
   The SampleCount value of the statistic set is 1.
@@ -2225,41 +2261,48 @@ defmodule AWS.CloudWatch do
   The Min and the Max values of the statistic set are equal.
 
   Percentile statistics are not available for metrics when any of the metric
-  values are negative numbers.
+  values
+  are negative numbers.
 
   Amazon CloudWatch retains metric data as follows:
 
     *
-  Data points with a period of less than 60 seconds are available for 3 hours.
-  These data points are high-resolution
-  metrics and are available only for custom metrics that have been defined with a
-  `StorageResolution` of 1.
+  Data points with a period of less than 60 seconds are available for 3
+  hours. These data points are high-resolution metrics and are available only for
+  custom metrics that have been defined with a `StorageResolution` of
+  1.
 
     *
-  Data points with a period of 60 seconds (1-minute) are available for 15 days.
+  Data points with a period of 60 seconds (1-minute) are available for 15
+  days.
 
     *
-  Data points with a period of 300 seconds (5-minute) are available for 63 days.
+  Data points with a period of 300 seconds (5-minute) are available for 63
+  days.
 
     *
-  Data points with a period of 3600 seconds (1 hour) are available for 455 days
-  (15 months).
+  Data points with a period of 3600 seconds (1 hour) are available for 455
+  days (15 months).
 
   Data points that are initially published with a shorter period are aggregated
-  together for long-term storage. For example, if you collect
-  data using a period of 1 minute, the data remains available for 15 days with
-  1-minute resolution. After 15 days, this data is still available,
-  but is aggregated and retrievable only with a resolution of 5 minutes. After 63
-  days, the data is further aggregated and is available with
-  a resolution of 1 hour.
+  together for long-term storage. For example, if you collect data using a period
+  of 1
+  minute, the data remains available for 15 days with 1-minute resolution. After
+  15 days,
+  this data is still available, but is aggregated and retrievable only with a
+  resolution
+  of 5 minutes. After 63 days, the data is further aggregated and is available
+  with a
+  resolution of 1 hour.
 
-  CloudWatch started retaining 5-minute and 1-hour metric data as of July 9, 2016.
+  CloudWatch started retaining 5-minute and 1-hour metric data as of July 9,
+  2016.
 
   For information about metrics and dimensions supported by Amazon Web Services
-  services, see the
-  [Amazon CloudWatch Metrics and Dimensions Reference](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html)
-  in the
-  *Amazon CloudWatch User Guide*.
+  services, see the [Amazon CloudWatch Metrics and Dimensions
+  Reference](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html)
+  in the *Amazon CloudWatch User
+  Guide*.
   """
   @spec get_metric_statistics(map(), get_metric_statistics_input(), list()) ::
           {:ok, get_metric_statistics_output(), any()}
@@ -2285,19 +2328,19 @@ defmodule AWS.CloudWatch do
   end
 
   @doc """
-  You can use the `GetMetricWidgetImage` API to retrieve a snapshot graph of
-  one or more Amazon CloudWatch metrics as a bitmap image.
+  You can use the `GetMetricWidgetImage` API to retrieve a snapshot graph
+  of one or more Amazon CloudWatch metrics as a bitmap image.
 
   You can then embed this
   image into your services and products, such as wiki pages, reports, and
-  documents.
-  You could also retrieve images regularly, such as every minute, and create your
-  own
-  custom live dashboard.
+  documents. You
+  could also retrieve images regularly, such as every minute, and create your own
+  custom
+  live dashboard.
 
   The graph you retrieve can include all CloudWatch metric graph features,
-  including metric math
-  and horizontal and vertical annotations.
+  including
+  metric math and horizontal and vertical annotations.
 
   There is a limit of 20 transactions per second for this API. Each
   `GetMetricWidgetImage` action has the following limits:
@@ -2320,15 +2363,14 @@ defmodule AWS.CloudWatch do
   @doc """
   Returns a list of the dashboards for your account.
 
-  If you include `DashboardNamePrefix`, only
-  those dashboards with names starting with the prefix are listed. Otherwise, all
-  dashboards in your account are
-  listed.
+  If you include
+  `DashboardNamePrefix`, only those dashboards with names starting with the
+  prefix are listed. Otherwise, all dashboards in your account are listed.
 
-  `ListDashboards` returns up to 1000 results on one page. If there
-  are more than 1000 dashboards, you can call `ListDashboards` again and
-  include the value you received for `NextToken` in the first call, to receive
-  the next 1000 results.
+  `ListDashboards` returns up to 1000 results on one page. If there are
+  more than 1000 dashboards, you can call `ListDashboards` again and include
+  the value you received for `NextToken` in the first call, to receive the next
+  1000 results.
   """
   @spec list_dashboards(map(), list_dashboards_input(), list()) ::
           {:ok, list_dashboards_output(), any()}
@@ -2341,11 +2383,9 @@ defmodule AWS.CloudWatch do
   end
 
   @doc """
-
-  Returns a list
-  that contains the number
-  of managed Contributor Insights rules
-  in your account.
+  Returns a list that contains the number of managed Contributor Insights rules in
+  your
+  account.
   """
   @spec list_managed_insight_rules(map(), list_managed_insight_rules_input(), list()) ::
           {:ok, list_managed_insight_rules_output(), any()}
@@ -2382,18 +2422,18 @@ defmodule AWS.CloudWatch do
   use the returned token with subsequent calls.
 
   After you create a metric, allow up to 15 minutes for the metric to appear. To
-  see metric
-  statistics sooner, use
+  see
+  metric statistics sooner, use
   [GetMetricData](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html) or
   [GetMetricStatistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html).
 
   If you are using CloudWatch cross-account observability, you can use this
-  operation in a monitoring account and
-  view metrics from the linked source accounts. For more information, see
-  [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
+  operation in a monitoring account and view metrics from the linked source
+  accounts. For
+  more information, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
 
-  `ListMetrics` doesn't return information about metrics if those metrics haven't
-  reported data in the past two weeks. To retrieve those metrics, use
+  `ListMetrics` doesn't return information about metrics if those metrics
+  haven't reported data in the past two weeks. To retrieve those metrics, use
   [GetMetricData](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html) or
   [GetMetricStatistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html).
   """
@@ -2410,8 +2450,8 @@ defmodule AWS.CloudWatch do
   @doc """
   Displays the tags associated with a CloudWatch resource.
 
-  Currently, alarms
-  and Contributor Insights rules support tagging.
+  Currently, alarms and
+  Contributor Insights rules support tagging.
   """
   @spec list_tags_for_resource(map(), list_tags_for_resource_input(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
@@ -2426,14 +2466,14 @@ defmodule AWS.CloudWatch do
   @doc """
   Creates an anomaly detection model for a CloudWatch metric.
 
-  You can use the model
-  to display a band of expected normal values when the metric is graphed.
+  You can use the model to
+  display a band of expected normal values when the metric is graphed.
 
   If you have enabled unified cross-account observability, and this account is a
-  monitoring
-  account, the metric can be in the same account or a source account. You can
-  specify the account ID
-  in the object you specify in the `SingleMetricAnomalyDetector` parameter.
+  monitoring account, the metric can be in the same account or a source account.
+  You can
+  specify the account ID in the object you specify in the
+  `SingleMetricAnomalyDetector` parameter.
 
   For more information, see [CloudWatch Anomaly Detection](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.html).
   """
@@ -2460,18 +2500,18 @@ defmodule AWS.CloudWatch do
   The alarms specified in a composite alarm's rule expression can include metric
   alarms
   and other composite alarms. The rule expression of a composite alarm can include
-  as many as 100 underlying alarms.
-  Any single alarm can be included in the rule expressions of as many as 150
-  composite alarms.
+  as many
+  as 100 underlying alarms. Any single alarm can be included in the rule
+  expressions of as
+  many as 150 composite alarms.
 
-  Using composite alarms can reduce
-  alarm noise. You can create multiple metric alarms,
-  and also create a composite alarm and
-  set up alerts only
-  for the composite alarm. For example, you could create a composite
-  alarm that goes into ALARM state only when more than one of the underlying
-  metric alarms
-  are in ALARM state.
+  Using composite alarms can reduce alarm noise. You can create multiple metric
+  alarms,
+  and also create a composite alarm and set up alerts only for the composite
+  alarm. For
+  example, you could create a composite alarm that goes into ALARM state only when
+  more
+  than one of the underlying metric alarms are in ALARM state.
 
   Composite alarms can take the following actions:
 
@@ -2488,17 +2528,17 @@ defmodule AWS.CloudWatch do
   Create incidents in Systems Manager Incident Manager.
 
   It is possible to create a loop or cycle of composite alarms, where composite
-  alarm A depends on composite alarm B, and
-  composite alarm B also depends on composite alarm A. In this scenario, you can't
-  delete any composite alarm that is part of the cycle
-  because there is always still a composite alarm that depends on that alarm that
-  you want to delete.
+  alarm A depends on composite alarm B, and composite alarm B also depends on
+  composite alarm A. In this scenario, you can't delete any composite alarm that
+  is
+  part of the cycle because there is always still a composite alarm that depends
+  on
+  that alarm that you want to delete.
 
-  To get out of such a situation, you must
-  break the cycle by changing the rule of one of the composite alarms in the cycle
-  to remove a dependency that creates the cycle. The simplest
-  change to make to break a cycle is to change the `AlarmRule` of one of the
-  alarms to `false`.
+  To get out of such a situation, you must break the cycle by changing the rule of
+  one of the composite alarms in the cycle to remove a dependency that creates the
+  cycle. The simplest change to make to break a cycle is to change the
+  `AlarmRule` of one of the alarms to `false`.
 
   Additionally, the evaluation of composite alarms stops if CloudWatch detects a
   cycle in the evaluation path.
@@ -2507,21 +2547,21 @@ defmodule AWS.CloudWatch do
   `INSUFFICIENT_DATA`. The alarm is then evaluated and its state is set
   appropriately. Any actions associated with the new state are then executed. For
   a
-  composite alarm, this initial time after creation is the only time that
-  the
-  alarm can be in `INSUFFICIENT_DATA` state.
+  composite alarm, this initial time after creation is the only time that the
+  alarm can be
+  in `INSUFFICIENT_DATA` state.
 
   When you update an existing alarm, its state is left unchanged, but the update
   completely overwrites the previous configuration of the alarm.
 
-  To use this operation, you must be signed on with
-  the `cloudwatch:PutCompositeAlarm` permission that is scoped to `*`. You can't
-  create a
-  composite alarms if your `cloudwatch:PutCompositeAlarm` permission has a
-  narrower scope.
+  To use this operation, you must be signed on with the
+  `cloudwatch:PutCompositeAlarm` permission that is scoped to
+  `*`. You can't create a composite alarms if your
+  `cloudwatch:PutCompositeAlarm` permission has a narrower scope.
 
-  If you are an IAM user, you must have `iam:CreateServiceLinkedRole` to create
-  a composite alarm that has Systems Manager OpsItem actions.
+  If you are an IAM user, you must have
+  `iam:CreateServiceLinkedRole` to create a composite alarm that has
+  Systems Manager OpsItem actions.
   """
   @spec put_composite_alarm(map(), put_composite_alarm_input(), list()) ::
           {:ok, nil, any()}
@@ -2537,28 +2577,29 @@ defmodule AWS.CloudWatch do
   Creates a dashboard if it does not already exist, or updates an existing
   dashboard.
 
-  If you update a dashboard,
-  the entire contents are replaced with what you specify here.
+  If you update a dashboard, the entire contents are replaced with what you
+  specify
+  here.
 
   All dashboards in your account are global, not region-specific.
 
   A simple way to create a dashboard using `PutDashboard` is to copy an
   existing dashboard. To copy an existing dashboard using the console, you can
-  load the dashboard
-  and then use the View/edit source command in the Actions menu to display the
-  JSON block
-  for that dashboard. Another way to copy a dashboard is to
-  use `GetDashboard`, and then use the data returned
-  within `DashboardBody` as the template for the new dashboard when you call
+  load the
+  dashboard and then use the View/edit source command in the Actions menu to
+  display the
+  JSON block for that dashboard. Another way to copy a dashboard is to use
+  `GetDashboard`, and then use the data returned within
+  `DashboardBody` as the template for the new dashboard when you call
   `PutDashboard`.
 
   When you create a dashboard with `PutDashboard`, a good practice is to
   add a text widget at the top of the dashboard with a message that the dashboard
-  was created by script and should
-  not be changed in the console. This message could also point console users to
-  the location
-  of the `DashboardBody` script or the CloudFormation template used to create the
-  dashboard.
+  was
+  created by script and should not be changed in the console. This message could
+  also
+  point console users to the location of the `DashboardBody` script or the
+  CloudFormation template used to create the dashboard.
   """
   @spec put_dashboard(map(), put_dashboard_input(), list()) ::
           {:ok, put_dashboard_output(), any()}
@@ -2573,14 +2614,15 @@ defmodule AWS.CloudWatch do
   @doc """
   Creates a Contributor Insights rule.
 
-  Rules evaluate log events in a
-  CloudWatch Logs log group, enabling you to find contributor data for the log
-  events in that log group. For more information,
-  see [Using Contributor Insights to Analyze High-Cardinality Data](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html).
+  Rules evaluate log events in a CloudWatch Logs
+  log group, enabling you to find contributor data for the log events in that log
+  group.
+  For more information, see [Using Contributor Insights to Analyze High-Cardinality
+  Data](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html).
 
   If you create a rule, delete it, and then re-create it with the same name,
-  historical data from the first time
-  the rule was created might not be available.
+  historical
+  data from the first time the rule was created might not be available.
   """
   @spec put_insight_rule(map(), put_insight_rule_input(), list()) ::
           {:ok, put_insight_rule_output(), any()}
@@ -2593,23 +2635,17 @@ defmodule AWS.CloudWatch do
   end
 
   @doc """
+  Creates a managed Contributor Insights rule for a specified Amazon Web Services
+  resource.
 
-  Creates a managed Contributor Insights rule
-  for a specified Amazon Web Services resource.
-
-  When you enable a managed rule,
-  you create a Contributor Insights rule
-  that collects data
-  from Amazon Web Services services.
-  You cannot edit these rules
-  with `PutInsightRule`.
-  The rules can be enabled, disabled, and deleted using `EnableInsightRules`,
-  `DisableInsightRules`, and `DeleteInsightRules`.
-  If a previously created managed rule is currently disabled,
-  a subsequent call
-  to this API will re-enable it.
-  Use `ListManagedInsightRules`
-  to describe all available rules.
+  When you enable a managed rule, you create a Contributor Insights rule that
+  collects data from Amazon Web Services services. You cannot edit these rules
+  with
+  `PutInsightRule`. The rules can be enabled, disabled, and deleted using
+  `EnableInsightRules`, `DisableInsightRules`, and
+  `DeleteInsightRules`. If a previously created managed rule is currently
+  disabled, a subsequent call to this API will re-enable it. Use
+  `ListManagedInsightRules` to describe all available rules.
   """
   @spec put_managed_insight_rules(map(), put_managed_insight_rules_input(), list()) ::
           {:ok, put_managed_insight_rules_output(), any()}
@@ -2623,11 +2659,11 @@ defmodule AWS.CloudWatch do
 
   @doc """
   Creates or updates an alarm and associates it with the specified metric, metric
-  math expression,
-  anomaly detection model, or Metrics Insights query.
+  math expression, anomaly detection model, or Metrics Insights query.
 
-  For more information about using
-  a Metrics Insights query for an alarm, see [Create alarms on Metrics Insights queries](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Metrics_Insights_Alarm.html).
+  For more
+  information about using a Metrics Insights query for an alarm, see [Create alarms on Metrics Insights
+  queries](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Metrics_Insights_Alarm.html).
 
   Alarms based on anomaly detection models cannot have Auto Scaling actions.
 
@@ -2635,57 +2671,56 @@ defmodule AWS.CloudWatch do
   `INSUFFICIENT_DATA`. The alarm is then evaluated and its state is set
   appropriately. Any actions associated with the new state are then executed.
 
-  When you update an existing alarm, its state is left unchanged, but the
-  update completely overwrites the previous configuration of the alarm.
+  When you update an existing alarm, its state is left unchanged, but the update
+  completely overwrites the previous configuration of the alarm.
 
-  If you are an IAM user, you must have
-  Amazon EC2 permissions for some alarm operations:
+  If you are an IAM user, you must have Amazon EC2 permissions for
+  some alarm operations:
 
     *
-  The `iam:CreateServiceLinkedRole` permission for all alarms with EC2 actions
+  The `iam:CreateServiceLinkedRole` permission for all alarms with
+  EC2 actions
 
     *
   The `iam:CreateServiceLinkedRole` permissions to create an alarm
   with Systems Manager OpsItem or response plan actions.
 
-  The first time you create an alarm in the
-  Amazon Web Services Management Console, the CLI, or by using the PutMetricAlarm
-  API, CloudWatch
-  creates the necessary service-linked role for you. The service-linked roles
-  are called `AWSServiceRoleForCloudWatchEvents` and
-  `AWSServiceRoleForCloudWatchAlarms_ActionSSM`.
-  For more information, see [Amazon Web Services service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role).
+  The first time you create an alarm in the Amazon Web Services Management
+  Console, the CLI, or by using the PutMetricAlarm API, CloudWatch creates the
+  necessary
+  service-linked role for you. The service-linked roles are called
+  `AWSServiceRoleForCloudWatchEvents` and
+  `AWSServiceRoleForCloudWatchAlarms_ActionSSM`. For more information, see
+  [Amazon Web Services service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role).
 
-  Each `PutMetricAlarm` action has a maximum uncompressed payload of 120 KB.
+  Each `PutMetricAlarm` action has a maximum uncompressed payload of 120
+  KB.
 
   ## Cross-account alarms
 
-  You can set an alarm on metrics in the current account, or in another
-  account. To create a cross-account alarm that watches a metric in a different
-  account, you must have completed the following
-  pre-requisites:
+  You can set an alarm on metrics in the current account, or in another account.
+  To
+  create a cross-account alarm that watches a metric in a different account, you
+  must have
+  completed the following pre-requisites:
 
     *
-  The account where the metrics are located (the *sharing account*) must
-  already have a sharing role named **CloudWatch-CrossAccountSharingRole**. If it
-  does not already
-  have this role, you must create it using the instructions in **Set up a
-  sharing account** in [
-  Cross-account cross-Region CloudWatch
-  console](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html#enable-cross-account-cross-Region).
-  The policy for that
-  role must grant access
-  to the ID of the account where you are creating the alarm.
+  The account where the metrics are located (the *sharing
+  account*) must already have a sharing role named
+  **CloudWatch-CrossAccountSharingRole**. If it does not
+  already have this role, you must create it using the instructions in **Set up a
+  sharing account** in [ Cross-account cross-Region CloudWatch console](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html#enable-cross-account-cross-Region).
+  The policy
+  for that role must grant access to the ID of the account where you are creating
+  the alarm.
 
     *
-  The account where you are creating the alarm (the *monitoring account*) must
-  already have a service-linked role named
+  The account where you are creating the alarm (the *monitoring
+  account*) must already have a service-linked role named
   **AWSServiceRoleForCloudWatchCrossAccount** to allow
-  CloudWatch to assume the sharing role in the sharing account. If it does not,
-  you must create it following the directions in **Set up a
-  monitoring account** in [
-  Cross-account cross-Region CloudWatch
-  console](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html#enable-cross-account-cross-Region).
+  CloudWatch to assume the sharing role in the sharing account. If it
+  does not, you must create it following the directions in **Set up a monitoring
+  account** in [ Cross-account cross-Region CloudWatch console](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html#enable-cross-account-cross-Region).
   """
   @spec put_metric_alarm(map(), put_metric_alarm_input(), list()) ::
           {:ok, nil, any()}
@@ -2698,71 +2733,83 @@ defmodule AWS.CloudWatch do
   end
 
   @doc """
-  Publishes metric data points to Amazon CloudWatch.
+  Publishes metric data to Amazon CloudWatch.
 
-  CloudWatch associates
-  the data points with the specified metric. If the specified metric does not
-  exist,
-  CloudWatch creates the metric. When CloudWatch creates a metric, it can
-  take up to fifteen minutes for the metric to appear in calls to
-  [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html).   You can publish either individual data points in the `Value` field, or
-  arrays of values and the number of times each value occurred during the period
-  by using the
-  `Values` and `Counts` fields in the `MetricData` structure. Using
-  the `Values` and `Counts` method enables you to publish up to 150 values per
-  metric
-  with one `PutMetricData` request, and
+  CloudWatch associates the data with the
+  specified metric. If the specified metric does not exist, CloudWatch creates the
+  metric.
+  When CloudWatch creates a metric, it can take up to fifteen minutes for the
+  metric to
+  appear in calls to
+  [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html).   You can publish metrics with associated entity data (so that related telemetry
+  can be
+  found and viewed together), or publish metric data by itself. To send entity
+  data with
+  your metrics, use the `EntityMetricData` parameter. To send metrics without
+  entity data, use the `MetricData` parameter. The
+  `EntityMetricData` structure includes `MetricData` structures
+  for the metric data.
+
+  You can publish either individual values in the `Value` field, or arrays of
+  values and the number of times each value occurred during the period by using
+  the
+  `Values` and `Counts` fields in the `MetricData`
+  structure. Using the `Values` and `Counts` method enables you to
+  publish up to 150 values per metric with one `PutMetricData` request, and
   supports retrieving percentile statistics on this data.
 
-  Each `PutMetricData` request is limited to 1 MB in size for HTTP POST requests.
-  You can
-  send a payload compressed by gzip. Each request
-  is also limited to no more than 1000 different metrics.
+  Each `PutMetricData` request is limited to 1 MB in size for HTTP POST
+  requests. You can send a payload compressed by gzip. Each request is also
+  limited to no
+  more than 1000 different metrics (across both the `MetricData` and
+  `EntityMetricData` properties).
 
-  Although the `Value` parameter accepts numbers of type
-  `Double`, CloudWatch rejects values that are either too small
-  or too large. Values must be in the range of -2^360 to 2^360. In addition,
-  special values (for example, NaN, +Infinity,
+  Although the `Value` parameter accepts numbers of type `Double`,
+  CloudWatch rejects values that are either too small or too large. Values must be
+  in the
+  range of -2^360 to 2^360. In addition, special values (for example, NaN,
+  +Infinity,
   -Infinity) are not supported.
 
   You can use up to 30 dimensions per metric to further clarify what data the
-  metric collects. Each dimension
-  consists of a Name and Value pair. For more information about specifying
-  dimensions, see [Publishing
+  metric
+  collects. Each dimension consists of a Name and Value pair. For more information
+  about
+  specifying dimensions, see [Publishing
   Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html)
-  in the
-  *Amazon CloudWatch User Guide*.
+  in the *Amazon CloudWatch User Guide*.
 
   You specify the time stamp to be associated with each data point. You can
-  specify
-  time stamps that are as much as two weeks before the current date, and as much
-  as 2 hours after
-  the current day and time.
+  specify time
+  stamps that are as much as two weeks before the current date, and as much as 2
+  hours
+  after the current day and time.
 
   Data points with time stamps from 24 hours ago or longer can take at least 48
-  hours to become available for
+  hours to
+  become available for
   [GetMetricData](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html) or
   [GetMetricStatistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html)
-  from the time they
-  are submitted. Data points with time stamps between 3 and 24 hours ago can take
-  as much as 2 hours to become available
-  for for
+  from the time they are submitted. Data points with time
+  stamps between 3 and 24 hours ago can take as much as 2 hours to become
+  available for
   [GetMetricData](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html) or
   [GetMetricStatistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html).
 
   CloudWatch needs raw data points to calculate percentile statistics. If you
   publish
-  data using a statistic set instead, you can only retrieve
-  percentile statistics for this data if one of the following conditions is true:
+  data using a statistic set instead, you can only retrieve percentile statistics
+  for this
+  data if one of the following conditions is true:
 
     *
-  The `SampleCount` value of the statistic set is 1 and `Min`,
-  `Max`, and `Sum` are all equal.
+  The `SampleCount` value of the statistic set is 1 and
+  `Min`, `Max`, and `Sum` are all
+  equal.
 
     *
-  The `Min` and
-  `Max` are equal, and `Sum` is equal to `Min`
-  multiplied by `SampleCount`.
+  The `Min` and `Max` are equal, and `Sum`
+  is equal to `Min` multiplied by `SampleCount`.
   """
   @spec put_metric_data(map(), put_metric_data_input(), list()) ::
           {:ok, nil, any()}
@@ -2782,8 +2829,7 @@ defmodule AWS.CloudWatch do
   third-party
   solutions.
 
-  For more information, see [
-  Using Metric
+  For more information, see [ Using Metric
   Streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Metric-Streams.html).
 
   To create a metric stream, you must be signed in to an account that has the
@@ -2797,8 +2843,8 @@ defmodule AWS.CloudWatch do
   Stream metrics from all metric namespaces in the account.
 
     *
-  Stream metrics from all metric namespaces in the account, except
-  for the namespaces that you list in `ExcludeFilters`.
+  Stream metrics from all metric namespaces in the account, except for the
+  namespaces that you list in `ExcludeFilters`.
 
     *
   Stream metrics from only the metric namespaces that you list in
@@ -2811,15 +2857,14 @@ defmodule AWS.CloudWatch do
   statistics
   incurs additional costs. For more information, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/).
 
-  When you use `PutMetricStream` to create a new metric stream, the stream
-  is created in the `running` state. If you use it to update an existing stream,
+  When you use `PutMetricStream` to create a new metric stream, the stream is
+  created in the `running` state. If you use it to update an existing stream,
   the state of the stream is not changed.
 
   If you are using CloudWatch cross-account observability and you create a metric
-  stream in a monitoring account,
-  you can choose whether to include metrics from source accounts in the stream.
-  For more information, see
-  [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
+  stream in a monitoring account, you can choose whether to include metrics from
+  source
+  accounts in the stream. For more information, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
   """
   @spec put_metric_stream(map(), put_metric_stream_input(), list()) ::
           {:ok, put_metric_stream_output(), any()}
@@ -2834,33 +2879,32 @@ defmodule AWS.CloudWatch do
   @doc """
   Temporarily sets the state of an alarm for testing purposes.
 
-  When the updated
-  state differs from the previous value, the action configured for
-  the appropriate state is invoked. For example, if your alarm is configured to
-  send an
-  Amazon SNS message when an alarm is triggered, temporarily changing the alarm
-  state to
-  `ALARM` sends an SNS message.
+  When the updated state
+  differs from the previous value, the action configured for the appropriate state
+  is
+  invoked. For example, if your alarm is configured to send an Amazon SNS message
+  when an
+  alarm is triggered, temporarily changing the alarm state to `ALARM` sends an
+  SNS message.
 
-  Metric alarms
-  returns to their actual state quickly, often within seconds. Because the metric
-  alarm state change
-  happens quickly, it is typically only visible in the alarm's **History** tab in
-  the Amazon CloudWatch console or through
+  Metric alarms returns to their actual state quickly, often within seconds.
+  Because
+  the metric alarm state change happens quickly, it is typically only visible in
+  the
+  alarm's **History** tab in the Amazon CloudWatch console or
+  through
   [DescribeAlarmHistory](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarmHistory.html).
 
-  If you use `SetAlarmState` on a composite alarm, the composite alarm is not
-  guaranteed to return
-  to its actual state. It
-  returns to its actual state only once any of its children alarms change state.
-  It is also
-  reevaluated if you update its
+  If you use `SetAlarmState` on a composite alarm, the composite alarm is
+  not guaranteed to return to its actual state. It returns to its actual state
+  only once
+  any of its children alarms change state. It is also reevaluated if you update
+  its
   configuration.
 
   If an alarm triggers EC2 Auto Scaling policies or application Auto Scaling
-  policies, you must include
-  information in the `StateReasonData` parameter to enable the policy to take the
-  correct action.
+  policies, you must include information in the `StateReasonData` parameter to
+  enable the policy to take the correct action.
   """
   @spec set_alarm_state(map(), set_alarm_state_input(), list()) ::
           {:ok, nil, any()}
@@ -2901,23 +2945,26 @@ defmodule AWS.CloudWatch do
   @doc """
   Assigns one or more tags (key-value pairs) to the specified CloudWatch resource.
 
-  Currently, the only CloudWatch resources that
-  can be tagged are alarms and Contributor Insights rules.
+  Currently, the only CloudWatch resources that can be tagged are alarms and
+  Contributor
+  Insights rules.
 
   Tags can help you organize and categorize your resources. You can also use them
-  to scope user
-  permissions by granting a user
-  permission to access or change only resources with certain tag values.
+  to
+  scope user permissions by granting a user permission to access or change only
+  resources
+  with certain tag values.
 
   Tags don't have any semantic meaning to Amazon Web Services and are interpreted
   strictly as strings of characters.
 
-  You can use the `TagResource` action with an alarm that already has tags. If you
-  specify a new tag key for the alarm,
-  this tag is appended to the list of tags associated
-  with the alarm. If you specify a tag key that is already associated with the
-  alarm, the new tag value that you specify replaces
-  the previous value for that tag.
+  You can use the `TagResource` action with an alarm that already has tags.
+  If you specify a new tag key for the alarm, this tag is appended to the list of
+  tags
+  associated with the alarm. If you specify a tag key that is already associated
+  with the
+  alarm, the new tag value that you specify replaces the previous value for that
+  tag.
 
   You can associate as many as 50 tags with a CloudWatch resource.
   """

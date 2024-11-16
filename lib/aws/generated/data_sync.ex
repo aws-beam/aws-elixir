@@ -3138,7 +3138,7 @@ defmodule AWS.DataSync do
   Some `DescribeTaskExecution` response elements are only relevant to a
   specific task mode. For information, see [Understanding task mode differences](https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html#task-mode-differences)
   and [Understanding data transfer performance
-  metrics](https://docs.aws.amazon.com/datasync/latest/userguide/transfer-performance-metrics.html).
+  counters](https://docs.aws.amazon.com/datasync/latest/userguide/transfer-performance-counters.html).
   """
   @spec describe_task_execution(map(), describe_task_execution_request(), list()) ::
           {:ok, describe_task_execution_response(), any()}

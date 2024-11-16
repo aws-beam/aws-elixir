@@ -601,6 +601,18 @@ defmodule AWS.IoT do
 
   ## Example:
 
+      list_principal_things_v2_response() :: %{
+        "nextToken" => String.t(),
+        "principalThingObjects" => list(principal_thing_object()())
+      }
+
+  """
+  @type list_principal_things_v2_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_thing_groups_request() :: %{
         optional("maxResults") => integer(),
         optional("namePrefixFilter") => String.t(),
@@ -641,6 +653,7 @@ defmodule AWS.IoT do
   ## Example:
 
       attach_thing_principal_request() :: %{
+        optional("thingPrincipalType") => list(any()),
         required("principal") => String.t()
       }
 
@@ -1091,6 +1104,17 @@ defmodule AWS.IoT do
 
   ## Example:
 
+      update_thing_type_request() :: %{
+        optional("thingTypeProperties") => thing_type_properties()
+      }
+
+  """
+  @type update_thing_type_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_thing_type_request() :: %{}
 
   """
@@ -1257,6 +1281,17 @@ defmodule AWS.IoT do
 
   """
   @type list_policies_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mqtt5_configuration() :: %{
+        "propagatingAttributes" => list(propagating_attribute()())
+      }
+
+  """
+  @type mqtt5_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1799,6 +1834,15 @@ defmodule AWS.IoT do
 
   """
   @type list_fleet_metrics_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_thing_type_response() :: %{}
+
+  """
+  @type update_thing_type_response() :: %{}
 
   @typedoc """
 
@@ -4114,6 +4158,18 @@ defmodule AWS.IoT do
 
   ## Example:
 
+      thing_principal_object() :: %{
+        "principal" => String.t(),
+        "thingPrincipalType" => list(any())
+      }
+
+  """
+  @type thing_principal_object() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_account_audit_configuration_request() :: %{
         optional("deleteScheduledAudits") => boolean()
       }
@@ -4387,6 +4443,18 @@ defmodule AWS.IoT do
 
   ## Example:
 
+      principal_thing_object() :: %{
+        "thingName" => String.t(),
+        "thingPrincipalType" => list(any())
+      }
+
+  """
+  @type principal_thing_object() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       attribute_payload() :: %{
         "attributes" => map(),
         "merge" => boolean()
@@ -4444,6 +4512,19 @@ defmodule AWS.IoT do
 
   """
   @type presigned_url_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_thing_principals_v2_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("thingPrincipalType") => list(any())
+      }
+
+  """
+  @type list_thing_principals_v2_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5202,6 +5283,19 @@ defmodule AWS.IoT do
 
   """
   @type delete_thing_group_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      propagating_attribute() :: %{
+        "connectionAttribute" => String.t(),
+        "thingAttribute" => String.t(),
+        "userPropertyKey" => String.t()
+      }
+
+  """
+  @type propagating_attribute() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5997,7 +6091,9 @@ defmodule AWS.IoT do
   ## Example:
 
       server_certificate_config() :: %{
-        "enableOCSPCheck" => boolean()
+        "enableOCSPCheck" => boolean(),
+        "ocspAuthorizedResponderArn" => String.t(),
+        "ocspLambdaArn" => String.t()
       }
 
   """
@@ -7018,6 +7114,18 @@ defmodule AWS.IoT do
 
   """
   @type delete_provisioning_template_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_thing_principals_v2_response() :: %{
+        "nextToken" => String.t(),
+        "thingPrincipalObjects" => list(thing_principal_object()())
+      }
+
+  """
+  @type list_thing_principals_v2_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -8889,6 +8997,7 @@ defmodule AWS.IoT do
   ## Example:
 
       thing_type_properties() :: %{
+        "mqtt5Configuration" => mqtt5_configuration(),
         "searchableAttributes" => list(String.t()()),
         "thingTypeDescription" => String.t()
       }
@@ -8971,6 +9080,20 @@ defmodule AWS.IoT do
 
   """
   @type list_certificates_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_principal_things_v2_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("thingPrincipalType") => list(any()),
+        required("principal") => String.t()
+      }
+
+  """
+  @type list_principal_things_v2_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -10494,6 +10617,14 @@ defmodule AWS.IoT do
           | unauthorized_exception()
           | internal_failure_exception()
 
+  @type list_principal_things_v2_errors() ::
+          throttling_exception()
+          | service_unavailable_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
+          | internal_failure_exception()
+
   @type list_provisioning_template_versions_errors() ::
           throttling_exception()
           | invalid_request_exception()
@@ -10582,6 +10713,14 @@ defmodule AWS.IoT do
           | internal_failure_exception()
 
   @type list_thing_principals_errors() ::
+          throttling_exception()
+          | service_unavailable_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
+          | internal_failure_exception()
+
+  @type list_thing_principals_v2_errors() ::
           throttling_exception()
           | service_unavailable_exception()
           | invalid_request_exception()
@@ -11025,6 +11164,14 @@ defmodule AWS.IoT do
           | resource_not_found_exception()
           | internal_failure_exception()
 
+  @type update_thing_type_errors() ::
+          throttling_exception()
+          | service_unavailable_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
+          | internal_failure_exception()
+
   @type update_topic_rule_destination_errors() ::
           conflicting_resource_update_exception()
           | internal_exception()
@@ -11341,7 +11488,11 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
-    query_params = []
+    {query_params, input} =
+      [
+        {"thingPrincipalType", "thingPrincipalType"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 
@@ -17683,6 +17834,73 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  Lists the things associated with the specified principal.
+
+  A principal can be an X.509
+  certificate or an Amazon Cognito ID.
+
+  Requires permission to access the
+  [ListPrincipalThings](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
+  action.
+  """
+  @spec list_principal_things_v2(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t(),
+          list()
+        ) ::
+          {:ok, list_principal_things_v2_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_principal_things_v2_errors()}
+  def list_principal_things_v2(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        thing_principal_type \\ nil,
+        principal,
+        options \\ []
+      ) do
+    url_path = "/principals/things-v2"
+    headers = []
+
+    headers =
+      if !is_nil(principal) do
+        [{"x-amzn-principal", principal} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(thing_principal_type) do
+        [{"thingPrincipalType", thing_principal_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   A list of provisioning template versions.
 
   Requires permission to access the
@@ -18445,6 +18663,65 @@ defmodule AWS.IoT do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/principals"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the principals associated with the specified thing.
+
+  A principal can be an X.509
+  certificate or an Amazon Cognito ID.
+
+  Requires permission to access the
+  [ListThingPrincipals](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
+  action.
+  """
+  @spec list_thing_principals_v2(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_thing_principals_v2_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_thing_principals_v2_errors()}
+  def list_thing_principals_v2(
+        %Client{} = client,
+        thing_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        thing_principal_type \\ nil,
+        options \\ []
+      ) do
+    url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/principals-v2"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(thing_principal_type) do
+        [{"thingPrincipalType", thing_principal_type} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(next_token) do
@@ -20831,6 +21108,33 @@ defmodule AWS.IoT do
     meta = metadata()
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Updates a thing type.
+  """
+  @spec update_thing_type(map(), String.t(), update_thing_type_request(), list()) ::
+          {:ok, update_thing_type_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_thing_type_errors()}
+  def update_thing_type(%Client{} = client, thing_type_name, input, options \\ []) do
+    url_path = "/thing-types/#{AWS.Util.encode_uri(thing_type_name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

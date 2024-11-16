@@ -192,11 +192,14 @@ defmodule AWS.Route53Resolver do
         optional("BlockOverrideDomain") => String.t(),
         optional("BlockOverrideTtl") => integer(),
         optional("BlockResponse") => list(any()),
+        optional("ConfidenceThreshold") => list(any()),
+        optional("DnsThreatProtection") => list(any()),
+        optional("FirewallDomainListId") => String.t(),
         optional("FirewallDomainRedirectionAction") => list(any()),
+        optional("FirewallThreatProtectionId") => String.t(),
         optional("Name") => String.t(),
         optional("Priority") => integer(),
         optional("Qtype") => String.t(),
-        required("FirewallDomainListId") => String.t(),
         required("FirewallRuleGroupId") => String.t()
       }
       
@@ -419,11 +422,13 @@ defmodule AWS.Route53Resolver do
         optional("BlockOverrideDomain") => String.t(),
         optional("BlockOverrideTtl") => integer(),
         optional("BlockResponse") => list(any()),
+        optional("ConfidenceThreshold") => list(any()),
+        optional("DnsThreatProtection") => list(any()),
+        optional("FirewallDomainListId") => String.t(),
         optional("FirewallDomainRedirectionAction") => list(any()),
         optional("Qtype") => String.t(),
         required("Action") => list(any()),
         required("CreatorRequestId") => String.t(),
-        required("FirewallDomainListId") => String.t(),
         required("FirewallRuleGroupId") => String.t(),
         required("Name") => String.t(),
         required("Priority") => integer()
@@ -1299,11 +1304,14 @@ defmodule AWS.Route53Resolver do
         "BlockOverrideDomain" => String.t(),
         "BlockOverrideTtl" => integer(),
         "BlockResponse" => list(any()),
+        "ConfidenceThreshold" => list(any()),
         "CreationTime" => String.t(),
         "CreatorRequestId" => String.t(),
+        "DnsThreatProtection" => list(any()),
         "FirewallDomainListId" => String.t(),
         "FirewallDomainRedirectionAction" => list(any()),
         "FirewallRuleGroupId" => String.t(),
+        "FirewallThreatProtectionId" => String.t(),
         "ModificationTime" => String.t(),
         "Name" => String.t(),
         "Priority" => integer(),
@@ -1474,8 +1482,9 @@ defmodule AWS.Route53Resolver do
   ## Example:
       
       delete_firewall_rule_request() :: %{
+        optional("FirewallDomainListId") => String.t(),
+        optional("FirewallThreatProtectionId") => String.t(),
         optional("Qtype") => String.t(),
-        required("FirewallDomainListId") => String.t(),
         required("FirewallRuleGroupId") => String.t()
       }
       
@@ -2393,6 +2402,7 @@ defmodule AWS.Route53Resolver do
 
   @type delete_firewall_rule_errors() ::
           throttling_exception()
+          | validation_exception()
           | access_denied_exception()
           | resource_not_found_exception()
           | internal_service_error_exception()

@@ -324,6 +324,15 @@ defmodule AWS.Request do
       nil ->
         {headers, params}
 
+      param_value when is_map(param_value) ->
+        headers =
+          Enum.reduce(param_value, headers, fn {k, v} ->
+            {header_name <> k, v}
+          end)
+
+        params = Map.delete(params, param_name)
+        {headers, params}
+
       param_value ->
         headers = [{header_name, param_value} | headers]
         params = Map.delete(params, param_name)

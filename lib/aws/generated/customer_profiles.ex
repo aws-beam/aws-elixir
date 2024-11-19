@@ -110,6 +110,17 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      create_segment_estimate_request() :: %{
+        required("SegmentQuery") => segment_group_structure()
+      }
+
+  """
+  @type create_segment_estimate_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_calculated_attribute_definition_response() :: %{
         "AttributeDetails" => attribute_details(),
         "CalculatedAttributeName" => String.t(),
@@ -117,6 +128,7 @@ defmodule AWS.CustomerProfiles do
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t(),
         "DisplayName" => String.t(),
+        "Filter" => filter(),
         "LastUpdatedAt" => non_neg_integer(),
         "Statistic" => list(any()),
         "Tags" => map()
@@ -133,6 +145,20 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type get_domain_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_segment_snapshot_request() :: %{
+        optional("DestinationUri") => String.t(),
+        optional("EncryptionKey") => String.t(),
+        optional("RoleArn") => String.t(),
+        required("DataFormat") => list(any())
+      }
+
+  """
+  @type create_segment_snapshot_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -157,6 +183,18 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type put_profile_object_type_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      date_dimension() :: %{
+        "DimensionType" => list(any()),
+        "Values" => list([String.t()]())
+      }
+
+  """
+  @type date_dimension() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -273,6 +311,19 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type range() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      profile_query_result() :: %{
+        "Profile" => profile(),
+        "ProfileId" => String.t(),
+        "QueryResult" => list(any())
+      }
+
+  """
+  @type profile_query_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -428,6 +479,15 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      delete_segment_definition_request() :: %{}
+
+  """
+  @type delete_segment_definition_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       untag_resource_response() :: %{}
 
   """
@@ -498,6 +558,22 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      segment_definition_item() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t(),
+        "DisplayName" => String.t(),
+        "SegmentDefinitionArn" => String.t(),
+        "SegmentDefinitionName" => String.t(),
+        "Tags" => map()
+      }
+
+  """
+  @type segment_definition_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       found_by_key_value() :: %{
         "KeyName" => String.t(),
         "Values" => list(String.t()())
@@ -551,6 +627,18 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      list_segment_definitions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_segment_definitions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_identity_resolution_job_request() :: %{}
 
   """
@@ -584,6 +672,37 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type detect_profile_object_type_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      calculated_attribute_value() :: %{
+        "CalculatedAttributeName" => String.t(),
+        "DisplayName" => String.t(),
+        "IsDataPartial" => String.t(),
+        "ProfileId" => String.t(),
+        "Value" => String.t()
+      }
+
+  """
+  @type calculated_attribute_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      address_dimension() :: %{
+        "City" => profile_dimension(),
+        "Country" => profile_dimension(),
+        "County" => profile_dimension(),
+        "PostalCode" => profile_dimension(),
+        "Province" => profile_dimension(),
+        "State" => profile_dimension()
+      }
+
+  """
+  @type address_dimension() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -685,6 +804,18 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      filter_group() :: %{
+        "Dimensions" => list(filter_dimension()()),
+        "Type" => list(any())
+      }
+
+  """
+  @type filter_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_identity_resolution_jobs_response() :: %{
         "IdentityResolutionJobsList" => list(identity_resolution_job()()),
         "NextToken" => String.t()
@@ -692,6 +823,30 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type list_identity_resolution_jobs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_calculated_attribute_for_profile_error() :: %{
+        "Code" => String.t(),
+        "Message" => String.t(),
+        "ProfileId" => String.t()
+      }
+
+  """
+  @type batch_get_calculated_attribute_for_profile_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      condition_overrides() :: %{
+        "Range" => range_override()
+      }
+
+  """
+  @type condition_overrides() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -714,6 +869,17 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type matching_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attribute_value_item() :: %{
+        "Value" => String.t()
+      }
+
+  """
+  @type attribute_value_item() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -812,6 +978,19 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      range_override() :: %{
+        "End" => integer(),
+        "Start" => integer(),
+        "Unit" => list(any())
+      }
+
+  """
+  @type range_override() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_calculated_attribute_definition_request() :: %{}
 
   """
@@ -834,6 +1013,7 @@ defmodule AWS.CustomerProfiles do
         optional("Conditions") => conditions(),
         optional("Description") => String.t(),
         optional("DisplayName") => String.t(),
+        optional("Filter") => filter(),
         optional("Tags") => map(),
         required("AttributeDetails") => attribute_details(),
         required("Statistic") => list(any())
@@ -942,6 +1122,30 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      list_object_type_attributes_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_object_type_attributes_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_object_type_attribute_item() :: %{
+        "AttributeName" => String.t(),
+        "LastUpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type list_object_type_attribute_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_integration_response() :: %{
         "CreatedAt" => non_neg_integer(),
         "DomainName" => String.t(),
@@ -990,6 +1194,19 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type delete_profile_key_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      calculated_attribute_dimension() :: %{
+        "ConditionOverrides" => condition_overrides(),
+        "DimensionType" => list(any()),
+        "Values" => list(String.t()())
+      }
+
+  """
+  @type calculated_attribute_dimension() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1061,6 +1278,23 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      get_segment_definition_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t(),
+        "DisplayName" => String.t(),
+        "SegmentDefinitionArn" => String.t(),
+        "SegmentDefinitionName" => String.t(),
+        "SegmentGroups" => segment_group(),
+        "Tags" => map()
+      }
+
+  """
+  @type get_segment_definition_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       rule_based_matching_response() :: %{
         "AttributeTypesSelector" => attribute_types_selector(),
         "ConflictResolution" => conflict_resolution(),
@@ -1110,12 +1344,37 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      profile_query_failures() :: %{
+        "Message" => String.t(),
+        "ProfileId" => String.t(),
+        "Status" => integer()
+      }
+
+  """
+  @type profile_query_failures() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       resource_not_found_exception() :: %{
         "Message" => String.t()
       }
 
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      segment_group_structure() :: %{
+        "Groups" => list(group()()),
+        "Include" => list(any())
+      }
+
+  """
+  @type segment_group_structure() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1208,6 +1467,31 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      profile_dimension() :: %{
+        "DimensionType" => list(any()),
+        "Values" => list(String.t()())
+      }
+
+  """
+  @type profile_dimension() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_calculated_attribute_for_profile_response() :: %{
+        "CalculatedAttributeValues" => list(calculated_attribute_value()()),
+        "ConditionOverrides" => condition_overrides(),
+        "Errors" => list(batch_get_calculated_attribute_for_profile_error()())
+      }
+
+  """
+  @type batch_get_calculated_attribute_for_profile_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_event_streams_response() :: %{
         "Items" => list(event_stream_summary()()),
         "NextToken" => String.t()
@@ -1215,6 +1499,18 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type list_event_streams_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_object_type_attributes_response() :: %{
+        "Items" => list(list_object_type_attribute_item()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_object_type_attributes_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1354,6 +1650,18 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      batch_get_profile_response() :: %{
+        "Errors" => list(batch_get_profile_error()()),
+        "Profiles" => list(profile()())
+      }
+
+  """
+  @type batch_get_profile_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       exporting_config() :: %{
         "S3Exporting" => s3_exporting_config()
       }
@@ -1407,6 +1715,22 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      create_segment_definition_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t(),
+        "DisplayName" => String.t(),
+        "SegmentDefinitionArn" => String.t(),
+        "SegmentDefinitionName" => String.t(),
+        "Tags" => map()
+      }
+
+  """
+  @type create_segment_definition_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       matching_response() :: %{
         "AutoMerging" => auto_merging(),
         "Enabled" => boolean(),
@@ -1429,6 +1753,17 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type conditions() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_segment() :: %{
+        "SegmentDefinitionName" => String.t()
+      }
+
+  """
+  @type source_segment() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1550,6 +1885,46 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      create_segment_snapshot_response() :: %{
+        "SnapshotId" => String.t()
+      }
+
+  """
+  @type create_segment_snapshot_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      filter() :: %{
+        "Groups" => list(filter_group()()),
+        "Include" => list(any())
+      }
+
+  """
+  @type filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_segment_snapshot_response() :: %{
+        "DataFormat" => list(any()),
+        "DestinationUri" => String.t(),
+        "EncryptionKey" => String.t(),
+        "RoleArn" => String.t(),
+        "SnapshotId" => String.t(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t()
+      }
+
+  """
+  @type get_segment_snapshot_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_profile_objects_item() :: %{
         "Object" => String.t(),
         "ObjectTypeName" => String.t(),
@@ -1640,6 +2015,30 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      filter_attribute_dimension() :: %{
+        "DimensionType" => list(any()),
+        "Values" => list(String.t()())
+      }
+
+  """
+  @type filter_attribute_dimension() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      segment_group() :: %{
+        "Groups" => list(group()()),
+        "Include" => list(any())
+      }
+
+  """
+  @type segment_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       search_profiles_request() :: %{
         optional("AdditionalSearchKeys") => list(additional_search_key()()),
         optional("LogicalOperator") => list(any()),
@@ -1651,6 +2050,34 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type search_profiles_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_segment_definitions_response() :: %{
+        "Items" => list(segment_definition_item()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_segment_definitions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_segment_estimate_response() :: %{
+        "DomainName" => String.t(),
+        "Estimate" => String.t(),
+        "EstimateId" => String.t(),
+        "Message" => String.t(),
+        "Status" => list(any()),
+        "StatusCode" => integer()
+      }
+
+  """
+  @type get_segment_estimate_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1711,6 +2138,15 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      get_segment_snapshot_request() :: %{}
+
+  """
+  @type get_segment_snapshot_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       salesforce_source_properties() :: %{
         "EnableDynamicFieldUpdate" => boolean(),
         "IncludeDeletedRecords" => boolean(),
@@ -1762,10 +2198,32 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      get_segment_membership_request() :: %{
+        required("ProfileIds") => list(String.t()())
+      }
+
+  """
+  @type get_segment_membership_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_calculated_attribute_definition_request() :: %{}
 
   """
   @type delete_calculated_attribute_definition_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      filter_dimension() :: %{
+        "Attributes" => map()
+      }
+
+  """
+  @type filter_dimension() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1833,6 +2291,20 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      create_segment_definition_request() :: %{
+        optional("Description") => String.t(),
+        optional("Tags") => map(),
+        required("DisplayName") => String.t(),
+        required("SegmentGroups") => segment_group()
+      }
+
+  """
+  @type create_segment_definition_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_response() :: %{}
 
   """
@@ -1855,6 +2327,18 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type identity_resolution_job() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_calculated_attribute_for_profile_request() :: %{
+        optional("ConditionOverrides") => condition_overrides(),
+        required("ProfileIds") => list(String.t()())
+      }
+
+  """
+  @type batch_get_calculated_attribute_for_profile_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1935,6 +2419,19 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      get_segment_membership_response() :: %{
+        "Failures" => list(profile_query_failures()()),
+        "Profiles" => list(profile_query_result()()),
+        "SegmentDefinitionName" => String.t()
+      }
+
+  """
+  @type get_segment_membership_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       s3_exporting_config() :: %{
         "S3BucketName" => String.t(),
         "S3KeyName" => String.t()
@@ -1953,6 +2450,32 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attribute_dimension() :: %{
+        "DimensionType" => list(any()),
+        "Values" => list(String.t()())
+      }
+
+  """
+  @type attribute_dimension() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      group() :: %{
+        "Dimensions" => list(list()()),
+        "SourceSegments" => list(source_segment()()),
+        "SourceType" => list(any()),
+        "Type" => list(any())
+      }
+
+  """
+  @type group() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2041,6 +2564,28 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      batch_get_profile_request() :: %{
+        required("ProfileIds") => list(String.t()())
+      }
+
+  """
+  @type batch_get_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_segment_definition_response() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type delete_segment_definition_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_profile_object_type_request() :: %{}
 
   """
@@ -2071,6 +2616,15 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type connector_operator() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      profile_attribute_values_request() :: %{}
+
+  """
+  @type profile_attribute_values_request() :: %{}
 
   @typedoc """
 
@@ -2155,6 +2709,20 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      profile_attribute_values_response() :: %{
+        "AttributeName" => String.t(),
+        "DomainName" => String.t(),
+        "Items" => list(attribute_value_item()()),
+        "StatusCode" => integer()
+      }
+
+  """
+  @type profile_attribute_values_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_profile_object_request() :: %{
         required("ObjectTypeName") => String.t(),
         required("ProfileId") => String.t(),
@@ -2180,6 +2748,15 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      get_segment_estimate_request() :: %{}
+
+  """
+  @type get_segment_estimate_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_workflows_response() :: %{
         "Items" => list(list_workflows_item()()),
         "NextToken" => String.t()
@@ -2187,6 +2764,27 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type list_workflows_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      extra_length_value_profile_dimension() :: %{
+        "DimensionType" => list(any()),
+        "Values" => list(String.t()())
+      }
+
+  """
+  @type extra_length_value_profile_dimension() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_segment_definition_request() :: %{}
+
+  """
+  @type get_segment_definition_request() :: %{}
 
   @typedoc """
 
@@ -2289,6 +2887,19 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      batch_get_profile_error() :: %{
+        "Code" => String.t(),
+        "Message" => String.t(),
+        "ProfileId" => String.t()
+      }
+
+  """
+  @type batch_get_profile_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_event_stream_response() :: %{
         "EventStreamArn" => String.t(),
         "Tags" => map()
@@ -2340,6 +2951,37 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      profile_attributes() :: %{
+        "AccountNumber" => profile_dimension(),
+        "AdditionalInformation" => extra_length_value_profile_dimension(),
+        "Address" => address_dimension(),
+        "Attributes" => map(),
+        "BillingAddress" => address_dimension(),
+        "BirthDate" => date_dimension(),
+        "BusinessEmailAddress" => profile_dimension(),
+        "BusinessName" => profile_dimension(),
+        "BusinessPhoneNumber" => profile_dimension(),
+        "EmailAddress" => profile_dimension(),
+        "FirstName" => profile_dimension(),
+        "GenderString" => profile_dimension(),
+        "HomePhoneNumber" => profile_dimension(),
+        "LastName" => profile_dimension(),
+        "MailingAddress" => address_dimension(),
+        "MiddleName" => profile_dimension(),
+        "MobilePhoneNumber" => profile_dimension(),
+        "PartyTypeString" => profile_dimension(),
+        "PersonalEmailAddress" => profile_dimension(),
+        "PhoneNumber" => profile_dimension(),
+        "ShippingAddress" => address_dimension()
+      }
+
+  """
+  @type profile_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_calculated_attribute_definition_response() :: %{
         "AttributeDetails" => attribute_details(),
         "CalculatedAttributeName" => String.t(),
@@ -2347,6 +2989,7 @@ defmodule AWS.CustomerProfiles do
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t(),
         "DisplayName" => String.t(),
+        "Filter" => filter(),
         "LastUpdatedAt" => non_neg_integer(),
         "Statistic" => list(any()),
         "Tags" => map()
@@ -2354,6 +2997,19 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type get_calculated_attribute_definition_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_segment_estimate_response() :: %{
+        "DomainName" => String.t(),
+        "EstimateId" => String.t(),
+        "StatusCode" => integer()
+      }
+
+  """
+  @type create_segment_estimate_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2421,6 +3077,20 @@ defmodule AWS.CustomerProfiles do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type batch_get_calculated_attribute_for_profile_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type batch_get_profile_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type create_calculated_attribute_definition_errors() ::
           bad_request_exception()
           | throttling_exception()
@@ -2450,6 +3120,27 @@ defmodule AWS.CustomerProfiles do
           | resource_not_found_exception()
 
   @type create_profile_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type create_segment_definition_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type create_segment_estimate_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type create_segment_snapshot_errors() ::
           bad_request_exception()
           | throttling_exception()
           | access_denied_exception()
@@ -2506,6 +3197,13 @@ defmodule AWS.CustomerProfiles do
           | resource_not_found_exception()
 
   @type delete_profile_object_type_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type delete_segment_definition_errors() ::
           bad_request_exception()
           | throttling_exception()
           | access_denied_exception()
@@ -2596,6 +3294,34 @@ defmodule AWS.CustomerProfiles do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_segment_definition_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_segment_estimate_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_segment_membership_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_segment_snapshot_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_similar_profiles_errors() ::
           bad_request_exception()
           | throttling_exception()
@@ -2666,6 +3392,20 @@ defmodule AWS.CustomerProfiles do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type list_object_type_attributes_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_profile_attribute_values_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type list_profile_object_type_templates_errors() ::
           bad_request_exception()
           | throttling_exception()
@@ -2688,6 +3428,13 @@ defmodule AWS.CustomerProfiles do
           | resource_not_found_exception()
 
   @type list_rule_based_matches_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_segment_definitions_errors() ::
           bad_request_exception()
           | throttling_exception()
           | access_denied_exception()
@@ -2795,6 +3542,74 @@ defmodule AWS.CustomerProfiles do
           | {:error, add_profile_key_errors()}
   def add_profile_key(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/keys"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Fetch the possible attribute values given the attribute name.
+  """
+  @spec batch_get_calculated_attribute_for_profile(
+          map(),
+          String.t(),
+          String.t(),
+          batch_get_calculated_attribute_for_profile_request(),
+          list()
+        ) ::
+          {:ok, batch_get_calculated_attribute_for_profile_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_get_calculated_attribute_for_profile_errors()}
+  def batch_get_calculated_attribute_for_profile(
+        %Client{} = client,
+        calculated_attribute_name,
+        domain_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/calculated-attributes/#{AWS.Util.encode_uri(calculated_attribute_name)}/batch-get-for-profiles"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Get a batch of profiles.
+  """
+  @spec batch_get_profile(map(), String.t(), batch_get_profile_request(), list()) ::
+          {:ok, batch_get_profile_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_get_profile_errors()}
+  def batch_get_profile(%Client{} = client, domain_name, input, options \\ []) do
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/batch-get-profiles"
     headers = []
     query_params = []
 
@@ -3011,6 +3826,115 @@ defmodule AWS.CustomerProfiles do
           | {:error, create_profile_errors()}
   def create_profile(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a segment definition associated to the given domain.
+  """
+  @spec create_segment_definition(
+          map(),
+          String.t(),
+          String.t(),
+          create_segment_definition_request(),
+          list()
+        ) ::
+          {:ok, create_segment_definition_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_segment_definition_errors()}
+  def create_segment_definition(
+        %Client{} = client,
+        domain_name,
+        segment_definition_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/segment-definitions/#{AWS.Util.encode_uri(segment_definition_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a segment estimate query.
+  """
+  @spec create_segment_estimate(map(), String.t(), create_segment_estimate_request(), list()) ::
+          {:ok, create_segment_estimate_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_segment_estimate_errors()}
+  def create_segment_estimate(%Client{} = client, domain_name, input, options \\ []) do
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/segment-estimates"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Triggers a job to export a segment to a specified destination.
+  """
+  @spec create_segment_snapshot(
+          map(),
+          String.t(),
+          String.t(),
+          create_segment_snapshot_request(),
+          list()
+        ) ::
+          {:ok, create_segment_snapshot_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_segment_snapshot_errors()}
+  def create_segment_snapshot(
+        %Client{} = client,
+        domain_name,
+        segment_definition_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/segments/#{AWS.Util.encode_uri(segment_definition_name)}/snapshots"
+
     headers = []
     query_params = []
 
@@ -3275,6 +4199,47 @@ defmodule AWS.CustomerProfiles do
       ) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_name)}/object-types/#{AWS.Util.encode_uri(object_type_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a segment definition from the domain.
+  """
+  @spec delete_segment_definition(
+          map(),
+          String.t(),
+          String.t(),
+          delete_segment_definition_request(),
+          list()
+        ) ::
+          {:ok, delete_segment_definition_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_segment_definition_errors()}
+  def delete_segment_definition(
+        %Client{} = client,
+        domain_name,
+        segment_definition_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/segment-definitions/#{AWS.Util.encode_uri(segment_definition_name)}"
 
     headers = []
     query_params = []
@@ -3668,6 +4633,115 @@ defmodule AWS.CustomerProfiles do
           | {:error, get_profile_object_type_template_errors()}
   def get_profile_object_type_template(%Client{} = client, template_id, options \\ []) do
     url_path = "/templates/#{AWS.Util.encode_uri(template_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets a segment definition from the domain.
+  """
+  @spec get_segment_definition(map(), String.t(), String.t(), list()) ::
+          {:ok, get_segment_definition_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_segment_definition_errors()}
+  def get_segment_definition(
+        %Client{} = client,
+        domain_name,
+        segment_definition_name,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/segment-definitions/#{AWS.Util.encode_uri(segment_definition_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets the result of a segment estimate query.
+  """
+  @spec get_segment_estimate(map(), String.t(), String.t(), list()) ::
+          {:ok, get_segment_estimate_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_segment_estimate_errors()}
+  def get_segment_estimate(%Client{} = client, domain_name, estimate_id, options \\ []) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/segment-estimates/#{AWS.Util.encode_uri(estimate_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Determines if the given profiles are within a segment.
+  """
+  @spec get_segment_membership(
+          map(),
+          String.t(),
+          String.t(),
+          get_segment_membership_request(),
+          list()
+        ) ::
+          {:ok, get_segment_membership_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_segment_membership_errors()}
+  def get_segment_membership(
+        %Client{} = client,
+        domain_name,
+        segment_definition_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/segments/#{AWS.Util.encode_uri(segment_definition_name)}/membership"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieve the latest status of a segment snapshot.
+  """
+  @spec get_segment_snapshot(map(), String.t(), String.t(), String.t(), list()) ::
+          {:ok, get_segment_snapshot_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_segment_snapshot_errors()}
+  def get_segment_snapshot(
+        %Client{} = client,
+        domain_name,
+        segment_definition_name,
+        snapshot_id,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/segments/#{AWS.Util.encode_uri(segment_definition_name)}/snapshots/#{AWS.Util.encode_uri(snapshot_id)}"
+
     headers = []
     query_params = []
 
@@ -4071,6 +5145,77 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
+  Fetch the possible attribute values given the attribute name.
+  """
+  @spec list_object_type_attributes(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_object_type_attributes_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_object_type_attributes_errors()}
+  def list_object_type_attributes(
+        %Client{} = client,
+        domain_name,
+        object_type_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/object-types/#{AWS.Util.encode_uri(object_type_name)}/attributes"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Fetch the possible attribute values given the attribute name.
+  """
+  @spec list_profile_attribute_values(map(), String.t(), String.t(), list()) ::
+          {:ok, profile_attribute_values_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_profile_attribute_values_errors()}
+  def list_profile_attribute_values(
+        %Client{} = client,
+        attribute_name,
+        domain_name,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/profile-attributes/#{AWS.Util.encode_uri(attribute_name)}/values"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists all of the template information for object types.
   """
   @spec list_profile_object_type_templates(map(), String.t() | nil, String.t() | nil, list()) ::
@@ -4192,6 +5337,43 @@ defmodule AWS.CustomerProfiles do
         options \\ []
       ) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/ruleBasedMatches"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all segment definitions under a domain.
+  """
+  @spec list_segment_definitions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_segment_definitions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_segment_definitions_errors()}
+  def list_segment_definitions(
+        %Client{} = client,
+        domain_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/segment-definitions"
     headers = []
     query_params = []
 

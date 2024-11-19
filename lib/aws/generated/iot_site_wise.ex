@@ -56,6 +56,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       execute_query_request() :: %{
+        optional("clientToken") => String.t(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("queryStatement") => String.t()
@@ -306,6 +307,17 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      delete_dataset_response() :: %{
+        "datasetStatus" => dataset_status()
+      }
+
+  """
+  @type delete_dataset_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       unauthorized_exception() :: %{
         "message" => String.t()
       }
@@ -324,6 +336,32 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type list_project_assets_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dataset_source() :: %{
+        "sourceDetail" => source_detail(),
+        "sourceFormat" => list(any()),
+        "sourceType" => list(any())
+      }
+
+  """
+  @type dataset_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_dataset_response() :: %{
+        "datasetArn" => String.t(),
+        "datasetId" => String.t(),
+        "datasetStatus" => dataset_status()
+      }
+
+  """
+  @type update_dataset_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -714,6 +752,18 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      citation() :: %{
+        "content" => content(),
+        "reference" => iotsitewise_reference()
+      }
+
+  """
+  @type citation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       project_resource() :: %{
         "id" => String.t()
       }
@@ -764,6 +814,19 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type get_asset_property_value_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_datasets_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("sourceType") => list(any())
+      }
+
+  """
+  @type list_datasets_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -914,6 +977,30 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type user_identity() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kendra_source_detail() :: %{
+        "knowledgeBaseArn" => String.t(),
+        "roleArn" => String.t()
+      }
+
+  """
+  @type kendra_source_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invocation_output() :: %{
+        "citations" => list(citation()()),
+        "message" => String.t()
+      }
+
+  """
+  @type invocation_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1088,6 +1175,17 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type describe_time_series_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      iotsitewise_reference() :: %{
+        "dataset" => data_set_reference()
+      }
+
+  """
+  @type iotsitewise_reference() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1318,6 +1416,19 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      create_dataset_response() :: %{
+        "datasetArn" => String.t(),
+        "datasetId" => String.t(),
+        "datasetStatus" => dataset_status()
+      }
+
+  """
+  @type create_dataset_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       job_summary() :: %{
         "id" => String.t(),
         "name" => String.t(),
@@ -1481,6 +1592,19 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      invoke_assistant_request() :: %{
+        optional("conversationId") => String.t(),
+        optional("enableTrace") => [boolean()],
+        required("message") => String.t()
+      }
+
+  """
+  @type invoke_assistant_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       warm_tier_retention_period() :: %{
         "numberOfDays" => integer(),
         "unlimited" => boolean()
@@ -1500,6 +1624,23 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type batch_get_asset_property_value_error_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dataset_summary() :: %{
+        "arn" => String.t(),
+        "creationDate" => non_neg_integer(),
+        "description" => String.t(),
+        "id" => String.t(),
+        "lastUpdateDate" => non_neg_integer(),
+        "name" => String.t(),
+        "status" => dataset_status()
+      }
+
+  """
+  @type dataset_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1536,6 +1677,17 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type aggregated_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_detail() :: %{
+        "kendra" => kendra_source_detail()
+      }
+
+  """
+  @type source_detail() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1604,6 +1756,8 @@ defmodule AWS.IoTSiteWise do
         optional("portalAuthMode") => list(any()),
         optional("portalDescription") => String.t(),
         optional("portalLogoImageFile") => image_file(),
+        optional("portalType") => list(any()),
+        optional("portalTypeConfiguration") => map(),
         optional("tags") => map(),
         required("portalContactEmail") => String.t(),
         required("portalName") => String.t(),
@@ -1785,6 +1939,8 @@ defmodule AWS.IoTSiteWise do
         "portalName" => String.t(),
         "portalStartUrl" => String.t(),
         "portalStatus" => portal_status(),
+        "portalType" => list(any()),
+        "portalTypeConfiguration" => map(),
         "roleArn" => String.t()
       }
 
@@ -1988,6 +2144,17 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      location() :: %{
+        "uri" => String.t()
+      }
+
+  """
+  @type location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       iam_role_identity() :: %{
         "arn" => String.t()
       }
@@ -2006,6 +2173,20 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type transform_processing_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_dataset_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("datasetDescription") => String.t(),
+        required("datasetName") => String.t(),
+        required("datasetSource") => dataset_source()
+      }
+
+  """
+  @type update_dataset_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2256,6 +2437,17 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      trace() :: %{
+        "text" => String.t()
+      }
+
+  """
+  @type trace() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_asset_model_response() :: %{
         "assetModelArn" => String.t(),
         "assetModelCompositeModelSummaries" => list(asset_model_composite_model_summary()()),
@@ -2276,6 +2468,18 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type describe_asset_model_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source() :: %{
+        "arn" => String.t(),
+        "location" => location()
+      }
+
+  """
+  @type source() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2760,6 +2964,8 @@ defmodule AWS.IoTSiteWise do
         optional("notificationSenderEmail") => String.t(),
         optional("portalDescription") => String.t(),
         optional("portalLogoImage") => image(),
+        optional("portalType") => list(any()),
+        optional("portalTypeConfiguration") => map(),
         required("portalContactEmail") => String.t(),
         required("portalName") => String.t(),
         required("roleArn") => String.t()
@@ -2767,6 +2973,25 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type update_portal_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_dataset_response() :: %{
+        "datasetArn" => String.t(),
+        "datasetCreationDate" => non_neg_integer(),
+        "datasetDescription" => String.t(),
+        "datasetId" => String.t(),
+        "datasetLastUpdateDate" => non_neg_integer(),
+        "datasetName" => String.t(),
+        "datasetSource" => dataset_source(),
+        "datasetStatus" => dataset_status(),
+        "datasetVersion" => String.t()
+      }
+
+  """
+  @type describe_dataset_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2878,6 +3103,22 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type delete_asset_model_composite_model_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dataset_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("datasetDescription") => String.t(),
+        optional("datasetId") => String.t(),
+        optional("tags") => map(),
+        required("datasetName") => String.t(),
+        required("datasetSource") => dataset_source()
+      }
+
+  """
+  @type create_dataset_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3188,6 +3429,7 @@ defmodule AWS.IoTSiteWise do
         "id" => String.t(),
         "lastUpdateDate" => non_neg_integer(),
         "name" => String.t(),
+        "portalType" => list(any()),
         "roleArn" => String.t(),
         "startUrl" => String.t(),
         "status" => portal_status()
@@ -3311,6 +3553,17 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      content() :: %{
+        "text" => String.t()
+      }
+
+  """
+  @type content() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       asset_hierarchy() :: %{
         "externalId" => String.t(),
         "id" => String.t(),
@@ -3360,6 +3613,38 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type batch_put_asset_property_error_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_dataset_request() :: %{}
+
+  """
+  @type describe_dataset_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dataset_request() :: %{
+        optional("clientToken") => String.t()
+      }
+
+  """
+  @type delete_dataset_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_datasets_response() :: %{
+        "datasetSummaries" => list(dataset_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_datasets_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3425,6 +3710,18 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      data_set_reference() :: %{
+        "datasetArn" => String.t(),
+        "source" => source()
+      }
+
+  """
+  @type data_set_reference() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       time_series_summary() :: %{
         "alias" => String.t(),
         "assetId" => String.t(),
@@ -3439,6 +3736,17 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type time_series_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      portal_type_entry() :: %{
+        "portalTools" => list(String.t()())
+      }
+
+  """
+  @type portal_type_entry() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3557,6 +3865,18 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type batch_get_asset_property_value_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dataset_status() :: %{
+        "error" => error_details(),
+        "state" => list(any())
+      }
+
+  """
+  @type dataset_status() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3749,6 +4069,18 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      invoke_assistant_response() :: %{
+        "body" => list(),
+        "conversationId" => String.t()
+      }
+
+  """
+  @type invoke_assistant_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       action_definition() :: %{
         "actionDefinitionId" => String.t(),
         "actionName" => String.t(),
@@ -3933,6 +4265,15 @@ defmodule AWS.IoTSiteWise do
           | resource_not_found_exception()
           | internal_failure_exception()
 
+  @type create_dataset_errors() ::
+          resource_already_exists_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflicting_operation_exception()
+          | internal_failure_exception()
+
   @type create_gateway_errors() ::
           resource_already_exists_exception()
           | limit_exceeded_exception()
@@ -3987,6 +4328,13 @@ defmodule AWS.IoTSiteWise do
           throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type delete_dataset_errors() ::
+          throttling_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflicting_operation_exception()
           | internal_failure_exception()
 
   @type delete_gateway_errors() ::
@@ -4065,6 +4413,12 @@ defmodule AWS.IoTSiteWise do
           | internal_failure_exception()
 
   @type describe_dashboard_errors() ::
+          throttling_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type describe_dataset_errors() ::
           throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
@@ -4176,6 +4530,15 @@ defmodule AWS.IoTSiteWise do
           | resource_not_found_exception()
           | internal_failure_exception()
 
+  @type invoke_assistant_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflicting_operation_exception()
+          | internal_failure_exception()
+
   @type list_access_policies_errors() ::
           throttling_exception() | invalid_request_exception() | internal_failure_exception()
 
@@ -4237,6 +4600,9 @@ defmodule AWS.IoTSiteWise do
           | internal_failure_exception()
 
   @type list_dashboards_errors() ::
+          throttling_exception() | invalid_request_exception() | internal_failure_exception()
+
+  @type list_datasets_errors() ::
           throttling_exception() | invalid_request_exception() | internal_failure_exception()
 
   @type list_gateways_errors() ::
@@ -4353,6 +4719,14 @@ defmodule AWS.IoTSiteWise do
           throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type update_dataset_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflicting_operation_exception()
           | internal_failure_exception()
 
   @type update_gateway_errors() ::
@@ -4947,6 +5321,33 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
+  Creates a dataset to connect an external datasource.
+  """
+  @spec create_dataset(map(), create_dataset_request(), list()) ::
+          {:ok, create_dataset_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_dataset_errors()}
+  def create_dataset(%Client{} = client, input, options \\ []) do
+    url_path = "/datasets"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Creates a gateway, which is a virtual or edge device that delivers industrial
   data streams
   from local servers to IoT SiteWise.
@@ -5259,6 +5660,40 @@ defmodule AWS.IoTSiteWise do
       input,
       options,
       204
+    )
+  end
+
+  @doc """
+  Deletes a dataset.
+
+  This cannot be undone.
+  """
+  @spec delete_dataset(map(), String.t(), delete_dataset_request(), list()) ::
+          {:ok, delete_dataset_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_dataset_errors()}
+  def delete_dataset(%Client{} = client, dataset_id, input, options \\ []) do
+    url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      202
     )
   end
 
@@ -5653,6 +6088,23 @@ defmodule AWS.IoTSiteWise do
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves information about a dataset.
+  """
+  @spec describe_dataset(map(), String.t(), list()) ::
+          {:ok, describe_dataset_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_dataset_errors()}
+  def describe_dataset(%Client{} = client, dataset_id, options \\ []) do
+    url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -6462,6 +6914,40 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
+  Invokes SiteWise Assistant to start or continue a conversation.
+  """
+  @spec invoke_assistant(map(), invoke_assistant_request(), list()) ::
+          {:ok, invoke_assistant_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invoke_assistant_errors()}
+  def invoke_assistant(%Client{} = client, input, options \\ []) do
+    url_path = "/assistant/invocation"
+    headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"x-amz-iotsitewise-assistant-conversation-id", "conversationId"}]
+      )
+
+    meta = metadata() |> Map.put_new(:host_prefix, "data.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves a paginated list of access policies for an identity (an IAM Identity
   Center user, an IAM Identity Center
   group, or an IAM user) or an IoT SiteWise Monitor resource (a portal or
@@ -7174,6 +7660,50 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
+  Retrieves a paginated list of datasets for a specific target resource.
+  """
+  @spec list_datasets(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
+          {:ok, list_datasets_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_datasets_errors()}
+  def list_datasets(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        source_type,
+        options \\ []
+      ) do
+    url_path = "/datasets"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(source_type) do
+        [{"sourceType", source_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves a paginated list of gateways.
   """
   @spec list_gateways(map(), String.t() | nil, String.t() | nil, list()) ::
@@ -7756,6 +8286,23 @@ defmodule AWS.IoTSiteWise do
     meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
 
     Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Updates a dataset.
+  """
+  @spec update_dataset(map(), String.t(), update_dataset_request(), list()) ::
+          {:ok, update_dataset_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_dataset_errors()}
+  def update_dataset(%Client{} = client, dataset_id, input, options \\ []) do
+    url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
   end
 
   @doc """

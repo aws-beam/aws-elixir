@@ -677,6 +677,20 @@ defmodule AWS.CloudFormation do
 
   ## Example:
       
+      list_hook_results_output() :: %{
+        "HookResults" => list(hook_result_summary()()),
+        "NextToken" => String.t(),
+        "TargetId" => String.t(),
+        "TargetType" => list(any())
+      }
+      
+  """
+  @type list_hook_results_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       invalid_operation_exception() :: %{
         "Message" => String.t()
       }
@@ -743,6 +757,17 @@ defmodule AWS.CloudFormation do
       
   """
   @type list_stack_set_operation_results_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      hook_result_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type hook_result_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1422,6 +1447,19 @@ defmodule AWS.CloudFormation do
       
   """
   @type stack_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_hook_results_input() :: %{
+        optional("NextToken") => String.t(),
+        required("TargetId") => String.t(),
+        required("TargetType") => list(any())
+      }
+      
+  """
+  @type list_hook_results_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2731,6 +2769,23 @@ defmodule AWS.CloudFormation do
 
   ## Example:
       
+      hook_result_summary() :: %{
+        "FailureMode" => list(any()),
+        "HookStatusReason" => String.t(),
+        "InvocationPoint" => list(any()),
+        "Status" => list(any()),
+        "TypeConfigurationVersionId" => String.t(),
+        "TypeName" => String.t(),
+        "TypeVersionId" => String.t()
+      }
+      
+  """
+  @type hook_result_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       resource_change_detail() :: %{
         "CausingEntity" => String.t(),
         "ChangeSource" => list(any()),
@@ -3706,6 +3761,8 @@ defmodule AWS.CloudFormation do
           | operation_in_progress_exception()
           | invalid_operation_exception()
           | stale_request_exception()
+
+  @type list_hook_results_errors() :: hook_result_not_found_exception()
 
   @type list_resource_scan_related_resources_errors() ::
           resource_scan_in_progress_exception() | resource_scan_not_found_exception()
@@ -4897,6 +4954,20 @@ defmodule AWS.CloudFormation do
     meta = metadata()
 
     Request.request_post(client, meta, "ListGeneratedTemplates", input, options)
+  end
+
+  @doc """
+  Returns summaries of invoked Hooks when a change set or Cloud Control API
+  operation target is provided.
+  """
+  @spec list_hook_results(map(), list_hook_results_input(), list()) ::
+          {:ok, list_hook_results_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_hook_results_errors()}
+  def list_hook_results(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListHookResults", input, options)
   end
 
   @doc """

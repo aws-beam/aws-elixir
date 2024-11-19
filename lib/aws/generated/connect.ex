@@ -1563,6 +1563,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      contact_flow_version_summary() :: %{
+        "Arn" => String.t(),
+        "Version" => float(),
+        "VersionDescription" => String.t()
+      }
+
+  """
+  @type contact_flow_version_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       view() :: %{
         "Arn" => String.t(),
         "Content" => view_content(),
@@ -1581,6 +1594,18 @@ defmodule AWS.Connect do
 
   """
   @type view() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_contact_flow_versions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_contact_flow_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4276,6 +4301,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      create_contact_flow_version_response() :: %{
+        "ContactFlowArn" => String.t(),
+        "Version" => float()
+      }
+
+  """
+  @type create_contact_flow_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_metric_data_request() :: %{
         optional("Groupings") => list(list(any())()),
         optional("MaxResults") => integer(),
@@ -6178,6 +6215,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      list_contact_flow_versions_response() :: %{
+        "ContactFlowVersionSummaryList" => list(contact_flow_version_summary()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_contact_flow_versions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_rule_request() :: %{}
 
   """
@@ -7228,12 +7277,18 @@ defmodule AWS.Connect do
         "Arn" => String.t(),
         "Content" => String.t(),
         "Description" => String.t(),
+        "FlowContentSha256" => String.t(),
         "Id" => String.t(),
+        "IsDefault" => boolean(),
+        "LastModifiedRegion" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t(),
         "State" => list(any()),
         "Status" => list(any()),
         "Tags" => map(),
-        "Type" => list(any())
+        "Type" => list(any()),
+        "Version" => float(),
+        "VersionDescription" => String.t()
       }
 
   """
@@ -7839,6 +7894,20 @@ defmodule AWS.Connect do
 
   """
   @type threshold() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_contact_flow_version_request() :: %{
+        optional("Description") => String.t(),
+        optional("FlowContentSha256") => String.t(),
+        optional("LastModifiedRegion") => String.t(),
+        optional("LastModifiedTime") => non_neg_integer()
+      }
+
+  """
+  @type create_contact_flow_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -9508,7 +9577,8 @@ defmodule AWS.Connect do
 
       create_contact_flow_response() :: %{
         "ContactFlowArn" => String.t(),
-        "ContactFlowId" => String.t()
+        "ContactFlowId" => String.t(),
+        "FlowContentSha256" => String.t()
       }
 
   """
@@ -9929,6 +9999,15 @@ defmodule AWS.Connect do
           | throttling_exception()
           | idempotency_exception()
           | invalid_contact_flow_module_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type create_contact_flow_version_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
           | invalid_parameter_exception()
           | access_denied_exception()
           | invalid_request_exception()
@@ -10693,6 +10772,14 @@ defmodule AWS.Connect do
           | internal_service_exception()
 
   @type list_contact_flow_modules_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type list_contact_flow_versions_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
           | access_denied_exception()
@@ -12036,9 +12123,8 @@ defmodule AWS.Connect do
   @doc """
   Associates an agent with a traffic distribution group.
 
-  This API can be called only in the Region where the traffic distribution group
-  is
-  created.
+  This API can be called only in the
+  Region where the traffic distribution group is created.
   """
   @spec associate_traffic_distribution_group_user(
           map(),
@@ -12437,6 +12523,47 @@ defmodule AWS.Connect do
           | {:error, create_contact_flow_module_errors()}
   def create_contact_flow_module(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/contact-flow-modules/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+  end
+
+  @doc """
+  Publishes a new version of the flow provided.
+
+  Versions are immutable and monotonically
+  increasing. If a version of the same flow content already exists, no new version
+  is created and
+  instead the existing version number is returned. If the `FlowContentSha256`
+  provided
+  is different from the `FlowContentSha256` of the `$LATEST` published flow
+  content, then an error is returned. This API only supports creating versions for
+  flows of type
+  `Campaign`.
+  """
+  @spec create_contact_flow_version(
+          map(),
+          String.t(),
+          String.t(),
+          create_contact_flow_version_request(),
+          list()
+        ) ::
+          {:ok, create_contact_flow_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_contact_flow_version_errors()}
+  def create_contact_flow_version(
+        %Client{} = client,
+        contact_flow_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}/version"
+
     headers = []
     query_params = []
 
@@ -15059,9 +15186,8 @@ defmodule AWS.Connect do
   @doc """
   Disassociates an agent from a traffic distribution group.
 
-  This API can be called only in the Region where the traffic distribution group
-  is
-  created.
+  This API can be called only in the
+  Region where the traffic distribution group is created.
   """
   @spec disassociate_traffic_distribution_group_user(
           map(),
@@ -15912,6 +16038,55 @@ defmodule AWS.Connect do
     query_params =
       if !is_nil(contact_flow_module_state) do
         [{"state", contact_flow_module_state} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns all the available versions for the specified Amazon Connect instance and
+  flow
+  identifier.
+  """
+  @spec list_contact_flow_versions(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_contact_flow_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_contact_flow_versions_errors()}
+  def list_contact_flow_versions(
+        %Client{} = client,
+        contact_flow_id,
+        instance_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}/versions"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -18778,7 +18953,8 @@ defmodule AWS.Connect do
 
   For more information about screen sharing, see [Set up in-app, web, video calling, and screen sharing
   capabilities](https://docs.aws.amazon.com/connect/latest/adminguide/inapp-calling.html)
-  in the *Amazon Connect Administrator Guide*.
+  in the *Amazon Connect Administrator
+  Guide*.
   """
   @spec start_screen_sharing(map(), start_screen_sharing_request(), list()) ::
           {:ok, start_screen_sharing_response(), any()}

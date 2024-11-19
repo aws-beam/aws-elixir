@@ -816,6 +816,7 @@ defmodule AWS.EC2 do
         "Ipv6Prefixes" => list(instance_ipv6_prefix()()),
         "MacAddress" => String.t(),
         "NetworkInterfaceId" => String.t(),
+        "Operator" => operator_response(),
         "OwnerId" => String.t(),
         "PrivateDnsName" => String.t(),
         "PrivateIpAddress" => String.t(),
@@ -5235,6 +5236,7 @@ defmodule AWS.EC2 do
         "Ipv6Prefixes" => list(ipv6_prefix_specification()()),
         "MacAddress" => String.t(),
         "NetworkInterfaceId" => String.t(),
+        "Operator" => operator_response(),
         "OutpostArn" => String.t(),
         "OwnerId" => String.t(),
         "PrivateDnsName" => String.t(),
@@ -7469,6 +7471,7 @@ defmodule AWS.EC2 do
         optional("HibernationOptions") => hibernation_options_request(),
         optional("MaintenanceOptions") => instance_maintenance_options_request(),
         optional("KeyName") => String.t(),
+        optional("Operator") => operator_request(),
         optional("InstanceType") => list(any()),
         optional("EbsOptimized") => boolean(),
         optional("CapacityReservationSpecification") => capacity_reservation_specification(),
@@ -13777,6 +13780,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      operator_request() :: %{
+        "Principal" => String.t()
+      }
+      
+  """
+  @type operator_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_traffic_mirror_filter_rule_result() :: %{
         "TrafficMirrorFilterRuleId" => String.t()
       }
@@ -13813,6 +13827,7 @@ defmodule AWS.EC2 do
         "LaunchTemplateData" => response_launch_template_data(),
         "LaunchTemplateId" => String.t(),
         "LaunchTemplateName" => String.t(),
+        "Operator" => operator_response(),
         "VersionDescription" => String.t(),
         "VersionNumber" => float()
       }
@@ -14250,6 +14265,7 @@ defmodule AWS.EC2 do
         "MetadataOptions" => launch_template_instance_metadata_options(),
         "Monitoring" => launch_templates_monitoring(),
         "NetworkInterfaces" => list(launch_template_instance_network_interface_specification()()),
+        "Operator" => operator_response(),
         "Placement" => launch_template_placement(),
         "PrivateDnsNameOptions" => launch_template_private_dns_name_options(),
         "RamDiskId" => String.t(),
@@ -17591,6 +17607,7 @@ defmodule AWS.EC2 do
         "MetadataOptions" => launch_template_instance_metadata_options_request(),
         "Monitoring" => launch_templates_monitoring_request(),
         "NetworkInterfaces" => list(launch_template_instance_network_interface_specification_request()()),
+        "Operator" => operator_request(),
         "Placement" => launch_template_placement_request(),
         "PrivateDnsNameOptions" => launch_template_private_dns_name_options_request(),
         "RamDiskId" => String.t(),
@@ -18752,6 +18769,7 @@ defmodule AWS.EC2 do
         "ClientToken" => String.t(),
         "EbsOptimized" => boolean(),
         "KeyName" => String.t(),
+        "Operator" => operator_response(),
         "SecurityGroups" => list(group_identifier()()),
         "Ipv6Address" => String.t(),
         "MaintenanceOptions" => instance_maintenance_options(),
@@ -18810,6 +18828,7 @@ defmodule AWS.EC2 do
         "Iops" => integer(),
         "KmsKeyId" => String.t(),
         "MultiAttachEnabled" => boolean(),
+        "Operator" => operator_response(),
         "OutpostArn" => String.t(),
         "Size" => integer(),
         "SnapshotId" => String.t(),
@@ -19683,6 +19702,7 @@ defmodule AWS.EC2 do
         optional("Iops") => integer(),
         optional("KmsKeyId") => String.t(),
         optional("MultiAttachEnabled") => boolean(),
+        optional("Operator") => operator_request(),
         optional("OutpostArn") => String.t(),
         optional("Size") => integer(),
         optional("SnapshotId") => String.t(),
@@ -20642,6 +20662,7 @@ defmodule AWS.EC2 do
         "AssociatedResource" => String.t(),
         "AttachTime" => non_neg_integer(),
         "DeleteOnTermination" => boolean(),
+        "Operator" => operator_response(),
         "Status" => list(any()),
         "VolumeId" => String.t(),
         "VolumeOwnerId" => String.t()
@@ -21444,6 +21465,7 @@ defmodule AWS.EC2 do
         "LatestVersionNumber" => float(),
         "LaunchTemplateId" => String.t(),
         "LaunchTemplateName" => String.t(),
+        "Operator" => operator_response(),
         "Tags" => list(tag()())
       }
       
@@ -21522,6 +21544,7 @@ defmodule AWS.EC2 do
         optional("Ipv6Addresses") => list(instance_ipv6_address()()),
         optional("Ipv6PrefixCount") => integer(),
         optional("Ipv6Prefixes") => list(ipv6_prefix_specification_request()()),
+        optional("Operator") => operator_request(),
         optional("PrivateIpAddress") => String.t(),
         optional("PrivateIpAddresses") => list(private_ip_address_specification()()),
         optional("SecondaryPrivateIpAddressCount") => integer(),
@@ -23396,6 +23419,7 @@ defmodule AWS.EC2 do
         "InstanceId" => String.t(),
         "InstanceState" => instance_state(),
         "InstanceStatus" => instance_status_summary(),
+        "Operator" => operator_response(),
         "OutpostArn" => String.t(),
         "SystemStatus" => instance_status_summary()
       }
@@ -24463,6 +24487,7 @@ defmodule AWS.EC2 do
         "InstanceId" => String.t(),
         "InstanceType" => list(any()),
         "LaunchTime" => non_neg_integer(),
+        "Operator" => operator_response(),
         "OwnerId" => String.t(),
         "State" => instance_state(),
         "Tags" => list(tag()()),
@@ -25427,6 +25452,7 @@ defmodule AWS.EC2 do
       create_launch_template_request() :: %{
         optional("ClientToken") => String.t(),
         optional("DryRun") => boolean(),
+        optional("Operator") => operator_request(),
         optional("TagSpecifications") => list(tag_specification()()),
         optional("VersionDescription") => String.t(),
         required("LaunchTemplateData") => request_launch_template_data(),
@@ -26958,6 +26984,18 @@ defmodule AWS.EC2 do
       
   """
   @type modify_traffic_mirror_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      operator_response() :: %{
+        "Managed" => boolean(),
+        "Principal" => String.t()
+      }
+      
+  """
+  @type operator_response() :: %{String.t() => any()}
 
   @typedoc """
 

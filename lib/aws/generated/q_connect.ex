@@ -67,6 +67,18 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      list_message_template_versions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_message_template_versions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_knowledge_base_template_uri_request() :: %{
         required("templateUri") => String.t()
       }
@@ -131,6 +143,27 @@ defmodule AWS.QConnect do
 
   """
   @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_template_order_field() :: %{
+        "name" => String.t(),
+        "order" => String.t()
+      }
+
+  """
+  @type message_template_order_field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_message_template_attachment_response() :: %{}
+
+  """
+  @type delete_message_template_attachment_response() :: %{}
 
   @typedoc """
 
@@ -260,6 +293,19 @@ defmodule AWS.QConnect do
 
   """
   @type get_content_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      deactivate_message_template_response() :: %{
+        "messageTemplateArn" => String.t(),
+        "messageTemplateId" => String.t(),
+        "versionNumber" => float()
+      }
+
+  """
+  @type deactivate_message_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -433,6 +479,17 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      activate_message_template_request() :: %{
+        required("versionNumber") => float()
+      }
+
+  """
+  @type activate_message_template_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       external_source_configuration() :: %{
         "configuration" => list(),
         "source" => String.t()
@@ -440,6 +497,18 @@ defmodule AWS.QConnect do
 
   """
   @type external_source_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_attributes() :: %{
+        "firstName" => String.t(),
+        "lastName" => String.t()
+      }
+
+  """
+  @type agent_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -662,6 +731,20 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      message_template_attributes() :: %{
+        "agentAttributes" => agent_attributes(),
+        "customAttributes" => map(),
+        "customerProfileAttributes" => customer_profile_attributes(),
+        "systemAttributes" => system_attributes()
+      }
+
+  """
+  @type message_template_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_feedback_response() :: %{
         "assistantArn" => String.t(),
         "assistantId" => String.t(),
@@ -839,6 +922,34 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      message_template_filter_field() :: %{
+        "includeNoExistence" => [boolean()],
+        "name" => String.t(),
+        "operator" => String.t(),
+        "values" => list(String.t()())
+      }
+
+  """
+  @type message_template_filter_field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_message_template_attachment_request() :: %{
+        optional("clientToken") => String.t(),
+        required("body") => String.t(),
+        required("contentDisposition") => String.t(),
+        required("name") => String.t()
+      }
+
+  """
+  @type create_message_template_attachment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       assistant_capability_configuration() :: %{
         "type" => String.t()
       }
@@ -873,6 +984,19 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      message_template_search_expression() :: %{
+        "filters" => list(message_template_filter_field()()),
+        "orderOnField" => message_template_order_field(),
+        "queries" => list(message_template_query_field()())
+      }
+
+  """
+  @type message_template_search_expression() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_quick_responses_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
@@ -880,6 +1004,17 @@ defmodule AWS.QConnect do
 
   """
   @type list_quick_responses_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      system_endpoint_attributes() :: %{
+        "address" => String.t()
+      }
+
+  """
+  @type system_endpoint_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -904,6 +1039,34 @@ defmodule AWS.QConnect do
 
   """
   @type start_content_upload_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_message_template_response() :: %{}
+
+  """
+  @type delete_message_template_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_message_template_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("defaultAttributes") => message_template_attributes(),
+        optional("description") => String.t(),
+        optional("groupingConfiguration") => grouping_configuration(),
+        optional("language") => String.t(),
+        optional("tags") => map(),
+        required("channelSubtype") => String.t(),
+        required("content") => list(),
+        required("name") => String.t()
+      }
+
+  """
+  @type create_message_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -984,6 +1147,74 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      customer_profile_attributes() :: %{
+        "billingAddress2" => String.t(),
+        "billingProvince" => String.t(),
+        "postalCode" => String.t(),
+        "businessName" => String.t(),
+        "firstName" => String.t(),
+        "mailingCity" => String.t(),
+        "billingCountry" => String.t(),
+        "partyType" => String.t(),
+        "address3" => String.t(),
+        "mailingCounty" => String.t(),
+        "businessPhoneNumber" => String.t(),
+        "billingPostalCode" => String.t(),
+        "shippingAddress3" => String.t(),
+        "homePhoneNumber" => String.t(),
+        "mailingAddress2" => String.t(),
+        "mailingCountry" => String.t(),
+        "billingCity" => String.t(),
+        "billingAddress1" => String.t(),
+        "businessEmailAddress" => String.t(),
+        "billingAddress4" => String.t(),
+        "state" => String.t(),
+        "address2" => String.t(),
+        "shippingAddress2" => String.t(),
+        "custom" => map(),
+        "mailingAddress1" => String.t(),
+        "shippingCounty" => String.t(),
+        "mailingPostalCode" => String.t(),
+        "shippingAddress4" => String.t(),
+        "country" => String.t(),
+        "city" => String.t(),
+        "county" => String.t(),
+        "phoneNumber" => String.t(),
+        "middleName" => String.t(),
+        "shippingCity" => String.t(),
+        "mailingAddress4" => String.t(),
+        "province" => String.t(),
+        "address4" => String.t(),
+        "shippingProvince" => String.t(),
+        "shippingAddress1" => String.t(),
+        "lastName" => String.t(),
+        "gender" => String.t(),
+        "billingState" => String.t(),
+        "shippingCountry" => String.t(),
+        "mobilePhoneNumber" => String.t(),
+        "shippingState" => String.t(),
+        "mailingAddress3" => String.t(),
+        "mailingProvince" => String.t(),
+        "accountNumber" => String.t(),
+        "mailingState" => String.t(),
+        "shippingPostalCode" => String.t(),
+        "emailAddress" => String.t(),
+        "birthDate" => String.t(),
+        "profileId" => String.t(),
+        "additionalInformation" => String.t(),
+        "profileARN" => String.t(),
+        "address1" => String.t(),
+        "billingAddress3" => String.t(),
+        "billingCounty" => String.t()
+      }
+
+  """
+  @type customer_profile_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_knowledge_base_template_uri_response() :: %{
         optional("knowledgeBase") => knowledge_base_data()
       }
@@ -1039,6 +1270,17 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      create_message_template_attachment_response() :: %{
+        "attachment" => message_template_attachment()
+      }
+
+  """
+  @type create_message_template_attachment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_knowledge_base_request() :: %{
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
@@ -1065,6 +1307,18 @@ defmodule AWS.QConnect do
 
   """
   @type list_import_jobs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_message_template_versions_response() :: %{
+        "messageTemplateVersionSummaries" => list(message_template_version_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_message_template_versions_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1266,6 +1520,88 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      message_template_query_field() :: %{
+        "allowFuzziness" => [boolean()],
+        "name" => String.t(),
+        "operator" => String.t(),
+        "priority" => String.t(),
+        "values" => list(String.t()())
+      }
+
+  """
+  @type message_template_query_field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deactivate_message_template_request() :: %{
+        required("versionNumber") => float()
+      }
+
+  """
+  @type deactivate_message_template_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_message_template_request() :: %{
+        optional("content") => list(),
+        optional("defaultAttributes") => message_template_attributes(),
+        optional("language") => String.t()
+      }
+
+  """
+  @type update_message_template_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      extended_message_template_data() :: %{
+        "attachments" => list(message_template_attachment()()),
+        "attributeTypes" => list(String.t()()),
+        "channelSubtype" => String.t(),
+        "content" => list(),
+        "createdTime" => [non_neg_integer()],
+        "defaultAttributes" => message_template_attributes(),
+        "description" => String.t(),
+        "groupingConfiguration" => grouping_configuration(),
+        "isActive" => [boolean()],
+        "knowledgeBaseArn" => String.t(),
+        "knowledgeBaseId" => String.t(),
+        "language" => String.t(),
+        "lastModifiedBy" => String.t(),
+        "lastModifiedTime" => [non_neg_integer()],
+        "messageTemplateArn" => String.t(),
+        "messageTemplateContentSha256" => String.t(),
+        "messageTemplateId" => String.t(),
+        "name" => String.t(),
+        "tags" => map(),
+        "versionNumber" => float()
+      }
+
+  """
+  @type extended_message_template_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_message_template_metadata_request() :: %{
+        optional("description") => String.t(),
+        optional("groupingConfiguration") => grouping_configuration(),
+        optional("name") => String.t()
+      }
+
+  """
+  @type update_message_template_metadata_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       quick_response_contents() :: %{
         "markdown" => list(),
         "plainText" => list()
@@ -1295,6 +1631,17 @@ defmodule AWS.QConnect do
 
   """
   @type amazon_connect_guide_association_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_message_template_response() :: %{
+        "messageTemplate" => message_template_data()
+      }
+
+  """
+  @type create_message_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1452,6 +1799,30 @@ defmodule AWS.QConnect do
 
   """
   @type query_recommendation_trigger_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sms_message_template_content_body() :: %{
+        "plainText" => list()
+      }
+
+  """
+  @type sms_message_template_content_body() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_message_templates_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("searchExpression") => message_template_search_expression()
+      }
+
+  """
+  @type search_message_templates_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1840,6 +2211,54 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      create_message_template_version_response() :: %{
+        "messageTemplate" => extended_message_template_data()
+      }
+
+  """
+  @type create_message_template_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_template_search_result_data() :: %{
+        "channelSubtype" => String.t(),
+        "createdTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "groupingConfiguration" => grouping_configuration(),
+        "isActive" => [boolean()],
+        "knowledgeBaseArn" => String.t(),
+        "knowledgeBaseId" => String.t(),
+        "language" => String.t(),
+        "lastModifiedBy" => String.t(),
+        "lastModifiedTime" => [non_neg_integer()],
+        "messageTemplateArn" => String.t(),
+        "messageTemplateId" => String.t(),
+        "name" => String.t(),
+        "tags" => map(),
+        "versionNumber" => float()
+      }
+
+  """
+  @type message_template_search_result_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      email_header() :: %{
+        "name" => String.t(),
+        "value" => String.t()
+      }
+
+  """
+  @type email_header() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       web_crawler_configuration() :: %{
         "crawlerLimits" => web_crawler_limits(),
         "exclusionFilters" => list(String.t()()),
@@ -1862,6 +2281,15 @@ defmodule AWS.QConnect do
 
   """
   @type list_import_jobs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_message_template_request() :: %{}
+
+  """
+  @type delete_message_template_request() :: %{}
 
   @typedoc """
 
@@ -1956,6 +2384,18 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      list_message_templates_response() :: %{
+        "messageTemplateSummaries" => list(message_template_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_message_templates_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_a_iprompt_response() :: %{
         "aiPrompt" => a_iprompt_data(),
         "versionNumber" => float()
@@ -2034,6 +2474,26 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      delete_message_template_attachment_request() :: %{}
+
+  """
+  @type delete_message_template_attachment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_message_template_response() :: %{
+        "messageTemplate" => extended_message_template_data()
+      }
+
+  """
+  @type get_message_template_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_quick_response_request() :: %{}
 
   """
@@ -2082,6 +2542,28 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      message_template_summary() :: %{
+        "activeVersionNumber" => float(),
+        "channelSubtype" => String.t(),
+        "createdTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "knowledgeBaseArn" => String.t(),
+        "knowledgeBaseId" => String.t(),
+        "lastModifiedBy" => String.t(),
+        "lastModifiedTime" => [non_neg_integer()],
+        "messageTemplateArn" => String.t(),
+        "messageTemplateId" => String.t(),
+        "name" => String.t(),
+        "tags" => map()
+      }
+
+  """
+  @type message_template_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_response() :: %{}
 
   """
@@ -2123,6 +2605,15 @@ defmodule AWS.QConnect do
 
   """
   @type query_assistant_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_message_template_request() :: %{}
+
+  """
+  @type get_message_template_request() :: %{}
 
   @typedoc """
 
@@ -2180,6 +2671,19 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      system_attributes() :: %{
+        "customerEndpoint" => system_endpoint_attributes(),
+        "name" => String.t(),
+        "systemEndpoint" => system_endpoint_attributes()
+      }
+
+  """
+  @type system_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_content_request() :: %{}
 
   """
@@ -2202,6 +2706,17 @@ defmodule AWS.QConnect do
 
   """
   @type delete_quick_response_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_message_template_version_request() :: %{
+        optional("messageTemplateContentSha256") => String.t()
+      }
+
+  """
+  @type create_message_template_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2250,6 +2765,18 @@ defmodule AWS.QConnect do
 
   """
   @type content_reference() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_message_templates_response() :: %{
+        "nextToken" => String.t(),
+        "results" => list(message_template_search_result_data()())
+      }
+
+  """
+  @type search_message_templates_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2439,6 +2966,33 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      message_template_data() :: %{
+        "attributeTypes" => list(String.t()()),
+        "channelSubtype" => String.t(),
+        "content" => list(),
+        "createdTime" => [non_neg_integer()],
+        "defaultAttributes" => message_template_attributes(),
+        "description" => String.t(),
+        "groupingConfiguration" => grouping_configuration(),
+        "knowledgeBaseArn" => String.t(),
+        "knowledgeBaseId" => String.t(),
+        "language" => String.t(),
+        "lastModifiedBy" => String.t(),
+        "lastModifiedTime" => [non_neg_integer()],
+        "messageTemplateArn" => String.t(),
+        "messageTemplateContentSha256" => String.t(),
+        "messageTemplateId" => String.t(),
+        "name" => String.t(),
+        "tags" => map()
+      }
+
+  """
+  @type message_template_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_knowledge_bases_response() :: %{
         optional("nextToken") => String.t(),
         required("knowledgeBaseSummaries") => list(knowledge_base_summary()())
@@ -2457,6 +3011,17 @@ defmodule AWS.QConnect do
 
   """
   @type get_knowledge_base_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sms_message_template_content() :: %{
+        "body" => sms_message_template_content_body()
+      }
+
+  """
+  @type sms_message_template_content() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2484,6 +3049,72 @@ defmodule AWS.QConnect do
 
   """
   @type result_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_message_template_metadata_response() :: %{
+        "messageTemplate" => message_template_data()
+      }
+
+  """
+  @type update_message_template_metadata_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      render_message_template_response() :: %{
+        "attachments" => list(message_template_attachment()()),
+        "attributesNotInterpolated" => list(String.t()()),
+        "content" => list()
+      }
+
+  """
+  @type render_message_template_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      email_message_template_content_body() :: %{
+        "html" => list(),
+        "plainText" => list()
+      }
+
+  """
+  @type email_message_template_content_body() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_template_version_summary() :: %{
+        "channelSubtype" => String.t(),
+        "isActive" => [boolean()],
+        "knowledgeBaseArn" => String.t(),
+        "knowledgeBaseId" => String.t(),
+        "messageTemplateArn" => String.t(),
+        "messageTemplateId" => String.t(),
+        "name" => String.t(),
+        "versionNumber" => float()
+      }
+
+  """
+  @type message_template_version_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_message_templates_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_message_templates_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2666,6 +3297,22 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      message_template_attachment() :: %{
+        "attachmentId" => String.t(),
+        "contentDisposition" => String.t(),
+        "name" => String.t(),
+        "uploadedTime" => [non_neg_integer()],
+        "url" => String.t(),
+        "urlExpiry" => [non_neg_integer()]
+      }
+
+  """
+  @type message_template_attachment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       search_content_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
@@ -2738,6 +3385,19 @@ defmodule AWS.QConnect do
 
   """
   @type answer_recommendation_a_i_agent_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      email_message_template_content() :: %{
+        "body" => email_message_template_content_body(),
+        "headers" => list(email_header()()),
+        "subject" => String.t()
+      }
+
+  """
+  @type email_message_template_content() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2822,6 +3482,17 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      render_message_template_request() :: %{
+        required("attributes") => message_template_attributes()
+      }
+
+  """
+  @type render_message_template_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_assistants_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
@@ -2850,6 +3521,17 @@ defmodule AWS.QConnect do
 
   """
   @type delete_content_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_message_template_response() :: %{
+        "messageTemplate" => message_template_data()
+      }
+
+  """
+  @type update_message_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2905,6 +3587,26 @@ defmodule AWS.QConnect do
 
   """
   @type create_a_iprompt_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      activate_message_template_response() :: %{
+        "messageTemplateArn" => String.t(),
+        "messageTemplateId" => String.t(),
+        "versionNumber" => float()
+      }
+
+  """
+  @type activate_message_template_response() :: %{String.t() => any()}
+
+  @type activate_message_template_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type create_a_i_agent_errors() ::
           throttling_exception()
@@ -2972,6 +3674,30 @@ defmodule AWS.QConnect do
           | service_quota_exceeded_exception()
           | conflict_exception()
 
+  @type create_message_template_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_message_template_attachment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_message_template_version_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type create_quick_response_errors() ::
           validation_exception()
           | access_denied_exception()
@@ -2981,6 +3707,13 @@ defmodule AWS.QConnect do
 
   @type create_session_errors() ::
           validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type deactivate_message_template_errors() ::
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
           | resource_not_found_exception()
           | conflict_exception()
@@ -3035,6 +3768,20 @@ defmodule AWS.QConnect do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type delete_message_template_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_message_template_attachment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type delete_quick_response_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
 
@@ -3070,6 +3817,12 @@ defmodule AWS.QConnect do
 
   @type get_knowledge_base_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
+
+  @type get_message_template_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
 
   @type get_quick_response_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
@@ -3119,6 +3872,18 @@ defmodule AWS.QConnect do
 
   @type list_knowledge_bases_errors() :: validation_exception() | access_denied_exception()
 
+  @type list_message_template_versions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type list_message_templates_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
   @type list_quick_responses_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
 
@@ -3145,8 +3910,20 @@ defmodule AWS.QConnect do
   @type remove_knowledge_base_template_uri_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
 
+  @type render_message_template_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
   @type search_content_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
+
+  @type search_message_templates_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
 
   @type search_quick_responses_errors() ::
           validation_exception()
@@ -3200,6 +3977,20 @@ defmodule AWS.QConnect do
   @type update_knowledge_base_template_uri_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
 
+  @type update_message_template_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_message_template_metadata_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type update_quick_response_errors() ::
           precondition_failed_exception()
           | validation_exception()
@@ -3227,6 +4018,53 @@ defmodule AWS.QConnect do
       signing_name: "wisdom",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Activates a specific version of the Amazon Q in Connect message template.
+
+  After the
+  version is activated, the previous active version will be deactivated
+  automatically. You can
+  use the `$ACTIVE_VERSION` qualifier later to reference the version that is in
+  active status.
+  """
+  @spec activate_message_template(
+          map(),
+          String.t(),
+          String.t(),
+          activate_message_template_request(),
+          list()
+        ) ::
+          {:ok, activate_message_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, activate_message_template_errors()}
+  def activate_message_template(
+        %Client{} = client,
+        knowledge_base_id,
+        message_template_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/messageTemplates/#{AWS.Util.encode_uri(message_template_id)}/activate"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3584,6 +4422,147 @@ defmodule AWS.QConnect do
   end
 
   @doc """
+  Creates an Amazon Q in Connect message template.
+
+  The name of the message template has to
+  be unique for each knowledge base. The channel subtype of the message template
+  is immutable
+  and cannot be modified after creation. After the message template is created,
+  you can use the
+  `$LATEST` qualifier to reference the created message template.
+  """
+  @spec create_message_template(map(), String.t(), create_message_template_request(), list()) ::
+          {:ok, create_message_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_message_template_errors()}
+  def create_message_template(%Client{} = client, knowledge_base_id, input, options \\ []) do
+    url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/messageTemplates"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Uploads an attachment file to the specified Amazon Q in Connect message
+  template.
+
+  The name
+  of the message template attachment has to be unique for each message template
+  referenced by
+  the `$LATEST` qualifier. The body of the attachment file should be encoded using
+  base64 encoding. After the file is uploaded, you can use the pre-signed Amazon
+  S3 URL returned
+  in response to download the uploaded file.
+  """
+  @spec create_message_template_attachment(
+          map(),
+          String.t(),
+          String.t(),
+          create_message_template_attachment_request(),
+          list()
+        ) ::
+          {:ok, create_message_template_attachment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_message_template_attachment_errors()}
+  def create_message_template_attachment(
+        %Client{} = client,
+        knowledge_base_id,
+        message_template_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/messageTemplates/#{AWS.Util.encode_uri(message_template_id)}/attachments"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a new Amazon Q in Connect message template version from the current
+  content and
+  configuration of a message template.
+
+  Versions are immutable and monotonically increasing. Once
+  a version is created, you can reference a specific version of the message
+  template by passing
+  in `<message-template-id>:<versionNumber>` as the message template
+  identifier. An error is displayed if the supplied `messageTemplateContentSha256`
+  is
+  different from the `messageTemplateContentSha256` of the message template with
+  `$LATEST` qualifier. If multiple `CreateMessageTemplateVersion`
+  requests are made while the message template remains the same, only the first
+  invocation
+  creates a new version and the succeeding requests will return the same response
+  as the first
+  invocation.
+  """
+  @spec create_message_template_version(
+          map(),
+          String.t(),
+          String.t(),
+          create_message_template_version_request(),
+          list()
+        ) ::
+          {:ok, create_message_template_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_message_template_version_errors()}
+  def create_message_template_version(
+        %Client{} = client,
+        knowledge_base_id,
+        message_template_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/messageTemplates/#{AWS.Util.encode_uri(message_template_id)}/versions"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates an Amazon Q in Connect quick response.
   """
   @spec create_quick_response(map(), String.t(), create_quick_response_request(), list()) ::
@@ -3624,6 +4603,51 @@ defmodule AWS.QConnect do
           | {:error, create_session_errors()}
   def create_session(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/sessions"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deactivates a specific version of the Amazon Q in Connect message template .
+
+  After the
+  version is deactivated, you can no longer use the `$ACTIVE_VERSION` qualifier to
+  reference the version in active status.
+  """
+  @spec deactivate_message_template(
+          map(),
+          String.t(),
+          String.t(),
+          deactivate_message_template_request(),
+          list()
+        ) ::
+          {:ok, deactivate_message_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, deactivate_message_template_errors()}
+  def deactivate_message_template(
+        %Client{} = client,
+        knowledge_base_id,
+        message_template_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/messageTemplates/#{AWS.Util.encode_uri(message_template_id)}/deactivate"
+
     headers = []
     query_params = []
 
@@ -4006,6 +5030,103 @@ defmodule AWS.QConnect do
   end
 
   @doc """
+  Deletes an Amazon Q in Connect message template entirely or a specific version
+  of the
+  message template if version is supplied in the request.
+
+  You can provide the message template
+  identifier as `<message-template-id>:<versionNumber>` to delete a
+  specific version of the message template. If it is not supplied, the message
+  template and all
+  available versions will be deleted.
+  """
+  @spec delete_message_template(
+          map(),
+          String.t(),
+          String.t(),
+          delete_message_template_request(),
+          list()
+        ) ::
+          {:ok, delete_message_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_message_template_errors()}
+  def delete_message_template(
+        %Client{} = client,
+        knowledge_base_id,
+        message_template_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/messageTemplates/#{AWS.Util.encode_uri(message_template_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes the attachment file from the Amazon Q in Connect message template that
+  is
+  referenced by `$LATEST` qualifier.
+
+  Attachments on available message template
+  versions will remain unchanged.
+  """
+  @spec delete_message_template_attachment(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          delete_message_template_attachment_request(),
+          list()
+        ) ::
+          {:ok, delete_message_template_attachment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_message_template_attachment_errors()}
+  def delete_message_template_attachment(
+        %Client{} = client,
+        attachment_id,
+        knowledge_base_id,
+        message_template_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/messageTemplates/#{AWS.Util.encode_uri(message_template_id)}/attachments/#{AWS.Util.encode_uri(attachment_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Deletes a quick response.
   """
   @spec delete_quick_response(
@@ -4222,6 +5343,37 @@ defmodule AWS.QConnect do
           | {:error, get_knowledge_base_errors()}
   def get_knowledge_base(%Client{} = client, knowledge_base_id, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the Amazon Q in Connect message template.
+
+  The message template identifier can
+  contain an optional qualifier, for example,
+  `<message-template-id>:<qualifier>`, which is either an actual
+  version number or an Amazon Q Connect managed qualifier `$ACTIVE_VERSION` |
+  `$LATEST`. If it is
+  not supplied, then `$LATEST` is assumed implicitly.
+  """
+  @spec get_message_template(map(), String.t(), String.t(), list()) ::
+          {:ok, get_message_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_message_template_errors()}
+  def get_message_template(
+        %Client{} = client,
+        knowledge_base_id,
+        message_template_id,
+        options \\ []
+      ) do
+    url_path =
+      "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/messageTemplates/#{AWS.Util.encode_uri(message_template_id)}"
+
     headers = []
     query_params = []
 
@@ -4780,6 +5932,93 @@ defmodule AWS.QConnect do
   end
 
   @doc """
+  Lists all the available versions for the specified Amazon Q in Connect message
+  template.
+  """
+  @spec list_message_template_versions(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_message_template_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_message_template_versions_errors()}
+  def list_message_template_versions(
+        %Client{} = client,
+        knowledge_base_id,
+        message_template_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/messageTemplates/#{AWS.Util.encode_uri(message_template_id)}/versions"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all the available Amazon Q in Connect message templates for the specified
+  knowledge
+  base.
+  """
+  @spec list_message_templates(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_message_templates_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_message_templates_errors()}
+  def list_message_templates(
+        %Client{} = client,
+        knowledge_base_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/messageTemplates"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists information about quick response.
   """
   @spec list_quick_responses(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
@@ -5017,6 +6256,56 @@ defmodule AWS.QConnect do
   end
 
   @doc """
+  Renders the Amazon Q in Connect message template based on the attribute values
+  provided
+  and generates the message content.
+
+  For any variable present in the message template, if the
+  attribute value is neither provided in the attribute request parameter nor the
+  default
+  attribute of the message template, the rendered message content will keep the
+  variable
+  placeholder as it is and return the attribute keys that are missing.
+  """
+  @spec render_message_template(
+          map(),
+          String.t(),
+          String.t(),
+          render_message_template_request(),
+          list()
+        ) ::
+          {:ok, render_message_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, render_message_template_errors()}
+  def render_message_template(
+        %Client{} = client,
+        knowledge_base_id,
+        message_template_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/messageTemplates/#{AWS.Util.encode_uri(message_template_id)}/render"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Searches for content in a specified knowledge base.
 
   Can be used to get a specific content
@@ -5028,6 +6317,40 @@ defmodule AWS.QConnect do
           | {:error, search_content_errors()}
   def search_content(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/search"
+    headers = []
+
+    {query_params, input} =
+      [
+        {"maxResults", "maxResults"},
+        {"nextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Searches for Amazon Q in Connect message templates in the specified knowledge
+  base.
+  """
+  @spec search_message_templates(map(), String.t(), search_message_templates_request(), list()) ::
+          {:ok, search_message_templates_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, search_message_templates_errors()}
+  def search_message_templates(%Client{} = client, knowledge_base_id, input, options \\ []) do
+    url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/search/messageTemplates"
     headers = []
 
     {query_params, input} =
@@ -5403,6 +6726,104 @@ defmodule AWS.QConnect do
         options \\ []
       ) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/templateUri"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the Amazon Q in Connect message template.
+
+  Partial update is supported. If any
+  field is not supplied, it will remain unchanged for the message template that is
+  referenced by
+  the `$LATEST` qualifier. Any modification will only apply to the message
+  template
+  that is referenced by the `$LATEST` qualifier. The fields for all available
+  versions will remain unchanged.
+  """
+  @spec update_message_template(
+          map(),
+          String.t(),
+          String.t(),
+          update_message_template_request(),
+          list()
+        ) ::
+          {:ok, update_message_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_message_template_errors()}
+  def update_message_template(
+        %Client{} = client,
+        knowledge_base_id,
+        message_template_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/messageTemplates/#{AWS.Util.encode_uri(message_template_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the Amazon Q in Connect message template metadata.
+
+  Note that any modification to
+  the message template’s name, description and grouping configuration will applied
+  to the
+  message template pointed by the `$LATEST` qualifier and all available versions.
+  Partial update is supported. If any field is not supplied, it will remain
+  unchanged for the
+  message template.
+  """
+  @spec update_message_template_metadata(
+          map(),
+          String.t(),
+          String.t(),
+          update_message_template_metadata_request(),
+          list()
+        ) ::
+          {:ok, update_message_template_metadata_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_message_template_metadata_errors()}
+  def update_message_template_metadata(
+        %Client{} = client,
+        knowledge_base_id,
+        message_template_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/messageTemplates/#{AWS.Util.encode_uri(message_template_id)}/metadata"
+
     headers = []
     query_params = []
 

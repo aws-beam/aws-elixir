@@ -3366,6 +3366,17 @@ defmodule AWS.RDS do
 
   ## Example:
       
+      db_instance_not_ready_fault() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type db_instance_not_ready_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       db_cluster_parameter_groups_message() :: %{
         "DBClusterParameterGroups" => list(db_cluster_parameter_group()()),
         "Marker" => String.t()
@@ -3678,6 +3689,18 @@ defmodule AWS.RDS do
 
   ## Example:
       
+      serverless_v2_features_support() :: %{
+        "MaxCapacity" => float(),
+        "MinCapacity" => float()
+      }
+      
+  """
+  @type serverless_v2_features_support() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       deregister_db_proxy_targets_request() :: %{
         optional("DBClusterIdentifiers") => list(String.t()()),
         optional("DBInstanceIdentifiers") => list(String.t()()),
@@ -3941,6 +3964,7 @@ defmodule AWS.RDS do
         "ValidUpgradeTarget" => list(upgrade_target()()),
         "SupportsReadReplica" => boolean(),
         "MajorEngineVersion" => String.t(),
+        "ServerlessV2FeaturesSupport" => serverless_v2_features_support(),
         "DBEngineMediaType" => String.t(),
         "SupportsLocalWriteForwarding" => boolean(),
         "CustomDBEngineVersionManifest" => String.t(),
@@ -4148,17 +4172,17 @@ defmodule AWS.RDS do
   ## Example:
       
       db_shard_group() :: %{
-        optional("ComputeRedundancy") => integer(),
-        optional("DBClusterIdentifier") => String.t(),
-        optional("DBShardGroupArn") => String.t(),
-        optional("DBShardGroupIdentifier") => String.t(),
-        optional("DBShardGroupResourceId") => String.t(),
-        optional("Endpoint") => String.t(),
-        optional("MaxACU") => float(),
-        optional("MinACU") => float(),
-        optional("PubliclyAccessible") => boolean(),
-        optional("Status") => String.t(),
-        optional("TagList") => list(tag()())
+        "ComputeRedundancy" => integer(),
+        "DBClusterIdentifier" => String.t(),
+        "DBShardGroupArn" => String.t(),
+        "DBShardGroupIdentifier" => String.t(),
+        "DBShardGroupResourceId" => String.t(),
+        "Endpoint" => String.t(),
+        "MaxACU" => float(),
+        "MinACU" => float(),
+        "PubliclyAccessible" => boolean(),
+        "Status" => String.t(),
+        "TagList" => list(tag()())
       }
       
   """
@@ -6959,7 +6983,8 @@ defmodule AWS.RDS do
       
       serverless_v2_scaling_configuration_info() :: %{
         "MaxCapacity" => float(),
-        "MinCapacity" => float()
+        "MinCapacity" => float(),
+        "SecondsUntilAutoPause" => integer()
       }
       
   """
@@ -7815,7 +7840,8 @@ defmodule AWS.RDS do
       
       serverless_v2_scaling_configuration() :: %{
         "MaxCapacity" => float(),
-        "MinCapacity" => float()
+        "MinCapacity" => float(),
+        "SecondsUntilAutoPause" => integer()
       }
       
   """
@@ -8405,7 +8431,8 @@ defmodule AWS.RDS do
 
   @type describe_db_instances_errors() :: db_instance_not_found_fault()
 
-  @type describe_db_log_files_errors() :: db_instance_not_found_fault()
+  @type describe_db_log_files_errors() ::
+          db_instance_not_found_fault() | db_instance_not_ready_fault()
 
   @type describe_db_parameter_groups_errors() :: db_parameter_group_not_found_fault()
 
@@ -8466,7 +8493,9 @@ defmodule AWS.RDS do
           invalid_resource_state_fault() | resource_not_found_fault()
 
   @type download_db_log_file_portion_errors() ::
-          db_log_file_not_found_fault() | db_instance_not_found_fault()
+          db_log_file_not_found_fault()
+          | db_instance_not_found_fault()
+          | db_instance_not_ready_fault()
 
   @type enable_http_endpoint_errors() ::
           invalid_resource_state_fault() | resource_not_found_fault()

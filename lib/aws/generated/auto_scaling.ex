@@ -406,6 +406,18 @@ defmodule AWS.AutoScaling do
 
   ## Example:
       
+      availability_zone_impairment_policy() :: %{
+        "ImpairedZoneHealthCheckBehavior" => list(any()),
+        "ZonalShiftEnabled" => boolean()
+      }
+      
+  """
+  @type availability_zone_impairment_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_warm_pool_type() :: %{
         optional("MaxRecords") => integer(),
         optional("NextToken") => String.t(),
@@ -1284,6 +1296,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       attach_traffic_sources_type() :: %{
+        optional("SkipZonalShiftValidation") => boolean(),
         required("AutoScalingGroupName") => String.t(),
         required("TrafficSources") => list(traffic_source_identifier()())
       }
@@ -1474,6 +1487,7 @@ defmodule AWS.AutoScaling do
       
       create_auto_scaling_group_type() :: %{
         optional("AvailabilityZoneDistribution") => availability_zone_distribution(),
+        optional("AvailabilityZoneImpairmentPolicy") => availability_zone_impairment_policy(),
         optional("AvailabilityZones") => list(String.t()()),
         optional("CapacityRebalance") => boolean(),
         optional("Context") => String.t(),
@@ -1494,6 +1508,7 @@ defmodule AWS.AutoScaling do
         optional("NewInstancesProtectedFromScaleIn") => boolean(),
         optional("PlacementGroup") => String.t(),
         optional("ServiceLinkedRoleARN") => String.t(),
+        optional("SkipZonalShiftValidation") => boolean(),
         optional("Tags") => list(tag()()),
         optional("TargetGroupARNs") => list(String.t()()),
         optional("TerminationPolicies") => list(String.t()()),
@@ -1916,6 +1931,7 @@ defmodule AWS.AutoScaling do
         "AutoScalingGroupARN" => String.t(),
         "DesiredCapacity" => integer(),
         "WarmPoolConfiguration" => warm_pool_configuration(),
+        "AvailabilityZoneImpairmentPolicy" => availability_zone_impairment_policy(),
         "DefaultInstanceWarmup" => integer(),
         "AutoScalingGroupName" => String.t(),
         "PredictedCapacity" => integer(),
@@ -2023,6 +2039,7 @@ defmodule AWS.AutoScaling do
       
       update_auto_scaling_group_type() :: %{
         optional("AvailabilityZoneDistribution") => availability_zone_distribution(),
+        optional("AvailabilityZoneImpairmentPolicy") => availability_zone_impairment_policy(),
         optional("AvailabilityZones") => list(String.t()()),
         optional("CapacityRebalance") => boolean(),
         optional("Context") => String.t(),
@@ -2042,6 +2059,7 @@ defmodule AWS.AutoScaling do
         optional("NewInstancesProtectedFromScaleIn") => boolean(),
         optional("PlacementGroup") => String.t(),
         optional("ServiceLinkedRoleARN") => String.t(),
+        optional("SkipZonalShiftValidation") => boolean(),
         optional("TerminationPolicies") => list(String.t()()),
         optional("VPCZoneIdentifier") => String.t(),
         required("AutoScalingGroupName") => String.t()

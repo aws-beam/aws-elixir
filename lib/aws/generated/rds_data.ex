@@ -66,6 +66,17 @@ defmodule AWS.RDSData do
 
   ## Example:
 
+      database_resuming_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type database_resuming_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       unsupported_result_exception() :: %{
         "message" => String.t()
       }
@@ -481,6 +492,7 @@ defmodule AWS.RDSData do
           | service_unavailable_error()
           | forbidden_exception()
           | transaction_not_found_exception()
+          | database_resuming_exception()
           | statement_timeout_exception()
 
   @type begin_transaction_errors() ::
@@ -496,6 +508,7 @@ defmodule AWS.RDSData do
           | service_unavailable_error()
           | forbidden_exception()
           | transaction_not_found_exception()
+          | database_resuming_exception()
           | statement_timeout_exception()
 
   @type commit_transaction_errors() ::
@@ -535,6 +548,7 @@ defmodule AWS.RDSData do
           | forbidden_exception()
           | transaction_not_found_exception()
           | unsupported_result_exception()
+          | database_resuming_exception()
           | statement_timeout_exception()
 
   @type rollback_transaction_errors() ::

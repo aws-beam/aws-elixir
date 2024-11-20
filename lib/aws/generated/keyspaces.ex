@@ -124,6 +124,17 @@ defmodule AWS.Keyspaces do
 
   ## Example:
       
+      update_keyspace_response() :: %{
+        "resourceArn" => String.t()
+      }
+      
+  """
+  @type update_keyspace_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_types_response() :: %{
         "nextToken" => String.t(),
         "types" => list(String.t()())
@@ -744,7 +755,21 @@ defmodule AWS.Keyspaces do
 
   ## Example:
       
+      update_keyspace_request() :: %{
+        optional("clientSideTimestamps") => client_side_timestamps(),
+        required("keyspaceName") => String.t(),
+        required("replicationSpecification") => replication_specification()
+      }
+      
+  """
+  @type update_keyspace_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_keyspace_response() :: %{
+        optional("replicationGroupStatuses") => list(replication_group_status()()),
         optional("replicationRegions") => list(String.t()()),
         required("keyspaceName") => String.t(),
         required("replicationStrategy") => String.t(),
@@ -765,6 +790,19 @@ defmodule AWS.Keyspaces do
       
   """
   @type replica_auto_scaling_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      replication_group_status() :: %{
+        "keyspaceStatus" => String.t(),
+        "region" => String.t(),
+        "tablesReplicationProgress" => String.t()
+      }
+      
+  """
+  @type replication_group_status() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1013,6 +1051,14 @@ defmodule AWS.Keyspaces do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type update_keyspace_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type update_table_errors() ::
           validation_exception()
           | access_denied_exception()
@@ -1092,6 +1138,9 @@ defmodule AWS.Keyspaces do
   The `CreateType` operation creates a new user-defined type in the specified
   keyspace.
 
+  To configure the required permissions, see [Permissions to create a UDT](https://docs.aws.amazon.com/keyspaces/latest/devguide/configure-udt-permissions.html#udt-permissions-create)
+  in the *Amazon Keyspaces Developer Guide*.
+
   For more information, see [User-defined types (UDTs)](https://docs.aws.amazon.com/keyspaces/latest/devguide/udts.html) in the
   *Amazon Keyspaces Developer
   Guide*.
@@ -1148,6 +1197,9 @@ defmodule AWS.Keyspaces do
 
   You can only delete a type that is not used in a table
   or another UDT.
+
+  To configure the required permissions, see [Permissions to delete a UDT](https://docs.aws.amazon.com/keyspaces/latest/devguide/configure-udt-permissions.html#udt-permissions-drop)
+  in the *Amazon Keyspaces Developer Guide*.
   """
   @spec delete_type(map(), delete_type_request(), list()) ::
           {:ok, delete_type_response(), any()}
@@ -1160,7 +1212,10 @@ defmodule AWS.Keyspaces do
   end
 
   @doc """
-  Returns the name and the Amazon Resource Name (ARN) of the specified table.
+  Returns the name of the specified keyspace, the Amazon Resource Name (ARN), the
+  replication strategy, the Amazon Web Services Regions of
+  a multi-Region keyspace, and the status of newly added Regions after an
+  `UpdateKeyspace` operation.
   """
   @spec get_keyspace(map(), get_keyspace_request(), list()) ::
           {:ok, get_keyspace_response(), any()}
@@ -1239,7 +1294,9 @@ defmodule AWS.Keyspaces do
 
   To read keyspace metadata using `GetType`, the
   IAM principal needs `Select` action
-  permissions for the system keyspace.
+  permissions for the system keyspace. To configure the required permissions, see
+  [Permissions to view a UDT](https://docs.aws.amazon.com/keyspaces/latest/devguide/configure-udt-permissions.html#udt-permissions-view)
+  in the *Amazon Keyspaces Developer Guide*.
   """
   @spec get_type(map(), get_type_request(), list()) ::
           {:ok, get_type_response(), any()}
@@ -1305,7 +1362,9 @@ defmodule AWS.Keyspaces do
 
   To read keyspace metadata using `ListTypes`, the
   IAM principal needs `Select` action
-  permissions for the system keyspace.
+  permissions for the system keyspace. To configure the required permissions, see
+  [Permissions to view a UDT](https://docs.aws.amazon.com/keyspaces/latest/devguide/configure-udt-permissions.html#udt-permissions-view)
+  in the *Amazon Keyspaces Developer Guide*.
   """
   @spec list_types(map(), list_types_request(), list()) ::
           {:ok, list_types_response(), any()}
@@ -1424,6 +1483,34 @@ defmodule AWS.Keyspaces do
     meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
+  end
+
+  @doc """
+
+  Adds a new Amazon Web Services Region to the keyspace.
+
+  You can add a new Region to a keyspace that is either a single or a multi-Region
+  keyspace.
+  The new replica Region is applied to all tables in the keyspace. For more
+  information, see [Add an Amazon Web Services Region to a keyspace in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/keyspaces-multi-region-add-replica.html)
+  in the *Amazon Keyspaces Developer
+  Guide*.
+
+  To change a single-Region to a multi-Region keyspace, you have to enable
+  client-side timestamps
+  for all tables in the keyspace. For more information, see
+  [Client-side timestamps in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/client-side-timestamps.html)
+  in the *Amazon Keyspaces Developer
+  Guide*.
+  """
+  @spec update_keyspace(map(), update_keyspace_request(), list()) ::
+          {:ok, update_keyspace_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_keyspace_errors()}
+  def update_keyspace(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateKeyspace", input, options)
   end
 
   @doc """

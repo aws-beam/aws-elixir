@@ -1351,7 +1351,8 @@ defmodule AWS.Glue do
         "enabled" => boolean(),
         "orphanFileDeletionConfiguration" => orphan_file_deletion_configuration(),
         "retentionConfiguration" => retention_configuration(),
-        "roleArn" => String.t()
+        "roleArn" => String.t(),
+        "vpcConfiguration" => list()
       }
       
   """
@@ -13535,8 +13536,6 @@ defmodule AWS.Glue do
 
   @doc """
   Creates a new table optimizer for a specific function.
-
-  `compaction` is the only currently supported optimizer type.
   """
   @spec create_table_optimizer(map(), create_table_optimizer_request(), list()) ::
           {:ok, create_table_optimizer_response(), any()}

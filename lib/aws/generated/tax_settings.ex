@@ -30,7 +30,7 @@ defmodule AWS.TaxSettings do
   ## Example:
 
       get_tax_registration_document_request() :: %{
-        required("destinationS3Location") => destination_s3_location(),
+        optional("destinationS3Location") => destination_s3_location(),
         required("taxDocumentMetadata") => tax_document_metadata()
       }
 
@@ -72,6 +72,18 @@ defmodule AWS.TaxSettings do
 
   """
   @type batch_delete_tax_registration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tax_exemptions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_tax_exemptions_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -128,6 +140,17 @@ defmodule AWS.TaxSettings do
 
   ## Example:
 
+      attachment_upload_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type attachment_upload_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tax_inheritance_details() :: %{
         "inheritanceObtainedReason" => String.t(),
         "parentEntityId" => String.t()
@@ -135,6 +158,22 @@ defmodule AWS.TaxSettings do
 
   """
   @type tax_inheritance_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tax_exemption() :: %{
+        "authority" => authority(),
+        "effectiveDate" => [non_neg_integer()],
+        "expirationDate" => [non_neg_integer()],
+        "status" => list(any()),
+        "systemEffectiveDate" => [non_neg_integer()],
+        "taxExemptionType" => tax_exemption_type()
+      }
+
+  """
+  @type tax_exemption() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -175,6 +214,18 @@ defmodule AWS.TaxSettings do
 
   ## Example:
 
+      tax_registration_doc_file() :: %{
+        "fileContent" => binary(),
+        "fileName" => String.t()
+      }
+
+  """
+  @type tax_registration_doc_file() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       india_additional_info() :: %{
         "pan" => String.t()
       }
@@ -193,6 +244,18 @@ defmodule AWS.TaxSettings do
 
   """
   @type poland_additional_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_tax_exemptions_response() :: %{
+        "failedAccounts" => list(String.t()()),
+        "taxExemptionDetailsMap" => map()
+      }
+
+  """
+  @type batch_get_tax_exemptions_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -221,6 +284,17 @@ defmodule AWS.TaxSettings do
 
   ## Example:
 
+      case_creation_limit_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type case_creation_limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_supplemental_tax_registration_request() :: %{
         required("authorityId") => String.t()
       }
@@ -232,12 +306,32 @@ defmodule AWS.TaxSettings do
 
   ## Example:
 
+      get_tax_exemption_types_request() :: %{}
+
+  """
+  @type get_tax_exemption_types_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_tax_registration_request() :: %{
         optional("accountId") => String.t()
       }
 
   """
   @type get_tax_registration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_tax_inheritance_response() :: %{
+        "heritageStatus" => list(any())
+      }
+
+  """
+  @type get_tax_inheritance_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -308,6 +402,42 @@ defmodule AWS.TaxSettings do
 
   """
   @type delete_tax_registration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tax_exemption_type() :: %{
+        "applicableJurisdictions" => list(authority()()),
+        "description" => String.t(),
+        "displayName" => String.t()
+      }
+
+  """
+  @type tax_exemption_type() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      authority() :: %{
+        "country" => String.t(),
+        "state" => String.t()
+      }
+
+  """
+  @type authority() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_tax_exemption_types_response() :: %{
+        "taxExemptionTypes" => list(tax_exemption_type()())
+      }
+
+  """
+  @type get_tax_exemption_types_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -430,6 +560,27 @@ defmodule AWS.TaxSettings do
 
   ## Example:
 
+      put_tax_inheritance_response() :: %{}
+
+  """
+  @type put_tax_inheritance_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tax_exemptions_response() :: %{
+        "nextToken" => String.t(),
+        "taxExemptionDetailsMap" => map()
+      }
+
+  """
+  @type list_tax_exemptions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       account_details() :: %{
         "accountId" => String.t(),
         "accountMetaData" => account_meta_data(),
@@ -444,7 +595,19 @@ defmodule AWS.TaxSettings do
 
   ## Example:
 
+      put_tax_exemption_response() :: %{
+        "caseId" => String.t()
+      }
+
+  """
+  @type put_tax_exemption_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tax_registration_document() :: %{
+        "file" => tax_registration_doc_file(),
         "s3Location" => source_s3_location()
       }
 
@@ -614,6 +777,31 @@ defmodule AWS.TaxSettings do
 
   ## Example:
 
+      put_tax_exemption_request() :: %{
+        required("accountIds") => list(String.t()()),
+        required("authority") => authority(),
+        required("exemptionCertificate") => exemption_certificate(),
+        required("exemptionType") => String.t()
+      }
+
+  """
+  @type put_tax_exemption_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_supplemental_tax_registrations_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
@@ -654,6 +842,20 @@ defmodule AWS.TaxSettings do
 
   ## Example:
 
+      tax_exemption_details() :: %{
+        "heritageObtainedDetails" => boolean(),
+        "heritageObtainedParentEntity" => String.t(),
+        "heritageObtainedReason" => String.t(),
+        "taxExemptions" => list(tax_exemption()())
+      }
+
+  """
+  @type tax_exemption_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception() :: %{
         "errorCode" => list(any()),
         "fieldList" => list(validation_exception_field()()),
@@ -679,6 +881,15 @@ defmodule AWS.TaxSettings do
 
   ## Example:
 
+      get_tax_inheritance_request() :: %{}
+
+  """
+  @type get_tax_inheritance_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       batch_put_tax_registration_error() :: %{
         "accountId" => String.t(),
         "code" => String.t(),
@@ -687,6 +898,29 @@ defmodule AWS.TaxSettings do
 
   """
   @type batch_put_tax_registration_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_tax_inheritance_request() :: %{
+        optional("heritageStatus") => list(any())
+      }
+
+  """
+  @type put_tax_inheritance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      exemption_certificate() :: %{
+        "documentFile" => binary(),
+        "documentName" => String.t()
+      }
+
+  """
+  @type exemption_certificate() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -750,6 +984,17 @@ defmodule AWS.TaxSettings do
 
   ## Example:
 
+      batch_get_tax_exemptions_request() :: %{
+        required("accountIds") => list(String.t()())
+      }
+
+  """
+  @type batch_get_tax_exemptions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       account_meta_data() :: %{
         "accountName" => String.t(),
         "address" => address(),
@@ -788,7 +1033,8 @@ defmodule AWS.TaxSettings do
   ## Example:
 
       get_tax_registration_document_response() :: %{
-        "destinationFilePath" => String.t()
+        "destinationFilePath" => String.t(),
+        "presignedS3Url" => String.t()
       }
 
   """
@@ -796,6 +1042,9 @@ defmodule AWS.TaxSettings do
 
   @type batch_delete_tax_registration_errors() ::
           validation_exception() | internal_server_exception() | conflict_exception()
+
+  @type batch_get_tax_exemptions_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
 
   @type batch_put_tax_registration_errors() ::
           validation_exception() | internal_server_exception() | conflict_exception()
@@ -812,6 +1061,12 @@ defmodule AWS.TaxSettings do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type get_tax_exemption_types_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type get_tax_inheritance_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
   @type get_tax_registration_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
 
@@ -821,11 +1076,28 @@ defmodule AWS.TaxSettings do
   @type list_supplemental_tax_registrations_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
 
+  @type list_tax_exemptions_errors() ::
+          validation_exception() | internal_server_exception() | resource_not_found_exception()
+
   @type list_tax_registrations_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
 
   @type put_supplemental_tax_registration_errors() ::
           validation_exception() | internal_server_exception() | conflict_exception()
+
+  @type put_tax_exemption_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | case_creation_limit_exceeded_exception()
+          | attachment_upload_exception()
+
+  @type put_tax_inheritance_errors() ::
+          validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type put_tax_registration_errors() ::
           validation_exception() | internal_server_exception() | conflict_exception()
@@ -862,6 +1134,33 @@ defmodule AWS.TaxSettings do
           | {:error, batch_delete_tax_registration_errors()}
   def batch_delete_tax_registration(%Client{} = client, input, options \\ []) do
     url_path = "/BatchDeleteTaxRegistration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Get the active tax exemptions for a given list of accounts.
+  """
+  @spec batch_get_tax_exemptions(map(), batch_get_tax_exemptions_request(), list()) ::
+          {:ok, batch_get_tax_exemptions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_get_tax_exemptions_errors()}
+  def batch_get_tax_exemptions(%Client{} = client, input, options \\ []) do
+    url_path = "/BatchGetTaxExemptions"
     headers = []
     query_params = []
 
@@ -1146,6 +1445,60 @@ defmodule AWS.TaxSettings do
   end
 
   @doc """
+  Get supported tax exemption types.
+  """
+  @spec get_tax_exemption_types(map(), get_tax_exemption_types_request(), list()) ::
+          {:ok, get_tax_exemption_types_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_tax_exemption_types_errors()}
+  def get_tax_exemption_types(%Client{} = client, input, options \\ []) do
+    url_path = "/GetTaxExemptionTypes"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  The get account tax inheritance status.
+  """
+  @spec get_tax_inheritance(map(), get_tax_inheritance_request(), list()) ::
+          {:ok, get_tax_inheritance_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_tax_inheritance_errors()}
+  def get_tax_inheritance(%Client{} = client, input, options \\ []) do
+    url_path = "/GetTaxInheritance"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves tax registration for a single account.
   """
   @spec get_tax_registration(map(), get_tax_registration_request(), list()) ::
@@ -1233,6 +1586,33 @@ defmodule AWS.TaxSettings do
   end
 
   @doc """
+  Retrieves the tax exemption of accounts listed in a consolidated billing family.
+  """
+  @spec list_tax_exemptions(map(), list_tax_exemptions_request(), list()) ::
+          {:ok, list_tax_exemptions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_tax_exemptions_errors()}
+  def list_tax_exemptions(%Client{} = client, input, options \\ []) do
+    url_path = "/ListTaxExemptions"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves the tax registration of accounts listed in a consolidated billing
   family.
 
@@ -1278,6 +1658,61 @@ defmodule AWS.TaxSettings do
           | {:error, put_supplemental_tax_registration_errors()}
   def put_supplemental_tax_registration(%Client{} = client, input, options \\ []) do
     url_path = "/PutSupplementalTaxRegistration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Adds the tax exemption for a single account or all accounts listed in a
+  consolidated billing family.
+  """
+  @spec put_tax_exemption(map(), put_tax_exemption_request(), list()) ::
+          {:ok, put_tax_exemption_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_tax_exemption_errors()}
+  def put_tax_exemption(%Client{} = client, input, options \\ []) do
+    url_path = "/PutTaxExemption"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  The updated tax inheritance status.
+  """
+  @spec put_tax_inheritance(map(), put_tax_inheritance_request(), list()) ::
+          {:ok, put_tax_inheritance_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_tax_inheritance_errors()}
+  def put_tax_inheritance(%Client{} = client, input, options \\ []) do
+    url_path = "/PutTaxInheritance"
     headers = []
     query_params = []
 

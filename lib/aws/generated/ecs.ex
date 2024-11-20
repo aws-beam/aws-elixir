@@ -1310,6 +1310,7 @@ defmodule AWS.ECS do
         "dnsServers" => list(String.t()()),
         "restartPolicy" => container_restart_policy(),
         "dockerLabels" => map(),
+        "versionConsistency" => list(any()),
         "essential" => boolean(),
         "stopTimeout" => integer(),
         "memoryReservation" => integer(),

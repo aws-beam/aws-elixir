@@ -2571,6 +2571,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      modify_vpc_block_public_access_options_result() :: %{
+        "VpcBlockPublicAccessOptions" => vpc_block_public_access_options()
+      }
+      
+  """
+  @type modify_vpc_block_public_access_options_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       instance_network_interface_association() :: %{
         "CarrierIp" => String.t(),
         "CustomerOwnedIp" => String.t(),
@@ -3369,6 +3380,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      delete_vpc_block_public_access_exclusion_request() :: %{
+        optional("DryRun") => boolean(),
+        required("ExclusionId") => String.t()
+      }
+      
+  """
+  @type delete_vpc_block_public_access_exclusion_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       vpc_attachment() :: %{
         "State" => list(any()),
         "VpcId" => String.t()
@@ -3920,6 +3943,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       vpc() :: %{
+        "BlockPublicAccessStates" => block_public_access_states(),
         "CidrBlock" => String.t(),
         "CidrBlockAssociationSet" => list(vpc_cidr_block_association()()),
         "DhcpOptionsId" => String.t(),
@@ -5420,6 +5444,7 @@ defmodule AWS.EC2 do
         "AvailabilityZone" => String.t(),
         "AvailabilityZoneId" => String.t(),
         "AvailableIpAddressCount" => integer(),
+        "BlockPublicAccessStates" => block_public_access_states(),
         "CidrBlock" => String.t(),
         "CustomerOwnedIpv4Pool" => String.t(),
         "DefaultForAz" => boolean(),
@@ -5924,6 +5949,17 @@ defmodule AWS.EC2 do
       
   """
   @type delete_local_gateway_route_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_vpc_block_public_access_options_request() :: %{
+        optional("DryRun") => boolean()
+      }
+      
+  """
+  @type describe_vpc_block_public_access_options_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -7061,6 +7097,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      block_public_access_states() :: %{
+        "InternetGatewayBlockMode" => list(any())
+      }
+      
+  """
+  @type block_public_access_states() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       modify_vpn_connection_options_result() :: %{
         "VpnConnection" => vpn_connection()
       }
@@ -7244,6 +7291,21 @@ defmodule AWS.EC2 do
       
   """
   @type fast_launch_launch_template_specification_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_vpc_block_public_access_exclusions_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("ExclusionIds") => list(String.t()()),
+        optional("Filters") => list(filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type describe_vpc_block_public_access_exclusions_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -9761,6 +9823,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      delete_vpc_block_public_access_exclusion_result() :: %{
+        "VpcBlockPublicAccessExclusion" => vpc_block_public_access_exclusion()
+      }
+      
+  """
+  @type delete_vpc_block_public_access_exclusion_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       spot_placement_score() :: %{
         "AvailabilityZoneId" => String.t(),
         "Region" => String.t(),
@@ -10314,6 +10387,18 @@ defmodule AWS.EC2 do
       
   """
   @type delete_launch_template_versions_response_success_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_vpc_block_public_access_options_request() :: %{
+        optional("DryRun") => boolean(),
+        required("InternetGatewayBlockMode") => list(any())
+      }
+      
+  """
+  @type modify_vpc_block_public_access_options_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -14472,6 +14557,25 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      vpc_block_public_access_exclusion() :: %{
+        "CreationTimestamp" => non_neg_integer(),
+        "DeletionTimestamp" => non_neg_integer(),
+        "ExclusionId" => String.t(),
+        "InternetGatewayExclusionMode" => list(any()),
+        "LastUpdateTimestamp" => non_neg_integer(),
+        "Reason" => String.t(),
+        "ResourceArn" => String.t(),
+        "State" => list(any()),
+        "Tags" => list(tag()())
+      }
+      
+  """
+  @type vpc_block_public_access_exclusion() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       launch_template_config() :: %{
         "LaunchTemplateSpecification" => fleet_launch_template_specification(),
         "Overrides" => list(launch_template_overrides()())
@@ -15846,6 +15950,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      modify_vpc_block_public_access_exclusion_request() :: %{
+        optional("DryRun") => boolean(),
+        required("ExclusionId") => String.t(),
+        required("InternetGatewayExclusionMode") => list(any())
+      }
+      
+  """
+  @type modify_vpc_block_public_access_exclusion_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_coip_pool_usage_result() :: %{
         "CoipAddressUsages" => list(coip_address_usage()()),
         "CoipPoolId" => String.t(),
@@ -15909,6 +16026,17 @@ defmodule AWS.EC2 do
       
   """
   @type get_launch_template_data_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_vpc_block_public_access_options_result() :: %{
+        "VpcBlockPublicAccessOptions" => vpc_block_public_access_options()
+      }
+      
+  """
+  @type describe_vpc_block_public_access_options_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -16109,6 +16237,18 @@ defmodule AWS.EC2 do
       
   """
   @type associate_transit_gateway_policy_table_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_vpc_block_public_access_exclusions_result() :: %{
+        "NextToken" => String.t(),
+        "VpcBlockPublicAccessExclusions" => list(vpc_block_public_access_exclusion()())
+      }
+      
+  """
+  @type describe_vpc_block_public_access_exclusions_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -20491,6 +20631,22 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      vpc_block_public_access_options() :: %{
+        "AwsAccountId" => String.t(),
+        "AwsRegion" => String.t(),
+        "InternetGatewayBlockMode" => list(any()),
+        "LastUpdateTimestamp" => non_neg_integer(),
+        "Reason" => String.t(),
+        "State" => list(any())
+      }
+      
+  """
+  @type vpc_block_public_access_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       launch_template_hibernation_options_request() :: %{
         "Configured" => boolean()
       }
@@ -23285,6 +23441,17 @@ defmodule AWS.EC2 do
       
   """
   @type network_insights_analysis() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_vpc_block_public_access_exclusion_result() :: %{
+        "VpcBlockPublicAccessExclusion" => vpc_block_public_access_exclusion()
+      }
+      
+  """
+  @type create_vpc_block_public_access_exclusion_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -26802,6 +26969,21 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      create_vpc_block_public_access_exclusion_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("SubnetId") => String.t(),
+        optional("TagSpecifications") => list(tag_specification()()),
+        optional("VpcId") => String.t(),
+        required("InternetGatewayExclusionMode") => list(any())
+      }
+      
+  """
+  @type create_vpc_block_public_access_exclusion_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       disassociate_trunk_interface_result() :: %{
         "ClientToken" => String.t(),
         "Return" => boolean()
@@ -27316,6 +27498,17 @@ defmodule AWS.EC2 do
       
   """
   @type associate_iam_instance_profile_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_vpc_block_public_access_exclusion_result() :: %{
+        "VpcBlockPublicAccessExclusion" => vpc_block_public_access_exclusion()
+      }
+      
+  """
+  @type modify_vpc_block_public_access_exclusion_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -28474,10 +28667,12 @@ defmodule AWS.EC2 do
   Bundles an Amazon instance store-backed Windows instance.
 
   During bundling, only the root device volume (C:\) is bundled. Data on other
-  instance store volumes is not preserved.
+  instance
+  store volumes is not preserved.
 
   This action is not applicable for Linux/Unix instances or Windows instances that
-  are backed by Amazon EBS.
+  are
+  backed by Amazon EBS.
   """
   @spec bundle_instance(map(), bundle_instance_request(), list()) ::
           {:ok, bundle_instance_result(), any()}
@@ -28593,12 +28788,9 @@ defmodule AWS.EC2 do
   Removes your Amazon Web Services account from the launch permissions for the
   specified AMI.
 
-  For more
-  information, see [
-  Cancel having an AMI shared with your Amazon Web Services
+  For more information, see [ Cancel having an AMI shared with your Amazon Web Services
   account](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cancel-sharing-an-AMI.html)
-  in the
-  *Amazon EC2 User Guide*.
+  in the *Amazon EC2 User Guide*.
   """
   @spec cancel_image_launch_permission(map(), cancel_image_launch_permission_request(), list()) ::
           {:ok, cancel_image_launch_permission_result(), any()}
@@ -28720,19 +28912,21 @@ defmodule AWS.EC2 do
   one Outpost to
   another, or within the same Outpost. To copy an AMI to another partition, see
   [CreateStoreImageTask](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html).   When you copy an AMI from one Region to another, the destination Region is the
-  current Region.
+  current
+  Region.
 
   When you copy an AMI from a Region to an Outpost, specify the ARN of the Outpost
-  as
-  the destination. Backing snapshots copied to an Outpost are encrypted by default
-  using
-  the default encryption key for the Region or the key that you specify. Outposts
-  do not
-  support unencrypted snapshots.
+  as the
+  destination. Backing snapshots copied to an Outpost are encrypted by default
+  using the default
+  encryption key for the Region or the key that you specify. Outposts do not
+  support unencrypted
+  snapshots.
 
   For information about the prerequisites when copying an AMI, see [Copy an
   AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html) in
-  the *Amazon EC2 User Guide*.
+  the
+  *Amazon EC2 User Guide*.
   """
   @spec copy_image(map(), copy_image_request(), list()) ::
           {:ok, copy_image_result(), any()}
@@ -29193,14 +29387,17 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance
-  that is either running or stopped.
+  Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is
+  either running or
+  stopped.
 
   If you customized your instance with instance store volumes or Amazon EBS
-  volumes in addition to the root device volume, the
-  new AMI contains block device mapping information for those volumes. When you
-  launch an instance from this new AMI,
-  the instance automatically launches with those additional volumes.
+  volumes in addition
+  to the root device volume, the new AMI contains block device mapping information
+  for those
+  volumes. When you launch an instance from this new AMI, the instance
+  automatically launches
+  with those additional volumes.
 
   For more information, see [Create an Amazon EBS-backed Linux AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html)
   in the *Amazon Elastic Compute Cloud User Guide*.
@@ -29904,9 +30101,9 @@ defmodule AWS.EC2 do
 
   @doc """
   Starts a task that restores an AMI from an Amazon S3 object that was previously
-  created by using
+  created by
+  using
   [CreateStoreImageTask](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html). 
-
   To use this API, you must have the required permissions. For more information,
   see [Permissions for storing and restoring AMIs using Amazon
   S3](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions)
@@ -30710,6 +30907,30 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateVpc", input, options)
+  end
+
+  @doc """
+  Create a VPC Block Public Access (BPA) exclusion.
+
+  A VPC BPA exclusion is a mode that can be applied to a single VPC or subnet that
+  exempts it from the account’s BPA mode and will allow bidirectional or
+  egress-only access. You can create BPA exclusions for VPCs and subnets even when
+  BPA is not enabled on the account to ensure that there is no traffic disruption
+  to the exclusions when VPC BPA is turned on. To learn more about VPC BPA, see
+  [Block public access to VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html)
+  in the *Amazon VPC User Guide*.
+  """
+  @spec create_vpc_block_public_access_exclusion(
+          map(),
+          create_vpc_block_public_access_exclusion_request(),
+          list()
+        ) ::
+          {:ok, create_vpc_block_public_access_exclusion_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def create_vpc_block_public_access_exclusion(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateVpcBlockPublicAccessExclusion", input, options)
   end
 
   @doc """
@@ -32055,6 +32276,30 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Delete a VPC Block Public Access (BPA) exclusion.
+
+  A VPC BPA exclusion is a mode that can be applied to a single VPC or subnet that
+  exempts it from the account’s BPA mode and will allow bidirectional or
+  egress-only access. You can create BPA exclusions for VPCs and subnets even when
+  BPA is not enabled on the account to ensure that there is no traffic disruption
+  to the exclusions when VPC BPA is turned on. To learn more about VPC BPA, see
+  [Block public access to VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html)
+  in the *Amazon VPC User Guide*.
+  """
+  @spec delete_vpc_block_public_access_exclusion(
+          map(),
+          delete_vpc_block_public_access_exclusion_request(),
+          list()
+        ) ::
+          {:ok, delete_vpc_block_public_access_exclusion_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def delete_vpc_block_public_access_exclusion(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteVpcBlockPublicAccessExclusion", input, options)
+  end
+
+  @doc """
   Deletes the specified VPC endpoint connection notifications.
   """
   @spec delete_vpc_endpoint_connection_notifications(
@@ -32272,27 +32517,28 @@ defmodule AWS.EC2 do
   @doc """
   Deregisters the specified AMI.
 
-  After you deregister an AMI, it can't be used to
-  launch new instances.
+  After you deregister an AMI, it can't be used to launch new
+  instances.
 
   If you deregister an AMI that matches a Recycle Bin retention rule, the AMI is
-  retained
-  in the Recycle Bin for the specified retention period. For more information, see
+  retained in
+  the Recycle Bin for the specified retention period. For more information, see
   [Recycle Bin](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html) in
   the *Amazon EC2 User Guide*.
 
   When you deregister an AMI, it doesn't affect any instances that you've already
-  launched from the AMI. You'll continue to incur usage costs for those instances
-  until
-  you terminate them.
+  launched
+  from the AMI. You'll continue to incur usage costs for those instances until you
+  terminate
+  them.
 
   When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot
-  that was
-  created for the root volume of the instance during the AMI creation process.
-  When you
-  deregister an instance store-backed AMI, it doesn't affect the files that you
-  uploaded
-  to Amazon S3 when you created the AMI.
+  that was created
+  for the root volume of the instance during the AMI creation process. When you
+  deregister an
+  instance store-backed AMI, it doesn't affect the files that you uploaded to
+  Amazon S3 when you
+  created the AMI.
   """
   @spec deregister_image(map(), deregister_image_request(), list()) ::
           {:ok, nil, any()}
@@ -32565,13 +32811,16 @@ defmodule AWS.EC2 do
   Describes the specified bundle tasks or all of your bundle tasks.
 
   Completed bundle tasks are listed for only a limited time. If your bundle task
-  is no longer in the list, you can still register an AMI from it. Just use
+  is no
+  longer in the list, you can still register an AMI from it. Just use
   `RegisterImage` with the Amazon S3 bucket name and image manifest name you
-  provided to the bundle task.
+  provided
+  to the bundle task.
 
   The order of the elements in the response, including those within nested
-  structures, might vary. Applications should not assume the elements appear in a
-  particular order.
+  structures,
+  might vary. Applications should not assume the elements appear in a particular
+  order.
   """
   @spec describe_bundle_tasks(map(), describe_bundle_tasks_request(), list()) ::
           {:ok, describe_bundle_tasks_result(), any()}
@@ -33192,11 +33441,13 @@ defmodule AWS.EC2 do
   @doc """
   Describes the specified attribute of the specified AMI.
 
-  You can specify only one attribute at a time.
+  You can specify only one attribute
+  at a time.
 
   The order of the elements in the response, including those within nested
-  structures, might vary. Applications should not assume the elements appear in a
-  particular order.
+  structures,
+  might vary. Applications should not assume the elements appear in a particular
+  order.
   """
   @spec describe_image_attribute(map(), describe_image_attribute_request(), list()) ::
           {:ok, image_attribute(), any()}
@@ -33209,11 +33460,14 @@ defmodule AWS.EC2 do
 
   @doc """
   Describes the specified images (AMIs, AKIs, and ARIs) available to you or all of
-  the images available to you.
+  the
+  images available to you.
 
   The images available to you include public images, private images that you own,
-  and private images owned by other
-  Amazon Web Services accounts for which you have explicit launch permissions.
+  and
+  private images owned by other Amazon Web Services accounts for which you have
+  explicit launch
+  permissions.
 
   Recently deregistered images appear in the returned results for a short interval
   and then
@@ -33227,8 +33481,9 @@ defmodule AWS.EC2 do
   susceptible to throttling and timeouts.
 
   The order of the elements in the response, including those within nested
-  structures, might vary. Applications should not assume the elements appear in a
-  particular order.
+  structures,
+  might vary. Applications should not assume the elements appear in a particular
+  order.
   """
   @spec describe_images(map(), describe_images_request(), list()) ::
           {:ok, describe_images_result(), any()}
@@ -35370,6 +35625,52 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Describe VPC Block Public Access (BPA) exclusions.
+
+  A VPC BPA exclusion is a mode that can be applied to a single VPC or subnet that
+  exempts it from the account’s BPA mode and will allow bidirectional or
+  egress-only access. You can create BPA exclusions for VPCs and subnets even when
+  BPA is not enabled on the account to ensure that there is no traffic disruption
+  to the exclusions when VPC BPA is turned on. To learn more about VPC BPA, see
+  [Block public access to VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html)
+  in the *Amazon VPC User Guide*.
+  """
+  @spec describe_vpc_block_public_access_exclusions(
+          map(),
+          describe_vpc_block_public_access_exclusions_request(),
+          list()
+        ) ::
+          {:ok, describe_vpc_block_public_access_exclusions_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def describe_vpc_block_public_access_exclusions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeVpcBlockPublicAccessExclusions", input, options)
+  end
+
+  @doc """
+  Describe VPC Block Public Access (BPA) options.
+
+  VPC Block public Access (BPA) enables you to block resources in VPCs and subnets
+  that you own in a Region from reaching or being reached from the internet
+  through internet gateways and egress-only internet gateways. To learn more about
+  VPC BPA, see [Block public access to VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html)
+  in the *Amazon VPC User Guide*.
+  """
+  @spec describe_vpc_block_public_access_options(
+          map(),
+          describe_vpc_block_public_access_options_request(),
+          list()
+        ) ::
+          {:ok, describe_vpc_block_public_access_options_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def describe_vpc_block_public_access_options(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeVpcBlockPublicAccessOptions", input, options)
+  end
+
+  @doc """
 
   This action is deprecated.
 
@@ -35790,15 +36091,18 @@ defmodule AWS.EC2 do
 
   @doc """
   Discontinue Windows fast launch for a Windows AMI, and clean up existing
-  pre-provisioned snapshots.
+  pre-provisioned
+  snapshots.
 
   After you disable Windows fast launch, the AMI uses the standard launch process
-  for each
-  new instance. Amazon EC2 must remove all pre-provisioned snapshots before you
-  can enable Windows fast launch again.
+  for
+  each new instance. Amazon EC2 must remove all pre-provisioned snapshots before
+  you can enable
+  Windows fast launch again.
 
   You can only change these settings for Windows AMIs that you own or that have
-  been shared with you.
+  been
+  shared with you.
   """
   @spec disable_fast_launch(map(), disable_fast_launch_request(), list()) ::
           {:ok, disable_fast_launch_result(), any()}
@@ -35871,10 +36175,10 @@ defmodule AWS.EC2 do
   `block-new-sharing`. When the API has completed the configuration, the response
   will be `unblocked`.
 
-  For more information, see [Block public access to your
+  For more information, see [Block
+  public access to your
   AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-intro.html#block-public-access-to-amis)
-  in
-  the *Amazon EC2 User Guide*.
+  in the *Amazon EC2 User Guide*.
   """
   @spec disable_image_block_public_access(
           map(),
@@ -36514,20 +36818,21 @@ defmodule AWS.EC2 do
 
   @doc """
   When you enable Windows fast launch for a Windows AMI, images are
-  pre-provisioned,
-  using snapshots to launch instances up to 65% faster.
+  pre-provisioned, using
+  snapshots to launch instances up to 65% faster.
 
-  To create the optimized Windows
-  image, Amazon EC2 launches an instance and runs through Sysprep steps, rebooting
-  as required.
-  Then it creates a set of reserved snapshots that are used for subsequent
-  launches. The
-  reserved snapshots are automatically replenished as they are used, depending on
-  your
-  settings for launch frequency.
+  To create the optimized Windows image, Amazon EC2
+  launches an instance and runs through Sysprep steps, rebooting as required. Then
+  it creates a
+  set of reserved snapshots that are used for subsequent launches. The reserved
+  snapshots are
+  automatically replenished as they are used, depending on your settings for
+  launch
+  frequency.
 
   You can only change these settings for Windows AMIs that you own or that have
-  been shared with you.
+  been
+  shared with you.
   """
   @spec enable_fast_launch(map(), enable_fast_launch_request(), list()) ::
           {:ok, enable_fast_launch_result(), any()}
@@ -36622,7 +36927,8 @@ defmodule AWS.EC2 do
   Enables deprecation of the specified AMI at the specified date and time.
 
   For more information, see [Deprecate an AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html) in
-  the *Amazon EC2 User Guide*.
+  the
+  *Amazon EC2 User Guide*.
   """
   @spec enable_image_deprecation(map(), enable_image_deprecation_request(), list()) ::
           {:ok, enable_image_deprecation_result(), any()}
@@ -38075,8 +38381,8 @@ defmodule AWS.EC2 do
   @doc """
   Lists one or more AMIs that are currently in the Recycle Bin.
 
-  For more information,
-  see [Recycle Bin](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html) in
+  For more information, see
+  [Recycle Bin](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html) in
   the *Amazon EC2 User Guide*.
   """
   @spec list_images_in_recycle_bin(map(), list_images_in_recycle_bin_request(), list()) ::
@@ -38475,18 +38781,18 @@ defmodule AWS.EC2 do
   @doc """
   Modifies the specified attribute of the specified AMI.
 
-  You can specify only one attribute at a time.
+  You can specify only one attribute
+  at a time.
 
   To specify the attribute, you can use the `Attribute` parameter, or one of the
-  following parameters:
-  `Description`, `ImdsSupport`, or `LaunchPermission`.
+  following parameters: `Description`, `ImdsSupport`, or
+  `LaunchPermission`.
 
   Images with an Amazon Web Services Marketplace product code cannot be made
   public.
 
   To enable the SriovNetSupport enhanced networking attribute of an image, enable
-  SriovNetSupport on an instance
-  and create an AMI from the instance.
+  SriovNetSupport on an instance and create an AMI from the instance.
   """
   @spec modify_image_attribute(map(), modify_image_attribute_request(), list()) ::
           {:ok, nil, any()}
@@ -39383,6 +39689,50 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Modify VPC Block Public Access (BPA) exclusions.
+
+  A VPC BPA exclusion is a mode that can be applied to a single VPC or subnet that
+  exempts it from the account’s BPA mode and will allow bidirectional or
+  egress-only access. You can create BPA exclusions for VPCs and subnets even when
+  BPA is not enabled on the account to ensure that there is no traffic disruption
+  to the exclusions when VPC BPA is turned on.
+  """
+  @spec modify_vpc_block_public_access_exclusion(
+          map(),
+          modify_vpc_block_public_access_exclusion_request(),
+          list()
+        ) ::
+          {:ok, modify_vpc_block_public_access_exclusion_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def modify_vpc_block_public_access_exclusion(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyVpcBlockPublicAccessExclusion", input, options)
+  end
+
+  @doc """
+  Modify VPC Block Public Access (BPA) options.
+
+  VPC Block public Access (BPA) enables you to block resources in VPCs and subnets
+  that you own in a Region from reaching or being reached from the internet
+  through internet gateways and egress-only internet gateways. To learn more about
+  VPC BPA, see [Block public access to VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html)
+  in the *Amazon VPC User Guide*.
+  """
+  @spec modify_vpc_block_public_access_options(
+          map(),
+          modify_vpc_block_public_access_options_request(),
+          list()
+        ) ::
+          {:ok, modify_vpc_block_public_access_options_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def modify_vpc_block_public_access_options(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyVpcBlockPublicAccessOptions", input, options)
+  end
+
+  @doc """
   Modifies attributes of a specified VPC endpoint.
 
   The attributes that you can modify
@@ -40001,14 +40351,15 @@ defmodule AWS.EC2 do
 
   ## Register a snapshot of a root device volume
 
-  You can use `RegisterImage` to create an Amazon EBS-backed Linux AMI from
-  a snapshot of a root device volume. You specify the snapshot using a block
-  device mapping.
-  You can't set the encryption state of the volume using the block device mapping.
-  If the
-  snapshot is encrypted, or encryption by default is enabled, the root volume of
-  an instance
-  launched from the AMI is encrypted.
+  You can use `RegisterImage` to create an Amazon EBS-backed Linux AMI from a
+  snapshot
+  of a root device volume. You specify the snapshot using a block device mapping.
+  You can't set
+  the encryption state of the volume using the block device mapping. If the
+  snapshot is
+  encrypted, or encryption by default is enabled, the root volume of an instance
+  launched from
+  the AMI is encrypted.
 
   For more information, see [Create an AMI from a snapshot](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot)
   and [Use encryption with Amazon EBS-backed AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html) in
@@ -40017,8 +40368,7 @@ defmodule AWS.EC2 do
   ## Amazon Web Services Marketplace product codes
 
   If any snapshots have Amazon Web Services Marketplace product codes, they are
-  copied to the new
-  AMI.
+  copied to the new AMI.
 
   In most cases, AMIs for Windows, RedHat, SUSE, and SQL Server require correct
   licensing

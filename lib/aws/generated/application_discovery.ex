@@ -662,6 +662,7 @@ defmodule AWS.ApplicationDiscovery do
       
       create_application_request() :: %{
         optional("description") => String.t(),
+        optional("wave") => String.t(),
         required("name") => String.t()
       }
       
@@ -750,6 +751,7 @@ defmodule AWS.ApplicationDiscovery do
         "applicationImportSuccess" => integer(),
         "clientRequestToken" => String.t(),
         "errorsAndFailedEntriesZip" => String.t(),
+        "fileClassification" => list(any()),
         "importCompletionTime" => non_neg_integer(),
         "importDeletedTime" => non_neg_integer(),
         "importRequestTime" => non_neg_integer(),
@@ -832,6 +834,7 @@ defmodule AWS.ApplicationDiscovery do
       update_application_request() :: %{
         optional("description") => String.t(),
         optional("name") => String.t(),
+        optional("wave") => String.t(),
         required("configurationId") => String.t()
       }
       
@@ -1427,6 +1430,7 @@ defmodule AWS.ApplicationDiscovery do
           limit_exceeded_exception()
           | authorization_error_exception()
           | home_region_not_set_exception()
+          | invalid_parameter_exception()
           | operation_not_permitted_exception()
           | invalid_parameter_value_exception()
           | server_internal_error_exception()

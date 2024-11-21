@@ -756,6 +756,7 @@ defmodule AWS.ManagedBlockchainQuery do
   def batch_get_token_balance(%Client{} = client, input, options \\ []) do
     url_path = "/batch-get-token-balance"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -766,7 +767,7 @@ defmodule AWS.ManagedBlockchainQuery do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -791,6 +792,7 @@ defmodule AWS.ManagedBlockchainQuery do
   def get_asset_contract(%Client{} = client, input, options \\ []) do
     url_path = "/get-asset-contract"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -801,7 +803,7 @@ defmodule AWS.ManagedBlockchainQuery do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -822,6 +824,7 @@ defmodule AWS.ManagedBlockchainQuery do
   def get_token_balance(%Client{} = client, input, options \\ []) do
     url_path = "/get-token-balance"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -832,7 +835,7 @@ defmodule AWS.ManagedBlockchainQuery do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -853,6 +856,7 @@ defmodule AWS.ManagedBlockchainQuery do
   def get_transaction(%Client{} = client, input, options \\ []) do
     url_path = "/get-transaction"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -863,7 +867,7 @@ defmodule AWS.ManagedBlockchainQuery do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -884,6 +888,7 @@ defmodule AWS.ManagedBlockchainQuery do
   def list_asset_contracts(%Client{} = client, input, options \\ []) do
     url_path = "/list-asset-contracts"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -894,7 +899,7 @@ defmodule AWS.ManagedBlockchainQuery do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -913,6 +918,7 @@ defmodule AWS.ManagedBlockchainQuery do
   def list_filtered_transaction_events(%Client{} = client, input, options \\ []) do
     url_path = "/list-filtered-transaction-events"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -923,7 +929,7 @@ defmodule AWS.ManagedBlockchainQuery do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -953,6 +959,7 @@ defmodule AWS.ManagedBlockchainQuery do
   def list_token_balances(%Client{} = client, input, options \\ []) do
     url_path = "/list-token-balances"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -963,7 +970,7 @@ defmodule AWS.ManagedBlockchainQuery do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -984,6 +991,7 @@ defmodule AWS.ManagedBlockchainQuery do
   def list_transaction_events(%Client{} = client, input, options \\ []) do
     url_path = "/list-transaction-events"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -994,7 +1002,7 @@ defmodule AWS.ManagedBlockchainQuery do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1011,6 +1019,7 @@ defmodule AWS.ManagedBlockchainQuery do
   def list_transactions(%Client{} = client, input, options \\ []) do
     url_path = "/list-transactions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1021,7 +1030,7 @@ defmodule AWS.ManagedBlockchainQuery do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

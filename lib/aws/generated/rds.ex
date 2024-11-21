@@ -2533,10 +2533,14 @@ defmodule AWS.RDS do
       
       create_blue_green_deployment_request() :: %{
         optional("Tags") => list(tag()()),
+        optional("TargetAllocatedStorage") => integer(),
         optional("TargetDBClusterParameterGroupName") => String.t(),
         optional("TargetDBInstanceClass") => String.t(),
         optional("TargetDBParameterGroupName") => String.t(),
         optional("TargetEngineVersion") => String.t(),
+        optional("TargetIops") => integer(),
+        optional("TargetStorageThroughput") => integer(),
+        optional("TargetStorageType") => String.t(),
         optional("UpgradeTargetStorageConfig") => boolean(),
         required("BlueGreenDeploymentName") => String.t(),
         required("Source") => String.t()
@@ -9286,9 +9290,8 @@ defmodule AWS.RDS do
   environment.
   In a blue/green deployment, the blue environment is the current production
   environment.
-  The green environment is the staging environment. The staging environment stays
-  in sync
-  with the current production environment using logical replication.
+  The green environment is the staging environment, and it stays in sync
+  with the current production environment.
 
   You can make changes to the databases in the green environment without affecting
   production workloads. For example, you can upgrade the major or minor DB engine

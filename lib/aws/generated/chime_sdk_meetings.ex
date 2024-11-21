@@ -909,6 +909,7 @@ defmodule AWS.ChimeSDKMeetings do
   def batch_create_attendee(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees?operation=batch-create"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -919,7 +920,7 @@ defmodule AWS.ChimeSDKMeetings do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -988,11 +989,22 @@ defmodule AWS.ChimeSDKMeetings do
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/capabilities?operation=batch-update-except"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1011,6 +1023,7 @@ defmodule AWS.ChimeSDKMeetings do
   def create_attendee(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1021,7 +1034,7 @@ defmodule AWS.ChimeSDKMeetings do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1047,6 +1060,7 @@ defmodule AWS.ChimeSDKMeetings do
   def create_meeting(%Client{} = client, input, options \\ []) do
     url_path = "/meetings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1057,7 +1071,7 @@ defmodule AWS.ChimeSDKMeetings do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1083,6 +1097,7 @@ defmodule AWS.ChimeSDKMeetings do
   def create_meeting_with_attendees(%Client{} = client, input, options \\ []) do
     url_path = "/meetings?operation=create-attendees"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1093,7 +1108,7 @@ defmodule AWS.ChimeSDKMeetings do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1119,6 +1134,7 @@ defmodule AWS.ChimeSDKMeetings do
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1129,7 +1145,7 @@ defmodule AWS.ChimeSDKMeetings do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1152,6 +1168,7 @@ defmodule AWS.ChimeSDKMeetings do
   def delete_meeting(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1162,7 +1179,7 @@ defmodule AWS.ChimeSDKMeetings do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1323,6 +1340,7 @@ defmodule AWS.ChimeSDKMeetings do
   def start_meeting_transcription(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/transcription?operation=start"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1333,7 +1351,7 @@ defmodule AWS.ChimeSDKMeetings do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1374,6 +1392,7 @@ defmodule AWS.ChimeSDKMeetings do
   def stop_meeting_transcription(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/transcription?operation=stop"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1384,7 +1403,7 @@ defmodule AWS.ChimeSDKMeetings do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1401,6 +1420,7 @@ defmodule AWS.ChimeSDKMeetings do
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=tag-resource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1411,7 +1431,7 @@ defmodule AWS.ChimeSDKMeetings do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1455,6 +1475,7 @@ defmodule AWS.ChimeSDKMeetings do
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=untag-resource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1465,7 +1486,7 @@ defmodule AWS.ChimeSDKMeetings do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1535,10 +1556,21 @@ defmodule AWS.ChimeSDKMeetings do
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}/capabilities"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

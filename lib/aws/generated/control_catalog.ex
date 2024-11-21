@@ -454,6 +454,7 @@ defmodule AWS.ControlCatalog do
   def get_control(%Client{} = client, input, options \\ []) do
     url_path = "/get-control"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -464,7 +465,7 @@ defmodule AWS.ControlCatalog do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -486,6 +487,7 @@ defmodule AWS.ControlCatalog do
   def list_common_controls(%Client{} = client, input, options \\ []) do
     url_path = "/common-controls"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -502,7 +504,7 @@ defmodule AWS.ControlCatalog do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -524,6 +526,7 @@ defmodule AWS.ControlCatalog do
   def list_controls(%Client{} = client, input, options \\ []) do
     url_path = "/list-controls"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -540,7 +543,7 @@ defmodule AWS.ControlCatalog do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -558,6 +561,7 @@ defmodule AWS.ControlCatalog do
   def list_domains(%Client{} = client, input, options \\ []) do
     url_path = "/domains"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -574,7 +578,7 @@ defmodule AWS.ControlCatalog do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -596,6 +600,7 @@ defmodule AWS.ControlCatalog do
   def list_objectives(%Client{} = client, input, options \\ []) do
     url_path = "/objectives"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -612,7 +617,7 @@ defmodule AWS.ControlCatalog do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

@@ -251,6 +251,7 @@ defmodule AWS.ConnectContactLens do
   def list_realtime_contact_analysis_segments(%Client{} = client, input, options \\ []) do
     url_path = "/realtime-contact-analysis/analysis-segments"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -261,7 +262,7 @@ defmodule AWS.ConnectContactLens do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

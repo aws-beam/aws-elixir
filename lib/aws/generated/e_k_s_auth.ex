@@ -234,6 +234,7 @@ defmodule AWS.EKSAuth do
   def assume_role_for_pod_identity(%Client{} = client, cluster_name, input, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/assume-role-for-pod-identity"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -244,7 +245,7 @@ defmodule AWS.EKSAuth do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

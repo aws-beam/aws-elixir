@@ -1707,6 +1707,7 @@ defmodule AWS.Fis do
   def create_experiment_template(%Client{} = client, input, options \\ []) do
     url_path = "/experimentTemplates"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1717,7 +1718,7 @@ defmodule AWS.Fis do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1754,6 +1755,7 @@ defmodule AWS.Fis do
       "/experimentTemplates/#{AWS.Util.encode_uri(experiment_template_id)}/targetAccountConfigurations/#{AWS.Util.encode_uri(account_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1764,7 +1766,7 @@ defmodule AWS.Fis do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1786,6 +1788,7 @@ defmodule AWS.Fis do
   def delete_experiment_template(%Client{} = client, id, input, options \\ []) do
     url_path = "/experimentTemplates/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1796,7 +1799,7 @@ defmodule AWS.Fis do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1827,6 +1830,7 @@ defmodule AWS.Fis do
       "/experimentTemplates/#{AWS.Util.encode_uri(experiment_template_id)}/targetAccountConfigurations/#{AWS.Util.encode_uri(account_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1837,7 +1841,7 @@ defmodule AWS.Fis do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2279,6 +2283,7 @@ defmodule AWS.Fis do
   def start_experiment(%Client{} = client, input, options \\ []) do
     url_path = "/experiments"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2289,7 +2294,7 @@ defmodule AWS.Fis do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2306,6 +2311,7 @@ defmodule AWS.Fis do
   def stop_experiment(%Client{} = client, id, input, options \\ []) do
     url_path = "/experiments/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2316,7 +2322,7 @@ defmodule AWS.Fis do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2332,6 +2338,7 @@ defmodule AWS.Fis do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2342,7 +2349,7 @@ defmodule AWS.Fis do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2358,6 +2365,7 @@ defmodule AWS.Fis do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2373,7 +2381,7 @@ defmodule AWS.Fis do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2395,6 +2403,7 @@ defmodule AWS.Fis do
   def update_experiment_template(%Client{} = client, id, input, options \\ []) do
     url_path = "/experimentTemplates/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2405,7 +2414,7 @@ defmodule AWS.Fis do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2423,6 +2432,7 @@ defmodule AWS.Fis do
   def update_safety_lever_state(%Client{} = client, id, input, options \\ []) do
     url_path = "/safetyLevers/#{AWS.Util.encode_uri(id)}/state"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2433,7 +2443,7 @@ defmodule AWS.Fis do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2464,6 +2474,7 @@ defmodule AWS.Fis do
       "/experimentTemplates/#{AWS.Util.encode_uri(experiment_template_id)}/targetAccountConfigurations/#{AWS.Util.encode_uri(account_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2474,7 +2485,7 @@ defmodule AWS.Fis do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

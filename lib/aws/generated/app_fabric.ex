@@ -1177,6 +1177,7 @@ defmodule AWS.AppFabric do
   def batch_get_user_access_tasks(%Client{} = client, input, options \\ []) do
     url_path = "/useraccess/batchget"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1187,7 +1188,7 @@ defmodule AWS.AppFabric do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1220,6 +1221,7 @@ defmodule AWS.AppFabric do
       "/appbundles/#{AWS.Util.encode_uri(app_bundle_identifier)}/appauthorizations/#{AWS.Util.encode_uri(app_authorization_identifier)}/connect"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1230,7 +1232,7 @@ defmodule AWS.AppFabric do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1249,6 +1251,7 @@ defmodule AWS.AppFabric do
   def create_app_authorization(%Client{} = client, app_bundle_identifier, input, options \\ []) do
     url_path = "/appbundles/#{AWS.Util.encode_uri(app_bundle_identifier)}/appauthorizations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1259,7 +1262,7 @@ defmodule AWS.AppFabric do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1276,6 +1279,7 @@ defmodule AWS.AppFabric do
   def create_app_bundle(%Client{} = client, input, options \\ []) do
     url_path = "/appbundles"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1286,7 +1290,7 @@ defmodule AWS.AppFabric do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1303,6 +1307,7 @@ defmodule AWS.AppFabric do
   def create_ingestion(%Client{} = client, app_bundle_identifier, input, options \\ []) do
     url_path = "/appbundles/#{AWS.Util.encode_uri(app_bundle_identifier)}/ingestions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1313,7 +1318,7 @@ defmodule AWS.AppFabric do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1346,6 +1351,7 @@ defmodule AWS.AppFabric do
       "/appbundles/#{AWS.Util.encode_uri(app_bundle_identifier)}/ingestions/#{AWS.Util.encode_uri(ingestion_identifier)}/ingestiondestinations"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1356,7 +1362,7 @@ defmodule AWS.AppFabric do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1390,6 +1396,7 @@ defmodule AWS.AppFabric do
       "/appbundles/#{AWS.Util.encode_uri(app_bundle_identifier)}/appauthorizations/#{AWS.Util.encode_uri(app_authorization_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1400,7 +1407,7 @@ defmodule AWS.AppFabric do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1420,6 +1427,7 @@ defmodule AWS.AppFabric do
   def delete_app_bundle(%Client{} = client, app_bundle_identifier, input, options \\ []) do
     url_path = "/appbundles/#{AWS.Util.encode_uri(app_bundle_identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1430,7 +1438,7 @@ defmodule AWS.AppFabric do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1458,6 +1466,7 @@ defmodule AWS.AppFabric do
       "/appbundles/#{AWS.Util.encode_uri(app_bundle_identifier)}/ingestions/#{AWS.Util.encode_uri(ingestion_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1468,7 +1477,7 @@ defmodule AWS.AppFabric do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1510,6 +1519,7 @@ defmodule AWS.AppFabric do
       "/appbundles/#{AWS.Util.encode_uri(app_bundle_identifier)}/ingestions/#{AWS.Util.encode_uri(ingestion_identifier)}/ingestiondestinations/#{AWS.Util.encode_uri(ingestion_destination_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1520,7 +1530,7 @@ defmodule AWS.AppFabric do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1804,6 +1814,7 @@ defmodule AWS.AppFabric do
       "/appbundles/#{AWS.Util.encode_uri(app_bundle_identifier)}/ingestions/#{AWS.Util.encode_uri(ingestion_identifier)}/start"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1814,7 +1825,7 @@ defmodule AWS.AppFabric do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1834,6 +1845,7 @@ defmodule AWS.AppFabric do
   def start_user_access_tasks(%Client{} = client, input, options \\ []) do
     url_path = "/useraccess/start"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1844,7 +1856,7 @@ defmodule AWS.AppFabric do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1869,6 +1881,7 @@ defmodule AWS.AppFabric do
       "/appbundles/#{AWS.Util.encode_uri(app_bundle_identifier)}/ingestions/#{AWS.Util.encode_uri(ingestion_identifier)}/stop"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1879,7 +1892,7 @@ defmodule AWS.AppFabric do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1896,6 +1909,7 @@ defmodule AWS.AppFabric do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1906,7 +1920,7 @@ defmodule AWS.AppFabric do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1923,6 +1937,7 @@ defmodule AWS.AppFabric do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1938,7 +1953,7 @@ defmodule AWS.AppFabric do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1974,6 +1989,7 @@ defmodule AWS.AppFabric do
       "/appbundles/#{AWS.Util.encode_uri(app_bundle_identifier)}/appauthorizations/#{AWS.Util.encode_uri(app_authorization_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1984,7 +2000,7 @@ defmodule AWS.AppFabric do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2019,6 +2035,7 @@ defmodule AWS.AppFabric do
       "/appbundles/#{AWS.Util.encode_uri(app_bundle_identifier)}/ingestions/#{AWS.Util.encode_uri(ingestion_identifier)}/ingestiondestinations/#{AWS.Util.encode_uri(ingestion_destination_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2029,7 +2046,7 @@ defmodule AWS.AppFabric do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

@@ -430,6 +430,7 @@ defmodule AWS.ControlTower do
 
       list_enabled_baselines_input() :: %{
         optional("filter") => enabled_baseline_filter(),
+        optional("includeChildren") => [boolean()],
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -578,6 +579,7 @@ defmodule AWS.ControlTower do
         "arn" => String.t(),
         "baselineIdentifier" => [String.t()],
         "baselineVersion" => [String.t()],
+        "parentIdentifier" => String.t(),
         "statusSummary" => enablement_status_summary(),
         "targetIdentifier" => [String.t()]
       }
@@ -991,6 +993,7 @@ defmodule AWS.ControlTower do
 
       enabled_baseline_filter() :: %{
         "baselineIdentifiers" => list(String.t()()),
+        "parentIdentifiers" => list(String.t()()),
         "targetIdentifiers" => list(String.t()())
       }
 
@@ -1146,6 +1149,7 @@ defmodule AWS.ControlTower do
         "baselineIdentifier" => [String.t()],
         "baselineVersion" => [String.t()],
         "parameters" => list(enabled_baseline_parameter_summary()()),
+        "parentIdentifier" => String.t(),
         "statusSummary" => enablement_status_summary(),
         "targetIdentifier" => [String.t()]
       }
@@ -1651,6 +1655,7 @@ defmodule AWS.ControlTower do
   def create_landing_zone(%Client{} = client, input, options \\ []) do
     url_path = "/create-landingzone"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1661,7 +1666,7 @@ defmodule AWS.ControlTower do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1682,6 +1687,7 @@ defmodule AWS.ControlTower do
   def delete_landing_zone(%Client{} = client, input, options \\ []) do
     url_path = "/delete-landingzone"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1692,7 +1698,7 @@ defmodule AWS.ControlTower do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1715,6 +1721,7 @@ defmodule AWS.ControlTower do
   def disable_baseline(%Client{} = client, input, options \\ []) do
     url_path = "/disable-baseline"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1725,7 +1732,7 @@ defmodule AWS.ControlTower do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1750,6 +1757,7 @@ defmodule AWS.ControlTower do
   def disable_control(%Client{} = client, input, options \\ []) do
     url_path = "/disable-control"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1760,7 +1768,7 @@ defmodule AWS.ControlTower do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1782,6 +1790,7 @@ defmodule AWS.ControlTower do
   def enable_baseline(%Client{} = client, input, options \\ []) do
     url_path = "/enable-baseline"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1792,7 +1801,7 @@ defmodule AWS.ControlTower do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1817,6 +1826,7 @@ defmodule AWS.ControlTower do
   def enable_control(%Client{} = client, input, options \\ []) do
     url_path = "/enable-control"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1827,7 +1837,7 @@ defmodule AWS.ControlTower do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1849,6 +1859,7 @@ defmodule AWS.ControlTower do
   def get_baseline(%Client{} = client, input, options \\ []) do
     url_path = "/get-baseline"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1859,7 +1870,7 @@ defmodule AWS.ControlTower do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1883,6 +1894,7 @@ defmodule AWS.ControlTower do
   def get_baseline_operation(%Client{} = client, input, options \\ []) do
     url_path = "/get-baseline-operation"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1893,7 +1905,7 @@ defmodule AWS.ControlTower do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1916,6 +1928,7 @@ defmodule AWS.ControlTower do
   def get_control_operation(%Client{} = client, input, options \\ []) do
     url_path = "/get-control-operation"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1926,7 +1939,7 @@ defmodule AWS.ControlTower do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1943,6 +1956,7 @@ defmodule AWS.ControlTower do
   def get_enabled_baseline(%Client{} = client, input, options \\ []) do
     url_path = "/get-enabled-baseline"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1953,7 +1967,7 @@ defmodule AWS.ControlTower do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1974,6 +1988,7 @@ defmodule AWS.ControlTower do
   def get_enabled_control(%Client{} = client, input, options \\ []) do
     url_path = "/get-enabled-control"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1984,7 +1999,7 @@ defmodule AWS.ControlTower do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2003,6 +2018,7 @@ defmodule AWS.ControlTower do
   def get_landing_zone(%Client{} = client, input, options \\ []) do
     url_path = "/get-landingzone"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2013,7 +2029,7 @@ defmodule AWS.ControlTower do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2033,6 +2049,7 @@ defmodule AWS.ControlTower do
   def get_landing_zone_operation(%Client{} = client, input, options \\ []) do
     url_path = "/get-landingzone-operation"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2043,7 +2060,7 @@ defmodule AWS.ControlTower do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2064,6 +2081,7 @@ defmodule AWS.ControlTower do
   def list_baselines(%Client{} = client, input, options \\ []) do
     url_path = "/list-baselines"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2074,7 +2092,7 @@ defmodule AWS.ControlTower do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2093,6 +2111,7 @@ defmodule AWS.ControlTower do
   def list_control_operations(%Client{} = client, input, options \\ []) do
     url_path = "/list-control-operations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2103,7 +2122,7 @@ defmodule AWS.ControlTower do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2125,6 +2144,7 @@ defmodule AWS.ControlTower do
   def list_enabled_baselines(%Client{} = client, input, options \\ []) do
     url_path = "/list-enabled-baselines"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2135,7 +2155,7 @@ defmodule AWS.ControlTower do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2158,6 +2178,7 @@ defmodule AWS.ControlTower do
   def list_enabled_controls(%Client{} = client, input, options \\ []) do
     url_path = "/list-enabled-controls"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2168,7 +2189,7 @@ defmodule AWS.ControlTower do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2187,6 +2208,7 @@ defmodule AWS.ControlTower do
   def list_landing_zone_operations(%Client{} = client, input, options \\ []) do
     url_path = "/list-landingzone-operations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2197,7 +2219,7 @@ defmodule AWS.ControlTower do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2220,6 +2242,7 @@ defmodule AWS.ControlTower do
   def list_landing_zones(%Client{} = client, input, options \\ []) do
     url_path = "/list-landingzones"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2230,7 +2253,7 @@ defmodule AWS.ControlTower do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2273,6 +2296,7 @@ defmodule AWS.ControlTower do
   def reset_enabled_baseline(%Client{} = client, input, options \\ []) do
     url_path = "/reset-enabled-baseline"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2283,7 +2307,7 @@ defmodule AWS.ControlTower do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2300,6 +2324,7 @@ defmodule AWS.ControlTower do
   def reset_enabled_control(%Client{} = client, input, options \\ []) do
     url_path = "/reset-enabled-control"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2310,7 +2335,7 @@ defmodule AWS.ControlTower do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2336,6 +2361,7 @@ defmodule AWS.ControlTower do
   def reset_landing_zone(%Client{} = client, input, options \\ []) do
     url_path = "/reset-landingzone"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2346,7 +2372,7 @@ defmodule AWS.ControlTower do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2367,6 +2393,7 @@ defmodule AWS.ControlTower do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2377,7 +2404,7 @@ defmodule AWS.ControlTower do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2398,6 +2425,7 @@ defmodule AWS.ControlTower do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2413,7 +2441,7 @@ defmodule AWS.ControlTower do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2434,6 +2462,7 @@ defmodule AWS.ControlTower do
   def update_enabled_baseline(%Client{} = client, input, options \\ []) do
     url_path = "/update-enabled-baseline"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2444,7 +2473,7 @@ defmodule AWS.ControlTower do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2478,6 +2507,7 @@ defmodule AWS.ControlTower do
   def update_enabled_control(%Client{} = client, input, options \\ []) do
     url_path = "/update-enabled-control"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2488,7 +2518,7 @@ defmodule AWS.ControlTower do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2510,6 +2540,7 @@ defmodule AWS.ControlTower do
   def update_landing_zone(%Client{} = client, input, options \\ []) do
     url_path = "/update-landingzone"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2520,7 +2551,7 @@ defmodule AWS.ControlTower do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

@@ -2997,11 +2997,22 @@ defmodule AWS.Greengrass do
   def associate_role_to_group(%Client{} = client, group_id, input, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/role"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3023,11 +3034,22 @@ defmodule AWS.Greengrass do
   def associate_service_role_to_account(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/servicerole"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3049,6 +3071,7 @@ defmodule AWS.Greengrass do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3059,7 +3082,7 @@ defmodule AWS.Greengrass do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3093,6 +3116,7 @@ defmodule AWS.Greengrass do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3103,7 +3127,7 @@ defmodule AWS.Greengrass do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3130,6 +3154,7 @@ defmodule AWS.Greengrass do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3140,7 +3165,7 @@ defmodule AWS.Greengrass do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3170,6 +3195,7 @@ defmodule AWS.Greengrass do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3180,7 +3206,7 @@ defmodule AWS.Greengrass do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3206,6 +3232,7 @@ defmodule AWS.Greengrass do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3216,7 +3243,7 @@ defmodule AWS.Greengrass do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3242,6 +3269,7 @@ defmodule AWS.Greengrass do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3252,7 +3280,7 @@ defmodule AWS.Greengrass do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3286,6 +3314,7 @@ defmodule AWS.Greengrass do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3296,7 +3325,7 @@ defmodule AWS.Greengrass do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3324,6 +3353,7 @@ defmodule AWS.Greengrass do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3334,7 +3364,7 @@ defmodule AWS.Greengrass do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3368,6 +3398,7 @@ defmodule AWS.Greengrass do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3378,7 +3409,7 @@ defmodule AWS.Greengrass do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3406,6 +3437,7 @@ defmodule AWS.Greengrass do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3416,7 +3448,7 @@ defmodule AWS.Greengrass do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3446,6 +3478,7 @@ defmodule AWS.Greengrass do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3456,7 +3489,7 @@ defmodule AWS.Greengrass do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3479,6 +3512,7 @@ defmodule AWS.Greengrass do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3489,7 +3523,7 @@ defmodule AWS.Greengrass do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3515,6 +3549,7 @@ defmodule AWS.Greengrass do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3525,7 +3560,7 @@ defmodule AWS.Greengrass do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3559,6 +3594,7 @@ defmodule AWS.Greengrass do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3569,7 +3605,7 @@ defmodule AWS.Greengrass do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3596,6 +3632,7 @@ defmodule AWS.Greengrass do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3606,7 +3643,7 @@ defmodule AWS.Greengrass do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3640,6 +3677,7 @@ defmodule AWS.Greengrass do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3650,7 +3688,7 @@ defmodule AWS.Greengrass do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3678,6 +3716,7 @@ defmodule AWS.Greengrass do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3688,7 +3727,7 @@ defmodule AWS.Greengrass do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3714,6 +3753,7 @@ defmodule AWS.Greengrass do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3724,7 +3764,7 @@ defmodule AWS.Greengrass do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3758,6 +3798,7 @@ defmodule AWS.Greengrass do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3768,7 +3809,7 @@ defmodule AWS.Greengrass do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3795,6 +3836,7 @@ defmodule AWS.Greengrass do
       ) do
     url_path = "/greengrass/definition/connectors/#{AWS.Util.encode_uri(connector_definition_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3805,7 +3847,7 @@ defmodule AWS.Greengrass do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3822,6 +3864,7 @@ defmodule AWS.Greengrass do
   def delete_core_definition(%Client{} = client, core_definition_id, input, options \\ []) do
     url_path = "/greengrass/definition/cores/#{AWS.Util.encode_uri(core_definition_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3832,7 +3875,7 @@ defmodule AWS.Greengrass do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3849,6 +3892,7 @@ defmodule AWS.Greengrass do
   def delete_device_definition(%Client{} = client, device_definition_id, input, options \\ []) do
     url_path = "/greengrass/definition/devices/#{AWS.Util.encode_uri(device_definition_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3859,7 +3903,7 @@ defmodule AWS.Greengrass do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3881,6 +3925,7 @@ defmodule AWS.Greengrass do
   def delete_function_definition(%Client{} = client, function_definition_id, input, options \\ []) do
     url_path = "/greengrass/definition/functions/#{AWS.Util.encode_uri(function_definition_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3891,7 +3936,7 @@ defmodule AWS.Greengrass do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3908,6 +3953,7 @@ defmodule AWS.Greengrass do
   def delete_group(%Client{} = client, group_id, input, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3918,7 +3964,7 @@ defmodule AWS.Greengrass do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3935,6 +3981,7 @@ defmodule AWS.Greengrass do
   def delete_logger_definition(%Client{} = client, logger_definition_id, input, options \\ []) do
     url_path = "/greengrass/definition/loggers/#{AWS.Util.encode_uri(logger_definition_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3945,7 +3992,7 @@ defmodule AWS.Greengrass do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3967,6 +4014,7 @@ defmodule AWS.Greengrass do
   def delete_resource_definition(%Client{} = client, resource_definition_id, input, options \\ []) do
     url_path = "/greengrass/definition/resources/#{AWS.Util.encode_uri(resource_definition_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3977,7 +4025,7 @@ defmodule AWS.Greengrass do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4006,6 +4054,7 @@ defmodule AWS.Greengrass do
       "/greengrass/definition/subscriptions/#{AWS.Util.encode_uri(subscription_definition_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4016,7 +4065,7 @@ defmodule AWS.Greengrass do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4038,6 +4087,7 @@ defmodule AWS.Greengrass do
   def disassociate_role_from_group(%Client{} = client, group_id, input, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/role"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4048,7 +4098,7 @@ defmodule AWS.Greengrass do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4071,6 +4121,7 @@ defmodule AWS.Greengrass do
   def disassociate_service_role_from_account(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/servicerole"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4081,7 +4132,7 @@ defmodule AWS.Greengrass do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5414,6 +5465,7 @@ defmodule AWS.Greengrass do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5424,7 +5476,7 @@ defmodule AWS.Greengrass do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5453,6 +5505,7 @@ defmodule AWS.Greengrass do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5463,7 +5516,7 @@ defmodule AWS.Greengrass do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5485,11 +5538,22 @@ defmodule AWS.Greengrass do
   def stop_bulk_deployment(%Client{} = client, bulk_deployment_id, input, options \\ []) do
     url_path = "/greengrass/bulk/deployments/#{AWS.Util.encode_uri(bulk_deployment_id)}/$stop"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5506,6 +5570,7 @@ defmodule AWS.Greengrass do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5516,7 +5581,7 @@ defmodule AWS.Greengrass do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -5533,6 +5598,7 @@ defmodule AWS.Greengrass do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5548,7 +5614,7 @@ defmodule AWS.Greengrass do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -5568,11 +5634,22 @@ defmodule AWS.Greengrass do
   def update_connectivity_info(%Client{} = client, thing_name, input, options \\ []) do
     url_path = "/greengrass/things/#{AWS.Util.encode_uri(thing_name)}/connectivityInfo"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5595,11 +5672,22 @@ defmodule AWS.Greengrass do
       ) do
     url_path = "/greengrass/definition/connectors/#{AWS.Util.encode_uri(connector_definition_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5612,11 +5700,22 @@ defmodule AWS.Greengrass do
   def update_core_definition(%Client{} = client, core_definition_id, input, options \\ []) do
     url_path = "/greengrass/definition/cores/#{AWS.Util.encode_uri(core_definition_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5629,11 +5728,22 @@ defmodule AWS.Greengrass do
   def update_device_definition(%Client{} = client, device_definition_id, input, options \\ []) do
     url_path = "/greengrass/definition/devices/#{AWS.Util.encode_uri(device_definition_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5651,11 +5761,22 @@ defmodule AWS.Greengrass do
   def update_function_definition(%Client{} = client, function_definition_id, input, options \\ []) do
     url_path = "/greengrass/definition/functions/#{AWS.Util.encode_uri(function_definition_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5668,11 +5789,22 @@ defmodule AWS.Greengrass do
   def update_group(%Client{} = client, group_id, input, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5692,11 +5824,22 @@ defmodule AWS.Greengrass do
       "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/certificateauthorities/configuration/expiry"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5709,11 +5852,22 @@ defmodule AWS.Greengrass do
   def update_logger_definition(%Client{} = client, logger_definition_id, input, options \\ []) do
     url_path = "/greengrass/definition/loggers/#{AWS.Util.encode_uri(logger_definition_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5731,11 +5885,22 @@ defmodule AWS.Greengrass do
   def update_resource_definition(%Client{} = client, resource_definition_id, input, options \\ []) do
     url_path = "/greengrass/definition/resources/#{AWS.Util.encode_uri(resource_definition_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5760,11 +5925,22 @@ defmodule AWS.Greengrass do
       "/greengrass/definition/subscriptions/#{AWS.Util.encode_uri(subscription_definition_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5782,10 +5958,21 @@ defmodule AWS.Greengrass do
   def update_thing_runtime_configuration(%Client{} = client, thing_name, input, options \\ []) do
     url_path = "/greengrass/things/#{AWS.Util.encode_uri(thing_name)}/runtimeconfig"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

@@ -533,6 +533,7 @@ defmodule AWS.Repostspace do
   def batch_add_role(%Client{} = client, space_id, input, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}/roles"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -543,7 +544,7 @@ defmodule AWS.Repostspace do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -560,6 +561,7 @@ defmodule AWS.Repostspace do
   def batch_remove_role(%Client{} = client, space_id, input, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}/roles"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -570,7 +572,7 @@ defmodule AWS.Repostspace do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -587,6 +589,7 @@ defmodule AWS.Repostspace do
   def create_space(%Client{} = client, input, options \\ []) do
     url_path = "/spaces"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -597,7 +600,7 @@ defmodule AWS.Repostspace do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -614,6 +617,7 @@ defmodule AWS.Repostspace do
   def delete_space(%Client{} = client, space_id, input, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -624,7 +628,7 @@ defmodule AWS.Repostspace do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -642,6 +646,7 @@ defmodule AWS.Repostspace do
   def deregister_admin(%Client{} = client, admin_id, space_id, input, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}/admins/#{AWS.Util.encode_uri(admin_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -652,7 +657,7 @@ defmodule AWS.Repostspace do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -738,6 +743,7 @@ defmodule AWS.Repostspace do
   def register_admin(%Client{} = client, admin_id, space_id, input, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}/admins/#{AWS.Util.encode_uri(admin_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -748,7 +754,7 @@ defmodule AWS.Repostspace do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -765,6 +771,7 @@ defmodule AWS.Repostspace do
   def send_invites(%Client{} = client, space_id, input, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}/invite"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -775,7 +782,7 @@ defmodule AWS.Repostspace do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -798,6 +805,7 @@ defmodule AWS.Repostspace do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -808,7 +816,7 @@ defmodule AWS.Repostspace do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -825,6 +833,7 @@ defmodule AWS.Repostspace do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -840,7 +849,7 @@ defmodule AWS.Repostspace do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -857,10 +866,21 @@ defmodule AWS.Repostspace do
   def update_space(%Client{} = client, space_id, input, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

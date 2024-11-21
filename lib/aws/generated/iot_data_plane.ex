@@ -407,6 +407,7 @@ defmodule AWS.IoTDataPlane do
   def delete_thing_shadow(%Client{} = client, thing_name, input, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/shadow"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -422,7 +423,7 @@ defmodule AWS.IoTDataPlane do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -613,6 +614,8 @@ defmodule AWS.IoTDataPlane do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"contentType", "contentType"},
@@ -631,7 +634,7 @@ defmodule AWS.IoTDataPlane do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -656,6 +659,7 @@ defmodule AWS.IoTDataPlane do
   def update_thing_shadow(%Client{} = client, thing_name, input, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/shadow"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -671,7 +675,7 @@ defmodule AWS.IoTDataPlane do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

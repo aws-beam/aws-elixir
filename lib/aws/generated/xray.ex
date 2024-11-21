@@ -1748,6 +1748,7 @@ defmodule AWS.XRay do
   def batch_get_traces(%Client{} = client, input, options \\ []) do
     url_path = "/Traces"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1758,7 +1759,7 @@ defmodule AWS.XRay do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1775,6 +1776,7 @@ defmodule AWS.XRay do
   def create_group(%Client{} = client, input, options \\ []) do
     url_path = "/CreateGroup"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1785,7 +1787,7 @@ defmodule AWS.XRay do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1815,6 +1817,7 @@ defmodule AWS.XRay do
   def create_sampling_rule(%Client{} = client, input, options \\ []) do
     url_path = "/CreateSamplingRule"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1825,7 +1828,7 @@ defmodule AWS.XRay do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1842,6 +1845,7 @@ defmodule AWS.XRay do
   def delete_group(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteGroup"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1852,7 +1856,7 @@ defmodule AWS.XRay do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1869,6 +1873,7 @@ defmodule AWS.XRay do
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteResourcePolicy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1879,7 +1884,7 @@ defmodule AWS.XRay do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1896,6 +1901,7 @@ defmodule AWS.XRay do
   def delete_sampling_rule(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteSamplingRule"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1906,7 +1912,7 @@ defmodule AWS.XRay do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1923,6 +1929,7 @@ defmodule AWS.XRay do
   def get_encryption_config(%Client{} = client, input, options \\ []) do
     url_path = "/EncryptionConfig"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1933,7 +1940,7 @@ defmodule AWS.XRay do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1950,6 +1957,7 @@ defmodule AWS.XRay do
   def get_group(%Client{} = client, input, options \\ []) do
     url_path = "/GetGroup"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1960,7 +1968,7 @@ defmodule AWS.XRay do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1977,6 +1985,7 @@ defmodule AWS.XRay do
   def get_groups(%Client{} = client, input, options \\ []) do
     url_path = "/Groups"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1987,7 +1996,7 @@ defmodule AWS.XRay do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2009,6 +2018,7 @@ defmodule AWS.XRay do
   def get_insight(%Client{} = client, input, options \\ []) do
     url_path = "/Insight"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2019,7 +2029,7 @@ defmodule AWS.XRay do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2042,6 +2052,7 @@ defmodule AWS.XRay do
   def get_insight_events(%Client{} = client, input, options \\ []) do
     url_path = "/InsightEvents"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2052,7 +2063,7 @@ defmodule AWS.XRay do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2073,6 +2084,7 @@ defmodule AWS.XRay do
   def get_insight_impact_graph(%Client{} = client, input, options \\ []) do
     url_path = "/InsightImpactGraph"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2083,7 +2095,7 @@ defmodule AWS.XRay do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2101,6 +2113,7 @@ defmodule AWS.XRay do
   def get_insight_summaries(%Client{} = client, input, options \\ []) do
     url_path = "/InsightSummaries"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2111,7 +2124,7 @@ defmodule AWS.XRay do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2128,6 +2141,7 @@ defmodule AWS.XRay do
   def get_sampling_rules(%Client{} = client, input, options \\ []) do
     url_path = "/GetSamplingRules"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2138,7 +2152,7 @@ defmodule AWS.XRay do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2159,6 +2173,7 @@ defmodule AWS.XRay do
   def get_sampling_statistic_summaries(%Client{} = client, input, options \\ []) do
     url_path = "/SamplingStatisticSummaries"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2169,7 +2184,7 @@ defmodule AWS.XRay do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2187,6 +2202,7 @@ defmodule AWS.XRay do
   def get_sampling_targets(%Client{} = client, input, options \\ []) do
     url_path = "/SamplingTargets"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2197,7 +2213,7 @@ defmodule AWS.XRay do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2222,6 +2238,7 @@ defmodule AWS.XRay do
   def get_service_graph(%Client{} = client, input, options \\ []) do
     url_path = "/ServiceGraph"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2232,7 +2249,7 @@ defmodule AWS.XRay do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2254,6 +2271,7 @@ defmodule AWS.XRay do
   def get_time_series_service_statistics(%Client{} = client, input, options \\ []) do
     url_path = "/TimeSeriesServiceStatistics"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2264,7 +2282,7 @@ defmodule AWS.XRay do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2281,6 +2299,7 @@ defmodule AWS.XRay do
   def get_trace_graph(%Client{} = client, input, options \\ []) do
     url_path = "/TraceGraph"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2291,7 +2310,7 @@ defmodule AWS.XRay do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2331,6 +2350,7 @@ defmodule AWS.XRay do
   def get_trace_summaries(%Client{} = client, input, options \\ []) do
     url_path = "/TraceSummaries"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2341,7 +2361,7 @@ defmodule AWS.XRay do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2358,6 +2378,7 @@ defmodule AWS.XRay do
   def list_resource_policies(%Client{} = client, input, options \\ []) do
     url_path = "/ListResourcePolicies"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2368,7 +2389,7 @@ defmodule AWS.XRay do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2386,6 +2407,7 @@ defmodule AWS.XRay do
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     url_path = "/ListTagsForResource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2396,7 +2418,7 @@ defmodule AWS.XRay do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2413,6 +2435,7 @@ defmodule AWS.XRay do
   def put_encryption_config(%Client{} = client, input, options \\ []) do
     url_path = "/PutEncryptionConfig"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2423,7 +2446,7 @@ defmodule AWS.XRay do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2449,6 +2472,7 @@ defmodule AWS.XRay do
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     url_path = "/PutResourcePolicy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2459,7 +2483,7 @@ defmodule AWS.XRay do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2476,6 +2500,7 @@ defmodule AWS.XRay do
   def put_telemetry_records(%Client{} = client, input, options \\ []) do
     url_path = "/TelemetryRecords"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2486,7 +2511,7 @@ defmodule AWS.XRay do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2574,6 +2599,7 @@ defmodule AWS.XRay do
   def put_trace_segments(%Client{} = client, input, options \\ []) do
     url_path = "/TraceSegments"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2584,7 +2610,7 @@ defmodule AWS.XRay do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2601,6 +2627,7 @@ defmodule AWS.XRay do
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/TagResource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2611,7 +2638,7 @@ defmodule AWS.XRay do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2631,6 +2658,7 @@ defmodule AWS.XRay do
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/UntagResource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2641,7 +2669,7 @@ defmodule AWS.XRay do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2658,6 +2686,7 @@ defmodule AWS.XRay do
   def update_group(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateGroup"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2668,7 +2697,7 @@ defmodule AWS.XRay do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2685,6 +2714,7 @@ defmodule AWS.XRay do
   def update_sampling_rule(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateSamplingRule"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2695,7 +2725,7 @@ defmodule AWS.XRay do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

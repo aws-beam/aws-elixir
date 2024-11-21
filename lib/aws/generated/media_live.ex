@@ -8581,6 +8581,7 @@ defmodule AWS.MediaLive do
   def accept_input_device_transfer(%Client{} = client, input_device_id, input, options \\ []) do
     url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/accept"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8591,7 +8592,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8608,6 +8609,7 @@ defmodule AWS.MediaLive do
   def batch_delete(%Client{} = client, input, options \\ []) do
     url_path = "/prod/batch/delete"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8618,7 +8620,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8635,6 +8637,7 @@ defmodule AWS.MediaLive do
   def batch_start(%Client{} = client, input, options \\ []) do
     url_path = "/prod/batch/start"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8645,7 +8648,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8662,6 +8665,7 @@ defmodule AWS.MediaLive do
   def batch_stop(%Client{} = client, input, options \\ []) do
     url_path = "/prod/batch/stop"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8672,7 +8676,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8689,11 +8693,22 @@ defmodule AWS.MediaLive do
   def batch_update_schedule(%Client{} = client, channel_id, input, options \\ []) do
     url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}/schedule"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -8711,6 +8726,7 @@ defmodule AWS.MediaLive do
   def cancel_input_device_transfer(%Client{} = client, input_device_id, input, options \\ []) do
     url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/cancel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8721,7 +8737,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8741,6 +8757,7 @@ defmodule AWS.MediaLive do
   def claim_device(%Client{} = client, input, options \\ []) do
     url_path = "/prod/claimDevice"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8751,7 +8768,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8768,6 +8785,7 @@ defmodule AWS.MediaLive do
   def create_channel(%Client{} = client, input, options \\ []) do
     url_path = "/prod/channels"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8778,7 +8796,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -8807,6 +8825,7 @@ defmodule AWS.MediaLive do
   def create_channel_placement_group(%Client{} = client, cluster_id, input, options \\ []) do
     url_path = "/prod/clusters/#{AWS.Util.encode_uri(cluster_id)}/channelplacementgroups"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8817,7 +8836,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -8839,6 +8858,7 @@ defmodule AWS.MediaLive do
   def create_cloud_watch_alarm_template(%Client{} = client, input, options \\ []) do
     url_path = "/prod/cloudwatch-alarm-templates"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8849,7 +8869,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -8871,6 +8891,7 @@ defmodule AWS.MediaLive do
   def create_cloud_watch_alarm_template_group(%Client{} = client, input, options \\ []) do
     url_path = "/prod/cloudwatch-alarm-template-groups"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8881,7 +8902,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -8898,6 +8919,7 @@ defmodule AWS.MediaLive do
   def create_cluster(%Client{} = client, input, options \\ []) do
     url_path = "/prod/clusters"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8908,7 +8930,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -8930,6 +8952,7 @@ defmodule AWS.MediaLive do
   def create_event_bridge_rule_template(%Client{} = client, input, options \\ []) do
     url_path = "/prod/eventbridge-rule-templates"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8940,7 +8963,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -8963,6 +8986,7 @@ defmodule AWS.MediaLive do
   def create_event_bridge_rule_template_group(%Client{} = client, input, options \\ []) do
     url_path = "/prod/eventbridge-rule-template-groups"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8973,7 +8997,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -8990,6 +9014,7 @@ defmodule AWS.MediaLive do
   def create_input(%Client{} = client, input, options \\ []) do
     url_path = "/prod/inputs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9000,7 +9025,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -9017,6 +9042,7 @@ defmodule AWS.MediaLive do
   def create_input_security_group(%Client{} = client, input, options \\ []) do
     url_path = "/prod/inputSecurityGroups"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9027,7 +9053,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9044,6 +9070,7 @@ defmodule AWS.MediaLive do
   def create_multiplex(%Client{} = client, input, options \\ []) do
     url_path = "/prod/multiplexes"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9054,7 +9081,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -9071,6 +9098,7 @@ defmodule AWS.MediaLive do
   def create_multiplex_program(%Client{} = client, multiplex_id, input, options \\ []) do
     url_path = "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}/programs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9081,7 +9109,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -9102,6 +9130,7 @@ defmodule AWS.MediaLive do
   def create_network(%Client{} = client, input, options \\ []) do
     url_path = "/prod/networks"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9112,7 +9141,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -9132,6 +9161,7 @@ defmodule AWS.MediaLive do
   def create_node(%Client{} = client, cluster_id, input, options \\ []) do
     url_path = "/prod/clusters/#{AWS.Util.encode_uri(cluster_id)}/nodes"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9142,7 +9172,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -9170,6 +9200,7 @@ defmodule AWS.MediaLive do
   def create_node_registration_script(%Client{} = client, cluster_id, input, options \\ []) do
     url_path = "/prod/clusters/#{AWS.Util.encode_uri(cluster_id)}/nodeRegistrationScript"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9180,7 +9211,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9197,6 +9228,7 @@ defmodule AWS.MediaLive do
   def create_partner_input(%Client{} = client, input_id, input, options \\ []) do
     url_path = "/prod/inputs/#{AWS.Util.encode_uri(input_id)}/partners"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9207,7 +9239,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -9227,6 +9259,7 @@ defmodule AWS.MediaLive do
   def create_signal_map(%Client{} = client, input, options \\ []) do
     url_path = "/prod/signal-maps"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9237,7 +9270,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -9254,6 +9287,7 @@ defmodule AWS.MediaLive do
   def create_tags(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/prod/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9264,7 +9298,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -9283,6 +9317,7 @@ defmodule AWS.MediaLive do
   def delete_channel(%Client{} = client, channel_id, input, options \\ []) do
     url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9293,7 +9328,7 @@ defmodule AWS.MediaLive do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9324,6 +9359,7 @@ defmodule AWS.MediaLive do
       "/prod/clusters/#{AWS.Util.encode_uri(cluster_id)}/channelplacementgroups/#{AWS.Util.encode_uri(channel_placement_group_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9334,7 +9370,7 @@ defmodule AWS.MediaLive do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9356,6 +9392,7 @@ defmodule AWS.MediaLive do
   def delete_cloud_watch_alarm_template(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/prod/cloudwatch-alarm-templates/#{AWS.Util.encode_uri(identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9366,7 +9403,7 @@ defmodule AWS.MediaLive do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -9396,6 +9433,7 @@ defmodule AWS.MediaLive do
       ) do
     url_path = "/prod/cloudwatch-alarm-template-groups/#{AWS.Util.encode_uri(identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9406,7 +9444,7 @@ defmodule AWS.MediaLive do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -9425,6 +9463,7 @@ defmodule AWS.MediaLive do
   def delete_cluster(%Client{} = client, cluster_id, input, options \\ []) do
     url_path = "/prod/clusters/#{AWS.Util.encode_uri(cluster_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9435,7 +9474,7 @@ defmodule AWS.MediaLive do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -9457,6 +9496,7 @@ defmodule AWS.MediaLive do
   def delete_event_bridge_rule_template(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/prod/eventbridge-rule-templates/#{AWS.Util.encode_uri(identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9467,7 +9507,7 @@ defmodule AWS.MediaLive do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -9497,6 +9537,7 @@ defmodule AWS.MediaLive do
       ) do
     url_path = "/prod/eventbridge-rule-template-groups/#{AWS.Util.encode_uri(identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9507,7 +9548,7 @@ defmodule AWS.MediaLive do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -9524,6 +9565,7 @@ defmodule AWS.MediaLive do
   def delete_input(%Client{} = client, input_id, input, options \\ []) do
     url_path = "/prod/inputs/#{AWS.Util.encode_uri(input_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9534,7 +9576,7 @@ defmodule AWS.MediaLive do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9561,6 +9603,7 @@ defmodule AWS.MediaLive do
       ) do
     url_path = "/prod/inputSecurityGroups/#{AWS.Util.encode_uri(input_security_group_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9571,7 +9614,7 @@ defmodule AWS.MediaLive do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9590,6 +9633,7 @@ defmodule AWS.MediaLive do
   def delete_multiplex(%Client{} = client, multiplex_id, input, options \\ []) do
     url_path = "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9600,7 +9644,7 @@ defmodule AWS.MediaLive do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -9631,6 +9675,7 @@ defmodule AWS.MediaLive do
       "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}/programs/#{AWS.Util.encode_uri(program_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9641,7 +9686,7 @@ defmodule AWS.MediaLive do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9660,6 +9705,7 @@ defmodule AWS.MediaLive do
   def delete_network(%Client{} = client, network_id, input, options \\ []) do
     url_path = "/prod/networks/#{AWS.Util.encode_uri(network_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9670,7 +9716,7 @@ defmodule AWS.MediaLive do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -9691,6 +9737,7 @@ defmodule AWS.MediaLive do
       "/prod/clusters/#{AWS.Util.encode_uri(cluster_id)}/nodes/#{AWS.Util.encode_uri(node_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9701,7 +9748,7 @@ defmodule AWS.MediaLive do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -9718,6 +9765,7 @@ defmodule AWS.MediaLive do
   def delete_reservation(%Client{} = client, reservation_id, input, options \\ []) do
     url_path = "/prod/reservations/#{AWS.Util.encode_uri(reservation_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9728,7 +9776,7 @@ defmodule AWS.MediaLive do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9745,6 +9793,7 @@ defmodule AWS.MediaLive do
   def delete_schedule(%Client{} = client, channel_id, input, options \\ []) do
     url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}/schedule"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9755,7 +9804,7 @@ defmodule AWS.MediaLive do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9772,6 +9821,7 @@ defmodule AWS.MediaLive do
   def delete_signal_map(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/prod/signal-maps/#{AWS.Util.encode_uri(identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9782,7 +9832,7 @@ defmodule AWS.MediaLive do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -9799,6 +9849,7 @@ defmodule AWS.MediaLive do
   def delete_tags(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/prod/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -9814,7 +9865,7 @@ defmodule AWS.MediaLive do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -11207,6 +11258,7 @@ defmodule AWS.MediaLive do
   def purchase_offering(%Client{} = client, offering_id, input, options \\ []) do
     url_path = "/prod/offerings/#{AWS.Util.encode_uri(offering_id)}/purchase"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11217,7 +11269,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -11238,6 +11290,7 @@ defmodule AWS.MediaLive do
   def reboot_input_device(%Client{} = client, input_device_id, input, options \\ []) do
     url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/reboot"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11248,7 +11301,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11270,6 +11323,7 @@ defmodule AWS.MediaLive do
   def reject_input_device_transfer(%Client{} = client, input_device_id, input, options \\ []) do
     url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/reject"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11280,7 +11334,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11297,6 +11351,7 @@ defmodule AWS.MediaLive do
   def restart_channel_pipelines(%Client{} = client, channel_id, input, options \\ []) do
     url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}/restartChannelPipelines"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11307,7 +11362,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11324,6 +11379,7 @@ defmodule AWS.MediaLive do
   def start_channel(%Client{} = client, channel_id, input, options \\ []) do
     url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}/start"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11334,7 +11390,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11356,6 +11412,7 @@ defmodule AWS.MediaLive do
   def start_delete_monitor_deployment(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/prod/signal-maps/#{AWS.Util.encode_uri(identifier)}/monitor-deployment"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11366,7 +11423,7 @@ defmodule AWS.MediaLive do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -11386,6 +11443,7 @@ defmodule AWS.MediaLive do
   def start_input_device(%Client{} = client, input_device_id, input, options \\ []) do
     url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/start"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11396,7 +11454,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11433,6 +11491,7 @@ defmodule AWS.MediaLive do
       "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/startInputDeviceMaintenanceWindow"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11443,7 +11502,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11460,6 +11519,7 @@ defmodule AWS.MediaLive do
   def start_monitor_deployment(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/prod/signal-maps/#{AWS.Util.encode_uri(identifier)}/monitor-deployment"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11470,7 +11530,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -11490,6 +11550,7 @@ defmodule AWS.MediaLive do
   def start_multiplex(%Client{} = client, multiplex_id, input, options \\ []) do
     url_path = "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}/start"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11500,7 +11561,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -11519,6 +11580,7 @@ defmodule AWS.MediaLive do
   def start_update_signal_map(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/prod/signal-maps/#{AWS.Util.encode_uri(identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11529,7 +11591,7 @@ defmodule AWS.MediaLive do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -11546,6 +11608,7 @@ defmodule AWS.MediaLive do
   def stop_channel(%Client{} = client, channel_id, input, options \\ []) do
     url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}/stop"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11556,7 +11619,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11576,6 +11639,7 @@ defmodule AWS.MediaLive do
   def stop_input_device(%Client{} = client, input_device_id, input, options \\ []) do
     url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/stop"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11586,7 +11650,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11605,6 +11669,7 @@ defmodule AWS.MediaLive do
   def stop_multiplex(%Client{} = client, multiplex_id, input, options \\ []) do
     url_path = "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}/stop"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11615,7 +11680,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -11635,6 +11700,7 @@ defmodule AWS.MediaLive do
   def transfer_input_device(%Client{} = client, input_device_id, input, options \\ []) do
     url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/transfer"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11645,7 +11711,7 @@ defmodule AWS.MediaLive do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11662,11 +11728,22 @@ defmodule AWS.MediaLive do
   def update_account_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/prod/accountConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11679,11 +11756,22 @@ defmodule AWS.MediaLive do
   def update_channel(%Client{} = client, channel_id, input, options \\ []) do
     url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11696,11 +11784,22 @@ defmodule AWS.MediaLive do
   def update_channel_class(%Client{} = client, channel_id, input, options \\ []) do
     url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}/channelClass"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11727,11 +11826,22 @@ defmodule AWS.MediaLive do
       "/prod/clusters/#{AWS.Util.encode_uri(cluster_id)}/channelplacementgroups/#{AWS.Util.encode_uri(channel_placement_group_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11749,6 +11859,7 @@ defmodule AWS.MediaLive do
   def update_cloud_watch_alarm_template(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/prod/cloudwatch-alarm-templates/#{AWS.Util.encode_uri(identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11759,7 +11870,7 @@ defmodule AWS.MediaLive do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11786,6 +11897,7 @@ defmodule AWS.MediaLive do
       ) do
     url_path = "/prod/cloudwatch-alarm-template-groups/#{AWS.Util.encode_uri(identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11796,7 +11908,7 @@ defmodule AWS.MediaLive do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11813,11 +11925,22 @@ defmodule AWS.MediaLive do
   def update_cluster(%Client{} = client, cluster_id, input, options \\ []) do
     url_path = "/prod/clusters/#{AWS.Util.encode_uri(cluster_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11835,6 +11958,7 @@ defmodule AWS.MediaLive do
   def update_event_bridge_rule_template(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/prod/eventbridge-rule-templates/#{AWS.Util.encode_uri(identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11845,7 +11969,7 @@ defmodule AWS.MediaLive do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11872,6 +11996,7 @@ defmodule AWS.MediaLive do
       ) do
     url_path = "/prod/eventbridge-rule-template-groups/#{AWS.Util.encode_uri(identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11882,7 +12007,7 @@ defmodule AWS.MediaLive do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11899,11 +12024,22 @@ defmodule AWS.MediaLive do
   def update_input(%Client{} = client, input_id, input, options \\ []) do
     url_path = "/prod/inputs/#{AWS.Util.encode_uri(input_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11916,11 +12052,22 @@ defmodule AWS.MediaLive do
   def update_input_device(%Client{} = client, input_device_id, input, options \\ []) do
     url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11943,11 +12090,22 @@ defmodule AWS.MediaLive do
       ) do
     url_path = "/prod/inputSecurityGroups/#{AWS.Util.encode_uri(input_security_group_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11960,11 +12118,22 @@ defmodule AWS.MediaLive do
   def update_multiplex(%Client{} = client, multiplex_id, input, options \\ []) do
     url_path = "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11991,11 +12160,22 @@ defmodule AWS.MediaLive do
       "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}/programs/#{AWS.Util.encode_uri(program_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12008,11 +12188,22 @@ defmodule AWS.MediaLive do
   def update_network(%Client{} = client, network_id, input, options \\ []) do
     url_path = "/prod/networks/#{AWS.Util.encode_uri(network_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12027,11 +12218,22 @@ defmodule AWS.MediaLive do
       "/prod/clusters/#{AWS.Util.encode_uri(cluster_id)}/nodes/#{AWS.Util.encode_uri(node_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -12046,11 +12248,22 @@ defmodule AWS.MediaLive do
       "/prod/clusters/#{AWS.Util.encode_uri(cluster_id)}/nodes/#{AWS.Util.encode_uri(node_id)}/state"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -12063,10 +12276,21 @@ defmodule AWS.MediaLive do
   def update_reservation(%Client{} = client, reservation_id, input, options \\ []) do
     url_path = "/prod/reservations/#{AWS.Util.encode_uri(reservation_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

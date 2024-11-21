@@ -101,6 +101,20 @@ defmodule AWS.Omics do
 
   ## Example:
 
+      create_run_cache_response() :: %{
+        "arn" => String.t(),
+        "id" => String.t(),
+        "status" => String.t(),
+        "tags" => map()
+      }
+
+  """
+  @type create_run_cache_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_variant_store_response() :: %{
         "creationTime" => non_neg_integer(),
         "description" => String.t(),
@@ -153,6 +167,23 @@ defmodule AWS.Omics do
 
   """
   @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      run_cache_list_item() :: %{
+        "arn" => String.t(),
+        "cacheBehavior" => String.t(),
+        "cacheS3Uri" => String.t(),
+        "creationTime" => non_neg_integer(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "status" => String.t()
+      }
+
+  """
+  @type run_cache_list_item() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -242,6 +273,19 @@ defmodule AWS.Omics do
 
   """
   @type read_set_upload_part_list_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_run_cache_request() :: %{
+        optional("cacheBehavior") => String.t(),
+        optional("description") => String.t(),
+        optional("name") => String.t()
+      }
+
+  """
+  @type update_run_cache_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -651,6 +695,18 @@ defmodule AWS.Omics do
 
   ## Example:
 
+      list_run_caches_response() :: %{
+        "items" => list(run_cache_list_item()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_run_caches_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       share_details() :: %{
         "creationTime" => non_neg_integer(),
         "ownerId" => [String.t()],
@@ -755,6 +811,15 @@ defmodule AWS.Omics do
 
   """
   @type create_multipart_read_set_upload_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_run_cache_request() :: %{}
+
+  """
+  @type delete_run_cache_request() :: %{}
 
   @typedoc """
 
@@ -1044,6 +1109,8 @@ defmodule AWS.Omics do
   ## Example:
 
       task_list_item() :: %{
+        "cacheHit" => [boolean()],
+        "cacheS3Uri" => String.t(),
         "cpus" => [integer()],
         "creationTime" => non_neg_integer(),
         "gpus" => [integer()],
@@ -1201,6 +1268,23 @@ defmodule AWS.Omics do
 
   """
   @type list_shares_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_run_cache_request() :: %{
+        optional("cacheBehavior") => String.t(),
+        optional("cacheBucketOwnerId") => String.t(),
+        optional("description") => String.t(),
+        optional("name") => String.t(),
+        optional("tags") => map(),
+        required("cacheS3Location") => String.t(),
+        required("requestId") => String.t()
+      }
+
+  """
+  @type create_run_cache_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1845,6 +1929,15 @@ defmodule AWS.Omics do
 
   ## Example:
 
+      get_run_cache_request() :: %{}
+
+  """
+  @type get_run_cache_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_read_sets_request() :: %{
         optional("filter") => read_set_filter(),
         optional("maxResults") => [integer()],
@@ -2355,6 +2448,38 @@ defmodule AWS.Omics do
 
   ## Example:
 
+      list_run_caches_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("startingToken") => String.t()
+      }
+
+  """
+  @type list_run_caches_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_run_cache_response() :: %{
+        "arn" => String.t(),
+        "cacheBehavior" => String.t(),
+        "cacheBucketOwnerId" => String.t(),
+        "cacheS3Uri" => String.t(),
+        "creationTime" => non_neg_integer(),
+        "description" => String.t(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "status" => String.t(),
+        "tags" => map()
+      }
+
+  """
+  @type get_run_cache_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tsv_version_options() :: %{
         "annotationType" => String.t(),
         "formatToHeader" => map(),
@@ -2511,6 +2636,8 @@ defmodule AWS.Omics do
   ## Example:
 
       get_run_task_response() :: %{
+        "cacheHit" => [boolean()],
+        "cacheS3Uri" => String.t(),
         "cpus" => [integer()],
         "creationTime" => non_neg_integer(),
         "failureReason" => String.t(),
@@ -2637,6 +2764,8 @@ defmodule AWS.Omics do
   ## Example:
 
       start_run_request() :: %{
+        optional("cacheBehavior") => String.t(),
+        optional("cacheId") => String.t(),
         optional("logLevel") => String.t(),
         optional("name") => String.t(),
         optional("outputUri") => String.t(),
@@ -2876,37 +3005,40 @@ defmodule AWS.Omics do
   ## Example:
 
       get_run_response() :: %{
-        "accelerators" => String.t(),
-        "arn" => String.t(),
-        "creationTime" => non_neg_integer(),
-        "definition" => String.t(),
-        "digest" => String.t(),
-        "failureReason" => String.t(),
-        "id" => String.t(),
-        "logLevel" => String.t(),
-        "logLocation" => run_log_location(),
-        "name" => String.t(),
-        "outputUri" => String.t(),
-        "parameters" => any(),
         "priority" => [integer()],
-        "resourceDigests" => map(),
-        "retentionMode" => String.t(),
-        "roleArn" => String.t(),
+        "id" => String.t(),
+        "accelerators" => String.t(),
+        "creationTime" => non_neg_integer(),
         "runGroupId" => String.t(),
-        "runId" => String.t(),
-        "runOutputUri" => String.t(),
-        "startTime" => non_neg_integer(),
+        "name" => String.t(),
+        "logLevel" => String.t(),
+        "workflowType" => String.t(),
         "startedBy" => String.t(),
-        "status" => String.t(),
-        "statusMessage" => String.t(),
-        "stopTime" => non_neg_integer(),
-        "storageCapacity" => [integer()],
-        "storageType" => String.t(),
-        "tags" => map(),
+        "roleArn" => String.t(),
+        "digest" => String.t(),
+        "runOutputUri" => String.t(),
+        "retentionMode" => String.t(),
         "uuid" => String.t(),
+        "storageCapacity" => [integer()],
         "workflowId" => String.t(),
-        "workflowOwnerId" => String.t(),
-        "workflowType" => String.t()
+        "statusMessage" => String.t(),
+        "startTime" => non_neg_integer(),
+        "runId" => String.t(),
+        "engineVersion" => String.t(),
+        "cacheId" => String.t(),
+        "tags" => map(),
+        "failureReason" => String.t(),
+        "logLocation" => run_log_location(),
+        "outputUri" => String.t(),
+        "definition" => String.t(),
+        "arn" => String.t(),
+        "parameters" => any(),
+        "cacheBehavior" => String.t(),
+        "storageType" => String.t(),
+        "status" => String.t(),
+        "stopTime" => non_neg_integer(),
+        "resourceDigests" => map(),
+        "workflowOwnerId" => String.t()
       }
 
   """
@@ -3307,6 +3439,16 @@ defmodule AWS.Omics do
           | service_quota_exceeded_exception()
           | request_timeout_exception()
 
+  @type create_run_cache_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | request_timeout_exception()
+
   @type create_run_group_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3388,6 +3530,16 @@ defmodule AWS.Omics do
           | request_timeout_exception()
 
   @type delete_run_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | request_timeout_exception()
+
+  @type delete_run_cache_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -3540,6 +3692,16 @@ defmodule AWS.Omics do
           | request_timeout_exception()
 
   @type get_run_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | request_timeout_exception()
+
+  @type get_run_cache_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -3704,6 +3866,16 @@ defmodule AWS.Omics do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | request_timeout_exception()
+
+  @type list_run_caches_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
           | request_timeout_exception()
 
   @type list_run_groups_errors() ::
@@ -3882,6 +4054,16 @@ defmodule AWS.Omics do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type update_run_cache_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | request_timeout_exception()
+
   @type update_run_group_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3959,6 +4141,7 @@ defmodule AWS.Omics do
       "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/upload/#{AWS.Util.encode_uri(upload_id)}/abort"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
@@ -3969,7 +4152,7 @@ defmodule AWS.Omics do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3986,6 +4169,7 @@ defmodule AWS.Omics do
   def accept_share(%Client{} = client, share_id, input, options \\ []) do
     url_path = "/share/#{AWS.Util.encode_uri(share_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
@@ -3996,7 +4180,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4013,6 +4197,7 @@ defmodule AWS.Omics do
   def batch_delete_read_set(%Client{} = client, sequence_store_id, input, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/readset/batch/delete"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
@@ -4023,7 +4208,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4045,6 +4230,7 @@ defmodule AWS.Omics do
   def cancel_annotation_import_job(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/import/annotation/#{AWS.Util.encode_uri(job_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
@@ -4055,7 +4241,7 @@ defmodule AWS.Omics do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4072,6 +4258,7 @@ defmodule AWS.Omics do
   def cancel_run(%Client{} = client, id, input, options \\ []) do
     url_path = "/run/#{AWS.Util.encode_uri(id)}/cancel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
@@ -4082,7 +4269,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -4099,6 +4286,7 @@ defmodule AWS.Omics do
   def cancel_variant_import_job(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/import/variant/#{AWS.Util.encode_uri(job_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
@@ -4109,7 +4297,7 @@ defmodule AWS.Omics do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4140,6 +4328,7 @@ defmodule AWS.Omics do
       "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/upload/#{AWS.Util.encode_uri(upload_id)}/complete"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "storage-")
@@ -4150,7 +4339,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4167,6 +4356,7 @@ defmodule AWS.Omics do
   def create_annotation_store(%Client{} = client, input, options \\ []) do
     url_path = "/annotationStore"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
@@ -4177,7 +4367,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4200,6 +4390,7 @@ defmodule AWS.Omics do
   def create_annotation_store_version(%Client{} = client, name, input, options \\ []) do
     url_path = "/annotationStore/#{AWS.Util.encode_uri(name)}/version"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
@@ -4210,7 +4401,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4237,6 +4428,7 @@ defmodule AWS.Omics do
       ) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/upload"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
@@ -4247,7 +4439,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4264,6 +4456,7 @@ defmodule AWS.Omics do
   def create_reference_store(%Client{} = client, input, options \\ []) do
     url_path = "/referencestore"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
@@ -4274,10 +4467,48 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  You can create a run cache to save the task outputs from completed tasks in a
+  run for a private workflow.
+
+  Subsequent runs use the task outputs from the cache, rather than computing the
+  task outputs again.
+  You specify an Amazon S3 location where HealthOmics saves the cached data. This
+  data must be
+  immediately accessible (not in an archived state).
+
+  For more information, see [Creating a run cache](https://docs.aws.amazon.com/omics/latest/dev/workflow-cache-create.html)
+  in the AWS HealthOmics User Guide.
+  """
+  @spec create_run_cache(map(), create_run_cache_request(), list()) ::
+          {:ok, create_run_cache_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_run_cache_errors()}
+  def create_run_cache(%Client{} = client, input, options \\ []) do
+    url_path = "/runCache"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
     )
   end
 
@@ -4292,6 +4523,7 @@ defmodule AWS.Omics do
   def create_run_group(%Client{} = client, input, options \\ []) do
     url_path = "/runGroup"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
@@ -4302,7 +4534,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -4319,6 +4551,7 @@ defmodule AWS.Omics do
   def create_sequence_store(%Client{} = client, input, options \\ []) do
     url_path = "/sequencestore"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
@@ -4329,7 +4562,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4361,6 +4594,7 @@ defmodule AWS.Omics do
   def create_share(%Client{} = client, input, options \\ []) do
     url_path = "/share"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
@@ -4371,7 +4605,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4388,6 +4622,7 @@ defmodule AWS.Omics do
   def create_variant_store(%Client{} = client, input, options \\ []) do
     url_path = "/variantStore"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
@@ -4398,7 +4633,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4415,6 +4650,7 @@ defmodule AWS.Omics do
   def create_workflow(%Client{} = client, input, options \\ []) do
     url_path = "/workflow"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
@@ -4425,7 +4661,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -4442,6 +4678,7 @@ defmodule AWS.Omics do
   def delete_annotation_store(%Client{} = client, name, input, options \\ []) do
     url_path = "/annotationStore/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4457,7 +4694,7 @@ defmodule AWS.Omics do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4480,6 +4717,7 @@ defmodule AWS.Omics do
   def delete_annotation_store_versions(%Client{} = client, name, input, options \\ []) do
     url_path = "/annotationStore/#{AWS.Util.encode_uri(name)}/versions/delete"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4495,7 +4733,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4514,6 +4752,7 @@ defmodule AWS.Omics do
       "/referencestore/#{AWS.Util.encode_uri(reference_store_id)}/reference/#{AWS.Util.encode_uri(id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
@@ -4524,7 +4763,7 @@ defmodule AWS.Omics do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4541,6 +4780,7 @@ defmodule AWS.Omics do
   def delete_reference_store(%Client{} = client, id, input, options \\ []) do
     url_path = "/referencestore/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
@@ -4551,7 +4791,7 @@ defmodule AWS.Omics do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4568,6 +4808,7 @@ defmodule AWS.Omics do
   def delete_run(%Client{} = client, id, input, options \\ []) do
     url_path = "/run/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
@@ -4578,7 +4819,44 @@ defmodule AWS.Omics do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Delete a run cache.
+
+  This action removes the cache metadata stored in the service account,
+  but doesn't delete the data in Amazon S3.
+  You can access the cache data in Amazon S3, for inspection or to troubleshoot
+  issues.
+  You can remove old cache data using standard S3 `Delete` operations.
+
+  For more information, see [Deleting a run cache](https://docs.aws.amazon.com/omics/latest/dev/workflow-cache-delete.html)
+  in the AWS HealthOmics User Guide.
+  """
+  @spec delete_run_cache(map(), String.t(), delete_run_cache_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_run_cache_errors()}
+  def delete_run_cache(%Client{} = client, id, input, options \\ []) do
+    url_path = "/runCache/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -4595,6 +4873,7 @@ defmodule AWS.Omics do
   def delete_run_group(%Client{} = client, id, input, options \\ []) do
     url_path = "/runGroup/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
@@ -4605,7 +4884,7 @@ defmodule AWS.Omics do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -4622,6 +4901,7 @@ defmodule AWS.Omics do
   def delete_sequence_store(%Client{} = client, id, input, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
@@ -4632,7 +4912,7 @@ defmodule AWS.Omics do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4653,6 +4933,7 @@ defmodule AWS.Omics do
   def delete_share(%Client{} = client, share_id, input, options \\ []) do
     url_path = "/share/#{AWS.Util.encode_uri(share_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
@@ -4663,7 +4944,7 @@ defmodule AWS.Omics do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4680,6 +4961,7 @@ defmodule AWS.Omics do
   def delete_variant_store(%Client{} = client, name, input, options \\ []) do
     url_path = "/variantStore/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4695,7 +4977,7 @@ defmodule AWS.Omics do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4712,6 +4994,7 @@ defmodule AWS.Omics do
   def delete_workflow(%Client{} = client, id, input, options \\ []) do
     url_path = "/workflow/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
@@ -4722,7 +5005,7 @@ defmodule AWS.Omics do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -5015,6 +5298,13 @@ defmodule AWS.Omics do
   Gets information about a workflow run.
 
   If a workflow is shared with you, you cannot export information about the run.
+
+  HealthOmics stores a fixed number of runs that are available to the console and
+  API. If
+  GetRun doesn't return the requested run, you can find run logs
+  for all runs in the CloudWatch logs. For more information about viewing the run
+  logs, see [CloudWatch logs](https://docs.aws.amazon.com/omics/latest/dev/cloudwatch-logs.html)
+  in the *AWS HealthOmics User Guide*.
   """
   @spec get_run(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_run_response(), any()}
@@ -5031,6 +5321,26 @@ defmodule AWS.Omics do
       else
         query_params
       end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieve the details for the specified run cache.
+
+  For more information, see [Call caching for HealthOmics runs](https://docs.aws.amazon.com/omics/latest/dev/workflow-call-caching.html)
+  in the AWS HealthOmics User Guide.
+  """
+  @spec get_run_cache(map(), String.t(), list()) ::
+          {:ok, get_run_cache_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_run_cache_errors()}
+  def get_run_cache(%Client{} = client, id, options \\ []) do
+    url_path = "/runCache/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
 
@@ -5203,6 +5513,7 @@ defmodule AWS.Omics do
   def list_annotation_import_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/import/annotations"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5219,7 +5530,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5242,6 +5553,7 @@ defmodule AWS.Omics do
   def list_annotation_store_versions(%Client{} = client, name, input, options \\ []) do
     url_path = "/annotationStore/#{AWS.Util.encode_uri(name)}/versions"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5258,7 +5570,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5275,6 +5587,7 @@ defmodule AWS.Omics do
   def list_annotation_stores(%Client{} = client, input, options \\ []) do
     url_path = "/annotationStores"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5291,7 +5604,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5316,6 +5629,7 @@ defmodule AWS.Omics do
   def list_multipart_read_set_uploads(%Client{} = client, sequence_store_id, input, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/uploads"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5332,7 +5646,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5354,6 +5668,7 @@ defmodule AWS.Omics do
   def list_read_set_activation_jobs(%Client{} = client, sequence_store_id, input, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/activationjobs"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5370,7 +5685,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5387,6 +5702,7 @@ defmodule AWS.Omics do
   def list_read_set_export_jobs(%Client{} = client, sequence_store_id, input, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/exportjobs"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5403,7 +5719,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5420,6 +5736,7 @@ defmodule AWS.Omics do
   def list_read_set_import_jobs(%Client{} = client, sequence_store_id, input, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/importjobs"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5436,7 +5753,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5468,6 +5785,7 @@ defmodule AWS.Omics do
       "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/upload/#{AWS.Util.encode_uri(upload_id)}/parts"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5484,7 +5802,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5501,6 +5819,7 @@ defmodule AWS.Omics do
   def list_read_sets(%Client{} = client, sequence_store_id, input, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/readsets"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5517,7 +5836,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5539,6 +5858,7 @@ defmodule AWS.Omics do
   def list_reference_import_jobs(%Client{} = client, reference_store_id, input, options \\ []) do
     url_path = "/referencestore/#{AWS.Util.encode_uri(reference_store_id)}/importjobs"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5555,7 +5875,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5572,6 +5892,7 @@ defmodule AWS.Omics do
   def list_reference_stores(%Client{} = client, input, options \\ []) do
     url_path = "/referencestores"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5588,7 +5909,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5605,6 +5926,7 @@ defmodule AWS.Omics do
   def list_references(%Client{} = client, reference_store_id, input, options \\ []) do
     url_path = "/referencestore/#{AWS.Util.encode_uri(reference_store_id)}/references"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5621,11 +5943,47 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
     )
+  end
+
+  @doc """
+  Retrieves a list of your run caches.
+  """
+  @spec list_run_caches(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_run_caches_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_run_caches_errors()}
+  def list_run_caches(
+        %Client{} = client,
+        max_results \\ nil,
+        starting_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/runCache"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(starting_token) do
+        [{"startingToken", starting_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -5726,6 +6084,14 @@ defmodule AWS.Omics do
 
   @doc """
   Retrieves a list of runs.
+
+  HealthOmics stores a fixed number of runs that are available to the console and
+  API. If
+  the ListRuns response doesn't include specific runs that you expected, you can
+  find run logs
+  for all runs in the CloudWatch logs. For more information about viewing the run
+  logs, see [CloudWatch logs](https://docs.aws.amazon.com/omics/latest/dev/cloudwatch-logs.html)
+  in the *AWS HealthOmics User Guide*.
   """
   @spec list_runs(
           map(),
@@ -5802,6 +6168,7 @@ defmodule AWS.Omics do
   def list_sequence_stores(%Client{} = client, input, options \\ []) do
     url_path = "/sequencestores"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5818,7 +6185,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5838,6 +6205,7 @@ defmodule AWS.Omics do
   def list_shares(%Client{} = client, input, options \\ []) do
     url_path = "/shares"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5854,7 +6222,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5888,6 +6256,7 @@ defmodule AWS.Omics do
   def list_variant_import_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/import/variants"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5904,7 +6273,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5921,6 +6290,7 @@ defmodule AWS.Omics do
   def list_variant_stores(%Client{} = client, input, options \\ []) do
     url_path = "/variantStores"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5937,7 +6307,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6013,6 +6383,7 @@ defmodule AWS.Omics do
   def start_annotation_import_job(%Client{} = client, input, options \\ []) do
     url_path = "/import/annotation"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
@@ -6023,7 +6394,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6048,6 +6419,7 @@ defmodule AWS.Omics do
   def start_read_set_activation_job(%Client{} = client, sequence_store_id, input, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/activationjob"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
@@ -6058,7 +6430,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6075,6 +6447,7 @@ defmodule AWS.Omics do
   def start_read_set_export_job(%Client{} = client, sequence_store_id, input, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/exportjob"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
@@ -6085,7 +6458,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6102,6 +6475,7 @@ defmodule AWS.Omics do
   def start_read_set_import_job(%Client{} = client, sequence_store_id, input, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/importjob"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
@@ -6112,7 +6486,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6134,6 +6508,7 @@ defmodule AWS.Omics do
   def start_reference_import_job(%Client{} = client, reference_store_id, input, options \\ []) do
     url_path = "/referencestore/#{AWS.Util.encode_uri(reference_store_id)}/importjob"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
@@ -6144,7 +6519,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6159,11 +6534,13 @@ defmodule AWS.Omics do
 
   StartRun will not support re-run for a workflow that is shared with you.
 
-  The total number of runs in your account is subject to a quota per Region. To
-  avoid
-  needing to delete runs manually, you can set the retention mode to `REMOVE`.
-  Runs with this setting are deleted automatically when the run quoata is
-  exceeded.
+  HealthOmics stores a fixed number of runs that are available to the console and
+  API.
+  By default, HealthOmics doesn't any remove any runs. If HealthOmics reaches the
+  maximum
+  number of runs, you must manually remove runs. To have older runs removed
+  automatically,
+  set the retention mode to `REMOVE`.
 
   By default, the run uses STATIC storage. For STATIC storage, set the
   `storageCapacity` field.
@@ -6179,6 +6556,7 @@ defmodule AWS.Omics do
   def start_run(%Client{} = client, input, options \\ []) do
     url_path = "/run"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
@@ -6189,7 +6567,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -6206,6 +6584,7 @@ defmodule AWS.Omics do
   def start_variant_import_job(%Client{} = client, input, options \\ []) do
     url_path = "/import/variant"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
@@ -6216,7 +6595,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6233,6 +6612,7 @@ defmodule AWS.Omics do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "tags-")
@@ -6243,7 +6623,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -6260,6 +6640,7 @@ defmodule AWS.Omics do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -6275,7 +6656,7 @@ defmodule AWS.Omics do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -6292,6 +6673,7 @@ defmodule AWS.Omics do
   def update_annotation_store(%Client{} = client, name, input, options \\ []) do
     url_path = "/annotationStore/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
@@ -6302,7 +6684,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6334,6 +6716,7 @@ defmodule AWS.Omics do
       "/annotationStore/#{AWS.Util.encode_uri(name)}/version/#{AWS.Util.encode_uri(version_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
@@ -6344,10 +6727,38 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Update a run cache.
+  """
+  @spec update_run_cache(map(), String.t(), update_run_cache_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_run_cache_errors()}
+  def update_run_cache(%Client{} = client, id, input, options \\ []) do
+    url_path = "/runCache/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 
@@ -6361,6 +6772,7 @@ defmodule AWS.Omics do
   def update_run_group(%Client{} = client, id, input, options \\ []) do
     url_path = "/runGroup/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
@@ -6371,7 +6783,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -6388,6 +6800,7 @@ defmodule AWS.Omics do
   def update_variant_store(%Client{} = client, name, input, options \\ []) do
     url_path = "/variantStore/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "analytics-")
@@ -6398,7 +6811,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6415,6 +6828,7 @@ defmodule AWS.Omics do
   def update_workflow(%Client{} = client, id, input, options \\ []) do
     url_path = "/workflow/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
@@ -6425,7 +6839,7 @@ defmodule AWS.Omics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -6453,6 +6867,7 @@ defmodule AWS.Omics do
       "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/upload/#{AWS.Util.encode_uri(upload_id)}/part"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -6463,6 +6878,16 @@ defmodule AWS.Omics do
 
     meta = metadata() |> Map.put_new(:host_prefix, "storage-")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

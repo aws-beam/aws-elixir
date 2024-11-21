@@ -3781,6 +3781,7 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
@@ -3791,7 +3792,7 @@ defmodule AWS.S3Control do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3835,6 +3836,7 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
@@ -3845,7 +3847,7 @@ defmodule AWS.S3Control do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3884,6 +3886,7 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
@@ -3894,7 +3897,7 @@ defmodule AWS.S3Control do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3947,6 +3950,7 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
@@ -3957,7 +3961,7 @@ defmodule AWS.S3Control do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4016,11 +4020,22 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4064,11 +4079,22 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4151,6 +4177,7 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -4162,7 +4189,17 @@ defmodule AWS.S3Control do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4219,6 +4256,7 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
@@ -4229,7 +4267,7 @@ defmodule AWS.S3Control do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4293,6 +4331,7 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
@@ -4303,7 +4342,7 @@ defmodule AWS.S3Control do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4345,6 +4384,7 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
@@ -4355,7 +4395,7 @@ defmodule AWS.S3Control do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4386,6 +4426,7 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
@@ -4396,7 +4437,7 @@ defmodule AWS.S3Control do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4436,6 +4477,7 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
@@ -4446,7 +4488,7 @@ defmodule AWS.S3Control do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4483,6 +4525,7 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
@@ -4493,7 +4536,7 @@ defmodule AWS.S3Control do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4539,6 +4582,7 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
@@ -4549,7 +4593,7 @@ defmodule AWS.S3Control do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4596,6 +4640,7 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
@@ -4606,7 +4651,7 @@ defmodule AWS.S3Control do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4651,6 +4696,7 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
@@ -4661,7 +4707,7 @@ defmodule AWS.S3Control do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4709,6 +4755,7 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
@@ -4719,7 +4766,7 @@ defmodule AWS.S3Control do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4760,6 +4807,7 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
@@ -4770,7 +4818,7 @@ defmodule AWS.S3Control do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4827,6 +4875,7 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
@@ -4837,7 +4886,7 @@ defmodule AWS.S3Control do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4908,6 +4957,7 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
@@ -4918,7 +4968,7 @@ defmodule AWS.S3Control do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5002,6 +5052,7 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
@@ -5012,7 +5063,7 @@ defmodule AWS.S3Control do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5085,6 +5136,7 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
@@ -5095,7 +5147,7 @@ defmodule AWS.S3Control do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5149,6 +5201,7 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
@@ -5159,7 +5212,7 @@ defmodule AWS.S3Control do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -5207,6 +5260,7 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
@@ -5217,7 +5271,7 @@ defmodule AWS.S3Control do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5280,6 +5334,7 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
@@ -5290,7 +5345,7 @@ defmodule AWS.S3Control do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5328,6 +5383,7 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
@@ -5338,7 +5394,7 @@ defmodule AWS.S3Control do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5377,6 +5433,7 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
@@ -5387,7 +5444,7 @@ defmodule AWS.S3Control do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5432,6 +5489,7 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
@@ -5442,7 +5500,7 @@ defmodule AWS.S3Control do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5473,6 +5531,7 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
@@ -5483,7 +5542,7 @@ defmodule AWS.S3Control do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -5631,6 +5690,7 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
@@ -5641,7 +5701,7 @@ defmodule AWS.S3Control do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7915,11 +7975,22 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -7957,11 +8028,22 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -8004,11 +8086,22 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -8047,11 +8140,22 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -8107,11 +8211,22 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -8192,11 +8307,22 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -8320,11 +8446,22 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -8430,6 +8567,7 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -8441,7 +8579,17 @@ defmodule AWS.S3Control do
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -8541,11 +8689,22 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -8633,11 +8792,22 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -8684,6 +8854,7 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
@@ -8694,7 +8865,7 @@ defmodule AWS.S3Control do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8733,11 +8904,22 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -8774,11 +8956,22 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -8814,11 +9007,22 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -8888,6 +9092,7 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
@@ -8898,7 +9103,7 @@ defmodule AWS.S3Control do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8941,6 +9146,7 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
@@ -8951,7 +9157,7 @@ defmodule AWS.S3Control do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8994,6 +9200,8 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"TagKeys", "tagKeys"}
@@ -9008,7 +9216,7 @@ defmodule AWS.S3Control do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -9052,11 +9260,22 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -9104,6 +9323,8 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"Priority", "priority"}
@@ -9118,7 +9339,7 @@ defmodule AWS.S3Control do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9171,6 +9392,8 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"RequestedJobStatus", "requestedJobStatus"},
@@ -9186,7 +9409,7 @@ defmodule AWS.S3Control do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9217,10 +9440,21 @@ defmodule AWS.S3Control do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{AccountId}.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
   end
 end

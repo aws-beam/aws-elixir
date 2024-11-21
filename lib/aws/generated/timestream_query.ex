@@ -90,6 +90,18 @@ defmodule AWS.TimestreamQuery do
 
   ## Example:
       
+      query_compute_request() :: %{
+        "ComputeMode" => list(any()),
+        "ProvisionedCapacity" => provisioned_capacity_request()
+      }
+      
+  """
+  @type query_compute_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       query_status() :: %{
         "CumulativeBytesMetered" => float(),
         "CumulativeBytesScanned" => float(),
@@ -144,6 +156,7 @@ defmodule AWS.TimestreamQuery do
       
       update_account_settings_response() :: %{
         "MaxQueryTCU" => integer(),
+        "QueryCompute" => query_compute_response(),
         "QueryPricingModel" => list(any())
       }
       
@@ -343,6 +356,18 @@ defmodule AWS.TimestreamQuery do
 
   ## Example:
       
+      account_settings_notification_configuration() :: %{
+        "RoleArn" => String.t(),
+        "SnsConfiguration" => sns_configuration()
+      }
+      
+  """
+  @type account_settings_notification_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_endpoints_request() :: %{}
       
   """
@@ -381,6 +406,19 @@ defmodule AWS.TimestreamQuery do
       
   """
   @type cancel_query_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      last_update() :: %{
+        "Status" => list(any()),
+        "StatusMessage" => String.t(),
+        "TargetQueryTCU" => integer()
+      }
+      
+  """
+  @type last_update() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -487,6 +525,7 @@ defmodule AWS.TimestreamQuery do
       
       update_account_settings_request() :: %{
         optional("MaxQueryTCU") => integer(),
+        optional("QueryCompute") => query_compute_request(),
         optional("QueryPricingModel") => list(any())
       }
       
@@ -740,6 +779,7 @@ defmodule AWS.TimestreamQuery do
       
       describe_account_settings_response() :: %{
         "MaxQueryTCU" => integer(),
+        "QueryCompute" => query_compute_response(),
         "QueryPricingModel" => list(any())
       }
       
@@ -831,6 +871,18 @@ defmodule AWS.TimestreamQuery do
 
   ## Example:
       
+      query_compute_response() :: %{
+        "ComputeMode" => list(any()),
+        "ProvisionedCapacity" => provisioned_capacity_response()
+      }
+      
+  """
+  @type query_compute_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       query_execution_exception() :: %{
         "Message" => String.t()
       }
@@ -849,6 +901,18 @@ defmodule AWS.TimestreamQuery do
       
   """
   @type column_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      provisioned_capacity_request() :: %{
+        "NotificationConfiguration" => account_settings_notification_configuration(),
+        "TargetQueryTCU" => integer()
+      }
+      
+  """
+  @type provisioned_capacity_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -922,6 +986,19 @@ defmodule AWS.TimestreamQuery do
       
   """
   @type execution_stats() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      provisioned_capacity_response() :: %{
+        "ActiveQueryTCU" => integer(),
+        "LastUpdate" => last_update(),
+        "NotificationConfiguration" => account_settings_notification_configuration()
+      }
+      
+  """
+  @type provisioned_capacity_response() :: %{String.t() => any()}
 
   @type cancel_query_errors() ::
           throttling_exception()
@@ -1170,7 +1247,9 @@ defmodule AWS.TimestreamQuery do
 
   If you enabled `QueryInsights`, this API also returns insights and metrics
   related to the query that you executed as part of an Amazon SNS notification.
-  `QueryInsights` helps with performance tuning of your query.
+  `QueryInsights` helps with performance tuning of your query. For more
+  information about `QueryInsights`, see [Using query insights to optimize queries in Amazon
+  Timestream](https://docs.aws.amazon.com/timestream/latest/developerguide/using-query-insights.html).
   """
   @spec execute_scheduled_query(map(), execute_scheduled_query_request(), list()) ::
           {:ok, nil, any()}
@@ -1235,7 +1314,8 @@ defmodule AWS.TimestreamQuery do
 
   If you enabled `QueryInsights`, this API also returns insights and metrics
   related to the query that you executed. `QueryInsights` helps with performance
-  tuning of your query.
+  tuning of your query. For more information about `QueryInsights`, see [Using query insights to optimize queries in Amazon
+  Timestream](https://docs.aws.amazon.com/timestream/latest/developerguide/using-query-insights.html).
 
   The maximum number of `Query` API requests you're allowed to make with
   `QueryInsights` enabled is 1 query per second (QPS). If you exceed this query

@@ -508,6 +508,7 @@ defmodule AWS.SSMQuickSetup do
   def create_configuration_manager(%Client{} = client, input, options \\ []) do
     url_path = "/configurationManager"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -518,7 +519,7 @@ defmodule AWS.SSMQuickSetup do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -540,6 +541,7 @@ defmodule AWS.SSMQuickSetup do
   def delete_configuration_manager(%Client{} = client, manager_arn, input, options \\ []) do
     url_path = "/configurationManager/#{AWS.Util.encode_uri(manager_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -550,7 +552,7 @@ defmodule AWS.SSMQuickSetup do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -602,6 +604,7 @@ defmodule AWS.SSMQuickSetup do
   def list_configuration_managers(%Client{} = client, input, options \\ []) do
     url_path = "/listConfigurationManagers"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -612,7 +615,7 @@ defmodule AWS.SSMQuickSetup do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -663,11 +666,22 @@ defmodule AWS.SSMQuickSetup do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -680,6 +694,7 @@ defmodule AWS.SSMQuickSetup do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -695,7 +710,7 @@ defmodule AWS.SSMQuickSetup do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -720,11 +735,22 @@ defmodule AWS.SSMQuickSetup do
       "/configurationDefinition/#{AWS.Util.encode_uri(manager_arn)}/#{AWS.Util.encode_uri(id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -742,11 +768,22 @@ defmodule AWS.SSMQuickSetup do
   def update_configuration_manager(%Client{} = client, manager_arn, input, options \\ []) do
     url_path = "/configurationManager/#{AWS.Util.encode_uri(manager_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -759,10 +796,21 @@ defmodule AWS.SSMQuickSetup do
   def update_service_settings(%Client{} = client, input, options \\ []) do
     url_path = "/serviceSettings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

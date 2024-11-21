@@ -1047,6 +1047,7 @@ defmodule AWS.PrivateNetworks do
   def acknowledge_order_receipt(%Client{} = client, input, options \\ []) do
     url_path = "/v1/orders/acknowledge"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1057,7 +1058,7 @@ defmodule AWS.PrivateNetworks do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1074,6 +1075,7 @@ defmodule AWS.PrivateNetworks do
   def activate_device_identifier(%Client{} = client, input, options \\ []) do
     url_path = "/v1/device-identifiers/activate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1084,7 +1086,7 @@ defmodule AWS.PrivateNetworks do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1101,6 +1103,7 @@ defmodule AWS.PrivateNetworks do
   def activate_network_site(%Client{} = client, input, options \\ []) do
     url_path = "/v1/network-sites/activate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1111,7 +1114,7 @@ defmodule AWS.PrivateNetworks do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1136,6 +1139,7 @@ defmodule AWS.PrivateNetworks do
   def configure_access_point(%Client{} = client, input, options \\ []) do
     url_path = "/v1/network-resources/configure"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1146,7 +1150,7 @@ defmodule AWS.PrivateNetworks do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1163,6 +1167,7 @@ defmodule AWS.PrivateNetworks do
   def create_network(%Client{} = client, input, options \\ []) do
     url_path = "/v1/networks"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1173,7 +1178,7 @@ defmodule AWS.PrivateNetworks do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1190,6 +1195,7 @@ defmodule AWS.PrivateNetworks do
   def create_network_site(%Client{} = client, input, options \\ []) do
     url_path = "/v1/network-sites"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1200,7 +1206,7 @@ defmodule AWS.PrivateNetworks do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1217,6 +1223,7 @@ defmodule AWS.PrivateNetworks do
   def deactivate_device_identifier(%Client{} = client, input, options \\ []) do
     url_path = "/v1/device-identifiers/deactivate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1227,7 +1234,7 @@ defmodule AWS.PrivateNetworks do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1250,6 +1257,7 @@ defmodule AWS.PrivateNetworks do
   def delete_network(%Client{} = client, network_arn, input, options \\ []) do
     url_path = "/v1/networks/#{AWS.Util.encode_uri(network_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1265,7 +1273,7 @@ defmodule AWS.PrivateNetworks do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1288,6 +1296,7 @@ defmodule AWS.PrivateNetworks do
   def delete_network_site(%Client{} = client, network_site_arn, input, options \\ []) do
     url_path = "/v1/network-sites/#{AWS.Util.encode_uri(network_site_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1303,7 +1312,7 @@ defmodule AWS.PrivateNetworks do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1413,6 +1422,7 @@ defmodule AWS.PrivateNetworks do
   def list_device_identifiers(%Client{} = client, input, options \\ []) do
     url_path = "/v1/device-identifiers/list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1423,7 +1433,7 @@ defmodule AWS.PrivateNetworks do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1448,6 +1458,7 @@ defmodule AWS.PrivateNetworks do
   def list_network_resources(%Client{} = client, input, options \\ []) do
     url_path = "/v1/network-resources"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1458,7 +1469,7 @@ defmodule AWS.PrivateNetworks do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1478,6 +1489,7 @@ defmodule AWS.PrivateNetworks do
   def list_network_sites(%Client{} = client, input, options \\ []) do
     url_path = "/v1/network-sites/list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1488,7 +1500,7 @@ defmodule AWS.PrivateNetworks do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1508,6 +1520,7 @@ defmodule AWS.PrivateNetworks do
   def list_networks(%Client{} = client, input, options \\ []) do
     url_path = "/v1/networks/list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1518,7 +1531,7 @@ defmodule AWS.PrivateNetworks do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1543,6 +1556,7 @@ defmodule AWS.PrivateNetworks do
   def list_orders(%Client{} = client, input, options \\ []) do
     url_path = "/v1/orders/list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1553,7 +1567,7 @@ defmodule AWS.PrivateNetworks do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1623,6 +1637,7 @@ defmodule AWS.PrivateNetworks do
   def start_network_resource_update(%Client{} = client, input, options \\ []) do
     url_path = "/v1/network-resources/update"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1633,7 +1648,7 @@ defmodule AWS.PrivateNetworks do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1650,6 +1665,7 @@ defmodule AWS.PrivateNetworks do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1660,7 +1676,7 @@ defmodule AWS.PrivateNetworks do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1677,6 +1693,7 @@ defmodule AWS.PrivateNetworks do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1692,7 +1709,7 @@ defmodule AWS.PrivateNetworks do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1709,11 +1726,22 @@ defmodule AWS.PrivateNetworks do
   def update_network_site(%Client{} = client, input, options \\ []) do
     url_path = "/v1/network-sites/site"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1726,10 +1754,21 @@ defmodule AWS.PrivateNetworks do
   def update_network_site_plan(%Client{} = client, input, options \\ []) do
     url_path = "/v1/network-sites/plan"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

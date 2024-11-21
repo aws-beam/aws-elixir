@@ -3230,6 +3230,7 @@ defmodule AWS.Lambda do
       "/2018-10-31/layers/#{AWS.Util.encode_uri(layer_name)}/versions/#{AWS.Util.encode_uri(version_number)}/policy"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3245,7 +3246,7 @@ defmodule AWS.Lambda do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -3289,6 +3290,7 @@ defmodule AWS.Lambda do
   def add_permission(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/policy"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3304,7 +3306,7 @@ defmodule AWS.Lambda do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -3334,6 +3336,7 @@ defmodule AWS.Lambda do
   def create_alias(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/aliases"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3344,7 +3347,7 @@ defmodule AWS.Lambda do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -3367,6 +3370,7 @@ defmodule AWS.Lambda do
   def create_code_signing_config(%Client{} = client, input, options \\ []) do
     url_path = "/2020-04-22/code-signing-configs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3377,7 +3381,7 @@ defmodule AWS.Lambda do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -3513,6 +3517,7 @@ defmodule AWS.Lambda do
   def create_event_source_mapping(%Client{} = client, input, options \\ []) do
     url_path = "/2015-03-31/event-source-mappings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3523,7 +3528,7 @@ defmodule AWS.Lambda do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -3615,6 +3620,7 @@ defmodule AWS.Lambda do
   def create_function(%Client{} = client, input, options \\ []) do
     url_path = "/2015-03-31/functions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3625,7 +3631,7 @@ defmodule AWS.Lambda do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -3650,6 +3656,7 @@ defmodule AWS.Lambda do
   def create_function_url_config(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2021-10-31/functions/#{AWS.Util.encode_uri(function_name)}/url"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3665,7 +3672,7 @@ defmodule AWS.Lambda do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -3685,6 +3692,7 @@ defmodule AWS.Lambda do
       "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/aliases/#{AWS.Util.encode_uri(name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3695,7 +3703,7 @@ defmodule AWS.Lambda do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3725,6 +3733,7 @@ defmodule AWS.Lambda do
       ) do
     url_path = "/2020-04-22/code-signing-configs/#{AWS.Util.encode_uri(code_signing_config_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3735,7 +3744,7 @@ defmodule AWS.Lambda do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3764,6 +3773,7 @@ defmodule AWS.Lambda do
   def delete_event_source_mapping(%Client{} = client, uuid, input, options \\ []) do
     url_path = "/2015-03-31/event-source-mappings/#{AWS.Util.encode_uri(uuid)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3774,7 +3784,7 @@ defmodule AWS.Lambda do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -3801,6 +3811,7 @@ defmodule AWS.Lambda do
   def delete_function(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3816,7 +3827,7 @@ defmodule AWS.Lambda do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3838,6 +3849,7 @@ defmodule AWS.Lambda do
   def delete_function_code_signing_config(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2020-06-30/functions/#{AWS.Util.encode_uri(function_name)}/code-signing-config"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3848,7 +3860,7 @@ defmodule AWS.Lambda do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3870,6 +3882,7 @@ defmodule AWS.Lambda do
   def delete_function_concurrency(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2017-10-31/functions/#{AWS.Util.encode_uri(function_name)}/concurrency"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3880,7 +3893,7 @@ defmodule AWS.Lambda do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3906,6 +3919,7 @@ defmodule AWS.Lambda do
   def delete_function_event_invoke_config(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2019-09-25/functions/#{AWS.Util.encode_uri(function_name)}/event-invoke-config"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3921,7 +3935,7 @@ defmodule AWS.Lambda do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3947,6 +3961,7 @@ defmodule AWS.Lambda do
   def delete_function_url_config(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2021-10-31/functions/#{AWS.Util.encode_uri(function_name)}/url"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3962,7 +3977,7 @@ defmodule AWS.Lambda do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3991,6 +4006,7 @@ defmodule AWS.Lambda do
       "/2018-10-31/layers/#{AWS.Util.encode_uri(layer_name)}/versions/#{AWS.Util.encode_uri(version_number)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4001,7 +4017,7 @@ defmodule AWS.Lambda do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4030,6 +4046,7 @@ defmodule AWS.Lambda do
       "/2019-09-30/functions/#{AWS.Util.encode_uri(function_name)}/provisioned-concurrency"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4045,7 +4062,7 @@ defmodule AWS.Lambda do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4537,6 +4554,8 @@ defmodule AWS.Lambda do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"Qualifier", "Qualifier"}
@@ -4562,7 +4581,7 @@ defmodule AWS.Lambda do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4586,6 +4605,7 @@ defmodule AWS.Lambda do
   def invoke_async(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2014-11-13/functions/#{AWS.Util.encode_uri(function_name)}/invoke-async"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4596,7 +4616,7 @@ defmodule AWS.Lambda do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -4635,6 +4655,8 @@ defmodule AWS.Lambda do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"Qualifier", "Qualifier"}
@@ -4659,7 +4681,7 @@ defmodule AWS.Lambda do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5288,6 +5310,7 @@ defmodule AWS.Lambda do
   def publish_layer_version(%Client{} = client, layer_name, input, options \\ []) do
     url_path = "/2018-10-31/layers/#{AWS.Util.encode_uri(layer_name)}/versions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5298,7 +5321,7 @@ defmodule AWS.Lambda do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -5329,6 +5352,7 @@ defmodule AWS.Lambda do
   def publish_version(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/versions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5339,7 +5363,7 @@ defmodule AWS.Lambda do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -5364,11 +5388,22 @@ defmodule AWS.Lambda do
   def put_function_code_signing_config(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2020-06-30/functions/#{AWS.Util.encode_uri(function_name)}/code-signing-config"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5398,11 +5433,22 @@ defmodule AWS.Lambda do
   def put_function_concurrency(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2017-10-31/functions/#{AWS.Util.encode_uri(function_name)}/concurrency"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5444,6 +5490,7 @@ defmodule AWS.Lambda do
   def put_function_event_invoke_config(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2019-09-25/functions/#{AWS.Util.encode_uri(function_name)}/event-invoke-config"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5453,7 +5500,17 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5486,11 +5543,22 @@ defmodule AWS.Lambda do
   def put_function_recursion_config(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2024-08-31/functions/#{AWS.Util.encode_uri(function_name)}/recursion-config"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5510,6 +5578,7 @@ defmodule AWS.Lambda do
       "/2019-09-30/functions/#{AWS.Util.encode_uri(function_name)}/provisioned-concurrency"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5519,7 +5588,17 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -5542,6 +5621,7 @@ defmodule AWS.Lambda do
       "/2021-07-20/functions/#{AWS.Util.encode_uri(function_name)}/runtime-management-config"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5551,7 +5631,17 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5583,6 +5673,7 @@ defmodule AWS.Lambda do
       "/2018-10-31/layers/#{AWS.Util.encode_uri(layer_name)}/versions/#{AWS.Util.encode_uri(version_number)}/policy/#{AWS.Util.encode_uri(statement_id)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5598,7 +5689,7 @@ defmodule AWS.Lambda do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -5621,6 +5712,7 @@ defmodule AWS.Lambda do
       "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/policy/#{AWS.Util.encode_uri(statement_id)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5637,7 +5729,7 @@ defmodule AWS.Lambda do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -5655,6 +5747,7 @@ defmodule AWS.Lambda do
   def tag_resource(%Client{} = client, resource, input, options \\ []) do
     url_path = "/2017-03-31/tags/#{AWS.Util.encode_uri(resource)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5665,7 +5758,7 @@ defmodule AWS.Lambda do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -5683,6 +5776,7 @@ defmodule AWS.Lambda do
   def untag_resource(%Client{} = client, resource, input, options \\ []) do
     url_path = "/2017-03-31/tags/#{AWS.Util.encode_uri(resource)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5698,7 +5792,7 @@ defmodule AWS.Lambda do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -5718,11 +5812,22 @@ defmodule AWS.Lambda do
       "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/aliases/#{AWS.Util.encode_uri(name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5748,11 +5853,22 @@ defmodule AWS.Lambda do
       ) do
     url_path = "/2020-04-22/code-signing-configs/#{AWS.Util.encode_uri(code_signing_config_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5890,11 +6006,22 @@ defmodule AWS.Lambda do
   def update_event_source_mapping(%Client{} = client, uuid, input, options \\ []) do
     url_path = "/2015-03-31/event-source-mappings/#{AWS.Util.encode_uri(uuid)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -5936,11 +6063,22 @@ defmodule AWS.Lambda do
   def update_function_code(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/code"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5980,11 +6118,22 @@ defmodule AWS.Lambda do
   def update_function_configuration(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6006,6 +6155,7 @@ defmodule AWS.Lambda do
   def update_function_event_invoke_config(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2019-09-25/functions/#{AWS.Util.encode_uri(function_name)}/event-invoke-config"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -6021,7 +6171,7 @@ defmodule AWS.Lambda do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6043,6 +6193,7 @@ defmodule AWS.Lambda do
   def update_function_url_config(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2021-10-31/functions/#{AWS.Util.encode_uri(function_name)}/url"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -6052,6 +6203,16 @@ defmodule AWS.Lambda do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

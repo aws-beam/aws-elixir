@@ -629,6 +629,7 @@ defmodule AWS.Polly do
   def delete_lexicon(%Client{} = client, name, input, options \\ []) do
     url_path = "/v1/lexicons/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -639,7 +640,7 @@ defmodule AWS.Polly do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -866,11 +867,22 @@ defmodule AWS.Polly do
   def put_lexicon(%Client{} = client, name, input, options \\ []) do
     url_path = "/v1/lexicons/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -894,6 +906,7 @@ defmodule AWS.Polly do
   def start_speech_synthesis_task(%Client{} = client, input, options \\ []) do
     url_path = "/v1/synthesisTasks"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -904,7 +917,7 @@ defmodule AWS.Polly do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -926,6 +939,7 @@ defmodule AWS.Polly do
   def synthesize_speech(%Client{} = client, input, options \\ []) do
     url_path = "/v1/speech"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -946,7 +960,7 @@ defmodule AWS.Polly do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

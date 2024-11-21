@@ -1313,6 +1313,7 @@ defmodule AWS.Chatbot do
   def create_chime_webhook_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/create-chime-webhook-configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1323,7 +1324,7 @@ defmodule AWS.Chatbot do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1344,6 +1345,7 @@ defmodule AWS.Chatbot do
   def create_microsoft_teams_channel_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/create-ms-teams-channel-configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1354,7 +1356,7 @@ defmodule AWS.Chatbot do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1375,6 +1377,7 @@ defmodule AWS.Chatbot do
   def create_slack_channel_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/create-slack-channel-configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1385,7 +1388,7 @@ defmodule AWS.Chatbot do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1406,6 +1409,7 @@ defmodule AWS.Chatbot do
   def delete_chime_webhook_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/delete-chime-webhook-configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1416,7 +1420,7 @@ defmodule AWS.Chatbot do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1437,6 +1441,7 @@ defmodule AWS.Chatbot do
   def delete_microsoft_teams_channel_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/delete-ms-teams-channel-configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1447,7 +1452,7 @@ defmodule AWS.Chatbot do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1472,6 +1477,7 @@ defmodule AWS.Chatbot do
   def delete_microsoft_teams_configured_team(%Client{} = client, input, options \\ []) do
     url_path = "/delete-ms-teams-configured-teams"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1482,7 +1488,7 @@ defmodule AWS.Chatbot do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1503,6 +1509,7 @@ defmodule AWS.Chatbot do
   def delete_microsoft_teams_user_identity(%Client{} = client, input, options \\ []) do
     url_path = "/delete-ms-teams-user-identity"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1513,7 +1520,7 @@ defmodule AWS.Chatbot do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1534,6 +1541,7 @@ defmodule AWS.Chatbot do
   def delete_slack_channel_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/delete-slack-channel-configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1544,7 +1552,7 @@ defmodule AWS.Chatbot do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1561,6 +1569,7 @@ defmodule AWS.Chatbot do
   def delete_slack_user_identity(%Client{} = client, input, options \\ []) do
     url_path = "/delete-slack-user-identity"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1571,7 +1580,7 @@ defmodule AWS.Chatbot do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1595,6 +1604,7 @@ defmodule AWS.Chatbot do
   def delete_slack_workspace_authorization(%Client{} = client, input, options \\ []) do
     url_path = "/delete-slack-workspace-authorization"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1605,7 +1615,7 @@ defmodule AWS.Chatbot do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1627,6 +1637,7 @@ defmodule AWS.Chatbot do
   def describe_chime_webhook_configurations(%Client{} = client, input, options \\ []) do
     url_path = "/describe-chime-webhook-configurations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1637,7 +1648,7 @@ defmodule AWS.Chatbot do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1658,6 +1669,7 @@ defmodule AWS.Chatbot do
   def describe_slack_channel_configurations(%Client{} = client, input, options \\ []) do
     url_path = "/describe-slack-channel-configurations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1668,7 +1680,7 @@ defmodule AWS.Chatbot do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1685,6 +1697,7 @@ defmodule AWS.Chatbot do
   def describe_slack_user_identities(%Client{} = client, input, options \\ []) do
     url_path = "/describe-slack-user-identities"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1695,7 +1708,7 @@ defmodule AWS.Chatbot do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1713,6 +1726,7 @@ defmodule AWS.Chatbot do
   def describe_slack_workspaces(%Client{} = client, input, options \\ []) do
     url_path = "/describe-slack-workspaces"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1723,7 +1737,7 @@ defmodule AWS.Chatbot do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1740,6 +1754,7 @@ defmodule AWS.Chatbot do
   def get_account_preferences(%Client{} = client, input, options \\ []) do
     url_path = "/get-account-preferences"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1750,7 +1765,7 @@ defmodule AWS.Chatbot do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1771,6 +1786,7 @@ defmodule AWS.Chatbot do
   def get_microsoft_teams_channel_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/get-ms-teams-channel-configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1781,7 +1797,7 @@ defmodule AWS.Chatbot do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1802,6 +1818,7 @@ defmodule AWS.Chatbot do
   def list_microsoft_teams_channel_configurations(%Client{} = client, input, options \\ []) do
     url_path = "/list-ms-teams-channel-configurations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1812,7 +1829,7 @@ defmodule AWS.Chatbot do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1833,6 +1850,7 @@ defmodule AWS.Chatbot do
   def list_microsoft_teams_configured_teams(%Client{} = client, input, options \\ []) do
     url_path = "/list-ms-teams-configured-teams"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1843,7 +1861,7 @@ defmodule AWS.Chatbot do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1864,6 +1882,7 @@ defmodule AWS.Chatbot do
   def list_microsoft_teams_user_identities(%Client{} = client, input, options \\ []) do
     url_path = "/list-ms-teams-user-identities"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1874,7 +1893,7 @@ defmodule AWS.Chatbot do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1894,6 +1913,7 @@ defmodule AWS.Chatbot do
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     url_path = "/list-tags-for-resource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1904,7 +1924,7 @@ defmodule AWS.Chatbot do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1924,6 +1944,7 @@ defmodule AWS.Chatbot do
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tag-resource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1934,7 +1955,7 @@ defmodule AWS.Chatbot do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1954,6 +1975,7 @@ defmodule AWS.Chatbot do
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/untag-resource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1964,7 +1986,7 @@ defmodule AWS.Chatbot do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1981,6 +2003,7 @@ defmodule AWS.Chatbot do
   def update_account_preferences(%Client{} = client, input, options \\ []) do
     url_path = "/update-account-preferences"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1991,7 +2014,7 @@ defmodule AWS.Chatbot do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2012,6 +2035,7 @@ defmodule AWS.Chatbot do
   def update_chime_webhook_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/update-chime-webhook-configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2022,7 +2046,7 @@ defmodule AWS.Chatbot do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2043,6 +2067,7 @@ defmodule AWS.Chatbot do
   def update_microsoft_teams_channel_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/update-ms-teams-channel-configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2053,7 +2078,7 @@ defmodule AWS.Chatbot do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2074,6 +2099,7 @@ defmodule AWS.Chatbot do
   def update_slack_channel_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/update-slack-channel-configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2084,7 +2110,7 @@ defmodule AWS.Chatbot do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

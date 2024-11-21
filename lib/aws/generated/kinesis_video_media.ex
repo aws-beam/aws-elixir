@@ -196,6 +196,7 @@ defmodule AWS.KinesisVideoMedia do
   def get_media(%Client{} = client, input, options \\ []) do
     url_path = "/getMedia"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -213,7 +214,7 @@ defmodule AWS.KinesisVideoMedia do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

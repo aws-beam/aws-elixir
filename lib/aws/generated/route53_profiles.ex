@@ -719,6 +719,7 @@ defmodule AWS.Route53Profiles do
   def associate_profile(%Client{} = client, input, options \\ []) do
     url_path = "/profileassociation"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -729,7 +730,7 @@ defmodule AWS.Route53Profiles do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -747,6 +748,7 @@ defmodule AWS.Route53Profiles do
   def associate_resource_to_profile(%Client{} = client, input, options \\ []) do
     url_path = "/profileresourceassociation"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -757,7 +759,7 @@ defmodule AWS.Route53Profiles do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -775,6 +777,7 @@ defmodule AWS.Route53Profiles do
   def create_profile(%Client{} = client, input, options \\ []) do
     url_path = "/profile"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -785,7 +788,7 @@ defmodule AWS.Route53Profiles do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -805,6 +808,7 @@ defmodule AWS.Route53Profiles do
   def delete_profile(%Client{} = client, profile_id, input, options \\ []) do
     url_path = "/profile/#{AWS.Util.encode_uri(profile_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -815,7 +819,7 @@ defmodule AWS.Route53Profiles do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -841,6 +845,7 @@ defmodule AWS.Route53Profiles do
       "/profileassociation/Profileid/#{AWS.Util.encode_uri(profile_id)}/resourceid/#{AWS.Util.encode_uri(resource_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -851,7 +856,7 @@ defmodule AWS.Route53Profiles do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -883,6 +888,7 @@ defmodule AWS.Route53Profiles do
       "/profileresourceassociation/profileid/#{AWS.Util.encode_uri(profile_id)}/resourcearn/#{AWS.Util.encode_uri(resource_arn)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -893,7 +899,7 @@ defmodule AWS.Route53Profiles do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1139,6 +1145,7 @@ defmodule AWS.Route53Profiles do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1149,7 +1156,7 @@ defmodule AWS.Route53Profiles do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1167,6 +1174,7 @@ defmodule AWS.Route53Profiles do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1182,7 +1190,7 @@ defmodule AWS.Route53Profiles do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1212,6 +1220,7 @@ defmodule AWS.Route53Profiles do
       "/profileresourceassociation/#{AWS.Util.encode_uri(profile_resource_association_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1222,7 +1231,7 @@ defmodule AWS.Route53Profiles do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

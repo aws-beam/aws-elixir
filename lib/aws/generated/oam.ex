@@ -696,6 +696,7 @@ defmodule AWS.OAM do
   def create_link(%Client{} = client, input, options \\ []) do
     url_path = "/CreateLink"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -706,7 +707,7 @@ defmodule AWS.OAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -737,6 +738,7 @@ defmodule AWS.OAM do
   def create_sink(%Client{} = client, input, options \\ []) do
     url_path = "/CreateSink"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -747,7 +749,7 @@ defmodule AWS.OAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -767,6 +769,7 @@ defmodule AWS.OAM do
   def delete_link(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteLink"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -777,7 +780,7 @@ defmodule AWS.OAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -796,6 +799,7 @@ defmodule AWS.OAM do
   def delete_sink(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteSink"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -806,7 +810,7 @@ defmodule AWS.OAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -827,6 +831,7 @@ defmodule AWS.OAM do
   def get_link(%Client{} = client, input, options \\ []) do
     url_path = "/GetLink"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -837,7 +842,7 @@ defmodule AWS.OAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -858,6 +863,7 @@ defmodule AWS.OAM do
   def get_sink(%Client{} = client, input, options \\ []) do
     url_path = "/GetSink"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -868,7 +874,7 @@ defmodule AWS.OAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -889,6 +895,7 @@ defmodule AWS.OAM do
   def get_sink_policy(%Client{} = client, input, options \\ []) do
     url_path = "/GetSinkPolicy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -899,7 +906,7 @@ defmodule AWS.OAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -922,6 +929,7 @@ defmodule AWS.OAM do
   def list_attached_links(%Client{} = client, input, options \\ []) do
     url_path = "/ListAttachedLinks"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -932,7 +940,7 @@ defmodule AWS.OAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -955,6 +963,7 @@ defmodule AWS.OAM do
   def list_links(%Client{} = client, input, options \\ []) do
     url_path = "/ListLinks"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -965,7 +974,7 @@ defmodule AWS.OAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -983,6 +992,7 @@ defmodule AWS.OAM do
   def list_sinks(%Client{} = client, input, options \\ []) do
     url_path = "/ListSinks"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -993,7 +1003,7 @@ defmodule AWS.OAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1058,6 +1068,7 @@ defmodule AWS.OAM do
   def put_sink_policy(%Client{} = client, input, options \\ []) do
     url_path = "/PutSinkPolicy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1068,7 +1079,7 @@ defmodule AWS.OAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1110,11 +1121,22 @@ defmodule AWS.OAM do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1133,6 +1155,7 @@ defmodule AWS.OAM do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1148,7 +1171,7 @@ defmodule AWS.OAM do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1176,6 +1199,7 @@ defmodule AWS.OAM do
   def update_link(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateLink"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1186,7 +1210,7 @@ defmodule AWS.OAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

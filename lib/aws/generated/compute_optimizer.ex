@@ -96,7 +96,9 @@ defmodule AWS.ComputeOptimizer do
       rds_db_recommendation() :: %{
         "accountId" => String.t(),
         "currentDBInstanceClass" => String.t(),
+        "currentInstancePerformanceRisk" => list(any()),
         "currentStorageConfiguration" => db_storage_configuration(),
+        "dbClusterIdentifier" => String.t(),
         "effectiveRecommendationPreferences" => rds_effective_recommendation_preferences(),
         "engine" => String.t(),
         "engineVersion" => String.t(),
@@ -106,6 +108,7 @@ defmodule AWS.ComputeOptimizer do
         "instanceRecommendationOptions" => list(rds_db_instance_recommendation_option()()),
         "lastRefreshTimestamp" => non_neg_integer(),
         "lookbackPeriodInDays" => float(),
+        "promotionTier" => integer(),
         "resourceArn" => String.t(),
         "storageFinding" => list(any()),
         "storageFindingReasonCodes" => list(list(any())()),
@@ -159,6 +162,28 @@ defmodule AWS.ComputeOptimizer do
       
   """
   @type lambda_function_memory_projected_metric() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      idle_recommendation() :: %{
+        "accountId" => String.t(),
+        "finding" => list(any()),
+        "findingDescription" => String.t(),
+        "lastRefreshTimestamp" => non_neg_integer(),
+        "lookBackPeriodInDays" => float(),
+        "resourceArn" => String.t(),
+        "resourceId" => String.t(),
+        "resourceType" => list(any()),
+        "savingsOpportunity" => idle_savings_opportunity(),
+        "savingsOpportunityAfterDiscounts" => idle_savings_opportunity_after_discounts(),
+        "tags" => list(tag()()),
+        "utilizationMetrics" => list(idle_utilization_metric()())
+      }
+      
+  """
+  @type idle_recommendation() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -295,6 +320,19 @@ defmodule AWS.ComputeOptimizer do
 
   ## Example:
       
+      idle_utilization_metric() :: %{
+        "name" => list(any()),
+        "statistic" => list(any()),
+        "value" => float()
+      }
+      
+  """
+  @type idle_utilization_metric() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       db_storage_configuration() :: %{
         "allocatedStorage" => integer(),
         "iops" => integer(),
@@ -305,6 +343,18 @@ defmodule AWS.ComputeOptimizer do
       
   """
   @type db_storage_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      idle_estimated_monthly_savings() :: %{
+        "currency" => list(any()),
+        "value" => float()
+      }
+      
+  """
+  @type idle_estimated_monthly_savings() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -456,6 +506,18 @@ defmodule AWS.ComputeOptimizer do
 
   ## Example:
       
+      idle_savings_opportunity_after_discounts() :: %{
+        "estimatedMonthlySavings" => idle_estimated_monthly_savings(),
+        "savingsOpportunityPercentage" => float()
+      }
+      
+  """
+  @type idle_savings_opportunity_after_discounts() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       rds_effective_recommendation_preferences() :: %{
         "cpuVendorArchitectures" => list(list(any())()),
         "enhancedInfrastructureMetrics" => list(any()),
@@ -501,6 +563,18 @@ defmodule AWS.ComputeOptimizer do
       
   """
   @type get_recommendation_summaries_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      order_by() :: %{
+        "dimension" => list(any()),
+        "order" => list(any())
+      }
+      
+  """
+  @type order_by() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -706,6 +780,19 @@ defmodule AWS.ComputeOptimizer do
 
   ## Example:
       
+      get_idle_recommendations_response() :: %{
+        "errors" => list(idle_recommendation_error()()),
+        "idleRecommendations" => list(idle_recommendation()()),
+        "nextToken" => String.t()
+      }
+      
+  """
+  @type get_idle_recommendations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_ec2_instance_recommendations_response() :: %{
         "errors" => list(get_recommendation_error()()),
         "instanceRecommendations" => list(instance_recommendation()()),
@@ -714,6 +801,18 @@ defmodule AWS.ComputeOptimizer do
       
   """
   @type get_ec2_instance_recommendations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      idle_summary() :: %{
+        "name" => list(any()),
+        "value" => float()
+      }
+      
+  """
+  @type idle_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -736,6 +835,18 @@ defmodule AWS.ComputeOptimizer do
       
   """
   @type opt_in_required_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      idle_recommendation_filter() :: %{
+        "name" => list(any()),
+        "values" => list(String.t()())
+      }
+      
+  """
+  @type idle_recommendation_filter() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -859,6 +970,22 @@ defmodule AWS.ComputeOptimizer do
 
   ## Example:
       
+      export_idle_recommendations_request() :: %{
+        optional("accountIds") => list(String.t()()),
+        optional("fieldsToExport") => list(list(any())()),
+        optional("fileFormat") => list(any()),
+        optional("filters") => list(idle_recommendation_filter()()),
+        optional("includeMemberAccounts") => boolean(),
+        required("s3DestinationConfig") => s3_destination_config()
+      }
+      
+  """
+  @type export_idle_recommendations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       license_recommendation_option() :: %{
         "licenseEdition" => list(any()),
         "licenseModel" => list(any()),
@@ -869,6 +996,18 @@ defmodule AWS.ComputeOptimizer do
       
   """
   @type license_recommendation_option() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      idle_savings_opportunity() :: %{
+        "estimatedMonthlySavings" => idle_estimated_monthly_savings(),
+        "savingsOpportunityPercentage" => float()
+      }
+      
+  """
+  @type idle_savings_opportunity() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1323,6 +1462,22 @@ defmodule AWS.ComputeOptimizer do
 
   ## Example:
       
+      get_idle_recommendations_request() :: %{
+        optional("accountIds") => list(String.t()()),
+        optional("filters") => list(idle_recommendation_filter()()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("orderBy") => order_by(),
+        optional("resourceArns") => list(String.t()())
+      }
+      
+  """
+  @type get_idle_recommendations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_auto_scaling_group_recommendations_request() :: %{
         optional("accountIds") => list(String.t()()),
         optional("autoScalingGroupArns") => list(String.t()()),
@@ -1520,6 +1675,18 @@ defmodule AWS.ComputeOptimizer do
       
   """
   @type export_ebs_volume_recommendations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_idle_recommendations_response() :: %{
+        "jobId" => String.t(),
+        "s3Destination" => s3_destination()
+      }
+      
+  """
+  @type export_idle_recommendations_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1798,7 +1965,10 @@ defmodule AWS.ComputeOptimizer do
       
       recommendation_summary() :: %{
         "accountId" => String.t(),
+        "aggregatedSavingsOpportunity" => savings_opportunity(),
         "currentPerformanceRiskRatings" => current_performance_risk_ratings(),
+        "idleSavingsOpportunity" => savings_opportunity(),
+        "idleSummaries" => list(idle_summary()()),
         "inferredWorkloadSavings" => list(inferred_workload_saving()()),
         "recommendationResourceType" => list(any()),
         "savingsOpportunity" => savings_opportunity(),
@@ -2094,6 +2264,20 @@ defmodule AWS.ComputeOptimizer do
 
   ## Example:
       
+      idle_recommendation_error() :: %{
+        "code" => String.t(),
+        "identifier" => String.t(),
+        "message" => String.t(),
+        "resourceType" => list(any())
+      }
+      
+  """
+  @type idle_recommendation_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       preferred_resource() :: %{
         "excludeList" => list(String.t()()),
         "includeList" => list(String.t()()),
@@ -2193,6 +2377,16 @@ defmodule AWS.ComputeOptimizer do
           | missing_authentication_token()
 
   @type export_ec2_instance_recommendations_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | invalid_parameter_value_exception()
+          | opt_in_required_exception()
+          | missing_authentication_token()
+
+  @type export_idle_recommendations_errors() ::
           limit_exceeded_exception()
           | throttling_exception()
           | access_denied_exception()
@@ -2316,6 +2510,16 @@ defmodule AWS.ComputeOptimizer do
           | internal_server_exception()
           | service_unavailable_exception()
           | invalid_parameter_value_exception()
+          | missing_authentication_token()
+
+  @type get_idle_recommendations_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | invalid_parameter_value_exception()
+          | opt_in_required_exception()
+          | resource_not_found_exception()
           | missing_authentication_token()
 
   @type get_lambda_function_recommendations_errors() ::
@@ -2564,6 +2768,31 @@ defmodule AWS.ComputeOptimizer do
     meta = metadata()
 
     Request.request_post(client, meta, "ExportEC2InstanceRecommendations", input, options)
+  end
+
+  @doc """
+
+  Export optimization recommendations for your idle resources.
+
+  Recommendations are exported in a comma-separated values (CSV) file, and its
+  metadata
+  in a JavaScript Object Notation (JSON) file, to an existing Amazon Simple
+  Storage Service (Amazon S3) bucket that you specify. For more information, see
+  [Exporting Recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html)
+  in the *Compute Optimizer User
+  Guide*.
+
+  You can have only one idle resource export job in progress per Amazon Web
+  Services Region.
+  """
+  @spec export_idle_recommendations(map(), export_idle_recommendations_request(), list()) ::
+          {:ok, export_idle_recommendations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, export_idle_recommendations_errors()}
+  def export_idle_recommendations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ExportIdleRecommendations", input, options)
   end
 
   @doc """
@@ -2852,6 +3081,26 @@ defmodule AWS.ComputeOptimizer do
     meta = metadata()
 
     Request.request_post(client, meta, "GetEnrollmentStatusesForOrganization", input, options)
+  end
+
+  @doc """
+  Returns idle resource recommendations.
+
+  Compute Optimizer generates recommendations for
+  idle resources that meet a specific set of requirements. For more information,
+  see
+  [Resource requirements](https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html)
+  in the
+  *Compute Optimizer User Guide*
+  """
+  @spec get_idle_recommendations(map(), get_idle_recommendations_request(), list()) ::
+          {:ok, get_idle_recommendations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_idle_recommendations_errors()}
+  def get_idle_recommendations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetIdleRecommendations", input, options)
   end
 
   @doc """

@@ -199,6 +199,7 @@ defmodule AWS.PersonalizeRuntime do
   def get_action_recommendations(%Client{} = client, input, options \\ []) do
     url_path = "/action-recommendations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -209,7 +210,7 @@ defmodule AWS.PersonalizeRuntime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -232,6 +233,7 @@ defmodule AWS.PersonalizeRuntime do
   def get_personalized_ranking(%Client{} = client, input, options \\ []) do
     url_path = "/personalize-ranking"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -242,7 +244,7 @@ defmodule AWS.PersonalizeRuntime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -277,6 +279,7 @@ defmodule AWS.PersonalizeRuntime do
   def get_recommendations(%Client{} = client, input, options \\ []) do
     url_path = "/recommendations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -287,7 +290,7 @@ defmodule AWS.PersonalizeRuntime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

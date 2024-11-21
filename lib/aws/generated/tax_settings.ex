@@ -1135,6 +1135,7 @@ defmodule AWS.TaxSettings do
   def batch_delete_tax_registration(%Client{} = client, input, options \\ []) do
     url_path = "/BatchDeleteTaxRegistration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1145,7 +1146,7 @@ defmodule AWS.TaxSettings do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1162,6 +1163,7 @@ defmodule AWS.TaxSettings do
   def batch_get_tax_exemptions(%Client{} = client, input, options \\ []) do
     url_path = "/BatchGetTaxExemptions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1172,7 +1174,7 @@ defmodule AWS.TaxSettings do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1364,6 +1366,7 @@ defmodule AWS.TaxSettings do
   def batch_put_tax_registration(%Client{} = client, input, options \\ []) do
     url_path = "/BatchPutTaxRegistration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1374,7 +1377,7 @@ defmodule AWS.TaxSettings do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1396,6 +1399,7 @@ defmodule AWS.TaxSettings do
   def delete_supplemental_tax_registration(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteSupplementalTaxRegistration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1406,7 +1410,7 @@ defmodule AWS.TaxSettings do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1427,6 +1431,7 @@ defmodule AWS.TaxSettings do
   def delete_tax_registration(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteTaxRegistration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1437,7 +1442,7 @@ defmodule AWS.TaxSettings do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1454,6 +1459,7 @@ defmodule AWS.TaxSettings do
   def get_tax_exemption_types(%Client{} = client, input, options \\ []) do
     url_path = "/GetTaxExemptionTypes"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1464,7 +1470,7 @@ defmodule AWS.TaxSettings do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1481,6 +1487,7 @@ defmodule AWS.TaxSettings do
   def get_tax_inheritance(%Client{} = client, input, options \\ []) do
     url_path = "/GetTaxInheritance"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1491,7 +1498,7 @@ defmodule AWS.TaxSettings do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1508,6 +1515,7 @@ defmodule AWS.TaxSettings do
   def get_tax_registration(%Client{} = client, input, options \\ []) do
     url_path = "/GetTaxRegistration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1518,7 +1526,7 @@ defmodule AWS.TaxSettings do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1536,6 +1544,7 @@ defmodule AWS.TaxSettings do
   def get_tax_registration_document(%Client{} = client, input, options \\ []) do
     url_path = "/GetTaxRegistrationDocument"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1546,7 +1555,7 @@ defmodule AWS.TaxSettings do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1568,6 +1577,7 @@ defmodule AWS.TaxSettings do
   def list_supplemental_tax_registrations(%Client{} = client, input, options \\ []) do
     url_path = "/ListSupplementalTaxRegistrations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1578,7 +1588,7 @@ defmodule AWS.TaxSettings do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1595,6 +1605,7 @@ defmodule AWS.TaxSettings do
   def list_tax_exemptions(%Client{} = client, input, options \\ []) do
     url_path = "/ListTaxExemptions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1605,7 +1616,7 @@ defmodule AWS.TaxSettings do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1627,6 +1638,7 @@ defmodule AWS.TaxSettings do
   def list_tax_registrations(%Client{} = client, input, options \\ []) do
     url_path = "/ListTaxRegistrations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1637,7 +1649,7 @@ defmodule AWS.TaxSettings do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1659,6 +1671,7 @@ defmodule AWS.TaxSettings do
   def put_supplemental_tax_registration(%Client{} = client, input, options \\ []) do
     url_path = "/PutSupplementalTaxRegistration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1669,7 +1682,7 @@ defmodule AWS.TaxSettings do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1687,6 +1700,7 @@ defmodule AWS.TaxSettings do
   def put_tax_exemption(%Client{} = client, input, options \\ []) do
     url_path = "/PutTaxExemption"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1697,7 +1711,7 @@ defmodule AWS.TaxSettings do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1714,6 +1728,7 @@ defmodule AWS.TaxSettings do
   def put_tax_inheritance(%Client{} = client, input, options \\ []) do
     url_path = "/PutTaxInheritance"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1724,7 +1739,7 @@ defmodule AWS.TaxSettings do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1915,6 +1930,7 @@ defmodule AWS.TaxSettings do
   def put_tax_registration(%Client{} = client, input, options \\ []) do
     url_path = "/PutTaxRegistration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1925,7 +1941,7 @@ defmodule AWS.TaxSettings do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

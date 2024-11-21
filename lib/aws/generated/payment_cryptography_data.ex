@@ -1169,6 +1169,7 @@ defmodule AWS.PaymentCryptographyData do
   def decrypt_data(%Client{} = client, key_identifier, input, options \\ []) do
     url_path = "/keys/#{AWS.Util.encode_uri(key_identifier)}/decrypt"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1179,7 +1180,7 @@ defmodule AWS.PaymentCryptographyData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1261,6 +1262,7 @@ defmodule AWS.PaymentCryptographyData do
   def encrypt_data(%Client{} = client, key_identifier, input, options \\ []) do
     url_path = "/keys/#{AWS.Util.encode_uri(key_identifier)}/encrypt"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1271,7 +1273,7 @@ defmodule AWS.PaymentCryptographyData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1321,6 +1323,7 @@ defmodule AWS.PaymentCryptographyData do
   def generate_card_validation_data(%Client{} = client, input, options \\ []) do
     url_path = "/cardvalidationdata/generate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1331,7 +1334,7 @@ defmodule AWS.PaymentCryptographyData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1375,6 +1378,7 @@ defmodule AWS.PaymentCryptographyData do
   def generate_mac(%Client{} = client, input, options \\ []) do
     url_path = "/mac/generate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1385,7 +1389,7 @@ defmodule AWS.PaymentCryptographyData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1442,6 +1446,7 @@ defmodule AWS.PaymentCryptographyData do
   def generate_mac_emv_pin_change(%Client{} = client, input, options \\ []) do
     url_path = "/macemvpinchange/generate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1452,7 +1457,7 @@ defmodule AWS.PaymentCryptographyData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1508,6 +1513,7 @@ defmodule AWS.PaymentCryptographyData do
   def generate_pin_data(%Client{} = client, input, options \\ []) do
     url_path = "/pindata/generate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1518,7 +1524,7 @@ defmodule AWS.PaymentCryptographyData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1582,6 +1588,7 @@ defmodule AWS.PaymentCryptographyData do
   def re_encrypt_data(%Client{} = client, incoming_key_identifier, input, options \\ []) do
     url_path = "/keys/#{AWS.Util.encode_uri(incoming_key_identifier)}/reencrypt"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1592,7 +1599,7 @@ defmodule AWS.PaymentCryptographyData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1666,6 +1673,7 @@ defmodule AWS.PaymentCryptographyData do
   def translate_pin_data(%Client{} = client, input, options \\ []) do
     url_path = "/pindata/translate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1676,7 +1684,7 @@ defmodule AWS.PaymentCryptographyData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1727,6 +1735,7 @@ defmodule AWS.PaymentCryptographyData do
   def verify_auth_request_cryptogram(%Client{} = client, input, options \\ []) do
     url_path = "/cryptogram/verify"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1737,7 +1746,7 @@ defmodule AWS.PaymentCryptographyData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1789,6 +1798,7 @@ defmodule AWS.PaymentCryptographyData do
   def verify_card_validation_data(%Client{} = client, input, options \\ []) do
     url_path = "/cardvalidationdata/verify"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1799,7 +1809,7 @@ defmodule AWS.PaymentCryptographyData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1835,6 +1845,7 @@ defmodule AWS.PaymentCryptographyData do
   def verify_mac(%Client{} = client, input, options \\ []) do
     url_path = "/mac/verify"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1845,7 +1856,7 @@ defmodule AWS.PaymentCryptographyData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1890,6 +1901,7 @@ defmodule AWS.PaymentCryptographyData do
   def verify_pin_data(%Client{} = client, input, options \\ []) do
     url_path = "/pindata/verify"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1900,7 +1912,7 @@ defmodule AWS.PaymentCryptographyData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

@@ -1404,6 +1404,7 @@ defmodule AWS.Pipes do
   def create_pipe(%Client{} = client, name, input, options \\ []) do
     url_path = "/v1/pipes/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1414,7 +1415,7 @@ defmodule AWS.Pipes do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1434,6 +1435,7 @@ defmodule AWS.Pipes do
   def delete_pipe(%Client{} = client, name, input, options \\ []) do
     url_path = "/v1/pipes/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1444,7 +1446,7 @@ defmodule AWS.Pipes do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1587,6 +1589,7 @@ defmodule AWS.Pipes do
   def start_pipe(%Client{} = client, name, input, options \\ []) do
     url_path = "/v1/pipes/#{AWS.Util.encode_uri(name)}/start"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1597,7 +1600,7 @@ defmodule AWS.Pipes do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1614,6 +1617,7 @@ defmodule AWS.Pipes do
   def stop_pipe(%Client{} = client, name, input, options \\ []) do
     url_path = "/v1/pipes/#{AWS.Util.encode_uri(name)}/stop"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1624,7 +1628,7 @@ defmodule AWS.Pipes do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1660,6 +1664,7 @@ defmodule AWS.Pipes do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1670,7 +1675,7 @@ defmodule AWS.Pipes do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1687,6 +1692,7 @@ defmodule AWS.Pipes do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1702,7 +1708,7 @@ defmodule AWS.Pipes do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1738,10 +1744,21 @@ defmodule AWS.Pipes do
   def update_pipe(%Client{} = client, name, input, options \\ []) do
     url_path = "/v1/pipes/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

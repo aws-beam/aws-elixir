@@ -939,6 +939,7 @@ defmodule AWS.RUM do
       ) do
     url_path = "/rummetrics/#{AWS.Util.encode_uri(app_monitor_name)}/metrics"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -949,7 +950,7 @@ defmodule AWS.RUM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -986,6 +987,7 @@ defmodule AWS.RUM do
       ) do
     url_path = "/rummetrics/#{AWS.Util.encode_uri(app_monitor_name)}/metrics"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1003,7 +1005,7 @@ defmodule AWS.RUM do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1099,6 +1101,7 @@ defmodule AWS.RUM do
   def create_app_monitor(%Client{} = client, input, options \\ []) do
     url_path = "/appmonitor"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1109,7 +1112,7 @@ defmodule AWS.RUM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1128,6 +1131,7 @@ defmodule AWS.RUM do
   def delete_app_monitor(%Client{} = client, name, input, options \\ []) do
     url_path = "/appmonitor/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1138,7 +1142,7 @@ defmodule AWS.RUM do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1162,6 +1166,7 @@ defmodule AWS.RUM do
   def delete_rum_metrics_destination(%Client{} = client, app_monitor_name, input, options \\ []) do
     url_path = "/rummetrics/#{AWS.Util.encode_uri(app_monitor_name)}/metricsdestination"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1178,7 +1183,7 @@ defmodule AWS.RUM do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1214,6 +1219,7 @@ defmodule AWS.RUM do
   def get_app_monitor_data(%Client{} = client, name, input, options \\ []) do
     url_path = "/appmonitor/#{AWS.Util.encode_uri(name)}/data"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1224,7 +1230,7 @@ defmodule AWS.RUM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1241,6 +1247,7 @@ defmodule AWS.RUM do
   def list_app_monitors(%Client{} = client, input, options \\ []) do
     url_path = "/appmonitors"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1257,7 +1264,7 @@ defmodule AWS.RUM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1347,6 +1354,7 @@ defmodule AWS.RUM do
   def put_rum_events(%Client{} = client, id, input, options \\ []) do
     url_path = "/appmonitors/#{AWS.Util.encode_uri(id)}/"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "dataplane.")
@@ -1357,7 +1365,7 @@ defmodule AWS.RUM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1386,6 +1394,7 @@ defmodule AWS.RUM do
   def put_rum_metrics_destination(%Client{} = client, app_monitor_name, input, options \\ []) do
     url_path = "/rummetrics/#{AWS.Util.encode_uri(app_monitor_name)}/metricsdestination"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1396,7 +1405,7 @@ defmodule AWS.RUM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1437,6 +1446,7 @@ defmodule AWS.RUM do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1447,7 +1457,7 @@ defmodule AWS.RUM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1464,6 +1474,7 @@ defmodule AWS.RUM do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1479,7 +1490,7 @@ defmodule AWS.RUM do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1513,6 +1524,7 @@ defmodule AWS.RUM do
   def update_app_monitor(%Client{} = client, name, input, options \\ []) do
     url_path = "/appmonitor/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1523,7 +1535,7 @@ defmodule AWS.RUM do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1549,6 +1561,7 @@ defmodule AWS.RUM do
   def update_rum_metric_definition(%Client{} = client, app_monitor_name, input, options \\ []) do
     url_path = "/rummetrics/#{AWS.Util.encode_uri(app_monitor_name)}/metrics"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1559,7 +1572,7 @@ defmodule AWS.RUM do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

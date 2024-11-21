@@ -115,6 +115,20 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
+      describe_capacity_reservation_output() :: %{
+        "CapacityReservationState" => list(zonal_capacity_reservation_state()()),
+        "DecreaseRequestsRemaining" => integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "MinimumLoadBalancerCapacity" => minimum_load_balancer_capacity()
+      }
+      
+  """
+  @type describe_capacity_reservation_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       trust_store_revocation() :: %{
         "NumberOfRevokedEntries" => float(),
         "RevocationId" => float(),
@@ -124,6 +138,17 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
   """
   @type trust_store_revocation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      minimum_load_balancer_capacity() :: %{
+        "CapacityUnits" => integer()
+      }
+      
+  """
+  @type minimum_load_balancer_capacity() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -650,6 +675,17 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
+      insufficient_capacity_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type insufficient_capacity_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_rule_output() :: %{}
       
   """
@@ -910,6 +946,17 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
   """
   @type modify_listener_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      prior_request_not_complete_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type prior_request_not_complete_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1405,6 +1452,17 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
+      capacity_reservation_pending_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type capacity_reservation_pending_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_listeners_output() :: %{
         "Listeners" => list(listener()()),
         "NextMarker" => String.t()
@@ -1608,6 +1666,17 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
+      capacity_units_limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type capacity_units_limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       target_group_stickiness_config() :: %{
         "DurationSeconds" => integer(),
         "Enabled" => boolean()
@@ -1680,6 +1749,31 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
   """
   @type rule_condition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_capacity_reservation_output() :: %{
+        "CapacityReservationState" => list(zonal_capacity_reservation_state()()),
+        "DecreaseRequestsRemaining" => integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "MinimumLoadBalancerCapacity" => minimum_load_balancer_capacity()
+      }
+      
+  """
+  @type modify_capacity_reservation_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_decrease_requests_limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type capacity_decrease_requests_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2052,6 +2146,17 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
+      describe_capacity_reservation_input() :: %{
+        required("LoadBalancerArn") => String.t()
+      }
+      
+  """
+  @type describe_capacity_reservation_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       invalid_ca_certificates_bundle_exception() :: %{
         "Message" => String.t()
       }
@@ -2093,6 +2198,19 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
   """
   @type target_group_attribute() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_capacity_reservation_input() :: %{
+        optional("MinimumLoadBalancerCapacity") => minimum_load_balancer_capacity(),
+        optional("ResetCapacityReservation") => boolean(),
+        required("LoadBalancerArn") => String.t()
+      }
+      
+  """
+  @type modify_capacity_reservation_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2203,12 +2321,37 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
+      zonal_capacity_reservation_state() :: %{
+        "AvailabilityZone" => String.t(),
+        "EffectiveCapacityUnits" => float(),
+        "State" => capacity_reservation_status()
+      }
+      
+  """
+  @type zonal_capacity_reservation_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       invalid_scheme_exception() :: %{
         "Message" => String.t()
       }
       
   """
   @type invalid_scheme_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_reservation_status() :: %{
+        "Code" => list(any()),
+        "Reason" => String.t()
+      }
+      
+  """
+  @type capacity_reservation_status() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2523,6 +2666,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @type deregister_targets_errors() ::
           target_group_not_found_exception() | invalid_target_exception()
 
+  @type describe_capacity_reservation_errors() :: load_balancer_not_found_exception()
+
   @type describe_listener_attributes_errors() :: listener_not_found_exception()
 
   @type describe_listener_certificates_errors() :: listener_not_found_exception()
@@ -2573,6 +2718,16 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   @type get_trust_store_revocation_content_errors() ::
           trust_store_not_found_exception() | revocation_id_not_found_exception()
+
+  @type modify_capacity_reservation_errors() ::
+          capacity_decrease_requests_limit_exceeded_exception()
+          | capacity_units_limit_exceeded_exception()
+          | capacity_reservation_pending_exception()
+          | operation_not_permitted_exception()
+          | load_balancer_not_found_exception()
+          | prior_request_not_complete_exception()
+          | insufficient_capacity_exception()
+          | invalid_configuration_request_exception()
 
   @type modify_listener_errors() ::
           unsupported_protocol_exception()
@@ -2662,6 +2817,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   @type set_subnets_errors() ::
           invalid_subnet_exception()
+          | capacity_reservation_pending_exception()
           | load_balancer_not_found_exception()
           | allocation_id_not_found_exception()
           | subnet_not_found_exception()
@@ -3075,6 +3231,19 @@ defmodule AWS.ElasticLoadBalancingv2 do
   end
 
   @doc """
+  Describes the capacity reservation status for the specified load balancer.
+  """
+  @spec describe_capacity_reservation(map(), describe_capacity_reservation_input(), list()) ::
+          {:ok, describe_capacity_reservation_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_capacity_reservation_errors()}
+  def describe_capacity_reservation(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCapacityReservation", input, options)
+  end
+
+  @doc """
   Describes the attributes for the specified listener.
   """
   @spec describe_listener_attributes(map(), describe_listener_attributes_input(), list()) ::
@@ -3396,6 +3565,23 @@ defmodule AWS.ElasticLoadBalancingv2 do
     meta = metadata()
 
     Request.request_post(client, meta, "GetTrustStoreRevocationContent", input, options)
+  end
+
+  @doc """
+  Modifies the capacity reservation of the specified load balancer.
+
+  When modifying capacity reservation, you must include at least one
+  `MinimumLoadBalancerCapacity`
+  or `ResetCapacityReservation`.
+  """
+  @spec modify_capacity_reservation(map(), modify_capacity_reservation_input(), list()) ::
+          {:ok, modify_capacity_reservation_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, modify_capacity_reservation_errors()}
+  def modify_capacity_reservation(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyCapacityReservation", input, options)
   end
 
   @doc """

@@ -570,6 +570,7 @@ defmodule AWS.Savingsplans do
   def create_savings_plan(%Client{} = client, input, options \\ []) do
     url_path = "/CreateSavingsPlan"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -580,7 +581,7 @@ defmodule AWS.Savingsplans do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -597,6 +598,7 @@ defmodule AWS.Savingsplans do
   def delete_queued_savings_plan(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteQueuedSavingsPlan"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -607,7 +609,7 @@ defmodule AWS.Savingsplans do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -624,6 +626,7 @@ defmodule AWS.Savingsplans do
   def describe_savings_plan_rates(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeSavingsPlanRates"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -634,7 +637,7 @@ defmodule AWS.Savingsplans do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -651,6 +654,7 @@ defmodule AWS.Savingsplans do
   def describe_savings_plans(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeSavingsPlans"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -661,7 +665,7 @@ defmodule AWS.Savingsplans do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -682,6 +686,7 @@ defmodule AWS.Savingsplans do
   def describe_savings_plans_offering_rates(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeSavingsPlansOfferingRates"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -692,7 +697,7 @@ defmodule AWS.Savingsplans do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -713,6 +718,7 @@ defmodule AWS.Savingsplans do
   def describe_savings_plans_offerings(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeSavingsPlansOfferings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -723,7 +729,7 @@ defmodule AWS.Savingsplans do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -740,6 +746,7 @@ defmodule AWS.Savingsplans do
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     url_path = "/ListTagsForResource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -750,7 +757,7 @@ defmodule AWS.Savingsplans do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -767,6 +774,7 @@ defmodule AWS.Savingsplans do
   def return_savings_plan(%Client{} = client, input, options \\ []) do
     url_path = "/ReturnSavingsPlan"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -777,7 +785,7 @@ defmodule AWS.Savingsplans do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -794,6 +802,7 @@ defmodule AWS.Savingsplans do
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/TagResource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -804,7 +813,7 @@ defmodule AWS.Savingsplans do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -821,6 +830,7 @@ defmodule AWS.Savingsplans do
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/UntagResource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -831,7 +841,7 @@ defmodule AWS.Savingsplans do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

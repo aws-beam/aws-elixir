@@ -701,6 +701,7 @@ defmodule AWS.MWAA do
   def create_cli_token(%Client{} = client, name, input, options \\ []) do
     url_path = "/clitoken/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "env.")
@@ -711,7 +712,7 @@ defmodule AWS.MWAA do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -729,11 +730,22 @@ defmodule AWS.MWAA do
   def create_environment(%Client{} = client, name, input, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -748,6 +760,7 @@ defmodule AWS.MWAA do
   def create_web_login_token(%Client{} = client, name, input, options \\ []) do
     url_path = "/webtoken/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "env.")
@@ -758,7 +771,7 @@ defmodule AWS.MWAA do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -776,6 +789,7 @@ defmodule AWS.MWAA do
   def delete_environment(%Client{} = client, name, input, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -786,7 +800,7 @@ defmodule AWS.MWAA do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -823,6 +837,7 @@ defmodule AWS.MWAA do
   def invoke_rest_api(%Client{} = client, name, input, options \\ []) do
     url_path = "/restapi/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "env.")
@@ -833,7 +848,7 @@ defmodule AWS.MWAA do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -904,6 +919,7 @@ defmodule AWS.MWAA do
   def publish_metrics(%Client{} = client, environment_name, input, options \\ []) do
     url_path = "/metrics/environments/#{AWS.Util.encode_uri(environment_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "ops.")
@@ -914,7 +930,7 @@ defmodule AWS.MWAA do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -932,6 +948,7 @@ defmodule AWS.MWAA do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -942,7 +959,7 @@ defmodule AWS.MWAA do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -962,6 +979,7 @@ defmodule AWS.MWAA do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -977,7 +995,7 @@ defmodule AWS.MWAA do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -994,6 +1012,7 @@ defmodule AWS.MWAA do
   def update_environment(%Client{} = client, name, input, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -1004,7 +1023,7 @@ defmodule AWS.MWAA do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

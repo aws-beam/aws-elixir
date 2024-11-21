@@ -1719,6 +1719,7 @@ defmodule AWS.Panorama do
   def create_application_instance(%Client{} = client, input, options \\ []) do
     url_path = "/application-instances"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1729,7 +1730,7 @@ defmodule AWS.Panorama do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1748,6 +1749,7 @@ defmodule AWS.Panorama do
   def create_job_for_devices(%Client{} = client, input, options \\ []) do
     url_path = "/jobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1758,7 +1760,7 @@ defmodule AWS.Panorama do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1775,6 +1777,7 @@ defmodule AWS.Panorama do
   def create_node_from_template_job(%Client{} = client, input, options \\ []) do
     url_path = "/packages/template-job"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1785,7 +1788,7 @@ defmodule AWS.Panorama do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1802,6 +1805,7 @@ defmodule AWS.Panorama do
   def create_package(%Client{} = client, input, options \\ []) do
     url_path = "/packages"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1812,7 +1816,7 @@ defmodule AWS.Panorama do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1829,6 +1833,7 @@ defmodule AWS.Panorama do
   def create_package_import_job(%Client{} = client, input, options \\ []) do
     url_path = "/packages/import-jobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1839,7 +1844,7 @@ defmodule AWS.Panorama do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1856,6 +1861,7 @@ defmodule AWS.Panorama do
   def delete_device(%Client{} = client, device_id, input, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(device_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1866,7 +1872,7 @@ defmodule AWS.Panorama do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1887,6 +1893,7 @@ defmodule AWS.Panorama do
   def delete_package(%Client{} = client, package_id, input, options \\ []) do
     url_path = "/packages/#{AWS.Util.encode_uri(package_id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1902,7 +1909,7 @@ defmodule AWS.Panorama do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1935,6 +1942,7 @@ defmodule AWS.Panorama do
       "/packages/#{AWS.Util.encode_uri(package_id)}/versions/#{AWS.Util.encode_uri(package_version)}/patch/#{AWS.Util.encode_uri(patch_version)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1951,7 +1959,7 @@ defmodule AWS.Panorama do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2645,6 +2653,7 @@ defmodule AWS.Panorama do
   def provision_device(%Client{} = client, input, options \\ []) do
     url_path = "/devices"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2655,7 +2664,7 @@ defmodule AWS.Panorama do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2688,11 +2697,22 @@ defmodule AWS.Panorama do
       "/packages/#{AWS.Util.encode_uri(package_id)}/versions/#{AWS.Util.encode_uri(package_version)}/patch/#{AWS.Util.encode_uri(patch_version)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2715,6 +2735,7 @@ defmodule AWS.Panorama do
       ) do
     url_path = "/application-instances/#{AWS.Util.encode_uri(application_instance_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2725,7 +2746,7 @@ defmodule AWS.Panorama do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2754,11 +2775,22 @@ defmodule AWS.Panorama do
       "/application-instances/#{AWS.Util.encode_uri(application_instance_id)}/node-signals"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2771,6 +2803,7 @@ defmodule AWS.Panorama do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2781,7 +2814,7 @@ defmodule AWS.Panorama do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2798,6 +2831,7 @@ defmodule AWS.Panorama do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2813,7 +2847,7 @@ defmodule AWS.Panorama do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2830,10 +2864,21 @@ defmodule AWS.Panorama do
   def update_device_metadata(%Client{} = client, device_id, input, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(device_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

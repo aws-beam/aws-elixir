@@ -1280,6 +1280,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   def create_application(%Client{} = client, environment_identifier, input, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(environment_identifier)}/applications"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1290,7 +1291,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1326,6 +1327,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   def create_environment(%Client{} = client, input, options \\ []) do
     url_path = "/environments"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1336,7 +1338,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1465,6 +1467,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
       "/environments/#{AWS.Util.encode_uri(environment_identifier)}/applications/#{AWS.Util.encode_uri(application_identifier)}/routes"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1475,7 +1478,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1513,6 +1516,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
       "/environments/#{AWS.Util.encode_uri(environment_identifier)}/applications/#{AWS.Util.encode_uri(application_identifier)}/services"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1523,7 +1527,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1551,6 +1555,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
       "/environments/#{AWS.Util.encode_uri(environment_identifier)}/applications/#{AWS.Util.encode_uri(application_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1561,7 +1566,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1581,6 +1586,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   def delete_environment(%Client{} = client, environment_identifier, input, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(environment_identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1591,7 +1597,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1608,6 +1614,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   def delete_resource_policy(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/resourcepolicy/#{AWS.Util.encode_uri(identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1618,7 +1625,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1644,6 +1651,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
       "/environments/#{AWS.Util.encode_uri(environment_identifier)}/applications/#{AWS.Util.encode_uri(application_identifier)}/routes/#{AWS.Util.encode_uri(route_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1654,7 +1662,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1687,6 +1695,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
       "/environments/#{AWS.Util.encode_uri(environment_identifier)}/applications/#{AWS.Util.encode_uri(application_identifier)}/services/#{AWS.Util.encode_uri(service_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1697,7 +1706,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2041,11 +2050,22 @@ defmodule AWS.MigrationHubRefactorSpaces do
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     url_path = "/resourcepolicy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2067,6 +2087,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2077,7 +2098,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2099,6 +2120,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2114,7 +2136,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2140,6 +2162,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
       "/environments/#{AWS.Util.encode_uri(environment_identifier)}/applications/#{AWS.Util.encode_uri(application_identifier)}/routes/#{AWS.Util.encode_uri(route_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2150,7 +2173,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

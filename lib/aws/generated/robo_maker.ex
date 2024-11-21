@@ -2775,6 +2775,7 @@ defmodule AWS.RoboMaker do
   def batch_delete_worlds(%Client{} = client, input, options \\ []) do
     url_path = "/batchDeleteWorlds"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2785,7 +2786,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2813,6 +2814,7 @@ defmodule AWS.RoboMaker do
   def batch_describe_simulation_job(%Client{} = client, input, options \\ []) do
     url_path = "/batchDescribeSimulationJob"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2823,7 +2825,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2846,6 +2848,7 @@ defmodule AWS.RoboMaker do
   def cancel_deployment_job(%Client{} = client, input, options \\ []) do
     url_path = "/cancelDeploymentJob"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2856,7 +2859,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2884,6 +2887,7 @@ defmodule AWS.RoboMaker do
   def cancel_simulation_job(%Client{} = client, input, options \\ []) do
     url_path = "/cancelSimulationJob"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2894,7 +2898,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2924,6 +2928,7 @@ defmodule AWS.RoboMaker do
   def cancel_simulation_job_batch(%Client{} = client, input, options \\ []) do
     url_path = "/cancelSimulationJobBatch"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2934,7 +2939,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2962,6 +2967,7 @@ defmodule AWS.RoboMaker do
   def cancel_world_export_job(%Client{} = client, input, options \\ []) do
     url_path = "/cancelWorldExportJob"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2972,7 +2978,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3000,6 +3006,7 @@ defmodule AWS.RoboMaker do
   def cancel_world_generation_job(%Client{} = client, input, options \\ []) do
     url_path = "/cancelWorldGenerationJob"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3010,7 +3017,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3052,6 +3059,7 @@ defmodule AWS.RoboMaker do
   def create_deployment_job(%Client{} = client, input, options \\ []) do
     url_path = "/createDeploymentJob"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3062,7 +3070,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3095,6 +3103,7 @@ defmodule AWS.RoboMaker do
   def create_fleet(%Client{} = client, input, options \\ []) do
     url_path = "/createFleet"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3105,7 +3114,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3138,6 +3147,7 @@ defmodule AWS.RoboMaker do
   def create_robot(%Client{} = client, input, options \\ []) do
     url_path = "/createRobot"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3148,7 +3158,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3176,6 +3186,7 @@ defmodule AWS.RoboMaker do
   def create_robot_application(%Client{} = client, input, options \\ []) do
     url_path = "/createRobotApplication"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3186,7 +3197,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3218,6 +3229,7 @@ defmodule AWS.RoboMaker do
   def create_robot_application_version(%Client{} = client, input, options \\ []) do
     url_path = "/createRobotApplicationVersion"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3228,7 +3240,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3256,6 +3268,7 @@ defmodule AWS.RoboMaker do
   def create_simulation_application(%Client{} = client, input, options \\ []) do
     url_path = "/createSimulationApplication"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3266,7 +3279,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3298,6 +3311,7 @@ defmodule AWS.RoboMaker do
   def create_simulation_application_version(%Client{} = client, input, options \\ []) do
     url_path = "/createSimulationApplicationVersion"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3308,7 +3322,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3340,6 +3354,7 @@ defmodule AWS.RoboMaker do
   def create_simulation_job(%Client{} = client, input, options \\ []) do
     url_path = "/createSimulationJob"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3350,7 +3365,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3378,6 +3393,7 @@ defmodule AWS.RoboMaker do
   def create_world_export_job(%Client{} = client, input, options \\ []) do
     url_path = "/createWorldExportJob"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3388,7 +3404,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3416,6 +3432,7 @@ defmodule AWS.RoboMaker do
   def create_world_generation_job(%Client{} = client, input, options \\ []) do
     url_path = "/createWorldGenerationJob"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3426,7 +3443,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3454,6 +3471,7 @@ defmodule AWS.RoboMaker do
   def create_world_template(%Client{} = client, input, options \\ []) do
     url_path = "/createWorldTemplate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3464,7 +3482,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3497,6 +3515,7 @@ defmodule AWS.RoboMaker do
   def delete_fleet(%Client{} = client, input, options \\ []) do
     url_path = "/deleteFleet"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3507,7 +3526,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3540,6 +3559,7 @@ defmodule AWS.RoboMaker do
   def delete_robot(%Client{} = client, input, options \\ []) do
     url_path = "/deleteRobot"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3550,7 +3570,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3578,6 +3598,7 @@ defmodule AWS.RoboMaker do
   def delete_robot_application(%Client{} = client, input, options \\ []) do
     url_path = "/deleteRobotApplication"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3588,7 +3609,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3616,6 +3637,7 @@ defmodule AWS.RoboMaker do
   def delete_simulation_application(%Client{} = client, input, options \\ []) do
     url_path = "/deleteSimulationApplication"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3626,7 +3648,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3654,6 +3676,7 @@ defmodule AWS.RoboMaker do
   def delete_world_template(%Client{} = client, input, options \\ []) do
     url_path = "/deleteWorldTemplate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3664,7 +3687,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3697,6 +3720,7 @@ defmodule AWS.RoboMaker do
   def deregister_robot(%Client{} = client, input, options \\ []) do
     url_path = "/deregisterRobot"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3707,7 +3731,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3740,6 +3764,7 @@ defmodule AWS.RoboMaker do
   def describe_deployment_job(%Client{} = client, input, options \\ []) do
     url_path = "/describeDeploymentJob"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3750,7 +3775,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3783,6 +3808,7 @@ defmodule AWS.RoboMaker do
   def describe_fleet(%Client{} = client, input, options \\ []) do
     url_path = "/describeFleet"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3793,7 +3819,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3826,6 +3852,7 @@ defmodule AWS.RoboMaker do
   def describe_robot(%Client{} = client, input, options \\ []) do
     url_path = "/describeRobot"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3836,7 +3863,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3864,6 +3891,7 @@ defmodule AWS.RoboMaker do
   def describe_robot_application(%Client{} = client, input, options \\ []) do
     url_path = "/describeRobotApplication"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3874,7 +3902,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3902,6 +3930,7 @@ defmodule AWS.RoboMaker do
   def describe_simulation_application(%Client{} = client, input, options \\ []) do
     url_path = "/describeSimulationApplication"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3912,7 +3941,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3940,6 +3969,7 @@ defmodule AWS.RoboMaker do
   def describe_simulation_job(%Client{} = client, input, options \\ []) do
     url_path = "/describeSimulationJob"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3950,7 +3980,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3978,6 +4008,7 @@ defmodule AWS.RoboMaker do
   def describe_simulation_job_batch(%Client{} = client, input, options \\ []) do
     url_path = "/describeSimulationJobBatch"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3988,7 +4019,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4016,6 +4047,7 @@ defmodule AWS.RoboMaker do
   def describe_world(%Client{} = client, input, options \\ []) do
     url_path = "/describeWorld"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4026,7 +4058,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4054,6 +4086,7 @@ defmodule AWS.RoboMaker do
   def describe_world_export_job(%Client{} = client, input, options \\ []) do
     url_path = "/describeWorldExportJob"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4064,7 +4097,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4092,6 +4125,7 @@ defmodule AWS.RoboMaker do
   def describe_world_generation_job(%Client{} = client, input, options \\ []) do
     url_path = "/describeWorldGenerationJob"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4102,7 +4136,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4130,6 +4164,7 @@ defmodule AWS.RoboMaker do
   def describe_world_template(%Client{} = client, input, options \\ []) do
     url_path = "/describeWorldTemplate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4140,7 +4175,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4168,6 +4203,7 @@ defmodule AWS.RoboMaker do
   def get_world_template_body(%Client{} = client, input, options \\ []) do
     url_path = "/getWorldTemplateBody"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4178,7 +4214,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4212,6 +4248,7 @@ defmodule AWS.RoboMaker do
   def list_deployment_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/listDeploymentJobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4222,7 +4259,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4256,6 +4293,7 @@ defmodule AWS.RoboMaker do
   def list_fleets(%Client{} = client, input, options \\ []) do
     url_path = "/listFleets"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4266,7 +4304,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4296,6 +4334,7 @@ defmodule AWS.RoboMaker do
   def list_robot_applications(%Client{} = client, input, options \\ []) do
     url_path = "/listRobotApplications"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4306,7 +4345,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4340,6 +4379,7 @@ defmodule AWS.RoboMaker do
   def list_robots(%Client{} = client, input, options \\ []) do
     url_path = "/listRobots"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4350,7 +4390,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4379,6 +4419,7 @@ defmodule AWS.RoboMaker do
   def list_simulation_applications(%Client{} = client, input, options \\ []) do
     url_path = "/listSimulationApplications"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4389,7 +4430,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4419,6 +4460,7 @@ defmodule AWS.RoboMaker do
   def list_simulation_job_batches(%Client{} = client, input, options \\ []) do
     url_path = "/listSimulationJobBatches"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4429,7 +4471,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4459,6 +4501,7 @@ defmodule AWS.RoboMaker do
   def list_simulation_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/listSimulationJobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4469,7 +4512,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4525,6 +4568,7 @@ defmodule AWS.RoboMaker do
   def list_world_export_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/listWorldExportJobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4535,7 +4579,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4563,6 +4607,7 @@ defmodule AWS.RoboMaker do
   def list_world_generation_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/listWorldGenerationJobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4573,7 +4618,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4601,6 +4646,7 @@ defmodule AWS.RoboMaker do
   def list_world_templates(%Client{} = client, input, options \\ []) do
     url_path = "/listWorldTemplates"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4611,7 +4657,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4639,6 +4685,7 @@ defmodule AWS.RoboMaker do
   def list_worlds(%Client{} = client, input, options \\ []) do
     url_path = "/listWorlds"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4649,7 +4696,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4682,6 +4729,7 @@ defmodule AWS.RoboMaker do
   def register_robot(%Client{} = client, input, options \\ []) do
     url_path = "/registerRobot"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4692,7 +4740,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4720,6 +4768,7 @@ defmodule AWS.RoboMaker do
   def restart_simulation_job(%Client{} = client, input, options \\ []) do
     url_path = "/restartSimulationJob"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4730,7 +4779,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4759,6 +4808,7 @@ defmodule AWS.RoboMaker do
   def start_simulation_job_batch(%Client{} = client, input, options \\ []) do
     url_path = "/startSimulationJobBatch"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4769,7 +4819,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4803,6 +4853,7 @@ defmodule AWS.RoboMaker do
   def sync_deployment_job(%Client{} = client, input, options \\ []) do
     url_path = "/syncDeploymentJob"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4813,7 +4864,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4850,6 +4901,7 @@ defmodule AWS.RoboMaker do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4860,7 +4912,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4894,6 +4946,7 @@ defmodule AWS.RoboMaker do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4909,7 +4962,7 @@ defmodule AWS.RoboMaker do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4937,6 +4990,7 @@ defmodule AWS.RoboMaker do
   def update_robot_application(%Client{} = client, input, options \\ []) do
     url_path = "/updateRobotApplication"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4947,7 +5001,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4975,6 +5029,7 @@ defmodule AWS.RoboMaker do
   def update_simulation_application(%Client{} = client, input, options \\ []) do
     url_path = "/updateSimulationApplication"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4985,7 +5040,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5013,6 +5068,7 @@ defmodule AWS.RoboMaker do
   def update_world_template(%Client{} = client, input, options \\ []) do
     url_path = "/updateWorldTemplate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5023,7 +5079,7 @@ defmodule AWS.RoboMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

@@ -2815,6 +2815,7 @@ defmodule AWS.GeoRoutes do
   def calculate_isolines(%Client{} = client, input, options \\ []) do
     url_path = "/isolines"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2837,7 +2838,7 @@ defmodule AWS.GeoRoutes do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2859,6 +2860,7 @@ defmodule AWS.GeoRoutes do
   def calculate_route_matrix(%Client{} = client, input, options \\ []) do
     url_path = "/route-matrix"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2881,7 +2883,7 @@ defmodule AWS.GeoRoutes do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2899,6 +2901,7 @@ defmodule AWS.GeoRoutes do
   def calculate_routes(%Client{} = client, input, options \\ []) do
     url_path = "/routes"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2921,7 +2924,7 @@ defmodule AWS.GeoRoutes do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2941,6 +2944,7 @@ defmodule AWS.GeoRoutes do
   def optimize_waypoints(%Client{} = client, input, options \\ []) do
     url_path = "/optimize-waypoints"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2963,7 +2967,7 @@ defmodule AWS.GeoRoutes do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2980,6 +2984,7 @@ defmodule AWS.GeoRoutes do
   def snap_to_roads(%Client{} = client, input, options \\ []) do
     url_path = "/snap-to-roads"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3002,7 +3007,7 @@ defmodule AWS.GeoRoutes do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

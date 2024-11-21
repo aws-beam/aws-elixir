@@ -561,6 +561,7 @@ defmodule AWS.LaunchWizard do
   def create_deployment(%Client{} = client, input, options \\ []) do
     url_path = "/createDeployment"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -571,7 +572,7 @@ defmodule AWS.LaunchWizard do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -588,6 +589,7 @@ defmodule AWS.LaunchWizard do
   def delete_deployment(%Client{} = client, input, options \\ []) do
     url_path = "/deleteDeployment"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -598,7 +600,7 @@ defmodule AWS.LaunchWizard do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -615,6 +617,7 @@ defmodule AWS.LaunchWizard do
   def get_deployment(%Client{} = client, input, options \\ []) do
     url_path = "/getDeployment"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -625,7 +628,7 @@ defmodule AWS.LaunchWizard do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -642,6 +645,7 @@ defmodule AWS.LaunchWizard do
   def get_workload(%Client{} = client, input, options \\ []) do
     url_path = "/getWorkload"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -652,7 +656,7 @@ defmodule AWS.LaunchWizard do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -677,6 +681,7 @@ defmodule AWS.LaunchWizard do
   def get_workload_deployment_pattern(%Client{} = client, input, options \\ []) do
     url_path = "/getWorkloadDeploymentPattern"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -687,7 +692,7 @@ defmodule AWS.LaunchWizard do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -704,6 +709,7 @@ defmodule AWS.LaunchWizard do
   def list_deployment_events(%Client{} = client, input, options \\ []) do
     url_path = "/listDeploymentEvents"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -714,7 +720,7 @@ defmodule AWS.LaunchWizard do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -731,6 +737,7 @@ defmodule AWS.LaunchWizard do
   def list_deployments(%Client{} = client, input, options \\ []) do
     url_path = "/listDeployments"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -741,7 +748,7 @@ defmodule AWS.LaunchWizard do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -783,6 +790,7 @@ defmodule AWS.LaunchWizard do
   def list_workload_deployment_patterns(%Client{} = client, input, options \\ []) do
     url_path = "/listWorkloadDeploymentPatterns"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -793,7 +801,7 @@ defmodule AWS.LaunchWizard do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -814,6 +822,7 @@ defmodule AWS.LaunchWizard do
   def list_workloads(%Client{} = client, input, options \\ []) do
     url_path = "/listWorkloads"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -824,7 +833,7 @@ defmodule AWS.LaunchWizard do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -841,6 +850,7 @@ defmodule AWS.LaunchWizard do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -851,7 +861,7 @@ defmodule AWS.LaunchWizard do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -868,6 +878,7 @@ defmodule AWS.LaunchWizard do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -883,7 +894,7 @@ defmodule AWS.LaunchWizard do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

@@ -1819,6 +1819,7 @@ defmodule AWS.Billingconductor do
   def associate_accounts(%Client{} = client, input, options \\ []) do
     url_path = "/associate-accounts"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1829,7 +1830,7 @@ defmodule AWS.Billingconductor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1848,11 +1849,22 @@ defmodule AWS.Billingconductor do
   def associate_pricing_rules(%Client{} = client, input, options \\ []) do
     url_path = "/associate-pricing-rules"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1870,11 +1882,22 @@ defmodule AWS.Billingconductor do
   def batch_associate_resources_to_custom_line_item(%Client{} = client, input, options \\ []) do
     url_path = "/batch-associate-resources-to-custom-line-item"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1892,11 +1915,22 @@ defmodule AWS.Billingconductor do
   def batch_disassociate_resources_from_custom_line_item(%Client{} = client, input, options \\ []) do
     url_path = "/batch-disassociate-resources-from-custom-line-item"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1917,6 +1951,7 @@ defmodule AWS.Billingconductor do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1927,7 +1962,7 @@ defmodule AWS.Billingconductor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1955,6 +1990,7 @@ defmodule AWS.Billingconductor do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1965,7 +2001,7 @@ defmodule AWS.Billingconductor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1989,6 +2025,7 @@ defmodule AWS.Billingconductor do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1999,7 +2036,7 @@ defmodule AWS.Billingconductor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2024,6 +2061,7 @@ defmodule AWS.Billingconductor do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2034,7 +2072,7 @@ defmodule AWS.Billingconductor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2052,6 +2090,7 @@ defmodule AWS.Billingconductor do
   def delete_billing_group(%Client{} = client, input, options \\ []) do
     url_path = "/delete-billing-group"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2062,7 +2101,7 @@ defmodule AWS.Billingconductor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2081,6 +2120,7 @@ defmodule AWS.Billingconductor do
   def delete_custom_line_item(%Client{} = client, input, options \\ []) do
     url_path = "/delete-custom-line-item"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2091,7 +2131,7 @@ defmodule AWS.Billingconductor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2111,6 +2151,7 @@ defmodule AWS.Billingconductor do
   def delete_pricing_plan(%Client{} = client, input, options \\ []) do
     url_path = "/delete-pricing-plan"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2121,7 +2162,7 @@ defmodule AWS.Billingconductor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2139,6 +2180,7 @@ defmodule AWS.Billingconductor do
   def delete_pricing_rule(%Client{} = client, input, options \\ []) do
     url_path = "/delete-pricing-rule"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2149,7 +2191,7 @@ defmodule AWS.Billingconductor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2166,6 +2208,7 @@ defmodule AWS.Billingconductor do
   def disassociate_accounts(%Client{} = client, input, options \\ []) do
     url_path = "/disassociate-accounts"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2176,7 +2219,7 @@ defmodule AWS.Billingconductor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2194,11 +2237,22 @@ defmodule AWS.Billingconductor do
   def disassociate_pricing_rules(%Client{} = client, input, options \\ []) do
     url_path = "/disassociate-pricing-rules"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2213,6 +2267,7 @@ defmodule AWS.Billingconductor do
   def get_billing_group_cost_report(%Client{} = client, input, options \\ []) do
     url_path = "/get-billing-group-cost-report"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2223,7 +2278,7 @@ defmodule AWS.Billingconductor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2247,6 +2302,7 @@ defmodule AWS.Billingconductor do
   def list_account_associations(%Client{} = client, input, options \\ []) do
     url_path = "/list-account-associations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2257,7 +2313,7 @@ defmodule AWS.Billingconductor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2277,6 +2333,7 @@ defmodule AWS.Billingconductor do
   def list_billing_group_cost_reports(%Client{} = client, input, options \\ []) do
     url_path = "/list-billing-group-cost-reports"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2287,7 +2344,7 @@ defmodule AWS.Billingconductor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2307,6 +2364,7 @@ defmodule AWS.Billingconductor do
   def list_billing_groups(%Client{} = client, input, options \\ []) do
     url_path = "/list-billing-groups"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2317,7 +2375,7 @@ defmodule AWS.Billingconductor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2334,6 +2392,7 @@ defmodule AWS.Billingconductor do
   def list_custom_line_item_versions(%Client{} = client, input, options \\ []) do
     url_path = "/list-custom-line-item-versions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2344,7 +2403,7 @@ defmodule AWS.Billingconductor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2365,6 +2424,7 @@ defmodule AWS.Billingconductor do
   def list_custom_line_items(%Client{} = client, input, options \\ []) do
     url_path = "/list-custom-line-items"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2375,7 +2435,7 @@ defmodule AWS.Billingconductor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2394,6 +2454,7 @@ defmodule AWS.Billingconductor do
   def list_pricing_plans(%Client{} = client, input, options \\ []) do
     url_path = "/list-pricing-plans"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2404,7 +2465,7 @@ defmodule AWS.Billingconductor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2426,6 +2487,7 @@ defmodule AWS.Billingconductor do
   def list_pricing_plans_associated_with_pricing_rule(%Client{} = client, input, options \\ []) do
     url_path = "/list-pricing-plans-associated-with-pricing-rule"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2436,7 +2498,7 @@ defmodule AWS.Billingconductor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2455,6 +2517,7 @@ defmodule AWS.Billingconductor do
   def list_pricing_rules(%Client{} = client, input, options \\ []) do
     url_path = "/list-pricing-rules"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2465,7 +2528,7 @@ defmodule AWS.Billingconductor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2487,6 +2550,7 @@ defmodule AWS.Billingconductor do
   def list_pricing_rules_associated_to_pricing_plan(%Client{} = client, input, options \\ []) do
     url_path = "/list-pricing-rules-associated-to-pricing-plan"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2497,7 +2561,7 @@ defmodule AWS.Billingconductor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2519,6 +2583,7 @@ defmodule AWS.Billingconductor do
   def list_resources_associated_to_custom_line_item(%Client{} = client, input, options \\ []) do
     url_path = "/list-resources-associated-to-custom-line-item"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2529,7 +2594,7 @@ defmodule AWS.Billingconductor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2568,6 +2633,7 @@ defmodule AWS.Billingconductor do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2578,7 +2644,7 @@ defmodule AWS.Billingconductor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2596,6 +2662,7 @@ defmodule AWS.Billingconductor do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2611,7 +2678,7 @@ defmodule AWS.Billingconductor do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2628,6 +2695,7 @@ defmodule AWS.Billingconductor do
   def update_billing_group(%Client{} = client, input, options \\ []) do
     url_path = "/update-billing-group"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2638,7 +2706,7 @@ defmodule AWS.Billingconductor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2656,6 +2724,7 @@ defmodule AWS.Billingconductor do
   def update_custom_line_item(%Client{} = client, input, options \\ []) do
     url_path = "/update-custom-line-item"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2666,7 +2735,7 @@ defmodule AWS.Billingconductor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2683,11 +2752,22 @@ defmodule AWS.Billingconductor do
   def update_pricing_plan(%Client{} = client, input, options \\ []) do
     url_path = "/update-pricing-plan"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2701,10 +2781,21 @@ defmodule AWS.Billingconductor do
   def update_pricing_rule(%Client{} = client, input, options \\ []) do
     url_path = "/update-pricing-rule"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

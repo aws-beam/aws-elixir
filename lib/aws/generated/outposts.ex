@@ -1470,6 +1470,7 @@ defmodule AWS.Outposts do
       "/outposts/#{AWS.Util.encode_uri(outpost_identifier)}/capacity/#{AWS.Util.encode_uri(capacity_task_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1480,7 +1481,7 @@ defmodule AWS.Outposts do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1497,6 +1498,7 @@ defmodule AWS.Outposts do
   def cancel_order(%Client{} = client, order_id, input, options \\ []) do
     url_path = "/orders/#{AWS.Util.encode_uri(order_id)}/cancel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1507,7 +1509,7 @@ defmodule AWS.Outposts do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1524,6 +1526,7 @@ defmodule AWS.Outposts do
   def create_order(%Client{} = client, input, options \\ []) do
     url_path = "/orders"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1534,7 +1537,7 @@ defmodule AWS.Outposts do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1553,6 +1556,7 @@ defmodule AWS.Outposts do
   def create_outpost(%Client{} = client, input, options \\ []) do
     url_path = "/outposts"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1563,7 +1567,7 @@ defmodule AWS.Outposts do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1580,6 +1584,7 @@ defmodule AWS.Outposts do
   def create_site(%Client{} = client, input, options \\ []) do
     url_path = "/sites"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1590,7 +1595,7 @@ defmodule AWS.Outposts do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1607,6 +1612,7 @@ defmodule AWS.Outposts do
   def delete_outpost(%Client{} = client, outpost_id, input, options \\ []) do
     url_path = "/outposts/#{AWS.Util.encode_uri(outpost_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1617,7 +1623,7 @@ defmodule AWS.Outposts do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1634,6 +1640,7 @@ defmodule AWS.Outposts do
   def delete_site(%Client{} = client, site_id, input, options \\ []) do
     url_path = "/sites/#{AWS.Util.encode_uri(site_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1644,7 +1651,7 @@ defmodule AWS.Outposts do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2456,6 +2463,7 @@ defmodule AWS.Outposts do
   def start_capacity_task(%Client{} = client, outpost_identifier, input, options \\ []) do
     url_path = "/outposts/#{AWS.Util.encode_uri(outpost_identifier)}/capacity"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2466,7 +2474,7 @@ defmodule AWS.Outposts do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2497,6 +2505,7 @@ defmodule AWS.Outposts do
   def start_connection(%Client{} = client, input, options \\ []) do
     url_path = "/connections"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2507,7 +2516,7 @@ defmodule AWS.Outposts do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2524,6 +2533,7 @@ defmodule AWS.Outposts do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2534,7 +2544,7 @@ defmodule AWS.Outposts do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2551,6 +2561,7 @@ defmodule AWS.Outposts do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2566,7 +2577,7 @@ defmodule AWS.Outposts do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2583,6 +2594,7 @@ defmodule AWS.Outposts do
   def update_outpost(%Client{} = client, outpost_id, input, options \\ []) do
     url_path = "/outposts/#{AWS.Util.encode_uri(outpost_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2593,7 +2605,7 @@ defmodule AWS.Outposts do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2610,6 +2622,7 @@ defmodule AWS.Outposts do
   def update_site(%Client{} = client, site_id, input, options \\ []) do
     url_path = "/sites/#{AWS.Util.encode_uri(site_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2620,7 +2633,7 @@ defmodule AWS.Outposts do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2645,11 +2658,22 @@ defmodule AWS.Outposts do
   def update_site_address(%Client{} = client, site_id, input, options \\ []) do
     url_path = "/sites/#{AWS.Util.encode_uri(site_id)}/address"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2675,6 +2699,7 @@ defmodule AWS.Outposts do
   def update_site_rack_physical_properties(%Client{} = client, site_id, input, options \\ []) do
     url_path = "/sites/#{AWS.Util.encode_uri(site_id)}/rackPhysicalProperties"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2685,7 +2710,7 @@ defmodule AWS.Outposts do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

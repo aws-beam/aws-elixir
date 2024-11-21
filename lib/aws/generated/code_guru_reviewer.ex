@@ -949,6 +949,7 @@ defmodule AWS.CodeGuruReviewer do
   def associate_repository(%Client{} = client, input, options \\ []) do
     url_path = "/associations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -959,7 +960,7 @@ defmodule AWS.CodeGuruReviewer do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -983,6 +984,7 @@ defmodule AWS.CodeGuruReviewer do
   def create_code_review(%Client{} = client, input, options \\ []) do
     url_path = "/codereviews"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -993,7 +995,7 @@ defmodule AWS.CodeGuruReviewer do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1084,6 +1086,7 @@ defmodule AWS.CodeGuruReviewer do
   def disassociate_repository(%Client{} = client, association_arn, input, options \\ []) do
     url_path = "/associations/#{AWS.Util.encode_uri(association_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1094,7 +1097,7 @@ defmodule AWS.CodeGuruReviewer do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1394,11 +1397,22 @@ defmodule AWS.CodeGuruReviewer do
   def put_recommendation_feedback(%Client{} = client, input, options \\ []) do
     url_path = "/feedback"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1411,6 +1425,7 @@ defmodule AWS.CodeGuruReviewer do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1421,7 +1436,7 @@ defmodule AWS.CodeGuruReviewer do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1438,6 +1453,7 @@ defmodule AWS.CodeGuruReviewer do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1453,7 +1469,7 @@ defmodule AWS.CodeGuruReviewer do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

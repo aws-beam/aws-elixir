@@ -1041,6 +1041,7 @@ defmodule AWS.CodeGuruProfiler do
       "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/notificationConfiguration"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1051,7 +1052,7 @@ defmodule AWS.CodeGuruProfiler do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1075,6 +1076,7 @@ defmodule AWS.CodeGuruProfiler do
   def batch_get_frame_metric_data(%Client{} = client, profiling_group_name, input, options \\ []) do
     url_path = "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/frames/-/metrics"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1093,7 +1095,7 @@ defmodule AWS.CodeGuruProfiler do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1116,6 +1118,7 @@ defmodule AWS.CodeGuruProfiler do
   def configure_agent(%Client{} = client, profiling_group_name, input, options \\ []) do
     url_path = "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/configureAgent"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1126,7 +1129,7 @@ defmodule AWS.CodeGuruProfiler do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1143,6 +1146,7 @@ defmodule AWS.CodeGuruProfiler do
   def create_profiling_group(%Client{} = client, input, options \\ []) do
     url_path = "/profilingGroups"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1158,7 +1162,7 @@ defmodule AWS.CodeGuruProfiler do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1175,6 +1179,7 @@ defmodule AWS.CodeGuruProfiler do
   def delete_profiling_group(%Client{} = client, profiling_group_name, input, options \\ []) do
     url_path = "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1185,7 +1190,7 @@ defmodule AWS.CodeGuruProfiler do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1759,6 +1764,8 @@ defmodule AWS.CodeGuruProfiler do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"profileToken", "profileToken"}
@@ -1773,7 +1780,7 @@ defmodule AWS.CodeGuruProfiler do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1819,11 +1826,22 @@ defmodule AWS.CodeGuruProfiler do
       "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/policy/#{AWS.Util.encode_uri(action_group)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1850,6 +1868,7 @@ defmodule AWS.CodeGuruProfiler do
       "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/notificationConfiguration/#{AWS.Util.encode_uri(channel_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1860,7 +1879,7 @@ defmodule AWS.CodeGuruProfiler do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1899,6 +1918,7 @@ defmodule AWS.CodeGuruProfiler do
       "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/policy/#{AWS.Util.encode_uri(action_group)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1914,7 +1934,7 @@ defmodule AWS.CodeGuruProfiler do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1941,6 +1961,7 @@ defmodule AWS.CodeGuruProfiler do
       "/internal/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/anomalies/#{AWS.Util.encode_uri(anomaly_instance_id)}/feedback"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1951,7 +1972,7 @@ defmodule AWS.CodeGuruProfiler do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1969,6 +1990,7 @@ defmodule AWS.CodeGuruProfiler do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1979,7 +2001,7 @@ defmodule AWS.CodeGuruProfiler do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1997,6 +2019,7 @@ defmodule AWS.CodeGuruProfiler do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2012,7 +2035,7 @@ defmodule AWS.CodeGuruProfiler do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2029,10 +2052,21 @@ defmodule AWS.CodeGuruProfiler do
   def update_profiling_group(%Client{} = client, profiling_group_name, input, options \\ []) do
     url_path = "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

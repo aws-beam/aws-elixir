@@ -493,6 +493,7 @@ defmodule AWS.SupportApp do
   def create_slack_channel_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/control/create-slack-channel-configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -503,7 +504,7 @@ defmodule AWS.SupportApp do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -524,6 +525,7 @@ defmodule AWS.SupportApp do
   def delete_account_alias(%Client{} = client, input, options \\ []) do
     url_path = "/control/delete-account-alias"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -534,7 +536,7 @@ defmodule AWS.SupportApp do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -558,6 +560,7 @@ defmodule AWS.SupportApp do
   def delete_slack_channel_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/control/delete-slack-channel-configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -568,7 +571,7 @@ defmodule AWS.SupportApp do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -592,6 +595,7 @@ defmodule AWS.SupportApp do
   def delete_slack_workspace_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/control/delete-slack-workspace-configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -602,7 +606,7 @@ defmodule AWS.SupportApp do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -623,6 +627,7 @@ defmodule AWS.SupportApp do
   def get_account_alias(%Client{} = client, input, options \\ []) do
     url_path = "/control/get-account-alias"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -633,7 +638,7 @@ defmodule AWS.SupportApp do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -654,6 +659,7 @@ defmodule AWS.SupportApp do
   def list_slack_channel_configurations(%Client{} = client, input, options \\ []) do
     url_path = "/control/list-slack-channel-configurations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -664,7 +670,7 @@ defmodule AWS.SupportApp do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -685,6 +691,7 @@ defmodule AWS.SupportApp do
   def list_slack_workspace_configurations(%Client{} = client, input, options \\ []) do
     url_path = "/control/list-slack-workspace-configurations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -695,7 +702,7 @@ defmodule AWS.SupportApp do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -717,6 +724,7 @@ defmodule AWS.SupportApp do
   def put_account_alias(%Client{} = client, input, options \\ []) do
     url_path = "/control/put-account-alias"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -727,7 +735,7 @@ defmodule AWS.SupportApp do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -785,6 +793,7 @@ defmodule AWS.SupportApp do
   def register_slack_workspace_for_organization(%Client{} = client, input, options \\ []) do
     url_path = "/control/register-slack-workspace-for-organization"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -795,7 +804,7 @@ defmodule AWS.SupportApp do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -817,6 +826,7 @@ defmodule AWS.SupportApp do
   def update_slack_channel_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/control/update-slack-channel-configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -827,7 +837,7 @@ defmodule AWS.SupportApp do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

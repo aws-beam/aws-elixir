@@ -2762,11 +2762,22 @@ defmodule AWS.Elasticsearch do
       "/2015-01-01/es/ccs/inboundConnection/#{AWS.Util.encode_uri(cross_cluster_search_connection_id)}/accept"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2784,6 +2795,7 @@ defmodule AWS.Elasticsearch do
   def add_tags(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/tags"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2794,7 +2806,7 @@ defmodule AWS.Elasticsearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2813,6 +2825,7 @@ defmodule AWS.Elasticsearch do
       "/2015-01-01/packages/associate/#{AWS.Util.encode_uri(package_id)}/#{AWS.Util.encode_uri(domain_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2823,7 +2836,7 @@ defmodule AWS.Elasticsearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2848,6 +2861,7 @@ defmodule AWS.Elasticsearch do
       "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/authorizeVpcEndpointAccess"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2858,7 +2872,7 @@ defmodule AWS.Elasticsearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2880,6 +2894,7 @@ defmodule AWS.Elasticsearch do
   def cancel_domain_config_change(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/config/cancel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2890,7 +2905,7 @@ defmodule AWS.Elasticsearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2914,6 +2929,7 @@ defmodule AWS.Elasticsearch do
   def cancel_elasticsearch_service_software_update(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/serviceSoftwareUpdate/cancel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2924,7 +2940,7 @@ defmodule AWS.Elasticsearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2945,6 +2961,7 @@ defmodule AWS.Elasticsearch do
   def create_elasticsearch_domain(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/domain"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2955,7 +2972,7 @@ defmodule AWS.Elasticsearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2977,6 +2994,7 @@ defmodule AWS.Elasticsearch do
   def create_outbound_cross_cluster_search_connection(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/ccs/outboundConnection"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2987,7 +3005,7 @@ defmodule AWS.Elasticsearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3004,6 +3022,7 @@ defmodule AWS.Elasticsearch do
   def create_package(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/packages"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3014,7 +3033,7 @@ defmodule AWS.Elasticsearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3031,6 +3050,7 @@ defmodule AWS.Elasticsearch do
   def create_vpc_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/vpcEndpoints"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3041,7 +3061,7 @@ defmodule AWS.Elasticsearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3065,6 +3085,7 @@ defmodule AWS.Elasticsearch do
   def delete_elasticsearch_domain(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3075,7 +3096,7 @@ defmodule AWS.Elasticsearch do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3098,6 +3119,7 @@ defmodule AWS.Elasticsearch do
   def delete_elasticsearch_service_role(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/role"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3108,7 +3130,7 @@ defmodule AWS.Elasticsearch do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3138,6 +3160,7 @@ defmodule AWS.Elasticsearch do
       "/2015-01-01/es/ccs/inboundConnection/#{AWS.Util.encode_uri(cross_cluster_search_connection_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3148,7 +3171,7 @@ defmodule AWS.Elasticsearch do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3178,6 +3201,7 @@ defmodule AWS.Elasticsearch do
       "/2015-01-01/es/ccs/outboundConnection/#{AWS.Util.encode_uri(cross_cluster_search_connection_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3188,7 +3212,7 @@ defmodule AWS.Elasticsearch do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3205,6 +3229,7 @@ defmodule AWS.Elasticsearch do
   def delete_package(%Client{} = client, package_id, input, options \\ []) do
     url_path = "/2015-01-01/packages/#{AWS.Util.encode_uri(package_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3215,7 +3240,7 @@ defmodule AWS.Elasticsearch do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3232,6 +3257,7 @@ defmodule AWS.Elasticsearch do
   def delete_vpc_endpoint(%Client{} = client, vpc_endpoint_id, input, options \\ []) do
     url_path = "/2015-01-01/es/vpcEndpoints/#{AWS.Util.encode_uri(vpc_endpoint_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3242,7 +3268,7 @@ defmodule AWS.Elasticsearch do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3346,6 +3372,7 @@ defmodule AWS.Elasticsearch do
   def describe_elasticsearch_domains(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/domain-info"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3356,7 +3383,7 @@ defmodule AWS.Elasticsearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3426,6 +3453,7 @@ defmodule AWS.Elasticsearch do
   def describe_inbound_cross_cluster_search_connections(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/ccs/inboundConnection/search"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3436,7 +3464,7 @@ defmodule AWS.Elasticsearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3457,6 +3485,7 @@ defmodule AWS.Elasticsearch do
   def describe_outbound_cross_cluster_search_connections(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/ccs/outboundConnection/search"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3467,7 +3496,7 @@ defmodule AWS.Elasticsearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3486,6 +3515,7 @@ defmodule AWS.Elasticsearch do
   def describe_packages(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/packages/describe"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3496,7 +3526,7 @@ defmodule AWS.Elasticsearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3613,6 +3643,7 @@ defmodule AWS.Elasticsearch do
   def describe_vpc_endpoints(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/vpcEndpoints/describe"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3623,7 +3654,7 @@ defmodule AWS.Elasticsearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3642,6 +3673,7 @@ defmodule AWS.Elasticsearch do
       "/2015-01-01/packages/dissociate/#{AWS.Util.encode_uri(package_id)}/#{AWS.Util.encode_uri(domain_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3652,7 +3684,7 @@ defmodule AWS.Elasticsearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4095,6 +4127,7 @@ defmodule AWS.Elasticsearch do
   def purchase_reserved_elasticsearch_instance_offering(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/purchaseReservedInstanceOffering"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4105,7 +4138,7 @@ defmodule AWS.Elasticsearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4135,11 +4168,22 @@ defmodule AWS.Elasticsearch do
       "/2015-01-01/es/ccs/inboundConnection/#{AWS.Util.encode_uri(cross_cluster_search_connection_id)}/reject"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4152,6 +4196,7 @@ defmodule AWS.Elasticsearch do
   def remove_tags(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/tags-removal"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4162,7 +4207,7 @@ defmodule AWS.Elasticsearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4186,6 +4231,7 @@ defmodule AWS.Elasticsearch do
   def revoke_vpc_endpoint_access(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/revokeVpcEndpointAccess"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4196,7 +4242,7 @@ defmodule AWS.Elasticsearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4217,6 +4263,7 @@ defmodule AWS.Elasticsearch do
   def start_elasticsearch_service_software_update(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/serviceSoftwareUpdate/start"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4227,7 +4274,7 @@ defmodule AWS.Elasticsearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4250,6 +4297,7 @@ defmodule AWS.Elasticsearch do
   def update_elasticsearch_domain_config(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/config"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4260,7 +4308,7 @@ defmodule AWS.Elasticsearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4277,6 +4325,7 @@ defmodule AWS.Elasticsearch do
   def update_package(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/packages/update"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4287,7 +4336,7 @@ defmodule AWS.Elasticsearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4304,6 +4353,7 @@ defmodule AWS.Elasticsearch do
   def update_vpc_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/vpcEndpoints/update"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4314,7 +4364,7 @@ defmodule AWS.Elasticsearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4332,6 +4382,7 @@ defmodule AWS.Elasticsearch do
   def upgrade_elasticsearch_domain(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/upgradeDomain"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4342,7 +4393,7 @@ defmodule AWS.Elasticsearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

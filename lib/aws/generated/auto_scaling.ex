@@ -395,6 +395,17 @@ defmodule AWS.AutoScaling do
 
   ## Example:
       
+      baseline_performance_factors_request() :: %{
+        "Cpu" => cpu_performance_factor_request()
+      }
+      
+  """
+  @type baseline_performance_factors_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       metric_granularity_type() :: %{
         "Granularity" => String.t()
       }
@@ -482,6 +493,18 @@ defmodule AWS.AutoScaling do
       
   """
   @type delete_auto_scaling_group_type() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_reservation_target() :: %{
+        "CapacityReservationIds" => list(String.t()()),
+        "CapacityReservationResourceGroupArns" => list(String.t()())
+      }
+      
+  """
+  @type capacity_reservation_target() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1331,6 +1354,17 @@ defmodule AWS.AutoScaling do
 
   ## Example:
       
+      performance_factor_reference_request() :: %{
+        "InstanceFamily" => String.t()
+      }
+      
+  """
+  @type performance_factor_reference_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       scheduled_update_group_action_request() :: %{
         "DesiredCapacity" => integer(),
         "EndTime" => non_neg_integer(),
@@ -1407,6 +1441,18 @@ defmodule AWS.AutoScaling do
       
   """
   @type put_lifecycle_hook_type() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_reservation_specification() :: %{
+        "CapacityReservationPreference" => list(any()),
+        "CapacityReservationTarget" => capacity_reservation_target()
+      }
+      
+  """
+  @type capacity_reservation_specification() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1490,6 +1536,7 @@ defmodule AWS.AutoScaling do
         optional("AvailabilityZoneImpairmentPolicy") => availability_zone_impairment_policy(),
         optional("AvailabilityZones") => list(String.t()()),
         optional("CapacityRebalance") => boolean(),
+        optional("CapacityReservationSpecification") => capacity_reservation_specification(),
         optional("Context") => String.t(),
         optional("DefaultCooldown") => integer(),
         optional("DefaultInstanceWarmup") => integer(),
@@ -1853,6 +1900,7 @@ defmodule AWS.AutoScaling do
         "AllowedInstanceTypes" => list(String.t()()),
         "BareMetal" => list(any()),
         "BaselineEbsBandwidthMbps" => baseline_ebs_bandwidth_mbps_request(),
+        "BaselinePerformanceFactors" => baseline_performance_factors_request(),
         "BurstablePerformance" => list(any()),
         "CpuManufacturers" => list(list(any())()),
         "ExcludedInstanceTypes" => list(String.t()()),
@@ -1914,6 +1962,7 @@ defmodule AWS.AutoScaling do
         "DefaultCooldown" => integer(),
         "MaxInstanceLifetime" => integer(),
         "LoadBalancerNames" => list(String.t()()),
+        "CapacityReservationSpecification" => capacity_reservation_specification(),
         "MinSize" => integer(),
         "HealthCheckGracePeriod" => integer(),
         "AvailabilityZones" => list(String.t()()),
@@ -2042,6 +2091,7 @@ defmodule AWS.AutoScaling do
         optional("AvailabilityZoneImpairmentPolicy") => availability_zone_impairment_policy(),
         optional("AvailabilityZones") => list(String.t()()),
         optional("CapacityRebalance") => boolean(),
+        optional("CapacityReservationSpecification") => capacity_reservation_specification(),
         optional("Context") => String.t(),
         optional("DefaultCooldown") => integer(),
         optional("DefaultInstanceWarmup") => integer(),
@@ -2133,6 +2183,17 @@ defmodule AWS.AutoScaling do
       
   """
   @type launch_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cpu_performance_factor_request() :: %{
+        "References" => list(performance_factor_reference_request()())
+      }
+      
+  """
+  @type cpu_performance_factor_request() :: %{String.t() => any()}
 
   @typedoc """
 

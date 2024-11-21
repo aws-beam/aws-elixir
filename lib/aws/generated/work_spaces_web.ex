@@ -348,6 +348,20 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
+      inline_redaction_configuration() :: %{
+        "globalConfidenceLevel" => integer(),
+        "globalEnforcedUrls" => list(String.t()()),
+        "globalExemptUrls" => list(String.t()()),
+        "inlineRedactionPatterns" => list(inline_redaction_pattern()())
+      }
+
+  """
+  @type inline_redaction_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       associate_trust_store_request() :: %{
         required("trustStoreArn") => String.t()
       }
@@ -477,6 +491,17 @@ defmodule AWS.WorkSpacesWeb do
 
   """
   @type get_trust_store_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_protection_settings_response() :: %{
+        "dataProtectionSettingsArn" => String.t()
+      }
+
+  """
+  @type create_data_protection_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -673,6 +698,15 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
+      delete_data_protection_settings_response() :: %{}
+
+  """
+  @type delete_data_protection_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_trust_stores_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
@@ -760,6 +794,22 @@ defmodule AWS.WorkSpacesWeb do
 
   """
   @type list_portals_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inline_redaction_pattern() :: %{
+        "builtInPatternId" => String.t(),
+        "confidenceLevel" => integer(),
+        "customPattern" => custom_pattern(),
+        "enforcedUrls" => list(String.t()()),
+        "exemptUrls" => list(String.t()()),
+        "redactionPlaceHolder" => redaction_place_holder()
+      }
+
+  """
+  @type inline_redaction_pattern() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -934,6 +984,18 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
+      associate_data_protection_settings_response() :: %{
+        "dataProtectionSettingsArn" => String.t(),
+        "portalArn" => String.t()
+      }
+
+  """
+  @type associate_data_protection_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_network_settings_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
@@ -1015,10 +1077,39 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
+      data_protection_settings() :: %{
+        "additionalEncryptionContext" => map(),
+        "associatedPortalArns" => list(String.t()()),
+        "creationDate" => non_neg_integer(),
+        "customerManagedKey" => String.t(),
+        "dataProtectionSettingsArn" => String.t(),
+        "description" => String.t(),
+        "displayName" => String.t(),
+        "inlineRedactionConfiguration" => inline_redaction_configuration()
+      }
+
+  """
+  @type data_protection_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       disassociate_user_settings_response() :: %{}
 
   """
   @type disassociate_user_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_data_protection_settings_response() :: %{
+        "dataProtectionSettings" => data_protection_settings()
+      }
+
+  """
+  @type update_data_protection_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1030,6 +1121,20 @@ defmodule AWS.WorkSpacesWeb do
 
   """
   @type browser_settings_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_data_protection_settings_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("description") => String.t(),
+        optional("displayName") => String.t(),
+        optional("inlineRedactionConfiguration") => inline_redaction_configuration()
+      }
+
+  """
+  @type update_data_protection_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1122,6 +1227,18 @@ defmodule AWS.WorkSpacesWeb do
 
   """
   @type list_sessions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_protection_settings_response() :: %{
+        "dataProtectionSettings" => list(data_protection_settings_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_data_protection_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1301,6 +1418,15 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
+      delete_data_protection_settings_request() :: %{}
+
+  """
+  @type delete_data_protection_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       certificate() :: %{
         "body" => binary(),
         "issuer" => String.t(),
@@ -1414,6 +1540,18 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
+      redaction_place_holder() :: %{
+        "redactionPlaceHolderText" => String.t(),
+        "redactionPlaceHolderType" => String.t()
+      }
+
+  """
+  @type redaction_place_holder() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_user_settings_request() :: %{
         optional("additionalEncryptionContext") => map(),
         optional("clientToken") => String.t(),
@@ -1446,6 +1584,20 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
+      data_protection_settings_summary() :: %{
+        "creationDate" => non_neg_integer(),
+        "dataProtectionSettingsArn" => String.t(),
+        "description" => String.t(),
+        "displayName" => String.t()
+      }
+
+  """
+  @type data_protection_settings_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_portal_request() :: %{
         optional("authenticationType") => String.t(),
         optional("displayName") => String.t(),
@@ -1455,6 +1607,32 @@ defmodule AWS.WorkSpacesWeb do
 
   """
   @type update_portal_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_protection_settings_request() :: %{}
+
+  """
+  @type get_data_protection_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_protection_settings_request() :: %{
+        optional("additionalEncryptionContext") => map(),
+        optional("clientToken") => String.t(),
+        optional("customerManagedKey") => String.t(),
+        optional("description") => String.t(),
+        optional("displayName") => String.t(),
+        optional("inlineRedactionConfiguration") => inline_redaction_configuration(),
+        optional("tags") => list(tag()())
+      }
+
+  """
+  @type create_data_protection_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1473,6 +1651,15 @@ defmodule AWS.WorkSpacesWeb do
 
   """
   @type ip_access_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_data_protection_settings_response() :: %{}
+
+  """
+  @type disassociate_data_protection_settings_response() :: %{}
 
   @typedoc """
 
@@ -1544,6 +1731,17 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
+      associate_data_protection_settings_request() :: %{
+        required("dataProtectionSettingsArn") => String.t()
+      }
+
+  """
+  @type associate_data_protection_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_browser_settings_response() :: %{
         "browserSettings" => list(browser_settings_summary()()),
         "nextToken" => String.t()
@@ -1551,6 +1749,18 @@ defmodule AWS.WorkSpacesWeb do
 
   """
   @type list_browser_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_protection_settings_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_data_protection_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1573,6 +1783,7 @@ defmodule AWS.WorkSpacesWeb do
         "browserSettingsArn" => String.t(),
         "browserType" => String.t(),
         "creationDate" => non_neg_integer(),
+        "dataProtectionSettingsArn" => String.t(),
         "displayName" => String.t(),
         "instanceType" => String.t(),
         "ipAccessSettingsArn" => String.t(),
@@ -1649,6 +1860,20 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
+      custom_pattern() :: %{
+        "keywordRegex" => String.t(),
+        "patternDescription" => String.t(),
+        "patternName" => String.t(),
+        "patternRegex" => String.t()
+      }
+
+  """
+  @type custom_pattern() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_user_access_logging_settings_request() :: %{
         optional("clientToken") => String.t(),
         optional("tags") => list(tag()()),
@@ -1688,10 +1913,30 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
+      get_data_protection_settings_response() :: %{
+        "dataProtectionSettings" => data_protection_settings()
+      }
+
+  """
+  @type get_data_protection_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       disassociate_user_settings_request() :: %{}
 
   """
   @type disassociate_user_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_data_protection_settings_request() :: %{}
+
+  """
+  @type disassociate_data_protection_settings_request() :: %{}
 
   @typedoc """
 
@@ -1815,6 +2060,7 @@ defmodule AWS.WorkSpacesWeb do
         "browserType" => String.t(),
         "creationDate" => non_neg_integer(),
         "customerManagedKey" => String.t(),
+        "dataProtectionSettingsArn" => String.t(),
         "displayName" => String.t(),
         "instanceType" => String.t(),
         "ipAccessSettingsArn" => String.t(),
@@ -1873,6 +2119,14 @@ defmodule AWS.WorkSpacesWeb do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type associate_data_protection_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type associate_ip_access_settings_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1914,6 +2168,15 @@ defmodule AWS.WorkSpacesWeb do
           | conflict_exception()
 
   @type create_browser_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_data_protection_settings_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -1987,6 +2250,13 @@ defmodule AWS.WorkSpacesWeb do
           | internal_server_exception()
           | conflict_exception()
 
+  @type delete_data_protection_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
   @type delete_identity_provider_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2044,6 +2314,14 @@ defmodule AWS.WorkSpacesWeb do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type disassociate_data_protection_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type disassociate_ip_access_settings_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2092,6 +2370,13 @@ defmodule AWS.WorkSpacesWeb do
           | resource_not_found_exception()
 
   @type get_browser_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_data_protection_settings_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -2169,6 +2454,12 @@ defmodule AWS.WorkSpacesWeb do
           | resource_not_found_exception()
 
   @type list_browser_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_data_protection_settings_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -2259,6 +2550,13 @@ defmodule AWS.WorkSpacesWeb do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type update_data_protection_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type update_identity_provider_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2342,6 +2640,7 @@ defmodule AWS.WorkSpacesWeb do
   def associate_browser_settings(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/browserSettings"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2351,7 +2650,55 @@ defmodule AWS.WorkSpacesWeb do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Associates a data protection settings resource with a web portal.
+  """
+  @spec associate_data_protection_settings(
+          map(),
+          String.t(),
+          associate_data_protection_settings_request(),
+          list()
+        ) ::
+          {:ok, associate_data_protection_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, associate_data_protection_settings_errors()}
+  def associate_data_protection_settings(%Client{} = client, portal_arn, input, options \\ []) do
+    url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/dataProtectionSettings"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"dataProtectionSettingsArn", "dataProtectionSettingsArn"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2369,6 +2716,7 @@ defmodule AWS.WorkSpacesWeb do
   def associate_ip_access_settings(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/ipAccessSettings"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2378,7 +2726,17 @@ defmodule AWS.WorkSpacesWeb do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2396,6 +2754,7 @@ defmodule AWS.WorkSpacesWeb do
   def associate_network_settings(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/networkSettings"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2405,7 +2764,17 @@ defmodule AWS.WorkSpacesWeb do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2418,6 +2787,7 @@ defmodule AWS.WorkSpacesWeb do
   def associate_trust_store(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/trustStores"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2427,7 +2797,17 @@ defmodule AWS.WorkSpacesWeb do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2447,6 +2827,7 @@ defmodule AWS.WorkSpacesWeb do
       "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/userAccessLoggingSettings"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2456,7 +2837,17 @@ defmodule AWS.WorkSpacesWeb do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2469,6 +2860,7 @@ defmodule AWS.WorkSpacesWeb do
   def associate_user_settings(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/userSettings"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2478,7 +2870,17 @@ defmodule AWS.WorkSpacesWeb do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2496,6 +2898,7 @@ defmodule AWS.WorkSpacesWeb do
   def create_browser_settings(%Client{} = client, input, options \\ []) do
     url_path = "/browserSettings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2506,7 +2909,36 @@ defmodule AWS.WorkSpacesWeb do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a data protection settings resource that can be associated with a web
+  portal.
+  """
+  @spec create_data_protection_settings(map(), create_data_protection_settings_request(), list()) ::
+          {:ok, create_data_protection_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_data_protection_settings_errors()}
+  def create_data_protection_settings(%Client{} = client, input, options \\ []) do
+    url_path = "/dataProtectionSettings"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2523,6 +2955,7 @@ defmodule AWS.WorkSpacesWeb do
   def create_identity_provider(%Client{} = client, input, options \\ []) do
     url_path = "/identityProviders"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2533,7 +2966,7 @@ defmodule AWS.WorkSpacesWeb do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2550,6 +2983,7 @@ defmodule AWS.WorkSpacesWeb do
   def create_ip_access_settings(%Client{} = client, input, options \\ []) do
     url_path = "/ipAccessSettings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2560,7 +2994,7 @@ defmodule AWS.WorkSpacesWeb do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2582,6 +3016,7 @@ defmodule AWS.WorkSpacesWeb do
   def create_network_settings(%Client{} = client, input, options \\ []) do
     url_path = "/networkSettings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2592,7 +3027,7 @@ defmodule AWS.WorkSpacesWeb do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2609,6 +3044,7 @@ defmodule AWS.WorkSpacesWeb do
   def create_portal(%Client{} = client, input, options \\ []) do
     url_path = "/portals"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2619,7 +3055,7 @@ defmodule AWS.WorkSpacesWeb do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2645,6 +3081,7 @@ defmodule AWS.WorkSpacesWeb do
   def create_trust_store(%Client{} = client, input, options \\ []) do
     url_path = "/trustStores"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2655,7 +3092,7 @@ defmodule AWS.WorkSpacesWeb do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2678,6 +3115,7 @@ defmodule AWS.WorkSpacesWeb do
   def create_user_access_logging_settings(%Client{} = client, input, options \\ []) do
     url_path = "/userAccessLoggingSettings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2688,7 +3126,7 @@ defmodule AWS.WorkSpacesWeb do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2710,6 +3148,7 @@ defmodule AWS.WorkSpacesWeb do
   def create_user_settings(%Client{} = client, input, options \\ []) do
     url_path = "/userSettings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2720,7 +3159,7 @@ defmodule AWS.WorkSpacesWeb do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2737,6 +3176,7 @@ defmodule AWS.WorkSpacesWeb do
   def delete_browser_settings(%Client{} = client, browser_settings_arn, input, options \\ []) do
     url_path = "/browserSettings/#{AWS.Util.encode_multi_segment_uri(browser_settings_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2747,7 +3187,47 @@ defmodule AWS.WorkSpacesWeb do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes data protection settings.
+  """
+  @spec delete_data_protection_settings(
+          map(),
+          String.t(),
+          delete_data_protection_settings_request(),
+          list()
+        ) ::
+          {:ok, delete_data_protection_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_data_protection_settings_errors()}
+  def delete_data_protection_settings(
+        %Client{} = client,
+        data_protection_settings_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/dataProtectionSettings/#{AWS.Util.encode_multi_segment_uri(data_protection_settings_arn)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2764,6 +3244,7 @@ defmodule AWS.WorkSpacesWeb do
   def delete_identity_provider(%Client{} = client, identity_provider_arn, input, options \\ []) do
     url_path = "/identityProviders/#{AWS.Util.encode_multi_segment_uri(identity_provider_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2774,7 +3255,7 @@ defmodule AWS.WorkSpacesWeb do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2791,6 +3272,7 @@ defmodule AWS.WorkSpacesWeb do
   def delete_ip_access_settings(%Client{} = client, ip_access_settings_arn, input, options \\ []) do
     url_path = "/ipAccessSettings/#{AWS.Util.encode_multi_segment_uri(ip_access_settings_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2801,7 +3283,7 @@ defmodule AWS.WorkSpacesWeb do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2818,6 +3300,7 @@ defmodule AWS.WorkSpacesWeb do
   def delete_network_settings(%Client{} = client, network_settings_arn, input, options \\ []) do
     url_path = "/networkSettings/#{AWS.Util.encode_multi_segment_uri(network_settings_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2828,7 +3311,7 @@ defmodule AWS.WorkSpacesWeb do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2845,6 +3328,7 @@ defmodule AWS.WorkSpacesWeb do
   def delete_portal(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2855,7 +3339,7 @@ defmodule AWS.WorkSpacesWeb do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2872,6 +3356,7 @@ defmodule AWS.WorkSpacesWeb do
   def delete_trust_store(%Client{} = client, trust_store_arn, input, options \\ []) do
     url_path = "/trustStores/#{AWS.Util.encode_multi_segment_uri(trust_store_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2882,7 +3367,7 @@ defmodule AWS.WorkSpacesWeb do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2911,6 +3396,7 @@ defmodule AWS.WorkSpacesWeb do
       "/userAccessLoggingSettings/#{AWS.Util.encode_multi_segment_uri(user_access_logging_settings_arn)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2921,7 +3407,7 @@ defmodule AWS.WorkSpacesWeb do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2938,6 +3424,7 @@ defmodule AWS.WorkSpacesWeb do
   def delete_user_settings(%Client{} = client, user_settings_arn, input, options \\ []) do
     url_path = "/userSettings/#{AWS.Util.encode_multi_segment_uri(user_settings_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2948,7 +3435,7 @@ defmodule AWS.WorkSpacesWeb do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2970,6 +3457,7 @@ defmodule AWS.WorkSpacesWeb do
   def disassociate_browser_settings(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/browserSettings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2980,7 +3468,40 @@ defmodule AWS.WorkSpacesWeb do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Disassociates data protection settings from a web portal.
+  """
+  @spec disassociate_data_protection_settings(
+          map(),
+          String.t(),
+          disassociate_data_protection_settings_request(),
+          list()
+        ) ::
+          {:ok, disassociate_data_protection_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disassociate_data_protection_settings_errors()}
+  def disassociate_data_protection_settings(%Client{} = client, portal_arn, input, options \\ []) do
+    url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/dataProtectionSettings"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3002,6 +3523,7 @@ defmodule AWS.WorkSpacesWeb do
   def disassociate_ip_access_settings(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/ipAccessSettings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3012,7 +3534,7 @@ defmodule AWS.WorkSpacesWeb do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3034,6 +3556,7 @@ defmodule AWS.WorkSpacesWeb do
   def disassociate_network_settings(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/networkSettings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3044,7 +3567,7 @@ defmodule AWS.WorkSpacesWeb do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3061,6 +3584,7 @@ defmodule AWS.WorkSpacesWeb do
   def disassociate_trust_store(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/trustStores"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3071,7 +3595,7 @@ defmodule AWS.WorkSpacesWeb do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3100,6 +3624,7 @@ defmodule AWS.WorkSpacesWeb do
       "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/userAccessLoggingSettings"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3110,7 +3635,7 @@ defmodule AWS.WorkSpacesWeb do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3132,6 +3657,7 @@ defmodule AWS.WorkSpacesWeb do
   def disassociate_user_settings(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/userSettings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3142,7 +3668,7 @@ defmodule AWS.WorkSpacesWeb do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3161,6 +3687,7 @@ defmodule AWS.WorkSpacesWeb do
       "/portals/#{AWS.Util.encode_uri(portal_id)}/sessions/#{AWS.Util.encode_uri(session_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3171,7 +3698,7 @@ defmodule AWS.WorkSpacesWeb do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3187,6 +3714,29 @@ defmodule AWS.WorkSpacesWeb do
           | {:error, get_browser_settings_errors()}
   def get_browser_settings(%Client{} = client, browser_settings_arn, options \\ []) do
     url_path = "/browserSettings/#{AWS.Util.encode_multi_segment_uri(browser_settings_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets the data protection settings.
+  """
+  @spec get_data_protection_settings(map(), String.t(), list()) ::
+          {:ok, get_data_protection_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_data_protection_settings_errors()}
+  def get_data_protection_settings(
+        %Client{} = client,
+        data_protection_settings_arn,
+        options \\ []
+      ) do
+    url_path =
+      "/dataProtectionSettings/#{AWS.Util.encode_multi_segment_uri(data_protection_settings_arn)}"
+
     headers = []
     query_params = []
 
@@ -3394,6 +3944,42 @@ defmodule AWS.WorkSpacesWeb do
         options \\ []
       ) do
     url_path = "/browserSettings"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves a list of data protection settings.
+  """
+  @spec list_data_protection_settings(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_data_protection_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_data_protection_settings_errors()}
+  def list_data_protection_settings(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/dataProtectionSettings"
     headers = []
     query_params = []
 
@@ -3803,6 +4389,7 @@ defmodule AWS.WorkSpacesWeb do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_multi_segment_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3813,7 +4400,7 @@ defmodule AWS.WorkSpacesWeb do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3830,6 +4417,7 @@ defmodule AWS.WorkSpacesWeb do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_multi_segment_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3845,7 +4433,7 @@ defmodule AWS.WorkSpacesWeb do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3862,6 +4450,7 @@ defmodule AWS.WorkSpacesWeb do
   def update_browser_settings(%Client{} = client, browser_settings_arn, input, options \\ []) do
     url_path = "/browserSettings/#{AWS.Util.encode_multi_segment_uri(browser_settings_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3872,7 +4461,47 @@ defmodule AWS.WorkSpacesWeb do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates data protection settings.
+  """
+  @spec update_data_protection_settings(
+          map(),
+          String.t(),
+          update_data_protection_settings_request(),
+          list()
+        ) ::
+          {:ok, update_data_protection_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_data_protection_settings_errors()}
+  def update_data_protection_settings(
+        %Client{} = client,
+        data_protection_settings_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/dataProtectionSettings/#{AWS.Util.encode_multi_segment_uri(data_protection_settings_arn)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3889,6 +4518,7 @@ defmodule AWS.WorkSpacesWeb do
   def update_identity_provider(%Client{} = client, identity_provider_arn, input, options \\ []) do
     url_path = "/identityProviders/#{AWS.Util.encode_multi_segment_uri(identity_provider_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3899,7 +4529,7 @@ defmodule AWS.WorkSpacesWeb do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3916,6 +4546,7 @@ defmodule AWS.WorkSpacesWeb do
   def update_ip_access_settings(%Client{} = client, ip_access_settings_arn, input, options \\ []) do
     url_path = "/ipAccessSettings/#{AWS.Util.encode_multi_segment_uri(ip_access_settings_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3926,7 +4557,7 @@ defmodule AWS.WorkSpacesWeb do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3943,6 +4574,7 @@ defmodule AWS.WorkSpacesWeb do
   def update_network_settings(%Client{} = client, network_settings_arn, input, options \\ []) do
     url_path = "/networkSettings/#{AWS.Util.encode_multi_segment_uri(network_settings_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3953,7 +4585,7 @@ defmodule AWS.WorkSpacesWeb do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3970,11 +4602,22 @@ defmodule AWS.WorkSpacesWeb do
   def update_portal(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3987,6 +4630,7 @@ defmodule AWS.WorkSpacesWeb do
   def update_trust_store(%Client{} = client, trust_store_arn, input, options \\ []) do
     url_path = "/trustStores/#{AWS.Util.encode_multi_segment_uri(trust_store_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3997,7 +4641,7 @@ defmodule AWS.WorkSpacesWeb do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4026,6 +4670,7 @@ defmodule AWS.WorkSpacesWeb do
       "/userAccessLoggingSettings/#{AWS.Util.encode_multi_segment_uri(user_access_logging_settings_arn)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4036,7 +4681,7 @@ defmodule AWS.WorkSpacesWeb do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4053,6 +4698,7 @@ defmodule AWS.WorkSpacesWeb do
   def update_user_settings(%Client{} = client, user_settings_arn, input, options \\ []) do
     url_path = "/userSettings/#{AWS.Util.encode_multi_segment_uri(user_settings_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4063,7 +4709,7 @@ defmodule AWS.WorkSpacesWeb do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

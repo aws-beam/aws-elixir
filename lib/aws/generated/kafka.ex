@@ -2929,6 +2929,7 @@ defmodule AWS.Kafka do
   def batch_associate_scram_secret(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/scram-secrets"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2939,7 +2940,7 @@ defmodule AWS.Kafka do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2961,6 +2962,7 @@ defmodule AWS.Kafka do
   def batch_disassociate_scram_secret(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/scram-secrets"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2971,7 +2973,7 @@ defmodule AWS.Kafka do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2988,6 +2990,7 @@ defmodule AWS.Kafka do
   def create_cluster(%Client{} = client, input, options \\ []) do
     url_path = "/v1/clusters"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2998,7 +3001,7 @@ defmodule AWS.Kafka do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3015,6 +3018,7 @@ defmodule AWS.Kafka do
   def create_cluster_v2(%Client{} = client, input, options \\ []) do
     url_path = "/api/v2/clusters"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3025,7 +3029,7 @@ defmodule AWS.Kafka do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3042,6 +3046,7 @@ defmodule AWS.Kafka do
   def create_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/v1/configurations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3052,7 +3057,7 @@ defmodule AWS.Kafka do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3069,6 +3074,7 @@ defmodule AWS.Kafka do
   def create_replicator(%Client{} = client, input, options \\ []) do
     url_path = "/replication/v1/replicators"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3079,7 +3085,7 @@ defmodule AWS.Kafka do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3096,6 +3102,7 @@ defmodule AWS.Kafka do
   def create_vpc_connection(%Client{} = client, input, options \\ []) do
     url_path = "/v1/vpc-connection"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3106,7 +3113,7 @@ defmodule AWS.Kafka do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3124,6 +3131,7 @@ defmodule AWS.Kafka do
   def delete_cluster(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3139,7 +3147,7 @@ defmodule AWS.Kafka do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3157,6 +3165,7 @@ defmodule AWS.Kafka do
   def delete_cluster_policy(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/policy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3167,7 +3176,7 @@ defmodule AWS.Kafka do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3184,6 +3193,7 @@ defmodule AWS.Kafka do
   def delete_configuration(%Client{} = client, arn, input, options \\ []) do
     url_path = "/v1/configurations/#{AWS.Util.encode_uri(arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3194,7 +3204,7 @@ defmodule AWS.Kafka do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3211,6 +3221,7 @@ defmodule AWS.Kafka do
   def delete_replicator(%Client{} = client, replicator_arn, input, options \\ []) do
     url_path = "/replication/v1/replicators/#{AWS.Util.encode_uri(replicator_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3226,7 +3237,7 @@ defmodule AWS.Kafka do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3243,6 +3254,7 @@ defmodule AWS.Kafka do
   def delete_vpc_connection(%Client{} = client, arn, input, options \\ []) do
     url_path = "/v1/vpc-connection/#{AWS.Util.encode_uri(arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3253,7 +3265,7 @@ defmodule AWS.Kafka do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3978,11 +3990,22 @@ defmodule AWS.Kafka do
   def put_cluster_policy(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/policy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3995,11 +4018,22 @@ defmodule AWS.Kafka do
   def reboot_broker(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/reboot-broker"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4017,11 +4051,22 @@ defmodule AWS.Kafka do
   def reject_client_vpc_connection(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/client-vpc-connection"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4034,6 +4079,7 @@ defmodule AWS.Kafka do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4044,7 +4090,7 @@ defmodule AWS.Kafka do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4061,6 +4107,7 @@ defmodule AWS.Kafka do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4076,7 +4123,7 @@ defmodule AWS.Kafka do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4093,11 +4140,22 @@ defmodule AWS.Kafka do
   def update_broker_count(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/nodes/count"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4110,11 +4168,22 @@ defmodule AWS.Kafka do
   def update_broker_storage(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/nodes/storage"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4127,11 +4196,22 @@ defmodule AWS.Kafka do
   def update_broker_type(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/nodes/type"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4150,11 +4230,22 @@ defmodule AWS.Kafka do
   def update_cluster_configuration(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4172,11 +4263,22 @@ defmodule AWS.Kafka do
   def update_cluster_kafka_version(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/version"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4189,11 +4291,22 @@ defmodule AWS.Kafka do
   def update_configuration(%Client{} = client, arn, input, options \\ []) do
     url_path = "/v1/configurations/#{AWS.Util.encode_uri(arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4206,11 +4319,22 @@ defmodule AWS.Kafka do
   def update_connectivity(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/connectivity"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4227,11 +4351,22 @@ defmodule AWS.Kafka do
   def update_monitoring(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/monitoring"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4246,11 +4381,22 @@ defmodule AWS.Kafka do
       "/replication/v1/replicators/#{AWS.Util.encode_uri(replicator_arn)}/replication-info"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4266,6 +4412,7 @@ defmodule AWS.Kafka do
   def update_security(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/security"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4276,7 +4423,7 @@ defmodule AWS.Kafka do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4293,10 +4440,21 @@ defmodule AWS.Kafka do
   def update_storage(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/storage"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

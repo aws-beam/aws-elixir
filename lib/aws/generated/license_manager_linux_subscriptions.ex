@@ -464,6 +464,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   def deregister_subscription_provider(%Client{} = client, input, options \\ []) do
     url_path = "/subscription/DeregisterSubscriptionProvider"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -474,7 +475,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -496,6 +497,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   def get_registered_subscription_provider(%Client{} = client, input, options \\ []) do
     url_path = "/subscription/GetRegisteredSubscriptionProvider"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -506,7 +508,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -523,6 +525,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   def get_service_settings(%Client{} = client, input, options \\ []) do
     url_path = "/subscription/GetServiceSettings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -533,7 +536,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -556,6 +559,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   def list_linux_subscription_instances(%Client{} = client, input, options \\ []) do
     url_path = "/subscription/ListLinuxSubscriptionInstances"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -566,7 +570,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -588,6 +592,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   def list_linux_subscriptions(%Client{} = client, input, options \\ []) do
     url_path = "/subscription/ListLinuxSubscriptions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -598,7 +603,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -620,6 +625,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   def list_registered_subscription_providers(%Client{} = client, input, options \\ []) do
     url_path = "/subscription/ListRegisteredSubscriptionProviders"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -630,7 +636,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -666,6 +672,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   def register_subscription_provider(%Client{} = client, input, options \\ []) do
     url_path = "/subscription/RegisterSubscriptionProvider"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -676,7 +683,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -693,11 +700,22 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -710,6 +728,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -725,7 +744,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -742,6 +761,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   def update_service_settings(%Client{} = client, input, options \\ []) do
     url_path = "/subscription/UpdateServiceSettings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -752,7 +772,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

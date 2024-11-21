@@ -3344,6 +3344,7 @@ defmodule AWS.Route53 do
       "/2013-04-01/keysigningkey/#{AWS.Util.encode_uri(hosted_zone_id)}/#{AWS.Util.encode_uri(name)}/activate"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3354,7 +3355,7 @@ defmodule AWS.Route53 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3408,6 +3409,7 @@ defmodule AWS.Route53 do
   def associate_vpc_with_hosted_zone(%Client{} = client, hosted_zone_id, input, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/associatevpc"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3418,7 +3420,7 @@ defmodule AWS.Route53 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3463,6 +3465,7 @@ defmodule AWS.Route53 do
   def change_cidr_collection(%Client{} = client, id, input, options \\ []) do
     url_path = "/2013-04-01/cidrcollection/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3473,7 +3476,7 @@ defmodule AWS.Route53 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3605,6 +3608,7 @@ defmodule AWS.Route53 do
   def change_resource_record_sets(%Client{} = client, hosted_zone_id, input, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/rrset"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3615,7 +3619,7 @@ defmodule AWS.Route53 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3649,6 +3653,7 @@ defmodule AWS.Route53 do
       "/2013-04-01/tags/#{AWS.Util.encode_uri(resource_type)}/#{AWS.Util.encode_uri(resource_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3659,7 +3664,7 @@ defmodule AWS.Route53 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3676,6 +3681,7 @@ defmodule AWS.Route53 do
   def create_cidr_collection(%Client{} = client, input, options \\ []) do
     url_path = "/2013-04-01/cidrcollection"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -3693,7 +3699,7 @@ defmodule AWS.Route53 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -3748,6 +3754,7 @@ defmodule AWS.Route53 do
   def create_health_check(%Client{} = client, input, options \\ []) do
     url_path = "/2013-04-01/healthcheck"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -3765,7 +3772,7 @@ defmodule AWS.Route53 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -3853,6 +3860,7 @@ defmodule AWS.Route53 do
   def create_hosted_zone(%Client{} = client, input, options \\ []) do
     url_path = "/2013-04-01/hostedzone"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -3870,7 +3878,7 @@ defmodule AWS.Route53 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -3890,6 +3898,7 @@ defmodule AWS.Route53 do
   def create_key_signing_key(%Client{} = client, input, options \\ []) do
     url_path = "/2013-04-01/keysigningkey"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -3907,7 +3916,7 @@ defmodule AWS.Route53 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -4100,6 +4109,7 @@ defmodule AWS.Route53 do
   def create_query_logging_config(%Client{} = client, input, options \\ []) do
     url_path = "/2013-04-01/queryloggingconfig"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -4117,7 +4127,7 @@ defmodule AWS.Route53 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -4197,6 +4207,7 @@ defmodule AWS.Route53 do
   def create_reusable_delegation_set(%Client{} = client, input, options \\ []) do
     url_path = "/2013-04-01/delegationset"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -4214,7 +4225,7 @@ defmodule AWS.Route53 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -4234,6 +4245,7 @@ defmodule AWS.Route53 do
   def create_traffic_policy(%Client{} = client, input, options \\ []) do
     url_path = "/2013-04-01/trafficpolicy"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -4251,7 +4263,7 @@ defmodule AWS.Route53 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -4286,6 +4298,7 @@ defmodule AWS.Route53 do
   def create_traffic_policy_instance(%Client{} = client, input, options \\ []) do
     url_path = "/2013-04-01/trafficpolicyinstance"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -4303,7 +4316,7 @@ defmodule AWS.Route53 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -4338,6 +4351,7 @@ defmodule AWS.Route53 do
   def create_traffic_policy_version(%Client{} = client, id, input, options \\ []) do
     url_path = "/2013-04-01/trafficpolicy/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -4355,7 +4369,7 @@ defmodule AWS.Route53 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -4398,6 +4412,7 @@ defmodule AWS.Route53 do
       "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/authorizevpcassociation"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4408,7 +4423,7 @@ defmodule AWS.Route53 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4436,6 +4451,7 @@ defmodule AWS.Route53 do
       "/2013-04-01/keysigningkey/#{AWS.Util.encode_uri(hosted_zone_id)}/#{AWS.Util.encode_uri(name)}/deactivate"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4446,7 +4462,7 @@ defmodule AWS.Route53 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4466,6 +4482,7 @@ defmodule AWS.Route53 do
   def delete_cidr_collection(%Client{} = client, id, input, options \\ []) do
     url_path = "/2013-04-01/cidrcollection/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4476,7 +4493,7 @@ defmodule AWS.Route53 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4513,6 +4530,7 @@ defmodule AWS.Route53 do
   def delete_health_check(%Client{} = client, health_check_id, input, options \\ []) do
     url_path = "/2013-04-01/healthcheck/#{AWS.Util.encode_uri(health_check_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4523,7 +4541,7 @@ defmodule AWS.Route53 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4602,6 +4620,7 @@ defmodule AWS.Route53 do
   def delete_hosted_zone(%Client{} = client, id, input, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4612,7 +4631,7 @@ defmodule AWS.Route53 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4650,6 +4669,7 @@ defmodule AWS.Route53 do
       "/2013-04-01/keysigningkey/#{AWS.Util.encode_uri(hosted_zone_id)}/#{AWS.Util.encode_uri(name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4660,7 +4680,7 @@ defmodule AWS.Route53 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4690,6 +4710,7 @@ defmodule AWS.Route53 do
   def delete_query_logging_config(%Client{} = client, id, input, options \\ []) do
     url_path = "/2013-04-01/queryloggingconfig/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4700,7 +4721,7 @@ defmodule AWS.Route53 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4732,6 +4753,7 @@ defmodule AWS.Route53 do
   def delete_reusable_delegation_set(%Client{} = client, id, input, options \\ []) do
     url_path = "/2013-04-01/delegationset/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4742,7 +4764,7 @@ defmodule AWS.Route53 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4785,6 +4807,7 @@ defmodule AWS.Route53 do
       "/2013-04-01/trafficpolicy/#{AWS.Util.encode_uri(id)}/#{AWS.Util.encode_uri(version)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4795,7 +4818,7 @@ defmodule AWS.Route53 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4822,6 +4845,7 @@ defmodule AWS.Route53 do
   def delete_traffic_policy_instance(%Client{} = client, id, input, options \\ []) do
     url_path = "/2013-04-01/trafficpolicyinstance/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4832,7 +4856,7 @@ defmodule AWS.Route53 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4875,6 +4899,7 @@ defmodule AWS.Route53 do
       "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/deauthorizevpcassociation"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4885,7 +4910,7 @@ defmodule AWS.Route53 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4910,6 +4935,7 @@ defmodule AWS.Route53 do
   def disable_hosted_zone_dns_sec(%Client{} = client, hosted_zone_id, input, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/disable-dnssec"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4920,7 +4946,7 @@ defmodule AWS.Route53 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4993,6 +5019,7 @@ defmodule AWS.Route53 do
   def disassociate_vpc_from_hosted_zone(%Client{} = client, hosted_zone_id, input, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/disassociatevpc"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5003,7 +5030,7 @@ defmodule AWS.Route53 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5025,6 +5052,7 @@ defmodule AWS.Route53 do
   def enable_hosted_zone_dns_sec(%Client{} = client, hosted_zone_id, input, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/enable-dnssec"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5035,7 +5063,7 @@ defmodule AWS.Route53 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6304,6 +6332,7 @@ defmodule AWS.Route53 do
   def list_tags_for_resources(%Client{} = client, resource_type, input, options \\ []) do
     url_path = "/2013-04-01/tags/#{AWS.Util.encode_uri(resource_type)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6314,7 +6343,7 @@ defmodule AWS.Route53 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6803,6 +6832,7 @@ defmodule AWS.Route53 do
   def update_health_check(%Client{} = client, health_check_id, input, options \\ []) do
     url_path = "/2013-04-01/healthcheck/#{AWS.Util.encode_uri(health_check_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6813,7 +6843,7 @@ defmodule AWS.Route53 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6835,6 +6865,7 @@ defmodule AWS.Route53 do
   def update_hosted_zone_comment(%Client{} = client, id, input, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6845,7 +6876,7 @@ defmodule AWS.Route53 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6870,6 +6901,7 @@ defmodule AWS.Route53 do
       "/2013-04-01/trafficpolicy/#{AWS.Util.encode_uri(id)}/#{AWS.Util.encode_uri(version)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6880,7 +6912,7 @@ defmodule AWS.Route53 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6936,6 +6968,7 @@ defmodule AWS.Route53 do
   def update_traffic_policy_instance(%Client{} = client, id, input, options \\ []) do
     url_path = "/2013-04-01/trafficpolicyinstance/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6946,7 +6979,7 @@ defmodule AWS.Route53 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

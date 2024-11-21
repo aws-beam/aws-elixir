@@ -1853,11 +1853,22 @@ defmodule AWS.MediaTailor do
   def configure_logs_for_channel(%Client{} = client, input, options \\ []) do
     url_path = "/configureLogs/channel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1873,11 +1884,22 @@ defmodule AWS.MediaTailor do
   def configure_logs_for_playback_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/configureLogs/playbackConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1892,6 +1914,7 @@ defmodule AWS.MediaTailor do
   def create_channel(%Client{} = client, channel_name, input, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1902,7 +1925,7 @@ defmodule AWS.MediaTailor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1926,6 +1949,7 @@ defmodule AWS.MediaTailor do
       "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}/liveSource/#{AWS.Util.encode_uri(live_source_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1936,7 +1960,7 @@ defmodule AWS.MediaTailor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1971,6 +1995,7 @@ defmodule AWS.MediaTailor do
       "/prefetchSchedule/#{AWS.Util.encode_uri(playback_configuration_name)}/#{AWS.Util.encode_uri(name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1981,7 +2006,7 @@ defmodule AWS.MediaTailor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2002,6 +2027,7 @@ defmodule AWS.MediaTailor do
       "/channel/#{AWS.Util.encode_uri(channel_name)}/program/#{AWS.Util.encode_uri(program_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2012,7 +2038,7 @@ defmodule AWS.MediaTailor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2032,6 +2058,7 @@ defmodule AWS.MediaTailor do
   def create_source_location(%Client{} = client, source_location_name, input, options \\ []) do
     url_path = "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2042,7 +2069,7 @@ defmodule AWS.MediaTailor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2066,6 +2093,7 @@ defmodule AWS.MediaTailor do
       "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}/vodSource/#{AWS.Util.encode_uri(vod_source_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2076,7 +2104,7 @@ defmodule AWS.MediaTailor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2095,6 +2123,7 @@ defmodule AWS.MediaTailor do
   def delete_channel(%Client{} = client, channel_name, input, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2105,7 +2134,7 @@ defmodule AWS.MediaTailor do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2121,6 +2150,7 @@ defmodule AWS.MediaTailor do
   def delete_channel_policy(%Client{} = client, channel_name, input, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}/policy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2131,7 +2161,7 @@ defmodule AWS.MediaTailor do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2155,6 +2185,7 @@ defmodule AWS.MediaTailor do
       "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}/liveSource/#{AWS.Util.encode_uri(live_source_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2165,7 +2196,7 @@ defmodule AWS.MediaTailor do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2189,6 +2220,7 @@ defmodule AWS.MediaTailor do
   def delete_playback_configuration(%Client{} = client, name, input, options \\ []) do
     url_path = "/playbackConfiguration/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2199,7 +2231,7 @@ defmodule AWS.MediaTailor do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2234,6 +2266,7 @@ defmodule AWS.MediaTailor do
       "/prefetchSchedule/#{AWS.Util.encode_uri(playback_configuration_name)}/#{AWS.Util.encode_uri(name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2244,7 +2277,7 @@ defmodule AWS.MediaTailor do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2265,6 +2298,7 @@ defmodule AWS.MediaTailor do
       "/channel/#{AWS.Util.encode_uri(channel_name)}/program/#{AWS.Util.encode_uri(program_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2275,7 +2309,7 @@ defmodule AWS.MediaTailor do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2295,6 +2329,7 @@ defmodule AWS.MediaTailor do
   def delete_source_location(%Client{} = client, source_location_name, input, options \\ []) do
     url_path = "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2305,7 +2340,7 @@ defmodule AWS.MediaTailor do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2329,6 +2364,7 @@ defmodule AWS.MediaTailor do
       "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}/vodSource/#{AWS.Util.encode_uri(vod_source_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2339,7 +2375,7 @@ defmodule AWS.MediaTailor do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2738,6 +2774,7 @@ defmodule AWS.MediaTailor do
       ) do
     url_path = "/prefetchSchedule/#{AWS.Util.encode_uri(playback_configuration_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2748,7 +2785,7 @@ defmodule AWS.MediaTailor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2862,11 +2899,22 @@ defmodule AWS.MediaTailor do
   def put_channel_policy(%Client{} = client, channel_name, input, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}/policy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2881,11 +2929,22 @@ defmodule AWS.MediaTailor do
   def put_playback_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/playbackConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2900,11 +2959,22 @@ defmodule AWS.MediaTailor do
   def start_channel(%Client{} = client, channel_name, input, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}/start"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2919,11 +2989,22 @@ defmodule AWS.MediaTailor do
   def stop_channel(%Client{} = client, channel_name, input, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}/stop"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2940,6 +3021,7 @@ defmodule AWS.MediaTailor do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2950,7 +3032,7 @@ defmodule AWS.MediaTailor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2967,6 +3049,7 @@ defmodule AWS.MediaTailor do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2982,7 +3065,7 @@ defmodule AWS.MediaTailor do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3001,11 +3084,22 @@ defmodule AWS.MediaTailor do
   def update_channel(%Client{} = client, channel_name, input, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3025,11 +3119,22 @@ defmodule AWS.MediaTailor do
       "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}/liveSource/#{AWS.Util.encode_uri(live_source_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3043,11 +3148,22 @@ defmodule AWS.MediaTailor do
       "/channel/#{AWS.Util.encode_uri(channel_name)}/program/#{AWS.Util.encode_uri(program_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3063,11 +3179,22 @@ defmodule AWS.MediaTailor do
   def update_source_location(%Client{} = client, source_location_name, input, options \\ []) do
     url_path = "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3087,10 +3214,21 @@ defmodule AWS.MediaTailor do
       "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}/vodSource/#{AWS.Util.encode_uri(vod_source_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

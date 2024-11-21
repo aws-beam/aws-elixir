@@ -7066,6 +7066,7 @@ defmodule AWS.Pinpoint do
   def create_app(%Client{} = client, input, options \\ []) do
     url_path = "/v1/apps"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7076,7 +7077,7 @@ defmodule AWS.Pinpoint do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7094,6 +7095,7 @@ defmodule AWS.Pinpoint do
   def create_campaign(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/campaigns"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7104,7 +7106,7 @@ defmodule AWS.Pinpoint do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7121,6 +7123,7 @@ defmodule AWS.Pinpoint do
   def create_email_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/email"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7131,7 +7134,7 @@ defmodule AWS.Pinpoint do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7148,6 +7151,7 @@ defmodule AWS.Pinpoint do
   def create_export_job(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/jobs/export"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7158,7 +7162,7 @@ defmodule AWS.Pinpoint do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -7175,6 +7179,7 @@ defmodule AWS.Pinpoint do
   def create_import_job(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/jobs/import"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7185,7 +7190,7 @@ defmodule AWS.Pinpoint do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7202,6 +7207,7 @@ defmodule AWS.Pinpoint do
   def create_in_app_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/inapp"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7212,7 +7218,7 @@ defmodule AWS.Pinpoint do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7229,6 +7235,7 @@ defmodule AWS.Pinpoint do
   def create_journey(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/journeys"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7239,7 +7246,7 @@ defmodule AWS.Pinpoint do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7257,6 +7264,7 @@ defmodule AWS.Pinpoint do
   def create_push_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/push"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7267,7 +7275,7 @@ defmodule AWS.Pinpoint do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7288,6 +7296,7 @@ defmodule AWS.Pinpoint do
   def create_recommender_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/v1/recommenders"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7298,7 +7307,7 @@ defmodule AWS.Pinpoint do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7317,6 +7326,7 @@ defmodule AWS.Pinpoint do
   def create_segment(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/segments"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7327,7 +7337,7 @@ defmodule AWS.Pinpoint do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7344,6 +7354,7 @@ defmodule AWS.Pinpoint do
   def create_sms_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/sms"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7354,7 +7365,7 @@ defmodule AWS.Pinpoint do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7371,6 +7382,7 @@ defmodule AWS.Pinpoint do
   def create_voice_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/voice"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7381,7 +7393,7 @@ defmodule AWS.Pinpoint do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7399,6 +7411,7 @@ defmodule AWS.Pinpoint do
   def delete_adm_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/adm"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7409,7 +7422,7 @@ defmodule AWS.Pinpoint do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7427,6 +7440,7 @@ defmodule AWS.Pinpoint do
   def delete_apns_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7437,7 +7451,7 @@ defmodule AWS.Pinpoint do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7460,6 +7474,7 @@ defmodule AWS.Pinpoint do
   def delete_apns_sandbox_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns_sandbox"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7470,7 +7485,7 @@ defmodule AWS.Pinpoint do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7488,6 +7503,7 @@ defmodule AWS.Pinpoint do
   def delete_apns_voip_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns_voip"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7498,7 +7514,7 @@ defmodule AWS.Pinpoint do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7521,6 +7537,7 @@ defmodule AWS.Pinpoint do
   def delete_apns_voip_sandbox_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns_voip_sandbox"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7531,7 +7548,7 @@ defmodule AWS.Pinpoint do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7548,6 +7565,7 @@ defmodule AWS.Pinpoint do
   def delete_app(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7558,7 +7576,7 @@ defmodule AWS.Pinpoint do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7576,6 +7594,7 @@ defmodule AWS.Pinpoint do
   def delete_baidu_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/baidu"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7586,7 +7605,7 @@ defmodule AWS.Pinpoint do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7605,6 +7624,7 @@ defmodule AWS.Pinpoint do
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/campaigns/#{AWS.Util.encode_uri(campaign_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7615,7 +7635,7 @@ defmodule AWS.Pinpoint do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7633,6 +7653,7 @@ defmodule AWS.Pinpoint do
   def delete_email_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/email"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7643,7 +7664,7 @@ defmodule AWS.Pinpoint do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7661,6 +7682,7 @@ defmodule AWS.Pinpoint do
   def delete_email_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/email"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -7676,7 +7698,7 @@ defmodule AWS.Pinpoint do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -7695,6 +7717,7 @@ defmodule AWS.Pinpoint do
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/endpoints/#{AWS.Util.encode_uri(endpoint_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7705,7 +7728,7 @@ defmodule AWS.Pinpoint do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -7722,6 +7745,7 @@ defmodule AWS.Pinpoint do
   def delete_event_stream(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/eventstream"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7732,7 +7756,7 @@ defmodule AWS.Pinpoint do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7750,6 +7774,7 @@ defmodule AWS.Pinpoint do
   def delete_gcm_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/gcm"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7760,7 +7785,7 @@ defmodule AWS.Pinpoint do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7777,6 +7802,7 @@ defmodule AWS.Pinpoint do
   def delete_in_app_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/inapp"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -7792,7 +7818,7 @@ defmodule AWS.Pinpoint do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -7811,6 +7837,7 @@ defmodule AWS.Pinpoint do
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/journeys/#{AWS.Util.encode_uri(journey_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7821,7 +7848,7 @@ defmodule AWS.Pinpoint do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7839,6 +7866,7 @@ defmodule AWS.Pinpoint do
   def delete_push_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/push"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -7854,7 +7882,7 @@ defmodule AWS.Pinpoint do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -7876,6 +7904,7 @@ defmodule AWS.Pinpoint do
   def delete_recommender_configuration(%Client{} = client, recommender_id, input, options \\ []) do
     url_path = "/v1/recommenders/#{AWS.Util.encode_uri(recommender_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7886,7 +7915,7 @@ defmodule AWS.Pinpoint do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7905,6 +7934,7 @@ defmodule AWS.Pinpoint do
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/segments/#{AWS.Util.encode_uri(segment_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7915,7 +7945,7 @@ defmodule AWS.Pinpoint do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7933,6 +7963,7 @@ defmodule AWS.Pinpoint do
   def delete_sms_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/sms"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7943,7 +7974,7 @@ defmodule AWS.Pinpoint do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7960,6 +7991,7 @@ defmodule AWS.Pinpoint do
   def delete_sms_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/sms"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -7975,7 +8007,7 @@ defmodule AWS.Pinpoint do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -8000,6 +8032,7 @@ defmodule AWS.Pinpoint do
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/users/#{AWS.Util.encode_uri(user_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8010,7 +8043,7 @@ defmodule AWS.Pinpoint do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -8028,6 +8061,7 @@ defmodule AWS.Pinpoint do
   def delete_voice_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/voice"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8038,7 +8072,7 @@ defmodule AWS.Pinpoint do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8056,6 +8090,7 @@ defmodule AWS.Pinpoint do
   def delete_voice_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/voice"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -8071,7 +8106,7 @@ defmodule AWS.Pinpoint do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -9756,6 +9791,7 @@ defmodule AWS.Pinpoint do
   def phone_number_validate(%Client{} = client, input, options \\ []) do
     url_path = "/v1/phone/number/validate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9766,7 +9802,7 @@ defmodule AWS.Pinpoint do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9784,6 +9820,7 @@ defmodule AWS.Pinpoint do
   def put_event_stream(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/eventstream"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9794,7 +9831,7 @@ defmodule AWS.Pinpoint do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9812,6 +9849,7 @@ defmodule AWS.Pinpoint do
   def put_events(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/events"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9822,7 +9860,7 @@ defmodule AWS.Pinpoint do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -9845,11 +9883,22 @@ defmodule AWS.Pinpoint do
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/attributes/#{AWS.Util.encode_uri(attribute_type)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -9862,6 +9911,7 @@ defmodule AWS.Pinpoint do
   def send_messages(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/messages"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9872,7 +9922,7 @@ defmodule AWS.Pinpoint do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9889,6 +9939,7 @@ defmodule AWS.Pinpoint do
   def send_o_t_p_message(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/otp"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9899,7 +9950,7 @@ defmodule AWS.Pinpoint do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9916,6 +9967,7 @@ defmodule AWS.Pinpoint do
   def send_users_messages(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/users-messages"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9926,7 +9978,7 @@ defmodule AWS.Pinpoint do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9943,6 +9995,7 @@ defmodule AWS.Pinpoint do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9953,7 +10006,7 @@ defmodule AWS.Pinpoint do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -9970,6 +10023,7 @@ defmodule AWS.Pinpoint do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -9985,7 +10039,7 @@ defmodule AWS.Pinpoint do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -10003,11 +10057,22 @@ defmodule AWS.Pinpoint do
   def update_adm_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/adm"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -10021,11 +10086,22 @@ defmodule AWS.Pinpoint do
   def update_apns_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -10044,11 +10120,22 @@ defmodule AWS.Pinpoint do
   def update_apns_sandbox_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns_sandbox"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -10062,11 +10149,22 @@ defmodule AWS.Pinpoint do
   def update_apns_voip_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns_voip"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -10085,11 +10183,22 @@ defmodule AWS.Pinpoint do
   def update_apns_voip_sandbox_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns_voip_sandbox"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -10107,11 +10216,22 @@ defmodule AWS.Pinpoint do
   def update_application_settings(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/settings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -10125,11 +10245,22 @@ defmodule AWS.Pinpoint do
   def update_baidu_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/baidu"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -10144,11 +10275,22 @@ defmodule AWS.Pinpoint do
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/campaigns/#{AWS.Util.encode_uri(campaign_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -10162,11 +10304,22 @@ defmodule AWS.Pinpoint do
   def update_email_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/email"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -10180,6 +10333,7 @@ defmodule AWS.Pinpoint do
   def update_email_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/email"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -10190,7 +10344,17 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -10210,11 +10374,22 @@ defmodule AWS.Pinpoint do
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/endpoints/#{AWS.Util.encode_uri(endpoint_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -10232,11 +10407,22 @@ defmodule AWS.Pinpoint do
   def update_endpoints_batch(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/endpoints"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -10250,11 +10436,22 @@ defmodule AWS.Pinpoint do
   def update_gcm_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/gcm"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -10268,6 +10465,7 @@ defmodule AWS.Pinpoint do
   def update_in_app_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/inapp"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -10278,7 +10476,17 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -10293,11 +10501,22 @@ defmodule AWS.Pinpoint do
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/journeys/#{AWS.Util.encode_uri(journey_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -10318,11 +10537,22 @@ defmodule AWS.Pinpoint do
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/journeys/#{AWS.Util.encode_uri(journey_id)}/state"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -10336,6 +10566,7 @@ defmodule AWS.Pinpoint do
   def update_push_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/push"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -10346,7 +10577,17 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -10364,11 +10605,22 @@ defmodule AWS.Pinpoint do
   def update_recommender_configuration(%Client{} = client, recommender_id, input, options \\ []) do
     url_path = "/v1/recommenders/#{AWS.Util.encode_uri(recommender_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -10385,11 +10637,22 @@ defmodule AWS.Pinpoint do
       "/v1/apps/#{AWS.Util.encode_uri(application_id)}/segments/#{AWS.Util.encode_uri(segment_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -10403,11 +10666,22 @@ defmodule AWS.Pinpoint do
   def update_sms_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/sms"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -10421,6 +10695,7 @@ defmodule AWS.Pinpoint do
   def update_sms_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/sms"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -10431,7 +10706,17 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -10458,11 +10743,22 @@ defmodule AWS.Pinpoint do
       "/v1/templates/#{AWS.Util.encode_uri(template_name)}/#{AWS.Util.encode_uri(template_type)}/active-version"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -10476,11 +10772,22 @@ defmodule AWS.Pinpoint do
   def update_voice_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/voice"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -10494,6 +10801,7 @@ defmodule AWS.Pinpoint do
   def update_voice_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/voice"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -10504,7 +10812,17 @@ defmodule AWS.Pinpoint do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -10517,6 +10835,7 @@ defmodule AWS.Pinpoint do
   def verify_o_t_p_message(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/verify-otp"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -10527,7 +10846,7 @@ defmodule AWS.Pinpoint do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

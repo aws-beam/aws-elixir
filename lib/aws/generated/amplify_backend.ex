@@ -1534,6 +1534,7 @@ defmodule AWS.AmplifyBackend do
       "/backend/#{AWS.Util.encode_uri(app_id)}/environments/#{AWS.Util.encode_uri(backend_environment_name)}/clone"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1544,7 +1545,7 @@ defmodule AWS.AmplifyBackend do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1563,6 +1564,7 @@ defmodule AWS.AmplifyBackend do
   def create_backend(%Client{} = client, input, options \\ []) do
     url_path = "/backend"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1573,7 +1575,7 @@ defmodule AWS.AmplifyBackend do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1590,6 +1592,7 @@ defmodule AWS.AmplifyBackend do
   def create_backend_api(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/api"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1600,7 +1603,7 @@ defmodule AWS.AmplifyBackend do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1617,6 +1620,7 @@ defmodule AWS.AmplifyBackend do
   def create_backend_auth(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/auth"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1627,7 +1631,7 @@ defmodule AWS.AmplifyBackend do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1644,6 +1648,7 @@ defmodule AWS.AmplifyBackend do
   def create_backend_config(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/config"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1654,7 +1659,7 @@ defmodule AWS.AmplifyBackend do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1671,6 +1676,7 @@ defmodule AWS.AmplifyBackend do
   def create_backend_storage(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/storage"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1681,7 +1687,7 @@ defmodule AWS.AmplifyBackend do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1699,6 +1705,7 @@ defmodule AWS.AmplifyBackend do
   def create_token(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/challenge"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1709,7 +1716,7 @@ defmodule AWS.AmplifyBackend do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1728,6 +1735,7 @@ defmodule AWS.AmplifyBackend do
       "/backend/#{AWS.Util.encode_uri(app_id)}/environments/#{AWS.Util.encode_uri(backend_environment_name)}/remove"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1738,7 +1746,7 @@ defmodule AWS.AmplifyBackend do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1763,6 +1771,7 @@ defmodule AWS.AmplifyBackend do
       "/backend/#{AWS.Util.encode_uri(app_id)}/api/#{AWS.Util.encode_uri(backend_environment_name)}/remove"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1773,7 +1782,7 @@ defmodule AWS.AmplifyBackend do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1798,6 +1807,7 @@ defmodule AWS.AmplifyBackend do
       "/backend/#{AWS.Util.encode_uri(app_id)}/auth/#{AWS.Util.encode_uri(backend_environment_name)}/remove"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1808,7 +1818,7 @@ defmodule AWS.AmplifyBackend do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1839,6 +1849,7 @@ defmodule AWS.AmplifyBackend do
       "/backend/#{AWS.Util.encode_uri(app_id)}/storage/#{AWS.Util.encode_uri(backend_environment_name)}/remove"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1849,7 +1860,7 @@ defmodule AWS.AmplifyBackend do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1868,6 +1879,7 @@ defmodule AWS.AmplifyBackend do
       "/backend/#{AWS.Util.encode_uri(app_id)}/challenge/#{AWS.Util.encode_uri(session_id)}/remove"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1878,7 +1890,7 @@ defmodule AWS.AmplifyBackend do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1909,6 +1921,7 @@ defmodule AWS.AmplifyBackend do
       "/backend/#{AWS.Util.encode_uri(app_id)}/api/#{AWS.Util.encode_uri(backend_environment_name)}/generateModels"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1919,7 +1932,7 @@ defmodule AWS.AmplifyBackend do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1936,6 +1949,7 @@ defmodule AWS.AmplifyBackend do
   def get_backend(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/details"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1946,7 +1960,7 @@ defmodule AWS.AmplifyBackend do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1965,6 +1979,7 @@ defmodule AWS.AmplifyBackend do
       "/backend/#{AWS.Util.encode_uri(app_id)}/api/#{AWS.Util.encode_uri(backend_environment_name)}/details"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1975,7 +1990,7 @@ defmodule AWS.AmplifyBackend do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2006,6 +2021,7 @@ defmodule AWS.AmplifyBackend do
       "/backend/#{AWS.Util.encode_uri(app_id)}/api/#{AWS.Util.encode_uri(backend_environment_name)}/getModels"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2016,7 +2032,7 @@ defmodule AWS.AmplifyBackend do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2035,6 +2051,7 @@ defmodule AWS.AmplifyBackend do
       "/backend/#{AWS.Util.encode_uri(app_id)}/auth/#{AWS.Util.encode_uri(backend_environment_name)}/details"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2045,7 +2062,7 @@ defmodule AWS.AmplifyBackend do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2089,6 +2106,7 @@ defmodule AWS.AmplifyBackend do
       "/backend/#{AWS.Util.encode_uri(app_id)}/storage/#{AWS.Util.encode_uri(backend_environment_name)}/details"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2099,7 +2117,7 @@ defmodule AWS.AmplifyBackend do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2143,6 +2161,7 @@ defmodule AWS.AmplifyBackend do
       "/backend/#{AWS.Util.encode_uri(app_id)}/auth/#{AWS.Util.encode_uri(backend_environment_name)}/import"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2153,7 +2172,7 @@ defmodule AWS.AmplifyBackend do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2184,6 +2203,7 @@ defmodule AWS.AmplifyBackend do
       "/backend/#{AWS.Util.encode_uri(app_id)}/storage/#{AWS.Util.encode_uri(backend_environment_name)}/import"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2194,7 +2214,7 @@ defmodule AWS.AmplifyBackend do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2219,6 +2239,7 @@ defmodule AWS.AmplifyBackend do
       "/backend/#{AWS.Util.encode_uri(app_id)}/job/#{AWS.Util.encode_uri(backend_environment_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2229,7 +2250,7 @@ defmodule AWS.AmplifyBackend do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2246,6 +2267,7 @@ defmodule AWS.AmplifyBackend do
   def list_s3_buckets(%Client{} = client, input, options \\ []) do
     url_path = "/s3Buckets"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2256,7 +2278,7 @@ defmodule AWS.AmplifyBackend do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2273,6 +2295,7 @@ defmodule AWS.AmplifyBackend do
   def remove_all_backends(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/remove"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2283,7 +2306,7 @@ defmodule AWS.AmplifyBackend do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2300,6 +2323,7 @@ defmodule AWS.AmplifyBackend do
   def remove_backend_config(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/config/remove"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2310,7 +2334,7 @@ defmodule AWS.AmplifyBackend do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2335,6 +2359,7 @@ defmodule AWS.AmplifyBackend do
       "/backend/#{AWS.Util.encode_uri(app_id)}/api/#{AWS.Util.encode_uri(backend_environment_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2345,7 +2370,7 @@ defmodule AWS.AmplifyBackend do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2370,6 +2395,7 @@ defmodule AWS.AmplifyBackend do
       "/backend/#{AWS.Util.encode_uri(app_id)}/auth/#{AWS.Util.encode_uri(backend_environment_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2380,7 +2406,7 @@ defmodule AWS.AmplifyBackend do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2397,6 +2423,7 @@ defmodule AWS.AmplifyBackend do
   def update_backend_config(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/config/update"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2407,7 +2434,7 @@ defmodule AWS.AmplifyBackend do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2440,6 +2467,7 @@ defmodule AWS.AmplifyBackend do
       "/backend/#{AWS.Util.encode_uri(app_id)}/job/#{AWS.Util.encode_uri(backend_environment_name)}/#{AWS.Util.encode_uri(job_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2450,7 +2478,7 @@ defmodule AWS.AmplifyBackend do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2481,6 +2509,7 @@ defmodule AWS.AmplifyBackend do
       "/backend/#{AWS.Util.encode_uri(app_id)}/storage/#{AWS.Util.encode_uri(backend_environment_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2491,7 +2520,7 @@ defmodule AWS.AmplifyBackend do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

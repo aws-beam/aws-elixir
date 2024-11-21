@@ -4088,6 +4088,7 @@ defmodule AWS.CleanRooms do
       "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/batch-analysistemplates"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4098,7 +4099,7 @@ defmodule AWS.CleanRooms do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4115,6 +4116,7 @@ defmodule AWS.CleanRooms do
   def batch_get_schema(%Client{} = client, collaboration_identifier, input, options \\ []) do
     url_path = "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/batch-schema"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4125,7 +4127,7 @@ defmodule AWS.CleanRooms do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4154,6 +4156,7 @@ defmodule AWS.CleanRooms do
       "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/batch-schema-analysis-rule"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4164,7 +4167,7 @@ defmodule AWS.CleanRooms do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4181,6 +4184,7 @@ defmodule AWS.CleanRooms do
   def create_analysis_template(%Client{} = client, membership_identifier, input, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/analysistemplates"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4191,7 +4195,7 @@ defmodule AWS.CleanRooms do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4208,6 +4212,7 @@ defmodule AWS.CleanRooms do
   def create_collaboration(%Client{} = client, input, options \\ []) do
     url_path = "/collaborations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4218,7 +4223,7 @@ defmodule AWS.CleanRooms do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4248,6 +4253,7 @@ defmodule AWS.CleanRooms do
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/configuredaudiencemodelassociations"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4258,7 +4264,7 @@ defmodule AWS.CleanRooms do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4275,6 +4281,7 @@ defmodule AWS.CleanRooms do
   def create_configured_table(%Client{} = client, input, options \\ []) do
     url_path = "/configuredTables"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4285,7 +4292,7 @@ defmodule AWS.CleanRooms do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4317,6 +4324,7 @@ defmodule AWS.CleanRooms do
       "/configuredTables/#{AWS.Util.encode_uri(configured_table_identifier)}/analysisRule"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4327,7 +4335,7 @@ defmodule AWS.CleanRooms do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4359,6 +4367,7 @@ defmodule AWS.CleanRooms do
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/configuredTableAssociations"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4369,7 +4378,7 @@ defmodule AWS.CleanRooms do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4400,6 +4409,7 @@ defmodule AWS.CleanRooms do
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/configuredTableAssociations/#{AWS.Util.encode_uri(configured_table_association_identifier)}/analysisRule"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4410,7 +4420,7 @@ defmodule AWS.CleanRooms do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4427,6 +4437,7 @@ defmodule AWS.CleanRooms do
   def create_id_mapping_table(%Client{} = client, membership_identifier, input, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/idmappingtables"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4437,7 +4448,7 @@ defmodule AWS.CleanRooms do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4466,6 +4477,7 @@ defmodule AWS.CleanRooms do
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/idnamespaceassociations"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4476,7 +4488,7 @@ defmodule AWS.CleanRooms do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4494,6 +4506,7 @@ defmodule AWS.CleanRooms do
   def create_membership(%Client{} = client, input, options \\ []) do
     url_path = "/memberships"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4504,7 +4517,7 @@ defmodule AWS.CleanRooms do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4535,6 +4548,7 @@ defmodule AWS.CleanRooms do
       ) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/privacybudgettemplates"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4545,7 +4559,7 @@ defmodule AWS.CleanRooms do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4576,6 +4590,7 @@ defmodule AWS.CleanRooms do
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/analysistemplates/#{AWS.Util.encode_uri(analysis_template_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4586,7 +4601,7 @@ defmodule AWS.CleanRooms do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4605,6 +4620,7 @@ defmodule AWS.CleanRooms do
   def delete_collaboration(%Client{} = client, collaboration_identifier, input, options \\ []) do
     url_path = "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4615,7 +4631,7 @@ defmodule AWS.CleanRooms do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4647,6 +4663,7 @@ defmodule AWS.CleanRooms do
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/configuredaudiencemodelassociations/#{AWS.Util.encode_uri(configured_audience_model_association_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4657,7 +4674,7 @@ defmodule AWS.CleanRooms do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4679,6 +4696,7 @@ defmodule AWS.CleanRooms do
       ) do
     url_path = "/configuredTables/#{AWS.Util.encode_uri(configured_table_identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4689,7 +4707,7 @@ defmodule AWS.CleanRooms do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4720,6 +4738,7 @@ defmodule AWS.CleanRooms do
       "/configuredTables/#{AWS.Util.encode_uri(configured_table_identifier)}/analysisRule/#{AWS.Util.encode_uri(analysis_rule_type)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4730,7 +4749,7 @@ defmodule AWS.CleanRooms do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4761,6 +4780,7 @@ defmodule AWS.CleanRooms do
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/configuredTableAssociations/#{AWS.Util.encode_uri(configured_table_association_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4771,7 +4791,7 @@ defmodule AWS.CleanRooms do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4804,6 +4824,7 @@ defmodule AWS.CleanRooms do
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/configuredTableAssociations/#{AWS.Util.encode_uri(configured_table_association_identifier)}/analysisRule/#{AWS.Util.encode_uri(analysis_rule_type)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4814,7 +4835,7 @@ defmodule AWS.CleanRooms do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4845,6 +4866,7 @@ defmodule AWS.CleanRooms do
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/idmappingtables/#{AWS.Util.encode_uri(id_mapping_table_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4855,7 +4877,7 @@ defmodule AWS.CleanRooms do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4886,6 +4908,7 @@ defmodule AWS.CleanRooms do
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/idnamespaceassociations/#{AWS.Util.encode_uri(id_namespace_association_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4896,7 +4919,7 @@ defmodule AWS.CleanRooms do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4926,6 +4949,7 @@ defmodule AWS.CleanRooms do
       "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/member/#{AWS.Util.encode_uri(account_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4936,7 +4960,7 @@ defmodule AWS.CleanRooms do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4955,6 +4979,7 @@ defmodule AWS.CleanRooms do
   def delete_membership(%Client{} = client, membership_identifier, input, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4965,7 +4990,7 @@ defmodule AWS.CleanRooms do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4996,6 +5021,7 @@ defmodule AWS.CleanRooms do
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/privacybudgettemplates/#{AWS.Util.encode_uri(privacy_budget_template_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5006,7 +5032,7 @@ defmodule AWS.CleanRooms do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -6281,6 +6307,7 @@ defmodule AWS.CleanRooms do
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/idmappingtables/#{AWS.Util.encode_uri(id_mapping_table_identifier)}/populate"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6291,7 +6318,7 @@ defmodule AWS.CleanRooms do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6309,6 +6336,7 @@ defmodule AWS.CleanRooms do
   def preview_privacy_impact(%Client{} = client, membership_identifier, input, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/previewprivacyimpact"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6319,7 +6347,7 @@ defmodule AWS.CleanRooms do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6336,6 +6364,7 @@ defmodule AWS.CleanRooms do
   def start_protected_query(%Client{} = client, membership_identifier, input, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/protectedQueries"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6346,7 +6375,7 @@ defmodule AWS.CleanRooms do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6363,6 +6392,7 @@ defmodule AWS.CleanRooms do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6373,7 +6403,7 @@ defmodule AWS.CleanRooms do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6390,6 +6420,7 @@ defmodule AWS.CleanRooms do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -6405,7 +6436,7 @@ defmodule AWS.CleanRooms do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6436,6 +6467,7 @@ defmodule AWS.CleanRooms do
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/analysistemplates/#{AWS.Util.encode_uri(analysis_template_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6446,7 +6478,7 @@ defmodule AWS.CleanRooms do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6464,6 +6496,7 @@ defmodule AWS.CleanRooms do
   def update_collaboration(%Client{} = client, collaboration_identifier, input, options \\ []) do
     url_path = "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6474,7 +6507,7 @@ defmodule AWS.CleanRooms do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6506,6 +6539,7 @@ defmodule AWS.CleanRooms do
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/configuredaudiencemodelassociations/#{AWS.Util.encode_uri(configured_audience_model_association_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6516,7 +6550,7 @@ defmodule AWS.CleanRooms do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6538,6 +6572,7 @@ defmodule AWS.CleanRooms do
       ) do
     url_path = "/configuredTables/#{AWS.Util.encode_uri(configured_table_identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6548,7 +6583,7 @@ defmodule AWS.CleanRooms do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6579,6 +6614,7 @@ defmodule AWS.CleanRooms do
       "/configuredTables/#{AWS.Util.encode_uri(configured_table_identifier)}/analysisRule/#{AWS.Util.encode_uri(analysis_rule_type)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6589,7 +6625,7 @@ defmodule AWS.CleanRooms do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6620,6 +6656,7 @@ defmodule AWS.CleanRooms do
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/configuredTableAssociations/#{AWS.Util.encode_uri(configured_table_association_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6630,7 +6667,7 @@ defmodule AWS.CleanRooms do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6663,6 +6700,7 @@ defmodule AWS.CleanRooms do
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/configuredTableAssociations/#{AWS.Util.encode_uri(configured_table_association_identifier)}/analysisRule/#{AWS.Util.encode_uri(analysis_rule_type)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6673,7 +6711,7 @@ defmodule AWS.CleanRooms do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6704,6 +6742,7 @@ defmodule AWS.CleanRooms do
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/idmappingtables/#{AWS.Util.encode_uri(id_mapping_table_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6714,7 +6753,7 @@ defmodule AWS.CleanRooms do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6745,6 +6784,7 @@ defmodule AWS.CleanRooms do
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/idnamespaceassociations/#{AWS.Util.encode_uri(id_namespace_association_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6755,7 +6795,7 @@ defmodule AWS.CleanRooms do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6772,6 +6812,7 @@ defmodule AWS.CleanRooms do
   def update_membership(%Client{} = client, membership_identifier, input, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6782,7 +6823,7 @@ defmodule AWS.CleanRooms do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6813,6 +6854,7 @@ defmodule AWS.CleanRooms do
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/privacybudgettemplates/#{AWS.Util.encode_uri(privacy_budget_template_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6823,7 +6865,7 @@ defmodule AWS.CleanRooms do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6854,6 +6896,7 @@ defmodule AWS.CleanRooms do
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/protectedQueries/#{AWS.Util.encode_uri(protected_query_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6864,7 +6907,7 @@ defmodule AWS.CleanRooms do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

@@ -145,6 +145,7 @@ defmodule AWS.ApiGatewayManagementApi do
   def delete_connection(%Client{} = client, connection_id, stage, input, options \\ []) do
     url_path = "/#{stage}/@connections/#{AWS.Util.encode_uri(connection_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -155,7 +156,7 @@ defmodule AWS.ApiGatewayManagementApi do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -189,6 +190,7 @@ defmodule AWS.ApiGatewayManagementApi do
   def post_to_connection(%Client{} = client, connection_id, stage, input, options \\ []) do
     url_path = "/#{stage}/@connections/#{AWS.Util.encode_uri(connection_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -199,7 +201,7 @@ defmodule AWS.ApiGatewayManagementApi do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

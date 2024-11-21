@@ -4050,6 +4050,7 @@ defmodule AWS.QConnect do
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/messageTemplates/#{AWS.Util.encode_uri(message_template_id)}/activate"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4060,7 +4061,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4077,6 +4078,7 @@ defmodule AWS.QConnect do
   def create_a_i_agent(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiagents"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4087,7 +4089,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4118,6 +4120,7 @@ defmodule AWS.QConnect do
       "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiagents/#{AWS.Util.encode_uri(ai_agent_id)}/versions"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4128,7 +4131,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4145,6 +4148,7 @@ defmodule AWS.QConnect do
   def create_a_iprompt(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiprompts"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4155,7 +4159,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4186,6 +4190,7 @@ defmodule AWS.QConnect do
       "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiprompts/#{AWS.Util.encode_uri(ai_prompt_id)}/versions"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4196,7 +4201,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4213,6 +4218,7 @@ defmodule AWS.QConnect do
   def create_assistant(%Client{} = client, input, options \\ []) do
     url_path = "/assistants"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4223,7 +4229,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4251,6 +4257,7 @@ defmodule AWS.QConnect do
   def create_assistant_association(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/associations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4261,7 +4268,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4282,6 +4289,7 @@ defmodule AWS.QConnect do
   def create_content(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/contents"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4292,7 +4300,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4350,6 +4358,7 @@ defmodule AWS.QConnect do
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/contents/#{AWS.Util.encode_uri(content_id)}/associations"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4360,7 +4369,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4404,6 +4413,7 @@ defmodule AWS.QConnect do
   def create_knowledge_base(%Client{} = client, input, options \\ []) do
     url_path = "/knowledgeBases"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4414,7 +4424,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4438,6 +4448,7 @@ defmodule AWS.QConnect do
   def create_message_template(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/messageTemplates"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4448,7 +4459,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4488,6 +4499,7 @@ defmodule AWS.QConnect do
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/messageTemplates/#{AWS.Util.encode_uri(message_template_id)}/attachments"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4498,7 +4510,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4545,6 +4557,7 @@ defmodule AWS.QConnect do
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/messageTemplates/#{AWS.Util.encode_uri(message_template_id)}/versions"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4555,7 +4568,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4572,6 +4585,7 @@ defmodule AWS.QConnect do
   def create_quick_response(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/quickResponses"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4582,7 +4596,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4604,6 +4618,7 @@ defmodule AWS.QConnect do
   def create_session(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/sessions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4614,7 +4629,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4649,6 +4664,7 @@ defmodule AWS.QConnect do
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/messageTemplates/#{AWS.Util.encode_uri(message_template_id)}/deactivate"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4659,7 +4675,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4678,6 +4694,7 @@ defmodule AWS.QConnect do
       "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiagents/#{AWS.Util.encode_uri(ai_agent_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4688,7 +4705,7 @@ defmodule AWS.QConnect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4721,6 +4738,7 @@ defmodule AWS.QConnect do
       "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiagents/#{AWS.Util.encode_uri(ai_agent_id)}/versions/#{AWS.Util.encode_uri(version_number)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4731,7 +4749,7 @@ defmodule AWS.QConnect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4750,6 +4768,7 @@ defmodule AWS.QConnect do
       "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiprompts/#{AWS.Util.encode_uri(ai_prompt_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4760,7 +4779,7 @@ defmodule AWS.QConnect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4793,6 +4812,7 @@ defmodule AWS.QConnect do
       "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiprompts/#{AWS.Util.encode_uri(ai_prompt_id)}/versions/#{AWS.Util.encode_uri(version_number)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4803,7 +4823,7 @@ defmodule AWS.QConnect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4820,6 +4840,7 @@ defmodule AWS.QConnect do
   def delete_assistant(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4830,7 +4851,7 @@ defmodule AWS.QConnect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4861,6 +4882,7 @@ defmodule AWS.QConnect do
       "/assistants/#{AWS.Util.encode_uri(assistant_id)}/associations/#{AWS.Util.encode_uri(assistant_association_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4871,7 +4893,7 @@ defmodule AWS.QConnect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4890,6 +4912,7 @@ defmodule AWS.QConnect do
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/contents/#{AWS.Util.encode_uri(content_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4900,7 +4923,7 @@ defmodule AWS.QConnect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4939,6 +4962,7 @@ defmodule AWS.QConnect do
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/contents/#{AWS.Util.encode_uri(content_id)}/associations/#{AWS.Util.encode_uri(content_association_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4949,7 +4973,7 @@ defmodule AWS.QConnect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4974,6 +4998,7 @@ defmodule AWS.QConnect do
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/importJobs/#{AWS.Util.encode_uri(import_job_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4984,7 +5009,7 @@ defmodule AWS.QConnect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -5012,6 +5037,7 @@ defmodule AWS.QConnect do
   def delete_knowledge_base(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5022,7 +5048,7 @@ defmodule AWS.QConnect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -5061,6 +5087,7 @@ defmodule AWS.QConnect do
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/messageTemplates/#{AWS.Util.encode_uri(message_template_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5071,7 +5098,7 @@ defmodule AWS.QConnect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -5109,6 +5136,7 @@ defmodule AWS.QConnect do
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/messageTemplates/#{AWS.Util.encode_uri(message_template_id)}/attachments/#{AWS.Util.encode_uri(attachment_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5119,7 +5147,7 @@ defmodule AWS.QConnect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -5150,6 +5178,7 @@ defmodule AWS.QConnect do
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/quickResponses/#{AWS.Util.encode_uri(quick_response_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5160,7 +5189,7 @@ defmodule AWS.QConnect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -6103,6 +6132,7 @@ defmodule AWS.QConnect do
       "/assistants/#{AWS.Util.encode_uri(assistant_id)}/sessions/#{AWS.Util.encode_uri(session_id)}/recommendations/notify"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6113,7 +6143,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6133,11 +6163,22 @@ defmodule AWS.QConnect do
   def put_feedback(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/feedback"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6163,6 +6204,7 @@ defmodule AWS.QConnect do
   def query_assistant(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/query"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6173,7 +6215,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6196,6 +6238,7 @@ defmodule AWS.QConnect do
   def remove_assistant_a_i_agent(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiagentConfiguration"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -6211,7 +6254,7 @@ defmodule AWS.QConnect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -6238,6 +6281,7 @@ defmodule AWS.QConnect do
       ) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/templateUri"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6248,7 +6292,7 @@ defmodule AWS.QConnect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -6288,6 +6332,7 @@ defmodule AWS.QConnect do
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/messageTemplates/#{AWS.Util.encode_uri(message_template_id)}/render"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6298,7 +6343,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6318,6 +6363,7 @@ defmodule AWS.QConnect do
   def search_content(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/search"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -6334,7 +6380,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6352,6 +6398,7 @@ defmodule AWS.QConnect do
   def search_message_templates(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/search/messageTemplates"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -6368,7 +6415,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6386,6 +6433,7 @@ defmodule AWS.QConnect do
   def search_quick_responses(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/search/quickResponses"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -6402,7 +6450,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6419,6 +6467,7 @@ defmodule AWS.QConnect do
   def search_sessions(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/searchSessions"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -6435,7 +6484,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6464,6 +6513,7 @@ defmodule AWS.QConnect do
   def start_content_upload(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/upload"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6474,7 +6524,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6504,6 +6554,7 @@ defmodule AWS.QConnect do
   def start_import_job(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/importJobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6514,7 +6565,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6531,6 +6582,7 @@ defmodule AWS.QConnect do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6541,7 +6593,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6558,6 +6610,7 @@ defmodule AWS.QConnect do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -6573,7 +6626,7 @@ defmodule AWS.QConnect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6592,6 +6645,7 @@ defmodule AWS.QConnect do
       "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiagents/#{AWS.Util.encode_uri(ai_agent_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6602,7 +6656,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6621,6 +6675,7 @@ defmodule AWS.QConnect do
       "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiprompts/#{AWS.Util.encode_uri(ai_prompt_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6631,7 +6686,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6654,6 +6709,7 @@ defmodule AWS.QConnect do
   def update_assistant_a_i_agent(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiagentConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6664,7 +6720,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6683,6 +6739,7 @@ defmodule AWS.QConnect do
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/contents/#{AWS.Util.encode_uri(content_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6693,7 +6750,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6727,6 +6784,7 @@ defmodule AWS.QConnect do
       ) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/templateUri"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6737,7 +6795,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6776,6 +6834,7 @@ defmodule AWS.QConnect do
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/messageTemplates/#{AWS.Util.encode_uri(message_template_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6786,7 +6845,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6825,6 +6884,7 @@ defmodule AWS.QConnect do
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/messageTemplates/#{AWS.Util.encode_uri(message_template_id)}/metadata"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6835,7 +6895,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6866,6 +6926,7 @@ defmodule AWS.QConnect do
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/quickResponses/#{AWS.Util.encode_uri(quick_response_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6876,7 +6937,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6900,6 +6961,7 @@ defmodule AWS.QConnect do
       "/assistants/#{AWS.Util.encode_uri(assistant_id)}/sessions/#{AWS.Util.encode_uri(session_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6910,7 +6972,7 @@ defmodule AWS.QConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6929,6 +6991,7 @@ defmodule AWS.QConnect do
       "/assistants/#{AWS.Util.encode_uri(assistant_id)}/sessions/#{AWS.Util.encode_uri(session_id)}/data"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6939,7 +7002,7 @@ defmodule AWS.QConnect do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

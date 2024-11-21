@@ -979,6 +979,7 @@ defmodule AWS.SupplyChain do
       "/api/configuration/instances/#{AWS.Util.encode_uri(instance_id)}/bill-of-materials-import-jobs"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -989,7 +990,7 @@ defmodule AWS.SupplyChain do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1017,11 +1018,22 @@ defmodule AWS.SupplyChain do
       "/api/data-integration/instance/#{AWS.Util.encode_uri(instance_id)}/data-integration-flows/#{AWS.Util.encode_uri(name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1054,11 +1066,22 @@ defmodule AWS.SupplyChain do
       "/api/datalake/instance/#{AWS.Util.encode_uri(instance_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/datasets/#{AWS.Util.encode_uri(name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1081,6 +1104,7 @@ defmodule AWS.SupplyChain do
   def create_instance(%Client{} = client, input, options \\ []) do
     url_path = "/api/instance"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1091,7 +1115,7 @@ defmodule AWS.SupplyChain do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1117,6 +1141,7 @@ defmodule AWS.SupplyChain do
       "/api/data-integration/instance/#{AWS.Util.encode_uri(instance_id)}/data-integration-flows/#{AWS.Util.encode_uri(name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1127,7 +1152,7 @@ defmodule AWS.SupplyChain do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1164,6 +1189,7 @@ defmodule AWS.SupplyChain do
       "/api/datalake/instance/#{AWS.Util.encode_uri(instance_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/datasets/#{AWS.Util.encode_uri(name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1174,7 +1200,7 @@ defmodule AWS.SupplyChain do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1200,6 +1226,7 @@ defmodule AWS.SupplyChain do
   def delete_instance(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/api/instance/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1210,7 +1237,7 @@ defmodule AWS.SupplyChain do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1495,6 +1522,7 @@ defmodule AWS.SupplyChain do
       "/api-data/data-integration/instance/#{AWS.Util.encode_uri(instance_id)}/data-integration-events"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1505,7 +1533,7 @@ defmodule AWS.SupplyChain do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1529,6 +1557,7 @@ defmodule AWS.SupplyChain do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/api/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1539,7 +1568,7 @@ defmodule AWS.SupplyChain do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1561,6 +1590,7 @@ defmodule AWS.SupplyChain do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/api/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1576,7 +1606,7 @@ defmodule AWS.SupplyChain do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1604,6 +1634,7 @@ defmodule AWS.SupplyChain do
       "/api/data-integration/instance/#{AWS.Util.encode_uri(instance_id)}/data-integration-flows/#{AWS.Util.encode_uri(name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1614,7 +1645,7 @@ defmodule AWS.SupplyChain do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1651,6 +1682,7 @@ defmodule AWS.SupplyChain do
       "/api/datalake/instance/#{AWS.Util.encode_uri(instance_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/datasets/#{AWS.Util.encode_uri(name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1661,7 +1693,7 @@ defmodule AWS.SupplyChain do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1680,6 +1712,7 @@ defmodule AWS.SupplyChain do
   def update_instance(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/api/instance/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1690,7 +1723,7 @@ defmodule AWS.SupplyChain do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

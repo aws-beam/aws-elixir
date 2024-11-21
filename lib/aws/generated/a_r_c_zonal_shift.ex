@@ -666,6 +666,7 @@ defmodule AWS.ARCZonalShift do
   def cancel_zonal_shift(%Client{} = client, zonal_shift_id, input, options \\ []) do
     url_path = "/zonalshifts/#{AWS.Util.encode_uri(zonal_shift_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -676,7 +677,7 @@ defmodule AWS.ARCZonalShift do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -718,6 +719,7 @@ defmodule AWS.ARCZonalShift do
   def create_practice_run_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -728,7 +730,7 @@ defmodule AWS.ARCZonalShift do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -761,6 +763,7 @@ defmodule AWS.ARCZonalShift do
       ) do
     url_path = "/configuration/#{AWS.Util.encode_uri(resource_identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -771,7 +774,7 @@ defmodule AWS.ARCZonalShift do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1033,6 +1036,7 @@ defmodule AWS.ARCZonalShift do
   def start_zonal_shift(%Client{} = client, input, options \\ []) do
     url_path = "/zonalshifts"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1043,7 +1047,7 @@ defmodule AWS.ARCZonalShift do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1081,11 +1085,22 @@ defmodule AWS.ARCZonalShift do
   def update_autoshift_observer_notification_status(%Client{} = client, input, options \\ []) do
     url_path = "/autoshift-observer-notification"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1110,6 +1125,7 @@ defmodule AWS.ARCZonalShift do
       ) do
     url_path = "/configuration/#{AWS.Util.encode_uri(resource_identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1120,7 +1136,7 @@ defmodule AWS.ARCZonalShift do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1163,11 +1179,22 @@ defmodule AWS.ARCZonalShift do
       ) do
     url_path = "/managedresources/#{AWS.Util.encode_uri(resource_identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1184,6 +1211,7 @@ defmodule AWS.ARCZonalShift do
   def update_zonal_shift(%Client{} = client, zonal_shift_id, input, options \\ []) do
     url_path = "/zonalshifts/#{AWS.Util.encode_uri(zonal_shift_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1194,7 +1222,7 @@ defmodule AWS.ARCZonalShift do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

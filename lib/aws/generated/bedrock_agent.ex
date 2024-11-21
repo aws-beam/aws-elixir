@@ -4142,11 +4142,22 @@ defmodule AWS.BedrockAgent do
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentversions/#{AWS.Util.encode_uri(agent_version)}/knowledgebases/"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4197,11 +4208,22 @@ defmodule AWS.BedrockAgent do
   def create_agent(%Client{} = client, input, options \\ []) do
     url_path = "/agents/"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -4244,11 +4266,22 @@ defmodule AWS.BedrockAgent do
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentversions/#{AWS.Util.encode_uri(agent_version)}/actiongroups/"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4261,11 +4294,22 @@ defmodule AWS.BedrockAgent do
   def create_agent_alias(%Client{} = client, agent_id, input, options \\ []) do
     url_path = "/agents/#{AWS.Util.encode_uri(agent_id)}/agentaliases/"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -4281,11 +4325,22 @@ defmodule AWS.BedrockAgent do
   def create_data_source(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/datasources/"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4305,6 +4360,7 @@ defmodule AWS.BedrockAgent do
   def create_flow(%Client{} = client, input, options \\ []) do
     url_path = "/flows/"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4315,7 +4371,7 @@ defmodule AWS.BedrockAgent do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -4335,6 +4391,7 @@ defmodule AWS.BedrockAgent do
   def create_flow_alias(%Client{} = client, flow_identifier, input, options \\ []) do
     url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/aliases"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4345,7 +4402,7 @@ defmodule AWS.BedrockAgent do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -4365,6 +4422,7 @@ defmodule AWS.BedrockAgent do
   def create_flow_version(%Client{} = client, flow_identifier, input, options \\ []) do
     url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/versions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4375,7 +4433,7 @@ defmodule AWS.BedrockAgent do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -4434,11 +4492,22 @@ defmodule AWS.BedrockAgent do
   def create_knowledge_base(%Client{} = client, input, options \\ []) do
     url_path = "/knowledgebases/"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -4456,6 +4525,7 @@ defmodule AWS.BedrockAgent do
   def create_prompt(%Client{} = client, input, options \\ []) do
     url_path = "/prompts/"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4466,7 +4536,7 @@ defmodule AWS.BedrockAgent do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -4486,6 +4556,7 @@ defmodule AWS.BedrockAgent do
   def create_prompt_version(%Client{} = client, prompt_identifier, input, options \\ []) do
     url_path = "/prompts/#{AWS.Util.encode_uri(prompt_identifier)}/versions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4496,7 +4567,7 @@ defmodule AWS.BedrockAgent do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -4513,6 +4584,7 @@ defmodule AWS.BedrockAgent do
   def delete_agent(%Client{} = client, agent_id, input, options \\ []) do
     url_path = "/agents/#{AWS.Util.encode_uri(agent_id)}/"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4528,7 +4600,7 @@ defmodule AWS.BedrockAgent do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -4561,6 +4633,7 @@ defmodule AWS.BedrockAgent do
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentversions/#{AWS.Util.encode_uri(agent_version)}/actiongroups/#{AWS.Util.encode_uri(action_group_id)}/"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4576,7 +4649,7 @@ defmodule AWS.BedrockAgent do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4595,6 +4668,7 @@ defmodule AWS.BedrockAgent do
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentaliases/#{AWS.Util.encode_uri(agent_alias_id)}/"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4605,7 +4679,7 @@ defmodule AWS.BedrockAgent do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -4630,6 +4704,7 @@ defmodule AWS.BedrockAgent do
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentversions/#{AWS.Util.encode_uri(agent_version)}/"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4645,7 +4720,7 @@ defmodule AWS.BedrockAgent do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -4670,6 +4745,7 @@ defmodule AWS.BedrockAgent do
       "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/datasources/#{AWS.Util.encode_uri(data_source_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4680,7 +4756,7 @@ defmodule AWS.BedrockAgent do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -4697,6 +4773,7 @@ defmodule AWS.BedrockAgent do
   def delete_flow(%Client{} = client, flow_identifier, input, options \\ []) do
     url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4712,7 +4789,7 @@ defmodule AWS.BedrockAgent do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4737,6 +4814,7 @@ defmodule AWS.BedrockAgent do
       "/flows/#{AWS.Util.encode_uri(flow_identifier)}/aliases/#{AWS.Util.encode_uri(alias_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4747,7 +4825,7 @@ defmodule AWS.BedrockAgent do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4766,6 +4844,7 @@ defmodule AWS.BedrockAgent do
       "/flows/#{AWS.Util.encode_uri(flow_identifier)}/versions/#{AWS.Util.encode_uri(flow_version)}/"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4781,7 +4860,7 @@ defmodule AWS.BedrockAgent do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4803,6 +4882,7 @@ defmodule AWS.BedrockAgent do
   def delete_knowledge_base(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4813,7 +4893,7 @@ defmodule AWS.BedrockAgent do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -4835,6 +4915,7 @@ defmodule AWS.BedrockAgent do
   def delete_prompt(%Client{} = client, prompt_identifier, input, options \\ []) do
     url_path = "/prompts/#{AWS.Util.encode_uri(prompt_identifier)}/"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4850,7 +4931,7 @@ defmodule AWS.BedrockAgent do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4883,6 +4964,7 @@ defmodule AWS.BedrockAgent do
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentversions/#{AWS.Util.encode_uri(agent_version)}/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4893,7 +4975,7 @@ defmodule AWS.BedrockAgent do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -5181,6 +5263,7 @@ defmodule AWS.BedrockAgent do
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentversions/#{AWS.Util.encode_uri(agent_version)}/actiongroups/"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5191,7 +5274,7 @@ defmodule AWS.BedrockAgent do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5208,6 +5291,7 @@ defmodule AWS.BedrockAgent do
   def list_agent_aliases(%Client{} = client, agent_id, input, options \\ []) do
     url_path = "/agents/#{AWS.Util.encode_uri(agent_id)}/agentaliases/"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5218,7 +5302,7 @@ defmodule AWS.BedrockAgent do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5249,6 +5333,7 @@ defmodule AWS.BedrockAgent do
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentversions/#{AWS.Util.encode_uri(agent_version)}/knowledgebases/"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5259,7 +5344,7 @@ defmodule AWS.BedrockAgent do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5276,6 +5361,7 @@ defmodule AWS.BedrockAgent do
   def list_agent_versions(%Client{} = client, agent_id, input, options \\ []) do
     url_path = "/agents/#{AWS.Util.encode_uri(agent_id)}/agentversions/"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5286,7 +5372,7 @@ defmodule AWS.BedrockAgent do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5303,6 +5389,7 @@ defmodule AWS.BedrockAgent do
   def list_agents(%Client{} = client, input, options \\ []) do
     url_path = "/agents/"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5313,7 +5400,7 @@ defmodule AWS.BedrockAgent do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5330,6 +5417,7 @@ defmodule AWS.BedrockAgent do
   def list_data_sources(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/datasources/"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5340,7 +5428,7 @@ defmodule AWS.BedrockAgent do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5478,6 +5566,7 @@ defmodule AWS.BedrockAgent do
       "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/datasources/#{AWS.Util.encode_uri(data_source_id)}/ingestionjobs/"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5488,7 +5577,7 @@ defmodule AWS.BedrockAgent do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5507,6 +5596,7 @@ defmodule AWS.BedrockAgent do
   def list_knowledge_bases(%Client{} = client, input, options \\ []) do
     url_path = "/knowledgebases/"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5517,7 +5607,7 @@ defmodule AWS.BedrockAgent do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5600,6 +5690,7 @@ defmodule AWS.BedrockAgent do
   def prepare_agent(%Client{} = client, agent_id, input, options \\ []) do
     url_path = "/agents/#{AWS.Util.encode_uri(agent_id)}/"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5610,7 +5701,7 @@ defmodule AWS.BedrockAgent do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -5630,6 +5721,7 @@ defmodule AWS.BedrockAgent do
   def prepare_flow(%Client{} = client, flow_identifier, input, options \\ []) do
     url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5640,7 +5732,7 @@ defmodule AWS.BedrockAgent do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -5668,11 +5760,22 @@ defmodule AWS.BedrockAgent do
       "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/datasources/#{AWS.Util.encode_uri(data_source_id)}/ingestionjobs/"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -5704,6 +5807,7 @@ defmodule AWS.BedrockAgent do
       "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/datasources/#{AWS.Util.encode_uri(data_source_id)}/ingestionjobs/#{AWS.Util.encode_uri(ingestion_job_id)}/stop"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5714,7 +5818,7 @@ defmodule AWS.BedrockAgent do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -5734,6 +5838,7 @@ defmodule AWS.BedrockAgent do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5744,7 +5849,7 @@ defmodule AWS.BedrockAgent do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5761,6 +5866,7 @@ defmodule AWS.BedrockAgent do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5776,7 +5882,7 @@ defmodule AWS.BedrockAgent do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5793,11 +5899,22 @@ defmodule AWS.BedrockAgent do
   def update_agent(%Client{} = client, agent_id, input, options \\ []) do
     url_path = "/agents/#{AWS.Util.encode_uri(agent_id)}/"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -5826,11 +5943,22 @@ defmodule AWS.BedrockAgent do
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentversions/#{AWS.Util.encode_uri(agent_version)}/actiongroups/#{AWS.Util.encode_uri(action_group_id)}/"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5845,11 +5973,22 @@ defmodule AWS.BedrockAgent do
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentaliases/#{AWS.Util.encode_uri(agent_alias_id)}/"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -5879,11 +6018,22 @@ defmodule AWS.BedrockAgent do
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentversions/#{AWS.Util.encode_uri(agent_version)}/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5907,11 +6057,22 @@ defmodule AWS.BedrockAgent do
       "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/datasources/#{AWS.Util.encode_uri(data_source_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5929,11 +6090,22 @@ defmodule AWS.BedrockAgent do
   def update_flow(%Client{} = client, flow_identifier, input, options \\ []) do
     url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5958,11 +6130,22 @@ defmodule AWS.BedrockAgent do
       "/flows/#{AWS.Util.encode_uri(flow_identifier)}/aliases/#{AWS.Util.encode_uri(alias_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5998,11 +6181,22 @@ defmodule AWS.BedrockAgent do
   def update_knowledge_base(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -6020,11 +6214,22 @@ defmodule AWS.BedrockAgent do
   def update_prompt(%Client{} = client, prompt_identifier, input, options \\ []) do
     url_path = "/prompts/#{AWS.Util.encode_uri(prompt_identifier)}/"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6037,6 +6242,7 @@ defmodule AWS.BedrockAgent do
   def validate_flow_definition(%Client{} = client, input, options \\ []) do
     url_path = "/flows/validate-definition"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6047,7 +6253,7 @@ defmodule AWS.BedrockAgent do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

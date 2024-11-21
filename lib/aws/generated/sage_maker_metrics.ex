@@ -143,6 +143,7 @@ defmodule AWS.SageMakerMetrics do
   def batch_get_metrics(%Client{} = client, input, options \\ []) do
     url_path = "/BatchGetMetrics"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -153,7 +154,7 @@ defmodule AWS.SageMakerMetrics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -171,10 +172,21 @@ defmodule AWS.SageMakerMetrics do
   def batch_put_metrics(%Client{} = client, input, options \\ []) do
     url_path = "/BatchPutMetrics"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

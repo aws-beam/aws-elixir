@@ -5247,6 +5247,7 @@ defmodule AWS.IoTWireless do
   def associate_aws_account_with_partner_account(%Client{} = client, input, options \\ []) do
     url_path = "/partner-accounts"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5257,7 +5258,7 @@ defmodule AWS.IoTWireless do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5279,11 +5280,22 @@ defmodule AWS.IoTWireless do
   def associate_multicast_group_with_fuota_task(%Client{} = client, id, input, options \\ []) do
     url_path = "/fuota-tasks/#{AWS.Util.encode_uri(id)}/multicast-group"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -5301,11 +5313,22 @@ defmodule AWS.IoTWireless do
   def associate_wireless_device_with_fuota_task(%Client{} = client, id, input, options \\ []) do
     url_path = "/fuota-tasks/#{AWS.Util.encode_uri(id)}/wireless-device"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -5323,11 +5346,22 @@ defmodule AWS.IoTWireless do
   def associate_wireless_device_with_multicast_group(%Client{} = client, id, input, options \\ []) do
     url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}/wireless-device"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -5345,11 +5379,22 @@ defmodule AWS.IoTWireless do
   def associate_wireless_device_with_thing(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}/thing"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -5367,11 +5412,22 @@ defmodule AWS.IoTWireless do
   def associate_wireless_gateway_with_certificate(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/certificate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5389,11 +5445,22 @@ defmodule AWS.IoTWireless do
   def associate_wireless_gateway_with_thing(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/thing"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -5411,6 +5478,7 @@ defmodule AWS.IoTWireless do
   def cancel_multicast_group_session(%Client{} = client, id, input, options \\ []) do
     url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}/session"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5421,7 +5489,7 @@ defmodule AWS.IoTWireless do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -5438,6 +5506,7 @@ defmodule AWS.IoTWireless do
   def create_destination(%Client{} = client, input, options \\ []) do
     url_path = "/destinations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5448,7 +5517,7 @@ defmodule AWS.IoTWireless do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -5465,6 +5534,7 @@ defmodule AWS.IoTWireless do
   def create_device_profile(%Client{} = client, input, options \\ []) do
     url_path = "/device-profiles"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5475,7 +5545,7 @@ defmodule AWS.IoTWireless do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -5492,6 +5562,7 @@ defmodule AWS.IoTWireless do
   def create_fuota_task(%Client{} = client, input, options \\ []) do
     url_path = "/fuota-tasks"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5502,7 +5573,7 @@ defmodule AWS.IoTWireless do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -5519,6 +5590,7 @@ defmodule AWS.IoTWireless do
   def create_multicast_group(%Client{} = client, input, options \\ []) do
     url_path = "/multicast-groups"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5529,7 +5601,7 @@ defmodule AWS.IoTWireless do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -5550,6 +5622,7 @@ defmodule AWS.IoTWireless do
   def create_network_analyzer_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/network-analyzer-configurations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5560,7 +5633,7 @@ defmodule AWS.IoTWireless do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -5577,6 +5650,7 @@ defmodule AWS.IoTWireless do
   def create_service_profile(%Client{} = client, input, options \\ []) do
     url_path = "/service-profiles"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5587,7 +5661,7 @@ defmodule AWS.IoTWireless do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -5604,6 +5678,7 @@ defmodule AWS.IoTWireless do
   def create_wireless_device(%Client{} = client, input, options \\ []) do
     url_path = "/wireless-devices"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5614,7 +5689,7 @@ defmodule AWS.IoTWireless do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -5644,6 +5719,7 @@ defmodule AWS.IoTWireless do
   def create_wireless_gateway(%Client{} = client, input, options \\ []) do
     url_path = "/wireless-gateways"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5654,7 +5730,7 @@ defmodule AWS.IoTWireless do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -5676,6 +5752,7 @@ defmodule AWS.IoTWireless do
   def create_wireless_gateway_task(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/tasks"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5686,7 +5763,7 @@ defmodule AWS.IoTWireless do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -5707,6 +5784,7 @@ defmodule AWS.IoTWireless do
   def create_wireless_gateway_task_definition(%Client{} = client, input, options \\ []) do
     url_path = "/wireless-gateway-task-definitions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5717,7 +5795,7 @@ defmodule AWS.IoTWireless do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -5734,6 +5812,7 @@ defmodule AWS.IoTWireless do
   def delete_destination(%Client{} = client, name, input, options \\ []) do
     url_path = "/destinations/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5744,7 +5823,7 @@ defmodule AWS.IoTWireless do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -5761,6 +5840,7 @@ defmodule AWS.IoTWireless do
   def delete_device_profile(%Client{} = client, id, input, options \\ []) do
     url_path = "/device-profiles/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5771,7 +5851,7 @@ defmodule AWS.IoTWireless do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -5788,6 +5868,7 @@ defmodule AWS.IoTWireless do
   def delete_fuota_task(%Client{} = client, id, input, options \\ []) do
     url_path = "/fuota-tasks/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5798,7 +5879,7 @@ defmodule AWS.IoTWireless do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -5815,6 +5896,7 @@ defmodule AWS.IoTWireless do
   def delete_multicast_group(%Client{} = client, id, input, options \\ []) do
     url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5825,7 +5907,7 @@ defmodule AWS.IoTWireless do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -5852,6 +5934,7 @@ defmodule AWS.IoTWireless do
       ) do
     url_path = "/network-analyzer-configurations/#{AWS.Util.encode_uri(configuration_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5862,7 +5945,7 @@ defmodule AWS.IoTWireless do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -5879,6 +5962,7 @@ defmodule AWS.IoTWireless do
   def delete_queued_messages(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}/data"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5895,7 +5979,7 @@ defmodule AWS.IoTWireless do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -5912,6 +5996,7 @@ defmodule AWS.IoTWireless do
   def delete_service_profile(%Client{} = client, id, input, options \\ []) do
     url_path = "/service-profiles/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5922,7 +6007,7 @@ defmodule AWS.IoTWireless do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -5939,6 +6024,7 @@ defmodule AWS.IoTWireless do
   def delete_wireless_device(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5949,7 +6035,7 @@ defmodule AWS.IoTWireless do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -5971,6 +6057,7 @@ defmodule AWS.IoTWireless do
   def delete_wireless_device_import_task(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless_device_import_task/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5981,7 +6068,7 @@ defmodule AWS.IoTWireless do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -6011,6 +6098,7 @@ defmodule AWS.IoTWireless do
   def delete_wireless_gateway(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6021,7 +6109,7 @@ defmodule AWS.IoTWireless do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -6043,6 +6131,7 @@ defmodule AWS.IoTWireless do
   def delete_wireless_gateway_task(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/tasks"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6053,7 +6142,7 @@ defmodule AWS.IoTWireless do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -6078,6 +6167,7 @@ defmodule AWS.IoTWireless do
   def delete_wireless_gateway_task_definition(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-gateway-task-definitions/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6088,7 +6178,7 @@ defmodule AWS.IoTWireless do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -6110,6 +6200,7 @@ defmodule AWS.IoTWireless do
   def deregister_wireless_device(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(identifier)}/deregister"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -6125,7 +6216,7 @@ defmodule AWS.IoTWireless do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6156,6 +6247,7 @@ defmodule AWS.IoTWireless do
       ) do
     url_path = "/partner-accounts/#{AWS.Util.encode_uri(partner_account_id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -6171,7 +6263,7 @@ defmodule AWS.IoTWireless do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -6202,6 +6294,7 @@ defmodule AWS.IoTWireless do
       "/fuota-tasks/#{AWS.Util.encode_uri(id)}/multicast-groups/#{AWS.Util.encode_uri(multicast_group_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6212,7 +6305,7 @@ defmodule AWS.IoTWireless do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -6243,6 +6336,7 @@ defmodule AWS.IoTWireless do
       "/fuota-tasks/#{AWS.Util.encode_uri(id)}/wireless-devices/#{AWS.Util.encode_uri(wireless_device_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6253,7 +6347,7 @@ defmodule AWS.IoTWireless do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -6284,6 +6378,7 @@ defmodule AWS.IoTWireless do
       "/multicast-groups/#{AWS.Util.encode_uri(id)}/wireless-devices/#{AWS.Util.encode_uri(wireless_device_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6294,7 +6389,7 @@ defmodule AWS.IoTWireless do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -6316,6 +6411,7 @@ defmodule AWS.IoTWireless do
   def disassociate_wireless_device_from_thing(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}/thing"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6326,7 +6422,7 @@ defmodule AWS.IoTWireless do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -6348,6 +6444,7 @@ defmodule AWS.IoTWireless do
   def disassociate_wireless_gateway_from_certificate(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/certificate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6358,7 +6455,7 @@ defmodule AWS.IoTWireless do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -6380,6 +6477,7 @@ defmodule AWS.IoTWireless do
   def disassociate_wireless_gateway_from_thing(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/thing"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6390,7 +6488,7 @@ defmodule AWS.IoTWireless do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -6513,6 +6611,7 @@ defmodule AWS.IoTWireless do
   def get_metrics(%Client{} = client, input, options \\ []) do
     url_path = "/metrics"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6523,7 +6622,7 @@ defmodule AWS.IoTWireless do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6685,6 +6784,7 @@ defmodule AWS.IoTWireless do
   def get_position_estimate(%Client{} = client, input, options \\ []) do
     url_path = "/position-estimate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6695,7 +6795,7 @@ defmodule AWS.IoTWireless do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7776,6 +7876,7 @@ defmodule AWS.IoTWireless do
   def put_position_configuration(%Client{} = client, resource_identifier, input, options \\ []) do
     url_path = "/position-configurations/#{AWS.Util.encode_uri(resource_identifier)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -7785,7 +7886,17 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -7803,6 +7914,7 @@ defmodule AWS.IoTWireless do
   def put_resource_log_level(%Client{} = client, resource_identifier, input, options \\ []) do
     url_path = "/log-levels/#{AWS.Util.encode_uri(resource_identifier)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -7812,7 +7924,17 @@ defmodule AWS.IoTWireless do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -7826,6 +7948,7 @@ defmodule AWS.IoTWireless do
   def reset_all_resource_log_levels(%Client{} = client, input, options \\ []) do
     url_path = "/log-levels"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7836,7 +7959,7 @@ defmodule AWS.IoTWireless do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -7856,6 +7979,7 @@ defmodule AWS.IoTWireless do
   def reset_resource_log_level(%Client{} = client, resource_identifier, input, options \\ []) do
     url_path = "/log-levels/#{AWS.Util.encode_uri(resource_identifier)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -7871,7 +7995,7 @@ defmodule AWS.IoTWireless do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -7893,6 +8017,7 @@ defmodule AWS.IoTWireless do
   def send_data_to_multicast_group(%Client{} = client, id, input, options \\ []) do
     url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}/data"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7903,7 +8028,7 @@ defmodule AWS.IoTWireless do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7925,6 +8050,7 @@ defmodule AWS.IoTWireless do
   def send_data_to_wireless_device(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}/data"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7935,7 +8061,7 @@ defmodule AWS.IoTWireless do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -7963,6 +8089,7 @@ defmodule AWS.IoTWireless do
       ) do
     url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}/bulk"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7973,7 +8100,7 @@ defmodule AWS.IoTWireless do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8001,6 +8128,7 @@ defmodule AWS.IoTWireless do
       ) do
     url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}/bulk"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8011,7 +8139,7 @@ defmodule AWS.IoTWireless do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8028,11 +8156,22 @@ defmodule AWS.IoTWireless do
   def start_fuota_task(%Client{} = client, id, input, options \\ []) do
     url_path = "/fuota-tasks/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -8050,11 +8189,22 @@ defmodule AWS.IoTWireless do
   def start_multicast_group_session(%Client{} = client, id, input, options \\ []) do
     url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}/session"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -8071,6 +8221,7 @@ defmodule AWS.IoTWireless do
   def start_single_wireless_device_import_task(%Client{} = client, input, options \\ []) do
     url_path = "/wireless_single_device_import_task"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8081,7 +8232,7 @@ defmodule AWS.IoTWireless do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -8103,6 +8254,7 @@ defmodule AWS.IoTWireless do
   def start_wireless_device_import_task(%Client{} = client, input, options \\ []) do
     url_path = "/wireless_device_import_task"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8113,7 +8265,7 @@ defmodule AWS.IoTWireless do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -8130,6 +8282,7 @@ defmodule AWS.IoTWireless do
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -8145,7 +8298,7 @@ defmodule AWS.IoTWireless do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8163,6 +8316,7 @@ defmodule AWS.IoTWireless do
   def test_wireless_device(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}/test"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8173,7 +8327,7 @@ defmodule AWS.IoTWireless do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8190,6 +8344,7 @@ defmodule AWS.IoTWireless do
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -8206,7 +8361,7 @@ defmodule AWS.IoTWireless do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8223,6 +8378,7 @@ defmodule AWS.IoTWireless do
   def update_destination(%Client{} = client, name, input, options \\ []) do
     url_path = "/destinations/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8233,7 +8389,7 @@ defmodule AWS.IoTWireless do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8254,6 +8410,7 @@ defmodule AWS.IoTWireless do
   def update_event_configuration_by_resource_types(%Client{} = client, input, options \\ []) do
     url_path = "/event-configurations-resource-types"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8264,7 +8421,7 @@ defmodule AWS.IoTWireless do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8281,6 +8438,7 @@ defmodule AWS.IoTWireless do
   def update_fuota_task(%Client{} = client, id, input, options \\ []) do
     url_path = "/fuota-tasks/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8291,7 +8449,7 @@ defmodule AWS.IoTWireless do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8317,6 +8475,7 @@ defmodule AWS.IoTWireless do
   def update_log_levels_by_resource_types(%Client{} = client, input, options \\ []) do
     url_path = "/log-levels"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8327,7 +8486,7 @@ defmodule AWS.IoTWireless do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8344,11 +8503,22 @@ defmodule AWS.IoTWireless do
   def update_metric_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/metric-configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -8361,6 +8531,7 @@ defmodule AWS.IoTWireless do
   def update_multicast_group(%Client{} = client, id, input, options \\ []) do
     url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8371,7 +8542,7 @@ defmodule AWS.IoTWireless do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8398,6 +8569,7 @@ defmodule AWS.IoTWireless do
       ) do
     url_path = "/network-analyzer-configurations/#{AWS.Util.encode_uri(configuration_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8408,7 +8580,7 @@ defmodule AWS.IoTWireless do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8425,6 +8597,7 @@ defmodule AWS.IoTWireless do
   def update_partner_account(%Client{} = client, partner_account_id, input, options \\ []) do
     url_path = "/partner-accounts/#{AWS.Util.encode_uri(partner_account_id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -8440,7 +8613,7 @@ defmodule AWS.IoTWireless do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8462,6 +8635,7 @@ defmodule AWS.IoTWireless do
   def update_position(%Client{} = client, resource_identifier, input, options \\ []) do
     url_path = "/positions/#{AWS.Util.encode_uri(resource_identifier)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -8477,7 +8651,7 @@ defmodule AWS.IoTWireless do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8499,6 +8673,7 @@ defmodule AWS.IoTWireless do
   def update_resource_event_configuration(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/event-configurations/#{AWS.Util.encode_uri(identifier)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -8515,7 +8690,7 @@ defmodule AWS.IoTWireless do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8535,6 +8710,7 @@ defmodule AWS.IoTWireless do
   def update_resource_position(%Client{} = client, resource_identifier, input, options \\ []) do
     url_path = "/resource-positions/#{AWS.Util.encode_uri(resource_identifier)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -8550,7 +8726,7 @@ defmodule AWS.IoTWireless do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8567,6 +8743,7 @@ defmodule AWS.IoTWireless do
   def update_wireless_device(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8577,7 +8754,7 @@ defmodule AWS.IoTWireless do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8599,6 +8776,7 @@ defmodule AWS.IoTWireless do
   def update_wireless_device_import_task(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless_device_import_task/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8609,7 +8787,7 @@ defmodule AWS.IoTWireless do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8626,6 +8804,7 @@ defmodule AWS.IoTWireless do
   def update_wireless_gateway(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8636,7 +8815,7 @@ defmodule AWS.IoTWireless do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204

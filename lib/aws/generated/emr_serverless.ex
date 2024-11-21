@@ -989,6 +989,7 @@ defmodule AWS.EMRServerless do
       "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns/#{AWS.Util.encode_uri(job_run_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -999,7 +1000,7 @@ defmodule AWS.EMRServerless do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1016,6 +1017,7 @@ defmodule AWS.EMRServerless do
   def create_application(%Client{} = client, input, options \\ []) do
     url_path = "/applications"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1026,7 +1028,7 @@ defmodule AWS.EMRServerless do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1046,6 +1048,7 @@ defmodule AWS.EMRServerless do
   def delete_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1056,7 +1059,7 @@ defmodule AWS.EMRServerless do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1347,6 +1350,7 @@ defmodule AWS.EMRServerless do
   def start_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/start"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1357,7 +1361,7 @@ defmodule AWS.EMRServerless do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1374,6 +1378,7 @@ defmodule AWS.EMRServerless do
   def start_job_run(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1384,7 +1389,7 @@ defmodule AWS.EMRServerless do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1404,6 +1409,7 @@ defmodule AWS.EMRServerless do
   def stop_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/stop"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1414,7 +1420,7 @@ defmodule AWS.EMRServerless do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1440,6 +1446,7 @@ defmodule AWS.EMRServerless do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1450,7 +1457,7 @@ defmodule AWS.EMRServerless do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1467,6 +1474,7 @@ defmodule AWS.EMRServerless do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1482,7 +1490,7 @@ defmodule AWS.EMRServerless do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1502,6 +1510,7 @@ defmodule AWS.EMRServerless do
   def update_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1512,7 +1521,7 @@ defmodule AWS.EMRServerless do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

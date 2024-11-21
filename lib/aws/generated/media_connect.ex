@@ -2948,6 +2948,7 @@ defmodule AWS.MediaConnect do
   def add_bridge_outputs(%Client{} = client, bridge_arn, input, options \\ []) do
     url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/outputs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2958,7 +2959,7 @@ defmodule AWS.MediaConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -2975,6 +2976,7 @@ defmodule AWS.MediaConnect do
   def add_bridge_sources(%Client{} = client, bridge_arn, input, options \\ []) do
     url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/sources"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2985,7 +2987,7 @@ defmodule AWS.MediaConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -3005,6 +3007,7 @@ defmodule AWS.MediaConnect do
   def add_flow_media_streams(%Client{} = client, flow_arn, input, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/mediaStreams"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3015,7 +3018,7 @@ defmodule AWS.MediaConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -3034,6 +3037,7 @@ defmodule AWS.MediaConnect do
   def add_flow_outputs(%Client{} = client, flow_arn, input, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/outputs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3044,7 +3048,7 @@ defmodule AWS.MediaConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -3061,6 +3065,7 @@ defmodule AWS.MediaConnect do
   def add_flow_sources(%Client{} = client, flow_arn, input, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/source"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3071,7 +3076,7 @@ defmodule AWS.MediaConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -3088,6 +3093,7 @@ defmodule AWS.MediaConnect do
   def add_flow_vpc_interfaces(%Client{} = client, flow_arn, input, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/vpcInterfaces"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3098,7 +3104,7 @@ defmodule AWS.MediaConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -3117,6 +3123,7 @@ defmodule AWS.MediaConnect do
   def create_bridge(%Client{} = client, input, options \\ []) do
     url_path = "/v1/bridges"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3127,7 +3134,7 @@ defmodule AWS.MediaConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -3147,6 +3154,7 @@ defmodule AWS.MediaConnect do
   def create_flow(%Client{} = client, input, options \\ []) do
     url_path = "/v1/flows"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3157,7 +3165,7 @@ defmodule AWS.MediaConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -3176,6 +3184,7 @@ defmodule AWS.MediaConnect do
   def create_gateway(%Client{} = client, input, options \\ []) do
     url_path = "/v1/gateways"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3186,7 +3195,7 @@ defmodule AWS.MediaConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -3205,6 +3214,7 @@ defmodule AWS.MediaConnect do
   def delete_bridge(%Client{} = client, bridge_arn, input, options \\ []) do
     url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3215,7 +3225,7 @@ defmodule AWS.MediaConnect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3234,6 +3244,7 @@ defmodule AWS.MediaConnect do
   def delete_flow(%Client{} = client, flow_arn, input, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3244,7 +3255,7 @@ defmodule AWS.MediaConnect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -3264,6 +3275,7 @@ defmodule AWS.MediaConnect do
   def delete_gateway(%Client{} = client, gateway_arn, input, options \\ []) do
     url_path = "/v1/gateways/#{AWS.Util.encode_uri(gateway_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3274,7 +3286,7 @@ defmodule AWS.MediaConnect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3300,6 +3312,7 @@ defmodule AWS.MediaConnect do
   def deregister_gateway_instance(%Client{} = client, gateway_instance_arn, input, options \\ []) do
     url_path = "/v1/gateway-instances/#{AWS.Util.encode_uri(gateway_instance_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3315,7 +3328,7 @@ defmodule AWS.MediaConnect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -3484,6 +3497,7 @@ defmodule AWS.MediaConnect do
   def grant_flow_entitlements(%Client{} = client, flow_arn, input, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/entitlements"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3494,7 +3508,7 @@ defmodule AWS.MediaConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3800,6 +3814,7 @@ defmodule AWS.MediaConnect do
   def purchase_offering(%Client{} = client, offering_arn, input, options \\ []) do
     url_path = "/v1/offerings/#{AWS.Util.encode_uri(offering_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3810,7 +3825,7 @@ defmodule AWS.MediaConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -3835,6 +3850,7 @@ defmodule AWS.MediaConnect do
       "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/outputs/#{AWS.Util.encode_uri(output_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3845,7 +3861,7 @@ defmodule AWS.MediaConnect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -3870,6 +3886,7 @@ defmodule AWS.MediaConnect do
       "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/sources/#{AWS.Util.encode_uri(source_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3880,7 +3897,7 @@ defmodule AWS.MediaConnect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -3914,6 +3931,7 @@ defmodule AWS.MediaConnect do
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/mediaStreams/#{AWS.Util.encode_uri(media_stream_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3924,7 +3942,7 @@ defmodule AWS.MediaConnect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3948,6 +3966,7 @@ defmodule AWS.MediaConnect do
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/outputs/#{AWS.Util.encode_uri(output_arn)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3958,7 +3977,7 @@ defmodule AWS.MediaConnect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -3979,6 +3998,7 @@ defmodule AWS.MediaConnect do
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/source/#{AWS.Util.encode_uri(source_arn)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3989,7 +4009,7 @@ defmodule AWS.MediaConnect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -4025,6 +4045,7 @@ defmodule AWS.MediaConnect do
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/vpcInterfaces/#{AWS.Util.encode_uri(vpc_interface_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4035,7 +4056,7 @@ defmodule AWS.MediaConnect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4063,6 +4084,7 @@ defmodule AWS.MediaConnect do
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/entitlements/#{AWS.Util.encode_uri(entitlement_arn)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4073,7 +4095,7 @@ defmodule AWS.MediaConnect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -4090,6 +4112,7 @@ defmodule AWS.MediaConnect do
   def start_flow(%Client{} = client, flow_arn, input, options \\ []) do
     url_path = "/v1/flows/start/#{AWS.Util.encode_uri(flow_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4100,7 +4123,7 @@ defmodule AWS.MediaConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -4117,6 +4140,7 @@ defmodule AWS.MediaConnect do
   def stop_flow(%Client{} = client, flow_arn, input, options \\ []) do
     url_path = "/v1/flows/stop/#{AWS.Util.encode_uri(flow_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4127,7 +4151,7 @@ defmodule AWS.MediaConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -4148,6 +4172,7 @@ defmodule AWS.MediaConnect do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4158,7 +4183,7 @@ defmodule AWS.MediaConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4175,6 +4200,7 @@ defmodule AWS.MediaConnect do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4190,7 +4216,7 @@ defmodule AWS.MediaConnect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4207,11 +4233,22 @@ defmodule AWS.MediaConnect do
   def update_bridge(%Client{} = client, bridge_arn, input, options \\ []) do
     url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -4232,11 +4269,22 @@ defmodule AWS.MediaConnect do
       "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/outputs/#{AWS.Util.encode_uri(output_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -4257,11 +4305,22 @@ defmodule AWS.MediaConnect do
       "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/sources/#{AWS.Util.encode_uri(source_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -4274,11 +4333,22 @@ defmodule AWS.MediaConnect do
   def update_bridge_state(%Client{} = client, bridge_arn, input, options \\ []) do
     url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/state"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -4291,11 +4361,22 @@ defmodule AWS.MediaConnect do
   def update_flow(%Client{} = client, flow_arn, input, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -4319,11 +4400,22 @@ defmodule AWS.MediaConnect do
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/entitlements/#{AWS.Util.encode_uri(entitlement_arn)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -4350,11 +4442,22 @@ defmodule AWS.MediaConnect do
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/mediaStreams/#{AWS.Util.encode_uri(media_stream_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -4369,11 +4472,22 @@ defmodule AWS.MediaConnect do
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/outputs/#{AWS.Util.encode_uri(output_arn)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -4388,11 +4502,22 @@ defmodule AWS.MediaConnect do
       "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/source/#{AWS.Util.encode_uri(source_arn)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -4405,10 +4530,21 @@ defmodule AWS.MediaConnect do
   def update_gateway_instance(%Client{} = client, gateway_instance_arn, input, options \\ []) do
     url_path = "/v1/gateway-instances/#{AWS.Util.encode_uri(gateway_instance_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

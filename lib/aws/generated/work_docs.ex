@@ -2112,6 +2112,7 @@ defmodule AWS.WorkDocs do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2122,7 +2123,7 @@ defmodule AWS.WorkDocs do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2148,6 +2149,7 @@ defmodule AWS.WorkDocs do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2158,7 +2160,7 @@ defmodule AWS.WorkDocs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2185,6 +2187,7 @@ defmodule AWS.WorkDocs do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2195,7 +2198,7 @@ defmodule AWS.WorkDocs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2219,6 +2222,7 @@ defmodule AWS.WorkDocs do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2229,7 +2233,7 @@ defmodule AWS.WorkDocs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2254,6 +2258,8 @@ defmodule AWS.WorkDocs do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"VersionId", "versionid"}
@@ -2262,7 +2268,17 @@ defmodule AWS.WorkDocs do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2281,6 +2297,7 @@ defmodule AWS.WorkDocs do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2291,7 +2308,7 @@ defmodule AWS.WorkDocs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2315,11 +2332,22 @@ defmodule AWS.WorkDocs do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2344,6 +2372,7 @@ defmodule AWS.WorkDocs do
   def create_notification_subscription(%Client{} = client, organization_id, input, options \\ []) do
     url_path = "/api/v1/organizations/#{AWS.Util.encode_uri(organization_id)}/subscriptions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2354,7 +2383,7 @@ defmodule AWS.WorkDocs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2380,6 +2409,7 @@ defmodule AWS.WorkDocs do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2390,7 +2420,7 @@ defmodule AWS.WorkDocs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2414,6 +2444,7 @@ defmodule AWS.WorkDocs do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2424,7 +2455,7 @@ defmodule AWS.WorkDocs do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2462,6 +2493,7 @@ defmodule AWS.WorkDocs do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2472,7 +2504,7 @@ defmodule AWS.WorkDocs do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2495,6 +2527,8 @@ defmodule AWS.WorkDocs do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"DeleteAll", "deleteAll"},
@@ -2511,7 +2545,7 @@ defmodule AWS.WorkDocs do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2534,6 +2568,7 @@ defmodule AWS.WorkDocs do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2544,7 +2579,7 @@ defmodule AWS.WorkDocs do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2574,6 +2609,8 @@ defmodule AWS.WorkDocs do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"DeletePriorVersions", "deletePriorVersions"}
@@ -2588,7 +2625,7 @@ defmodule AWS.WorkDocs do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2611,6 +2648,7 @@ defmodule AWS.WorkDocs do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2621,7 +2659,7 @@ defmodule AWS.WorkDocs do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2644,6 +2682,7 @@ defmodule AWS.WorkDocs do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2654,7 +2693,7 @@ defmodule AWS.WorkDocs do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2677,6 +2716,8 @@ defmodule AWS.WorkDocs do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"DeleteAll", "deleteAll"},
@@ -2692,7 +2733,7 @@ defmodule AWS.WorkDocs do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2723,6 +2764,7 @@ defmodule AWS.WorkDocs do
       "/api/v1/organizations/#{AWS.Util.encode_uri(organization_id)}/subscriptions/#{AWS.Util.encode_uri(subscription_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2733,7 +2775,7 @@ defmodule AWS.WorkDocs do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2759,6 +2801,7 @@ defmodule AWS.WorkDocs do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2769,7 +2812,7 @@ defmodule AWS.WorkDocs do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3883,6 +3926,7 @@ defmodule AWS.WorkDocs do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3893,7 +3937,7 @@ defmodule AWS.WorkDocs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -3921,6 +3965,7 @@ defmodule AWS.WorkDocs do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3931,7 +3976,7 @@ defmodule AWS.WorkDocs do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3968,6 +4013,8 @@ defmodule AWS.WorkDocs do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"PrincipalType", "type"}
@@ -3982,7 +4029,7 @@ defmodule AWS.WorkDocs do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4005,6 +4052,7 @@ defmodule AWS.WorkDocs do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4015,7 +4063,7 @@ defmodule AWS.WorkDocs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4039,6 +4087,7 @@ defmodule AWS.WorkDocs do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4049,7 +4098,7 @@ defmodule AWS.WorkDocs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4075,6 +4124,7 @@ defmodule AWS.WorkDocs do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4085,7 +4135,7 @@ defmodule AWS.WorkDocs do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4121,6 +4171,7 @@ defmodule AWS.WorkDocs do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4131,7 +4182,7 @@ defmodule AWS.WorkDocs do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4157,6 +4208,7 @@ defmodule AWS.WorkDocs do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4167,7 +4219,7 @@ defmodule AWS.WorkDocs do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4191,6 +4243,7 @@ defmodule AWS.WorkDocs do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4201,7 +4254,7 @@ defmodule AWS.WorkDocs do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

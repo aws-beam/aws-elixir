@@ -607,6 +607,7 @@ defmodule AWS.IotDeviceAdvisor do
   def create_suite_definition(%Client{} = client, input, options \\ []) do
     url_path = "/suiteDefinitions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -617,7 +618,7 @@ defmodule AWS.IotDeviceAdvisor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -638,6 +639,7 @@ defmodule AWS.IotDeviceAdvisor do
   def delete_suite_definition(%Client{} = client, suite_definition_id, input, options \\ []) do
     url_path = "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -648,7 +650,7 @@ defmodule AWS.IotDeviceAdvisor do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -935,6 +937,7 @@ defmodule AWS.IotDeviceAdvisor do
   def start_suite_run(%Client{} = client, suite_definition_id, input, options \\ []) do
     url_path = "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}/suiteRuns"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -945,7 +948,7 @@ defmodule AWS.IotDeviceAdvisor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -968,6 +971,7 @@ defmodule AWS.IotDeviceAdvisor do
       "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}/suiteRuns/#{AWS.Util.encode_uri(suite_run_id)}/stop"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -978,7 +982,7 @@ defmodule AWS.IotDeviceAdvisor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -999,6 +1003,7 @@ defmodule AWS.IotDeviceAdvisor do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1009,7 +1014,7 @@ defmodule AWS.IotDeviceAdvisor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1030,6 +1035,7 @@ defmodule AWS.IotDeviceAdvisor do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1045,7 +1051,7 @@ defmodule AWS.IotDeviceAdvisor do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1066,6 +1072,7 @@ defmodule AWS.IotDeviceAdvisor do
   def update_suite_definition(%Client{} = client, suite_definition_id, input, options \\ []) do
     url_path = "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1076,7 +1083,7 @@ defmodule AWS.IotDeviceAdvisor do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

@@ -2480,6 +2480,7 @@ defmodule AWS.CleanRoomsML do
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/trained-models/#{AWS.Util.encode_uri(trained_model_arn)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2490,7 +2491,7 @@ defmodule AWS.CleanRoomsML do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2521,6 +2522,7 @@ defmodule AWS.CleanRoomsML do
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/trained-model-inference-jobs/#{AWS.Util.encode_uri(trained_model_inference_job_arn)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2531,7 +2533,7 @@ defmodule AWS.CleanRoomsML do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2553,6 +2555,7 @@ defmodule AWS.CleanRoomsML do
   def create_audience_model(%Client{} = client, input, options \\ []) do
     url_path = "/audience-model"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2563,7 +2566,7 @@ defmodule AWS.CleanRoomsML do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2584,6 +2587,7 @@ defmodule AWS.CleanRoomsML do
   def create_configured_audience_model(%Client{} = client, input, options \\ []) do
     url_path = "/configured-audience-model"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2594,7 +2598,7 @@ defmodule AWS.CleanRoomsML do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2616,6 +2620,7 @@ defmodule AWS.CleanRoomsML do
   def create_configured_model_algorithm(%Client{} = client, input, options \\ []) do
     url_path = "/configured-model-algorithms"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2626,7 +2631,7 @@ defmodule AWS.CleanRoomsML do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2656,6 +2661,7 @@ defmodule AWS.CleanRoomsML do
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/configured-model-algorithm-associations"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2666,7 +2672,7 @@ defmodule AWS.CleanRoomsML do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2685,6 +2691,7 @@ defmodule AWS.CleanRoomsML do
   def create_ml_input_channel(%Client{} = client, membership_identifier, input, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/ml-input-channels"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2695,7 +2702,7 @@ defmodule AWS.CleanRoomsML do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2713,6 +2720,7 @@ defmodule AWS.CleanRoomsML do
   def create_trained_model(%Client{} = client, membership_identifier, input, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/trained-models"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2723,7 +2731,7 @@ defmodule AWS.CleanRoomsML do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2743,6 +2751,7 @@ defmodule AWS.CleanRoomsML do
   def create_training_dataset(%Client{} = client, input, options \\ []) do
     url_path = "/training-dataset"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2753,7 +2762,7 @@ defmodule AWS.CleanRoomsML do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2781,6 +2790,7 @@ defmodule AWS.CleanRoomsML do
       ) do
     url_path = "/audience-generation-job/#{AWS.Util.encode_uri(audience_generation_job_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2791,7 +2801,7 @@ defmodule AWS.CleanRoomsML do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2811,6 +2821,7 @@ defmodule AWS.CleanRoomsML do
   def delete_audience_model(%Client{} = client, audience_model_arn, input, options \\ []) do
     url_path = "/audience-model/#{AWS.Util.encode_uri(audience_model_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2821,7 +2832,7 @@ defmodule AWS.CleanRoomsML do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2852,6 +2863,7 @@ defmodule AWS.CleanRoomsML do
       ) do
     url_path = "/configured-audience-model/#{AWS.Util.encode_uri(configured_audience_model_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2862,7 +2874,7 @@ defmodule AWS.CleanRoomsML do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2891,6 +2903,7 @@ defmodule AWS.CleanRoomsML do
       "/configured-audience-model/#{AWS.Util.encode_uri(configured_audience_model_arn)}/policy"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2901,7 +2914,7 @@ defmodule AWS.CleanRoomsML do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2930,6 +2943,7 @@ defmodule AWS.CleanRoomsML do
       "/configured-model-algorithms/#{AWS.Util.encode_uri(configured_model_algorithm_arn)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2940,7 +2954,7 @@ defmodule AWS.CleanRoomsML do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2971,6 +2985,7 @@ defmodule AWS.CleanRoomsML do
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/configured-model-algorithm-associations/#{AWS.Util.encode_uri(configured_model_algorithm_association_arn)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2981,7 +2996,7 @@ defmodule AWS.CleanRoomsML do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2998,6 +3013,7 @@ defmodule AWS.CleanRoomsML do
   def delete_ml_configuration(%Client{} = client, membership_identifier, input, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/ml-configurations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3008,7 +3024,7 @@ defmodule AWS.CleanRoomsML do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3039,6 +3055,7 @@ defmodule AWS.CleanRoomsML do
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/ml-input-channels/#{AWS.Util.encode_uri(ml_input_channel_arn)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3049,7 +3066,7 @@ defmodule AWS.CleanRoomsML do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3080,6 +3097,7 @@ defmodule AWS.CleanRoomsML do
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/trained-models/#{AWS.Util.encode_uri(trained_model_arn)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3090,7 +3108,7 @@ defmodule AWS.CleanRoomsML do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3112,6 +3130,7 @@ defmodule AWS.CleanRoomsML do
   def delete_training_dataset(%Client{} = client, training_dataset_arn, input, options \\ []) do
     url_path = "/training-dataset/#{AWS.Util.encode_uri(training_dataset_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3122,7 +3141,7 @@ defmodule AWS.CleanRoomsML do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4139,11 +4158,22 @@ defmodule AWS.CleanRoomsML do
       "/configured-audience-model/#{AWS.Util.encode_uri(configured_audience_model_arn)}/policy"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4156,11 +4186,22 @@ defmodule AWS.CleanRoomsML do
   def put_ml_configuration(%Client{} = client, membership_identifier, input, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/ml-configurations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4173,6 +4214,7 @@ defmodule AWS.CleanRoomsML do
   def start_audience_export_job(%Client{} = client, input, options \\ []) do
     url_path = "/audience-export-job"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4183,7 +4225,7 @@ defmodule AWS.CleanRoomsML do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4200,6 +4242,7 @@ defmodule AWS.CleanRoomsML do
   def start_audience_generation_job(%Client{} = client, input, options \\ []) do
     url_path = "/audience-generation-job"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4210,7 +4253,7 @@ defmodule AWS.CleanRoomsML do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4241,6 +4284,7 @@ defmodule AWS.CleanRoomsML do
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/trained-models/#{AWS.Util.encode_uri(trained_model_arn)}/export-jobs"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4251,7 +4295,7 @@ defmodule AWS.CleanRoomsML do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4280,6 +4324,7 @@ defmodule AWS.CleanRoomsML do
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/trained-model-inference-jobs"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4290,7 +4335,7 @@ defmodule AWS.CleanRoomsML do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4307,6 +4352,7 @@ defmodule AWS.CleanRoomsML do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4317,7 +4363,7 @@ defmodule AWS.CleanRoomsML do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4334,6 +4380,7 @@ defmodule AWS.CleanRoomsML do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4349,7 +4396,7 @@ defmodule AWS.CleanRoomsML do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4379,6 +4426,7 @@ defmodule AWS.CleanRoomsML do
       ) do
     url_path = "/configured-audience-model/#{AWS.Util.encode_uri(configured_audience_model_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4389,7 +4437,7 @@ defmodule AWS.CleanRoomsML do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

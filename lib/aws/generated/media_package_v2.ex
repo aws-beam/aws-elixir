@@ -59,6 +59,17 @@ defmodule AWS.MediaPackageV2 do
 
   ## Example:
 
+      input_switch_configuration() :: %{
+        "MQCSInputSwitching" => [boolean()]
+      }
+
+  """
+  @type input_switch_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cancel_harvest_job_response() :: %{}
 
   """
@@ -155,8 +166,10 @@ defmodule AWS.MediaPackageV2 do
         "Description" => String.t(),
         "ETag" => String.t(),
         "IngestEndpoints" => list(ingest_endpoint()()),
+        "InputSwitchConfiguration" => input_switch_configuration(),
         "InputType" => list(any()),
         "ModifiedAt" => [non_neg_integer()],
+        "OutputHeaderConfiguration" => output_header_configuration(),
         "Tags" => map()
       }
 
@@ -523,6 +536,17 @@ defmodule AWS.MediaPackageV2 do
 
   ## Example:
 
+      output_header_configuration() :: %{
+        "PublishMQCS" => [boolean()]
+      }
+
+  """
+  @type output_header_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_origin_endpoint_policy_response() :: %{}
 
   """
@@ -673,7 +697,9 @@ defmodule AWS.MediaPackageV2 do
       create_channel_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
+        optional("InputSwitchConfiguration") => input_switch_configuration(),
         optional("InputType") => list(any()),
+        optional("OutputHeaderConfiguration") => output_header_configuration(),
         optional("Tags") => map(),
         required("ChannelName") => String.t()
       }
@@ -787,7 +813,9 @@ defmodule AWS.MediaPackageV2 do
 
       update_channel_request() :: %{
         optional("Description") => String.t(),
-        optional("ETag") => String.t()
+        optional("ETag") => String.t(),
+        optional("InputSwitchConfiguration") => input_switch_configuration(),
+        optional("OutputHeaderConfiguration") => output_header_configuration()
       }
 
   """
@@ -1041,8 +1069,10 @@ defmodule AWS.MediaPackageV2 do
         "Description" => String.t(),
         "ETag" => String.t(),
         "IngestEndpoints" => list(ingest_endpoint()()),
+        "InputSwitchConfiguration" => input_switch_configuration(),
         "InputType" => list(any()),
         "ModifiedAt" => [non_neg_integer()],
+        "OutputHeaderConfiguration" => output_header_configuration(),
         "Tags" => map()
       }
 
@@ -1107,8 +1137,10 @@ defmodule AWS.MediaPackageV2 do
         "Description" => String.t(),
         "ETag" => String.t(),
         "IngestEndpoints" => list(ingest_endpoint()()),
+        "InputSwitchConfiguration" => input_switch_configuration(),
         "InputType" => list(any()),
         "ModifiedAt" => [non_neg_integer()],
+        "OutputHeaderConfiguration" => output_header_configuration(),
         "Tags" => map()
       }
 
@@ -1557,11 +1589,22 @@ defmodule AWS.MediaPackageV2 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1588,6 +1631,7 @@ defmodule AWS.MediaPackageV2 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1598,7 +1642,7 @@ defmodule AWS.MediaPackageV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1627,6 +1671,7 @@ defmodule AWS.MediaPackageV2 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1637,7 +1682,7 @@ defmodule AWS.MediaPackageV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1676,6 +1721,7 @@ defmodule AWS.MediaPackageV2 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1686,7 +1732,7 @@ defmodule AWS.MediaPackageV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1728,6 +1774,7 @@ defmodule AWS.MediaPackageV2 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1738,7 +1785,7 @@ defmodule AWS.MediaPackageV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1761,6 +1808,7 @@ defmodule AWS.MediaPackageV2 do
       "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}/channel/#{AWS.Util.encode_uri(channel_name)}/"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1771,7 +1819,7 @@ defmodule AWS.MediaPackageV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1792,6 +1840,7 @@ defmodule AWS.MediaPackageV2 do
   def delete_channel_group(%Client{} = client, channel_group_name, input, options \\ []) do
     url_path = "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1802,7 +1851,7 @@ defmodule AWS.MediaPackageV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1833,6 +1882,7 @@ defmodule AWS.MediaPackageV2 do
       "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}/channel/#{AWS.Util.encode_uri(channel_name)}/policy"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1843,7 +1893,7 @@ defmodule AWS.MediaPackageV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1879,6 +1929,7 @@ defmodule AWS.MediaPackageV2 do
       "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}/channel/#{AWS.Util.encode_uri(channel_name)}/originEndpoint/#{AWS.Util.encode_uri(origin_endpoint_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1889,7 +1940,7 @@ defmodule AWS.MediaPackageV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1922,6 +1973,7 @@ defmodule AWS.MediaPackageV2 do
       "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}/channel/#{AWS.Util.encode_uri(channel_name)}/originEndpoint/#{AWS.Util.encode_uri(origin_endpoint_name)}/policy"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1932,7 +1984,7 @@ defmodule AWS.MediaPackageV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2313,11 +2365,22 @@ defmodule AWS.MediaPackageV2 do
       "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}/channel/#{AWS.Util.encode_uri(channel_name)}/policy"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2348,6 +2411,7 @@ defmodule AWS.MediaPackageV2 do
       "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}/channel/#{AWS.Util.encode_uri(channel_name)}/originEndpoint/#{AWS.Util.encode_uri(origin_endpoint_name)}/policy"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2358,7 +2422,7 @@ defmodule AWS.MediaPackageV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2387,6 +2451,7 @@ defmodule AWS.MediaPackageV2 do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2397,7 +2462,7 @@ defmodule AWS.MediaPackageV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2414,6 +2479,7 @@ defmodule AWS.MediaPackageV2 do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2429,7 +2495,7 @@ defmodule AWS.MediaPackageV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2461,11 +2527,22 @@ defmodule AWS.MediaPackageV2 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2491,11 +2568,22 @@ defmodule AWS.MediaPackageV2 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2535,10 +2623,21 @@ defmodule AWS.MediaPackageV2 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

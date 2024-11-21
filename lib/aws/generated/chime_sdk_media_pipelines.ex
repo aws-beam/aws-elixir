@@ -2111,6 +2111,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   def create_media_capture_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/sdk-media-capture-pipelines"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2121,7 +2122,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2142,6 +2143,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   def create_media_concatenation_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/sdk-media-concatenation-pipelines"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2152,7 +2154,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2169,6 +2171,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   def create_media_insights_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/media-insights-pipelines"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2179,7 +2182,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2201,6 +2204,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   def create_media_insights_pipeline_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/media-insights-pipeline-configurations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2211,7 +2215,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2232,6 +2236,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   def create_media_live_connector_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/sdk-media-live-connector-pipelines"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2242,7 +2247,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2287,6 +2292,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   def create_media_pipeline_kinesis_video_stream_pool(%Client{} = client, input, options \\ []) do
     url_path = "/media-pipeline-kinesis-video-stream-pools"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2297,7 +2303,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2314,6 +2320,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   def create_media_stream_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/sdk-media-stream-pipelines"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2324,7 +2331,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2346,6 +2353,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   def delete_media_capture_pipeline(%Client{} = client, media_pipeline_id, input, options \\ []) do
     url_path = "/sdk-media-capture-pipelines/#{AWS.Util.encode_uri(media_pipeline_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2356,7 +2364,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2383,6 +2391,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       ) do
     url_path = "/media-insights-pipeline-configurations/#{AWS.Util.encode_uri(identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2393,7 +2402,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2410,6 +2419,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   def delete_media_pipeline(%Client{} = client, media_pipeline_id, input, options \\ []) do
     url_path = "/sdk-media-pipelines/#{AWS.Util.encode_uri(media_pipeline_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2420,7 +2430,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2447,6 +2457,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       ) do
     url_path = "/media-pipeline-kinesis-video-stream-pools/#{AWS.Util.encode_uri(identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2457,7 +2468,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2776,6 +2787,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       "/media-insights-pipelines/#{AWS.Util.encode_uri(identifier)}/speaker-search-tasks?operation=start"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2786,7 +2798,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2820,6 +2832,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       "/media-insights-pipelines/#{AWS.Util.encode_uri(identifier)}/voice-tone-analysis-tasks?operation=start"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2830,7 +2843,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2861,6 +2874,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       "/media-insights-pipelines/#{AWS.Util.encode_uri(identifier)}/speaker-search-tasks/#{AWS.Util.encode_uri(speaker_search_task_id)}?operation=stop"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2871,7 +2885,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2902,6 +2916,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       "/media-insights-pipelines/#{AWS.Util.encode_uri(identifier)}/voice-tone-analysis-tasks/#{AWS.Util.encode_uri(voice_tone_analysis_task_id)}?operation=stop"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2912,7 +2927,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2931,6 +2946,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=tag-resource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2941,7 +2957,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2958,6 +2974,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=untag-resource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2968,7 +2985,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2995,11 +3012,22 @@ defmodule AWS.ChimeSDKMediaPipelines do
       ) do
     url_path = "/media-insights-pipeline-configurations/#{AWS.Util.encode_uri(identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3017,11 +3045,22 @@ defmodule AWS.ChimeSDKMediaPipelines do
   def update_media_insights_pipeline_status(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/media-insights-pipeline-status/#{AWS.Util.encode_uri(identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3044,10 +3083,21 @@ defmodule AWS.ChimeSDKMediaPipelines do
       ) do
     url_path = "/media-pipeline-kinesis-video-stream-pools/#{AWS.Util.encode_uri(identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

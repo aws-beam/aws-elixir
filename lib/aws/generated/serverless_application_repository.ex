@@ -774,6 +774,7 @@ defmodule AWS.ServerlessApplicationRepository do
   def create_application(%Client{} = client, input, options \\ []) do
     url_path = "/applications"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -784,7 +785,7 @@ defmodule AWS.ServerlessApplicationRepository do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -815,11 +816,22 @@ defmodule AWS.ServerlessApplicationRepository do
       "/applications/#{AWS.Util.encode_uri(application_id)}/versions/#{AWS.Util.encode_uri(semantic_version)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -837,6 +849,7 @@ defmodule AWS.ServerlessApplicationRepository do
   def create_cloud_formation_change_set(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/changesets"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -847,7 +860,7 @@ defmodule AWS.ServerlessApplicationRepository do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -869,6 +882,7 @@ defmodule AWS.ServerlessApplicationRepository do
   def create_cloud_formation_template(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/templates"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -879,7 +893,7 @@ defmodule AWS.ServerlessApplicationRepository do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -896,6 +910,7 @@ defmodule AWS.ServerlessApplicationRepository do
   def delete_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -906,7 +921,7 @@ defmodule AWS.ServerlessApplicationRepository do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1108,11 +1123,22 @@ defmodule AWS.ServerlessApplicationRepository do
   def put_application_policy(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/policy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1127,6 +1153,7 @@ defmodule AWS.ServerlessApplicationRepository do
   def unshare_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/unshare"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1137,7 +1164,7 @@ defmodule AWS.ServerlessApplicationRepository do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1154,6 +1181,7 @@ defmodule AWS.ServerlessApplicationRepository do
   def update_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1164,7 +1192,7 @@ defmodule AWS.ServerlessApplicationRepository do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

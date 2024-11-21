@@ -943,6 +943,7 @@ defmodule AWS.ApplicationSignals do
   def batch_get_service_level_objective_budget_report(%Client{} = client, input, options \\ []) do
     url_path = "/budget-report"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -953,7 +954,7 @@ defmodule AWS.ApplicationSignals do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1070,6 +1071,7 @@ defmodule AWS.ApplicationSignals do
   def create_service_level_objective(%Client{} = client, input, options \\ []) do
     url_path = "/slo"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1080,7 +1082,7 @@ defmodule AWS.ApplicationSignals do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1102,6 +1104,7 @@ defmodule AWS.ApplicationSignals do
   def delete_service_level_objective(%Client{} = client, id, input, options \\ []) do
     url_path = "/slo/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1112,7 +1115,7 @@ defmodule AWS.ApplicationSignals do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1129,6 +1132,7 @@ defmodule AWS.ApplicationSignals do
   def get_service(%Client{} = client, input, options \\ []) do
     url_path = "/service"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1145,7 +1149,7 @@ defmodule AWS.ApplicationSignals do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1184,6 +1188,7 @@ defmodule AWS.ApplicationSignals do
   def list_service_dependencies(%Client{} = client, input, options \\ []) do
     url_path = "/service-dependencies"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1202,7 +1207,7 @@ defmodule AWS.ApplicationSignals do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1224,6 +1229,7 @@ defmodule AWS.ApplicationSignals do
   def list_service_dependents(%Client{} = client, input, options \\ []) do
     url_path = "/service-dependents"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1242,7 +1248,7 @@ defmodule AWS.ApplicationSignals do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1259,6 +1265,7 @@ defmodule AWS.ApplicationSignals do
   def list_service_level_objectives(%Client{} = client, input, options \\ []) do
     url_path = "/slos"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1276,7 +1283,7 @@ defmodule AWS.ApplicationSignals do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1297,6 +1304,7 @@ defmodule AWS.ApplicationSignals do
   def list_service_operations(%Client{} = client, input, options \\ []) do
     url_path = "/service-operations"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1315,7 +1323,7 @@ defmodule AWS.ApplicationSignals do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1455,6 +1463,7 @@ defmodule AWS.ApplicationSignals do
   def start_discovery(%Client{} = client, input, options \\ []) do
     url_path = "/start-discovery"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1465,7 +1474,7 @@ defmodule AWS.ApplicationSignals do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1500,6 +1509,7 @@ defmodule AWS.ApplicationSignals do
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tag-resource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1510,7 +1520,7 @@ defmodule AWS.ApplicationSignals do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1527,6 +1537,7 @@ defmodule AWS.ApplicationSignals do
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/untag-resource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1537,7 +1548,7 @@ defmodule AWS.ApplicationSignals do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1565,6 +1576,7 @@ defmodule AWS.ApplicationSignals do
   def update_service_level_objective(%Client{} = client, id, input, options \\ []) do
     url_path = "/slo/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1575,7 +1587,7 @@ defmodule AWS.ApplicationSignals do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

@@ -739,6 +739,7 @@ defmodule AWS.Scheduler do
   def create_schedule(%Client{} = client, name, input, options \\ []) do
     url_path = "/schedules/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -749,7 +750,7 @@ defmodule AWS.Scheduler do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -766,6 +767,7 @@ defmodule AWS.Scheduler do
   def create_schedule_group(%Client{} = client, name, input, options \\ []) do
     url_path = "/schedule-groups/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -776,7 +778,7 @@ defmodule AWS.Scheduler do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -793,6 +795,7 @@ defmodule AWS.Scheduler do
   def delete_schedule(%Client{} = client, name, input, options \\ []) do
     url_path = "/schedules/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -809,7 +812,7 @@ defmodule AWS.Scheduler do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -836,6 +839,7 @@ defmodule AWS.Scheduler do
   def delete_schedule_group(%Client{} = client, name, input, options \\ []) do
     url_path = "/schedule-groups/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -851,7 +855,7 @@ defmodule AWS.Scheduler do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1041,6 +1045,7 @@ defmodule AWS.Scheduler do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1051,7 +1056,7 @@ defmodule AWS.Scheduler do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1069,6 +1074,7 @@ defmodule AWS.Scheduler do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1084,7 +1090,7 @@ defmodule AWS.Scheduler do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1112,10 +1118,21 @@ defmodule AWS.Scheduler do
   def update_schedule(%Client{} = client, name, input, options \\ []) do
     url_path = "/schedules/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

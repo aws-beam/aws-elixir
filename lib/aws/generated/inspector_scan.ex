@@ -129,6 +129,7 @@ defmodule AWS.InspectorScan do
   def scan_sbom(%Client{} = client, input, options \\ []) do
     url_path = "/scan/sbom"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -139,7 +140,7 @@ defmodule AWS.InspectorScan do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

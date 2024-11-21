@@ -876,6 +876,7 @@ defmodule AWS.DirectoryServiceData do
   def add_group_member(%Client{} = client, input, options \\ []) do
     url_path = "/GroupMemberships/AddGroupMember"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -891,7 +892,7 @@ defmodule AWS.DirectoryServiceData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -908,6 +909,7 @@ defmodule AWS.DirectoryServiceData do
   def create_group(%Client{} = client, input, options \\ []) do
     url_path = "/Groups/CreateGroup"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -923,7 +925,7 @@ defmodule AWS.DirectoryServiceData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -940,6 +942,7 @@ defmodule AWS.DirectoryServiceData do
   def create_user(%Client{} = client, input, options \\ []) do
     url_path = "/Users/CreateUser"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -955,7 +958,7 @@ defmodule AWS.DirectoryServiceData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -972,6 +975,7 @@ defmodule AWS.DirectoryServiceData do
   def delete_group(%Client{} = client, input, options \\ []) do
     url_path = "/Groups/DeleteGroup"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -987,7 +991,7 @@ defmodule AWS.DirectoryServiceData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1004,6 +1008,7 @@ defmodule AWS.DirectoryServiceData do
   def delete_user(%Client{} = client, input, options \\ []) do
     url_path = "/Users/DeleteUser"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1019,7 +1024,7 @@ defmodule AWS.DirectoryServiceData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1036,6 +1041,7 @@ defmodule AWS.DirectoryServiceData do
   def describe_group(%Client{} = client, input, options \\ []) do
     url_path = "/Groups/DescribeGroup"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1051,7 +1057,7 @@ defmodule AWS.DirectoryServiceData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1068,6 +1074,7 @@ defmodule AWS.DirectoryServiceData do
   def describe_user(%Client{} = client, input, options \\ []) do
     url_path = "/Users/DescribeUser"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1083,7 +1090,7 @@ defmodule AWS.DirectoryServiceData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1105,6 +1112,7 @@ defmodule AWS.DirectoryServiceData do
   def disable_user(%Client{} = client, input, options \\ []) do
     url_path = "/Users/DisableUser"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1120,7 +1128,7 @@ defmodule AWS.DirectoryServiceData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1145,6 +1153,7 @@ defmodule AWS.DirectoryServiceData do
   def list_group_members(%Client{} = client, input, options \\ []) do
     url_path = "/GroupMemberships/ListGroupMembers"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1160,7 +1169,7 @@ defmodule AWS.DirectoryServiceData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1185,6 +1194,7 @@ defmodule AWS.DirectoryServiceData do
   def list_groups(%Client{} = client, input, options \\ []) do
     url_path = "/Groups/ListGroups"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1200,7 +1210,7 @@ defmodule AWS.DirectoryServiceData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1226,6 +1236,7 @@ defmodule AWS.DirectoryServiceData do
   def list_groups_for_member(%Client{} = client, input, options \\ []) do
     url_path = "/GroupMemberships/ListGroupsForMember"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1241,7 +1252,7 @@ defmodule AWS.DirectoryServiceData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1266,6 +1277,7 @@ defmodule AWS.DirectoryServiceData do
   def list_users(%Client{} = client, input, options \\ []) do
     url_path = "/Users/ListUsers"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1281,7 +1293,7 @@ defmodule AWS.DirectoryServiceData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1298,6 +1310,7 @@ defmodule AWS.DirectoryServiceData do
   def remove_group_member(%Client{} = client, input, options \\ []) do
     url_path = "/GroupMemberships/RemoveGroupMember"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1313,7 +1326,7 @@ defmodule AWS.DirectoryServiceData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1342,6 +1355,7 @@ defmodule AWS.DirectoryServiceData do
   def search_groups(%Client{} = client, input, options \\ []) do
     url_path = "/Groups/SearchGroups"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1357,7 +1371,7 @@ defmodule AWS.DirectoryServiceData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1386,6 +1400,7 @@ defmodule AWS.DirectoryServiceData do
   def search_users(%Client{} = client, input, options \\ []) do
     url_path = "/Users/SearchUsers"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1401,7 +1416,7 @@ defmodule AWS.DirectoryServiceData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1418,6 +1433,7 @@ defmodule AWS.DirectoryServiceData do
   def update_group(%Client{} = client, input, options \\ []) do
     url_path = "/Groups/UpdateGroup"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1433,7 +1449,7 @@ defmodule AWS.DirectoryServiceData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1450,6 +1466,7 @@ defmodule AWS.DirectoryServiceData do
   def update_user(%Client{} = client, input, options \\ []) do
     url_path = "/Users/UpdateUser"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1465,7 +1482,7 @@ defmodule AWS.DirectoryServiceData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

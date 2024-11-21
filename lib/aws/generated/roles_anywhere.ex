@@ -781,6 +781,7 @@ defmodule AWS.RolesAnywhere do
   def create_profile(%Client{} = client, input, options \\ []) do
     url_path = "/profiles"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -791,7 +792,7 @@ defmodule AWS.RolesAnywhere do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -817,6 +818,7 @@ defmodule AWS.RolesAnywhere do
   def create_trust_anchor(%Client{} = client, input, options \\ []) do
     url_path = "/trustanchors"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -827,7 +829,7 @@ defmodule AWS.RolesAnywhere do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -844,6 +846,7 @@ defmodule AWS.RolesAnywhere do
   def delete_attribute_mapping(%Client{} = client, profile_id, input, options \\ []) do
     url_path = "/profiles/#{AWS.Util.encode_uri(profile_id)}/mappings"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -860,7 +863,7 @@ defmodule AWS.RolesAnywhere do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -880,6 +883,7 @@ defmodule AWS.RolesAnywhere do
   def delete_crl(%Client{} = client, crl_id, input, options \\ []) do
     url_path = "/crl/#{AWS.Util.encode_uri(crl_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -890,7 +894,7 @@ defmodule AWS.RolesAnywhere do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -910,6 +914,7 @@ defmodule AWS.RolesAnywhere do
   def delete_profile(%Client{} = client, profile_id, input, options \\ []) do
     url_path = "/profile/#{AWS.Util.encode_uri(profile_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -920,7 +925,7 @@ defmodule AWS.RolesAnywhere do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -940,6 +945,7 @@ defmodule AWS.RolesAnywhere do
   def delete_trust_anchor(%Client{} = client, trust_anchor_id, input, options \\ []) do
     url_path = "/trustanchor/#{AWS.Util.encode_uri(trust_anchor_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -950,7 +956,7 @@ defmodule AWS.RolesAnywhere do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -970,6 +976,7 @@ defmodule AWS.RolesAnywhere do
   def disable_crl(%Client{} = client, crl_id, input, options \\ []) do
     url_path = "/crl/#{AWS.Util.encode_uri(crl_id)}/disable"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -980,7 +987,7 @@ defmodule AWS.RolesAnywhere do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1002,6 +1009,7 @@ defmodule AWS.RolesAnywhere do
   def disable_profile(%Client{} = client, profile_id, input, options \\ []) do
     url_path = "/profile/#{AWS.Util.encode_uri(profile_id)}/disable"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1012,7 +1020,7 @@ defmodule AWS.RolesAnywhere do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1035,6 +1043,7 @@ defmodule AWS.RolesAnywhere do
   def disable_trust_anchor(%Client{} = client, trust_anchor_id, input, options \\ []) do
     url_path = "/trustanchor/#{AWS.Util.encode_uri(trust_anchor_id)}/disable"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1045,7 +1054,7 @@ defmodule AWS.RolesAnywhere do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1068,6 +1077,7 @@ defmodule AWS.RolesAnywhere do
   def enable_crl(%Client{} = client, crl_id, input, options \\ []) do
     url_path = "/crl/#{AWS.Util.encode_uri(crl_id)}/enable"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1078,7 +1088,7 @@ defmodule AWS.RolesAnywhere do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1098,6 +1108,7 @@ defmodule AWS.RolesAnywhere do
   def enable_profile(%Client{} = client, profile_id, input, options \\ []) do
     url_path = "/profile/#{AWS.Util.encode_uri(profile_id)}/enable"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1108,7 +1119,7 @@ defmodule AWS.RolesAnywhere do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1131,6 +1142,7 @@ defmodule AWS.RolesAnywhere do
   def enable_trust_anchor(%Client{} = client, trust_anchor_id, input, options \\ []) do
     url_path = "/trustanchor/#{AWS.Util.encode_uri(trust_anchor_id)}/enable"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1141,7 +1153,7 @@ defmodule AWS.RolesAnywhere do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1253,6 +1265,7 @@ defmodule AWS.RolesAnywhere do
   def import_crl(%Client{} = client, input, options \\ []) do
     url_path = "/crls"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1263,7 +1276,7 @@ defmodule AWS.RolesAnywhere do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1449,11 +1462,22 @@ defmodule AWS.RolesAnywhere do
   def put_attribute_mapping(%Client{} = client, profile_id, input, options \\ []) do
     url_path = "/profiles/#{AWS.Util.encode_uri(profile_id)}/mappings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1473,6 +1497,7 @@ defmodule AWS.RolesAnywhere do
   def put_notification_settings(%Client{} = client, input, options \\ []) do
     url_path = "/put-notifications-settings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1483,7 +1508,7 @@ defmodule AWS.RolesAnywhere do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1503,6 +1528,7 @@ defmodule AWS.RolesAnywhere do
   def reset_notification_settings(%Client{} = client, input, options \\ []) do
     url_path = "/reset-notifications-settings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1513,7 +1539,7 @@ defmodule AWS.RolesAnywhere do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1533,6 +1559,7 @@ defmodule AWS.RolesAnywhere do
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/TagResource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1543,7 +1570,7 @@ defmodule AWS.RolesAnywhere do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1563,6 +1590,7 @@ defmodule AWS.RolesAnywhere do
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/UntagResource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1573,7 +1601,7 @@ defmodule AWS.RolesAnywhere do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1597,6 +1625,7 @@ defmodule AWS.RolesAnywhere do
   def update_crl(%Client{} = client, crl_id, input, options \\ []) do
     url_path = "/crl/#{AWS.Util.encode_uri(crl_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1607,7 +1636,7 @@ defmodule AWS.RolesAnywhere do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1631,6 +1660,7 @@ defmodule AWS.RolesAnywhere do
   def update_profile(%Client{} = client, profile_id, input, options \\ []) do
     url_path = "/profile/#{AWS.Util.encode_uri(profile_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1641,7 +1671,7 @@ defmodule AWS.RolesAnywhere do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1672,6 +1702,7 @@ defmodule AWS.RolesAnywhere do
   def update_trust_anchor(%Client{} = client, trust_anchor_id, input, options \\ []) do
     url_path = "/trustanchor/#{AWS.Util.encode_uri(trust_anchor_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1682,7 +1713,7 @@ defmodule AWS.RolesAnywhere do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

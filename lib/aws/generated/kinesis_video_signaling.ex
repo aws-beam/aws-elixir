@@ -206,6 +206,7 @@ defmodule AWS.KinesisVideoSignaling do
   def get_ice_server_config(%Client{} = client, input, options \\ []) do
     url_path = "/v1/get-ice-server-config"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -216,7 +217,7 @@ defmodule AWS.KinesisVideoSignaling do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -245,6 +246,7 @@ defmodule AWS.KinesisVideoSignaling do
   def send_alexa_offer_to_master(%Client{} = client, input, options \\ []) do
     url_path = "/v1/send-alexa-offer-to-master"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -255,7 +257,7 @@ defmodule AWS.KinesisVideoSignaling do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

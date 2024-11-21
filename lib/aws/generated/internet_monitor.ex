@@ -969,6 +969,7 @@ defmodule AWS.InternetMonitor do
   def create_monitor(%Client{} = client, input, options \\ []) do
     url_path = "/v20210603/Monitors"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -979,7 +980,7 @@ defmodule AWS.InternetMonitor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -996,6 +997,7 @@ defmodule AWS.InternetMonitor do
   def delete_monitor(%Client{} = client, monitor_name, input, options \\ []) do
     url_path = "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1006,7 +1008,7 @@ defmodule AWS.InternetMonitor do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1488,6 +1490,7 @@ defmodule AWS.InternetMonitor do
   def start_query(%Client{} = client, monitor_name, input, options \\ []) do
     url_path = "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}/Queries"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1498,7 +1501,7 @@ defmodule AWS.InternetMonitor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1517,6 +1520,7 @@ defmodule AWS.InternetMonitor do
       "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}/Queries/#{AWS.Util.encode_uri(query_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1527,7 +1531,7 @@ defmodule AWS.InternetMonitor do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1550,6 +1554,7 @@ defmodule AWS.InternetMonitor do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1560,7 +1565,7 @@ defmodule AWS.InternetMonitor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1577,6 +1582,7 @@ defmodule AWS.InternetMonitor do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1592,7 +1598,7 @@ defmodule AWS.InternetMonitor do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1619,6 +1625,7 @@ defmodule AWS.InternetMonitor do
   def update_monitor(%Client{} = client, monitor_name, input, options \\ []) do
     url_path = "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1629,7 +1636,7 @@ defmodule AWS.InternetMonitor do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

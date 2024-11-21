@@ -1208,6 +1208,7 @@ defmodule AWS.Grafana do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1218,7 +1219,7 @@ defmodule AWS.Grafana do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1243,6 +1244,7 @@ defmodule AWS.Grafana do
   def create_workspace(%Client{} = client, input, options \\ []) do
     url_path = "/workspaces"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1253,7 +1255,7 @@ defmodule AWS.Grafana do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1278,6 +1280,7 @@ defmodule AWS.Grafana do
   def create_workspace_api_key(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/apikeys"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1288,7 +1291,7 @@ defmodule AWS.Grafana do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1328,6 +1331,7 @@ defmodule AWS.Grafana do
   def create_workspace_service_account(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/serviceaccounts"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1338,7 +1342,7 @@ defmodule AWS.Grafana do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1384,6 +1388,7 @@ defmodule AWS.Grafana do
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/serviceaccounts/#{AWS.Util.encode_uri(service_account_id)}/tokens"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1394,7 +1399,7 @@ defmodule AWS.Grafana do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1411,6 +1416,7 @@ defmodule AWS.Grafana do
   def delete_workspace(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1421,7 +1427,7 @@ defmodule AWS.Grafana do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1449,6 +1455,7 @@ defmodule AWS.Grafana do
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/apikeys/#{AWS.Util.encode_uri(key_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1459,7 +1466,7 @@ defmodule AWS.Grafana do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1499,6 +1506,7 @@ defmodule AWS.Grafana do
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/serviceaccounts/#{AWS.Util.encode_uri(service_account_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1509,7 +1517,7 @@ defmodule AWS.Grafana do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1552,6 +1560,7 @@ defmodule AWS.Grafana do
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/serviceaccounts/#{AWS.Util.encode_uri(service_account_id)}/tokens/#{AWS.Util.encode_uri(token_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1562,7 +1571,7 @@ defmodule AWS.Grafana do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1640,6 +1649,7 @@ defmodule AWS.Grafana do
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/licenses/#{AWS.Util.encode_uri(license_type)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1650,7 +1660,7 @@ defmodule AWS.Grafana do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1963,6 +1973,7 @@ defmodule AWS.Grafana do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1973,7 +1984,7 @@ defmodule AWS.Grafana do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1991,6 +2002,7 @@ defmodule AWS.Grafana do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2006,7 +2018,7 @@ defmodule AWS.Grafana do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2024,6 +2036,7 @@ defmodule AWS.Grafana do
   def update_permissions(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/permissions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2034,7 +2047,7 @@ defmodule AWS.Grafana do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2062,11 +2075,22 @@ defmodule AWS.Grafana do
   def update_workspace(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -2093,6 +2117,7 @@ defmodule AWS.Grafana do
   def update_workspace_authentication(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/authentication"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2103,7 +2128,7 @@ defmodule AWS.Grafana do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2125,10 +2150,21 @@ defmodule AWS.Grafana do
   def update_workspace_configuration(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 end

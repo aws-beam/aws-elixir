@@ -1483,6 +1483,7 @@ defmodule AWS.SSMIncidents do
   def batch_get_incident_findings(%Client{} = client, input, options \\ []) do
     url_path = "/batchGetIncidentFindings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1493,7 +1494,7 @@ defmodule AWS.SSMIncidents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1512,6 +1513,7 @@ defmodule AWS.SSMIncidents do
   def create_replication_set(%Client{} = client, input, options \\ []) do
     url_path = "/createReplicationSet"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1522,7 +1524,7 @@ defmodule AWS.SSMIncidents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1544,6 +1546,7 @@ defmodule AWS.SSMIncidents do
   def create_response_plan(%Client{} = client, input, options \\ []) do
     url_path = "/createResponsePlan"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1554,7 +1557,7 @@ defmodule AWS.SSMIncidents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1578,6 +1581,7 @@ defmodule AWS.SSMIncidents do
   def create_timeline_event(%Client{} = client, input, options \\ []) do
     url_path = "/createTimelineEvent"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1588,7 +1592,7 @@ defmodule AWS.SSMIncidents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1605,6 +1609,7 @@ defmodule AWS.SSMIncidents do
   def delete_incident_record(%Client{} = client, input, options \\ []) do
     url_path = "/deleteIncidentRecord"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1615,7 +1620,7 @@ defmodule AWS.SSMIncidents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1635,6 +1640,7 @@ defmodule AWS.SSMIncidents do
   def delete_replication_set(%Client{} = client, input, options \\ []) do
     url_path = "/deleteReplicationSet"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1650,7 +1656,7 @@ defmodule AWS.SSMIncidents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1669,6 +1675,7 @@ defmodule AWS.SSMIncidents do
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
     url_path = "/deleteResourcePolicy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1679,7 +1686,7 @@ defmodule AWS.SSMIncidents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1700,6 +1707,7 @@ defmodule AWS.SSMIncidents do
   def delete_response_plan(%Client{} = client, input, options \\ []) do
     url_path = "/deleteResponsePlan"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1710,7 +1718,7 @@ defmodule AWS.SSMIncidents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1727,6 +1735,7 @@ defmodule AWS.SSMIncidents do
   def delete_timeline_event(%Client{} = client, input, options \\ []) do
     url_path = "/deleteTimelineEvent"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1737,7 +1746,7 @@ defmodule AWS.SSMIncidents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1802,6 +1811,7 @@ defmodule AWS.SSMIncidents do
   def get_resource_policies(%Client{} = client, input, options \\ []) do
     url_path = "/getResourcePolicies"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1817,7 +1827,7 @@ defmodule AWS.SSMIncidents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1895,6 +1905,7 @@ defmodule AWS.SSMIncidents do
   def list_incident_findings(%Client{} = client, input, options \\ []) do
     url_path = "/listIncidentFindings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1905,7 +1916,7 @@ defmodule AWS.SSMIncidents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1925,6 +1936,7 @@ defmodule AWS.SSMIncidents do
   def list_incident_records(%Client{} = client, input, options \\ []) do
     url_path = "/listIncidentRecords"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1935,7 +1947,7 @@ defmodule AWS.SSMIncidents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1952,6 +1964,7 @@ defmodule AWS.SSMIncidents do
   def list_related_items(%Client{} = client, input, options \\ []) do
     url_path = "/listRelatedItems"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1962,7 +1975,7 @@ defmodule AWS.SSMIncidents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1979,6 +1992,7 @@ defmodule AWS.SSMIncidents do
   def list_replication_sets(%Client{} = client, input, options \\ []) do
     url_path = "/listReplicationSets"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1989,7 +2003,7 @@ defmodule AWS.SSMIncidents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2006,6 +2020,7 @@ defmodule AWS.SSMIncidents do
   def list_response_plans(%Client{} = client, input, options \\ []) do
     url_path = "/listResponsePlans"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2016,7 +2031,7 @@ defmodule AWS.SSMIncidents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2050,6 +2065,7 @@ defmodule AWS.SSMIncidents do
   def list_timeline_events(%Client{} = client, input, options \\ []) do
     url_path = "/listTimelineEvents"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2060,7 +2076,7 @@ defmodule AWS.SSMIncidents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2082,6 +2098,7 @@ defmodule AWS.SSMIncidents do
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     url_path = "/putResourcePolicy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2092,7 +2109,7 @@ defmodule AWS.SSMIncidents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2110,6 +2127,7 @@ defmodule AWS.SSMIncidents do
   def start_incident(%Client{} = client, input, options \\ []) do
     url_path = "/startIncident"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2120,7 +2138,7 @@ defmodule AWS.SSMIncidents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2137,6 +2155,7 @@ defmodule AWS.SSMIncidents do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2147,7 +2166,7 @@ defmodule AWS.SSMIncidents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2164,6 +2183,7 @@ defmodule AWS.SSMIncidents do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2179,7 +2199,7 @@ defmodule AWS.SSMIncidents do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2198,6 +2218,7 @@ defmodule AWS.SSMIncidents do
   def update_deletion_protection(%Client{} = client, input, options \\ []) do
     url_path = "/updateDeletionProtection"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2208,7 +2229,7 @@ defmodule AWS.SSMIncidents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2230,6 +2251,7 @@ defmodule AWS.SSMIncidents do
   def update_incident_record(%Client{} = client, input, options \\ []) do
     url_path = "/updateIncidentRecord"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2240,7 +2262,7 @@ defmodule AWS.SSMIncidents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2257,6 +2279,7 @@ defmodule AWS.SSMIncidents do
   def update_related_items(%Client{} = client, input, options \\ []) do
     url_path = "/updateRelatedItems"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2267,7 +2290,7 @@ defmodule AWS.SSMIncidents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2284,6 +2307,7 @@ defmodule AWS.SSMIncidents do
   def update_replication_set(%Client{} = client, input, options \\ []) do
     url_path = "/updateReplicationSet"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2294,7 +2318,7 @@ defmodule AWS.SSMIncidents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2311,6 +2335,7 @@ defmodule AWS.SSMIncidents do
   def update_response_plan(%Client{} = client, input, options \\ []) do
     url_path = "/updateResponsePlan"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2321,7 +2346,7 @@ defmodule AWS.SSMIncidents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2340,6 +2365,7 @@ defmodule AWS.SSMIncidents do
   def update_timeline_event(%Client{} = client, input, options \\ []) do
     url_path = "/updateTimelineEvent"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2350,7 +2376,7 @@ defmodule AWS.SSMIncidents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204

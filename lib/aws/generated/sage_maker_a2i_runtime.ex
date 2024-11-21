@@ -345,6 +345,7 @@ defmodule AWS.SageMakerA2IRuntime do
   def delete_human_loop(%Client{} = client, human_loop_name, input, options \\ []) do
     url_path = "/human-loops/#{AWS.Util.encode_uri(human_loop_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -355,7 +356,7 @@ defmodule AWS.SageMakerA2IRuntime do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -471,6 +472,7 @@ defmodule AWS.SageMakerA2IRuntime do
   def start_human_loop(%Client{} = client, input, options \\ []) do
     url_path = "/human-loops"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -481,7 +483,7 @@ defmodule AWS.SageMakerA2IRuntime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -498,6 +500,7 @@ defmodule AWS.SageMakerA2IRuntime do
   def stop_human_loop(%Client{} = client, input, options \\ []) do
     url_path = "/human-loops/stop"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -508,7 +511,7 @@ defmodule AWS.SageMakerA2IRuntime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

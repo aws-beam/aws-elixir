@@ -2473,6 +2473,7 @@ defmodule AWS.Finspace do
   def create_environment(%Client{} = client, input, options \\ []) do
     url_path = "/environment"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2483,7 +2484,7 @@ defmodule AWS.Finspace do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2506,6 +2507,7 @@ defmodule AWS.Finspace do
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/databases/#{AWS.Util.encode_uri(database_name)}/changesets"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2516,7 +2518,7 @@ defmodule AWS.Finspace do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2533,6 +2535,7 @@ defmodule AWS.Finspace do
   def create_kx_cluster(%Client{} = client, environment_id, input, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/clusters"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2543,7 +2546,7 @@ defmodule AWS.Finspace do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2560,6 +2563,7 @@ defmodule AWS.Finspace do
   def create_kx_database(%Client{} = client, environment_id, input, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/databases"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2570,7 +2574,7 @@ defmodule AWS.Finspace do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2594,6 +2598,7 @@ defmodule AWS.Finspace do
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/databases/#{AWS.Util.encode_uri(database_name)}/dataviews"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2604,7 +2609,7 @@ defmodule AWS.Finspace do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2621,6 +2626,7 @@ defmodule AWS.Finspace do
   def create_kx_environment(%Client{} = client, input, options \\ []) do
     url_path = "/kx/environments"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2631,7 +2637,7 @@ defmodule AWS.Finspace do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2648,6 +2654,7 @@ defmodule AWS.Finspace do
   def create_kx_scaling_group(%Client{} = client, environment_id, input, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/scalingGroups"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2658,7 +2665,7 @@ defmodule AWS.Finspace do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2675,6 +2682,7 @@ defmodule AWS.Finspace do
   def create_kx_user(%Client{} = client, environment_id, input, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/users"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2685,7 +2693,7 @@ defmodule AWS.Finspace do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2703,6 +2711,7 @@ defmodule AWS.Finspace do
   def create_kx_volume(%Client{} = client, environment_id, input, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/kxvolumes"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2713,7 +2722,7 @@ defmodule AWS.Finspace do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2730,6 +2739,7 @@ defmodule AWS.Finspace do
   def delete_environment(%Client{} = client, environment_id, input, options \\ []) do
     url_path = "/environment/#{AWS.Util.encode_uri(environment_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2740,7 +2750,7 @@ defmodule AWS.Finspace do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2759,6 +2769,7 @@ defmodule AWS.Finspace do
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/clusters/#{AWS.Util.encode_uri(cluster_name)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2774,7 +2785,7 @@ defmodule AWS.Finspace do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2807,6 +2818,7 @@ defmodule AWS.Finspace do
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/clusters/#{AWS.Util.encode_uri(cluster_name)}/nodes/#{AWS.Util.encode_uri(node_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2817,7 +2829,7 @@ defmodule AWS.Finspace do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2839,6 +2851,7 @@ defmodule AWS.Finspace do
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/databases/#{AWS.Util.encode_uri(database_name)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2854,7 +2867,7 @@ defmodule AWS.Finspace do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2890,6 +2903,7 @@ defmodule AWS.Finspace do
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/databases/#{AWS.Util.encode_uri(database_name)}/dataviews/#{AWS.Util.encode_uri(dataview_name)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2905,7 +2919,7 @@ defmodule AWS.Finspace do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2925,6 +2939,7 @@ defmodule AWS.Finspace do
   def delete_kx_environment(%Client{} = client, environment_id, input, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2940,7 +2955,7 @@ defmodule AWS.Finspace do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2975,6 +2990,7 @@ defmodule AWS.Finspace do
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/scalingGroups/#{AWS.Util.encode_uri(scaling_group_name)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2990,7 +3006,7 @@ defmodule AWS.Finspace do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3009,6 +3025,7 @@ defmodule AWS.Finspace do
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/users/#{AWS.Util.encode_uri(user_name)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3024,7 +3041,7 @@ defmodule AWS.Finspace do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3048,6 +3065,7 @@ defmodule AWS.Finspace do
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/kxvolumes/#{AWS.Util.encode_uri(volume_name)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3063,7 +3081,7 @@ defmodule AWS.Finspace do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3745,6 +3763,7 @@ defmodule AWS.Finspace do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3755,7 +3774,7 @@ defmodule AWS.Finspace do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3772,6 +3791,7 @@ defmodule AWS.Finspace do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3787,7 +3807,7 @@ defmodule AWS.Finspace do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3804,11 +3824,22 @@ defmodule AWS.Finspace do
   def update_environment(%Client{} = client, environment_id, input, options \\ []) do
     url_path = "/environment/#{AWS.Util.encode_uri(environment_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3841,11 +3872,22 @@ defmodule AWS.Finspace do
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/clusters/#{AWS.Util.encode_uri(cluster_name)}/configuration/code"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3879,11 +3921,22 @@ defmodule AWS.Finspace do
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/clusters/#{AWS.Util.encode_uri(cluster_name)}/configuration/databases"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3898,11 +3951,22 @@ defmodule AWS.Finspace do
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/databases/#{AWS.Util.encode_uri(database_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3936,11 +4000,22 @@ defmodule AWS.Finspace do
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/databases/#{AWS.Util.encode_uri(database_name)}/dataviews/#{AWS.Util.encode_uri(dataview_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3953,11 +4028,22 @@ defmodule AWS.Finspace do
   def update_kx_environment(%Client{} = client, environment_id, input, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3983,11 +4069,22 @@ defmodule AWS.Finspace do
   def update_kx_environment_network(%Client{} = client, environment_id, input, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/network"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4004,11 +4101,22 @@ defmodule AWS.Finspace do
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/users/#{AWS.Util.encode_uri(user_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4028,6 +4136,7 @@ defmodule AWS.Finspace do
       "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/kxvolumes/#{AWS.Util.encode_uri(volume_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4038,7 +4147,7 @@ defmodule AWS.Finspace do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

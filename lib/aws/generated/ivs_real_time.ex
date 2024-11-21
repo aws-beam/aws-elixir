@@ -1714,6 +1714,7 @@ defmodule AWS.IVSRealTime do
   def create_encoder_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/CreateEncoderConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1724,7 +1725,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1742,6 +1743,7 @@ defmodule AWS.IVSRealTime do
   def create_ingest_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/CreateIngestConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1752,7 +1754,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1776,6 +1778,7 @@ defmodule AWS.IVSRealTime do
   def create_participant_token(%Client{} = client, input, options \\ []) do
     url_path = "/CreateParticipantToken"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1786,7 +1789,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1803,6 +1806,7 @@ defmodule AWS.IVSRealTime do
   def create_stage(%Client{} = client, input, options \\ []) do
     url_path = "/CreateStage"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1813,7 +1817,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1835,6 +1839,7 @@ defmodule AWS.IVSRealTime do
   def create_storage_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/CreateStorageConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1845,7 +1850,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1865,6 +1870,7 @@ defmodule AWS.IVSRealTime do
   def delete_encoder_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteEncoderConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1875,7 +1881,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1896,6 +1902,7 @@ defmodule AWS.IVSRealTime do
   def delete_ingest_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteIngestConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1906,7 +1913,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1926,6 +1933,7 @@ defmodule AWS.IVSRealTime do
   def delete_public_key(%Client{} = client, input, options \\ []) do
     url_path = "/DeletePublicKey"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1936,7 +1944,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1958,6 +1966,7 @@ defmodule AWS.IVSRealTime do
   def delete_stage(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteStage"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1968,7 +1977,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1991,6 +2000,7 @@ defmodule AWS.IVSRealTime do
   def delete_storage_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteStorageConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2001,7 +2011,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2022,6 +2032,7 @@ defmodule AWS.IVSRealTime do
   def disconnect_participant(%Client{} = client, input, options \\ []) do
     url_path = "/DisconnectParticipant"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2032,7 +2043,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2049,6 +2060,7 @@ defmodule AWS.IVSRealTime do
   def get_composition(%Client{} = client, input, options \\ []) do
     url_path = "/GetComposition"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2059,7 +2071,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2076,6 +2088,7 @@ defmodule AWS.IVSRealTime do
   def get_encoder_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/GetEncoderConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2086,7 +2099,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2103,6 +2116,7 @@ defmodule AWS.IVSRealTime do
   def get_ingest_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/GetIngestConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2113,7 +2127,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2130,6 +2144,7 @@ defmodule AWS.IVSRealTime do
   def get_participant(%Client{} = client, input, options \\ []) do
     url_path = "/GetParticipant"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2140,7 +2155,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2157,6 +2172,7 @@ defmodule AWS.IVSRealTime do
   def get_public_key(%Client{} = client, input, options \\ []) do
     url_path = "/GetPublicKey"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2167,7 +2183,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2184,6 +2200,7 @@ defmodule AWS.IVSRealTime do
   def get_stage(%Client{} = client, input, options \\ []) do
     url_path = "/GetStage"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2194,7 +2211,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2211,6 +2228,7 @@ defmodule AWS.IVSRealTime do
   def get_stage_session(%Client{} = client, input, options \\ []) do
     url_path = "/GetStageSession"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2221,7 +2239,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2238,6 +2256,7 @@ defmodule AWS.IVSRealTime do
   def get_storage_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/GetStorageConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2248,7 +2267,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2265,6 +2284,7 @@ defmodule AWS.IVSRealTime do
   def import_public_key(%Client{} = client, input, options \\ []) do
     url_path = "/ImportPublicKey"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2275,7 +2295,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2294,6 +2314,7 @@ defmodule AWS.IVSRealTime do
   def list_compositions(%Client{} = client, input, options \\ []) do
     url_path = "/ListCompositions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2304,7 +2325,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2323,6 +2344,7 @@ defmodule AWS.IVSRealTime do
   def list_encoder_configurations(%Client{} = client, input, options \\ []) do
     url_path = "/ListEncoderConfigurations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2333,7 +2355,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2351,6 +2373,7 @@ defmodule AWS.IVSRealTime do
   def list_ingest_configurations(%Client{} = client, input, options \\ []) do
     url_path = "/ListIngestConfigurations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2361,7 +2384,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2379,6 +2402,7 @@ defmodule AWS.IVSRealTime do
   def list_participant_events(%Client{} = client, input, options \\ []) do
     url_path = "/ListParticipantEvents"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2389,7 +2413,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2406,6 +2430,7 @@ defmodule AWS.IVSRealTime do
   def list_participants(%Client{} = client, input, options \\ []) do
     url_path = "/ListParticipants"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2416,7 +2441,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2434,6 +2459,7 @@ defmodule AWS.IVSRealTime do
   def list_public_keys(%Client{} = client, input, options \\ []) do
     url_path = "/ListPublicKeys"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2444,7 +2470,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2461,6 +2487,7 @@ defmodule AWS.IVSRealTime do
   def list_stage_sessions(%Client{} = client, input, options \\ []) do
     url_path = "/ListStageSessions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2471,7 +2498,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2490,6 +2517,7 @@ defmodule AWS.IVSRealTime do
   def list_stages(%Client{} = client, input, options \\ []) do
     url_path = "/ListStages"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2500,7 +2528,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2518,6 +2546,7 @@ defmodule AWS.IVSRealTime do
   def list_storage_configurations(%Client{} = client, input, options \\ []) do
     url_path = "/ListStorageConfigurations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2528,7 +2557,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2584,6 +2613,7 @@ defmodule AWS.IVSRealTime do
   def start_composition(%Client{} = client, input, options \\ []) do
     url_path = "/StartComposition"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2594,7 +2624,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2614,6 +2644,7 @@ defmodule AWS.IVSRealTime do
   def stop_composition(%Client{} = client, input, options \\ []) do
     url_path = "/StopComposition"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2624,7 +2655,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2641,6 +2672,7 @@ defmodule AWS.IVSRealTime do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2651,7 +2683,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2668,6 +2700,7 @@ defmodule AWS.IVSRealTime do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2683,7 +2716,7 @@ defmodule AWS.IVSRealTime do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2703,6 +2736,7 @@ defmodule AWS.IVSRealTime do
   def update_ingest_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateIngestConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2713,7 +2747,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2730,6 +2764,7 @@ defmodule AWS.IVSRealTime do
   def update_stage(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateStage"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2740,7 +2775,7 @@ defmodule AWS.IVSRealTime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

@@ -196,6 +196,7 @@ defmodule AWS.MarketplaceReporting do
   def get_buyer_dashboard(%Client{} = client, input, options \\ []) do
     url_path = "/getBuyerDashboard"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -206,7 +207,7 @@ defmodule AWS.MarketplaceReporting do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

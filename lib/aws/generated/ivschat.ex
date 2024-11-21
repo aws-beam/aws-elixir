@@ -895,6 +895,7 @@ defmodule AWS.Ivschat do
   def create_chat_token(%Client{} = client, input, options \\ []) do
     url_path = "/CreateChatToken"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -905,7 +906,7 @@ defmodule AWS.Ivschat do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -923,6 +924,7 @@ defmodule AWS.Ivschat do
   def create_logging_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/CreateLoggingConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -933,7 +935,7 @@ defmodule AWS.Ivschat do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -950,6 +952,7 @@ defmodule AWS.Ivschat do
   def create_room(%Client{} = client, input, options \\ []) do
     url_path = "/CreateRoom"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -960,7 +963,7 @@ defmodule AWS.Ivschat do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -977,6 +980,7 @@ defmodule AWS.Ivschat do
   def delete_logging_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteLoggingConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -987,7 +991,7 @@ defmodule AWS.Ivschat do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1011,6 +1015,7 @@ defmodule AWS.Ivschat do
   def delete_message(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteMessage"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1021,7 +1026,7 @@ defmodule AWS.Ivschat do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1038,6 +1043,7 @@ defmodule AWS.Ivschat do
   def delete_room(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteRoom"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1048,7 +1054,7 @@ defmodule AWS.Ivschat do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1070,6 +1076,7 @@ defmodule AWS.Ivschat do
   def disconnect_user(%Client{} = client, input, options \\ []) do
     url_path = "/DisconnectUser"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1080,7 +1087,7 @@ defmodule AWS.Ivschat do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1097,6 +1104,7 @@ defmodule AWS.Ivschat do
   def get_logging_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/GetLoggingConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1107,7 +1115,7 @@ defmodule AWS.Ivschat do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1124,6 +1132,7 @@ defmodule AWS.Ivschat do
   def get_room(%Client{} = client, input, options \\ []) do
     url_path = "/GetRoom"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1134,7 +1143,7 @@ defmodule AWS.Ivschat do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1153,6 +1162,7 @@ defmodule AWS.Ivschat do
   def list_logging_configurations(%Client{} = client, input, options \\ []) do
     url_path = "/ListLoggingConfigurations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1163,7 +1173,7 @@ defmodule AWS.Ivschat do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1184,6 +1194,7 @@ defmodule AWS.Ivschat do
   def list_rooms(%Client{} = client, input, options \\ []) do
     url_path = "/ListRooms"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1194,7 +1205,7 @@ defmodule AWS.Ivschat do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1233,6 +1244,7 @@ defmodule AWS.Ivschat do
   def send_event(%Client{} = client, input, options \\ []) do
     url_path = "/SendEvent"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1243,7 +1255,7 @@ defmodule AWS.Ivschat do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1260,6 +1272,7 @@ defmodule AWS.Ivschat do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1270,7 +1283,7 @@ defmodule AWS.Ivschat do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1287,6 +1300,7 @@ defmodule AWS.Ivschat do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1302,7 +1316,7 @@ defmodule AWS.Ivschat do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1319,6 +1333,7 @@ defmodule AWS.Ivschat do
   def update_logging_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateLoggingConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1329,7 +1344,7 @@ defmodule AWS.Ivschat do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1346,6 +1361,7 @@ defmodule AWS.Ivschat do
   def update_room(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateRoom"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1356,7 +1372,7 @@ defmodule AWS.Ivschat do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

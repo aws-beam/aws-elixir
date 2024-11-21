@@ -1935,6 +1935,7 @@ defmodule AWS.Evidently do
   def batch_evaluate_feature(%Client{} = client, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/evaluations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "dataplane.")
@@ -1945,7 +1946,7 @@ defmodule AWS.Evidently do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1979,6 +1980,7 @@ defmodule AWS.Evidently do
   def create_experiment(%Client{} = client, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/experiments"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1989,7 +1991,7 @@ defmodule AWS.Evidently do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2013,6 +2015,7 @@ defmodule AWS.Evidently do
   def create_feature(%Client{} = client, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/features"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2023,7 +2026,7 @@ defmodule AWS.Evidently do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2055,6 +2058,7 @@ defmodule AWS.Evidently do
   def create_launch(%Client{} = client, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/launches"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2065,7 +2069,7 @@ defmodule AWS.Evidently do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2089,6 +2093,7 @@ defmodule AWS.Evidently do
   def create_project(%Client{} = client, input, options \\ []) do
     url_path = "/projects"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2099,7 +2104,7 @@ defmodule AWS.Evidently do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2141,6 +2146,7 @@ defmodule AWS.Evidently do
   def create_segment(%Client{} = client, input, options \\ []) do
     url_path = "/segments"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2151,7 +2157,7 @@ defmodule AWS.Evidently do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2175,6 +2181,7 @@ defmodule AWS.Evidently do
       "/projects/#{AWS.Util.encode_uri(project)}/experiments/#{AWS.Util.encode_uri(experiment)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2185,7 +2192,7 @@ defmodule AWS.Evidently do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2204,6 +2211,7 @@ defmodule AWS.Evidently do
       "/projects/#{AWS.Util.encode_uri(project)}/features/#{AWS.Util.encode_uri(feature)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2214,7 +2222,7 @@ defmodule AWS.Evidently do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2236,6 +2244,7 @@ defmodule AWS.Evidently do
   def delete_launch(%Client{} = client, launch, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/launches/#{AWS.Util.encode_uri(launch)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2246,7 +2255,7 @@ defmodule AWS.Evidently do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2267,6 +2276,7 @@ defmodule AWS.Evidently do
   def delete_project(%Client{} = client, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2277,7 +2287,7 @@ defmodule AWS.Evidently do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2298,6 +2308,7 @@ defmodule AWS.Evidently do
   def delete_segment(%Client{} = client, segment, input, options \\ []) do
     url_path = "/segments/#{AWS.Util.encode_uri(segment)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2308,7 +2319,7 @@ defmodule AWS.Evidently do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2368,6 +2379,7 @@ defmodule AWS.Evidently do
       "/projects/#{AWS.Util.encode_uri(project)}/evaluations/#{AWS.Util.encode_uri(feature)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "dataplane.")
@@ -2378,7 +2390,7 @@ defmodule AWS.Evidently do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2440,6 +2452,7 @@ defmodule AWS.Evidently do
       "/projects/#{AWS.Util.encode_uri(project)}/experiments/#{AWS.Util.encode_uri(experiment)}/results"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2450,7 +2463,7 @@ defmodule AWS.Evidently do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2832,6 +2845,7 @@ defmodule AWS.Evidently do
   def put_project_events(%Client{} = client, project, input, options \\ []) do
     url_path = "/events/projects/#{AWS.Util.encode_uri(project)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "dataplane.")
@@ -2842,7 +2856,7 @@ defmodule AWS.Evidently do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2865,6 +2879,7 @@ defmodule AWS.Evidently do
       "/projects/#{AWS.Util.encode_uri(project)}/experiments/#{AWS.Util.encode_uri(experiment)}/start"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2875,7 +2890,7 @@ defmodule AWS.Evidently do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2898,6 +2913,7 @@ defmodule AWS.Evidently do
       "/projects/#{AWS.Util.encode_uri(project)}/launches/#{AWS.Util.encode_uri(launch)}/start"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2908,7 +2924,7 @@ defmodule AWS.Evidently do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2930,6 +2946,7 @@ defmodule AWS.Evidently do
       "/projects/#{AWS.Util.encode_uri(project)}/experiments/#{AWS.Util.encode_uri(experiment)}/cancel"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2940,7 +2957,7 @@ defmodule AWS.Evidently do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2967,6 +2984,7 @@ defmodule AWS.Evidently do
       "/projects/#{AWS.Util.encode_uri(project)}/launches/#{AWS.Util.encode_uri(launch)}/cancel"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2977,7 +2995,7 @@ defmodule AWS.Evidently do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3017,6 +3035,7 @@ defmodule AWS.Evidently do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3027,7 +3046,7 @@ defmodule AWS.Evidently do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3048,6 +3067,7 @@ defmodule AWS.Evidently do
   def test_segment_pattern(%Client{} = client, input, options \\ []) do
     url_path = "/test-segment-pattern"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3058,7 +3078,7 @@ defmodule AWS.Evidently do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3075,6 +3095,7 @@ defmodule AWS.Evidently do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3090,7 +3111,7 @@ defmodule AWS.Evidently do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3112,6 +3133,7 @@ defmodule AWS.Evidently do
       "/projects/#{AWS.Util.encode_uri(project)}/experiments/#{AWS.Util.encode_uri(experiment)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3122,7 +3144,7 @@ defmodule AWS.Evidently do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3145,6 +3167,7 @@ defmodule AWS.Evidently do
       "/projects/#{AWS.Util.encode_uri(project)}/features/#{AWS.Util.encode_uri(feature)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3155,7 +3178,7 @@ defmodule AWS.Evidently do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3175,6 +3198,7 @@ defmodule AWS.Evidently do
   def update_launch(%Client{} = client, launch, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/launches/#{AWS.Util.encode_uri(launch)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3185,7 +3209,7 @@ defmodule AWS.Evidently do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3210,6 +3234,7 @@ defmodule AWS.Evidently do
   def update_project(%Client{} = client, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3220,7 +3245,7 @@ defmodule AWS.Evidently do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3252,6 +3277,7 @@ defmodule AWS.Evidently do
   def update_project_data_delivery(%Client{} = client, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/data-delivery"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3262,7 +3288,7 @@ defmodule AWS.Evidently do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

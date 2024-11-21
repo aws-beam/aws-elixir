@@ -2954,6 +2954,7 @@ defmodule AWS.Resiliencehub do
   def accept_resource_grouping_recommendations(%Client{} = client, input, options \\ []) do
     url_path = "/accept-resource-grouping-recommendations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2964,7 +2965,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2996,6 +2997,7 @@ defmodule AWS.Resiliencehub do
   def add_draft_app_version_resource_mappings(%Client{} = client, input, options \\ []) do
     url_path = "/add-draft-app-version-resource-mappings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3006,7 +3008,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3027,6 +3029,7 @@ defmodule AWS.Resiliencehub do
   def batch_update_recommendation_status(%Client{} = client, input, options \\ []) do
     url_path = "/batch-update-recommendation-status"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3037,7 +3040,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3075,6 +3078,7 @@ defmodule AWS.Resiliencehub do
   def create_app(%Client{} = client, input, options \\ []) do
     url_path = "/create-app"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3085,7 +3089,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3111,6 +3115,7 @@ defmodule AWS.Resiliencehub do
   def create_app_version_app_component(%Client{} = client, input, options \\ []) do
     url_path = "/create-app-version-app-component"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3121,7 +3126,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3155,6 +3160,7 @@ defmodule AWS.Resiliencehub do
   def create_app_version_resource(%Client{} = client, input, options \\ []) do
     url_path = "/create-app-version-resource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3165,7 +3171,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3182,6 +3188,7 @@ defmodule AWS.Resiliencehub do
   def create_recommendation_template(%Client{} = client, input, options \\ []) do
     url_path = "/create-recommendation-template"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3192,7 +3199,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3219,6 +3226,7 @@ defmodule AWS.Resiliencehub do
   def create_resiliency_policy(%Client{} = client, input, options \\ []) do
     url_path = "/create-resiliency-policy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3229,7 +3237,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3249,6 +3257,7 @@ defmodule AWS.Resiliencehub do
   def delete_app(%Client{} = client, input, options \\ []) do
     url_path = "/delete-app"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3259,7 +3268,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3279,6 +3288,7 @@ defmodule AWS.Resiliencehub do
   def delete_app_assessment(%Client{} = client, input, options \\ []) do
     url_path = "/delete-app-assessment"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3289,7 +3299,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3308,6 +3318,7 @@ defmodule AWS.Resiliencehub do
   def delete_app_input_source(%Client{} = client, input, options \\ []) do
     url_path = "/delete-app-input-source"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3318,7 +3329,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3350,6 +3361,7 @@ defmodule AWS.Resiliencehub do
   def delete_app_version_app_component(%Client{} = client, input, options \\ []) do
     url_path = "/delete-app-version-app-component"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3360,7 +3372,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3389,6 +3401,7 @@ defmodule AWS.Resiliencehub do
   def delete_app_version_resource(%Client{} = client, input, options \\ []) do
     url_path = "/delete-app-version-resource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3399,7 +3412,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3419,6 +3432,7 @@ defmodule AWS.Resiliencehub do
   def delete_recommendation_template(%Client{} = client, input, options \\ []) do
     url_path = "/delete-recommendation-template"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3429,7 +3443,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3448,6 +3462,7 @@ defmodule AWS.Resiliencehub do
   def delete_resiliency_policy(%Client{} = client, input, options \\ []) do
     url_path = "/delete-resiliency-policy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3458,7 +3473,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3475,6 +3490,7 @@ defmodule AWS.Resiliencehub do
   def describe_app(%Client{} = client, input, options \\ []) do
     url_path = "/describe-app"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3485,7 +3501,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3502,6 +3518,7 @@ defmodule AWS.Resiliencehub do
   def describe_app_assessment(%Client{} = client, input, options \\ []) do
     url_path = "/describe-app-assessment"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3512,7 +3529,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3529,6 +3546,7 @@ defmodule AWS.Resiliencehub do
   def describe_app_version(%Client{} = client, input, options \\ []) do
     url_path = "/describe-app-version"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3539,7 +3557,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3560,6 +3578,7 @@ defmodule AWS.Resiliencehub do
   def describe_app_version_app_component(%Client{} = client, input, options \\ []) do
     url_path = "/describe-app-version-app-component"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3570,7 +3589,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3602,6 +3621,7 @@ defmodule AWS.Resiliencehub do
   def describe_app_version_resource(%Client{} = client, input, options \\ []) do
     url_path = "/describe-app-version-resource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3612,7 +3632,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3638,6 +3658,7 @@ defmodule AWS.Resiliencehub do
   def describe_app_version_resources_resolution_status(%Client{} = client, input, options \\ []) do
     url_path = "/describe-app-version-resources-resolution-status"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3648,7 +3669,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3665,6 +3686,7 @@ defmodule AWS.Resiliencehub do
   def describe_app_version_template(%Client{} = client, input, options \\ []) do
     url_path = "/describe-app-version-template"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3675,7 +3697,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3702,6 +3724,7 @@ defmodule AWS.Resiliencehub do
   def describe_draft_app_version_resources_import_status(%Client{} = client, input, options \\ []) do
     url_path = "/describe-draft-app-version-resources-import-status"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3712,7 +3735,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3734,6 +3757,7 @@ defmodule AWS.Resiliencehub do
   def describe_resiliency_policy(%Client{} = client, input, options \\ []) do
     url_path = "/describe-resiliency-policy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3744,7 +3768,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3766,6 +3790,7 @@ defmodule AWS.Resiliencehub do
   def describe_resource_grouping_recommendation_task(%Client{} = client, input, options \\ []) do
     url_path = "/describe-resource-grouping-recommendation-task"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3776,7 +3801,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3802,6 +3827,7 @@ defmodule AWS.Resiliencehub do
   def import_resources_to_draft_app_version(%Client{} = client, input, options \\ []) do
     url_path = "/import-resources-to-draft-app-version"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3812,7 +3838,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3829,6 +3855,7 @@ defmodule AWS.Resiliencehub do
   def list_alarm_recommendations(%Client{} = client, input, options \\ []) do
     url_path = "/list-alarm-recommendations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3839,7 +3866,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3861,6 +3888,7 @@ defmodule AWS.Resiliencehub do
   def list_app_assessment_compliance_drifts(%Client{} = client, input, options \\ []) do
     url_path = "/list-app-assessment-compliance-drifts"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3871,7 +3899,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3893,6 +3921,7 @@ defmodule AWS.Resiliencehub do
   def list_app_assessment_resource_drifts(%Client{} = client, input, options \\ []) do
     url_path = "/list-app-assessment-resource-drifts"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3903,7 +3932,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4018,6 +4047,7 @@ defmodule AWS.Resiliencehub do
   def list_app_component_compliances(%Client{} = client, input, options \\ []) do
     url_path = "/list-app-component-compliances"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4028,7 +4058,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4049,6 +4079,7 @@ defmodule AWS.Resiliencehub do
   def list_app_component_recommendations(%Client{} = client, input, options \\ []) do
     url_path = "/list-app-component-recommendations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4059,7 +4090,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4080,6 +4111,7 @@ defmodule AWS.Resiliencehub do
   def list_app_input_sources(%Client{} = client, input, options \\ []) do
     url_path = "/list-app-input-sources"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4090,7 +4122,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4107,6 +4139,7 @@ defmodule AWS.Resiliencehub do
   def list_app_version_app_components(%Client{} = client, input, options \\ []) do
     url_path = "/list-app-version-app-components"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4117,7 +4150,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4143,6 +4176,7 @@ defmodule AWS.Resiliencehub do
   def list_app_version_resource_mappings(%Client{} = client, input, options \\ []) do
     url_path = "/list-app-version-resource-mappings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4153,7 +4187,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4170,6 +4204,7 @@ defmodule AWS.Resiliencehub do
   def list_app_version_resources(%Client{} = client, input, options \\ []) do
     url_path = "/list-app-version-resources"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4180,7 +4215,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4197,6 +4232,7 @@ defmodule AWS.Resiliencehub do
   def list_app_versions(%Client{} = client, input, options \\ []) do
     url_path = "/list-app-versions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4207,7 +4243,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4519,6 +4555,7 @@ defmodule AWS.Resiliencehub do
   def list_sop_recommendations(%Client{} = client, input, options \\ []) do
     url_path = "/list-sop-recommendations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4529,7 +4566,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4600,6 +4637,7 @@ defmodule AWS.Resiliencehub do
   def list_test_recommendations(%Client{} = client, input, options \\ []) do
     url_path = "/list-test-recommendations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4610,7 +4648,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4636,6 +4674,7 @@ defmodule AWS.Resiliencehub do
   def list_unsupported_app_version_resources(%Client{} = client, input, options \\ []) do
     url_path = "/list-unsupported-app-version-resources"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4646,7 +4685,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4663,6 +4702,7 @@ defmodule AWS.Resiliencehub do
   def publish_app_version(%Client{} = client, input, options \\ []) do
     url_path = "/publish-app-version"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4673,7 +4713,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4691,6 +4731,7 @@ defmodule AWS.Resiliencehub do
   def put_draft_app_version_template(%Client{} = client, input, options \\ []) do
     url_path = "/put-draft-app-version-template"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4701,7 +4742,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4722,6 +4763,7 @@ defmodule AWS.Resiliencehub do
   def reject_resource_grouping_recommendations(%Client{} = client, input, options \\ []) do
     url_path = "/reject-resource-grouping-recommendations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4732,7 +4774,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4753,6 +4795,7 @@ defmodule AWS.Resiliencehub do
   def remove_draft_app_version_resource_mappings(%Client{} = client, input, options \\ []) do
     url_path = "/remove-draft-app-version-resource-mappings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4763,7 +4806,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4780,6 +4823,7 @@ defmodule AWS.Resiliencehub do
   def resolve_app_version_resources(%Client{} = client, input, options \\ []) do
     url_path = "/resolve-app-version-resources"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4790,7 +4834,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4807,6 +4851,7 @@ defmodule AWS.Resiliencehub do
   def start_app_assessment(%Client{} = client, input, options \\ []) do
     url_path = "/start-app-assessment"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4817,7 +4862,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4838,6 +4883,7 @@ defmodule AWS.Resiliencehub do
   def start_resource_grouping_recommendation_task(%Client{} = client, input, options \\ []) do
     url_path = "/start-resource-grouping-recommendation-task"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4848,7 +4894,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4865,6 +4911,7 @@ defmodule AWS.Resiliencehub do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4875,7 +4922,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4892,6 +4939,7 @@ defmodule AWS.Resiliencehub do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4907,7 +4955,7 @@ defmodule AWS.Resiliencehub do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4924,6 +4972,7 @@ defmodule AWS.Resiliencehub do
   def update_app(%Client{} = client, input, options \\ []) do
     url_path = "/update-app"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4934,7 +4983,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4956,6 +5005,7 @@ defmodule AWS.Resiliencehub do
   def update_app_version(%Client{} = client, input, options \\ []) do
     url_path = "/update-app-version"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4966,7 +5016,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4992,6 +5042,7 @@ defmodule AWS.Resiliencehub do
   def update_app_version_app_component(%Client{} = client, input, options \\ []) do
     url_path = "/update-app-version-app-component"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5002,7 +5053,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5031,6 +5082,7 @@ defmodule AWS.Resiliencehub do
   def update_app_version_resource(%Client{} = client, input, options \\ []) do
     url_path = "/update-app-version-resource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5041,7 +5093,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5068,6 +5120,7 @@ defmodule AWS.Resiliencehub do
   def update_resiliency_policy(%Client{} = client, input, options \\ []) do
     url_path = "/update-resiliency-policy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5078,7 +5131,7 @@ defmodule AWS.Resiliencehub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

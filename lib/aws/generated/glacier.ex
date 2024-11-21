@@ -1317,6 +1317,7 @@ defmodule AWS.Glacier do
       "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/multipart-uploads/#{AWS.Util.encode_uri(upload_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1327,7 +1328,7 @@ defmodule AWS.Glacier do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1367,6 +1368,7 @@ defmodule AWS.Glacier do
       "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/lock-policy"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1377,7 +1379,7 @@ defmodule AWS.Glacier do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1405,6 +1407,7 @@ defmodule AWS.Glacier do
       "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/tags?operation=add"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1415,7 +1418,7 @@ defmodule AWS.Glacier do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1515,6 +1518,7 @@ defmodule AWS.Glacier do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -1536,7 +1540,7 @@ defmodule AWS.Glacier do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1589,6 +1593,7 @@ defmodule AWS.Glacier do
       "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/lock-policy/#{AWS.Util.encode_uri(lock_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1599,7 +1604,7 @@ defmodule AWS.Glacier do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1648,6 +1653,7 @@ defmodule AWS.Glacier do
   def create_vault(%Client{} = client, account_id, vault_name, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -1659,7 +1665,17 @@ defmodule AWS.Glacier do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -1710,6 +1726,7 @@ defmodule AWS.Glacier do
       "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/archives/#{AWS.Util.encode_uri(archive_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1720,7 +1737,7 @@ defmodule AWS.Glacier do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1767,6 +1784,7 @@ defmodule AWS.Glacier do
   def delete_vault(%Client{} = client, account_id, vault_name, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1777,7 +1795,7 @@ defmodule AWS.Glacier do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1815,6 +1833,7 @@ defmodule AWS.Glacier do
       "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/access-policy"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1825,7 +1844,7 @@ defmodule AWS.Glacier do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1872,6 +1891,7 @@ defmodule AWS.Glacier do
       "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/notification-configuration"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1882,7 +1902,7 @@ defmodule AWS.Glacier do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2253,6 +2273,7 @@ defmodule AWS.Glacier do
       "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/jobs"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -2274,7 +2295,7 @@ defmodule AWS.Glacier do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -2354,6 +2375,7 @@ defmodule AWS.Glacier do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -2371,7 +2393,7 @@ defmodule AWS.Glacier do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2425,6 +2447,7 @@ defmodule AWS.Glacier do
       "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/lock-policy"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -2442,7 +2465,7 @@ defmodule AWS.Glacier do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2845,6 +2868,7 @@ defmodule AWS.Glacier do
   def purchase_provisioned_capacity(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(account_id)}/provisioned-capacity"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -2862,7 +2886,7 @@ defmodule AWS.Glacier do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2894,6 +2918,7 @@ defmodule AWS.Glacier do
       "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/tags?operation=remove"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2904,7 +2929,7 @@ defmodule AWS.Glacier do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2932,11 +2957,22 @@ defmodule AWS.Glacier do
   def set_data_retrieval_policy(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(account_id)}/policies/data-retrieval"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -2967,11 +3003,22 @@ defmodule AWS.Glacier do
       "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/access-policy"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -3040,11 +3087,22 @@ defmodule AWS.Glacier do
       "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/notification-configuration"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -3116,6 +3174,7 @@ defmodule AWS.Glacier do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -3137,7 +3196,7 @@ defmodule AWS.Glacier do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -3241,6 +3300,7 @@ defmodule AWS.Glacier do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -3252,6 +3312,16 @@ defmodule AWS.Glacier do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
   end
 end

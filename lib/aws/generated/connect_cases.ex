@@ -1582,6 +1582,7 @@ defmodule AWS.ConnectCases do
   def batch_get_field(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/fields-batch"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1592,7 +1593,7 @@ defmodule AWS.ConnectCases do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1618,11 +1619,22 @@ defmodule AWS.ConnectCases do
       "/domains/#{AWS.Util.encode_uri(domain_id)}/fields/#{AWS.Util.encode_uri(field_id)}/options"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1658,6 +1670,7 @@ defmodule AWS.ConnectCases do
   def create_case(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/cases"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1668,7 +1681,7 @@ defmodule AWS.ConnectCases do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1698,6 +1711,7 @@ defmodule AWS.ConnectCases do
   def create_domain(%Client{} = client, input, options \\ []) do
     url_path = "/domains"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1708,7 +1722,7 @@ defmodule AWS.ConnectCases do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1728,6 +1742,7 @@ defmodule AWS.ConnectCases do
   def create_field(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/fields"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1738,7 +1753,7 @@ defmodule AWS.ConnectCases do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1767,6 +1782,7 @@ defmodule AWS.ConnectCases do
   def create_layout(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/layouts"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1777,7 +1793,7 @@ defmodule AWS.ConnectCases do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1810,6 +1826,7 @@ defmodule AWS.ConnectCases do
       "/domains/#{AWS.Util.encode_uri(domain_id)}/cases/#{AWS.Util.encode_uri(case_id)}/related-items/"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1820,7 +1837,7 @@ defmodule AWS.ConnectCases do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1848,6 +1865,7 @@ defmodule AWS.ConnectCases do
   def create_template(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/templates"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1858,7 +1876,7 @@ defmodule AWS.ConnectCases do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1881,6 +1899,7 @@ defmodule AWS.ConnectCases do
   def delete_domain(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1891,7 +1910,7 @@ defmodule AWS.ConnectCases do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1969,6 +1988,7 @@ defmodule AWS.ConnectCases do
       "/domains/#{AWS.Util.encode_uri(domain_id)}/fields/#{AWS.Util.encode_uri(field_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1979,7 +1999,7 @@ defmodule AWS.ConnectCases do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2012,6 +2032,7 @@ defmodule AWS.ConnectCases do
       "/domains/#{AWS.Util.encode_uri(domain_id)}/layouts/#{AWS.Util.encode_uri(layout_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2022,7 +2043,7 @@ defmodule AWS.ConnectCases do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2057,6 +2078,7 @@ defmodule AWS.ConnectCases do
       "/domains/#{AWS.Util.encode_uri(domain_id)}/templates/#{AWS.Util.encode_uri(template_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2067,7 +2089,7 @@ defmodule AWS.ConnectCases do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2084,6 +2106,7 @@ defmodule AWS.ConnectCases do
   def get_case(%Client{} = client, case_id, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/cases/#{AWS.Util.encode_uri(case_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2094,7 +2117,7 @@ defmodule AWS.ConnectCases do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2119,6 +2142,7 @@ defmodule AWS.ConnectCases do
       "/domains/#{AWS.Util.encode_uri(domain_id)}/cases/#{AWS.Util.encode_uri(case_id)}/audit-history"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2129,7 +2153,7 @@ defmodule AWS.ConnectCases do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2151,6 +2175,7 @@ defmodule AWS.ConnectCases do
   def get_case_event_configuration(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/case-event-configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2161,7 +2186,7 @@ defmodule AWS.ConnectCases do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2178,6 +2203,7 @@ defmodule AWS.ConnectCases do
   def get_domain(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2188,7 +2214,7 @@ defmodule AWS.ConnectCases do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2207,6 +2233,7 @@ defmodule AWS.ConnectCases do
       "/domains/#{AWS.Util.encode_uri(domain_id)}/layouts/#{AWS.Util.encode_uri(layout_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2217,7 +2244,7 @@ defmodule AWS.ConnectCases do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2236,6 +2263,7 @@ defmodule AWS.ConnectCases do
       "/domains/#{AWS.Util.encode_uri(domain_id)}/templates/#{AWS.Util.encode_uri(template_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2246,7 +2274,7 @@ defmodule AWS.ConnectCases do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2263,6 +2291,7 @@ defmodule AWS.ConnectCases do
   def list_cases_for_contact(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/list-cases-for-contact"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2273,7 +2302,7 @@ defmodule AWS.ConnectCases do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2293,6 +2322,7 @@ defmodule AWS.ConnectCases do
   def list_domains(%Client{} = client, input, options \\ []) do
     url_path = "/domains-list"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2309,7 +2339,7 @@ defmodule AWS.ConnectCases do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2328,6 +2358,7 @@ defmodule AWS.ConnectCases do
       "/domains/#{AWS.Util.encode_uri(domain_id)}/fields/#{AWS.Util.encode_uri(field_id)}/options-list"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2345,7 +2376,7 @@ defmodule AWS.ConnectCases do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2362,6 +2393,7 @@ defmodule AWS.ConnectCases do
   def list_fields(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/fields-list"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2378,7 +2410,7 @@ defmodule AWS.ConnectCases do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2398,6 +2430,7 @@ defmodule AWS.ConnectCases do
   def list_layouts(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/layouts-list"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2414,7 +2447,7 @@ defmodule AWS.ConnectCases do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2451,6 +2484,7 @@ defmodule AWS.ConnectCases do
   def list_templates(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/templates-list"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2468,7 +2502,7 @@ defmodule AWS.ConnectCases do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2495,11 +2529,22 @@ defmodule AWS.ConnectCases do
   def put_case_event_configuration(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/case-event-configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2525,6 +2570,7 @@ defmodule AWS.ConnectCases do
   def search_cases(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/cases-search"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2535,7 +2581,7 @@ defmodule AWS.ConnectCases do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2563,6 +2609,7 @@ defmodule AWS.ConnectCases do
       "/domains/#{AWS.Util.encode_uri(domain_id)}/cases/#{AWS.Util.encode_uri(case_id)}/related-items-search"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2573,7 +2620,7 @@ defmodule AWS.ConnectCases do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2590,6 +2637,7 @@ defmodule AWS.ConnectCases do
   def tag_resource(%Client{} = client, arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2600,7 +2648,7 @@ defmodule AWS.ConnectCases do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2617,6 +2665,7 @@ defmodule AWS.ConnectCases do
   def untag_resource(%Client{} = client, arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2632,7 +2681,7 @@ defmodule AWS.ConnectCases do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2661,11 +2710,22 @@ defmodule AWS.ConnectCases do
   def update_case(%Client{} = client, case_id, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/cases/#{AWS.Util.encode_uri(case_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2680,11 +2740,22 @@ defmodule AWS.ConnectCases do
       "/domains/#{AWS.Util.encode_uri(domain_id)}/fields/#{AWS.Util.encode_uri(field_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2709,11 +2780,22 @@ defmodule AWS.ConnectCases do
       "/domains/#{AWS.Util.encode_uri(domain_id)}/layouts/#{AWS.Util.encode_uri(layout_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2735,10 +2817,21 @@ defmodule AWS.ConnectCases do
       "/domains/#{AWS.Util.encode_uri(domain_id)}/templates/#{AWS.Util.encode_uri(template_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

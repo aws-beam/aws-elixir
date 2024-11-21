@@ -1184,6 +1184,7 @@ defmodule AWS.EMRcontainers do
       "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_id)}/jobruns/#{AWS.Util.encode_uri(id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1194,7 +1195,7 @@ defmodule AWS.EMRcontainers do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1218,6 +1219,7 @@ defmodule AWS.EMRcontainers do
   def create_job_template(%Client{} = client, input, options \\ []) do
     url_path = "/jobtemplates"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1228,7 +1230,7 @@ defmodule AWS.EMRcontainers do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1249,6 +1251,7 @@ defmodule AWS.EMRcontainers do
   def create_managed_endpoint(%Client{} = client, virtual_cluster_id, input, options \\ []) do
     url_path = "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_id)}/endpoints"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1259,7 +1262,7 @@ defmodule AWS.EMRcontainers do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1283,6 +1286,7 @@ defmodule AWS.EMRcontainers do
   def create_security_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/securityconfigurations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1293,7 +1297,7 @@ defmodule AWS.EMRcontainers do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1318,6 +1322,7 @@ defmodule AWS.EMRcontainers do
   def create_virtual_cluster(%Client{} = client, input, options \\ []) do
     url_path = "/virtualclusters"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1328,7 +1333,7 @@ defmodule AWS.EMRcontainers do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1352,6 +1357,7 @@ defmodule AWS.EMRcontainers do
   def delete_job_template(%Client{} = client, id, input, options \\ []) do
     url_path = "/jobtemplates/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1362,7 +1368,7 @@ defmodule AWS.EMRcontainers do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1391,6 +1397,7 @@ defmodule AWS.EMRcontainers do
       "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_id)}/endpoints/#{AWS.Util.encode_uri(id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1401,7 +1408,7 @@ defmodule AWS.EMRcontainers do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1426,6 +1433,7 @@ defmodule AWS.EMRcontainers do
   def delete_virtual_cluster(%Client{} = client, id, input, options \\ []) do
     url_path = "/virtualclusters/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1436,7 +1444,7 @@ defmodule AWS.EMRcontainers do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1590,6 +1598,7 @@ defmodule AWS.EMRcontainers do
       "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_identifier)}/endpoints/#{AWS.Util.encode_uri(endpoint_identifier)}/credentials"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1600,7 +1609,7 @@ defmodule AWS.EMRcontainers do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2040,6 +2049,7 @@ defmodule AWS.EMRcontainers do
   def start_job_run(%Client{} = client, virtual_cluster_id, input, options \\ []) do
     url_path = "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_id)}/jobruns"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2050,7 +2060,7 @@ defmodule AWS.EMRcontainers do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2083,6 +2093,7 @@ defmodule AWS.EMRcontainers do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2093,7 +2104,7 @@ defmodule AWS.EMRcontainers do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2110,6 +2121,7 @@ defmodule AWS.EMRcontainers do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2125,7 +2137,7 @@ defmodule AWS.EMRcontainers do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

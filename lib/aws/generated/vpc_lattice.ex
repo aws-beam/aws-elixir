@@ -2220,6 +2220,7 @@ defmodule AWS.VPCLattice do
       "/services/#{AWS.Util.encode_uri(service_identifier)}/listeners/#{AWS.Util.encode_uri(listener_identifier)}/rules"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2230,7 +2231,7 @@ defmodule AWS.VPCLattice do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2259,6 +2260,7 @@ defmodule AWS.VPCLattice do
   def create_access_log_subscription(%Client{} = client, input, options \\ []) do
     url_path = "/accesslogsubscriptions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2269,7 +2271,7 @@ defmodule AWS.VPCLattice do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2294,6 +2296,7 @@ defmodule AWS.VPCLattice do
   def create_listener(%Client{} = client, service_identifier, input, options \\ []) do
     url_path = "/services/#{AWS.Util.encode_uri(service_identifier)}/listeners"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2304,7 +2307,7 @@ defmodule AWS.VPCLattice do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2336,6 +2339,7 @@ defmodule AWS.VPCLattice do
       "/services/#{AWS.Util.encode_uri(service_identifier)}/listeners/#{AWS.Util.encode_uri(listener_identifier)}/rules"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2346,7 +2350,7 @@ defmodule AWS.VPCLattice do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2372,6 +2376,7 @@ defmodule AWS.VPCLattice do
   def create_service(%Client{} = client, input, options \\ []) do
     url_path = "/services"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2382,7 +2387,7 @@ defmodule AWS.VPCLattice do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2406,6 +2411,7 @@ defmodule AWS.VPCLattice do
   def create_service_network(%Client{} = client, input, options \\ []) do
     url_path = "/servicenetworks"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2416,7 +2422,7 @@ defmodule AWS.VPCLattice do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2454,6 +2460,7 @@ defmodule AWS.VPCLattice do
   def create_service_network_service_association(%Client{} = client, input, options \\ []) do
     url_path = "/servicenetworkserviceassociations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2464,7 +2471,7 @@ defmodule AWS.VPCLattice do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2507,6 +2514,7 @@ defmodule AWS.VPCLattice do
   def create_service_network_vpc_association(%Client{} = client, input, options \\ []) do
     url_path = "/servicenetworkvpcassociations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2517,7 +2525,7 @@ defmodule AWS.VPCLattice do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2542,6 +2550,7 @@ defmodule AWS.VPCLattice do
   def create_target_group(%Client{} = client, input, options \\ []) do
     url_path = "/targetgroups"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2552,7 +2561,7 @@ defmodule AWS.VPCLattice do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2581,6 +2590,7 @@ defmodule AWS.VPCLattice do
       "/accesslogsubscriptions/#{AWS.Util.encode_uri(access_log_subscription_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2591,7 +2601,7 @@ defmodule AWS.VPCLattice do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2614,6 +2624,7 @@ defmodule AWS.VPCLattice do
   def delete_auth_policy(%Client{} = client, resource_identifier, input, options \\ []) do
     url_path = "/authpolicy/#{AWS.Util.encode_uri(resource_identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2624,7 +2635,7 @@ defmodule AWS.VPCLattice do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2649,6 +2660,7 @@ defmodule AWS.VPCLattice do
       "/services/#{AWS.Util.encode_uri(service_identifier)}/listeners/#{AWS.Util.encode_uri(listener_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2659,7 +2671,7 @@ defmodule AWS.VPCLattice do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2676,6 +2688,7 @@ defmodule AWS.VPCLattice do
   def delete_resource_policy(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/resourcepolicy/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2686,7 +2699,7 @@ defmodule AWS.VPCLattice do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2723,6 +2736,7 @@ defmodule AWS.VPCLattice do
       "/services/#{AWS.Util.encode_uri(service_identifier)}/listeners/#{AWS.Util.encode_uri(listener_identifier)}/rules/#{AWS.Util.encode_uri(rule_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2733,7 +2747,7 @@ defmodule AWS.VPCLattice do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2759,6 +2773,7 @@ defmodule AWS.VPCLattice do
   def delete_service(%Client{} = client, service_identifier, input, options \\ []) do
     url_path = "/services/#{AWS.Util.encode_uri(service_identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2769,7 +2784,7 @@ defmodule AWS.VPCLattice do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2794,6 +2809,7 @@ defmodule AWS.VPCLattice do
   def delete_service_network(%Client{} = client, service_network_identifier, input, options \\ []) do
     url_path = "/servicenetworks/#{AWS.Util.encode_uri(service_network_identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2804,7 +2820,7 @@ defmodule AWS.VPCLattice do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2837,6 +2853,7 @@ defmodule AWS.VPCLattice do
       "/servicenetworkserviceassociations/#{AWS.Util.encode_uri(service_network_service_association_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2847,7 +2864,7 @@ defmodule AWS.VPCLattice do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2879,6 +2896,7 @@ defmodule AWS.VPCLattice do
       "/servicenetworkvpcassociations/#{AWS.Util.encode_uri(service_network_vpc_association_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2889,7 +2907,7 @@ defmodule AWS.VPCLattice do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2909,6 +2927,7 @@ defmodule AWS.VPCLattice do
   def delete_target_group(%Client{} = client, target_group_identifier, input, options \\ []) do
     url_path = "/targetgroups/#{AWS.Util.encode_uri(target_group_identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2919,7 +2938,7 @@ defmodule AWS.VPCLattice do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2936,6 +2955,7 @@ defmodule AWS.VPCLattice do
   def deregister_targets(%Client{} = client, target_group_identifier, input, options \\ []) do
     url_path = "/targetgroups/#{AWS.Util.encode_uri(target_group_identifier)}/deregistertargets"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2946,7 +2966,7 @@ defmodule AWS.VPCLattice do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3592,6 +3612,7 @@ defmodule AWS.VPCLattice do
   def list_targets(%Client{} = client, target_group_identifier, input, options \\ []) do
     url_path = "/targetgroups/#{AWS.Util.encode_uri(target_group_identifier)}/listtargets"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3608,7 +3629,7 @@ defmodule AWS.VPCLattice do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3631,11 +3652,22 @@ defmodule AWS.VPCLattice do
   def put_auth_policy(%Client{} = client, resource_identifier, input, options \\ []) do
     url_path = "/authpolicy/#{AWS.Util.encode_uri(resource_identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3653,11 +3685,22 @@ defmodule AWS.VPCLattice do
   def put_resource_policy(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/resourcepolicy/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3673,6 +3716,7 @@ defmodule AWS.VPCLattice do
   def register_targets(%Client{} = client, target_group_identifier, input, options \\ []) do
     url_path = "/targetgroups/#{AWS.Util.encode_uri(target_group_identifier)}/registertargets"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3683,7 +3727,7 @@ defmodule AWS.VPCLattice do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3700,6 +3744,7 @@ defmodule AWS.VPCLattice do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3710,7 +3755,7 @@ defmodule AWS.VPCLattice do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3727,6 +3772,7 @@ defmodule AWS.VPCLattice do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3742,7 +3788,7 @@ defmodule AWS.VPCLattice do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3771,6 +3817,7 @@ defmodule AWS.VPCLattice do
       "/accesslogsubscriptions/#{AWS.Util.encode_uri(access_log_subscription_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3781,7 +3828,7 @@ defmodule AWS.VPCLattice do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3806,6 +3853,7 @@ defmodule AWS.VPCLattice do
       "/services/#{AWS.Util.encode_uri(service_identifier)}/listeners/#{AWS.Util.encode_uri(listener_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3816,7 +3864,7 @@ defmodule AWS.VPCLattice do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3845,6 +3893,7 @@ defmodule AWS.VPCLattice do
       "/services/#{AWS.Util.encode_uri(service_identifier)}/listeners/#{AWS.Util.encode_uri(listener_identifier)}/rules/#{AWS.Util.encode_uri(rule_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3855,7 +3904,7 @@ defmodule AWS.VPCLattice do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3872,6 +3921,7 @@ defmodule AWS.VPCLattice do
   def update_service(%Client{} = client, service_identifier, input, options \\ []) do
     url_path = "/services/#{AWS.Util.encode_uri(service_identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3882,7 +3932,7 @@ defmodule AWS.VPCLattice do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3899,6 +3949,7 @@ defmodule AWS.VPCLattice do
   def update_service_network(%Client{} = client, service_network_identifier, input, options \\ []) do
     url_path = "/servicenetworks/#{AWS.Util.encode_uri(service_network_identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3909,7 +3960,7 @@ defmodule AWS.VPCLattice do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3945,6 +3996,7 @@ defmodule AWS.VPCLattice do
       "/servicenetworkvpcassociations/#{AWS.Util.encode_uri(service_network_vpc_association_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3955,7 +4007,7 @@ defmodule AWS.VPCLattice do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3972,6 +4024,7 @@ defmodule AWS.VPCLattice do
   def update_target_group(%Client{} = client, target_group_identifier, input, options \\ []) do
     url_path = "/targetgroups/#{AWS.Util.encode_uri(target_group_identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3982,7 +4035,7 @@ defmodule AWS.VPCLattice do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

@@ -965,6 +965,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   def create_cluster(%Client{} = client, input, options \\ []) do
     url_path = "/cluster"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -975,7 +976,7 @@ defmodule AWS.Route53RecoveryControlConfig do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -998,6 +999,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   def create_control_panel(%Client{} = client, input, options \\ []) do
     url_path = "/controlpanel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1008,7 +1010,7 @@ defmodule AWS.Route53RecoveryControlConfig do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1032,6 +1034,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   def create_routing_control(%Client{} = client, input, options \\ []) do
     url_path = "/routingcontrol"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1042,7 +1045,7 @@ defmodule AWS.Route53RecoveryControlConfig do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1079,6 +1082,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   def create_safety_rule(%Client{} = client, input, options \\ []) do
     url_path = "/safetyrule"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1089,7 +1093,7 @@ defmodule AWS.Route53RecoveryControlConfig do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1106,6 +1110,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   def delete_cluster(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(cluster_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1116,7 +1121,7 @@ defmodule AWS.Route53RecoveryControlConfig do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1133,6 +1138,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   def delete_control_panel(%Client{} = client, control_panel_arn, input, options \\ []) do
     url_path = "/controlpanel/#{AWS.Util.encode_uri(control_panel_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1143,7 +1149,7 @@ defmodule AWS.Route53RecoveryControlConfig do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1160,6 +1166,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   def delete_routing_control(%Client{} = client, routing_control_arn, input, options \\ []) do
     url_path = "/routingcontrol/#{AWS.Util.encode_uri(routing_control_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1170,7 +1177,7 @@ defmodule AWS.Route53RecoveryControlConfig do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1189,6 +1196,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   def delete_safety_rule(%Client{} = client, safety_rule_arn, input, options \\ []) do
     url_path = "/safetyrule/#{AWS.Util.encode_uri(safety_rule_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1199,7 +1207,7 @@ defmodule AWS.Route53RecoveryControlConfig do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1529,6 +1537,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1539,7 +1548,7 @@ defmodule AWS.Route53RecoveryControlConfig do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1556,6 +1565,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1571,7 +1581,7 @@ defmodule AWS.Route53RecoveryControlConfig do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1591,11 +1601,22 @@ defmodule AWS.Route53RecoveryControlConfig do
   def update_control_panel(%Client{} = client, input, options \\ []) do
     url_path = "/controlpanel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1612,11 +1633,22 @@ defmodule AWS.Route53RecoveryControlConfig do
   def update_routing_control(%Client{} = client, input, options \\ []) do
     url_path = "/routingcontrol"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1632,10 +1664,21 @@ defmodule AWS.Route53RecoveryControlConfig do
   def update_safety_rule(%Client{} = client, input, options \\ []) do
     url_path = "/safetyrule"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

@@ -1158,6 +1158,7 @@ defmodule AWS.Schemas do
   def create_discoverer(%Client{} = client, input, options \\ []) do
     url_path = "/v1/discoverers"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1168,7 +1169,7 @@ defmodule AWS.Schemas do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1185,6 +1186,7 @@ defmodule AWS.Schemas do
   def create_registry(%Client{} = client, registry_name, input, options \\ []) do
     url_path = "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1195,7 +1197,7 @@ defmodule AWS.Schemas do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1216,6 +1218,7 @@ defmodule AWS.Schemas do
       "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/name/#{AWS.Util.encode_uri(schema_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1226,7 +1229,7 @@ defmodule AWS.Schemas do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1243,6 +1246,7 @@ defmodule AWS.Schemas do
   def delete_discoverer(%Client{} = client, discoverer_id, input, options \\ []) do
     url_path = "/v1/discoverers/id/#{AWS.Util.encode_uri(discoverer_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1253,7 +1257,7 @@ defmodule AWS.Schemas do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1270,6 +1274,7 @@ defmodule AWS.Schemas do
   def delete_registry(%Client{} = client, registry_name, input, options \\ []) do
     url_path = "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1280,7 +1285,7 @@ defmodule AWS.Schemas do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1297,6 +1302,7 @@ defmodule AWS.Schemas do
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
     url_path = "/v1/policy"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1312,7 +1318,7 @@ defmodule AWS.Schemas do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1331,6 +1337,7 @@ defmodule AWS.Schemas do
       "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/name/#{AWS.Util.encode_uri(schema_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1341,7 +1348,7 @@ defmodule AWS.Schemas do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1374,6 +1381,7 @@ defmodule AWS.Schemas do
       "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/name/#{AWS.Util.encode_uri(schema_name)}/version/#{AWS.Util.encode_uri(schema_version)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1384,7 +1392,7 @@ defmodule AWS.Schemas do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1577,6 +1585,7 @@ defmodule AWS.Schemas do
   def get_discovered_schema(%Client{} = client, input, options \\ []) do
     url_path = "/v1/discover"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1587,7 +1596,7 @@ defmodule AWS.Schemas do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1878,6 +1887,7 @@ defmodule AWS.Schemas do
       "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/name/#{AWS.Util.encode_uri(schema_name)}/language/#{AWS.Util.encode_uri(language)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1893,7 +1903,7 @@ defmodule AWS.Schemas do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1910,6 +1920,7 @@ defmodule AWS.Schemas do
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     url_path = "/v1/policy"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1919,7 +1930,17 @@ defmodule AWS.Schemas do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1977,6 +1998,7 @@ defmodule AWS.Schemas do
   def start_discoverer(%Client{} = client, discoverer_id, input, options \\ []) do
     url_path = "/v1/discoverers/id/#{AWS.Util.encode_uri(discoverer_id)}/start"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1987,7 +2009,7 @@ defmodule AWS.Schemas do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2004,6 +2026,7 @@ defmodule AWS.Schemas do
   def stop_discoverer(%Client{} = client, discoverer_id, input, options \\ []) do
     url_path = "/v1/discoverers/id/#{AWS.Util.encode_uri(discoverer_id)}/stop"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2014,7 +2037,7 @@ defmodule AWS.Schemas do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2031,6 +2054,7 @@ defmodule AWS.Schemas do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2041,7 +2065,7 @@ defmodule AWS.Schemas do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2058,6 +2082,7 @@ defmodule AWS.Schemas do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2073,7 +2098,7 @@ defmodule AWS.Schemas do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2090,11 +2115,22 @@ defmodule AWS.Schemas do
   def update_discoverer(%Client{} = client, discoverer_id, input, options \\ []) do
     url_path = "/v1/discoverers/id/#{AWS.Util.encode_uri(discoverer_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2107,11 +2143,22 @@ defmodule AWS.Schemas do
   def update_registry(%Client{} = client, registry_name, input, options \\ []) do
     url_path = "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2128,10 +2175,21 @@ defmodule AWS.Schemas do
       "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}/schemas/name/#{AWS.Util.encode_uri(schema_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

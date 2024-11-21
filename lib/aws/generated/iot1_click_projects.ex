@@ -607,11 +607,22 @@ defmodule AWS.IoT1ClickProjects do
       "/projects/#{AWS.Util.encode_uri(project_name)}/placements/#{AWS.Util.encode_uri(placement_name)}/devices/#{AWS.Util.encode_uri(device_template_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -624,6 +635,7 @@ defmodule AWS.IoT1ClickProjects do
   def create_placement(%Client{} = client, project_name, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_name)}/placements"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -634,7 +646,7 @@ defmodule AWS.IoT1ClickProjects do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -654,6 +666,7 @@ defmodule AWS.IoT1ClickProjects do
   def create_project(%Client{} = client, input, options \\ []) do
     url_path = "/projects"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -664,7 +677,7 @@ defmodule AWS.IoT1ClickProjects do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -688,6 +701,7 @@ defmodule AWS.IoT1ClickProjects do
       "/projects/#{AWS.Util.encode_uri(project_name)}/placements/#{AWS.Util.encode_uri(placement_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -698,7 +712,7 @@ defmodule AWS.IoT1ClickProjects do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -720,6 +734,7 @@ defmodule AWS.IoT1ClickProjects do
   def delete_project(%Client{} = client, project_name, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -730,7 +745,7 @@ defmodule AWS.IoT1ClickProjects do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -799,6 +814,7 @@ defmodule AWS.IoT1ClickProjects do
       "/projects/#{AWS.Util.encode_uri(project_name)}/placements/#{AWS.Util.encode_uri(placement_name)}/devices/#{AWS.Util.encode_uri(device_template_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -809,7 +825,7 @@ defmodule AWS.IoT1ClickProjects do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -935,6 +951,7 @@ defmodule AWS.IoT1ClickProjects do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -945,7 +962,7 @@ defmodule AWS.IoT1ClickProjects do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -962,6 +979,7 @@ defmodule AWS.IoT1ClickProjects do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -977,7 +995,7 @@ defmodule AWS.IoT1ClickProjects do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -999,11 +1017,22 @@ defmodule AWS.IoT1ClickProjects do
       "/projects/#{AWS.Util.encode_uri(project_name)}/placements/#{AWS.Util.encode_uri(placement_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1023,10 +1052,21 @@ defmodule AWS.IoT1ClickProjects do
   def update_project(%Client{} = client, project_name, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

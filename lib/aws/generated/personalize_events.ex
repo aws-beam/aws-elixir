@@ -242,6 +242,7 @@ defmodule AWS.PersonalizeEvents do
   def put_action_interactions(%Client{} = client, input, options \\ []) do
     url_path = "/action-interactions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -252,7 +253,7 @@ defmodule AWS.PersonalizeEvents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -272,6 +273,7 @@ defmodule AWS.PersonalizeEvents do
   def put_actions(%Client{} = client, input, options \\ []) do
     url_path = "/actions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -282,7 +284,7 @@ defmodule AWS.PersonalizeEvents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -302,6 +304,7 @@ defmodule AWS.PersonalizeEvents do
   def put_events(%Client{} = client, input, options \\ []) do
     url_path = "/events"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -312,7 +315,7 @@ defmodule AWS.PersonalizeEvents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -332,6 +335,7 @@ defmodule AWS.PersonalizeEvents do
   def put_items(%Client{} = client, input, options \\ []) do
     url_path = "/items"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -342,7 +346,7 @@ defmodule AWS.PersonalizeEvents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -362,6 +366,7 @@ defmodule AWS.PersonalizeEvents do
   def put_users(%Client{} = client, input, options \\ []) do
     url_path = "/users"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -372,7 +377,7 @@ defmodule AWS.PersonalizeEvents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

@@ -1832,6 +1832,7 @@ defmodule AWS.LookoutMetrics do
   def activate_anomaly_detector(%Client{} = client, input, options \\ []) do
     url_path = "/ActivateAnomalyDetector"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1842,7 +1843,7 @@ defmodule AWS.LookoutMetrics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1859,6 +1860,7 @@ defmodule AWS.LookoutMetrics do
   def back_test_anomaly_detector(%Client{} = client, input, options \\ []) do
     url_path = "/BackTestAnomalyDetector"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1869,7 +1871,7 @@ defmodule AWS.LookoutMetrics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1886,6 +1888,7 @@ defmodule AWS.LookoutMetrics do
   def create_alert(%Client{} = client, input, options \\ []) do
     url_path = "/CreateAlert"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1896,7 +1899,7 @@ defmodule AWS.LookoutMetrics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1913,6 +1916,7 @@ defmodule AWS.LookoutMetrics do
   def create_anomaly_detector(%Client{} = client, input, options \\ []) do
     url_path = "/CreateAnomalyDetector"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1923,7 +1927,7 @@ defmodule AWS.LookoutMetrics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1940,6 +1944,7 @@ defmodule AWS.LookoutMetrics do
   def create_metric_set(%Client{} = client, input, options \\ []) do
     url_path = "/CreateMetricSet"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1950,7 +1955,7 @@ defmodule AWS.LookoutMetrics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1967,6 +1972,7 @@ defmodule AWS.LookoutMetrics do
   def deactivate_anomaly_detector(%Client{} = client, input, options \\ []) do
     url_path = "/DeactivateAnomalyDetector"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1977,7 +1983,7 @@ defmodule AWS.LookoutMetrics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1994,6 +2000,7 @@ defmodule AWS.LookoutMetrics do
   def delete_alert(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteAlert"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2004,7 +2011,7 @@ defmodule AWS.LookoutMetrics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2025,6 +2032,7 @@ defmodule AWS.LookoutMetrics do
   def delete_anomaly_detector(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteAnomalyDetector"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2035,7 +2043,7 @@ defmodule AWS.LookoutMetrics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2057,6 +2065,7 @@ defmodule AWS.LookoutMetrics do
   def describe_alert(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeAlert"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2067,7 +2076,7 @@ defmodule AWS.LookoutMetrics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2088,6 +2097,7 @@ defmodule AWS.LookoutMetrics do
   def describe_anomaly_detection_executions(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeAnomalyDetectionExecutions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2098,7 +2108,7 @@ defmodule AWS.LookoutMetrics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2120,6 +2130,7 @@ defmodule AWS.LookoutMetrics do
   def describe_anomaly_detector(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeAnomalyDetector"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2130,7 +2141,7 @@ defmodule AWS.LookoutMetrics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2152,6 +2163,7 @@ defmodule AWS.LookoutMetrics do
   def describe_metric_set(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeMetricSet"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2162,7 +2174,7 @@ defmodule AWS.LookoutMetrics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2179,6 +2191,7 @@ defmodule AWS.LookoutMetrics do
   def detect_metric_set_config(%Client{} = client, input, options \\ []) do
     url_path = "/DetectMetricSetConfig"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2189,7 +2202,7 @@ defmodule AWS.LookoutMetrics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2206,6 +2219,7 @@ defmodule AWS.LookoutMetrics do
   def get_anomaly_group(%Client{} = client, input, options \\ []) do
     url_path = "/GetAnomalyGroup"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2216,7 +2230,7 @@ defmodule AWS.LookoutMetrics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2233,6 +2247,7 @@ defmodule AWS.LookoutMetrics do
   def get_data_quality_metrics(%Client{} = client, input, options \\ []) do
     url_path = "/GetDataQualityMetrics"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2243,7 +2258,7 @@ defmodule AWS.LookoutMetrics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2260,6 +2275,7 @@ defmodule AWS.LookoutMetrics do
   def get_feedback(%Client{} = client, input, options \\ []) do
     url_path = "/GetFeedback"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2270,7 +2286,7 @@ defmodule AWS.LookoutMetrics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2287,6 +2303,7 @@ defmodule AWS.LookoutMetrics do
   def get_sample_data(%Client{} = client, input, options \\ []) do
     url_path = "/GetSampleData"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2297,7 +2314,7 @@ defmodule AWS.LookoutMetrics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2319,6 +2336,7 @@ defmodule AWS.LookoutMetrics do
   def list_alerts(%Client{} = client, input, options \\ []) do
     url_path = "/ListAlerts"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2329,7 +2347,7 @@ defmodule AWS.LookoutMetrics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2351,6 +2369,7 @@ defmodule AWS.LookoutMetrics do
   def list_anomaly_detectors(%Client{} = client, input, options \\ []) do
     url_path = "/ListAnomalyDetectors"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2361,7 +2380,7 @@ defmodule AWS.LookoutMetrics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2383,6 +2402,7 @@ defmodule AWS.LookoutMetrics do
   def list_anomaly_group_related_metrics(%Client{} = client, input, options \\ []) do
     url_path = "/ListAnomalyGroupRelatedMetrics"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2393,7 +2413,7 @@ defmodule AWS.LookoutMetrics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2410,6 +2430,7 @@ defmodule AWS.LookoutMetrics do
   def list_anomaly_group_summaries(%Client{} = client, input, options \\ []) do
     url_path = "/ListAnomalyGroupSummaries"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2420,7 +2441,7 @@ defmodule AWS.LookoutMetrics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2437,6 +2458,7 @@ defmodule AWS.LookoutMetrics do
   def list_anomaly_group_time_series(%Client{} = client, input, options \\ []) do
     url_path = "/ListAnomalyGroupTimeSeries"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2447,7 +2469,7 @@ defmodule AWS.LookoutMetrics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2469,6 +2491,7 @@ defmodule AWS.LookoutMetrics do
   def list_metric_sets(%Client{} = client, input, options \\ []) do
     url_path = "/ListMetricSets"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2479,7 +2502,7 @@ defmodule AWS.LookoutMetrics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2515,6 +2538,7 @@ defmodule AWS.LookoutMetrics do
   def put_feedback(%Client{} = client, input, options \\ []) do
     url_path = "/PutFeedback"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2525,7 +2549,7 @@ defmodule AWS.LookoutMetrics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2544,6 +2568,7 @@ defmodule AWS.LookoutMetrics do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2554,7 +2579,7 @@ defmodule AWS.LookoutMetrics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2573,6 +2598,7 @@ defmodule AWS.LookoutMetrics do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2588,7 +2614,7 @@ defmodule AWS.LookoutMetrics do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2605,6 +2631,7 @@ defmodule AWS.LookoutMetrics do
   def update_alert(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateAlert"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2615,7 +2642,7 @@ defmodule AWS.LookoutMetrics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2635,6 +2662,7 @@ defmodule AWS.LookoutMetrics do
   def update_anomaly_detector(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateAnomalyDetector"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2645,7 +2673,7 @@ defmodule AWS.LookoutMetrics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2662,6 +2690,7 @@ defmodule AWS.LookoutMetrics do
   def update_metric_set(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateMetricSet"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2672,7 +2701,7 @@ defmodule AWS.LookoutMetrics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

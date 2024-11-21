@@ -4933,11 +4933,22 @@ defmodule AWS.Deadline do
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/members/#{AWS.Util.encode_uri(principal_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4966,11 +4977,22 @@ defmodule AWS.Deadline do
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets/#{AWS.Util.encode_uri(fleet_id)}/members/#{AWS.Util.encode_uri(principal_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5001,11 +5023,22 @@ defmodule AWS.Deadline do
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/members/#{AWS.Util.encode_uri(principal_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5034,11 +5067,22 @@ defmodule AWS.Deadline do
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/members/#{AWS.Util.encode_uri(principal_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5188,6 +5232,7 @@ defmodule AWS.Deadline do
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets/#{AWS.Util.encode_uri(fleet_id)}/workers/#{AWS.Util.encode_uri(worker_id)}/batchGetJobEntity"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "scheduling.")
@@ -5198,7 +5243,7 @@ defmodule AWS.Deadline do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5224,6 +5269,7 @@ defmodule AWS.Deadline do
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/template"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -5234,7 +5280,7 @@ defmodule AWS.Deadline do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5257,6 +5303,7 @@ defmodule AWS.Deadline do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -5267,7 +5314,7 @@ defmodule AWS.Deadline do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5297,6 +5344,7 @@ defmodule AWS.Deadline do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -5307,7 +5355,7 @@ defmodule AWS.Deadline do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5335,6 +5383,7 @@ defmodule AWS.Deadline do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -5345,7 +5394,7 @@ defmodule AWS.Deadline do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5372,6 +5421,7 @@ defmodule AWS.Deadline do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -5382,7 +5432,7 @@ defmodule AWS.Deadline do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -5406,6 +5456,7 @@ defmodule AWS.Deadline do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -5416,7 +5467,7 @@ defmodule AWS.Deadline do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5445,6 +5496,7 @@ defmodule AWS.Deadline do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -5455,7 +5507,7 @@ defmodule AWS.Deadline do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5481,6 +5533,7 @@ defmodule AWS.Deadline do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -5491,7 +5544,7 @@ defmodule AWS.Deadline do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5521,6 +5574,7 @@ defmodule AWS.Deadline do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -5531,7 +5585,7 @@ defmodule AWS.Deadline do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5553,11 +5607,22 @@ defmodule AWS.Deadline do
   def create_queue_fleet_association(%Client{} = client, farm_id, input, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queue-fleet-associations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5578,6 +5643,7 @@ defmodule AWS.Deadline do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -5588,7 +5654,7 @@ defmodule AWS.Deadline do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5619,6 +5685,7 @@ defmodule AWS.Deadline do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "scheduling.")
@@ -5629,7 +5696,7 @@ defmodule AWS.Deadline do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5648,6 +5715,7 @@ defmodule AWS.Deadline do
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/budgets/#{AWS.Util.encode_uri(budget_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -5658,7 +5726,7 @@ defmodule AWS.Deadline do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5675,6 +5743,7 @@ defmodule AWS.Deadline do
   def delete_farm(%Client{} = client, farm_id, input, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -5685,7 +5754,7 @@ defmodule AWS.Deadline do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5709,6 +5778,7 @@ defmodule AWS.Deadline do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -5719,7 +5789,7 @@ defmodule AWS.Deadline do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5736,6 +5806,7 @@ defmodule AWS.Deadline do
   def delete_license_endpoint(%Client{} = client, license_endpoint_id, input, options \\ []) do
     url_path = "/2023-10-12/license-endpoints/#{AWS.Util.encode_uri(license_endpoint_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -5746,7 +5817,7 @@ defmodule AWS.Deadline do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5777,6 +5848,7 @@ defmodule AWS.Deadline do
       "/2023-10-12/license-endpoints/#{AWS.Util.encode_uri(license_endpoint_id)}/metered-products/#{AWS.Util.encode_uri(product_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -5787,7 +5859,7 @@ defmodule AWS.Deadline do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5807,6 +5879,7 @@ defmodule AWS.Deadline do
   def delete_monitor(%Client{} = client, monitor_id, input, options \\ []) do
     url_path = "/2023-10-12/monitors/#{AWS.Util.encode_uri(monitor_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -5817,7 +5890,7 @@ defmodule AWS.Deadline do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5840,6 +5913,7 @@ defmodule AWS.Deadline do
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -5850,7 +5924,7 @@ defmodule AWS.Deadline do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5883,6 +5957,7 @@ defmodule AWS.Deadline do
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/environments/#{AWS.Util.encode_uri(queue_environment_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -5893,7 +5968,7 @@ defmodule AWS.Deadline do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5926,6 +6001,7 @@ defmodule AWS.Deadline do
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queue-fleet-associations/#{AWS.Util.encode_uri(queue_id)}/#{AWS.Util.encode_uri(fleet_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -5936,7 +6012,7 @@ defmodule AWS.Deadline do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5967,6 +6043,7 @@ defmodule AWS.Deadline do
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/storage-profiles/#{AWS.Util.encode_uri(storage_profile_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -5977,7 +6054,7 @@ defmodule AWS.Deadline do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5996,6 +6073,7 @@ defmodule AWS.Deadline do
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets/#{AWS.Util.encode_uri(fleet_id)}/workers/#{AWS.Util.encode_uri(worker_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -6006,7 +6084,7 @@ defmodule AWS.Deadline do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6037,6 +6115,7 @@ defmodule AWS.Deadline do
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/members/#{AWS.Util.encode_uri(principal_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -6047,7 +6126,7 @@ defmodule AWS.Deadline do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6080,6 +6159,7 @@ defmodule AWS.Deadline do
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets/#{AWS.Util.encode_uri(fleet_id)}/members/#{AWS.Util.encode_uri(principal_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -6090,7 +6170,7 @@ defmodule AWS.Deadline do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6125,6 +6205,7 @@ defmodule AWS.Deadline do
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/jobs/#{AWS.Util.encode_uri(job_id)}/members/#{AWS.Util.encode_uri(principal_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -6135,7 +6216,7 @@ defmodule AWS.Deadline do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6168,6 +6249,7 @@ defmodule AWS.Deadline do
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues/#{AWS.Util.encode_uri(queue_id)}/members/#{AWS.Util.encode_uri(principal_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -6178,7 +6260,7 @@ defmodule AWS.Deadline do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7847,11 +7929,22 @@ defmodule AWS.Deadline do
       "/2023-10-12/license-endpoints/#{AWS.Util.encode_uri(license_endpoint_id)}/metered-products/#{AWS.Util.encode_uri(product_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -7864,6 +7957,7 @@ defmodule AWS.Deadline do
   def search_jobs(%Client{} = client, farm_id, input, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/search/jobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -7874,7 +7968,7 @@ defmodule AWS.Deadline do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7891,6 +7985,7 @@ defmodule AWS.Deadline do
   def search_steps(%Client{} = client, farm_id, input, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/search/steps"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -7901,7 +7996,7 @@ defmodule AWS.Deadline do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7918,6 +8013,7 @@ defmodule AWS.Deadline do
   def search_tasks(%Client{} = client, farm_id, input, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/search/tasks"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -7928,7 +8024,7 @@ defmodule AWS.Deadline do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7945,6 +8041,7 @@ defmodule AWS.Deadline do
   def search_workers(%Client{} = client, farm_id, input, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/search/workers"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -7955,7 +8052,7 @@ defmodule AWS.Deadline do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7985,6 +8082,7 @@ defmodule AWS.Deadline do
   def start_sessions_statistics_aggregation(%Client{} = client, farm_id, input, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/sessions-statistics-aggregation"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -7995,7 +8093,7 @@ defmodule AWS.Deadline do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8012,6 +8110,7 @@ defmodule AWS.Deadline do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/2023-10-12/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -8022,7 +8121,7 @@ defmodule AWS.Deadline do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8039,6 +8138,7 @@ defmodule AWS.Deadline do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/2023-10-12/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -8054,7 +8154,7 @@ defmodule AWS.Deadline do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8078,6 +8178,7 @@ defmodule AWS.Deadline do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -8088,7 +8189,7 @@ defmodule AWS.Deadline do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8105,6 +8206,7 @@ defmodule AWS.Deadline do
   def update_farm(%Client{} = client, farm_id, input, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -8115,7 +8217,7 @@ defmodule AWS.Deadline do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8139,6 +8241,7 @@ defmodule AWS.Deadline do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -8149,7 +8252,7 @@ defmodule AWS.Deadline do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8180,6 +8283,7 @@ defmodule AWS.Deadline do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -8190,7 +8294,7 @@ defmodule AWS.Deadline do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8210,6 +8314,7 @@ defmodule AWS.Deadline do
   def update_monitor(%Client{} = client, monitor_id, input, options \\ []) do
     url_path = "/2023-10-12/monitors/#{AWS.Util.encode_uri(monitor_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -8220,7 +8325,7 @@ defmodule AWS.Deadline do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8244,6 +8349,7 @@ defmodule AWS.Deadline do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -8254,7 +8360,7 @@ defmodule AWS.Deadline do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8292,6 +8398,7 @@ defmodule AWS.Deadline do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -8302,7 +8409,7 @@ defmodule AWS.Deadline do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8335,6 +8442,7 @@ defmodule AWS.Deadline do
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queue-fleet-associations/#{AWS.Util.encode_uri(queue_id)}/#{AWS.Util.encode_uri(fleet_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -8345,7 +8453,7 @@ defmodule AWS.Deadline do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8385,6 +8493,7 @@ defmodule AWS.Deadline do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -8395,7 +8504,7 @@ defmodule AWS.Deadline do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8427,6 +8536,7 @@ defmodule AWS.Deadline do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -8437,7 +8547,7 @@ defmodule AWS.Deadline do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8473,6 +8583,7 @@ defmodule AWS.Deadline do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -8483,7 +8594,7 @@ defmodule AWS.Deadline do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8525,6 +8636,7 @@ defmodule AWS.Deadline do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "management.")
@@ -8535,7 +8647,7 @@ defmodule AWS.Deadline do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8554,6 +8666,7 @@ defmodule AWS.Deadline do
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets/#{AWS.Util.encode_uri(fleet_id)}/workers/#{AWS.Util.encode_uri(worker_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "scheduling.")
@@ -8564,7 +8677,7 @@ defmodule AWS.Deadline do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8597,6 +8710,7 @@ defmodule AWS.Deadline do
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets/#{AWS.Util.encode_uri(fleet_id)}/workers/#{AWS.Util.encode_uri(worker_id)}/schedule"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "scheduling.")
@@ -8607,7 +8721,7 @@ defmodule AWS.Deadline do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

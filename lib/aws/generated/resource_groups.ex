@@ -1164,6 +1164,7 @@ defmodule AWS.ResourceGroups do
   def cancel_tag_sync_task(%Client{} = client, input, options \\ []) do
     url_path = "/cancel-tag-sync-task"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1174,7 +1175,7 @@ defmodule AWS.ResourceGroups do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1208,6 +1209,7 @@ defmodule AWS.ResourceGroups do
   def create_group(%Client{} = client, input, options \\ []) do
     url_path = "/groups"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1218,7 +1220,7 @@ defmodule AWS.ResourceGroups do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1246,6 +1248,7 @@ defmodule AWS.ResourceGroups do
   def delete_group(%Client{} = client, input, options \\ []) do
     url_path = "/delete-group"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1256,7 +1259,7 @@ defmodule AWS.ResourceGroups do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1273,6 +1276,7 @@ defmodule AWS.ResourceGroups do
   def get_account_settings(%Client{} = client, input, options \\ []) do
     url_path = "/get-account-settings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1283,7 +1287,7 @@ defmodule AWS.ResourceGroups do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1308,6 +1312,7 @@ defmodule AWS.ResourceGroups do
   def get_group(%Client{} = client, input, options \\ []) do
     url_path = "/get-group"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1318,7 +1323,7 @@ defmodule AWS.ResourceGroups do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1348,6 +1353,7 @@ defmodule AWS.ResourceGroups do
   def get_group_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/get-group-configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1358,7 +1364,7 @@ defmodule AWS.ResourceGroups do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1387,6 +1393,7 @@ defmodule AWS.ResourceGroups do
   def get_group_query(%Client{} = client, input, options \\ []) do
     url_path = "/get-group-query"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1397,7 +1404,7 @@ defmodule AWS.ResourceGroups do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1422,6 +1429,7 @@ defmodule AWS.ResourceGroups do
   def get_tag_sync_task(%Client{} = client, input, options \\ []) do
     url_path = "/get-tag-sync-task"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1432,7 +1440,7 @@ defmodule AWS.ResourceGroups do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1502,6 +1510,7 @@ defmodule AWS.ResourceGroups do
   def group_resources(%Client{} = client, input, options \\ []) do
     url_path = "/group-resources"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1512,7 +1521,7 @@ defmodule AWS.ResourceGroups do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1551,6 +1560,7 @@ defmodule AWS.ResourceGroups do
   def list_group_resources(%Client{} = client, input, options \\ []) do
     url_path = "/list-group-resources"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1561,7 +1571,7 @@ defmodule AWS.ResourceGroups do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1579,6 +1589,7 @@ defmodule AWS.ResourceGroups do
   def list_grouping_statuses(%Client{} = client, input, options \\ []) do
     url_path = "/list-grouping-statuses"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1589,7 +1600,7 @@ defmodule AWS.ResourceGroups do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1614,6 +1625,7 @@ defmodule AWS.ResourceGroups do
   def list_groups(%Client{} = client, input, options \\ []) do
     url_path = "/groups-list"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1630,7 +1642,7 @@ defmodule AWS.ResourceGroups do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1657,6 +1669,7 @@ defmodule AWS.ResourceGroups do
   def list_tag_sync_tasks(%Client{} = client, input, options \\ []) do
     url_path = "/list-tag-sync-tasks"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1667,7 +1680,7 @@ defmodule AWS.ResourceGroups do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1696,6 +1709,7 @@ defmodule AWS.ResourceGroups do
   def put_group_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/put-group-configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1706,7 +1720,7 @@ defmodule AWS.ResourceGroups do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1748,6 +1762,7 @@ defmodule AWS.ResourceGroups do
   def search_resources(%Client{} = client, input, options \\ []) do
     url_path = "/resources/search"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1758,7 +1773,7 @@ defmodule AWS.ResourceGroups do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1793,6 +1808,7 @@ defmodule AWS.ResourceGroups do
   def start_tag_sync_task(%Client{} = client, input, options \\ []) do
     url_path = "/start-tag-sync-task"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1803,7 +1819,7 @@ defmodule AWS.ResourceGroups do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1837,11 +1853,22 @@ defmodule AWS.ResourceGroups do
   def tag(%Client{} = client, arn, input, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(arn)}/tags"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1868,6 +1895,7 @@ defmodule AWS.ResourceGroups do
   def ungroup_resources(%Client{} = client, input, options \\ []) do
     url_path = "/ungroup-resources"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1878,7 +1906,7 @@ defmodule AWS.ResourceGroups do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1903,6 +1931,7 @@ defmodule AWS.ResourceGroups do
   def untag(%Client{} = client, arn, input, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(arn)}/tags"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1913,7 +1942,7 @@ defmodule AWS.ResourceGroups do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1936,6 +1965,7 @@ defmodule AWS.ResourceGroups do
   def update_account_settings(%Client{} = client, input, options \\ []) do
     url_path = "/update-account-settings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1946,7 +1976,7 @@ defmodule AWS.ResourceGroups do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1974,6 +2004,7 @@ defmodule AWS.ResourceGroups do
   def update_group(%Client{} = client, input, options \\ []) do
     url_path = "/update-group"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1984,7 +2015,7 @@ defmodule AWS.ResourceGroups do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2012,6 +2043,7 @@ defmodule AWS.ResourceGroups do
   def update_group_query(%Client{} = client, input, options \\ []) do
     url_path = "/update-group-query"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2022,7 +2054,7 @@ defmodule AWS.ResourceGroups do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

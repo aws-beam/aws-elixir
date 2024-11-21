@@ -3213,6 +3213,7 @@ defmodule AWS.QBusiness do
       "/applications/#{AWS.Util.encode_uri(application_id)}/indices/#{AWS.Util.encode_uri(index_id)}/documents/delete"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3223,7 +3224,7 @@ defmodule AWS.QBusiness do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3258,6 +3259,7 @@ defmodule AWS.QBusiness do
       "/applications/#{AWS.Util.encode_uri(application_id)}/indices/#{AWS.Util.encode_uri(index_id)}/documents"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3268,7 +3270,7 @@ defmodule AWS.QBusiness do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3285,6 +3287,7 @@ defmodule AWS.QBusiness do
   def chat(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/conversations"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3304,7 +3307,7 @@ defmodule AWS.QBusiness do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3321,6 +3324,7 @@ defmodule AWS.QBusiness do
   def chat_sync(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/conversations?sync"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3337,7 +3341,7 @@ defmodule AWS.QBusiness do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3370,6 +3374,7 @@ defmodule AWS.QBusiness do
   def create_application(%Client{} = client, input, options \\ []) do
     url_path = "/applications"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3380,7 +3385,7 @@ defmodule AWS.QBusiness do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3402,6 +3407,7 @@ defmodule AWS.QBusiness do
       "/applications/#{AWS.Util.encode_uri(application_id)}/indices/#{AWS.Util.encode_uri(index_id)}/datasources"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3412,7 +3418,7 @@ defmodule AWS.QBusiness do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3441,6 +3447,7 @@ defmodule AWS.QBusiness do
   def create_index(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/indices"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3451,7 +3458,7 @@ defmodule AWS.QBusiness do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3468,6 +3475,7 @@ defmodule AWS.QBusiness do
   def create_plugin(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/plugins"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3478,7 +3486,7 @@ defmodule AWS.QBusiness do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3495,6 +3503,7 @@ defmodule AWS.QBusiness do
   def create_retriever(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/retrievers"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3505,7 +3514,7 @@ defmodule AWS.QBusiness do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3524,6 +3533,7 @@ defmodule AWS.QBusiness do
   def create_user(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/users"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3534,7 +3544,7 @@ defmodule AWS.QBusiness do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3551,6 +3561,7 @@ defmodule AWS.QBusiness do
   def create_web_experience(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/experiences"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3561,7 +3572,7 @@ defmodule AWS.QBusiness do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3578,6 +3589,7 @@ defmodule AWS.QBusiness do
   def delete_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3588,7 +3600,7 @@ defmodule AWS.QBusiness do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3610,6 +3622,7 @@ defmodule AWS.QBusiness do
   def delete_chat_controls_configuration(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/chatcontrols"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3620,7 +3633,7 @@ defmodule AWS.QBusiness do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3645,6 +3658,7 @@ defmodule AWS.QBusiness do
       "/applications/#{AWS.Util.encode_uri(application_id)}/conversations/#{AWS.Util.encode_uri(conversation_id)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3660,7 +3674,7 @@ defmodule AWS.QBusiness do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3697,6 +3711,7 @@ defmodule AWS.QBusiness do
       "/applications/#{AWS.Util.encode_uri(application_id)}/indices/#{AWS.Util.encode_uri(index_id)}/datasources/#{AWS.Util.encode_uri(data_source_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3707,7 +3722,7 @@ defmodule AWS.QBusiness do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3741,6 +3756,7 @@ defmodule AWS.QBusiness do
       "/applications/#{AWS.Util.encode_uri(application_id)}/indices/#{AWS.Util.encode_uri(index_id)}/groups/#{AWS.Util.encode_uri(group_name)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3756,7 +3772,7 @@ defmodule AWS.QBusiness do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3775,6 +3791,7 @@ defmodule AWS.QBusiness do
       "/applications/#{AWS.Util.encode_uri(application_id)}/indices/#{AWS.Util.encode_uri(index_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3785,7 +3802,7 @@ defmodule AWS.QBusiness do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3804,6 +3821,7 @@ defmodule AWS.QBusiness do
       "/applications/#{AWS.Util.encode_uri(application_id)}/plugins/#{AWS.Util.encode_uri(plugin_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3814,7 +3832,7 @@ defmodule AWS.QBusiness do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3833,6 +3851,7 @@ defmodule AWS.QBusiness do
       "/applications/#{AWS.Util.encode_uri(application_id)}/retrievers/#{AWS.Util.encode_uri(retriever_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3843,7 +3862,7 @@ defmodule AWS.QBusiness do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3862,6 +3881,7 @@ defmodule AWS.QBusiness do
       "/applications/#{AWS.Util.encode_uri(application_id)}/users/#{AWS.Util.encode_uri(user_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3872,7 +3892,7 @@ defmodule AWS.QBusiness do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3903,6 +3923,7 @@ defmodule AWS.QBusiness do
       "/applications/#{AWS.Util.encode_uri(application_id)}/experiences/#{AWS.Util.encode_uri(web_experience_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3913,7 +3934,7 @@ defmodule AWS.QBusiness do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4705,6 +4726,7 @@ defmodule AWS.QBusiness do
       "/applications/#{AWS.Util.encode_uri(application_id)}/conversations/#{AWS.Util.encode_uri(conversation_id)}/messages/#{AWS.Util.encode_uri(message_id)}/feedback"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4720,7 +4742,7 @@ defmodule AWS.QBusiness do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4750,11 +4772,22 @@ defmodule AWS.QBusiness do
       "/applications/#{AWS.Util.encode_uri(application_id)}/indices/#{AWS.Util.encode_uri(index_id)}/groups"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4786,6 +4819,7 @@ defmodule AWS.QBusiness do
       "/applications/#{AWS.Util.encode_uri(application_id)}/indices/#{AWS.Util.encode_uri(index_id)}/datasources/#{AWS.Util.encode_uri(data_source_id)}/startsync"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4796,7 +4830,7 @@ defmodule AWS.QBusiness do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4830,6 +4864,7 @@ defmodule AWS.QBusiness do
       "/applications/#{AWS.Util.encode_uri(application_id)}/indices/#{AWS.Util.encode_uri(index_id)}/datasources/#{AWS.Util.encode_uri(data_source_id)}/stopsync"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4840,7 +4875,7 @@ defmodule AWS.QBusiness do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4862,6 +4897,7 @@ defmodule AWS.QBusiness do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4872,7 +4908,7 @@ defmodule AWS.QBusiness do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4889,6 +4925,7 @@ defmodule AWS.QBusiness do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4904,7 +4941,7 @@ defmodule AWS.QBusiness do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4928,11 +4965,22 @@ defmodule AWS.QBusiness do
   def update_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4951,6 +4999,7 @@ defmodule AWS.QBusiness do
   def update_chat_controls_configuration(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/chatcontrols"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4961,7 +5010,7 @@ defmodule AWS.QBusiness do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4994,11 +5043,22 @@ defmodule AWS.QBusiness do
       "/applications/#{AWS.Util.encode_uri(application_id)}/indices/#{AWS.Util.encode_uri(index_id)}/datasources/#{AWS.Util.encode_uri(data_source_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5013,11 +5073,22 @@ defmodule AWS.QBusiness do
       "/applications/#{AWS.Util.encode_uri(application_id)}/indices/#{AWS.Util.encode_uri(index_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5032,11 +5103,22 @@ defmodule AWS.QBusiness do
       "/applications/#{AWS.Util.encode_uri(application_id)}/plugins/#{AWS.Util.encode_uri(plugin_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5051,11 +5133,22 @@ defmodule AWS.QBusiness do
       "/applications/#{AWS.Util.encode_uri(application_id)}/retrievers/#{AWS.Util.encode_uri(retriever_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5070,11 +5163,22 @@ defmodule AWS.QBusiness do
       "/applications/#{AWS.Util.encode_uri(application_id)}/users/#{AWS.Util.encode_uri(user_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5101,10 +5205,21 @@ defmodule AWS.QBusiness do
       "/applications/#{AWS.Util.encode_uri(application_id)}/experiences/#{AWS.Util.encode_uri(web_experience_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

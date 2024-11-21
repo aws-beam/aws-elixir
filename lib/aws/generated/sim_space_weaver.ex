@@ -846,6 +846,7 @@ defmodule AWS.SimSpaceWeaver do
   def create_snapshot(%Client{} = client, input, options \\ []) do
     url_path = "/createsnapshot"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -856,7 +857,7 @@ defmodule AWS.SimSpaceWeaver do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -873,6 +874,7 @@ defmodule AWS.SimSpaceWeaver do
   def delete_app(%Client{} = client, input, options \\ []) do
     url_path = "/deleteapp"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -890,7 +892,7 @@ defmodule AWS.SimSpaceWeaver do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -911,6 +913,7 @@ defmodule AWS.SimSpaceWeaver do
   def delete_simulation(%Client{} = client, input, options \\ []) do
     url_path = "/deletesimulation"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -926,7 +929,7 @@ defmodule AWS.SimSpaceWeaver do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1106,6 +1109,7 @@ defmodule AWS.SimSpaceWeaver do
   def start_app(%Client{} = client, input, options \\ []) do
     url_path = "/startapp"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1116,7 +1120,7 @@ defmodule AWS.SimSpaceWeaver do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1133,6 +1137,7 @@ defmodule AWS.SimSpaceWeaver do
   def start_clock(%Client{} = client, input, options \\ []) do
     url_path = "/startclock"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1143,7 +1148,7 @@ defmodule AWS.SimSpaceWeaver do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1168,6 +1173,7 @@ defmodule AWS.SimSpaceWeaver do
   def start_simulation(%Client{} = client, input, options \\ []) do
     url_path = "/startsimulation"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1178,7 +1184,7 @@ defmodule AWS.SimSpaceWeaver do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1196,6 +1202,7 @@ defmodule AWS.SimSpaceWeaver do
   def stop_app(%Client{} = client, input, options \\ []) do
     url_path = "/stopapp"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1206,7 +1213,7 @@ defmodule AWS.SimSpaceWeaver do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1223,6 +1230,7 @@ defmodule AWS.SimSpaceWeaver do
   def stop_clock(%Client{} = client, input, options \\ []) do
     url_path = "/stopclock"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1233,7 +1241,7 @@ defmodule AWS.SimSpaceWeaver do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1254,6 +1262,7 @@ defmodule AWS.SimSpaceWeaver do
   def stop_simulation(%Client{} = client, input, options \\ []) do
     url_path = "/stopsimulation"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1264,7 +1273,7 @@ defmodule AWS.SimSpaceWeaver do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1285,6 +1294,7 @@ defmodule AWS.SimSpaceWeaver do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1295,7 +1305,7 @@ defmodule AWS.SimSpaceWeaver do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1316,6 +1326,7 @@ defmodule AWS.SimSpaceWeaver do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1331,7 +1342,7 @@ defmodule AWS.SimSpaceWeaver do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

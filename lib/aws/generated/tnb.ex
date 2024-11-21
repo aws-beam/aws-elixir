@@ -1576,6 +1576,7 @@ defmodule AWS.Tnb do
   def cancel_sol_network_operation(%Client{} = client, ns_lcm_op_occ_id, input, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_lcm_op_occs/#{AWS.Util.encode_uri(ns_lcm_op_occ_id)}/cancel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1586,7 +1587,7 @@ defmodule AWS.Tnb do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1618,6 +1619,7 @@ defmodule AWS.Tnb do
   def create_sol_function_package(%Client{} = client, input, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1628,7 +1630,7 @@ defmodule AWS.Tnb do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1658,6 +1660,7 @@ defmodule AWS.Tnb do
   def create_sol_network_instance(%Client{} = client, input, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1668,7 +1671,7 @@ defmodule AWS.Tnb do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1704,6 +1707,7 @@ defmodule AWS.Tnb do
   def create_sol_network_package(%Client{} = client, input, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1714,7 +1718,7 @@ defmodule AWS.Tnb do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1746,6 +1750,7 @@ defmodule AWS.Tnb do
   def delete_sol_function_package(%Client{} = client, vnf_pkg_id, input, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1756,7 +1761,7 @@ defmodule AWS.Tnb do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1787,6 +1792,7 @@ defmodule AWS.Tnb do
   def delete_sol_network_instance(%Client{} = client, ns_instance_id, input, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances/#{AWS.Util.encode_uri(ns_instance_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1797,7 +1803,7 @@ defmodule AWS.Tnb do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1823,6 +1829,7 @@ defmodule AWS.Tnb do
   def delete_sol_network_package(%Client{} = client, nsd_info_id, input, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1833,7 +1840,7 @@ defmodule AWS.Tnb do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2115,6 +2122,7 @@ defmodule AWS.Tnb do
   def instantiate_sol_network_instance(%Client{} = client, ns_instance_id, input, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances/#{AWS.Util.encode_uri(ns_instance_id)}/instantiate"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2130,7 +2138,7 @@ defmodule AWS.Tnb do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2394,11 +2402,22 @@ defmodule AWS.Tnb do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -2426,11 +2445,22 @@ defmodule AWS.Tnb do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2447,6 +2477,7 @@ defmodule AWS.Tnb do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2457,7 +2488,7 @@ defmodule AWS.Tnb do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2485,6 +2516,7 @@ defmodule AWS.Tnb do
   def terminate_sol_network_instance(%Client{} = client, ns_instance_id, input, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances/#{AWS.Util.encode_uri(ns_instance_id)}/terminate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2495,7 +2527,7 @@ defmodule AWS.Tnb do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2516,6 +2548,7 @@ defmodule AWS.Tnb do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2531,7 +2564,7 @@ defmodule AWS.Tnb do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2558,6 +2591,7 @@ defmodule AWS.Tnb do
   def update_sol_function_package(%Client{} = client, vnf_pkg_id, input, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2568,7 +2602,7 @@ defmodule AWS.Tnb do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2597,6 +2631,7 @@ defmodule AWS.Tnb do
   def update_sol_network_instance(%Client{} = client, ns_instance_id, input, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances/#{AWS.Util.encode_uri(ns_instance_id)}/update"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2607,7 +2642,7 @@ defmodule AWS.Tnb do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2632,6 +2667,7 @@ defmodule AWS.Tnb do
   def update_sol_network_package(%Client{} = client, nsd_info_id, input, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2642,7 +2678,7 @@ defmodule AWS.Tnb do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2680,11 +2716,22 @@ defmodule AWS.Tnb do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -2717,10 +2764,21 @@ defmodule AWS.Tnb do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

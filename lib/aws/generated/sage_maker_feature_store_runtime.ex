@@ -273,6 +273,7 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   def batch_get_record(%Client{} = client, input, options \\ []) do
     url_path = "/BatchGetRecord"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -283,7 +284,7 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -341,6 +342,7 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   def delete_record(%Client{} = client, feature_group_name, input, options \\ []) do
     url_path = "/FeatureGroup/#{AWS.Util.encode_uri(feature_group_name)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -359,7 +361,7 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -444,10 +446,21 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   def put_record(%Client{} = client, feature_group_name, input, options \\ []) do
     url_path = "/FeatureGroup/#{AWS.Util.encode_uri(feature_group_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

@@ -3847,6 +3847,7 @@ defmodule AWS.NetworkManager do
   def accept_attachment(%Client{} = client, attachment_id, input, options \\ []) do
     url_path = "/attachments/#{AWS.Util.encode_uri(attachment_id)}/accept"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3857,7 +3858,7 @@ defmodule AWS.NetworkManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3883,6 +3884,7 @@ defmodule AWS.NetworkManager do
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/connect-peer-associations"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3893,7 +3895,7 @@ defmodule AWS.NetworkManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3935,6 +3937,7 @@ defmodule AWS.NetworkManager do
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/customer-gateway-associations"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3945,7 +3948,7 @@ defmodule AWS.NetworkManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3966,6 +3969,7 @@ defmodule AWS.NetworkManager do
   def associate_link(%Client{} = client, global_network_id, input, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/link-associations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3976,7 +3980,7 @@ defmodule AWS.NetworkManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4015,6 +4019,7 @@ defmodule AWS.NetworkManager do
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/transit-gateway-connect-peer-associations"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4025,7 +4030,7 @@ defmodule AWS.NetworkManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4050,6 +4055,7 @@ defmodule AWS.NetworkManager do
   def create_connect_attachment(%Client{} = client, input, options \\ []) do
     url_path = "/connect-attachments"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4060,7 +4066,7 @@ defmodule AWS.NetworkManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4081,6 +4087,7 @@ defmodule AWS.NetworkManager do
   def create_connect_peer(%Client{} = client, input, options \\ []) do
     url_path = "/connect-peers"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4091,7 +4098,7 @@ defmodule AWS.NetworkManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4112,6 +4119,7 @@ defmodule AWS.NetworkManager do
   def create_connection(%Client{} = client, global_network_id, input, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/connections"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4122,7 +4130,7 @@ defmodule AWS.NetworkManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4140,6 +4148,7 @@ defmodule AWS.NetworkManager do
   def create_core_network(%Client{} = client, input, options \\ []) do
     url_path = "/core-networks"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4150,7 +4159,7 @@ defmodule AWS.NetworkManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4171,6 +4180,7 @@ defmodule AWS.NetworkManager do
   def create_device(%Client{} = client, global_network_id, input, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/devices"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4181,7 +4191,7 @@ defmodule AWS.NetworkManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4198,6 +4208,7 @@ defmodule AWS.NetworkManager do
   def create_global_network(%Client{} = client, input, options \\ []) do
     url_path = "/global-networks"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4208,7 +4219,7 @@ defmodule AWS.NetworkManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4225,6 +4236,7 @@ defmodule AWS.NetworkManager do
   def create_link(%Client{} = client, global_network_id, input, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/links"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4235,7 +4247,7 @@ defmodule AWS.NetworkManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4252,6 +4264,7 @@ defmodule AWS.NetworkManager do
   def create_site(%Client{} = client, global_network_id, input, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/sites"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4262,7 +4275,7 @@ defmodule AWS.NetworkManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4284,6 +4297,7 @@ defmodule AWS.NetworkManager do
   def create_site_to_site_vpn_attachment(%Client{} = client, input, options \\ []) do
     url_path = "/site-to-site-vpn-attachments"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4294,7 +4308,7 @@ defmodule AWS.NetworkManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4311,6 +4325,7 @@ defmodule AWS.NetworkManager do
   def create_transit_gateway_peering(%Client{} = client, input, options \\ []) do
     url_path = "/transit-gateway-peerings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4321,7 +4336,7 @@ defmodule AWS.NetworkManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4342,6 +4357,7 @@ defmodule AWS.NetworkManager do
   def create_transit_gateway_route_table_attachment(%Client{} = client, input, options \\ []) do
     url_path = "/transit-gateway-route-table-attachments"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4352,7 +4368,7 @@ defmodule AWS.NetworkManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4369,6 +4385,7 @@ defmodule AWS.NetworkManager do
   def create_vpc_attachment(%Client{} = client, input, options \\ []) do
     url_path = "/vpc-attachments"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4379,7 +4396,7 @@ defmodule AWS.NetworkManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4398,6 +4415,7 @@ defmodule AWS.NetworkManager do
   def delete_attachment(%Client{} = client, attachment_id, input, options \\ []) do
     url_path = "/attachments/#{AWS.Util.encode_uri(attachment_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4408,7 +4426,7 @@ defmodule AWS.NetworkManager do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4425,6 +4443,7 @@ defmodule AWS.NetworkManager do
   def delete_connect_peer(%Client{} = client, connect_peer_id, input, options \\ []) do
     url_path = "/connect-peers/#{AWS.Util.encode_uri(connect_peer_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4435,7 +4454,7 @@ defmodule AWS.NetworkManager do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4460,6 +4479,7 @@ defmodule AWS.NetworkManager do
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/connections/#{AWS.Util.encode_uri(connection_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4470,7 +4490,7 @@ defmodule AWS.NetworkManager do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4489,6 +4509,7 @@ defmodule AWS.NetworkManager do
   def delete_core_network(%Client{} = client, core_network_id, input, options \\ []) do
     url_path = "/core-networks/#{AWS.Util.encode_uri(core_network_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4499,7 +4520,7 @@ defmodule AWS.NetworkManager do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4532,6 +4553,7 @@ defmodule AWS.NetworkManager do
       "/core-networks/#{AWS.Util.encode_uri(core_network_id)}/core-network-policy-versions/#{AWS.Util.encode_uri(policy_version_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4542,7 +4564,7 @@ defmodule AWS.NetworkManager do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4564,6 +4586,7 @@ defmodule AWS.NetworkManager do
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/devices/#{AWS.Util.encode_uri(device_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4574,7 +4597,7 @@ defmodule AWS.NetworkManager do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4595,6 +4618,7 @@ defmodule AWS.NetworkManager do
   def delete_global_network(%Client{} = client, global_network_id, input, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4605,7 +4629,7 @@ defmodule AWS.NetworkManager do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4627,6 +4651,7 @@ defmodule AWS.NetworkManager do
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/links/#{AWS.Util.encode_uri(link_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4637,7 +4662,7 @@ defmodule AWS.NetworkManager do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4654,6 +4679,7 @@ defmodule AWS.NetworkManager do
   def delete_peering(%Client{} = client, peering_id, input, options \\ []) do
     url_path = "/peerings/#{AWS.Util.encode_uri(peering_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4664,7 +4690,7 @@ defmodule AWS.NetworkManager do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4683,6 +4709,7 @@ defmodule AWS.NetworkManager do
   def delete_resource_policy(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/resource-policy/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4693,7 +4720,7 @@ defmodule AWS.NetworkManager do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4714,6 +4741,7 @@ defmodule AWS.NetworkManager do
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/sites/#{AWS.Util.encode_uri(site_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4724,7 +4752,7 @@ defmodule AWS.NetworkManager do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4759,6 +4787,7 @@ defmodule AWS.NetworkManager do
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/transit-gateway-registrations/#{AWS.Util.encode_uri(transit_gateway_arn)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4769,7 +4798,7 @@ defmodule AWS.NetworkManager do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4856,6 +4885,7 @@ defmodule AWS.NetworkManager do
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/connect-peer-associations/#{AWS.Util.encode_uri(connect_peer_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4866,7 +4896,7 @@ defmodule AWS.NetworkManager do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4897,6 +4927,7 @@ defmodule AWS.NetworkManager do
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/customer-gateway-associations/#{AWS.Util.encode_uri(customer_gateway_arn)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4907,7 +4938,7 @@ defmodule AWS.NetworkManager do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4927,6 +4958,7 @@ defmodule AWS.NetworkManager do
   def disassociate_link(%Client{} = client, global_network_id, input, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/link-associations"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4943,7 +4975,7 @@ defmodule AWS.NetworkManager do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4974,6 +5006,7 @@ defmodule AWS.NetworkManager do
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/transit-gateway-connect-peer-associations/#{AWS.Util.encode_uri(transit_gateway_connect_peer_arn)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4984,7 +5017,7 @@ defmodule AWS.NetworkManager do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5017,6 +5050,7 @@ defmodule AWS.NetworkManager do
       "/core-networks/#{AWS.Util.encode_uri(core_network_id)}/core-network-change-sets/#{AWS.Util.encode_uri(policy_version_id)}/execute"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5027,7 +5061,7 @@ defmodule AWS.NetworkManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5859,6 +5893,7 @@ defmodule AWS.NetworkManager do
   def get_network_routes(%Client{} = client, global_network_id, input, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/network-routes"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5869,7 +5904,7 @@ defmodule AWS.NetworkManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6587,6 +6622,7 @@ defmodule AWS.NetworkManager do
   def put_core_network_policy(%Client{} = client, core_network_id, input, options \\ []) do
     url_path = "/core-networks/#{AWS.Util.encode_uri(core_network_id)}/core-network-policy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6597,7 +6633,7 @@ defmodule AWS.NetworkManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6614,6 +6650,7 @@ defmodule AWS.NetworkManager do
   def put_resource_policy(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/resource-policy/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6624,7 +6661,7 @@ defmodule AWS.NetworkManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6651,6 +6688,7 @@ defmodule AWS.NetworkManager do
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/transit-gateway-registrations"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6661,7 +6699,7 @@ defmodule AWS.NetworkManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6678,6 +6716,7 @@ defmodule AWS.NetworkManager do
   def reject_attachment(%Client{} = client, attachment_id, input, options \\ []) do
     url_path = "/attachments/#{AWS.Util.encode_uri(attachment_id)}/reject"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6688,7 +6727,7 @@ defmodule AWS.NetworkManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6723,6 +6762,7 @@ defmodule AWS.NetworkManager do
       "/core-networks/#{AWS.Util.encode_uri(core_network_id)}/core-network-policy-versions/#{AWS.Util.encode_uri(policy_version_id)}/restore"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6733,7 +6773,7 @@ defmodule AWS.NetworkManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6756,6 +6796,7 @@ defmodule AWS.NetworkManager do
   def start_organization_service_access_update(%Client{} = client, input, options \\ []) do
     url_path = "/organizations/service-access"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6766,7 +6807,7 @@ defmodule AWS.NetworkManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6786,6 +6827,7 @@ defmodule AWS.NetworkManager do
   def start_route_analysis(%Client{} = client, global_network_id, input, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/route-analyses"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6796,7 +6838,7 @@ defmodule AWS.NetworkManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6813,6 +6855,7 @@ defmodule AWS.NetworkManager do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6823,7 +6866,7 @@ defmodule AWS.NetworkManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6840,6 +6883,7 @@ defmodule AWS.NetworkManager do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -6855,7 +6899,7 @@ defmodule AWS.NetworkManager do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6883,6 +6927,7 @@ defmodule AWS.NetworkManager do
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/connections/#{AWS.Util.encode_uri(connection_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6893,7 +6938,7 @@ defmodule AWS.NetworkManager do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6910,6 +6955,7 @@ defmodule AWS.NetworkManager do
   def update_core_network(%Client{} = client, core_network_id, input, options \\ []) do
     url_path = "/core-networks/#{AWS.Util.encode_uri(core_network_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6920,7 +6966,7 @@ defmodule AWS.NetworkManager do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6942,6 +6988,7 @@ defmodule AWS.NetworkManager do
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/devices/#{AWS.Util.encode_uri(device_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6952,7 +6999,7 @@ defmodule AWS.NetworkManager do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6972,6 +7019,7 @@ defmodule AWS.NetworkManager do
   def update_global_network(%Client{} = client, global_network_id, input, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6982,7 +7030,7 @@ defmodule AWS.NetworkManager do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7004,6 +7052,7 @@ defmodule AWS.NetworkManager do
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/links/#{AWS.Util.encode_uri(link_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7014,7 +7063,7 @@ defmodule AWS.NetworkManager do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7045,6 +7094,7 @@ defmodule AWS.NetworkManager do
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/network-resources/#{AWS.Util.encode_uri(resource_arn)}/metadata"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7055,7 +7105,7 @@ defmodule AWS.NetworkManager do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7077,6 +7127,7 @@ defmodule AWS.NetworkManager do
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/sites/#{AWS.Util.encode_uri(site_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7087,7 +7138,7 @@ defmodule AWS.NetworkManager do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7104,6 +7155,7 @@ defmodule AWS.NetworkManager do
   def update_vpc_attachment(%Client{} = client, attachment_id, input, options \\ []) do
     url_path = "/vpc-attachments/#{AWS.Util.encode_uri(attachment_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7114,7 +7166,7 @@ defmodule AWS.NetworkManager do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

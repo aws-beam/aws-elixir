@@ -1851,6 +1851,7 @@ defmodule AWS.Wisdom do
   def create_assistant(%Client{} = client, input, options \\ []) do
     url_path = "/assistants"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1861,7 +1862,7 @@ defmodule AWS.Wisdom do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1889,6 +1890,7 @@ defmodule AWS.Wisdom do
   def create_assistant_association(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/associations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1899,7 +1901,7 @@ defmodule AWS.Wisdom do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1921,6 +1923,7 @@ defmodule AWS.Wisdom do
   def create_content(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/contents"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1931,7 +1934,7 @@ defmodule AWS.Wisdom do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1975,6 +1978,7 @@ defmodule AWS.Wisdom do
   def create_knowledge_base(%Client{} = client, input, options \\ []) do
     url_path = "/knowledgeBases"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1985,7 +1989,7 @@ defmodule AWS.Wisdom do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2002,6 +2006,7 @@ defmodule AWS.Wisdom do
   def create_quick_response(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/quickResponses"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2012,7 +2017,7 @@ defmodule AWS.Wisdom do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2034,6 +2039,7 @@ defmodule AWS.Wisdom do
   def create_session(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/sessions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2044,7 +2050,7 @@ defmodule AWS.Wisdom do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2061,6 +2067,7 @@ defmodule AWS.Wisdom do
   def delete_assistant(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2071,7 +2078,7 @@ defmodule AWS.Wisdom do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2102,6 +2109,7 @@ defmodule AWS.Wisdom do
       "/assistants/#{AWS.Util.encode_uri(assistant_id)}/associations/#{AWS.Util.encode_uri(assistant_association_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2112,7 +2120,7 @@ defmodule AWS.Wisdom do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2131,6 +2139,7 @@ defmodule AWS.Wisdom do
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/contents/#{AWS.Util.encode_uri(content_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2141,7 +2150,7 @@ defmodule AWS.Wisdom do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2166,6 +2175,7 @@ defmodule AWS.Wisdom do
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/importJobs/#{AWS.Util.encode_uri(import_job_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2176,7 +2186,7 @@ defmodule AWS.Wisdom do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2204,6 +2214,7 @@ defmodule AWS.Wisdom do
   def delete_knowledge_base(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2214,7 +2225,7 @@ defmodule AWS.Wisdom do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2245,6 +2256,7 @@ defmodule AWS.Wisdom do
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/quickResponses/#{AWS.Util.encode_uri(quick_response_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2255,7 +2267,7 @@ defmodule AWS.Wisdom do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2733,6 +2745,7 @@ defmodule AWS.Wisdom do
       "/assistants/#{AWS.Util.encode_uri(assistant_id)}/sessions/#{AWS.Util.encode_uri(session_id)}/recommendations/notify"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2743,7 +2756,7 @@ defmodule AWS.Wisdom do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2764,6 +2777,7 @@ defmodule AWS.Wisdom do
   def query_assistant(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/query"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2774,7 +2788,7 @@ defmodule AWS.Wisdom do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2801,6 +2815,7 @@ defmodule AWS.Wisdom do
       ) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/templateUri"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2811,7 +2826,7 @@ defmodule AWS.Wisdom do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2831,6 +2846,7 @@ defmodule AWS.Wisdom do
   def search_content(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/search"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2847,7 +2863,7 @@ defmodule AWS.Wisdom do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2864,6 +2880,7 @@ defmodule AWS.Wisdom do
   def search_quick_responses(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/search/quickResponses"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2880,7 +2897,7 @@ defmodule AWS.Wisdom do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2897,6 +2914,7 @@ defmodule AWS.Wisdom do
   def search_sessions(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/searchSessions"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2913,7 +2931,7 @@ defmodule AWS.Wisdom do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2939,6 +2957,7 @@ defmodule AWS.Wisdom do
   def start_content_upload(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/upload"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2949,7 +2968,7 @@ defmodule AWS.Wisdom do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2977,6 +2996,7 @@ defmodule AWS.Wisdom do
   def start_import_job(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/importJobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2987,7 +3007,7 @@ defmodule AWS.Wisdom do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3004,6 +3024,7 @@ defmodule AWS.Wisdom do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3014,7 +3035,7 @@ defmodule AWS.Wisdom do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3031,6 +3052,7 @@ defmodule AWS.Wisdom do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3046,7 +3068,7 @@ defmodule AWS.Wisdom do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3065,6 +3087,7 @@ defmodule AWS.Wisdom do
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/contents/#{AWS.Util.encode_uri(content_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3075,7 +3098,7 @@ defmodule AWS.Wisdom do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3109,6 +3132,7 @@ defmodule AWS.Wisdom do
       ) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/templateUri"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3119,7 +3143,7 @@ defmodule AWS.Wisdom do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3150,6 +3174,7 @@ defmodule AWS.Wisdom do
       "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/quickResponses/#{AWS.Util.encode_uri(quick_response_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3160,7 +3185,7 @@ defmodule AWS.Wisdom do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

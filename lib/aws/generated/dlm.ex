@@ -709,6 +709,7 @@ defmodule AWS.DLM do
   def create_lifecycle_policy(%Client{} = client, input, options \\ []) do
     url_path = "/policies"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -719,7 +720,7 @@ defmodule AWS.DLM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -740,6 +741,7 @@ defmodule AWS.DLM do
   def delete_lifecycle_policy(%Client{} = client, policy_id, input, options \\ []) do
     url_path = "/policies/#{AWS.Util.encode_uri(policy_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -750,7 +752,7 @@ defmodule AWS.DLM do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -881,6 +883,7 @@ defmodule AWS.DLM do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -891,7 +894,7 @@ defmodule AWS.DLM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -908,6 +911,7 @@ defmodule AWS.DLM do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -923,7 +927,7 @@ defmodule AWS.DLM do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -942,6 +946,7 @@ defmodule AWS.DLM do
   def update_lifecycle_policy(%Client{} = client, policy_id, input, options \\ []) do
     url_path = "/policies/#{AWS.Util.encode_uri(policy_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -952,7 +957,7 @@ defmodule AWS.DLM do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

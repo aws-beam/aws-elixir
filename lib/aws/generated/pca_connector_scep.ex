@@ -563,6 +563,7 @@ defmodule AWS.PcaConnectorScep do
   def create_challenge(%Client{} = client, input, options \\ []) do
     url_path = "/challenges"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -573,7 +574,7 @@ defmodule AWS.PcaConnectorScep do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -596,6 +597,7 @@ defmodule AWS.PcaConnectorScep do
   def create_connector(%Client{} = client, input, options \\ []) do
     url_path = "/connectors"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -606,7 +608,7 @@ defmodule AWS.PcaConnectorScep do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -624,6 +626,7 @@ defmodule AWS.PcaConnectorScep do
   def delete_challenge(%Client{} = client, challenge_arn, input, options \\ []) do
     url_path = "/challenges/#{AWS.Util.encode_uri(challenge_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -634,7 +637,7 @@ defmodule AWS.PcaConnectorScep do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -654,6 +657,7 @@ defmodule AWS.PcaConnectorScep do
   def delete_connector(%Client{} = client, connector_arn, input, options \\ []) do
     url_path = "/connectors/#{AWS.Util.encode_uri(connector_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -664,7 +668,7 @@ defmodule AWS.PcaConnectorScep do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -839,6 +843,7 @@ defmodule AWS.PcaConnectorScep do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -849,7 +854,7 @@ defmodule AWS.PcaConnectorScep do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -866,6 +871,7 @@ defmodule AWS.PcaConnectorScep do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -881,7 +887,7 @@ defmodule AWS.PcaConnectorScep do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204

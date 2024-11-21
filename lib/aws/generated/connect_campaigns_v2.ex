@@ -1357,11 +1357,22 @@ defmodule AWS.ConnectCampaignsV2 do
   def create_campaign(%Client{} = client, input, options \\ []) do
     url_path = "/v2/campaigns"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1374,6 +1385,7 @@ defmodule AWS.ConnectCampaignsV2 do
   def delete_campaign(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1384,7 +1396,7 @@ defmodule AWS.ConnectCampaignsV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1408,6 +1420,7 @@ defmodule AWS.ConnectCampaignsV2 do
   def delete_campaign_channel_subtype_config(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/channel-subtype-config"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1423,7 +1436,7 @@ defmodule AWS.ConnectCampaignsV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1447,6 +1460,7 @@ defmodule AWS.ConnectCampaignsV2 do
   def delete_campaign_communication_limits(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/communication-limits"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1462,7 +1476,7 @@ defmodule AWS.ConnectCampaignsV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1486,6 +1500,7 @@ defmodule AWS.ConnectCampaignsV2 do
   def delete_campaign_communication_time(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/communication-time"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1501,7 +1516,7 @@ defmodule AWS.ConnectCampaignsV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1528,6 +1543,7 @@ defmodule AWS.ConnectCampaignsV2 do
       ) do
     url_path = "/v2/connect-instance/#{AWS.Util.encode_uri(connect_instance_id)}/config"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1543,7 +1559,7 @@ defmodule AWS.ConnectCampaignsV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1572,6 +1588,7 @@ defmodule AWS.ConnectCampaignsV2 do
       "/v2/connect-instance/#{AWS.Util.encode_uri(connect_instance_id)}/integrations/delete"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1582,7 +1599,7 @@ defmodule AWS.ConnectCampaignsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1610,6 +1627,7 @@ defmodule AWS.ConnectCampaignsV2 do
       ) do
     url_path = "/v2/connect-instance/#{AWS.Util.encode_uri(connect_instance_id)}/onboarding"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1620,7 +1638,7 @@ defmodule AWS.ConnectCampaignsV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1671,6 +1689,7 @@ defmodule AWS.ConnectCampaignsV2 do
   def get_campaign_state_batch(%Client{} = client, input, options \\ []) do
     url_path = "/v2/campaigns-state"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1681,7 +1700,7 @@ defmodule AWS.ConnectCampaignsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1733,6 +1752,7 @@ defmodule AWS.ConnectCampaignsV2 do
   def list_campaigns(%Client{} = client, input, options \\ []) do
     url_path = "/v2/campaigns-summary"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1743,7 +1763,7 @@ defmodule AWS.ConnectCampaignsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1821,6 +1841,7 @@ defmodule AWS.ConnectCampaignsV2 do
   def pause_campaign(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/pause"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1831,7 +1852,7 @@ defmodule AWS.ConnectCampaignsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1858,11 +1879,22 @@ defmodule AWS.ConnectCampaignsV2 do
       ) do
     url_path = "/v2/connect-instance/#{AWS.Util.encode_uri(connect_instance_id)}/integrations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1882,11 +1914,22 @@ defmodule AWS.ConnectCampaignsV2 do
   def put_outbound_request_batch(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/outbound-requests"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1899,6 +1942,7 @@ defmodule AWS.ConnectCampaignsV2 do
   def resume_campaign(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/resume"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1909,7 +1953,7 @@ defmodule AWS.ConnectCampaignsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1926,6 +1970,7 @@ defmodule AWS.ConnectCampaignsV2 do
   def start_campaign(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/start"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1936,7 +1981,7 @@ defmodule AWS.ConnectCampaignsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1958,11 +2003,22 @@ defmodule AWS.ConnectCampaignsV2 do
   def start_instance_onboarding_job(%Client{} = client, connect_instance_id, input, options \\ []) do
     url_path = "/v2/connect-instance/#{AWS.Util.encode_uri(connect_instance_id)}/onboarding"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1975,6 +2031,7 @@ defmodule AWS.ConnectCampaignsV2 do
   def stop_campaign(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/stop"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1985,7 +2042,7 @@ defmodule AWS.ConnectCampaignsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2002,6 +2059,7 @@ defmodule AWS.ConnectCampaignsV2 do
   def tag_resource(%Client{} = client, arn, input, options \\ []) do
     url_path = "/v2/tags/#{AWS.Util.encode_uri(arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2012,7 +2070,7 @@ defmodule AWS.ConnectCampaignsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2029,6 +2087,7 @@ defmodule AWS.ConnectCampaignsV2 do
   def untag_resource(%Client{} = client, arn, input, options \\ []) do
     url_path = "/v2/tags/#{AWS.Util.encode_uri(arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2044,7 +2103,7 @@ defmodule AWS.ConnectCampaignsV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2068,6 +2127,7 @@ defmodule AWS.ConnectCampaignsV2 do
   def update_campaign_channel_subtype_config(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/channel-subtype-config"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2078,7 +2138,7 @@ defmodule AWS.ConnectCampaignsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2102,6 +2162,7 @@ defmodule AWS.ConnectCampaignsV2 do
   def update_campaign_communication_limits(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/communication-limits"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2112,7 +2173,7 @@ defmodule AWS.ConnectCampaignsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2136,6 +2197,7 @@ defmodule AWS.ConnectCampaignsV2 do
   def update_campaign_communication_time(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/communication-time"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2146,7 +2208,7 @@ defmodule AWS.ConnectCampaignsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2170,6 +2232,7 @@ defmodule AWS.ConnectCampaignsV2 do
   def update_campaign_flow_association(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/flow"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2180,7 +2243,7 @@ defmodule AWS.ConnectCampaignsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2199,6 +2262,7 @@ defmodule AWS.ConnectCampaignsV2 do
   def update_campaign_name(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/name"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2209,7 +2273,7 @@ defmodule AWS.ConnectCampaignsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2228,6 +2292,7 @@ defmodule AWS.ConnectCampaignsV2 do
   def update_campaign_schedule(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/schedule"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2238,7 +2303,7 @@ defmodule AWS.ConnectCampaignsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2257,6 +2322,7 @@ defmodule AWS.ConnectCampaignsV2 do
   def update_campaign_source(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/source"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2267,7 +2333,7 @@ defmodule AWS.ConnectCampaignsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

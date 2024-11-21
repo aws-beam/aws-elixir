@@ -810,6 +810,7 @@ defmodule AWS.CognitoSync do
   def bulk_publish(%Client{} = client, identity_pool_id, input, options \\ []) do
     url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/bulkpublish"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -820,7 +821,7 @@ defmodule AWS.CognitoSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -862,6 +863,7 @@ defmodule AWS.CognitoSync do
       "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/identities/#{AWS.Util.encode_uri(identity_id)}/datasets/#{AWS.Util.encode_uri(dataset_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -872,7 +874,7 @@ defmodule AWS.CognitoSync do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1073,6 +1075,7 @@ defmodule AWS.CognitoSync do
   def get_bulk_publish_details(%Client{} = client, identity_pool_id, input, options \\ []) do
     url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/getBulkPublishDetails"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1083,7 +1086,7 @@ defmodule AWS.CognitoSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1589,6 +1592,7 @@ defmodule AWS.CognitoSync do
       "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/identity/#{AWS.Util.encode_uri(identity_id)}/device"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1599,7 +1603,7 @@ defmodule AWS.CognitoSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1623,6 +1627,7 @@ defmodule AWS.CognitoSync do
   def set_cognito_events(%Client{} = client, identity_pool_id, input, options \\ []) do
     url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/events"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1633,7 +1638,7 @@ defmodule AWS.CognitoSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1713,6 +1718,7 @@ defmodule AWS.CognitoSync do
   def set_identity_pool_configuration(%Client{} = client, identity_pool_id, input, options \\ []) do
     url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1723,7 +1729,7 @@ defmodule AWS.CognitoSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1810,6 +1816,7 @@ defmodule AWS.CognitoSync do
       "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/identities/#{AWS.Util.encode_uri(identity_id)}/datasets/#{AWS.Util.encode_uri(dataset_name)}/subscriptions/#{AWS.Util.encode_uri(device_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1820,7 +1827,7 @@ defmodule AWS.CognitoSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1908,6 +1915,7 @@ defmodule AWS.CognitoSync do
       "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/identities/#{AWS.Util.encode_uri(identity_id)}/datasets/#{AWS.Util.encode_uri(dataset_name)}/subscriptions/#{AWS.Util.encode_uri(device_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1918,7 +1926,7 @@ defmodule AWS.CognitoSync do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1971,6 +1979,7 @@ defmodule AWS.CognitoSync do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1981,7 +1990,7 @@ defmodule AWS.CognitoSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

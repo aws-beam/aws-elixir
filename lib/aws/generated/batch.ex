@@ -2154,6 +2154,7 @@ defmodule AWS.Batch do
   def cancel_job(%Client{} = client, input, options \\ []) do
     url_path = "/v1/canceljob"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2164,7 +2165,7 @@ defmodule AWS.Batch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2301,6 +2302,7 @@ defmodule AWS.Batch do
   def create_compute_environment(%Client{} = client, input, options \\ []) do
     url_path = "/v1/createcomputeenvironment"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2311,7 +2313,7 @@ defmodule AWS.Batch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2341,6 +2343,7 @@ defmodule AWS.Batch do
   def create_job_queue(%Client{} = client, input, options \\ []) do
     url_path = "/v1/createjobqueue"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2351,7 +2354,7 @@ defmodule AWS.Batch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2368,6 +2371,7 @@ defmodule AWS.Batch do
   def create_scheduling_policy(%Client{} = client, input, options \\ []) do
     url_path = "/v1/createschedulingpolicy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2378,7 +2382,7 @@ defmodule AWS.Batch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2404,6 +2408,7 @@ defmodule AWS.Batch do
   def delete_compute_environment(%Client{} = client, input, options \\ []) do
     url_path = "/v1/deletecomputeenvironment"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2414,7 +2419,7 @@ defmodule AWS.Batch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2441,6 +2446,7 @@ defmodule AWS.Batch do
   def delete_job_queue(%Client{} = client, input, options \\ []) do
     url_path = "/v1/deletejobqueue"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2451,7 +2457,7 @@ defmodule AWS.Batch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2470,6 +2476,7 @@ defmodule AWS.Batch do
   def delete_scheduling_policy(%Client{} = client, input, options \\ []) do
     url_path = "/v1/deleteschedulingpolicy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2480,7 +2487,7 @@ defmodule AWS.Batch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2500,6 +2507,7 @@ defmodule AWS.Batch do
   def deregister_job_definition(%Client{} = client, input, options \\ []) do
     url_path = "/v1/deregisterjobdefinition"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2510,7 +2518,7 @@ defmodule AWS.Batch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2531,6 +2539,7 @@ defmodule AWS.Batch do
   def describe_compute_environments(%Client{} = client, input, options \\ []) do
     url_path = "/v1/describecomputeenvironments"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2541,7 +2550,7 @@ defmodule AWS.Batch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2561,6 +2570,7 @@ defmodule AWS.Batch do
   def describe_job_definitions(%Client{} = client, input, options \\ []) do
     url_path = "/v1/describejobdefinitions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2571,7 +2581,7 @@ defmodule AWS.Batch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2588,6 +2598,7 @@ defmodule AWS.Batch do
   def describe_job_queues(%Client{} = client, input, options \\ []) do
     url_path = "/v1/describejobqueues"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2598,7 +2609,7 @@ defmodule AWS.Batch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2615,6 +2626,7 @@ defmodule AWS.Batch do
   def describe_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/v1/describejobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2625,7 +2637,7 @@ defmodule AWS.Batch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2642,6 +2654,7 @@ defmodule AWS.Batch do
   def describe_scheduling_policies(%Client{} = client, input, options \\ []) do
     url_path = "/v1/describeschedulingpolicies"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2652,7 +2665,7 @@ defmodule AWS.Batch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2670,6 +2683,7 @@ defmodule AWS.Batch do
   def get_job_queue_snapshot(%Client{} = client, input, options \\ []) do
     url_path = "/v1/getjobqueuesnapshot"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2680,7 +2694,7 @@ defmodule AWS.Batch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2711,6 +2725,7 @@ defmodule AWS.Batch do
   def list_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/v1/listjobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2721,7 +2736,7 @@ defmodule AWS.Batch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2738,6 +2753,7 @@ defmodule AWS.Batch do
   def list_scheduling_policies(%Client{} = client, input, options \\ []) do
     url_path = "/v1/listschedulingpolicies"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2748,7 +2764,7 @@ defmodule AWS.Batch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2787,6 +2803,7 @@ defmodule AWS.Batch do
   def register_job_definition(%Client{} = client, input, options \\ []) do
     url_path = "/v1/registerjobdefinition"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2797,7 +2814,7 @@ defmodule AWS.Batch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2833,6 +2850,7 @@ defmodule AWS.Batch do
   def submit_job(%Client{} = client, input, options \\ []) do
     url_path = "/v1/submitjob"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2843,7 +2861,7 @@ defmodule AWS.Batch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2869,6 +2887,7 @@ defmodule AWS.Batch do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2879,7 +2898,7 @@ defmodule AWS.Batch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2901,6 +2920,7 @@ defmodule AWS.Batch do
   def terminate_job(%Client{} = client, input, options \\ []) do
     url_path = "/v1/terminatejob"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2911,7 +2931,7 @@ defmodule AWS.Batch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2928,6 +2948,7 @@ defmodule AWS.Batch do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2943,7 +2964,7 @@ defmodule AWS.Batch do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2960,6 +2981,7 @@ defmodule AWS.Batch do
   def update_compute_environment(%Client{} = client, input, options \\ []) do
     url_path = "/v1/updatecomputeenvironment"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2970,7 +2992,7 @@ defmodule AWS.Batch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2987,6 +3009,7 @@ defmodule AWS.Batch do
   def update_job_queue(%Client{} = client, input, options \\ []) do
     url_path = "/v1/updatejobqueue"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2997,7 +3020,7 @@ defmodule AWS.Batch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3014,6 +3037,7 @@ defmodule AWS.Batch do
   def update_scheduling_policy(%Client{} = client, input, options \\ []) do
     url_path = "/v1/updateschedulingpolicy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3024,7 +3048,7 @@ defmodule AWS.Batch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

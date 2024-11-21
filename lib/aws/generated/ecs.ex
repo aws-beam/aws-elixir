@@ -741,6 +741,7 @@ defmodule AWS.ECS do
   ## Example:
       
       service() :: %{
+        "availabilityZoneRebalancing" => list(any()),
         "capacityProviderStrategy" => list(capacity_provider_strategy_item()()),
         "clusterArn" => String.t(),
         "createdAt" => non_neg_integer(),
@@ -1586,6 +1587,7 @@ defmodule AWS.ECS do
   ## Example:
       
       create_service_request() :: %{
+        optional("availabilityZoneRebalancing") => list(any()),
         optional("capacityProviderStrategy") => list(capacity_provider_strategy_item()()),
         optional("clientToken") => String.t(),
         optional("cluster") => String.t(),
@@ -2085,6 +2087,7 @@ defmodule AWS.ECS do
   ## Example:
       
       update_service_request() :: %{
+        optional("availabilityZoneRebalancing") => list(any()),
         optional("capacityProviderStrategy") => list(capacity_provider_strategy_item()()),
         optional("cluster") => String.t(),
         optional("deploymentConfiguration") => deployment_configuration(),
@@ -4245,7 +4248,7 @@ defmodule AWS.ECS do
   remaining capacity providers. Only capacity providers that aren't associated
   with a cluster can be
   deleted. To remove a capacity provider from a cluster, you can either use
-  [PutCapacityProviderProviders](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutCapacityProviderProviders.html)
+  [PutClusterCapacityProviders](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutClusterCapacityProviders.html)
   or delete the cluster.
   """
   @spec delete_capacity_provider(map(), delete_capacity_provider_request(), list()) ::

@@ -476,6 +476,7 @@ defmodule AWS.Account do
   def accept_primary_email_update(%Client{} = client, input, options \\ []) do
     url_path = "/acceptPrimaryEmailUpdate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -486,7 +487,7 @@ defmodule AWS.Account do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -513,6 +514,7 @@ defmodule AWS.Account do
   def delete_alternate_contact(%Client{} = client, input, options \\ []) do
     url_path = "/deleteAlternateContact"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -523,7 +525,7 @@ defmodule AWS.Account do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -543,6 +545,7 @@ defmodule AWS.Account do
   def disable_region(%Client{} = client, input, options \\ []) do
     url_path = "/disableRegion"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -553,7 +556,7 @@ defmodule AWS.Account do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -570,6 +573,7 @@ defmodule AWS.Account do
   def enable_region(%Client{} = client, input, options \\ []) do
     url_path = "/enableRegion"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -580,7 +584,7 @@ defmodule AWS.Account do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -608,6 +612,7 @@ defmodule AWS.Account do
   def get_alternate_contact(%Client{} = client, input, options \\ []) do
     url_path = "/getAlternateContact"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -618,7 +623,7 @@ defmodule AWS.Account do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -639,6 +644,7 @@ defmodule AWS.Account do
   def get_contact_information(%Client{} = client, input, options \\ []) do
     url_path = "/getContactInformation"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -649,7 +655,7 @@ defmodule AWS.Account do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -666,6 +672,7 @@ defmodule AWS.Account do
   def get_primary_email(%Client{} = client, input, options \\ []) do
     url_path = "/getPrimaryEmail"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -676,7 +683,7 @@ defmodule AWS.Account do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -693,6 +700,7 @@ defmodule AWS.Account do
   def get_region_opt_status(%Client{} = client, input, options \\ []) do
     url_path = "/getRegionOptStatus"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -703,7 +711,7 @@ defmodule AWS.Account do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -723,6 +731,7 @@ defmodule AWS.Account do
   def list_regions(%Client{} = client, input, options \\ []) do
     url_path = "/listRegions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -733,7 +742,7 @@ defmodule AWS.Account do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -761,6 +770,7 @@ defmodule AWS.Account do
   def put_alternate_contact(%Client{} = client, input, options \\ []) do
     url_path = "/putAlternateContact"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -771,7 +781,7 @@ defmodule AWS.Account do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -792,6 +802,7 @@ defmodule AWS.Account do
   def put_contact_information(%Client{} = client, input, options \\ []) do
     url_path = "/putContactInformation"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -802,7 +813,7 @@ defmodule AWS.Account do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -820,6 +831,7 @@ defmodule AWS.Account do
   def start_primary_email_update(%Client{} = client, input, options \\ []) do
     url_path = "/startPrimaryEmailUpdate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -830,7 +842,7 @@ defmodule AWS.Account do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

@@ -949,6 +949,7 @@ defmodule AWS.SsmSap do
   def delete_resource_permission(%Client{} = client, input, options \\ []) do
     url_path = "/delete-resource-permission"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -959,7 +960,7 @@ defmodule AWS.SsmSap do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -979,6 +980,7 @@ defmodule AWS.SsmSap do
   def deregister_application(%Client{} = client, input, options \\ []) do
     url_path = "/deregister-application"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -989,7 +991,7 @@ defmodule AWS.SsmSap do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1009,6 +1011,7 @@ defmodule AWS.SsmSap do
   def get_application(%Client{} = client, input, options \\ []) do
     url_path = "/get-application"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1019,7 +1022,7 @@ defmodule AWS.SsmSap do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1037,6 +1040,7 @@ defmodule AWS.SsmSap do
   def get_component(%Client{} = client, input, options \\ []) do
     url_path = "/get-component"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1047,7 +1051,7 @@ defmodule AWS.SsmSap do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1066,6 +1070,7 @@ defmodule AWS.SsmSap do
   def get_database(%Client{} = client, input, options \\ []) do
     url_path = "/get-database"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1076,7 +1081,7 @@ defmodule AWS.SsmSap do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1093,6 +1098,7 @@ defmodule AWS.SsmSap do
   def get_operation(%Client{} = client, input, options \\ []) do
     url_path = "/get-operation"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1103,7 +1109,7 @@ defmodule AWS.SsmSap do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1120,6 +1126,7 @@ defmodule AWS.SsmSap do
   def get_resource_permission(%Client{} = client, input, options \\ []) do
     url_path = "/get-resource-permission"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1130,7 +1137,7 @@ defmodule AWS.SsmSap do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1147,6 +1154,7 @@ defmodule AWS.SsmSap do
   def list_applications(%Client{} = client, input, options \\ []) do
     url_path = "/list-applications"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1157,7 +1165,7 @@ defmodule AWS.SsmSap do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1174,6 +1182,7 @@ defmodule AWS.SsmSap do
   def list_components(%Client{} = client, input, options \\ []) do
     url_path = "/list-components"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1184,7 +1193,7 @@ defmodule AWS.SsmSap do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1203,6 +1212,7 @@ defmodule AWS.SsmSap do
   def list_databases(%Client{} = client, input, options \\ []) do
     url_path = "/list-databases"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1213,7 +1223,7 @@ defmodule AWS.SsmSap do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1233,6 +1243,7 @@ defmodule AWS.SsmSap do
   def list_operation_events(%Client{} = client, input, options \\ []) do
     url_path = "/list-operation-events"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1243,7 +1254,7 @@ defmodule AWS.SsmSap do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1260,6 +1271,7 @@ defmodule AWS.SsmSap do
   def list_operations(%Client{} = client, input, options \\ []) do
     url_path = "/list-operations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1270,7 +1282,7 @@ defmodule AWS.SsmSap do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1306,6 +1318,7 @@ defmodule AWS.SsmSap do
   def put_resource_permission(%Client{} = client, input, options \\ []) do
     url_path = "/put-resource-permission"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1316,7 +1329,7 @@ defmodule AWS.SsmSap do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1348,6 +1361,7 @@ defmodule AWS.SsmSap do
   def register_application(%Client{} = client, input, options \\ []) do
     url_path = "/register-application"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1358,7 +1372,7 @@ defmodule AWS.SsmSap do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1377,6 +1391,7 @@ defmodule AWS.SsmSap do
   def start_application(%Client{} = client, input, options \\ []) do
     url_path = "/start-application"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1387,7 +1402,7 @@ defmodule AWS.SsmSap do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1404,6 +1419,7 @@ defmodule AWS.SsmSap do
   def start_application_refresh(%Client{} = client, input, options \\ []) do
     url_path = "/start-application-refresh"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1414,7 +1430,7 @@ defmodule AWS.SsmSap do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1435,6 +1451,7 @@ defmodule AWS.SsmSap do
   def stop_application(%Client{} = client, input, options \\ []) do
     url_path = "/stop-application"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1445,7 +1462,7 @@ defmodule AWS.SsmSap do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1462,6 +1479,7 @@ defmodule AWS.SsmSap do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1472,7 +1490,7 @@ defmodule AWS.SsmSap do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1489,6 +1507,7 @@ defmodule AWS.SsmSap do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1504,7 +1523,7 @@ defmodule AWS.SsmSap do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1522,6 +1541,7 @@ defmodule AWS.SsmSap do
   def update_application_settings(%Client{} = client, input, options \\ []) do
     url_path = "/update-application-settings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1532,7 +1552,7 @@ defmodule AWS.SsmSap do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

@@ -4099,11 +4099,22 @@ defmodule AWS.OpenSearch do
       "/2021-01-01/opensearch/cc/inboundConnection/#{AWS.Util.encode_uri(connection_id)}/accept"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4119,6 +4130,7 @@ defmodule AWS.OpenSearch do
   def add_data_source(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/dataSource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4129,7 +4141,7 @@ defmodule AWS.OpenSearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4151,6 +4163,7 @@ defmodule AWS.OpenSearch do
   def add_tags(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/tags"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4161,7 +4174,7 @@ defmodule AWS.OpenSearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4184,6 +4197,7 @@ defmodule AWS.OpenSearch do
       "/2021-01-01/packages/associate/#{AWS.Util.encode_uri(package_id)}/#{AWS.Util.encode_uri(domain_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4194,7 +4208,7 @@ defmodule AWS.OpenSearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4212,6 +4226,7 @@ defmodule AWS.OpenSearch do
   def associate_packages(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/packages/associateMultiple"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4222,7 +4237,7 @@ defmodule AWS.OpenSearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4248,6 +4263,7 @@ defmodule AWS.OpenSearch do
       "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/authorizeVpcEndpointAccess"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4258,7 +4274,7 @@ defmodule AWS.OpenSearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4280,6 +4296,7 @@ defmodule AWS.OpenSearch do
   def cancel_domain_config_change(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/config/cancel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4290,7 +4307,7 @@ defmodule AWS.OpenSearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4314,6 +4331,7 @@ defmodule AWS.OpenSearch do
   def cancel_service_software_update(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/serviceSoftwareUpdate/cancel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4324,7 +4342,7 @@ defmodule AWS.OpenSearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4341,6 +4359,7 @@ defmodule AWS.OpenSearch do
   def create_application(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/application"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4351,7 +4370,7 @@ defmodule AWS.OpenSearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4370,6 +4389,7 @@ defmodule AWS.OpenSearch do
   def create_domain(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4380,7 +4400,7 @@ defmodule AWS.OpenSearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4402,6 +4422,7 @@ defmodule AWS.OpenSearch do
   def create_outbound_connection(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/cc/outboundConnection"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4412,7 +4433,7 @@ defmodule AWS.OpenSearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4432,6 +4453,7 @@ defmodule AWS.OpenSearch do
   def create_package(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/packages"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4442,7 +4464,7 @@ defmodule AWS.OpenSearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4459,6 +4481,7 @@ defmodule AWS.OpenSearch do
   def create_vpc_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/vpcEndpoints"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4469,7 +4492,7 @@ defmodule AWS.OpenSearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4486,6 +4509,7 @@ defmodule AWS.OpenSearch do
   def delete_application(%Client{} = client, id, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/application/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4496,7 +4520,7 @@ defmodule AWS.OpenSearch do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4518,6 +4542,7 @@ defmodule AWS.OpenSearch do
       "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/dataSource/#{AWS.Util.encode_uri(name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4528,7 +4553,7 @@ defmodule AWS.OpenSearch do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4548,6 +4573,7 @@ defmodule AWS.OpenSearch do
   def delete_domain(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4558,7 +4584,7 @@ defmodule AWS.OpenSearch do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4580,6 +4606,7 @@ defmodule AWS.OpenSearch do
   def delete_inbound_connection(%Client{} = client, connection_id, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/cc/inboundConnection/#{AWS.Util.encode_uri(connection_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4590,7 +4617,7 @@ defmodule AWS.OpenSearch do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4619,6 +4646,7 @@ defmodule AWS.OpenSearch do
       "/2021-01-01/opensearch/cc/outboundConnection/#{AWS.Util.encode_uri(connection_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4629,7 +4657,7 @@ defmodule AWS.OpenSearch do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4649,6 +4677,7 @@ defmodule AWS.OpenSearch do
   def delete_package(%Client{} = client, package_id, input, options \\ []) do
     url_path = "/2021-01-01/packages/#{AWS.Util.encode_uri(package_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4659,7 +4688,7 @@ defmodule AWS.OpenSearch do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4676,6 +4705,7 @@ defmodule AWS.OpenSearch do
   def delete_vpc_endpoint(%Client{} = client, vpc_endpoint_id, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/vpcEndpoints/#{AWS.Util.encode_uri(vpc_endpoint_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4686,7 +4716,7 @@ defmodule AWS.OpenSearch do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4833,6 +4863,7 @@ defmodule AWS.OpenSearch do
   def describe_domains(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain-info"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4843,7 +4874,7 @@ defmodule AWS.OpenSearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4905,6 +4936,7 @@ defmodule AWS.OpenSearch do
   def describe_inbound_connections(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/cc/inboundConnection/search"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4915,7 +4947,7 @@ defmodule AWS.OpenSearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4971,6 +5003,7 @@ defmodule AWS.OpenSearch do
   def describe_outbound_connections(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/cc/outboundConnection/search"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4981,7 +5014,7 @@ defmodule AWS.OpenSearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5001,6 +5034,7 @@ defmodule AWS.OpenSearch do
   def describe_packages(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/packages/describe"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5011,7 +5045,7 @@ defmodule AWS.OpenSearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5135,6 +5169,7 @@ defmodule AWS.OpenSearch do
   def describe_vpc_endpoints(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/vpcEndpoints/describe"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5145,7 +5180,7 @@ defmodule AWS.OpenSearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5170,6 +5205,7 @@ defmodule AWS.OpenSearch do
       "/2021-01-01/packages/dissociate/#{AWS.Util.encode_uri(package_id)}/#{AWS.Util.encode_uri(domain_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5180,7 +5216,7 @@ defmodule AWS.OpenSearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5197,6 +5233,7 @@ defmodule AWS.OpenSearch do
   def dissociate_packages(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/packages/dissociateMultiple"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5207,7 +5244,7 @@ defmodule AWS.OpenSearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5918,6 +5955,7 @@ defmodule AWS.OpenSearch do
   def purchase_reserved_instance_offering(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/purchaseReservedInstanceOffering"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5928,7 +5966,7 @@ defmodule AWS.OpenSearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5949,11 +5987,22 @@ defmodule AWS.OpenSearch do
       "/2021-01-01/opensearch/cc/inboundConnection/#{AWS.Util.encode_uri(connection_id)}/reject"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5969,6 +6018,7 @@ defmodule AWS.OpenSearch do
   def remove_tags(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/tags-removal"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5979,7 +6029,7 @@ defmodule AWS.OpenSearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6005,6 +6055,7 @@ defmodule AWS.OpenSearch do
       "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/revokeVpcEndpointAccess"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6015,7 +6066,7 @@ defmodule AWS.OpenSearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6038,6 +6089,7 @@ defmodule AWS.OpenSearch do
       "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/domainMaintenance"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6048,7 +6100,7 @@ defmodule AWS.OpenSearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6069,6 +6121,7 @@ defmodule AWS.OpenSearch do
   def start_service_software_update(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/serviceSoftwareUpdate/start"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6079,7 +6132,7 @@ defmodule AWS.OpenSearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6096,11 +6149,22 @@ defmodule AWS.OpenSearch do
   def update_application(%Client{} = client, id, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/application/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6118,11 +6182,22 @@ defmodule AWS.OpenSearch do
       "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/dataSource/#{AWS.Util.encode_uri(name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6136,6 +6211,7 @@ defmodule AWS.OpenSearch do
   def update_domain_config(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/config"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6146,7 +6222,7 @@ defmodule AWS.OpenSearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6166,6 +6242,7 @@ defmodule AWS.OpenSearch do
   def update_package(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/packages/update"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6176,7 +6253,7 @@ defmodule AWS.OpenSearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6195,6 +6272,7 @@ defmodule AWS.OpenSearch do
   def update_package_scope(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/packages/updateScope"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6205,7 +6283,7 @@ defmodule AWS.OpenSearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6229,11 +6307,22 @@ defmodule AWS.OpenSearch do
       "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/scheduledAction/update"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6246,6 +6335,7 @@ defmodule AWS.OpenSearch do
   def update_vpc_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/vpcEndpoints/update"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6256,7 +6346,7 @@ defmodule AWS.OpenSearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6275,6 +6365,7 @@ defmodule AWS.OpenSearch do
   def upgrade_domain(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/upgradeDomain"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6285,7 +6376,7 @@ defmodule AWS.OpenSearch do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

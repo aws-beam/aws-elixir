@@ -806,6 +806,7 @@ defmodule AWS.WorkSpacesThinClient do
   def create_environment(%Client{} = client, input, options \\ []) do
     url_path = "/environments"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -816,7 +817,7 @@ defmodule AWS.WorkSpacesThinClient do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -833,6 +834,7 @@ defmodule AWS.WorkSpacesThinClient do
   def delete_device(%Client{} = client, id, input, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -848,7 +850,7 @@ defmodule AWS.WorkSpacesThinClient do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -865,6 +867,7 @@ defmodule AWS.WorkSpacesThinClient do
   def delete_environment(%Client{} = client, id, input, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -880,7 +883,7 @@ defmodule AWS.WorkSpacesThinClient do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -897,6 +900,7 @@ defmodule AWS.WorkSpacesThinClient do
   def deregister_device(%Client{} = client, id, input, options \\ []) do
     url_path = "/deregister-device/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -907,7 +911,7 @@ defmodule AWS.WorkSpacesThinClient do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1085,6 +1089,7 @@ defmodule AWS.WorkSpacesThinClient do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -1095,7 +1100,7 @@ defmodule AWS.WorkSpacesThinClient do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1112,6 +1117,7 @@ defmodule AWS.WorkSpacesThinClient do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1127,7 +1133,7 @@ defmodule AWS.WorkSpacesThinClient do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1144,6 +1150,7 @@ defmodule AWS.WorkSpacesThinClient do
   def update_device(%Client{} = client, id, input, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -1154,7 +1161,7 @@ defmodule AWS.WorkSpacesThinClient do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1171,6 +1178,7 @@ defmodule AWS.WorkSpacesThinClient do
   def update_environment(%Client{} = client, id, input, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -1181,7 +1189,7 @@ defmodule AWS.WorkSpacesThinClient do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1198,6 +1206,7 @@ defmodule AWS.WorkSpacesThinClient do
   def update_software_set(%Client{} = client, id, input, options \\ []) do
     url_path = "/softwaresets/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -1208,7 +1217,7 @@ defmodule AWS.WorkSpacesThinClient do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204

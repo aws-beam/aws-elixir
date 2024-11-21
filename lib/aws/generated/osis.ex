@@ -804,6 +804,7 @@ defmodule AWS.OSIS do
   def create_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/2022-01-01/osis/createPipeline"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -814,7 +815,7 @@ defmodule AWS.OSIS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -833,6 +834,7 @@ defmodule AWS.OSIS do
   def delete_pipeline(%Client{} = client, pipeline_name, input, options \\ []) do
     url_path = "/2022-01-01/osis/deletePipeline/#{AWS.Util.encode_uri(pipeline_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -843,7 +845,7 @@ defmodule AWS.OSIS do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -933,6 +935,7 @@ defmodule AWS.OSIS do
   def list_pipeline_blueprints(%Client{} = client, input, options \\ []) do
     url_path = "/2022-01-01/osis/listPipelineBlueprints"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -943,7 +946,7 @@ defmodule AWS.OSIS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1024,11 +1027,22 @@ defmodule AWS.OSIS do
   def start_pipeline(%Client{} = client, pipeline_name, input, options \\ []) do
     url_path = "/2022-01-01/osis/startPipeline/#{AWS.Util.encode_uri(pipeline_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1043,11 +1057,22 @@ defmodule AWS.OSIS do
   def stop_pipeline(%Client{} = client, pipeline_name, input, options \\ []) do
     url_path = "/2022-01-01/osis/stopPipeline/#{AWS.Util.encode_uri(pipeline_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1062,6 +1087,7 @@ defmodule AWS.OSIS do
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/2022-01-01/osis/tagResource"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1077,7 +1103,7 @@ defmodule AWS.OSIS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1097,6 +1123,7 @@ defmodule AWS.OSIS do
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/2022-01-01/osis/untagResource"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1112,7 +1139,7 @@ defmodule AWS.OSIS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1131,11 +1158,22 @@ defmodule AWS.OSIS do
   def update_pipeline(%Client{} = client, pipeline_name, input, options \\ []) do
     url_path = "/2022-01-01/osis/updatePipeline/#{AWS.Util.encode_uri(pipeline_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1153,6 +1191,7 @@ defmodule AWS.OSIS do
   def validate_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/2022-01-01/osis/validatePipeline"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1163,7 +1202,7 @@ defmodule AWS.OSIS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

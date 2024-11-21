@@ -1356,6 +1356,7 @@ defmodule AWS.PcaConnectorAd do
   def create_connector(%Client{} = client, input, options \\ []) do
     url_path = "/connectors"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1366,7 +1367,7 @@ defmodule AWS.PcaConnectorAd do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1385,6 +1386,7 @@ defmodule AWS.PcaConnectorAd do
   def create_directory_registration(%Client{} = client, input, options \\ []) do
     url_path = "/directoryRegistrations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1395,7 +1397,7 @@ defmodule AWS.PcaConnectorAd do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1431,6 +1433,7 @@ defmodule AWS.PcaConnectorAd do
       "/directoryRegistrations/#{AWS.Util.encode_uri(directory_registration_arn)}/servicePrincipalNames/#{AWS.Util.encode_uri(connector_arn)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1441,7 +1444,7 @@ defmodule AWS.PcaConnectorAd do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1462,6 +1465,7 @@ defmodule AWS.PcaConnectorAd do
   def create_template(%Client{} = client, input, options \\ []) do
     url_path = "/templates"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1472,7 +1476,7 @@ defmodule AWS.PcaConnectorAd do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1502,6 +1506,7 @@ defmodule AWS.PcaConnectorAd do
       ) do
     url_path = "/templates/#{AWS.Util.encode_uri(template_arn)}/accessControlEntries"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1512,7 +1517,7 @@ defmodule AWS.PcaConnectorAd do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1537,6 +1542,7 @@ defmodule AWS.PcaConnectorAd do
   def delete_connector(%Client{} = client, connector_arn, input, options \\ []) do
     url_path = "/connectors/#{AWS.Util.encode_uri(connector_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1547,7 +1553,7 @@ defmodule AWS.PcaConnectorAd do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1577,6 +1583,7 @@ defmodule AWS.PcaConnectorAd do
       ) do
     url_path = "/directoryRegistrations/#{AWS.Util.encode_uri(directory_registration_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1587,7 +1594,7 @@ defmodule AWS.PcaConnectorAd do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1620,6 +1627,7 @@ defmodule AWS.PcaConnectorAd do
       "/directoryRegistrations/#{AWS.Util.encode_uri(directory_registration_arn)}/servicePrincipalNames/#{AWS.Util.encode_uri(connector_arn)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1630,7 +1638,7 @@ defmodule AWS.PcaConnectorAd do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1650,6 +1658,7 @@ defmodule AWS.PcaConnectorAd do
   def delete_template(%Client{} = client, template_arn, input, options \\ []) do
     url_path = "/templates/#{AWS.Util.encode_uri(template_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1660,7 +1669,7 @@ defmodule AWS.PcaConnectorAd do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1691,6 +1700,7 @@ defmodule AWS.PcaConnectorAd do
       "/templates/#{AWS.Util.encode_uri(template_arn)}/accessControlEntries/#{AWS.Util.encode_uri(group_security_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1701,7 +1711,7 @@ defmodule AWS.PcaConnectorAd do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2044,6 +2054,7 @@ defmodule AWS.PcaConnectorAd do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2054,7 +2065,7 @@ defmodule AWS.PcaConnectorAd do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2071,6 +2082,7 @@ defmodule AWS.PcaConnectorAd do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2086,7 +2098,7 @@ defmodule AWS.PcaConnectorAd do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2104,6 +2116,7 @@ defmodule AWS.PcaConnectorAd do
   def update_template(%Client{} = client, template_arn, input, options \\ []) do
     url_path = "/templates/#{AWS.Util.encode_uri(template_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2114,7 +2127,7 @@ defmodule AWS.PcaConnectorAd do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2146,6 +2159,7 @@ defmodule AWS.PcaConnectorAd do
       "/templates/#{AWS.Util.encode_uri(template_arn)}/accessControlEntries/#{AWS.Util.encode_uri(group_security_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2156,7 +2170,7 @@ defmodule AWS.PcaConnectorAd do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

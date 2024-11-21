@@ -1441,6 +1441,7 @@ defmodule AWS.SecurityLake do
   def create_aws_log_source(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datalake/logsources/aws"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1451,7 +1452,7 @@ defmodule AWS.SecurityLake do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1480,6 +1481,7 @@ defmodule AWS.SecurityLake do
   def create_custom_log_source(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datalake/logsources/custom"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1490,7 +1492,7 @@ defmodule AWS.SecurityLake do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1532,6 +1534,7 @@ defmodule AWS.SecurityLake do
   def create_data_lake(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datalake"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1542,7 +1545,7 @@ defmodule AWS.SecurityLake do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1568,6 +1571,7 @@ defmodule AWS.SecurityLake do
   def create_data_lake_exception_subscription(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datalake/exceptions/subscription"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1578,7 +1582,7 @@ defmodule AWS.SecurityLake do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1604,6 +1608,7 @@ defmodule AWS.SecurityLake do
   def create_data_lake_organization_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datalake/organization/configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1614,7 +1619,7 @@ defmodule AWS.SecurityLake do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1636,6 +1641,7 @@ defmodule AWS.SecurityLake do
   def create_subscriber(%Client{} = client, input, options \\ []) do
     url_path = "/v1/subscribers"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1646,7 +1652,7 @@ defmodule AWS.SecurityLake do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1673,6 +1679,7 @@ defmodule AWS.SecurityLake do
   def create_subscriber_notification(%Client{} = client, subscriber_id, input, options \\ []) do
     url_path = "/v1/subscribers/#{AWS.Util.encode_uri(subscriber_id)}/notification"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1683,7 +1690,7 @@ defmodule AWS.SecurityLake do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1714,6 +1721,7 @@ defmodule AWS.SecurityLake do
   def delete_aws_log_source(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datalake/logsources/aws/delete"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1724,7 +1732,7 @@ defmodule AWS.SecurityLake do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1743,6 +1751,7 @@ defmodule AWS.SecurityLake do
   def delete_custom_log_source(%Client{} = client, source_name, input, options \\ []) do
     url_path = "/v1/datalake/logsources/custom/#{AWS.Util.encode_uri(source_name)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1758,7 +1767,7 @@ defmodule AWS.SecurityLake do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1789,6 +1798,7 @@ defmodule AWS.SecurityLake do
   def delete_data_lake(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datalake/delete"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1799,7 +1809,7 @@ defmodule AWS.SecurityLake do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1822,6 +1832,7 @@ defmodule AWS.SecurityLake do
   def delete_data_lake_exception_subscription(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datalake/exceptions/subscription"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1832,7 +1843,7 @@ defmodule AWS.SecurityLake do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1859,6 +1870,7 @@ defmodule AWS.SecurityLake do
   def delete_data_lake_organization_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datalake/organization/configuration/delete"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1869,7 +1881,7 @@ defmodule AWS.SecurityLake do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1894,6 +1906,7 @@ defmodule AWS.SecurityLake do
   def delete_subscriber(%Client{} = client, subscriber_id, input, options \\ []) do
     url_path = "/v1/subscribers/#{AWS.Util.encode_uri(subscriber_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1904,7 +1917,7 @@ defmodule AWS.SecurityLake do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1928,6 +1941,7 @@ defmodule AWS.SecurityLake do
   def delete_subscriber_notification(%Client{} = client, subscriber_id, input, options \\ []) do
     url_path = "/v1/subscribers/#{AWS.Util.encode_uri(subscriber_id)}/notification"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1938,7 +1952,7 @@ defmodule AWS.SecurityLake do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1965,6 +1979,7 @@ defmodule AWS.SecurityLake do
   def deregister_data_lake_delegated_administrator(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datalake/delegate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1975,7 +1990,7 @@ defmodule AWS.SecurityLake do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2034,6 +2049,7 @@ defmodule AWS.SecurityLake do
   def get_data_lake_sources(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datalake/sources"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2044,7 +2060,7 @@ defmodule AWS.SecurityLake do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2083,6 +2099,7 @@ defmodule AWS.SecurityLake do
   def list_data_lake_exceptions(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datalake/exceptions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2093,7 +2110,7 @@ defmodule AWS.SecurityLake do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2138,6 +2155,7 @@ defmodule AWS.SecurityLake do
   def list_log_sources(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datalake/logsources/list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2148,7 +2166,7 @@ defmodule AWS.SecurityLake do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2229,6 +2247,7 @@ defmodule AWS.SecurityLake do
   def register_data_lake_delegated_administrator(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datalake/delegate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2239,7 +2258,7 @@ defmodule AWS.SecurityLake do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2270,6 +2289,7 @@ defmodule AWS.SecurityLake do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2280,7 +2300,7 @@ defmodule AWS.SecurityLake do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2299,6 +2319,7 @@ defmodule AWS.SecurityLake do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2314,7 +2335,7 @@ defmodule AWS.SecurityLake do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2353,11 +2374,22 @@ defmodule AWS.SecurityLake do
   def update_data_lake(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datalake"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2376,11 +2408,22 @@ defmodule AWS.SecurityLake do
   def update_data_lake_exception_subscription(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datalake/exceptions/subscription"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2396,11 +2439,22 @@ defmodule AWS.SecurityLake do
   def update_subscriber(%Client{} = client, subscriber_id, input, options \\ []) do
     url_path = "/v1/subscribers/#{AWS.Util.encode_uri(subscriber_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2420,10 +2474,21 @@ defmodule AWS.SecurityLake do
   def update_subscriber_notification(%Client{} = client, subscriber_id, input, options \\ []) do
     url_path = "/v1/subscribers/#{AWS.Util.encode_uri(subscriber_id)}/notification"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

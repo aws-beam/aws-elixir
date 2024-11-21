@@ -2978,6 +2978,7 @@ defmodule AWS.Appflow do
   def cancel_flow_executions(%Client{} = client, input, options \\ []) do
     url_path = "/cancel-flow-executions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2988,7 +2989,7 @@ defmodule AWS.Appflow do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3015,6 +3016,7 @@ defmodule AWS.Appflow do
   def create_connector_profile(%Client{} = client, input, options \\ []) do
     url_path = "/create-connector-profile"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3025,7 +3027,7 @@ defmodule AWS.Appflow do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3051,6 +3053,7 @@ defmodule AWS.Appflow do
   def create_flow(%Client{} = client, input, options \\ []) do
     url_path = "/create-flow"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3061,7 +3064,7 @@ defmodule AWS.Appflow do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3078,6 +3081,7 @@ defmodule AWS.Appflow do
   def delete_connector_profile(%Client{} = client, input, options \\ []) do
     url_path = "/delete-connector-profile"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3088,7 +3092,7 @@ defmodule AWS.Appflow do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3109,6 +3113,7 @@ defmodule AWS.Appflow do
   def delete_flow(%Client{} = client, input, options \\ []) do
     url_path = "/delete-flow"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3119,7 +3124,7 @@ defmodule AWS.Appflow do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3142,6 +3147,7 @@ defmodule AWS.Appflow do
   def describe_connector(%Client{} = client, input, options \\ []) do
     url_path = "/describe-connector"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3152,7 +3158,7 @@ defmodule AWS.Appflow do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3171,6 +3177,7 @@ defmodule AWS.Appflow do
   def describe_connector_entity(%Client{} = client, input, options \\ []) do
     url_path = "/describe-connector-entity"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3181,7 +3188,7 @@ defmodule AWS.Appflow do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3205,6 +3212,7 @@ defmodule AWS.Appflow do
   def describe_connector_profiles(%Client{} = client, input, options \\ []) do
     url_path = "/describe-connector-profiles"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3215,7 +3223,7 @@ defmodule AWS.Appflow do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3239,6 +3247,7 @@ defmodule AWS.Appflow do
   def describe_connectors(%Client{} = client, input, options \\ []) do
     url_path = "/describe-connectors"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3249,7 +3258,7 @@ defmodule AWS.Appflow do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3266,6 +3275,7 @@ defmodule AWS.Appflow do
   def describe_flow(%Client{} = client, input, options \\ []) do
     url_path = "/describe-flow"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3276,7 +3286,7 @@ defmodule AWS.Appflow do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3293,6 +3303,7 @@ defmodule AWS.Appflow do
   def describe_flow_execution_records(%Client{} = client, input, options \\ []) do
     url_path = "/describe-flow-execution-records"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3303,7 +3314,7 @@ defmodule AWS.Appflow do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3325,6 +3336,7 @@ defmodule AWS.Appflow do
   def list_connector_entities(%Client{} = client, input, options \\ []) do
     url_path = "/list-connector-entities"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3335,7 +3347,7 @@ defmodule AWS.Appflow do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3357,6 +3369,7 @@ defmodule AWS.Appflow do
   def list_connectors(%Client{} = client, input, options \\ []) do
     url_path = "/list-connectors"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3367,7 +3380,7 @@ defmodule AWS.Appflow do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3384,6 +3397,7 @@ defmodule AWS.Appflow do
   def list_flows(%Client{} = client, input, options \\ []) do
     url_path = "/list-flows"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3394,7 +3408,7 @@ defmodule AWS.Appflow do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3433,6 +3447,7 @@ defmodule AWS.Appflow do
   def register_connector(%Client{} = client, input, options \\ []) do
     url_path = "/register-connector"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3443,7 +3458,7 @@ defmodule AWS.Appflow do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3472,6 +3487,7 @@ defmodule AWS.Appflow do
   def reset_connector_metadata_cache(%Client{} = client, input, options \\ []) do
     url_path = "/reset-connector-metadata-cache"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3482,7 +3498,7 @@ defmodule AWS.Appflow do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3503,6 +3519,7 @@ defmodule AWS.Appflow do
   def start_flow(%Client{} = client, input, options \\ []) do
     url_path = "/start-flow"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3513,7 +3530,7 @@ defmodule AWS.Appflow do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3534,6 +3551,7 @@ defmodule AWS.Appflow do
   def stop_flow(%Client{} = client, input, options \\ []) do
     url_path = "/stop-flow"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3544,7 +3562,7 @@ defmodule AWS.Appflow do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3561,6 +3579,7 @@ defmodule AWS.Appflow do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3571,7 +3590,7 @@ defmodule AWS.Appflow do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3590,6 +3609,7 @@ defmodule AWS.Appflow do
   def unregister_connector(%Client{} = client, input, options \\ []) do
     url_path = "/unregister-connector"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3600,7 +3620,7 @@ defmodule AWS.Appflow do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3617,6 +3637,7 @@ defmodule AWS.Appflow do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3632,7 +3653,7 @@ defmodule AWS.Appflow do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3649,6 +3670,7 @@ defmodule AWS.Appflow do
   def update_connector_profile(%Client{} = client, input, options \\ []) do
     url_path = "/update-connector-profile"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3659,7 +3681,7 @@ defmodule AWS.Appflow do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3685,6 +3707,7 @@ defmodule AWS.Appflow do
   def update_connector_registration(%Client{} = client, input, options \\ []) do
     url_path = "/update-connector-registration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3695,7 +3718,7 @@ defmodule AWS.Appflow do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3712,6 +3735,7 @@ defmodule AWS.Appflow do
   def update_flow(%Client{} = client, input, options \\ []) do
     url_path = "/update-flow"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3722,7 +3746,7 @@ defmodule AWS.Appflow do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

@@ -1121,6 +1121,7 @@ defmodule AWS.MedicalImaging do
       "/datastore/#{AWS.Util.encode_uri(datastore_id)}/imageSet/#{AWS.Util.encode_uri(source_image_set_id)}/copyImageSet"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1136,7 +1137,7 @@ defmodule AWS.MedicalImaging do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1153,6 +1154,7 @@ defmodule AWS.MedicalImaging do
   def create_datastore(%Client{} = client, input, options \\ []) do
     url_path = "/datastore"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1163,7 +1165,7 @@ defmodule AWS.MedicalImaging do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1183,6 +1185,7 @@ defmodule AWS.MedicalImaging do
   def delete_datastore(%Client{} = client, datastore_id, input, options \\ []) do
     url_path = "/datastore/#{AWS.Util.encode_uri(datastore_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1193,7 +1196,7 @@ defmodule AWS.MedicalImaging do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1212,6 +1215,7 @@ defmodule AWS.MedicalImaging do
       "/datastore/#{AWS.Util.encode_uri(datastore_id)}/imageSet/#{AWS.Util.encode_uri(image_set_id)}/deleteImageSet"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "runtime-")
@@ -1222,7 +1226,7 @@ defmodule AWS.MedicalImaging do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1285,6 +1289,7 @@ defmodule AWS.MedicalImaging do
       "/datastore/#{AWS.Util.encode_uri(datastore_id)}/imageSet/#{AWS.Util.encode_uri(image_set_id)}/getImageFrame"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -1302,7 +1307,7 @@ defmodule AWS.MedicalImaging do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1321,6 +1326,7 @@ defmodule AWS.MedicalImaging do
       "/datastore/#{AWS.Util.encode_uri(datastore_id)}/imageSet/#{AWS.Util.encode_uri(image_set_id)}/getImageSet"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1336,7 +1342,7 @@ defmodule AWS.MedicalImaging do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1361,6 +1367,7 @@ defmodule AWS.MedicalImaging do
       "/datastore/#{AWS.Util.encode_uri(datastore_id)}/imageSet/#{AWS.Util.encode_uri(image_set_id)}/getImageSetMetadata"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1383,7 +1390,7 @@ defmodule AWS.MedicalImaging do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1510,6 +1517,7 @@ defmodule AWS.MedicalImaging do
       "/datastore/#{AWS.Util.encode_uri(datastore_id)}/imageSet/#{AWS.Util.encode_uri(image_set_id)}/listImageSetVersions"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1526,7 +1534,7 @@ defmodule AWS.MedicalImaging do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1569,6 +1577,7 @@ defmodule AWS.MedicalImaging do
   def search_image_sets(%Client{} = client, datastore_id, input, options \\ []) do
     url_path = "/datastore/#{AWS.Util.encode_uri(datastore_id)}/searchImageSets"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1585,7 +1594,7 @@ defmodule AWS.MedicalImaging do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1612,6 +1621,7 @@ defmodule AWS.MedicalImaging do
   def start_d_i_c_o_m_import_job(%Client{} = client, datastore_id, input, options \\ []) do
     url_path = "/startDICOMImportJob/datastore/#{AWS.Util.encode_uri(datastore_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1622,7 +1632,7 @@ defmodule AWS.MedicalImaging do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1639,6 +1649,7 @@ defmodule AWS.MedicalImaging do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1649,7 +1660,7 @@ defmodule AWS.MedicalImaging do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1666,6 +1677,7 @@ defmodule AWS.MedicalImaging do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1681,7 +1693,7 @@ defmodule AWS.MedicalImaging do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1712,6 +1724,7 @@ defmodule AWS.MedicalImaging do
       "/datastore/#{AWS.Util.encode_uri(datastore_id)}/imageSet/#{AWS.Util.encode_uri(image_set_id)}/updateImageSetMetadata"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1728,7 +1741,7 @@ defmodule AWS.MedicalImaging do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

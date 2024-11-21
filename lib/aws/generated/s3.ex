@@ -4345,6 +4345,8 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"UploadId", "uploadId"}
@@ -4366,7 +4368,7 @@ defmodule AWS.S3 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4595,6 +4597,8 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"UploadId", "uploadId"}
@@ -4623,7 +4627,7 @@ defmodule AWS.S3 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4900,6 +4904,12 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    {custom_headers, input} =
+      [
+        {"Metadata", "x-amz-meta-"}
+      ]
+      |> Request.build_params(input)
+
     query_params = []
 
     options =
@@ -4922,7 +4932,17 @@ defmodule AWS.S3 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5110,6 +5130,7 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -5121,7 +5142,17 @@ defmodule AWS.S3 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5477,6 +5508,12 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    {custom_headers, input} =
+      [
+        {"Metadata", "x-amz-meta-"}
+      ]
+      |> Request.build_params(input)
+
     query_params = []
 
     options =
@@ -5505,7 +5542,7 @@ defmodule AWS.S3 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5840,6 +5877,7 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5850,7 +5888,7 @@ defmodule AWS.S3 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -5907,6 +5945,8 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"Id", "id"}
@@ -5921,7 +5961,7 @@ defmodule AWS.S3 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -5963,6 +6003,7 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5973,7 +6014,7 @@ defmodule AWS.S3 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -6053,6 +6094,7 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6063,7 +6105,7 @@ defmodule AWS.S3 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -6123,6 +6165,7 @@ defmodule AWS.S3 do
       ) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?intelligent-tiering"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -6138,7 +6181,7 @@ defmodule AWS.S3 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -6193,6 +6236,8 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"Id", "id"}
@@ -6207,7 +6252,7 @@ defmodule AWS.S3 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -6258,6 +6303,7 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6268,7 +6314,7 @@ defmodule AWS.S3 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -6334,6 +6380,8 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"Id", "id"}
@@ -6348,7 +6396,7 @@ defmodule AWS.S3 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -6393,6 +6441,7 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6403,7 +6452,7 @@ defmodule AWS.S3 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -6513,6 +6562,7 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6523,7 +6573,7 @@ defmodule AWS.S3 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -6573,6 +6623,7 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6583,7 +6634,7 @@ defmodule AWS.S3 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -6622,6 +6673,7 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6632,7 +6684,7 @@ defmodule AWS.S3 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -6688,6 +6740,7 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6698,7 +6751,7 @@ defmodule AWS.S3 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -6825,6 +6878,8 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"VersionId", "versionId"}
@@ -6850,7 +6905,7 @@ defmodule AWS.S3 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -6899,6 +6954,8 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"VersionId", "versionId"}
@@ -6920,7 +6977,7 @@ defmodule AWS.S3 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -7104,6 +7161,7 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -7128,7 +7186,7 @@ defmodule AWS.S3 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7183,6 +7241,7 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7193,7 +7252,7 @@ defmodule AWS.S3 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -9903,6 +9962,7 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -9925,7 +9985,7 @@ defmodule AWS.S3 do
       :head,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -10133,6 +10193,8 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"PartNumber", "partNumber"},
@@ -10195,7 +10257,7 @@ defmodule AWS.S3 do
       :head,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11740,11 +11802,22 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11971,11 +12044,22 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12093,6 +12177,8 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"Id", "id"}
@@ -12101,7 +12187,17 @@ defmodule AWS.S3 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12179,6 +12275,7 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -12190,7 +12287,17 @@ defmodule AWS.S3 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12353,11 +12460,22 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12445,6 +12563,7 @@ defmodule AWS.S3 do
       ) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?intelligent-tiering"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -12454,7 +12573,17 @@ defmodule AWS.S3 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12573,6 +12702,8 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"Id", "id"}
@@ -12581,7 +12712,17 @@ defmodule AWS.S3 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12702,6 +12843,7 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -12715,7 +12857,17 @@ defmodule AWS.S3 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12821,11 +12973,22 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12896,6 +13059,8 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"Id", "id"}
@@ -12904,7 +13069,17 @@ defmodule AWS.S3 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -13002,11 +13177,22 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -13047,11 +13233,22 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -13168,11 +13365,22 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -13281,11 +13489,22 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -13329,11 +13548,22 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -13418,6 +13648,7 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -13429,7 +13660,17 @@ defmodule AWS.S3 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -13507,11 +13748,22 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -13649,11 +13901,22 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -13861,6 +14124,12 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    {custom_headers, input} =
+      [
+        {"Metadata", "x-amz-meta-"}
+      ]
+      |> Request.build_params(input)
+
     query_params = []
 
     options =
@@ -13894,7 +14163,17 @@ defmodule AWS.S3 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -14114,6 +14393,8 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"VersionId", "versionId"}
@@ -14129,7 +14410,17 @@ defmodule AWS.S3 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -14164,6 +14455,8 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"VersionId", "versionId"}
@@ -14179,7 +14472,17 @@ defmodule AWS.S3 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -14226,6 +14529,7 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -14237,7 +14541,17 @@ defmodule AWS.S3 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -14276,6 +14590,8 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"VersionId", "versionId"}
@@ -14291,7 +14607,17 @@ defmodule AWS.S3 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -14368,6 +14694,8 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"VersionId", "versionId"}
@@ -14383,7 +14711,17 @@ defmodule AWS.S3 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -14442,11 +14780,22 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -14689,6 +15038,8 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"VersionId", "versionId"}
@@ -14713,7 +15064,7 @@ defmodule AWS.S3 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14876,6 +15227,7 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14886,7 +15238,7 @@ defmodule AWS.S3 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15143,6 +15495,8 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"PartNumber", "partNumber"},
@@ -15178,7 +15532,17 @@ defmodule AWS.S3 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -15450,6 +15814,8 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"PartNumber", "partNumber"},
@@ -15474,7 +15840,17 @@ defmodule AWS.S3 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -15592,6 +15968,12 @@ defmodule AWS.S3 do
       ]
       |> Request.build_params(input)
 
+    {custom_headers, input} =
+      [
+        {"Metadata", "x-amz-meta-"}
+      ]
+      |> Request.build_params(input)
+
     query_params = []
 
     options =
@@ -15609,7 +15991,7 @@ defmodule AWS.S3 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

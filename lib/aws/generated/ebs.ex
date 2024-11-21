@@ -442,6 +442,7 @@ defmodule AWS.EBS do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -452,7 +453,7 @@ defmodule AWS.EBS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -660,6 +661,7 @@ defmodule AWS.EBS do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -674,7 +676,17 @@ defmodule AWS.EBS do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -701,6 +713,7 @@ defmodule AWS.EBS do
   def start_snapshot(%Client{} = client, input, options \\ []) do
     url_path = "/snapshots"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -711,7 +724,7 @@ defmodule AWS.EBS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201

@@ -565,6 +565,7 @@ defmodule AWS.ConnectParticipant do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -575,7 +576,7 @@ defmodule AWS.ConnectParticipant do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -639,6 +640,7 @@ defmodule AWS.ConnectParticipant do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -649,7 +651,7 @@ defmodule AWS.ConnectParticipant do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -702,6 +704,7 @@ defmodule AWS.ConnectParticipant do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -712,7 +715,7 @@ defmodule AWS.ConnectParticipant do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -743,6 +746,7 @@ defmodule AWS.ConnectParticipant do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -753,7 +757,7 @@ defmodule AWS.ConnectParticipant do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -811,6 +815,7 @@ defmodule AWS.ConnectParticipant do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -821,7 +826,7 @@ defmodule AWS.ConnectParticipant do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -863,6 +868,7 @@ defmodule AWS.ConnectParticipant do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -873,7 +879,7 @@ defmodule AWS.ConnectParticipant do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -901,6 +907,7 @@ defmodule AWS.ConnectParticipant do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -911,7 +918,7 @@ defmodule AWS.ConnectParticipant do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -941,6 +948,7 @@ defmodule AWS.ConnectParticipant do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -951,7 +959,7 @@ defmodule AWS.ConnectParticipant do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

@@ -378,6 +378,22 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      vpc_origin_endpoint_config() :: %{
+        "Arn" => String.t(),
+        "HTTPPort" => integer(),
+        "HTTPSPort" => integer(),
+        "Name" => String.t(),
+        "OriginProtocolPolicy" => list(any()),
+        "OriginSslProtocols" => origin_ssl_protocols()
+      }
+
+  """
+  @type vpc_origin_endpoint_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_streaming_distribution_config_request() :: %{}
 
   """
@@ -463,6 +479,17 @@ defmodule AWS.CloudFront do
 
   """
   @type distribution_config_with_tags() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cannot_update_entity_while_in_use() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type cannot_update_entity_while_in_use() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -597,6 +624,23 @@ defmodule AWS.CloudFront do
 
   """
   @type create_realtime_log_config_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      anycast_ip_list() :: %{
+        "AnycastIps" => list(String.t()()),
+        "Arn" => String.t(),
+        "Id" => String.t(),
+        "IpCount" => integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "Status" => String.t()
+      }
+
+  """
+  @type anycast_ip_list() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -771,6 +815,18 @@ defmodule AWS.CloudFront do
 
   """
   @type invalid_protocol_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_vpc_origin_request() :: %{
+        required("IfMatch") => String.t(),
+        required("VpcOriginEndpointConfig") => vpc_origin_endpoint_config()
+      }
+
+  """
+  @type update_vpc_origin_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1143,6 +1199,7 @@ defmodule AWS.CloudFront do
         "ARN" => String.t(),
         "AliasICPRecordals" => list(alias_i_c_p_recordal()()),
         "Aliases" => aliases(),
+        "AnycastIpListId" => String.t(),
         "CacheBehaviors" => cache_behaviors(),
         "Comment" => String.t(),
         "CustomErrorResponses" => custom_error_responses(),
@@ -1258,6 +1315,7 @@ defmodule AWS.CloudFront do
         "FieldLevelEncryptionId" => String.t(),
         "ForwardedValues" => forwarded_values(),
         "FunctionAssociations" => function_associations(),
+        "GrpcConfig" => grpc_config(),
         "LambdaFunctionAssociations" => lambda_function_associations(),
         "MaxTTL" => float(),
         "MinTTL" => float(),
@@ -1749,6 +1807,17 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      list_distributions_by_anycast_ip_list_id_result() :: %{
+        "DistributionList" => distribution_list()
+      }
+
+  """
+  @type list_distributions_by_anycast_ip_list_id_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       origin_request_policy_headers_config() :: %{
         "HeaderBehavior" => list(any()),
         "Headers" => headers()
@@ -1779,6 +1848,22 @@ defmodule AWS.CloudFront do
 
   """
   @type query_arg_profiles() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      anycast_ip_list_summary() :: %{
+        "Arn" => String.t(),
+        "Id" => String.t(),
+        "IpCount" => integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "Status" => String.t()
+      }
+
+  """
+  @type anycast_ip_list_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2306,6 +2391,18 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      create_vpc_origin_request() :: %{
+        optional("Tags") => tags(),
+        required("VpcOriginEndpointConfig") => vpc_origin_endpoint_config()
+      }
+
+  """
+  @type create_vpc_origin_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_public_key_request() :: %{
         optional("IfMatch") => String.t()
       }
@@ -2319,6 +2416,7 @@ defmodule AWS.CloudFront do
 
       distribution_config() :: %{
         "Aliases" => aliases(),
+        "AnycastIpListId" => String.t(),
         "CacheBehaviors" => cache_behaviors(),
         "CallerReference" => String.t(),
         "Comment" => String.t(),
@@ -2769,6 +2867,17 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      vpc_origin_config() :: %{
+        "VpcOriginId" => String.t()
+      }
+
+  """
+  @type vpc_origin_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       origin_access_control() :: %{
         "Id" => String.t(),
         "OriginAccessControlConfig" => origin_access_control_config()
@@ -2870,6 +2979,18 @@ defmodule AWS.CloudFront do
 
   """
   @type too_many_distributions_with_function_associations() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_anycast_ip_list_result() :: %{
+        "AnycastIpList" => anycast_ip_list(),
+        "ETag" => String.t()
+      }
+
+  """
+  @type get_anycast_ip_list_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2982,6 +3103,22 @@ defmodule AWS.CloudFront do
 
   """
   @type tags() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      anycast_ip_list_collection() :: %{
+        "IsTruncated" => boolean(),
+        "Items" => list(anycast_ip_list_summary()()),
+        "Marker" => String.t(),
+        "MaxItems" => integer(),
+        "NextMarker" => String.t(),
+        "Quantity" => integer()
+      }
+
+  """
+  @type anycast_ip_list_collection() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3217,6 +3354,18 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      get_vpc_origin_result() :: %{
+        "ETag" => String.t(),
+        "VpcOrigin" => vpc_origin()
+      }
+
+  """
+  @type get_vpc_origin_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_cloud_front_origin_access_identity_request() :: %{
         required("CloudFrontOriginAccessIdentityConfig") => cloud_front_origin_access_identity_config()
       }
@@ -3442,6 +3591,17 @@ defmodule AWS.CloudFront do
 
   """
   @type list_field_level_encryption_profiles_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_vpc_origins_result() :: %{
+        "VpcOriginList" => vpc_origin_list()
+      }
+
+  """
+  @type list_vpc_origins_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3748,6 +3908,17 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      delete_vpc_origin_request() :: %{
+        required("IfMatch") => String.t()
+      }
+
+  """
+  @type delete_vpc_origin_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cloud_front_origin_access_identity() :: %{
         "CloudFrontOriginAccessIdentityConfig" => cloud_front_origin_access_identity_config(),
         "Id" => String.t(),
@@ -3791,6 +3962,19 @@ defmodule AWS.CloudFront do
 
   """
   @type too_many_distributions_with_single_function_arn() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_anycast_ip_list_request() :: %{
+        optional("Tags") => tags(),
+        required("IpCount") => integer(),
+        required("Name") => String.t()
+      }
+
+  """
+  @type create_anycast_ip_list_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3915,6 +4099,29 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      create_anycast_ip_list_result() :: %{
+        "AnycastIpList" => anycast_ip_list(),
+        "ETag" => String.t()
+      }
+
+  """
+  @type create_anycast_ip_list_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      grpc_config() :: %{
+        "Enabled" => boolean()
+      }
+
+  """
+  @type grpc_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       function_config() :: %{
         "Comment" => String.t(),
         "KeyValueStoreAssociations" => key_value_store_associations(),
@@ -3979,6 +4186,19 @@ defmodule AWS.CloudFront do
 
   """
   @type cache_policy_in_use() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_vpc_origin_result() :: %{
+        "ETag" => String.t(),
+        "Location" => String.t(),
+        "VpcOrigin" => vpc_origin()
+      }
+
+  """
+  @type create_vpc_origin_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4101,6 +4321,18 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      delete_vpc_origin_result() :: %{
+        "ETag" => String.t(),
+        "VpcOrigin" => vpc_origin()
+      }
+
+  """
+  @type delete_vpc_origin_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_field_level_encryption_profile_config_result() :: %{
         "ETag" => String.t(),
         "FieldLevelEncryptionProfileConfig" => field_level_encryption_profile_config()
@@ -4131,6 +4363,17 @@ defmodule AWS.CloudFront do
 
   """
   @type too_many_cloud_front_origin_access_identities() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_anycast_ip_list_request() :: %{
+        required("IfMatch") => String.t()
+      }
+
+  """
+  @type delete_anycast_ip_list_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4184,6 +4427,18 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      update_vpc_origin_result() :: %{
+        "ETag" => String.t(),
+        "VpcOrigin" => vpc_origin()
+      }
+
+  """
+  @type update_vpc_origin_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_monitoring_subscription_request() :: %{}
 
   """
@@ -4203,7 +4458,8 @@ defmodule AWS.CloudFront do
         "OriginAccessControlId" => String.t(),
         "OriginPath" => String.t(),
         "OriginShield" => origin_shield(),
-        "S3OriginConfig" => s3_origin_config()
+        "S3OriginConfig" => s3_origin_config(),
+        "VpcOriginConfig" => vpc_origin_config()
       }
 
   """
@@ -4398,6 +4654,18 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      list_distributions_by_anycast_ip_list_id_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer()
+      }
+
+  """
+  @type list_distributions_by_anycast_ip_list_id_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_distributions_by_realtime_log_config_request() :: %{
         optional("Marker") => String.t(),
         optional("MaxItems") => integer(),
@@ -4542,6 +4810,18 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      list_distributions_by_vpc_origin_id_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer()
+      }
+
+  """
+  @type list_distributions_by_vpc_origin_id_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_origin_request_policy_result() :: %{
         "ETag" => String.t(),
         "Location" => String.t(),
@@ -4618,6 +4898,15 @@ defmodule AWS.CloudFront do
 
   """
   @type get_continuous_deployment_policy_config_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_anycast_ip_list_request() :: %{}
+
+  """
+  @type get_anycast_ip_list_request() :: %{}
 
   @typedoc """
 
@@ -4849,6 +5138,22 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      vpc_origin() :: %{
+        "Arn" => String.t(),
+        "CreatedTime" => non_neg_integer(),
+        "Id" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Status" => String.t(),
+        "VpcOriginEndpointConfig" => vpc_origin_endpoint_config()
+      }
+
+  """
+  @type vpc_origin() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invalid_relative_path() :: %{
         "Message" => String.t()
       }
@@ -5023,6 +5328,22 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      vpc_origin_list() :: %{
+        "IsTruncated" => boolean(),
+        "Items" => list(vpc_origin_summary()()),
+        "Marker" => String.t(),
+        "MaxItems" => integer(),
+        "NextMarker" => String.t(),
+        "Quantity" => integer()
+      }
+
+  """
+  @type vpc_origin_list() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       origin_access_control_already_exists() :: %{
         "Message" => String.t()
       }
@@ -5169,6 +5490,17 @@ defmodule AWS.CloudFront do
 
   """
   @type get_field_level_encryption_config_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_distributions_by_vpc_origin_id_result() :: %{
+        "DistributionIdList" => distribution_id_list()
+      }
+
+  """
+  @type list_distributions_by_vpc_origin_id_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5433,6 +5765,23 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      vpc_origin_summary() :: %{
+        "Arn" => String.t(),
+        "CreatedTime" => non_neg_integer(),
+        "Id" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "OriginEndpointArn" => String.t(),
+        "Status" => String.t()
+      }
+
+  """
+  @type vpc_origin_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_key_group_config_result() :: %{
         "ETag" => String.t(),
         "KeyGroupConfig" => key_group_config()
@@ -5464,6 +5813,7 @@ defmodule AWS.CloudFront do
         "FieldLevelEncryptionId" => String.t(),
         "ForwardedValues" => forwarded_values(),
         "FunctionAssociations" => function_associations(),
+        "GrpcConfig" => grpc_config(),
         "LambdaFunctionAssociations" => lambda_function_associations(),
         "MaxTTL" => float(),
         "MinTTL" => float(),
@@ -5574,6 +5924,18 @@ defmodule AWS.CloudFront do
 
   """
   @type too_many_headers_in_origin_request_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_anycast_ip_lists_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer()
+      }
+
+  """
+  @type list_anycast_ip_lists_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5733,6 +6095,17 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      list_anycast_ip_lists_result() :: %{
+        "AnycastIpLists" => anycast_ip_list_collection()
+      }
+
+  """
+  @type list_anycast_ip_lists_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_origin_request_policy_result() :: %{
         "ETag" => String.t(),
         "OriginRequestPolicy" => origin_request_policy()
@@ -5858,6 +6231,18 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      list_vpc_origins_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer()
+      }
+
+  """
+  @type list_vpc_origins_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invalidation() :: %{
         "CreateTime" => non_neg_integer(),
         "Id" => String.t(),
@@ -5948,6 +6333,15 @@ defmodule AWS.CloudFront do
 
   """
   @type realtime_log_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_vpc_origin_request() :: %{}
+
+  """
+  @type get_vpc_origin_request() :: %{}
 
   @typedoc """
 
@@ -6247,6 +6641,14 @@ defmodule AWS.CloudFront do
           | too_many_function_associations()
           | too_many_origin_groups_per_distribution()
 
+  @type create_anycast_ip_list_errors() ::
+          entity_limit_exceeded()
+          | unsupported_operation()
+          | entity_already_exists()
+          | invalid_argument()
+          | access_denied()
+          | invalid_tagging()
+
   @type create_cache_policy_errors() ::
           cache_policy_already_exists()
           | inconsistent_quantities()
@@ -6327,6 +6729,7 @@ defmodule AWS.CloudFront do
           | too_many_cookie_names_in_white_list()
           | access_denied()
           | invalid_t_t_l_order()
+          | entity_not_found()
           | invalid_protocol_settings()
           | too_many_distributions_associated_to_key_group()
           | too_many_distributions_associated_to_origin_request_policy()
@@ -6394,6 +6797,7 @@ defmodule AWS.CloudFront do
           | too_many_cookie_names_in_white_list()
           | access_denied()
           | invalid_t_t_l_order()
+          | entity_not_found()
           | invalid_protocol_settings()
           | invalid_tagging()
           | too_many_distributions_associated_to_key_group()
@@ -6528,6 +6932,25 @@ defmodule AWS.CloudFront do
           | invalid_tagging()
           | invalid_origin_access_identity()
 
+  @type create_vpc_origin_errors() ::
+          entity_limit_exceeded()
+          | inconsistent_quantities()
+          | unsupported_operation()
+          | entity_already_exists()
+          | invalid_argument()
+          | access_denied()
+          | invalid_tagging()
+
+  @type delete_anycast_ip_list_errors() ::
+          illegal_delete()
+          | cannot_delete_entity_while_in_use()
+          | precondition_failed()
+          | unsupported_operation()
+          | invalid_argument()
+          | access_denied()
+          | entity_not_found()
+          | invalid_if_match_version()
+
   @type delete_cache_policy_errors() ::
           illegal_delete()
           | cache_policy_in_use()
@@ -6642,9 +7065,22 @@ defmodule AWS.CloudFront do
           | invalid_if_match_version()
           | streaming_distribution_not_disabled()
 
+  @type delete_vpc_origin_errors() ::
+          illegal_delete()
+          | cannot_delete_entity_while_in_use()
+          | precondition_failed()
+          | unsupported_operation()
+          | invalid_argument()
+          | access_denied()
+          | entity_not_found()
+          | invalid_if_match_version()
+
   @type describe_function_errors() :: no_such_function_exists() | unsupported_operation()
 
   @type describe_key_value_store_errors() ::
+          unsupported_operation() | invalid_argument() | access_denied() | entity_not_found()
+
+  @type get_anycast_ip_list_errors() ::
           unsupported_operation() | invalid_argument() | access_denied() | entity_not_found()
 
   @type get_cache_policy_errors() :: no_such_cache_policy() | access_denied()
@@ -6722,6 +7158,12 @@ defmodule AWS.CloudFront do
   @type get_streaming_distribution_config_errors() ::
           no_such_streaming_distribution() | access_denied()
 
+  @type get_vpc_origin_errors() ::
+          unsupported_operation() | invalid_argument() | access_denied() | entity_not_found()
+
+  @type list_anycast_ip_lists_errors() ::
+          unsupported_operation() | invalid_argument() | access_denied() | entity_not_found()
+
   @type list_cache_policies_errors() ::
           no_such_cache_policy() | invalid_argument() | access_denied()
 
@@ -6733,6 +7175,9 @@ defmodule AWS.CloudFront do
           invalid_argument() | access_denied() | no_such_continuous_deployment_policy()
 
   @type list_distributions_errors() :: invalid_argument()
+
+  @type list_distributions_by_anycast_ip_list_id_errors() ::
+          unsupported_operation() | invalid_argument() | access_denied() | entity_not_found()
 
   @type list_distributions_by_cache_policy_id_errors() ::
           no_such_cache_policy() | invalid_argument() | access_denied()
@@ -6746,6 +7191,9 @@ defmodule AWS.CloudFront do
 
   @type list_distributions_by_response_headers_policy_id_errors() ::
           no_such_response_headers_policy() | invalid_argument() | access_denied()
+
+  @type list_distributions_by_vpc_origin_id_errors() ::
+          unsupported_operation() | invalid_argument() | access_denied() | entity_not_found()
 
   @type list_distributions_by_web_acl_id_errors() :: invalid_web_acl_id() | invalid_argument()
 
@@ -6780,6 +7228,9 @@ defmodule AWS.CloudFront do
 
   @type list_tags_for_resource_errors() ::
           no_such_resource() | invalid_argument() | access_denied() | invalid_tagging()
+
+  @type list_vpc_origins_errors() ::
+          unsupported_operation() | invalid_argument() | access_denied() | entity_not_found()
 
   @type publish_function_errors() ::
           no_such_function_exists()
@@ -6889,6 +7340,7 @@ defmodule AWS.CloudFront do
           | access_denied()
           | invalid_t_t_l_order()
           | illegal_update()
+          | entity_not_found()
           | too_many_distributions_associated_to_key_group()
           | too_many_distributions_associated_to_origin_request_policy()
           | invalid_query_string_parameters()
@@ -6954,6 +7406,7 @@ defmodule AWS.CloudFront do
           | access_denied()
           | invalid_t_t_l_order()
           | illegal_update()
+          | entity_not_found()
           | too_many_distributions_associated_to_key_group()
           | too_many_distributions_associated_to_origin_request_policy()
           | invalid_query_string_parameters()
@@ -7078,6 +7531,19 @@ defmodule AWS.CloudFront do
           | invalid_if_match_version()
           | invalid_origin_access_identity()
 
+  @type update_vpc_origin_errors() ::
+          entity_limit_exceeded()
+          | inconsistent_quantities()
+          | precondition_failed()
+          | unsupported_operation()
+          | entity_already_exists()
+          | invalid_argument()
+          | access_denied()
+          | illegal_update()
+          | entity_not_found()
+          | invalid_if_match_version()
+          | cannot_update_entity_while_in_use()
+
   def metadata do
     %{
       api_version: "2020-05-31",
@@ -7125,6 +7591,7 @@ defmodule AWS.CloudFront do
       "/2020-05-31/distribution/#{AWS.Util.encode_uri(target_distribution_id)}/associate-alias"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -7134,7 +7601,17 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -7177,6 +7654,7 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -7194,10 +7672,45 @@ defmodule AWS.CloudFront do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
+    )
+  end
+
+  @doc """
+  Creates an Anycast static IP list.
+  """
+  @spec create_anycast_ip_list(map(), create_anycast_ip_list_request(), list()) ::
+          {:ok, create_anycast_ip_list_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_anycast_ip_list_errors()}
+  def create_anycast_ip_list(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/anycast-ip-list"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 
@@ -7240,6 +7753,7 @@ defmodule AWS.CloudFront do
   def create_cache_policy(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/cache-policy"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -7257,7 +7771,7 @@ defmodule AWS.CloudFront do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7287,6 +7801,7 @@ defmodule AWS.CloudFront do
   def create_cloud_front_origin_access_identity(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/origin-access-identity/cloudfront"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -7304,7 +7819,7 @@ defmodule AWS.CloudFront do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7338,6 +7853,7 @@ defmodule AWS.CloudFront do
   def create_continuous_deployment_policy(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/continuous-deployment-policy"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -7355,7 +7871,7 @@ defmodule AWS.CloudFront do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7372,6 +7888,7 @@ defmodule AWS.CloudFront do
   def create_distribution(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/distribution"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -7389,7 +7906,7 @@ defmodule AWS.CloudFront do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7417,6 +7934,7 @@ defmodule AWS.CloudFront do
   def create_distribution_with_tags(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/distribution?WithTags"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -7434,7 +7952,7 @@ defmodule AWS.CloudFront do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7455,6 +7973,7 @@ defmodule AWS.CloudFront do
   def create_field_level_encryption_config(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/field-level-encryption"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -7472,7 +7991,7 @@ defmodule AWS.CloudFront do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7493,6 +8012,7 @@ defmodule AWS.CloudFront do
   def create_field_level_encryption_profile(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/field-level-encryption-profile"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -7510,7 +8030,7 @@ defmodule AWS.CloudFront do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7542,6 +8062,7 @@ defmodule AWS.CloudFront do
   def create_function(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/function"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -7559,7 +8080,7 @@ defmodule AWS.CloudFront do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7579,6 +8100,7 @@ defmodule AWS.CloudFront do
   def create_invalidation(%Client{} = client, distribution_id, input, options \\ []) do
     url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(distribution_id)}/invalidation"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -7596,7 +8118,7 @@ defmodule AWS.CloudFront do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7629,6 +8151,7 @@ defmodule AWS.CloudFront do
   def create_key_group(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/key-group"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -7646,7 +8169,7 @@ defmodule AWS.CloudFront do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7667,6 +8190,7 @@ defmodule AWS.CloudFront do
   def create_key_value_store(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/key-value-store"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -7684,7 +8208,7 @@ defmodule AWS.CloudFront do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7715,6 +8239,7 @@ defmodule AWS.CloudFront do
       "/2020-05-31/distributions/#{AWS.Util.encode_uri(distribution_id)}/monitoring-subscription"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7725,7 +8250,7 @@ defmodule AWS.CloudFront do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7756,6 +8281,7 @@ defmodule AWS.CloudFront do
   def create_origin_access_control(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/origin-access-control"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -7773,7 +8299,7 @@ defmodule AWS.CloudFront do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7823,6 +8349,7 @@ defmodule AWS.CloudFront do
   def create_origin_request_policy(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/origin-request-policy"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -7840,7 +8367,7 @@ defmodule AWS.CloudFront do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7858,6 +8385,7 @@ defmodule AWS.CloudFront do
   def create_public_key(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/public-key"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -7875,7 +8403,7 @@ defmodule AWS.CloudFront do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7901,6 +8429,7 @@ defmodule AWS.CloudFront do
   def create_realtime_log_config(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/realtime-log-config"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7911,7 +8440,7 @@ defmodule AWS.CloudFront do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7947,6 +8476,7 @@ defmodule AWS.CloudFront do
   def create_response_headers_policy(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/response-headers-policy"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -7964,7 +8494,7 @@ defmodule AWS.CloudFront do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7986,6 +8516,7 @@ defmodule AWS.CloudFront do
   def create_streaming_distribution(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/streaming-distribution"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -8003,7 +8534,7 @@ defmodule AWS.CloudFront do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -8029,6 +8560,7 @@ defmodule AWS.CloudFront do
   def create_streaming_distribution_with_tags(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/streaming-distribution?WithTags"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -8046,10 +8578,79 @@ defmodule AWS.CloudFront do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
+    )
+  end
+
+  @doc """
+  Create an Amazon CloudFront VPC origin.
+  """
+  @spec create_vpc_origin(map(), create_vpc_origin_request(), list()) ::
+          {:ok, create_vpc_origin_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_vpc_origin_errors()}
+  def create_vpc_origin(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/vpc-origin"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Deletes an Anycast static IP list.
+  """
+  @spec delete_anycast_ip_list(map(), String.t(), delete_anycast_ip_list_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_anycast_ip_list_errors()}
+  def delete_anycast_ip_list(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/anycast-ip-list/#{AWS.Util.encode_uri(id)}"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
     )
   end
 
@@ -8080,6 +8681,7 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8090,7 +8692,7 @@ defmodule AWS.CloudFront do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8118,6 +8720,7 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8128,7 +8731,7 @@ defmodule AWS.CloudFront do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8161,6 +8764,7 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8171,7 +8775,7 @@ defmodule AWS.CloudFront do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8194,6 +8798,7 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8204,7 +8809,7 @@ defmodule AWS.CloudFront do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8232,6 +8837,7 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8242,7 +8848,7 @@ defmodule AWS.CloudFront do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8270,6 +8876,7 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8280,7 +8887,7 @@ defmodule AWS.CloudFront do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8313,6 +8920,7 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8323,7 +8931,7 @@ defmodule AWS.CloudFront do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8357,6 +8965,7 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8367,7 +8976,7 @@ defmodule AWS.CloudFront do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8390,6 +8999,7 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8400,7 +9010,7 @@ defmodule AWS.CloudFront do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8425,6 +9035,7 @@ defmodule AWS.CloudFront do
       "/2020-05-31/distributions/#{AWS.Util.encode_uri(distribution_id)}/monitoring-subscription"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8435,7 +9046,7 @@ defmodule AWS.CloudFront do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8468,6 +9079,7 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8478,7 +9090,7 @@ defmodule AWS.CloudFront do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8516,6 +9128,7 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8526,7 +9139,7 @@ defmodule AWS.CloudFront do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8549,6 +9162,7 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8559,7 +9173,7 @@ defmodule AWS.CloudFront do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8588,6 +9202,7 @@ defmodule AWS.CloudFront do
   def delete_realtime_log_config(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/delete-realtime-log-config"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8598,7 +9213,7 @@ defmodule AWS.CloudFront do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8637,6 +9252,7 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8647,7 +9263,7 @@ defmodule AWS.CloudFront do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8742,6 +9358,7 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8752,10 +9369,51 @@ defmodule AWS.CloudFront do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
+    )
+  end
+
+  @doc """
+  Delete an Amazon CloudFront VPC origin.
+  """
+  @spec delete_vpc_origin(map(), String.t(), delete_vpc_origin_request(), list()) ::
+          {:ok, delete_vpc_origin_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_vpc_origin_errors()}
+  def delete_vpc_origin(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/vpc-origin/#{AWS.Util.encode_uri(id)}"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 
@@ -8808,6 +9466,30 @@ defmodule AWS.CloudFront do
           | {:error, describe_key_value_store_errors()}
   def describe_key_value_store(%Client{} = client, name, options \\ []) do
     url_path = "/2020-05-31/key-value-store/#{AWS.Util.encode_uri(name)}"
+    headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets an Anycast static IP list.
+  """
+  @spec get_anycast_ip_list(map(), String.t(), list()) ::
+          {:ok, get_anycast_ip_list_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_anycast_ip_list_errors()}
+  def get_anycast_ip_list(%Client{} = client, id, options \\ []) do
+    url_path = "/2020-05-31/anycast-ip-list/#{AWS.Util.encode_uri(id)}"
     headers = []
     query_params = []
 
@@ -9462,6 +10144,7 @@ defmodule AWS.CloudFront do
   def get_realtime_log_config(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/get-realtime-log-config"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9472,7 +10155,7 @@ defmodule AWS.CloudFront do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9588,6 +10271,61 @@ defmodule AWS.CloudFront do
         :response_header_parameters,
         [{"ETag", "ETag"}]
       )
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Get the details of an Amazon CloudFront VPC origin.
+  """
+  @spec get_vpc_origin(map(), String.t(), list()) ::
+          {:ok, get_vpc_origin_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_vpc_origin_errors()}
+  def get_vpc_origin(%Client{} = client, id, options \\ []) do
+    url_path = "/2020-05-31/vpc-origin/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists your Anycast static IP lists.
+  """
+  @spec list_anycast_ip_lists(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_anycast_ip_lists_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_anycast_ip_lists_errors()}
+  def list_anycast_ip_lists(%Client{} = client, marker \\ nil, max_items \\ nil, options \\ []) do
+    url_path = "/2020-05-31/anycast-ip-list"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -9865,6 +10603,52 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Lists the distributions in your account that are associated with the specified
+  `AnycastIpListId`.
+  """
+  @spec list_distributions_by_anycast_ip_list_id(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_distributions_by_anycast_ip_list_id_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_distributions_by_anycast_ip_list_id_errors()}
+  def list_distributions_by_anycast_ip_list_id(
+        %Client{} = client,
+        anycast_ip_list_id,
+        marker \\ nil,
+        max_items \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/2020-05-31/distributionsByAnycastIpListId/#{AWS.Util.encode_uri(anycast_ip_list_id)}"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets a list of distribution IDs for distributions that have a cache behavior
   that's
   associated with the specified cache policy.
@@ -10059,6 +10843,7 @@ defmodule AWS.CloudFront do
   def list_distributions_by_realtime_log_config(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/distributionsByRealtimeLogConfig"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -10069,7 +10854,7 @@ defmodule AWS.CloudFront do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -10110,6 +10895,49 @@ defmodule AWS.CloudFront do
     url_path =
       "/2020-05-31/distributionsByResponseHeadersPolicyId/#{AWS.Util.encode_uri(response_headers_policy_id)}"
 
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  List CloudFront distributions by their VPC origin ID.
+  """
+  @spec list_distributions_by_vpc_origin_id(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_distributions_by_vpc_origin_id_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_distributions_by_vpc_origin_id_errors()}
+  def list_distributions_by_vpc_origin_id(
+        %Client{} = client,
+        vpc_origin_id,
+        marker \\ nil,
+        max_items \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2020-05-31/distributionsByVpcOriginId/#{AWS.Util.encode_uri(vpc_origin_id)}"
     headers = []
     query_params = []
 
@@ -10745,6 +11573,37 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  List the CloudFront VPC origins in your account.
+  """
+  @spec list_vpc_origins(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_vpc_origins_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_vpc_origins_errors()}
+  def list_vpc_origins(%Client{} = client, marker \\ nil, max_items \\ nil, options \\ []) do
+    url_path = "/2020-05-31/vpc-origin"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Publishes a CloudFront function by copying the function code from the
   `DEVELOPMENT` stage to `LIVE`.
 
@@ -10775,6 +11634,7 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -10785,7 +11645,7 @@ defmodule AWS.CloudFront do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -10805,6 +11665,7 @@ defmodule AWS.CloudFront do
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/tagging?Operation=Tag"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -10820,7 +11681,7 @@ defmodule AWS.CloudFront do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -10859,6 +11720,7 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -10869,7 +11731,7 @@ defmodule AWS.CloudFront do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -10889,6 +11751,7 @@ defmodule AWS.CloudFront do
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/tagging?Operation=Untag"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -10904,7 +11767,7 @@ defmodule AWS.CloudFront do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -10945,6 +11808,7 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -10956,7 +11820,17 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -10980,6 +11854,7 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -10991,7 +11866,17 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11040,6 +11925,7 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -11051,7 +11937,17 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11101,6 +11997,7 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -11112,7 +12009,17 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11165,6 +12072,8 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"StagingDistributionId", "StagingDistributionId"}
@@ -11180,7 +12089,17 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11204,6 +12123,7 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -11215,7 +12135,17 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11239,6 +12169,7 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -11250,7 +12181,17 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11277,6 +12218,7 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -11288,7 +12230,17 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11325,6 +12277,7 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -11336,7 +12289,17 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11355,6 +12318,7 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -11366,7 +12330,17 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11390,6 +12364,7 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -11401,7 +12376,17 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11444,6 +12429,7 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -11455,7 +12441,17 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11477,6 +12473,7 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -11488,7 +12485,17 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11523,11 +12530,22 @@ defmodule AWS.CloudFront do
   def update_realtime_log_config(%Client{} = client, input, options \\ []) do
     url_path = "/2020-05-31/realtime-log-config"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11570,6 +12588,7 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -11581,7 +12600,17 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11605,6 +12634,7 @@ defmodule AWS.CloudFront do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -11616,6 +12646,57 @@ defmodule AWS.CloudFront do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Update an Amazon CloudFront VPC origin in your account.
+  """
+  @spec update_vpc_origin(map(), String.t(), update_vpc_origin_request(), list()) ::
+          {:ok, update_vpc_origin_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_vpc_origin_errors()}
+  def update_vpc_origin(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/vpc-origin/#{AWS.Util.encode_uri(id)}"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 end

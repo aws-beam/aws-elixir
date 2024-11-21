@@ -883,6 +883,7 @@ defmodule AWS.MediaConvert do
 
       queue() :: %{
         "Arn" => String.t(),
+        "ConcurrentJobs" => integer(),
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t(),
         "LastUpdated" => non_neg_integer(),
@@ -890,6 +891,7 @@ defmodule AWS.MediaConvert do
         "PricingPlan" => list(any()),
         "ProgressingJobsCount" => integer(),
         "ReservationPlan" => reservation_plan(),
+        "ServiceOverrides" => list(service_override()()),
         "Status" => list(any()),
         "SubmittedJobsCount" => integer(),
         "Type" => list(any())
@@ -923,6 +925,7 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       update_queue_request() :: %{
+        optional("ConcurrentJobs") => integer(),
         optional("Description") => String.t(),
         optional("ReservationPlanSettings") => reservation_plan_settings(),
         optional("Status") => list(any())
@@ -1985,6 +1988,7 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       create_queue_request() :: %{
+        optional("ConcurrentJobs") => integer(),
         optional("Description") => String.t(),
         optional("PricingPlan") => list(any()),
         optional("ReservationPlanSettings") => reservation_plan_settings(),
@@ -2251,6 +2255,20 @@ defmodule AWS.MediaConvert do
 
   """
   @type av1_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_override() :: %{
+        "Message" => String.t(),
+        "Name" => String.t(),
+        "OverrideValue" => String.t(),
+        "Value" => String.t()
+      }
+
+  """
+  @type service_override() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3151,7 +3169,9 @@ defmodule AWS.MediaConvert do
 
       list_queues_response() :: %{
         "NextToken" => String.t(),
-        "Queues" => list(queue()())
+        "Queues" => list(queue()()),
+        "TotalConcurrentJobs" => integer(),
+        "UnallocatedConcurrentJobs" => integer()
       }
 
   """
@@ -4110,6 +4130,7 @@ defmodule AWS.MediaConvert do
   def associate_certificate(%Client{} = client, input, options \\ []) do
     url_path = "/2017-08-29/certificates"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4120,7 +4141,7 @@ defmodule AWS.MediaConvert do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -4139,6 +4160,7 @@ defmodule AWS.MediaConvert do
   def cancel_job(%Client{} = client, id, input, options \\ []) do
     url_path = "/2017-08-29/jobs/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4149,7 +4171,7 @@ defmodule AWS.MediaConvert do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -4169,6 +4191,7 @@ defmodule AWS.MediaConvert do
   def create_job(%Client{} = client, input, options \\ []) do
     url_path = "/2017-08-29/jobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4179,7 +4202,7 @@ defmodule AWS.MediaConvert do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -4199,6 +4222,7 @@ defmodule AWS.MediaConvert do
   def create_job_template(%Client{} = client, input, options \\ []) do
     url_path = "/2017-08-29/jobTemplates"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4209,7 +4233,7 @@ defmodule AWS.MediaConvert do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -4229,6 +4253,7 @@ defmodule AWS.MediaConvert do
   def create_preset(%Client{} = client, input, options \\ []) do
     url_path = "/2017-08-29/presets"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4239,7 +4264,7 @@ defmodule AWS.MediaConvert do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -4259,6 +4284,7 @@ defmodule AWS.MediaConvert do
   def create_queue(%Client{} = client, input, options \\ []) do
     url_path = "/2017-08-29/queues"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4269,7 +4295,7 @@ defmodule AWS.MediaConvert do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -4286,6 +4312,7 @@ defmodule AWS.MediaConvert do
   def delete_job_template(%Client{} = client, name, input, options \\ []) do
     url_path = "/2017-08-29/jobTemplates/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4296,7 +4323,7 @@ defmodule AWS.MediaConvert do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -4313,6 +4340,7 @@ defmodule AWS.MediaConvert do
   def delete_policy(%Client{} = client, input, options \\ []) do
     url_path = "/2017-08-29/policy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4323,7 +4351,7 @@ defmodule AWS.MediaConvert do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4340,6 +4368,7 @@ defmodule AWS.MediaConvert do
   def delete_preset(%Client{} = client, name, input, options \\ []) do
     url_path = "/2017-08-29/presets/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4350,7 +4379,7 @@ defmodule AWS.MediaConvert do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -4367,6 +4396,7 @@ defmodule AWS.MediaConvert do
   def delete_queue(%Client{} = client, name, input, options \\ []) do
     url_path = "/2017-08-29/queues/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4377,7 +4407,7 @@ defmodule AWS.MediaConvert do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -4398,6 +4428,7 @@ defmodule AWS.MediaConvert do
   def describe_endpoints(%Client{} = client, input, options \\ []) do
     url_path = "/2017-08-29/endpoints"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4408,7 +4439,7 @@ defmodule AWS.MediaConvert do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4427,6 +4458,7 @@ defmodule AWS.MediaConvert do
   def disassociate_certificate(%Client{} = client, arn, input, options \\ []) do
     url_path = "/2017-08-29/certificates/#{AWS.Util.encode_uri(arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4437,7 +4469,7 @@ defmodule AWS.MediaConvert do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -4867,11 +4899,22 @@ defmodule AWS.MediaConvert do
   def put_policy(%Client{} = client, input, options \\ []) do
     url_path = "/2017-08-29/policy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4969,6 +5012,7 @@ defmodule AWS.MediaConvert do
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/2017-08-29/tags"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4979,7 +5023,7 @@ defmodule AWS.MediaConvert do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4999,11 +5043,22 @@ defmodule AWS.MediaConvert do
   def untag_resource(%Client{} = client, arn, input, options \\ []) do
     url_path = "/2017-08-29/tags/#{AWS.Util.encode_uri(arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5016,11 +5071,22 @@ defmodule AWS.MediaConvert do
   def update_job_template(%Client{} = client, name, input, options \\ []) do
     url_path = "/2017-08-29/jobTemplates/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5033,11 +5099,22 @@ defmodule AWS.MediaConvert do
   def update_preset(%Client{} = client, name, input, options \\ []) do
     url_path = "/2017-08-29/presets/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5050,10 +5127,21 @@ defmodule AWS.MediaConvert do
   def update_queue(%Client{} = client, name, input, options \\ []) do
     url_path = "/2017-08-29/queues/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

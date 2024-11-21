@@ -280,6 +280,7 @@ defmodule AWS.MarketplaceDeployment do
       "/catalogs/#{AWS.Util.encode_uri(catalog)}/products/#{AWS.Util.encode_uri(product_id)}/deployment-parameters"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -290,7 +291,7 @@ defmodule AWS.MarketplaceDeployment do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -307,6 +308,7 @@ defmodule AWS.MarketplaceDeployment do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -317,7 +319,7 @@ defmodule AWS.MarketplaceDeployment do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -334,6 +336,7 @@ defmodule AWS.MarketplaceDeployment do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -349,7 +352,7 @@ defmodule AWS.MarketplaceDeployment do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204

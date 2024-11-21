@@ -1786,6 +1786,7 @@ defmodule AWS.RAM do
   def accept_resource_share_invitation(%Client{} = client, input, options \\ []) do
     url_path = "/acceptresourceshareinvitation"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1796,7 +1797,7 @@ defmodule AWS.RAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1819,6 +1820,7 @@ defmodule AWS.RAM do
   def associate_resource_share(%Client{} = client, input, options \\ []) do
     url_path = "/associateresourceshare"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1829,7 +1831,7 @@ defmodule AWS.RAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1858,6 +1860,7 @@ defmodule AWS.RAM do
   def associate_resource_share_permission(%Client{} = client, input, options \\ []) do
     url_path = "/associateresourcesharepermission"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1868,7 +1871,7 @@ defmodule AWS.RAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1888,6 +1891,7 @@ defmodule AWS.RAM do
   def create_permission(%Client{} = client, input, options \\ []) do
     url_path = "/createpermission"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1898,7 +1902,7 @@ defmodule AWS.RAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1926,6 +1930,7 @@ defmodule AWS.RAM do
   def create_permission_version(%Client{} = client, input, options \\ []) do
     url_path = "/createpermissionversion"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1936,7 +1941,7 @@ defmodule AWS.RAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1964,6 +1969,7 @@ defmodule AWS.RAM do
   def create_resource_share(%Client{} = client, input, options \\ []) do
     url_path = "/createresourceshare"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1974,7 +1980,7 @@ defmodule AWS.RAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1997,6 +2003,7 @@ defmodule AWS.RAM do
   def delete_permission(%Client{} = client, input, options \\ []) do
     url_path = "/deletepermission"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2013,7 +2020,7 @@ defmodule AWS.RAM do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2037,6 +2044,7 @@ defmodule AWS.RAM do
   def delete_permission_version(%Client{} = client, input, options \\ []) do
     url_path = "/deletepermissionversion"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2054,7 +2062,7 @@ defmodule AWS.RAM do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2075,6 +2083,7 @@ defmodule AWS.RAM do
   def delete_resource_share(%Client{} = client, input, options \\ []) do
     url_path = "/deleteresourceshare"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2091,7 +2100,7 @@ defmodule AWS.RAM do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2110,6 +2119,7 @@ defmodule AWS.RAM do
   def disassociate_resource_share(%Client{} = client, input, options \\ []) do
     url_path = "/disassociateresourceshare"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2120,7 +2130,7 @@ defmodule AWS.RAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2146,6 +2156,7 @@ defmodule AWS.RAM do
   def disassociate_resource_share_permission(%Client{} = client, input, options \\ []) do
     url_path = "/disassociateresourcesharepermission"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2156,7 +2167,7 @@ defmodule AWS.RAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2195,6 +2206,7 @@ defmodule AWS.RAM do
   def enable_sharing_with_aws_organization(%Client{} = client, input, options \\ []) do
     url_path = "/enablesharingwithawsorganization"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2205,7 +2217,7 @@ defmodule AWS.RAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2222,6 +2234,7 @@ defmodule AWS.RAM do
   def get_permission(%Client{} = client, input, options \\ []) do
     url_path = "/getpermission"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2232,7 +2245,7 @@ defmodule AWS.RAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2251,6 +2264,7 @@ defmodule AWS.RAM do
   def get_resource_policies(%Client{} = client, input, options \\ []) do
     url_path = "/getresourcepolicies"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2261,7 +2275,7 @@ defmodule AWS.RAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2280,6 +2294,7 @@ defmodule AWS.RAM do
   def get_resource_share_associations(%Client{} = client, input, options \\ []) do
     url_path = "/getresourceshareassociations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2290,7 +2305,7 @@ defmodule AWS.RAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2307,6 +2322,7 @@ defmodule AWS.RAM do
   def get_resource_share_invitations(%Client{} = client, input, options \\ []) do
     url_path = "/getresourceshareinvitations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2317,7 +2333,7 @@ defmodule AWS.RAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2335,6 +2351,7 @@ defmodule AWS.RAM do
   def get_resource_shares(%Client{} = client, input, options \\ []) do
     url_path = "/getresourceshares"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2345,7 +2362,7 @@ defmodule AWS.RAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2371,6 +2388,7 @@ defmodule AWS.RAM do
   def list_pending_invitation_resources(%Client{} = client, input, options \\ []) do
     url_path = "/listpendinginvitationresources"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2381,7 +2399,7 @@ defmodule AWS.RAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2403,6 +2421,7 @@ defmodule AWS.RAM do
   def list_permission_associations(%Client{} = client, input, options \\ []) do
     url_path = "/listpermissionassociations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2413,7 +2432,7 @@ defmodule AWS.RAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2430,6 +2449,7 @@ defmodule AWS.RAM do
   def list_permission_versions(%Client{} = client, input, options \\ []) do
     url_path = "/listpermissionversions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2440,7 +2460,7 @@ defmodule AWS.RAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2458,6 +2478,7 @@ defmodule AWS.RAM do
   def list_permissions(%Client{} = client, input, options \\ []) do
     url_path = "/listpermissions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2468,7 +2489,7 @@ defmodule AWS.RAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2487,6 +2508,7 @@ defmodule AWS.RAM do
   def list_principals(%Client{} = client, input, options \\ []) do
     url_path = "/listprincipals"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2497,7 +2519,7 @@ defmodule AWS.RAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2519,6 +2541,7 @@ defmodule AWS.RAM do
   def list_replace_permission_associations_work(%Client{} = client, input, options \\ []) do
     url_path = "/listreplacepermissionassociationswork"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2529,7 +2552,7 @@ defmodule AWS.RAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2546,6 +2569,7 @@ defmodule AWS.RAM do
   def list_resource_share_permissions(%Client{} = client, input, options \\ []) do
     url_path = "/listresourcesharepermissions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2556,7 +2580,7 @@ defmodule AWS.RAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2573,6 +2597,7 @@ defmodule AWS.RAM do
   def list_resource_types(%Client{} = client, input, options \\ []) do
     url_path = "/listresourcetypes"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2583,7 +2608,7 @@ defmodule AWS.RAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2602,6 +2627,7 @@ defmodule AWS.RAM do
   def list_resources(%Client{} = client, input, options \\ []) do
     url_path = "/listresources"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2612,7 +2638,7 @@ defmodule AWS.RAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2672,6 +2698,7 @@ defmodule AWS.RAM do
   def promote_permission_created_from_policy(%Client{} = client, input, options \\ []) do
     url_path = "/promotepermissioncreatedfrompolicy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2682,7 +2709,7 @@ defmodule AWS.RAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2724,6 +2751,7 @@ defmodule AWS.RAM do
   def promote_resource_share_created_from_policy(%Client{} = client, input, options \\ []) do
     url_path = "/promoteresourcesharecreatedfrompolicy"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2739,7 +2767,7 @@ defmodule AWS.RAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2761,6 +2789,7 @@ defmodule AWS.RAM do
   def reject_resource_share_invitation(%Client{} = client, input, options \\ []) do
     url_path = "/rejectresourceshareinvitation"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2771,7 +2800,7 @@ defmodule AWS.RAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2809,6 +2838,7 @@ defmodule AWS.RAM do
   def replace_permission_associations(%Client{} = client, input, options \\ []) do
     url_path = "/replacepermissionassociations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2819,7 +2849,7 @@ defmodule AWS.RAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2841,6 +2871,7 @@ defmodule AWS.RAM do
   def set_default_permission_version(%Client{} = client, input, options \\ []) do
     url_path = "/setdefaultpermissionversion"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2851,7 +2882,7 @@ defmodule AWS.RAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2876,6 +2907,7 @@ defmodule AWS.RAM do
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tagresource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2886,7 +2918,7 @@ defmodule AWS.RAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2904,6 +2936,7 @@ defmodule AWS.RAM do
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/untagresource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2914,7 +2947,7 @@ defmodule AWS.RAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2931,6 +2964,7 @@ defmodule AWS.RAM do
   def update_resource_share(%Client{} = client, input, options \\ []) do
     url_path = "/updateresourceshare"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2941,7 +2975,7 @@ defmodule AWS.RAM do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

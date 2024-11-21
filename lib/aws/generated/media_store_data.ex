@@ -240,6 +240,7 @@ defmodule AWS.MediaStoreData do
   def delete_object(%Client{} = client, path, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_multi_segment_uri(path)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -250,7 +251,7 @@ defmodule AWS.MediaStoreData do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -267,6 +268,7 @@ defmodule AWS.MediaStoreData do
   def describe_object(%Client{} = client, path, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_multi_segment_uri(path)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -290,7 +292,7 @@ defmodule AWS.MediaStoreData do
       :head,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -413,6 +415,7 @@ defmodule AWS.MediaStoreData do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -424,6 +427,16 @@ defmodule AWS.MediaStoreData do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

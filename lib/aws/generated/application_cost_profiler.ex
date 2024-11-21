@@ -324,6 +324,7 @@ defmodule AWS.ApplicationCostProfiler do
   def delete_report_definition(%Client{} = client, report_id, input, options \\ []) do
     url_path = "/reportDefinition/#{AWS.Util.encode_uri(report_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -334,7 +335,7 @@ defmodule AWS.ApplicationCostProfiler do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -375,6 +376,7 @@ defmodule AWS.ApplicationCostProfiler do
   def import_application_usage(%Client{} = client, input, options \\ []) do
     url_path = "/importApplicationUsage"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -385,7 +387,7 @@ defmodule AWS.ApplicationCostProfiler do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -440,6 +442,7 @@ defmodule AWS.ApplicationCostProfiler do
   def put_report_definition(%Client{} = client, input, options \\ []) do
     url_path = "/reportDefinition"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -450,7 +453,7 @@ defmodule AWS.ApplicationCostProfiler do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -467,10 +470,21 @@ defmodule AWS.ApplicationCostProfiler do
   def update_report_definition(%Client{} = client, report_id, input, options \\ []) do
     url_path = "/reportDefinition/#{AWS.Util.encode_uri(report_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

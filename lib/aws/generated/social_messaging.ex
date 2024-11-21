@@ -751,6 +751,7 @@ defmodule AWS.SocialMessaging do
   def associate_whats_app_business_account(%Client{} = client, input, options \\ []) do
     url_path = "/v1/whatsapp/signup"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -761,7 +762,7 @@ defmodule AWS.SocialMessaging do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -781,6 +782,7 @@ defmodule AWS.SocialMessaging do
   def delete_whats_app_message_media(%Client{} = client, input, options \\ []) do
     url_path = "/v1/whatsapp/media"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -797,7 +799,7 @@ defmodule AWS.SocialMessaging do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -819,6 +821,7 @@ defmodule AWS.SocialMessaging do
   def disassociate_whats_app_business_account(%Client{} = client, input, options \\ []) do
     url_path = "/v1/whatsapp/waba/disassociate"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -834,7 +837,7 @@ defmodule AWS.SocialMessaging do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -906,6 +909,7 @@ defmodule AWS.SocialMessaging do
   def get_whats_app_message_media(%Client{} = client, input, options \\ []) do
     url_path = "/v1/whatsapp/media/get"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -916,7 +920,7 @@ defmodule AWS.SocialMessaging do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1002,6 +1006,7 @@ defmodule AWS.SocialMessaging do
   def post_whats_app_message_media(%Client{} = client, input, options \\ []) do
     url_path = "/v1/whatsapp/media"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1012,7 +1017,7 @@ defmodule AWS.SocialMessaging do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1037,11 +1042,22 @@ defmodule AWS.SocialMessaging do
   def put_whats_app_business_account_event_destinations(%Client{} = client, input, options \\ []) do
     url_path = "/v1/whatsapp/waba/eventdestinations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1061,6 +1077,7 @@ defmodule AWS.SocialMessaging do
   def send_whats_app_message(%Client{} = client, input, options \\ []) do
     url_path = "/v1/whatsapp/send"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1071,7 +1088,7 @@ defmodule AWS.SocialMessaging do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1091,6 +1108,7 @@ defmodule AWS.SocialMessaging do
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v1/tags/tag-resource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1101,7 +1119,7 @@ defmodule AWS.SocialMessaging do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1118,6 +1136,7 @@ defmodule AWS.SocialMessaging do
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v1/tags/untag-resource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1128,7 +1147,7 @@ defmodule AWS.SocialMessaging do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

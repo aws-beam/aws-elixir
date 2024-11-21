@@ -2968,6 +2968,7 @@ defmodule AWS.AppMesh do
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualGateway/#{AWS.Util.encode_uri(virtual_gateway_name)}/gatewayRoutes"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2977,7 +2978,17 @@ defmodule AWS.AppMesh do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3000,11 +3011,22 @@ defmodule AWS.AppMesh do
   def create_mesh(%Client{} = client, input, options \\ []) do
     url_path = "/v20190125/meshes"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3025,6 +3047,7 @@ defmodule AWS.AppMesh do
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualRouter/#{AWS.Util.encode_uri(virtual_router_name)}/routes"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3034,7 +3057,17 @@ defmodule AWS.AppMesh do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3058,6 +3091,7 @@ defmodule AWS.AppMesh do
   def create_virtual_gateway(%Client{} = client, mesh_name, input, options \\ []) do
     url_path = "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualGateways"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3067,7 +3101,17 @@ defmodule AWS.AppMesh do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3112,6 +3156,7 @@ defmodule AWS.AppMesh do
   def create_virtual_node(%Client{} = client, mesh_name, input, options \\ []) do
     url_path = "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualNodes"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3121,7 +3166,17 @@ defmodule AWS.AppMesh do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3145,6 +3200,7 @@ defmodule AWS.AppMesh do
   def create_virtual_router(%Client{} = client, mesh_name, input, options \\ []) do
     url_path = "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualRouters"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3154,7 +3210,17 @@ defmodule AWS.AppMesh do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3177,6 +3243,7 @@ defmodule AWS.AppMesh do
   def create_virtual_service(%Client{} = client, mesh_name, input, options \\ []) do
     url_path = "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualServices"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3186,7 +3253,17 @@ defmodule AWS.AppMesh do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3215,6 +3292,7 @@ defmodule AWS.AppMesh do
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualGateway/#{AWS.Util.encode_uri(virtual_gateway_name)}/gatewayRoutes/#{AWS.Util.encode_uri(gateway_route_name)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3230,7 +3308,7 @@ defmodule AWS.AppMesh do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3251,6 +3329,7 @@ defmodule AWS.AppMesh do
   def delete_mesh(%Client{} = client, mesh_name, input, options \\ []) do
     url_path = "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3261,7 +3340,7 @@ defmodule AWS.AppMesh do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3287,6 +3366,7 @@ defmodule AWS.AppMesh do
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualRouter/#{AWS.Util.encode_uri(virtual_router_name)}/routes/#{AWS.Util.encode_uri(route_name)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3302,7 +3382,7 @@ defmodule AWS.AppMesh do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3336,6 +3416,7 @@ defmodule AWS.AppMesh do
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualGateways/#{AWS.Util.encode_uri(virtual_gateway_name)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3351,7 +3432,7 @@ defmodule AWS.AppMesh do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3374,6 +3455,7 @@ defmodule AWS.AppMesh do
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualNodes/#{AWS.Util.encode_uri(virtual_node_name)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3389,7 +3471,7 @@ defmodule AWS.AppMesh do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3424,6 +3506,7 @@ defmodule AWS.AppMesh do
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualRouters/#{AWS.Util.encode_uri(virtual_router_name)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3439,7 +3522,7 @@ defmodule AWS.AppMesh do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3470,6 +3553,7 @@ defmodule AWS.AppMesh do
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualServices/#{AWS.Util.encode_uri(virtual_service_name)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3485,7 +3569,7 @@ defmodule AWS.AppMesh do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4129,6 +4213,7 @@ defmodule AWS.AppMesh do
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v20190125/tag"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4138,7 +4223,17 @@ defmodule AWS.AppMesh do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4151,6 +4246,7 @@ defmodule AWS.AppMesh do
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v20190125/untag"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4160,7 +4256,17 @@ defmodule AWS.AppMesh do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4191,6 +4297,7 @@ defmodule AWS.AppMesh do
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualGateway/#{AWS.Util.encode_uri(virtual_gateway_name)}/gatewayRoutes/#{AWS.Util.encode_uri(gateway_route_name)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4200,7 +4307,17 @@ defmodule AWS.AppMesh do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4213,11 +4330,22 @@ defmodule AWS.AppMesh do
   def update_mesh(%Client{} = client, mesh_name, input, options \\ []) do
     url_path = "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4239,6 +4367,7 @@ defmodule AWS.AppMesh do
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualRouter/#{AWS.Util.encode_uri(virtual_router_name)}/routes/#{AWS.Util.encode_uri(route_name)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4248,7 +4377,17 @@ defmodule AWS.AppMesh do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4275,6 +4414,7 @@ defmodule AWS.AppMesh do
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualGateways/#{AWS.Util.encode_uri(virtual_gateway_name)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4284,7 +4424,17 @@ defmodule AWS.AppMesh do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4299,6 +4449,7 @@ defmodule AWS.AppMesh do
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualNodes/#{AWS.Util.encode_uri(virtual_node_name)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4308,7 +4459,17 @@ defmodule AWS.AppMesh do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4335,6 +4496,7 @@ defmodule AWS.AppMesh do
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualRouters/#{AWS.Util.encode_uri(virtual_router_name)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4344,7 +4506,17 @@ defmodule AWS.AppMesh do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4371,6 +4543,7 @@ defmodule AWS.AppMesh do
       "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualServices/#{AWS.Util.encode_uri(virtual_service_name)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4380,6 +4553,16 @@ defmodule AWS.AppMesh do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

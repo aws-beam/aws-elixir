@@ -1348,6 +1348,7 @@ defmodule AWS.QApps do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1358,7 +1359,7 @@ defmodule AWS.QApps do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1388,6 +1389,7 @@ defmodule AWS.QApps do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1398,7 +1400,7 @@ defmodule AWS.QApps do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1424,6 +1426,7 @@ defmodule AWS.QApps do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1434,7 +1437,7 @@ defmodule AWS.QApps do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1460,6 +1463,7 @@ defmodule AWS.QApps do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1470,7 +1474,7 @@ defmodule AWS.QApps do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1496,6 +1500,7 @@ defmodule AWS.QApps do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1506,7 +1511,7 @@ defmodule AWS.QApps do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1530,6 +1535,7 @@ defmodule AWS.QApps do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1540,7 +1546,7 @@ defmodule AWS.QApps do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1568,6 +1574,7 @@ defmodule AWS.QApps do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1578,7 +1585,7 @@ defmodule AWS.QApps do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1602,6 +1609,7 @@ defmodule AWS.QApps do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1612,7 +1620,7 @@ defmodule AWS.QApps do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1638,6 +1646,7 @@ defmodule AWS.QApps do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1648,7 +1657,7 @@ defmodule AWS.QApps do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1671,6 +1680,7 @@ defmodule AWS.QApps do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1681,7 +1691,7 @@ defmodule AWS.QApps do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1705,6 +1715,7 @@ defmodule AWS.QApps do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1715,7 +1726,7 @@ defmodule AWS.QApps do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1857,6 +1868,7 @@ defmodule AWS.QApps do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1867,7 +1879,7 @@ defmodule AWS.QApps do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2043,6 +2055,7 @@ defmodule AWS.QApps do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2053,7 +2066,7 @@ defmodule AWS.QApps do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2080,6 +2093,7 @@ defmodule AWS.QApps do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2090,7 +2104,7 @@ defmodule AWS.QApps do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2117,6 +2131,7 @@ defmodule AWS.QApps do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2127,7 +2142,7 @@ defmodule AWS.QApps do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2144,6 +2159,7 @@ defmodule AWS.QApps do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2154,7 +2170,7 @@ defmodule AWS.QApps do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2171,6 +2187,7 @@ defmodule AWS.QApps do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2186,7 +2203,7 @@ defmodule AWS.QApps do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2209,6 +2226,7 @@ defmodule AWS.QApps do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2219,7 +2237,7 @@ defmodule AWS.QApps do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2242,6 +2260,7 @@ defmodule AWS.QApps do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2252,7 +2271,7 @@ defmodule AWS.QApps do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2276,6 +2295,7 @@ defmodule AWS.QApps do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2286,7 +2306,7 @@ defmodule AWS.QApps do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2315,6 +2335,7 @@ defmodule AWS.QApps do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2325,7 +2346,7 @@ defmodule AWS.QApps do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

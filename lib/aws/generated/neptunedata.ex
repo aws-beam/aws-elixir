@@ -2539,6 +2539,7 @@ defmodule AWS.Neptunedata do
   def cancel_gremlin_query(%Client{} = client, query_id, input, options \\ []) do
     url_path = "/gremlin/status/#{AWS.Util.encode_uri(query_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2549,7 +2550,7 @@ defmodule AWS.Neptunedata do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2577,6 +2578,7 @@ defmodule AWS.Neptunedata do
   def cancel_loader_job(%Client{} = client, load_id, input, options \\ []) do
     url_path = "/loader/#{AWS.Util.encode_uri(load_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2587,7 +2589,7 @@ defmodule AWS.Neptunedata do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2618,6 +2620,7 @@ defmodule AWS.Neptunedata do
   def cancel_ml_data_processing_job(%Client{} = client, id, input, options \\ []) do
     url_path = "/ml/dataprocessing/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2634,7 +2637,7 @@ defmodule AWS.Neptunedata do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2665,6 +2668,7 @@ defmodule AWS.Neptunedata do
   def cancel_ml_model_training_job(%Client{} = client, id, input, options \\ []) do
     url_path = "/ml/modeltraining/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2681,7 +2685,7 @@ defmodule AWS.Neptunedata do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2712,6 +2716,7 @@ defmodule AWS.Neptunedata do
   def cancel_ml_model_transform_job(%Client{} = client, id, input, options \\ []) do
     url_path = "/ml/modeltransform/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2728,7 +2733,7 @@ defmodule AWS.Neptunedata do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2755,6 +2760,7 @@ defmodule AWS.Neptunedata do
   def cancel_open_cypher_query(%Client{} = client, query_id, input, options \\ []) do
     url_path = "/opencypher/status/#{AWS.Util.encode_uri(query_id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2770,7 +2776,7 @@ defmodule AWS.Neptunedata do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2798,6 +2804,7 @@ defmodule AWS.Neptunedata do
   def create_ml_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/ml/endpoints"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2808,7 +2815,7 @@ defmodule AWS.Neptunedata do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2835,6 +2842,7 @@ defmodule AWS.Neptunedata do
   def delete_ml_endpoint(%Client{} = client, id, input, options \\ []) do
     url_path = "/ml/endpoints/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2851,7 +2859,7 @@ defmodule AWS.Neptunedata do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2875,6 +2883,7 @@ defmodule AWS.Neptunedata do
   def delete_propertygraph_statistics(%Client{} = client, input, options \\ []) do
     url_path = "/propertygraph/statistics"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2885,7 +2894,7 @@ defmodule AWS.Neptunedata do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2908,6 +2917,7 @@ defmodule AWS.Neptunedata do
   def delete_sparql_statistics(%Client{} = client, input, options \\ []) do
     url_path = "/sparql/statistics"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2918,7 +2928,7 @@ defmodule AWS.Neptunedata do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2948,6 +2958,7 @@ defmodule AWS.Neptunedata do
   def execute_fast_reset(%Client{} = client, input, options \\ []) do
     url_path = "/system"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2958,7 +2969,7 @@ defmodule AWS.Neptunedata do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3012,6 +3023,7 @@ defmodule AWS.Neptunedata do
   def execute_gremlin_explain_query(%Client{} = client, input, options \\ []) do
     url_path = "/gremlin/explain"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3022,7 +3034,7 @@ defmodule AWS.Neptunedata do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3056,6 +3068,7 @@ defmodule AWS.Neptunedata do
   def execute_gremlin_profile_query(%Client{} = client, input, options \\ []) do
     url_path = "/gremlin/profile"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3066,7 +3079,7 @@ defmodule AWS.Neptunedata do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3119,6 +3132,7 @@ defmodule AWS.Neptunedata do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3129,7 +3143,7 @@ defmodule AWS.Neptunedata do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3166,6 +3180,7 @@ defmodule AWS.Neptunedata do
   def execute_open_cypher_explain_query(%Client{} = client, input, options \\ []) do
     url_path = "/opencypher/explain"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3176,7 +3191,7 @@ defmodule AWS.Neptunedata do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3231,6 +3246,7 @@ defmodule AWS.Neptunedata do
   def execute_open_cypher_query(%Client{} = client, input, options \\ []) do
     url_path = "/opencypher"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3241,7 +3257,7 @@ defmodule AWS.Neptunedata do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4165,6 +4181,7 @@ defmodule AWS.Neptunedata do
   def manage_propertygraph_statistics(%Client{} = client, input, options \\ []) do
     url_path = "/propertygraph/statistics"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4175,7 +4192,7 @@ defmodule AWS.Neptunedata do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4198,6 +4215,7 @@ defmodule AWS.Neptunedata do
   def manage_sparql_statistics(%Client{} = client, input, options \\ []) do
     url_path = "/sparql/statistics"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4208,7 +4226,7 @@ defmodule AWS.Neptunedata do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4235,6 +4253,7 @@ defmodule AWS.Neptunedata do
   def start_loader_job(%Client{} = client, input, options \\ []) do
     url_path = "/loader"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4245,7 +4264,7 @@ defmodule AWS.Neptunedata do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4272,6 +4291,7 @@ defmodule AWS.Neptunedata do
   def start_ml_data_processing_job(%Client{} = client, input, options \\ []) do
     url_path = "/ml/dataprocessing"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4282,7 +4302,7 @@ defmodule AWS.Neptunedata do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4308,6 +4328,7 @@ defmodule AWS.Neptunedata do
   def start_ml_model_training_job(%Client{} = client, input, options \\ []) do
     url_path = "/ml/modeltraining"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4318,7 +4339,7 @@ defmodule AWS.Neptunedata do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4344,6 +4365,7 @@ defmodule AWS.Neptunedata do
   def start_ml_model_transform_job(%Client{} = client, input, options \\ []) do
     url_path = "/ml/modeltransform"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4354,7 +4376,7 @@ defmodule AWS.Neptunedata do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

@@ -2474,6 +2474,7 @@ defmodule AWS.Drs do
   def associate_source_network_stack(%Client{} = client, input, options \\ []) do
     url_path = "/AssociateSourceNetworkStack"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2484,7 +2485,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -2502,6 +2503,7 @@ defmodule AWS.Drs do
   def create_extended_source_server(%Client{} = client, input, options \\ []) do
     url_path = "/CreateExtendedSourceServer"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2512,7 +2514,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2533,6 +2535,7 @@ defmodule AWS.Drs do
   def create_launch_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/CreateLaunchConfigurationTemplate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2543,7 +2546,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2564,6 +2567,7 @@ defmodule AWS.Drs do
   def create_replication_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/CreateReplicationConfigurationTemplate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2574,7 +2578,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2591,6 +2595,7 @@ defmodule AWS.Drs do
   def create_source_network(%Client{} = client, input, options \\ []) do
     url_path = "/CreateSourceNetwork"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2601,7 +2606,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2618,6 +2623,7 @@ defmodule AWS.Drs do
   def delete_job(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteJob"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2628,7 +2634,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2645,6 +2651,7 @@ defmodule AWS.Drs do
   def delete_launch_action(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteLaunchAction"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2655,7 +2662,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2676,6 +2683,7 @@ defmodule AWS.Drs do
   def delete_launch_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteLaunchConfigurationTemplate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2686,7 +2694,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2706,6 +2714,7 @@ defmodule AWS.Drs do
   def delete_recovery_instance(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteRecoveryInstance"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2716,7 +2725,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2737,6 +2746,7 @@ defmodule AWS.Drs do
   def delete_replication_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteReplicationConfigurationTemplate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2747,7 +2757,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2764,6 +2774,7 @@ defmodule AWS.Drs do
   def delete_source_network(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteSourceNetwork"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2774,7 +2785,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2793,6 +2804,7 @@ defmodule AWS.Drs do
   def delete_source_server(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteSourceServer"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2803,7 +2815,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2820,6 +2832,7 @@ defmodule AWS.Drs do
   def describe_job_log_items(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeJobLogItems"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2830,7 +2843,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2854,6 +2867,7 @@ defmodule AWS.Drs do
   def describe_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeJobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2864,7 +2878,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2886,6 +2900,7 @@ defmodule AWS.Drs do
   def describe_launch_configuration_templates(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeLaunchConfigurationTemplates"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2896,7 +2911,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2913,6 +2928,7 @@ defmodule AWS.Drs do
   def describe_recovery_instances(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeRecoveryInstances"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2923,7 +2939,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2940,6 +2956,7 @@ defmodule AWS.Drs do
   def describe_recovery_snapshots(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeRecoverySnapshots"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2950,7 +2967,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2971,6 +2988,7 @@ defmodule AWS.Drs do
   def describe_replication_configuration_templates(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeReplicationConfigurationTemplates"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2981,7 +2999,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2998,6 +3016,7 @@ defmodule AWS.Drs do
   def describe_source_networks(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeSourceNetworks"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3008,7 +3027,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3025,6 +3044,7 @@ defmodule AWS.Drs do
   def describe_source_servers(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeSourceServers"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3035,7 +3055,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3064,6 +3084,7 @@ defmodule AWS.Drs do
   def disconnect_recovery_instance(%Client{} = client, input, options \\ []) do
     url_path = "/DisconnectRecoveryInstance"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3074,7 +3095,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3103,6 +3124,7 @@ defmodule AWS.Drs do
   def disconnect_source_server(%Client{} = client, input, options \\ []) do
     url_path = "/DisconnectSourceServer"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3113,7 +3135,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3134,6 +3156,7 @@ defmodule AWS.Drs do
   def export_source_network_cfn_template(%Client{} = client, input, options \\ []) do
     url_path = "/ExportSourceNetworkCfnTemplate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3144,7 +3167,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3165,6 +3188,7 @@ defmodule AWS.Drs do
   def get_failback_replication_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/GetFailbackReplicationConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3175,7 +3199,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3192,6 +3216,7 @@ defmodule AWS.Drs do
   def get_launch_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/GetLaunchConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3202,7 +3227,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3219,6 +3244,7 @@ defmodule AWS.Drs do
   def get_replication_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/GetReplicationConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3229,7 +3255,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3246,6 +3272,7 @@ defmodule AWS.Drs do
   def initialize_service(%Client{} = client, input, options \\ []) do
     url_path = "/InitializeService"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3256,7 +3283,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3279,6 +3306,7 @@ defmodule AWS.Drs do
   def list_extensible_source_servers(%Client{} = client, input, options \\ []) do
     url_path = "/ListExtensibleSourceServers"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3289,7 +3317,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3306,6 +3334,7 @@ defmodule AWS.Drs do
   def list_launch_actions(%Client{} = client, input, options \\ []) do
     url_path = "/ListLaunchActions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3316,7 +3345,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3386,6 +3415,7 @@ defmodule AWS.Drs do
   def put_launch_action(%Client{} = client, input, options \\ []) do
     url_path = "/PutLaunchAction"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3396,7 +3426,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3418,6 +3448,7 @@ defmodule AWS.Drs do
   def retry_data_replication(%Client{} = client, input, options \\ []) do
     url_path = "/RetryDataReplication"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3428,7 +3459,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3451,6 +3482,7 @@ defmodule AWS.Drs do
   def reverse_replication(%Client{} = client, input, options \\ []) do
     url_path = "/ReverseReplication"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3461,7 +3493,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3482,6 +3514,7 @@ defmodule AWS.Drs do
   def start_failback_launch(%Client{} = client, input, options \\ []) do
     url_path = "/StartFailbackLaunch"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3492,7 +3525,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3512,6 +3545,7 @@ defmodule AWS.Drs do
   def start_recovery(%Client{} = client, input, options \\ []) do
     url_path = "/StartRecovery"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3522,7 +3556,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -3542,6 +3576,7 @@ defmodule AWS.Drs do
   def start_replication(%Client{} = client, input, options \\ []) do
     url_path = "/StartReplication"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3552,7 +3587,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3572,6 +3607,7 @@ defmodule AWS.Drs do
   def start_source_network_recovery(%Client{} = client, input, options \\ []) do
     url_path = "/StartSourceNetworkRecovery"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3582,7 +3618,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -3605,6 +3641,7 @@ defmodule AWS.Drs do
   def start_source_network_replication(%Client{} = client, input, options \\ []) do
     url_path = "/StartSourceNetworkReplication"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3615,7 +3652,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3635,6 +3672,7 @@ defmodule AWS.Drs do
   def stop_failback(%Client{} = client, input, options \\ []) do
     url_path = "/StopFailback"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3645,7 +3683,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3665,6 +3703,7 @@ defmodule AWS.Drs do
   def stop_replication(%Client{} = client, input, options \\ []) do
     url_path = "/StopReplication"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3675,7 +3714,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3694,6 +3733,7 @@ defmodule AWS.Drs do
   def stop_source_network_replication(%Client{} = client, input, options \\ []) do
     url_path = "/StopSourceNetworkReplication"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3704,7 +3744,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3726,6 +3766,7 @@ defmodule AWS.Drs do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3736,7 +3777,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3755,6 +3796,7 @@ defmodule AWS.Drs do
   def terminate_recovery_instances(%Client{} = client, input, options \\ []) do
     url_path = "/TerminateRecoveryInstances"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3765,7 +3807,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3783,6 +3825,7 @@ defmodule AWS.Drs do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3798,7 +3841,7 @@ defmodule AWS.Drs do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3820,6 +3863,7 @@ defmodule AWS.Drs do
   def update_failback_replication_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateFailbackReplicationConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3830,7 +3874,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3847,6 +3891,7 @@ defmodule AWS.Drs do
   def update_launch_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateLaunchConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3857,7 +3902,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3878,6 +3923,7 @@ defmodule AWS.Drs do
   def update_launch_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateLaunchConfigurationTemplate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3888,7 +3934,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3909,6 +3955,7 @@ defmodule AWS.Drs do
   def update_replication_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateReplicationConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3919,7 +3966,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3940,6 +3987,7 @@ defmodule AWS.Drs do
   def update_replication_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateReplicationConfigurationTemplate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3950,7 +3998,7 @@ defmodule AWS.Drs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

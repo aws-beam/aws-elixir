@@ -11223,6 +11223,7 @@ defmodule AWS.IoT do
   def accept_certificate_transfer(%Client{} = client, certificate_id, input, options \\ []) do
     url_path = "/accept-certificate-transfer/#{AWS.Util.encode_uri(certificate_id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -11238,7 +11239,7 @@ defmodule AWS.IoT do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11259,11 +11260,22 @@ defmodule AWS.IoT do
   def add_thing_to_billing_group(%Client{} = client, input, options \\ []) do
     url_path = "/billing-groups/addThingToBillingGroup"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11280,11 +11292,22 @@ defmodule AWS.IoT do
   def add_thing_to_thing_group(%Client{} = client, input, options \\ []) do
     url_path = "/thing-groups/addThingToThingGroup"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11316,6 +11339,7 @@ defmodule AWS.IoT do
       "/packages/#{AWS.Util.encode_uri(package_name)}/versions/#{AWS.Util.encode_uri(version_name)}/sbom"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -11325,7 +11349,17 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11359,6 +11393,7 @@ defmodule AWS.IoT do
   def associate_targets_with_job(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}/targets"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -11374,7 +11409,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11396,11 +11431,22 @@ defmodule AWS.IoT do
   def attach_policy(%Client{} = client, policy_name, input, options \\ []) do
     url_path = "/target-policies/#{AWS.Util.encode_uri(policy_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11428,11 +11474,22 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11453,6 +11510,7 @@ defmodule AWS.IoT do
   def attach_security_profile(%Client{} = client, security_profile_name, input, options \\ []) do
     url_path = "/security-profiles/#{AWS.Util.encode_uri(security_profile_name)}/targets"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -11462,7 +11520,17 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11488,6 +11556,8 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"thingPrincipalType", "thingPrincipalType"}
@@ -11496,7 +11566,17 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11522,11 +11602,22 @@ defmodule AWS.IoT do
   def cancel_audit_mitigation_actions_task(%Client{} = client, task_id, input, options \\ []) do
     url_path = "/audit/mitigationactions/tasks/#{AWS.Util.encode_uri(task_id)}/cancel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11546,11 +11637,22 @@ defmodule AWS.IoT do
   def cancel_audit_task(%Client{} = client, task_id, input, options \\ []) do
     url_path = "/audit/tasks/#{AWS.Util.encode_uri(task_id)}/cancel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11583,6 +11685,7 @@ defmodule AWS.IoT do
   def cancel_certificate_transfer(%Client{} = client, certificate_id, input, options \\ []) do
     url_path = "/cancel-certificate-transfer/#{AWS.Util.encode_uri(certificate_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11593,7 +11696,7 @@ defmodule AWS.IoT do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11620,11 +11723,22 @@ defmodule AWS.IoT do
   def cancel_detect_mitigation_actions_task(%Client{} = client, task_id, input, options \\ []) do
     url_path = "/detect/mitigationactions/tasks/#{AWS.Util.encode_uri(task_id)}/cancel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11641,6 +11755,7 @@ defmodule AWS.IoT do
   def cancel_job(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}/cancel"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -11650,7 +11765,17 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11675,6 +11800,7 @@ defmodule AWS.IoT do
       "/things/#{AWS.Util.encode_uri(thing_name)}/jobs/#{AWS.Util.encode_uri(job_id)}/cancel"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -11684,7 +11810,17 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11701,6 +11837,7 @@ defmodule AWS.IoT do
   def clear_default_authorizer(%Client{} = client, input, options \\ []) do
     url_path = "/default-authorizer"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11711,7 +11848,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11760,6 +11897,7 @@ defmodule AWS.IoT do
   def create_audit_suppression(%Client{} = client, input, options \\ []) do
     url_path = "/audit/suppressions/create"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11770,7 +11908,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11791,6 +11929,7 @@ defmodule AWS.IoT do
   def create_authorizer(%Client{} = client, authorizer_name, input, options \\ []) do
     url_path = "/authorizer/#{AWS.Util.encode_uri(authorizer_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11801,7 +11940,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11828,6 +11967,7 @@ defmodule AWS.IoT do
   def create_billing_group(%Client{} = client, billing_group_name, input, options \\ []) do
     url_path = "/billing-groups/#{AWS.Util.encode_uri(billing_group_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11838,7 +11978,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11918,6 +12058,7 @@ defmodule AWS.IoT do
   def create_certificate_from_csr(%Client{} = client, input, options \\ []) do
     url_path = "/certificates"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -11933,7 +12074,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11980,6 +12121,7 @@ defmodule AWS.IoT do
       ) do
     url_path = "/certificate-providers/#{AWS.Util.encode_uri(certificate_provider_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11990,7 +12132,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12014,6 +12156,7 @@ defmodule AWS.IoT do
   def create_custom_metric(%Client{} = client, metric_name, input, options \\ []) do
     url_path = "/custom-metric/#{AWS.Util.encode_uri(metric_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12024,7 +12167,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12050,6 +12193,7 @@ defmodule AWS.IoT do
   def create_dimension(%Client{} = client, name, input, options \\ []) do
     url_path = "/dimensions/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12060,7 +12204,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12091,6 +12235,7 @@ defmodule AWS.IoT do
       ) do
     url_path = "/domainConfigurations/#{AWS.Util.encode_uri(domain_configuration_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12101,7 +12246,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12127,6 +12272,7 @@ defmodule AWS.IoT do
   def create_dynamic_thing_group(%Client{} = client, thing_group_name, input, options \\ []) do
     url_path = "/dynamic-thing-groups/#{AWS.Util.encode_uri(thing_group_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12137,7 +12283,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12158,11 +12304,22 @@ defmodule AWS.IoT do
   def create_fleet_metric(%Client{} = client, metric_name, input, options \\ []) do
     url_path = "/fleet-metric/#{AWS.Util.encode_uri(metric_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12179,11 +12336,22 @@ defmodule AWS.IoT do
   def create_job(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12200,11 +12368,22 @@ defmodule AWS.IoT do
   def create_job_template(%Client{} = client, job_template_id, input, options \\ []) do
     url_path = "/job-templates/#{AWS.Util.encode_uri(job_template_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12228,6 +12407,7 @@ defmodule AWS.IoT do
   def create_keys_and_certificate(%Client{} = client, input, options \\ []) do
     url_path = "/keys-and-certificate"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -12243,7 +12423,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12269,6 +12449,7 @@ defmodule AWS.IoT do
   def create_mitigation_action(%Client{} = client, action_name, input, options \\ []) do
     url_path = "/mitigationactions/actions/#{AWS.Util.encode_uri(action_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12279,7 +12460,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12300,6 +12481,7 @@ defmodule AWS.IoT do
   def create_ota_update(%Client{} = client, ota_update_id, input, options \\ []) do
     url_path = "/otaUpdates/#{AWS.Util.encode_uri(ota_update_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12310,7 +12492,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12332,6 +12514,7 @@ defmodule AWS.IoT do
   def create_package(%Client{} = client, package_name, input, options \\ []) do
     url_path = "/packages/#{AWS.Util.encode_uri(package_name)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -12341,7 +12524,17 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12367,6 +12560,7 @@ defmodule AWS.IoT do
       "/packages/#{AWS.Util.encode_uri(package_name)}/versions/#{AWS.Util.encode_uri(version_name)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -12376,7 +12570,17 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12398,6 +12602,7 @@ defmodule AWS.IoT do
   def create_policy(%Client{} = client, policy_name, input, options \\ []) do
     url_path = "/policies/#{AWS.Util.encode_uri(policy_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12408,7 +12613,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12440,6 +12645,7 @@ defmodule AWS.IoT do
   def create_policy_version(%Client{} = client, policy_name, input, options \\ []) do
     url_path = "/policies/#{AWS.Util.encode_uri(policy_name)}/version"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -12455,7 +12661,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12476,6 +12682,7 @@ defmodule AWS.IoT do
   def create_provisioning_claim(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/provisioning-templates/#{AWS.Util.encode_uri(template_name)}/provisioning-claim"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12486,7 +12693,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12507,6 +12714,7 @@ defmodule AWS.IoT do
   def create_provisioning_template(%Client{} = client, input, options \\ []) do
     url_path = "/provisioning-templates"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12517,7 +12725,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12548,6 +12756,7 @@ defmodule AWS.IoT do
       ) do
     url_path = "/provisioning-templates/#{AWS.Util.encode_uri(template_name)}/versions"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -12563,7 +12772,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12594,6 +12803,7 @@ defmodule AWS.IoT do
   def create_role_alias(%Client{} = client, role_alias, input, options \\ []) do
     url_path = "/role-aliases/#{AWS.Util.encode_uri(role_alias)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12604,7 +12814,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12626,6 +12836,7 @@ defmodule AWS.IoT do
   def create_scheduled_audit(%Client{} = client, scheduled_audit_name, input, options \\ []) do
     url_path = "/audit/scheduledaudits/#{AWS.Util.encode_uri(scheduled_audit_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12636,7 +12847,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12657,6 +12868,7 @@ defmodule AWS.IoT do
   def create_security_profile(%Client{} = client, security_profile_name, input, options \\ []) do
     url_path = "/security-profiles/#{AWS.Util.encode_uri(security_profile_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12667,7 +12879,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12693,6 +12905,7 @@ defmodule AWS.IoT do
   def create_stream(%Client{} = client, stream_id, input, options \\ []) do
     url_path = "/streams/#{AWS.Util.encode_uri(stream_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12703,7 +12916,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12734,6 +12947,7 @@ defmodule AWS.IoT do
   def create_thing(%Client{} = client, thing_name, input, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12744,7 +12958,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12772,6 +12986,7 @@ defmodule AWS.IoT do
   def create_thing_group(%Client{} = client, thing_group_name, input, options \\ []) do
     url_path = "/thing-groups/#{AWS.Util.encode_uri(thing_group_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12782,7 +12997,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12809,6 +13024,7 @@ defmodule AWS.IoT do
   def create_thing_type(%Client{} = client, thing_type_name, input, options \\ []) do
     url_path = "/thing-types/#{AWS.Util.encode_uri(thing_type_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12819,7 +13035,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12849,6 +13065,7 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12859,7 +13076,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12882,6 +13099,7 @@ defmodule AWS.IoT do
   def create_topic_rule_destination(%Client{} = client, input, options \\ []) do
     url_path = "/destinations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12892,7 +13110,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12921,6 +13139,7 @@ defmodule AWS.IoT do
   def delete_account_audit_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/audit/configuration"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -12936,7 +13155,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12958,6 +13177,7 @@ defmodule AWS.IoT do
   def delete_audit_suppression(%Client{} = client, input, options \\ []) do
     url_path = "/audit/suppressions/delete"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12968,7 +13188,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12989,6 +13209,7 @@ defmodule AWS.IoT do
   def delete_authorizer(%Client{} = client, authorizer_name, input, options \\ []) do
     url_path = "/authorizer/#{AWS.Util.encode_uri(authorizer_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12999,7 +13220,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13020,6 +13241,7 @@ defmodule AWS.IoT do
   def delete_billing_group(%Client{} = client, billing_group_name, input, options \\ []) do
     url_path = "/billing-groups/#{AWS.Util.encode_uri(billing_group_name)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -13035,7 +13257,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13056,6 +13278,7 @@ defmodule AWS.IoT do
   def delete_ca_certificate(%Client{} = client, certificate_id, input, options \\ []) do
     url_path = "/cacertificate/#{AWS.Util.encode_uri(certificate_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13066,7 +13289,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13094,6 +13317,7 @@ defmodule AWS.IoT do
   def delete_certificate(%Client{} = client, certificate_id, input, options \\ []) do
     url_path = "/certificates/#{AWS.Util.encode_uri(certificate_id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -13109,7 +13333,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13144,6 +13368,7 @@ defmodule AWS.IoT do
       ) do
     url_path = "/certificate-providers/#{AWS.Util.encode_uri(certificate_provider_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13154,7 +13379,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13184,6 +13409,7 @@ defmodule AWS.IoT do
   def delete_custom_metric(%Client{} = client, metric_name, input, options \\ []) do
     url_path = "/custom-metric/#{AWS.Util.encode_uri(metric_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13194,7 +13420,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13215,6 +13441,7 @@ defmodule AWS.IoT do
   def delete_dimension(%Client{} = client, name, input, options \\ []) do
     url_path = "/dimensions/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13225,7 +13452,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13256,6 +13483,7 @@ defmodule AWS.IoT do
       ) do
     url_path = "/domainConfigurations/#{AWS.Util.encode_uri(domain_configuration_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13266,7 +13494,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13292,6 +13520,7 @@ defmodule AWS.IoT do
   def delete_dynamic_thing_group(%Client{} = client, thing_group_name, input, options \\ []) do
     url_path = "/dynamic-thing-groups/#{AWS.Util.encode_uri(thing_group_name)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -13307,7 +13536,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13331,6 +13560,7 @@ defmodule AWS.IoT do
   def delete_fleet_metric(%Client{} = client, metric_name, input, options \\ []) do
     url_path = "/fleet-metric/#{AWS.Util.encode_uri(metric_name)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -13346,7 +13576,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13376,6 +13606,7 @@ defmodule AWS.IoT do
   def delete_job(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -13392,7 +13623,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13429,6 +13660,7 @@ defmodule AWS.IoT do
       "/things/#{AWS.Util.encode_uri(thing_name)}/jobs/#{AWS.Util.encode_uri(job_id)}/executionNumber/#{AWS.Util.encode_uri(execution_number)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -13445,7 +13677,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13462,6 +13694,7 @@ defmodule AWS.IoT do
   def delete_job_template(%Client{} = client, job_template_id, input, options \\ []) do
     url_path = "/job-templates/#{AWS.Util.encode_uri(job_template_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13472,7 +13705,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13493,6 +13726,7 @@ defmodule AWS.IoT do
   def delete_mitigation_action(%Client{} = client, action_name, input, options \\ []) do
     url_path = "/mitigationactions/actions/#{AWS.Util.encode_uri(action_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13503,7 +13737,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13524,6 +13758,7 @@ defmodule AWS.IoT do
   def delete_ota_update(%Client{} = client, ota_update_id, input, options \\ []) do
     url_path = "/otaUpdates/#{AWS.Util.encode_uri(ota_update_id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -13540,7 +13775,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13564,6 +13799,7 @@ defmodule AWS.IoT do
   def delete_package(%Client{} = client, package_name, input, options \\ []) do
     url_path = "/packages/#{AWS.Util.encode_uri(package_name)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -13579,7 +13815,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13607,6 +13843,7 @@ defmodule AWS.IoT do
       "/packages/#{AWS.Util.encode_uri(package_name)}/versions/#{AWS.Util.encode_uri(version_name)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -13622,7 +13859,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13660,6 +13897,7 @@ defmodule AWS.IoT do
   def delete_policy(%Client{} = client, policy_name, input, options \\ []) do
     url_path = "/policies/#{AWS.Util.encode_uri(policy_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13670,7 +13908,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13711,6 +13949,7 @@ defmodule AWS.IoT do
       "/policies/#{AWS.Util.encode_uri(policy_name)}/version/#{AWS.Util.encode_uri(policy_version_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13721,7 +13960,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13747,6 +13986,7 @@ defmodule AWS.IoT do
   def delete_provisioning_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/provisioning-templates/#{AWS.Util.encode_uri(template_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13757,7 +13997,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13792,6 +14032,7 @@ defmodule AWS.IoT do
       "/provisioning-templates/#{AWS.Util.encode_uri(template_name)}/versions/#{AWS.Util.encode_uri(version_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13802,7 +14043,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13823,6 +14064,7 @@ defmodule AWS.IoT do
   def delete_registration_code(%Client{} = client, input, options \\ []) do
     url_path = "/registrationcode"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13833,7 +14075,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13854,6 +14096,7 @@ defmodule AWS.IoT do
   def delete_role_alias(%Client{} = client, role_alias, input, options \\ []) do
     url_path = "/role-aliases/#{AWS.Util.encode_uri(role_alias)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13864,7 +14107,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13885,6 +14128,7 @@ defmodule AWS.IoT do
   def delete_scheduled_audit(%Client{} = client, scheduled_audit_name, input, options \\ []) do
     url_path = "/audit/scheduledaudits/#{AWS.Util.encode_uri(scheduled_audit_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13895,7 +14139,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13916,6 +14160,7 @@ defmodule AWS.IoT do
   def delete_security_profile(%Client{} = client, security_profile_name, input, options \\ []) do
     url_path = "/security-profiles/#{AWS.Util.encode_uri(security_profile_name)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -13931,7 +14176,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13952,6 +14197,7 @@ defmodule AWS.IoT do
   def delete_stream(%Client{} = client, stream_id, input, options \\ []) do
     url_path = "/streams/#{AWS.Util.encode_uri(stream_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13962,7 +14208,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13986,6 +14232,7 @@ defmodule AWS.IoT do
   def delete_thing(%Client{} = client, thing_name, input, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -14001,7 +14248,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14022,6 +14269,7 @@ defmodule AWS.IoT do
   def delete_thing_group(%Client{} = client, thing_group_name, input, options \\ []) do
     url_path = "/thing-groups/#{AWS.Util.encode_uri(thing_group_name)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -14037,7 +14285,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14064,6 +14312,7 @@ defmodule AWS.IoT do
   def delete_thing_type(%Client{} = client, thing_type_name, input, options \\ []) do
     url_path = "/thing-types/#{AWS.Util.encode_uri(thing_type_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14074,7 +14323,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14095,6 +14344,7 @@ defmodule AWS.IoT do
   def delete_topic_rule(%Client{} = client, rule_name, input, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(rule_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14105,7 +14355,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14131,6 +14381,7 @@ defmodule AWS.IoT do
   def delete_topic_rule_destination(%Client{} = client, arn, input, options \\ []) do
     url_path = "/destinations/#{AWS.Util.encode_multi_segment_uri(arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14141,7 +14392,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14162,6 +14413,7 @@ defmodule AWS.IoT do
   def delete_v2_logging_level(%Client{} = client, input, options \\ []) do
     url_path = "/v2LoggingLevel"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -14178,7 +14430,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14202,6 +14454,7 @@ defmodule AWS.IoT do
   def deprecate_thing_type(%Client{} = client, thing_type_name, input, options \\ []) do
     url_path = "/thing-types/#{AWS.Util.encode_uri(thing_type_name)}/deprecate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14212,7 +14465,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14302,6 +14555,7 @@ defmodule AWS.IoT do
   def describe_audit_suppression(%Client{} = client, input, options \\ []) do
     url_path = "/audit/suppressions/describe"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14312,7 +14566,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15013,6 +15267,7 @@ defmodule AWS.IoT do
   def detach_policy(%Client{} = client, policy_name, input, options \\ []) do
     url_path = "/target-policies/#{AWS.Util.encode_uri(policy_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -15023,7 +15278,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15054,6 +15309,7 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -15064,7 +15320,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15086,6 +15342,7 @@ defmodule AWS.IoT do
   def detach_security_profile(%Client{} = client, security_profile_name, input, options \\ []) do
     url_path = "/security-profiles/#{AWS.Util.encode_uri(security_profile_name)}/targets"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -15101,7 +15358,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15136,6 +15393,7 @@ defmodule AWS.IoT do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -15146,7 +15404,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15167,6 +15425,7 @@ defmodule AWS.IoT do
   def disable_topic_rule(%Client{} = client, rule_name, input, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(rule_name)}/disable"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -15177,7 +15436,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15213,6 +15472,7 @@ defmodule AWS.IoT do
       "/packages/#{AWS.Util.encode_uri(package_name)}/versions/#{AWS.Util.encode_uri(version_name)}/sbom"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -15228,7 +15488,7 @@ defmodule AWS.IoT do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15249,6 +15509,7 @@ defmodule AWS.IoT do
   def enable_topic_rule(%Client{} = client, rule_name, input, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(rule_name)}/enable"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -15259,7 +15520,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15335,6 +15596,7 @@ defmodule AWS.IoT do
   def get_buckets_aggregation(%Client{} = client, input, options \\ []) do
     url_path = "/indices/buckets"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -15345,7 +15607,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15366,6 +15628,7 @@ defmodule AWS.IoT do
   def get_cardinality(%Client{} = client, input, options \\ []) do
     url_path = "/indices/cardinality"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -15376,7 +15639,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15399,6 +15662,7 @@ defmodule AWS.IoT do
   def get_effective_policies(%Client{} = client, input, options \\ []) do
     url_path = "/effective-policies"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -15414,7 +15678,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15609,6 +15873,7 @@ defmodule AWS.IoT do
   def get_percentiles(%Client{} = client, input, options \\ []) do
     url_path = "/indices/percentiles"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -15619,7 +15884,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15716,6 +15981,7 @@ defmodule AWS.IoT do
   def get_statistics(%Client{} = client, input, options \\ []) do
     url_path = "/indices/statistics"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -15726,7 +15992,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15900,6 +16166,7 @@ defmodule AWS.IoT do
   def list_attached_policies(%Client{} = client, target, input, options \\ []) do
     url_path = "/attached-policies/#{AWS.Util.encode_uri(target)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -15917,7 +16184,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15941,6 +16208,7 @@ defmodule AWS.IoT do
   def list_audit_findings(%Client{} = client, input, options \\ []) do
     url_path = "/audit/findings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -15951,7 +16219,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -16136,6 +16404,7 @@ defmodule AWS.IoT do
   def list_audit_suppressions(%Client{} = client, input, options \\ []) do
     url_path = "/audit/suppressions/list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -16146,7 +16415,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18453,6 +18722,7 @@ defmodule AWS.IoT do
   def list_targets_for_policy(%Client{} = client, policy_name, input, options \\ []) do
     url_path = "/policy-targets/#{AWS.Util.encode_uri(policy_name)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -18469,7 +18739,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19379,6 +19649,7 @@ defmodule AWS.IoT do
   def put_verification_state_on_violation(%Client{} = client, violation_id, input, options \\ []) do
     url_path = "/violations/verification-state/#{AWS.Util.encode_uri(violation_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19389,7 +19660,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19415,6 +19686,7 @@ defmodule AWS.IoT do
   def register_ca_certificate(%Client{} = client, input, options \\ []) do
     url_path = "/cacertificate"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -19431,7 +19703,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19458,6 +19730,7 @@ defmodule AWS.IoT do
   def register_certificate(%Client{} = client, input, options \\ []) do
     url_path = "/certificate/register"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -19473,7 +19746,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19494,6 +19767,7 @@ defmodule AWS.IoT do
   def register_certificate_without_ca(%Client{} = client, input, options \\ []) do
     url_path = "/certificate/register-no-ca"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19504,7 +19778,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19532,6 +19806,7 @@ defmodule AWS.IoT do
   def register_thing(%Client{} = client, input, options \\ []) do
     url_path = "/things"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19542,7 +19817,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19579,6 +19854,7 @@ defmodule AWS.IoT do
   def reject_certificate_transfer(%Client{} = client, certificate_id, input, options \\ []) do
     url_path = "/reject-certificate-transfer/#{AWS.Util.encode_uri(certificate_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19589,7 +19865,7 @@ defmodule AWS.IoT do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19613,11 +19889,22 @@ defmodule AWS.IoT do
   def remove_thing_from_billing_group(%Client{} = client, input, options \\ []) do
     url_path = "/billing-groups/removeThingFromBillingGroup"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -19639,11 +19926,22 @@ defmodule AWS.IoT do
   def remove_thing_from_thing_group(%Client{} = client, input, options \\ []) do
     url_path = "/thing-groups/removeThingFromThingGroup"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -19665,6 +19963,7 @@ defmodule AWS.IoT do
   def replace_topic_rule(%Client{} = client, rule_name, input, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(rule_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19675,7 +19974,7 @@ defmodule AWS.IoT do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19696,6 +19995,7 @@ defmodule AWS.IoT do
   def search_index(%Client{} = client, input, options \\ []) do
     url_path = "/indices/search"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19706,7 +20006,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19730,6 +20030,7 @@ defmodule AWS.IoT do
   def set_default_authorizer(%Client{} = client, input, options \\ []) do
     url_path = "/default-authorizer"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19740,7 +20041,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19781,6 +20082,7 @@ defmodule AWS.IoT do
       "/policies/#{AWS.Util.encode_uri(policy_name)}/version/#{AWS.Util.encode_uri(policy_version_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19791,7 +20093,7 @@ defmodule AWS.IoT do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19815,6 +20117,7 @@ defmodule AWS.IoT do
   def set_logging_options(%Client{} = client, input, options \\ []) do
     url_path = "/loggingOptions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19825,7 +20128,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19846,6 +20149,7 @@ defmodule AWS.IoT do
   def set_v2_logging_level(%Client{} = client, input, options \\ []) do
     url_path = "/v2LoggingLevel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19856,7 +20160,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19877,6 +20181,7 @@ defmodule AWS.IoT do
   def set_v2_logging_options(%Client{} = client, input, options \\ []) do
     url_path = "/v2LoggingOptions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19887,7 +20192,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19913,6 +20218,7 @@ defmodule AWS.IoT do
   def start_audit_mitigation_actions_task(%Client{} = client, task_id, input, options \\ []) do
     url_path = "/audit/mitigationactions/tasks/#{AWS.Util.encode_uri(task_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19923,7 +20229,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19950,11 +20256,22 @@ defmodule AWS.IoT do
   def start_detect_mitigation_actions_task(%Client{} = client, task_id, input, options \\ []) do
     url_path = "/detect/mitigationactions/tasks/#{AWS.Util.encode_uri(task_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -19971,6 +20288,7 @@ defmodule AWS.IoT do
   def start_on_demand_audit_task(%Client{} = client, input, options \\ []) do
     url_path = "/audit/tasks"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19981,7 +20299,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20002,6 +20320,7 @@ defmodule AWS.IoT do
   def start_thing_registration_task(%Client{} = client, input, options \\ []) do
     url_path = "/thing-registration-tasks"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20012,7 +20331,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20038,11 +20357,22 @@ defmodule AWS.IoT do
   def stop_thing_registration_task(%Client{} = client, task_id, input, options \\ []) do
     url_path = "/thing-registration-tasks/#{AWS.Util.encode_uri(task_id)}/cancel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -20062,6 +20392,7 @@ defmodule AWS.IoT do
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20072,7 +20403,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20097,6 +20428,7 @@ defmodule AWS.IoT do
   def test_authorization(%Client{} = client, input, options \\ []) do
     url_path = "/test-authorization"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -20112,7 +20444,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20138,6 +20470,7 @@ defmodule AWS.IoT do
   def test_invoke_authorizer(%Client{} = client, authorizer_name, input, options \\ []) do
     url_path = "/authorizer/#{AWS.Util.encode_uri(authorizer_name)}/test"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20148,7 +20481,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20183,6 +20516,7 @@ defmodule AWS.IoT do
   def transfer_certificate(%Client{} = client, certificate_id, input, options \\ []) do
     url_path = "/transfer-certificate/#{AWS.Util.encode_uri(certificate_id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -20198,7 +20532,7 @@ defmodule AWS.IoT do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20219,6 +20553,7 @@ defmodule AWS.IoT do
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/untag"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20229,7 +20564,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20257,6 +20592,7 @@ defmodule AWS.IoT do
   def update_account_audit_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/audit/configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20267,7 +20603,7 @@ defmodule AWS.IoT do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20285,6 +20621,7 @@ defmodule AWS.IoT do
   def update_audit_suppression(%Client{} = client, input, options \\ []) do
     url_path = "/audit/suppressions/update"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20295,7 +20632,7 @@ defmodule AWS.IoT do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20316,11 +20653,22 @@ defmodule AWS.IoT do
   def update_authorizer(%Client{} = client, authorizer_name, input, options \\ []) do
     url_path = "/authorizer/#{AWS.Util.encode_uri(authorizer_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -20337,6 +20685,7 @@ defmodule AWS.IoT do
   def update_billing_group(%Client{} = client, billing_group_name, input, options \\ []) do
     url_path = "/billing-groups/#{AWS.Util.encode_uri(billing_group_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20347,7 +20696,7 @@ defmodule AWS.IoT do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20368,6 +20717,7 @@ defmodule AWS.IoT do
   def update_ca_certificate(%Client{} = client, certificate_id, input, options \\ []) do
     url_path = "/cacertificate/#{AWS.Util.encode_uri(certificate_id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -20378,7 +20728,17 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -20407,6 +20767,7 @@ defmodule AWS.IoT do
   def update_certificate(%Client{} = client, certificate_id, input, options \\ []) do
     url_path = "/certificates/#{AWS.Util.encode_uri(certificate_id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -20416,7 +20777,17 @@ defmodule AWS.IoT do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -20443,11 +20814,22 @@ defmodule AWS.IoT do
       ) do
     url_path = "/certificate-providers/#{AWS.Util.encode_uri(certificate_provider_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -20465,6 +20847,7 @@ defmodule AWS.IoT do
   def update_custom_metric(%Client{} = client, metric_name, input, options \\ []) do
     url_path = "/custom-metric/#{AWS.Util.encode_uri(metric_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20475,7 +20858,7 @@ defmodule AWS.IoT do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20503,6 +20886,7 @@ defmodule AWS.IoT do
   def update_dimension(%Client{} = client, name, input, options \\ []) do
     url_path = "/dimensions/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20513,7 +20897,7 @@ defmodule AWS.IoT do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20547,11 +20931,22 @@ defmodule AWS.IoT do
       ) do
     url_path = "/domainConfigurations/#{AWS.Util.encode_uri(domain_configuration_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -20573,6 +20968,7 @@ defmodule AWS.IoT do
   def update_dynamic_thing_group(%Client{} = client, thing_group_name, input, options \\ []) do
     url_path = "/dynamic-thing-groups/#{AWS.Util.encode_uri(thing_group_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20583,7 +20979,7 @@ defmodule AWS.IoT do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20604,6 +21000,7 @@ defmodule AWS.IoT do
   def update_event_configurations(%Client{} = client, input, options \\ []) do
     url_path = "/event-configurations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20614,7 +21011,7 @@ defmodule AWS.IoT do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20635,6 +21032,7 @@ defmodule AWS.IoT do
   def update_fleet_metric(%Client{} = client, metric_name, input, options \\ []) do
     url_path = "/fleet-metric/#{AWS.Util.encode_uri(metric_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20645,7 +21043,7 @@ defmodule AWS.IoT do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20666,6 +21064,7 @@ defmodule AWS.IoT do
   def update_indexing_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/indexing/config"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20676,7 +21075,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20697,6 +21096,7 @@ defmodule AWS.IoT do
   def update_job(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -20712,7 +21112,7 @@ defmodule AWS.IoT do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20733,6 +21133,7 @@ defmodule AWS.IoT do
   def update_mitigation_action(%Client{} = client, action_name, input, options \\ []) do
     url_path = "/mitigationactions/actions/#{AWS.Util.encode_uri(action_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20743,7 +21144,7 @@ defmodule AWS.IoT do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20765,6 +21166,7 @@ defmodule AWS.IoT do
   def update_package(%Client{} = client, package_name, input, options \\ []) do
     url_path = "/packages/#{AWS.Util.encode_uri(package_name)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -20780,7 +21182,7 @@ defmodule AWS.IoT do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20802,6 +21204,7 @@ defmodule AWS.IoT do
   def update_package_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/package-configuration"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -20817,7 +21220,7 @@ defmodule AWS.IoT do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20847,6 +21250,7 @@ defmodule AWS.IoT do
       "/packages/#{AWS.Util.encode_uri(package_name)}/versions/#{AWS.Util.encode_uri(version_name)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -20862,7 +21266,7 @@ defmodule AWS.IoT do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20888,6 +21292,7 @@ defmodule AWS.IoT do
   def update_provisioning_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/provisioning-templates/#{AWS.Util.encode_uri(template_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20898,7 +21303,7 @@ defmodule AWS.IoT do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20929,11 +21334,22 @@ defmodule AWS.IoT do
   def update_role_alias(%Client{} = client, role_alias, input, options \\ []) do
     url_path = "/role-aliases/#{AWS.Util.encode_uri(role_alias)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -20951,6 +21367,7 @@ defmodule AWS.IoT do
   def update_scheduled_audit(%Client{} = client, scheduled_audit_name, input, options \\ []) do
     url_path = "/audit/scheduledaudits/#{AWS.Util.encode_uri(scheduled_audit_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20961,7 +21378,7 @@ defmodule AWS.IoT do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20982,6 +21399,7 @@ defmodule AWS.IoT do
   def update_security_profile(%Client{} = client, security_profile_name, input, options \\ []) do
     url_path = "/security-profiles/#{AWS.Util.encode_uri(security_profile_name)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -20997,7 +21415,7 @@ defmodule AWS.IoT do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -21020,11 +21438,22 @@ defmodule AWS.IoT do
   def update_stream(%Client{} = client, stream_id, input, options \\ []) do
     url_path = "/streams/#{AWS.Util.encode_uri(stream_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -21041,6 +21470,7 @@ defmodule AWS.IoT do
   def update_thing(%Client{} = client, thing_name, input, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -21051,7 +21481,7 @@ defmodule AWS.IoT do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -21072,6 +21502,7 @@ defmodule AWS.IoT do
   def update_thing_group(%Client{} = client, thing_group_name, input, options \\ []) do
     url_path = "/thing-groups/#{AWS.Util.encode_uri(thing_group_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -21082,7 +21513,7 @@ defmodule AWS.IoT do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -21103,11 +21534,22 @@ defmodule AWS.IoT do
   def update_thing_groups_for_thing(%Client{} = client, input, options \\ []) do
     url_path = "/thing-groups/updateThingGroupsForThing"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -21120,6 +21562,7 @@ defmodule AWS.IoT do
   def update_thing_type(%Client{} = client, thing_type_name, input, options \\ []) do
     url_path = "/thing-types/#{AWS.Util.encode_uri(thing_type_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -21130,7 +21573,7 @@ defmodule AWS.IoT do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -21154,6 +21597,7 @@ defmodule AWS.IoT do
   def update_topic_rule_destination(%Client{} = client, input, options \\ []) do
     url_path = "/destinations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -21164,7 +21608,7 @@ defmodule AWS.IoT do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -21189,6 +21633,7 @@ defmodule AWS.IoT do
   def validate_security_profile_behaviors(%Client{} = client, input, options \\ []) do
     url_path = "/security-profile-behaviors/validate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -21199,7 +21644,7 @@ defmodule AWS.IoT do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

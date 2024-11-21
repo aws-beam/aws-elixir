@@ -1210,6 +1210,7 @@ defmodule AWS.Mq do
   def create_broker(%Client{} = client, input, options \\ []) do
     url_path = "/v1/brokers"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1220,7 +1221,7 @@ defmodule AWS.Mq do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1239,6 +1240,7 @@ defmodule AWS.Mq do
   def create_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/v1/configurations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1249,7 +1251,7 @@ defmodule AWS.Mq do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1266,6 +1268,7 @@ defmodule AWS.Mq do
   def create_tags(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1276,7 +1279,7 @@ defmodule AWS.Mq do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1300,6 +1303,7 @@ defmodule AWS.Mq do
       "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}/users/#{AWS.Util.encode_uri(username)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1310,7 +1314,7 @@ defmodule AWS.Mq do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1329,6 +1333,7 @@ defmodule AWS.Mq do
   def delete_broker(%Client{} = client, broker_id, input, options \\ []) do
     url_path = "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1339,7 +1344,7 @@ defmodule AWS.Mq do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1356,6 +1361,7 @@ defmodule AWS.Mq do
   def delete_tags(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1371,7 +1377,7 @@ defmodule AWS.Mq do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1390,6 +1396,7 @@ defmodule AWS.Mq do
       "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}/users/#{AWS.Util.encode_uri(username)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1400,7 +1407,7 @@ defmodule AWS.Mq do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1776,6 +1783,7 @@ defmodule AWS.Mq do
   def promote(%Client{} = client, broker_id, input, options \\ []) do
     url_path = "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}/promote"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1786,7 +1794,7 @@ defmodule AWS.Mq do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1805,6 +1813,7 @@ defmodule AWS.Mq do
   def reboot_broker(%Client{} = client, broker_id, input, options \\ []) do
     url_path = "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}/reboot"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1815,7 +1824,7 @@ defmodule AWS.Mq do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1832,11 +1841,22 @@ defmodule AWS.Mq do
   def update_broker(%Client{} = client, broker_id, input, options \\ []) do
     url_path = "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1849,11 +1869,22 @@ defmodule AWS.Mq do
   def update_configuration(%Client{} = client, configuration_id, input, options \\ []) do
     url_path = "/v1/configurations/#{AWS.Util.encode_uri(configuration_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1868,10 +1899,21 @@ defmodule AWS.Mq do
       "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}/users/#{AWS.Util.encode_uri(username)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

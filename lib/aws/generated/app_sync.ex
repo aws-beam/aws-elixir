@@ -3133,6 +3133,7 @@ defmodule AWS.AppSync do
   def associate_api(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/v1/domainnames/#{AWS.Util.encode_uri(domain_name)}/apiassociation"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3143,7 +3144,7 @@ defmodule AWS.AppSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3174,6 +3175,7 @@ defmodule AWS.AppSync do
       "/v1/sourceApis/#{AWS.Util.encode_uri(source_api_identifier)}/mergedApiAssociations"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3184,7 +3186,7 @@ defmodule AWS.AppSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3215,6 +3217,7 @@ defmodule AWS.AppSync do
       "/v1/mergedApis/#{AWS.Util.encode_uri(merged_api_identifier)}/sourceApiAssociations"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3225,7 +3228,7 @@ defmodule AWS.AppSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3247,6 +3250,7 @@ defmodule AWS.AppSync do
   def create_api(%Client{} = client, input, options \\ []) do
     url_path = "/v2/apis"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3257,7 +3261,7 @@ defmodule AWS.AppSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3274,6 +3278,7 @@ defmodule AWS.AppSync do
   def create_api_cache(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/ApiCaches"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3284,7 +3289,7 @@ defmodule AWS.AppSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3301,6 +3306,7 @@ defmodule AWS.AppSync do
   def create_api_key(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/apikeys"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3311,7 +3317,7 @@ defmodule AWS.AppSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3328,6 +3334,7 @@ defmodule AWS.AppSync do
   def create_channel_namespace(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/channelNamespaces"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3338,7 +3345,7 @@ defmodule AWS.AppSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3355,6 +3362,7 @@ defmodule AWS.AppSync do
   def create_data_source(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/datasources"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3365,7 +3373,7 @@ defmodule AWS.AppSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3382,6 +3390,7 @@ defmodule AWS.AppSync do
   def create_domain_name(%Client{} = client, input, options \\ []) do
     url_path = "/v1/domainnames"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3392,7 +3401,7 @@ defmodule AWS.AppSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3413,6 +3422,7 @@ defmodule AWS.AppSync do
   def create_function(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/functions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3423,7 +3433,7 @@ defmodule AWS.AppSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3440,6 +3450,7 @@ defmodule AWS.AppSync do
   def create_graphql_api(%Client{} = client, input, options \\ []) do
     url_path = "/v1/apis"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3450,7 +3461,7 @@ defmodule AWS.AppSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3473,6 +3484,7 @@ defmodule AWS.AppSync do
       "/v1/apis/#{AWS.Util.encode_uri(api_id)}/types/#{AWS.Util.encode_uri(type_name)}/resolvers"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3483,7 +3495,7 @@ defmodule AWS.AppSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3500,6 +3512,7 @@ defmodule AWS.AppSync do
   def create_type(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/types"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3510,7 +3523,7 @@ defmodule AWS.AppSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3527,6 +3540,7 @@ defmodule AWS.AppSync do
   def delete_api(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3537,7 +3551,7 @@ defmodule AWS.AppSync do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3554,6 +3568,7 @@ defmodule AWS.AppSync do
   def delete_api_cache(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/ApiCaches"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3564,7 +3579,7 @@ defmodule AWS.AppSync do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3581,6 +3596,7 @@ defmodule AWS.AppSync do
   def delete_api_key(%Client{} = client, api_id, id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/apikeys/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3591,7 +3607,7 @@ defmodule AWS.AppSync do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3616,6 +3632,7 @@ defmodule AWS.AppSync do
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/channelNamespaces/#{AWS.Util.encode_uri(name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3626,7 +3643,7 @@ defmodule AWS.AppSync do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3643,6 +3660,7 @@ defmodule AWS.AppSync do
   def delete_data_source(%Client{} = client, api_id, name, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/datasources/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3653,7 +3671,7 @@ defmodule AWS.AppSync do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3670,6 +3688,7 @@ defmodule AWS.AppSync do
   def delete_domain_name(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/v1/domainnames/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3680,7 +3699,7 @@ defmodule AWS.AppSync do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3699,6 +3718,7 @@ defmodule AWS.AppSync do
       "/v1/apis/#{AWS.Util.encode_uri(api_id)}/functions/#{AWS.Util.encode_uri(function_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3709,7 +3729,7 @@ defmodule AWS.AppSync do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3726,6 +3746,7 @@ defmodule AWS.AppSync do
   def delete_graphql_api(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3736,7 +3757,7 @@ defmodule AWS.AppSync do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3762,6 +3783,7 @@ defmodule AWS.AppSync do
       "/v1/apis/#{AWS.Util.encode_uri(api_id)}/types/#{AWS.Util.encode_uri(type_name)}/resolvers/#{AWS.Util.encode_uri(field_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3772,7 +3794,7 @@ defmodule AWS.AppSync do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3789,6 +3811,7 @@ defmodule AWS.AppSync do
   def delete_type(%Client{} = client, api_id, type_name, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/types/#{AWS.Util.encode_uri(type_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3799,7 +3822,7 @@ defmodule AWS.AppSync do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3816,6 +3839,7 @@ defmodule AWS.AppSync do
   def disassociate_api(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/v1/domainnames/#{AWS.Util.encode_uri(domain_name)}/apiassociation"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3826,7 +3850,7 @@ defmodule AWS.AppSync do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3859,6 +3883,7 @@ defmodule AWS.AppSync do
       "/v1/sourceApis/#{AWS.Util.encode_uri(source_api_identifier)}/mergedApiAssociations/#{AWS.Util.encode_uri(association_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3869,7 +3894,7 @@ defmodule AWS.AppSync do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3902,6 +3927,7 @@ defmodule AWS.AppSync do
       "/v1/mergedApis/#{AWS.Util.encode_uri(merged_api_identifier)}/sourceApiAssociations/#{AWS.Util.encode_uri(association_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3912,7 +3938,7 @@ defmodule AWS.AppSync do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3939,6 +3965,7 @@ defmodule AWS.AppSync do
   def evaluate_code(%Client{} = client, input, options \\ []) do
     url_path = "/v1/dataplane-evaluatecode"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3949,7 +3976,7 @@ defmodule AWS.AppSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3979,6 +4006,7 @@ defmodule AWS.AppSync do
   def evaluate_mapping_template(%Client{} = client, input, options \\ []) do
     url_path = "/v1/dataplane-evaluatetemplate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3989,7 +4017,7 @@ defmodule AWS.AppSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4006,6 +4034,7 @@ defmodule AWS.AppSync do
   def flush_api_cache(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/FlushCache"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4016,7 +4045,7 @@ defmodule AWS.AppSync do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4955,11 +4984,22 @@ defmodule AWS.AppSync do
   def put_graphql_api_environment_variables(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/environmentVariables"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4975,6 +5015,7 @@ defmodule AWS.AppSync do
   def start_data_source_introspection(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datasources/introspections"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4985,7 +5026,7 @@ defmodule AWS.AppSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5005,6 +5046,7 @@ defmodule AWS.AppSync do
   def start_schema_creation(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/schemacreation"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5015,7 +5057,7 @@ defmodule AWS.AppSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5043,6 +5085,7 @@ defmodule AWS.AppSync do
       "/v1/mergedApis/#{AWS.Util.encode_uri(merged_api_identifier)}/sourceApiAssociations/#{AWS.Util.encode_uri(association_id)}/merge"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5053,7 +5096,7 @@ defmodule AWS.AppSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5070,6 +5113,7 @@ defmodule AWS.AppSync do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5080,7 +5124,7 @@ defmodule AWS.AppSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5097,6 +5141,7 @@ defmodule AWS.AppSync do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5112,7 +5157,7 @@ defmodule AWS.AppSync do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5129,6 +5174,7 @@ defmodule AWS.AppSync do
   def update_api(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5139,7 +5185,7 @@ defmodule AWS.AppSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5156,6 +5202,7 @@ defmodule AWS.AppSync do
   def update_api_cache(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/ApiCaches/update"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5166,7 +5213,7 @@ defmodule AWS.AppSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5185,6 +5232,7 @@ defmodule AWS.AppSync do
   def update_api_key(%Client{} = client, api_id, id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/apikeys/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5195,7 +5243,7 @@ defmodule AWS.AppSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5220,6 +5268,7 @@ defmodule AWS.AppSync do
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/channelNamespaces/#{AWS.Util.encode_uri(name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5230,7 +5279,7 @@ defmodule AWS.AppSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5247,6 +5296,7 @@ defmodule AWS.AppSync do
   def update_data_source(%Client{} = client, api_id, name, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/datasources/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5257,7 +5307,7 @@ defmodule AWS.AppSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5274,6 +5324,7 @@ defmodule AWS.AppSync do
   def update_domain_name(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/v1/domainnames/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5284,7 +5335,7 @@ defmodule AWS.AppSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5303,6 +5354,7 @@ defmodule AWS.AppSync do
       "/v1/apis/#{AWS.Util.encode_uri(api_id)}/functions/#{AWS.Util.encode_uri(function_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5313,7 +5365,7 @@ defmodule AWS.AppSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5330,6 +5382,7 @@ defmodule AWS.AppSync do
   def update_graphql_api(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5340,7 +5393,7 @@ defmodule AWS.AppSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5366,6 +5419,7 @@ defmodule AWS.AppSync do
       "/v1/apis/#{AWS.Util.encode_uri(api_id)}/types/#{AWS.Util.encode_uri(type_name)}/resolvers/#{AWS.Util.encode_uri(field_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5376,7 +5430,7 @@ defmodule AWS.AppSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5408,6 +5462,7 @@ defmodule AWS.AppSync do
       "/v1/mergedApis/#{AWS.Util.encode_uri(merged_api_identifier)}/sourceApiAssociations/#{AWS.Util.encode_uri(association_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5418,7 +5473,7 @@ defmodule AWS.AppSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5435,6 +5490,7 @@ defmodule AWS.AppSync do
   def update_type(%Client{} = client, api_id, type_name, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/types/#{AWS.Util.encode_uri(type_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5445,7 +5501,7 @@ defmodule AWS.AppSync do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

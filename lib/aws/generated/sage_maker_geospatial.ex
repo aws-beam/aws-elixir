@@ -1415,6 +1415,7 @@ defmodule AWS.SageMakerGeospatial do
   def delete_earth_observation_job(%Client{} = client, arn, input, options \\ []) do
     url_path = "/earth-observation-jobs/#{AWS.Util.encode_uri(arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1425,7 +1426,7 @@ defmodule AWS.SageMakerGeospatial do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1447,6 +1448,7 @@ defmodule AWS.SageMakerGeospatial do
   def delete_vector_enrichment_job(%Client{} = client, arn, input, options \\ []) do
     url_path = "/vector-enrichment-jobs/#{AWS.Util.encode_uri(arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1457,7 +1459,7 @@ defmodule AWS.SageMakerGeospatial do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1475,6 +1477,7 @@ defmodule AWS.SageMakerGeospatial do
   def export_earth_observation_job(%Client{} = client, input, options \\ []) do
     url_path = "/export-earth-observation-job"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1485,7 +1488,7 @@ defmodule AWS.SageMakerGeospatial do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1503,6 +1506,7 @@ defmodule AWS.SageMakerGeospatial do
   def export_vector_enrichment_job(%Client{} = client, input, options \\ []) do
     url_path = "/export-vector-enrichment-jobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1513,7 +1517,7 @@ defmodule AWS.SageMakerGeospatial do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1695,6 +1699,7 @@ defmodule AWS.SageMakerGeospatial do
   def list_earth_observation_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/list-earth-observation-jobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1705,7 +1710,7 @@ defmodule AWS.SageMakerGeospatial do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1775,6 +1780,7 @@ defmodule AWS.SageMakerGeospatial do
   def list_vector_enrichment_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/list-vector-enrichment-jobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1785,7 +1791,7 @@ defmodule AWS.SageMakerGeospatial do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1803,6 +1809,7 @@ defmodule AWS.SageMakerGeospatial do
   def search_raster_data_collection(%Client{} = client, input, options \\ []) do
     url_path = "/search-raster-data-collection"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1813,7 +1820,7 @@ defmodule AWS.SageMakerGeospatial do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1830,6 +1837,7 @@ defmodule AWS.SageMakerGeospatial do
   def start_earth_observation_job(%Client{} = client, input, options \\ []) do
     url_path = "/earth-observation-jobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1840,7 +1848,7 @@ defmodule AWS.SageMakerGeospatial do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1860,6 +1868,7 @@ defmodule AWS.SageMakerGeospatial do
   def start_vector_enrichment_job(%Client{} = client, input, options \\ []) do
     url_path = "/vector-enrichment-jobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1870,7 +1879,7 @@ defmodule AWS.SageMakerGeospatial do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1887,6 +1896,7 @@ defmodule AWS.SageMakerGeospatial do
   def stop_earth_observation_job(%Client{} = client, input, options \\ []) do
     url_path = "/earth-observation-jobs/stop"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1897,7 +1907,7 @@ defmodule AWS.SageMakerGeospatial do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1914,6 +1924,7 @@ defmodule AWS.SageMakerGeospatial do
   def stop_vector_enrichment_job(%Client{} = client, input, options \\ []) do
     url_path = "/vector-enrichment-jobs/stop"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1924,7 +1935,7 @@ defmodule AWS.SageMakerGeospatial do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1941,11 +1952,22 @@ defmodule AWS.SageMakerGeospatial do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1958,6 +1980,7 @@ defmodule AWS.SageMakerGeospatial do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1973,7 +1996,7 @@ defmodule AWS.SageMakerGeospatial do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

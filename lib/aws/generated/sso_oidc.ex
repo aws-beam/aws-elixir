@@ -440,6 +440,7 @@ defmodule AWS.SSOOIDC do
   def create_token(%Client{} = client, input, options \\ []) do
     url_path = "/token"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -450,7 +451,7 @@ defmodule AWS.SSOOIDC do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -474,6 +475,7 @@ defmodule AWS.SSOOIDC do
   def create_token_with_iam(%Client{} = client, input, options \\ []) do
     url_path = "/token?aws_iam=t"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -484,7 +486,7 @@ defmodule AWS.SSOOIDC do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -504,6 +506,7 @@ defmodule AWS.SSOOIDC do
   def register_client(%Client{} = client, input, options \\ []) do
     url_path = "/client/register"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -514,7 +517,7 @@ defmodule AWS.SSOOIDC do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -533,6 +536,7 @@ defmodule AWS.SSOOIDC do
   def start_device_authorization(%Client{} = client, input, options \\ []) do
     url_path = "/device_authorization"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -543,7 +547,7 @@ defmodule AWS.SSOOIDC do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

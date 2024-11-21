@@ -955,6 +955,7 @@ defmodule AWS.BedrockRuntime do
       "/guardrail/#{AWS.Util.encode_uri(guardrail_identifier)}/version/#{AWS.Util.encode_uri(guardrail_version)}/apply"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -965,7 +966,7 @@ defmodule AWS.BedrockRuntime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1018,6 +1019,7 @@ defmodule AWS.BedrockRuntime do
   def converse(%Client{} = client, model_id, input, options \\ []) do
     url_path = "/model/#{AWS.Util.encode_uri(model_id)}/converse"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1028,7 +1030,7 @@ defmodule AWS.BedrockRuntime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1089,6 +1091,7 @@ defmodule AWS.BedrockRuntime do
   def converse_stream(%Client{} = client, model_id, input, options \\ []) do
     url_path = "/model/#{AWS.Util.encode_uri(model_id)}/converse-stream"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1099,7 +1102,7 @@ defmodule AWS.BedrockRuntime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1134,6 +1137,7 @@ defmodule AWS.BedrockRuntime do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -1151,7 +1155,7 @@ defmodule AWS.BedrockRuntime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1199,6 +1203,7 @@ defmodule AWS.BedrockRuntime do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -1216,7 +1221,7 @@ defmodule AWS.BedrockRuntime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

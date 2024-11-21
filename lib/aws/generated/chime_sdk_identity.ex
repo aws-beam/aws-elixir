@@ -1297,6 +1297,7 @@ defmodule AWS.ChimeSDKIdentity do
   def create_app_instance(%Client{} = client, input, options \\ []) do
     url_path = "/app-instances"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1307,7 +1308,7 @@ defmodule AWS.ChimeSDKIdentity do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1341,6 +1342,7 @@ defmodule AWS.ChimeSDKIdentity do
   def create_app_instance_admin(%Client{} = client, app_instance_arn, input, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/admins"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1351,7 +1353,7 @@ defmodule AWS.ChimeSDKIdentity do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1371,6 +1373,7 @@ defmodule AWS.ChimeSDKIdentity do
   def create_app_instance_bot(%Client{} = client, input, options \\ []) do
     url_path = "/app-instance-bots"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1381,7 +1384,7 @@ defmodule AWS.ChimeSDKIdentity do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1401,6 +1404,7 @@ defmodule AWS.ChimeSDKIdentity do
   def create_app_instance_user(%Client{} = client, input, options \\ []) do
     url_path = "/app-instance-users"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1411,7 +1415,7 @@ defmodule AWS.ChimeSDKIdentity do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1428,6 +1432,7 @@ defmodule AWS.ChimeSDKIdentity do
   def delete_app_instance(%Client{} = client, app_instance_arn, input, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1438,7 +1443,7 @@ defmodule AWS.ChimeSDKIdentity do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1473,6 +1478,7 @@ defmodule AWS.ChimeSDKIdentity do
       "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/admins/#{AWS.Util.encode_uri(app_instance_admin_arn)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1483,7 +1489,7 @@ defmodule AWS.ChimeSDKIdentity do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1500,6 +1506,7 @@ defmodule AWS.ChimeSDKIdentity do
   def delete_app_instance_bot(%Client{} = client, app_instance_bot_arn, input, options \\ []) do
     url_path = "/app-instance-bots/#{AWS.Util.encode_uri(app_instance_bot_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1510,7 +1517,7 @@ defmodule AWS.ChimeSDKIdentity do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1527,6 +1534,7 @@ defmodule AWS.ChimeSDKIdentity do
   def delete_app_instance_user(%Client{} = client, app_instance_user_arn, input, options \\ []) do
     url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1537,7 +1545,7 @@ defmodule AWS.ChimeSDKIdentity do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1568,6 +1576,7 @@ defmodule AWS.ChimeSDKIdentity do
       "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}/endpoints/#{AWS.Util.encode_uri(endpoint_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1578,7 +1587,7 @@ defmodule AWS.ChimeSDKIdentity do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1948,11 +1957,22 @@ defmodule AWS.ChimeSDKIdentity do
       ) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/retention-settings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1985,11 +2005,22 @@ defmodule AWS.ChimeSDKIdentity do
       "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}/expiration-settings"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2015,6 +2046,7 @@ defmodule AWS.ChimeSDKIdentity do
       ) do
     url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}/endpoints"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2025,7 +2057,7 @@ defmodule AWS.ChimeSDKIdentity do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2042,6 +2074,7 @@ defmodule AWS.ChimeSDKIdentity do
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=tag-resource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2052,7 +2085,7 @@ defmodule AWS.ChimeSDKIdentity do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2070,6 +2103,7 @@ defmodule AWS.ChimeSDKIdentity do
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=untag-resource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2080,7 +2114,7 @@ defmodule AWS.ChimeSDKIdentity do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2097,11 +2131,22 @@ defmodule AWS.ChimeSDKIdentity do
   def update_app_instance(%Client{} = client, app_instance_arn, input, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2114,11 +2159,22 @@ defmodule AWS.ChimeSDKIdentity do
   def update_app_instance_bot(%Client{} = client, app_instance_bot_arn, input, options \\ []) do
     url_path = "/app-instance-bots/#{AWS.Util.encode_uri(app_instance_bot_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2134,11 +2190,22 @@ defmodule AWS.ChimeSDKIdentity do
   def update_app_instance_user(%Client{} = client, app_instance_user_arn, input, options \\ []) do
     url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2167,10 +2234,21 @@ defmodule AWS.ChimeSDKIdentity do
       "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}/endpoints/#{AWS.Util.encode_uri(endpoint_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

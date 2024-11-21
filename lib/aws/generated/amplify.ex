@@ -1547,6 +1547,7 @@ defmodule AWS.Amplify do
   def create_app(%Client{} = client, input, options \\ []) do
     url_path = "/apps"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1557,7 +1558,7 @@ defmodule AWS.Amplify do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1587,6 +1588,7 @@ defmodule AWS.Amplify do
   def create_backend_environment(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/backendenvironments"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1597,7 +1599,7 @@ defmodule AWS.Amplify do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1614,6 +1616,7 @@ defmodule AWS.Amplify do
   def create_branch(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/branches"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1624,7 +1627,7 @@ defmodule AWS.Amplify do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1651,6 +1654,7 @@ defmodule AWS.Amplify do
       "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}/deployments"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1661,7 +1665,7 @@ defmodule AWS.Amplify do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1681,6 +1685,7 @@ defmodule AWS.Amplify do
   def create_domain_association(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/domains"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1691,7 +1696,7 @@ defmodule AWS.Amplify do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1708,6 +1713,7 @@ defmodule AWS.Amplify do
   def create_webhook(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/webhooks"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1718,7 +1724,7 @@ defmodule AWS.Amplify do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1735,6 +1741,7 @@ defmodule AWS.Amplify do
   def delete_app(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1745,7 +1752,7 @@ defmodule AWS.Amplify do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1784,6 +1791,7 @@ defmodule AWS.Amplify do
       "/apps/#{AWS.Util.encode_uri(app_id)}/backendenvironments/#{AWS.Util.encode_uri(environment_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1794,7 +1802,7 @@ defmodule AWS.Amplify do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1811,6 +1819,7 @@ defmodule AWS.Amplify do
   def delete_branch(%Client{} = client, app_id, branch_name, input, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1821,7 +1830,7 @@ defmodule AWS.Amplify do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1844,6 +1853,7 @@ defmodule AWS.Amplify do
   def delete_domain_association(%Client{} = client, app_id, domain_name, input, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/domains/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1854,7 +1864,7 @@ defmodule AWS.Amplify do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1873,6 +1883,7 @@ defmodule AWS.Amplify do
       "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}/jobs/#{AWS.Util.encode_uri(job_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1883,7 +1894,7 @@ defmodule AWS.Amplify do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1900,6 +1911,7 @@ defmodule AWS.Amplify do
   def delete_webhook(%Client{} = client, webhook_id, input, options \\ []) do
     url_path = "/webhooks/#{AWS.Util.encode_uri(webhook_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1910,7 +1922,7 @@ defmodule AWS.Amplify do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1927,6 +1939,7 @@ defmodule AWS.Amplify do
   def generate_access_logs(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/accesslogs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1937,7 +1950,7 @@ defmodule AWS.Amplify do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2403,6 +2416,7 @@ defmodule AWS.Amplify do
       "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}/deployments/start"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2413,7 +2427,7 @@ defmodule AWS.Amplify do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2432,6 +2446,7 @@ defmodule AWS.Amplify do
       "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}/jobs"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2442,7 +2457,7 @@ defmodule AWS.Amplify do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2461,6 +2476,7 @@ defmodule AWS.Amplify do
       "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}/jobs/#{AWS.Util.encode_uri(job_id)}/stop"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2471,7 +2487,7 @@ defmodule AWS.Amplify do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2488,6 +2504,7 @@ defmodule AWS.Amplify do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2498,7 +2515,7 @@ defmodule AWS.Amplify do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2515,6 +2532,7 @@ defmodule AWS.Amplify do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2530,7 +2548,7 @@ defmodule AWS.Amplify do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2547,6 +2565,7 @@ defmodule AWS.Amplify do
   def update_app(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2557,7 +2576,7 @@ defmodule AWS.Amplify do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2574,6 +2593,7 @@ defmodule AWS.Amplify do
   def update_branch(%Client{} = client, app_id, branch_name, input, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2584,7 +2604,7 @@ defmodule AWS.Amplify do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2607,6 +2627,7 @@ defmodule AWS.Amplify do
   def update_domain_association(%Client{} = client, app_id, domain_name, input, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/domains/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2617,7 +2638,7 @@ defmodule AWS.Amplify do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2634,6 +2655,7 @@ defmodule AWS.Amplify do
   def update_webhook(%Client{} = client, webhook_id, input, options \\ []) do
     url_path = "/webhooks/#{AWS.Util.encode_uri(webhook_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2644,7 +2666,7 @@ defmodule AWS.Amplify do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

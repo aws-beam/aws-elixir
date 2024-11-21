@@ -2130,11 +2130,22 @@ defmodule AWS.AccessAnalyzer do
   def apply_archive_rule(%Client{} = client, input, options \\ []) do
     url_path = "/archive-rule"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2147,11 +2158,22 @@ defmodule AWS.AccessAnalyzer do
   def cancel_policy_generation(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/policy/generation/#{AWS.Util.encode_uri(job_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2164,6 +2186,7 @@ defmodule AWS.AccessAnalyzer do
   def check_access_not_granted(%Client{} = client, input, options \\ []) do
     url_path = "/policy/check-access-not-granted"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2174,7 +2197,7 @@ defmodule AWS.AccessAnalyzer do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2200,6 +2223,7 @@ defmodule AWS.AccessAnalyzer do
   def check_no_new_access(%Client{} = client, input, options \\ []) do
     url_path = "/policy/check-no-new-access"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2210,7 +2234,7 @@ defmodule AWS.AccessAnalyzer do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2229,6 +2253,7 @@ defmodule AWS.AccessAnalyzer do
   def check_no_public_access(%Client{} = client, input, options \\ []) do
     url_path = "/policy/check-no-public-access"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2239,7 +2264,7 @@ defmodule AWS.AccessAnalyzer do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2258,11 +2283,22 @@ defmodule AWS.AccessAnalyzer do
   def create_access_preview(%Client{} = client, input, options \\ []) do
     url_path = "/access-preview"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2275,11 +2311,22 @@ defmodule AWS.AccessAnalyzer do
   def create_analyzer(%Client{} = client, input, options \\ []) do
     url_path = "/analyzer"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2299,11 +2346,22 @@ defmodule AWS.AccessAnalyzer do
   def create_archive_rule(%Client{} = client, analyzer_name, input, options \\ []) do
     url_path = "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}/archive-rule"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2321,6 +2379,7 @@ defmodule AWS.AccessAnalyzer do
   def delete_analyzer(%Client{} = client, analyzer_name, input, options \\ []) do
     url_path = "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2336,7 +2395,7 @@ defmodule AWS.AccessAnalyzer do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2355,6 +2414,7 @@ defmodule AWS.AccessAnalyzer do
       "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}/archive-rule/#{AWS.Util.encode_uri(rule_name)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2370,7 +2430,7 @@ defmodule AWS.AccessAnalyzer do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2392,6 +2452,7 @@ defmodule AWS.AccessAnalyzer do
   def generate_finding_recommendation(%Client{} = client, id, input, options \\ []) do
     url_path = "/recommendation/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2407,7 +2468,7 @@ defmodule AWS.AccessAnalyzer do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2693,6 +2754,7 @@ defmodule AWS.AccessAnalyzer do
   def list_access_preview_findings(%Client{} = client, access_preview_id, input, options \\ []) do
     url_path = "/access-preview/#{AWS.Util.encode_uri(access_preview_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2703,7 +2765,7 @@ defmodule AWS.AccessAnalyzer do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2766,6 +2828,7 @@ defmodule AWS.AccessAnalyzer do
   def list_analyzed_resources(%Client{} = client, input, options \\ []) do
     url_path = "/analyzed-resource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2776,7 +2839,7 @@ defmodule AWS.AccessAnalyzer do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2883,6 +2946,7 @@ defmodule AWS.AccessAnalyzer do
   def list_findings(%Client{} = client, input, options \\ []) do
     url_path = "/finding"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2893,7 +2957,7 @@ defmodule AWS.AccessAnalyzer do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2919,6 +2983,7 @@ defmodule AWS.AccessAnalyzer do
   def list_findings_v2(%Client{} = client, input, options \\ []) do
     url_path = "/findingv2"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2929,7 +2994,7 @@ defmodule AWS.AccessAnalyzer do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3013,11 +3078,22 @@ defmodule AWS.AccessAnalyzer do
   def start_policy_generation(%Client{} = client, input, options \\ []) do
     url_path = "/policy/generation"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3030,6 +3106,7 @@ defmodule AWS.AccessAnalyzer do
   def start_resource_scan(%Client{} = client, input, options \\ []) do
     url_path = "/resource/scan"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3040,7 +3117,7 @@ defmodule AWS.AccessAnalyzer do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3057,6 +3134,7 @@ defmodule AWS.AccessAnalyzer do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3067,7 +3145,7 @@ defmodule AWS.AccessAnalyzer do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3084,6 +3162,7 @@ defmodule AWS.AccessAnalyzer do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3099,7 +3178,7 @@ defmodule AWS.AccessAnalyzer do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3116,11 +3195,22 @@ defmodule AWS.AccessAnalyzer do
   def update_analyzer(%Client{} = client, analyzer_name, input, options \\ []) do
     url_path = "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3135,11 +3225,22 @@ defmodule AWS.AccessAnalyzer do
       "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}/archive-rule/#{AWS.Util.encode_uri(rule_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3152,11 +3253,22 @@ defmodule AWS.AccessAnalyzer do
   def update_findings(%Client{} = client, input, options \\ []) do
     url_path = "/finding"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3174,6 +3286,7 @@ defmodule AWS.AccessAnalyzer do
   def validate_policy(%Client{} = client, input, options \\ []) do
     url_path = "/policy/validation"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3190,7 +3303,7 @@ defmodule AWS.AccessAnalyzer do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

@@ -218,6 +218,7 @@ defmodule AWS.SagemakerEdge do
   def get_deployments(%Client{} = client, input, options \\ []) do
     url_path = "/GetDeployments"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -228,7 +229,7 @@ defmodule AWS.SagemakerEdge do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -245,6 +246,7 @@ defmodule AWS.SagemakerEdge do
   def get_device_registration(%Client{} = client, input, options \\ []) do
     url_path = "/GetDeviceRegistration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -255,7 +257,7 @@ defmodule AWS.SagemakerEdge do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -272,6 +274,7 @@ defmodule AWS.SagemakerEdge do
   def send_heartbeat(%Client{} = client, input, options \\ []) do
     url_path = "/SendHeartbeat"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -282,7 +285,7 @@ defmodule AWS.SagemakerEdge do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

@@ -889,6 +889,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   def associate_user(%Client{} = client, input, options \\ []) do
     url_path = "/user/AssociateUser"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -899,7 +900,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -916,6 +917,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   def create_license_server_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/license-server/CreateLicenseServerEndpoint"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -926,7 +928,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -943,6 +945,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   def delete_license_server_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/license-server/DeleteLicenseServerEndpoint"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -953,7 +956,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -971,6 +974,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   def deregister_identity_provider(%Client{} = client, input, options \\ []) do
     url_path = "/identity-provider/DeregisterIdentityProvider"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -981,7 +985,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -998,6 +1002,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   def disassociate_user(%Client{} = client, input, options \\ []) do
     url_path = "/user/DisassociateUser"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1008,7 +1013,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1025,6 +1030,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   def list_identity_providers(%Client{} = client, input, options \\ []) do
     url_path = "/identity-provider/ListIdentityProviders"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1035,7 +1041,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1052,6 +1058,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   def list_instances(%Client{} = client, input, options \\ []) do
     url_path = "/instance/ListInstances"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1062,7 +1069,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1079,6 +1086,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   def list_license_server_endpoints(%Client{} = client, input, options \\ []) do
     url_path = "/license-server/ListLicenseServerEndpoints"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1089,7 +1097,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1106,6 +1114,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   def list_product_subscriptions(%Client{} = client, input, options \\ []) do
     url_path = "/user/ListProductSubscriptions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1116,7 +1125,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1150,6 +1159,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   def list_user_associations(%Client{} = client, input, options \\ []) do
     url_path = "/user/ListUserAssociations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1160,7 +1170,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1177,6 +1187,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   def register_identity_provider(%Client{} = client, input, options \\ []) do
     url_path = "/identity-provider/RegisterIdentityProvider"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1187,7 +1198,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1212,6 +1223,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   def start_product_subscription(%Client{} = client, input, options \\ []) do
     url_path = "/user/StartProductSubscription"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1222,7 +1234,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1239,6 +1251,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   def stop_product_subscription(%Client{} = client, input, options \\ []) do
     url_path = "/user/StopProductSubscription"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1249,7 +1262,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1266,11 +1279,22 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1283,6 +1307,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1298,7 +1323,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1320,6 +1345,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   def update_identity_provider_settings(%Client{} = client, input, options \\ []) do
     url_path = "/identity-provider/UpdateIdentityProviderSettings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1330,7 +1356,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

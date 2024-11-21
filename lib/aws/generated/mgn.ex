@@ -2878,6 +2878,7 @@ defmodule AWS.Mgn do
   def archive_application(%Client{} = client, input, options \\ []) do
     url_path = "/ArchiveApplication"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2888,7 +2889,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2905,6 +2906,7 @@ defmodule AWS.Mgn do
   def archive_wave(%Client{} = client, input, options \\ []) do
     url_path = "/ArchiveWave"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2915,7 +2917,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2932,6 +2934,7 @@ defmodule AWS.Mgn do
   def associate_applications(%Client{} = client, input, options \\ []) do
     url_path = "/AssociateApplications"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2942,7 +2945,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2959,6 +2962,7 @@ defmodule AWS.Mgn do
   def associate_source_servers(%Client{} = client, input, options \\ []) do
     url_path = "/AssociateSourceServers"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2969,7 +2973,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2990,6 +2994,7 @@ defmodule AWS.Mgn do
   def change_server_life_cycle_state(%Client{} = client, input, options \\ []) do
     url_path = "/ChangeServerLifeCycleState"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3000,7 +3005,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3017,6 +3022,7 @@ defmodule AWS.Mgn do
   def create_application(%Client{} = client, input, options \\ []) do
     url_path = "/CreateApplication"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3027,7 +3033,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -3044,6 +3050,7 @@ defmodule AWS.Mgn do
   def create_connector(%Client{} = client, input, options \\ []) do
     url_path = "/CreateConnector"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3054,7 +3061,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -3075,6 +3082,7 @@ defmodule AWS.Mgn do
   def create_launch_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/CreateLaunchConfigurationTemplate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3085,7 +3093,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -3106,6 +3114,7 @@ defmodule AWS.Mgn do
   def create_replication_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/CreateReplicationConfigurationTemplate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3116,7 +3125,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -3133,6 +3142,7 @@ defmodule AWS.Mgn do
   def create_wave(%Client{} = client, input, options \\ []) do
     url_path = "/CreateWave"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3143,7 +3153,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -3160,6 +3170,7 @@ defmodule AWS.Mgn do
   def delete_application(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteApplication"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3170,7 +3181,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3187,6 +3198,7 @@ defmodule AWS.Mgn do
   def delete_connector(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteConnector"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3197,7 +3209,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3214,6 +3226,7 @@ defmodule AWS.Mgn do
   def delete_job(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteJob"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3224,7 +3237,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3245,6 +3258,7 @@ defmodule AWS.Mgn do
   def delete_launch_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteLaunchConfigurationTemplate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3255,7 +3269,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3276,6 +3290,7 @@ defmodule AWS.Mgn do
   def delete_replication_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteReplicationConfigurationTemplate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3286,7 +3301,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3303,6 +3318,7 @@ defmodule AWS.Mgn do
   def delete_source_server(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteSourceServer"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3313,7 +3329,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3330,6 +3346,7 @@ defmodule AWS.Mgn do
   def delete_vcenter_client(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteVcenterClient"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3340,7 +3357,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3357,6 +3374,7 @@ defmodule AWS.Mgn do
   def delete_wave(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteWave"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3367,7 +3385,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3384,6 +3402,7 @@ defmodule AWS.Mgn do
   def describe_job_log_items(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeJobLogItems"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3394,7 +3413,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3418,6 +3437,7 @@ defmodule AWS.Mgn do
   def describe_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeJobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3428,7 +3448,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3450,6 +3470,7 @@ defmodule AWS.Mgn do
   def describe_launch_configuration_templates(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeLaunchConfigurationTemplates"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3460,7 +3481,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3481,6 +3502,7 @@ defmodule AWS.Mgn do
   def describe_replication_configuration_templates(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeReplicationConfigurationTemplates"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3491,7 +3513,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3508,6 +3530,7 @@ defmodule AWS.Mgn do
   def describe_source_servers(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeSourceServers"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3518,7 +3541,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3571,6 +3594,7 @@ defmodule AWS.Mgn do
   def disassociate_applications(%Client{} = client, input, options \\ []) do
     url_path = "/DisassociateApplications"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3581,7 +3605,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3598,6 +3622,7 @@ defmodule AWS.Mgn do
   def disassociate_source_servers(%Client{} = client, input, options \\ []) do
     url_path = "/DisassociateSourceServers"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3608,7 +3633,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3638,6 +3663,7 @@ defmodule AWS.Mgn do
   def disconnect_from_service(%Client{} = client, input, options \\ []) do
     url_path = "/DisconnectFromService"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3648,7 +3674,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3676,6 +3702,7 @@ defmodule AWS.Mgn do
   def finalize_cutover(%Client{} = client, input, options \\ []) do
     url_path = "/FinalizeCutover"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3686,7 +3713,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3703,6 +3730,7 @@ defmodule AWS.Mgn do
   def get_launch_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/GetLaunchConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3713,7 +3741,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3730,6 +3758,7 @@ defmodule AWS.Mgn do
   def get_replication_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/GetReplicationConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3740,7 +3769,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3757,6 +3786,7 @@ defmodule AWS.Mgn do
   def initialize_service(%Client{} = client, input, options \\ []) do
     url_path = "/InitializeService"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3767,7 +3797,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3784,6 +3814,7 @@ defmodule AWS.Mgn do
   def list_applications(%Client{} = client, input, options \\ []) do
     url_path = "/ListApplications"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3794,7 +3825,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3811,6 +3842,7 @@ defmodule AWS.Mgn do
   def list_connectors(%Client{} = client, input, options \\ []) do
     url_path = "/ListConnectors"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3821,7 +3853,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3838,6 +3870,7 @@ defmodule AWS.Mgn do
   def list_export_errors(%Client{} = client, input, options \\ []) do
     url_path = "/ListExportErrors"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3848,7 +3881,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3865,6 +3898,7 @@ defmodule AWS.Mgn do
   def list_exports(%Client{} = client, input, options \\ []) do
     url_path = "/ListExports"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3875,7 +3909,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3892,6 +3926,7 @@ defmodule AWS.Mgn do
   def list_import_errors(%Client{} = client, input, options \\ []) do
     url_path = "/ListImportErrors"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3902,7 +3937,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3919,6 +3954,7 @@ defmodule AWS.Mgn do
   def list_imports(%Client{} = client, input, options \\ []) do
     url_path = "/ListImports"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3929,7 +3965,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3946,6 +3982,7 @@ defmodule AWS.Mgn do
   def list_managed_accounts(%Client{} = client, input, options \\ []) do
     url_path = "/ListManagedAccounts"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3956,7 +3993,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3973,6 +4010,7 @@ defmodule AWS.Mgn do
   def list_source_server_actions(%Client{} = client, input, options \\ []) do
     url_path = "/ListSourceServerActions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3983,7 +4021,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4017,6 +4055,7 @@ defmodule AWS.Mgn do
   def list_template_actions(%Client{} = client, input, options \\ []) do
     url_path = "/ListTemplateActions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4027,7 +4066,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4044,6 +4083,7 @@ defmodule AWS.Mgn do
   def list_waves(%Client{} = client, input, options \\ []) do
     url_path = "/ListWaves"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4054,7 +4094,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4075,6 +4115,7 @@ defmodule AWS.Mgn do
   def mark_as_archived(%Client{} = client, input, options \\ []) do
     url_path = "/MarkAsArchived"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4085,7 +4126,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4102,6 +4143,7 @@ defmodule AWS.Mgn do
   def pause_replication(%Client{} = client, input, options \\ []) do
     url_path = "/PauseReplication"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4112,7 +4154,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4129,6 +4171,7 @@ defmodule AWS.Mgn do
   def put_source_server_action(%Client{} = client, input, options \\ []) do
     url_path = "/PutSourceServerAction"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4139,7 +4182,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4156,6 +4199,7 @@ defmodule AWS.Mgn do
   def put_template_action(%Client{} = client, input, options \\ []) do
     url_path = "/PutTemplateAction"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4166,7 +4210,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4183,6 +4227,7 @@ defmodule AWS.Mgn do
   def remove_source_server_action(%Client{} = client, input, options \\ []) do
     url_path = "/RemoveSourceServerAction"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4193,7 +4238,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4210,6 +4255,7 @@ defmodule AWS.Mgn do
   def remove_template_action(%Client{} = client, input, options \\ []) do
     url_path = "/RemoveTemplateAction"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4220,7 +4266,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4237,6 +4283,7 @@ defmodule AWS.Mgn do
   def resume_replication(%Client{} = client, input, options \\ []) do
     url_path = "/ResumeReplication"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4247,7 +4294,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4269,6 +4316,7 @@ defmodule AWS.Mgn do
   def retry_data_replication(%Client{} = client, input, options \\ []) do
     url_path = "/RetryDataReplication"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4279,7 +4327,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4299,6 +4347,7 @@ defmodule AWS.Mgn do
   def start_cutover(%Client{} = client, input, options \\ []) do
     url_path = "/StartCutover"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4309,7 +4358,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -4326,6 +4375,7 @@ defmodule AWS.Mgn do
   def start_export(%Client{} = client, input, options \\ []) do
     url_path = "/StartExport"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4336,7 +4386,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -4353,6 +4403,7 @@ defmodule AWS.Mgn do
   def start_import(%Client{} = client, input, options \\ []) do
     url_path = "/StartImport"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4363,7 +4414,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -4380,6 +4431,7 @@ defmodule AWS.Mgn do
   def start_replication(%Client{} = client, input, options \\ []) do
     url_path = "/StartReplication"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4390,7 +4442,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4410,6 +4462,7 @@ defmodule AWS.Mgn do
   def start_test(%Client{} = client, input, options \\ []) do
     url_path = "/StartTest"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4420,7 +4473,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -4437,6 +4490,7 @@ defmodule AWS.Mgn do
   def stop_replication(%Client{} = client, input, options \\ []) do
     url_path = "/StopReplication"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4447,7 +4501,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4469,6 +4523,7 @@ defmodule AWS.Mgn do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4479,7 +4534,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4499,6 +4554,7 @@ defmodule AWS.Mgn do
   def terminate_target_instances(%Client{} = client, input, options \\ []) do
     url_path = "/TerminateTargetInstances"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4509,7 +4565,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -4526,6 +4582,7 @@ defmodule AWS.Mgn do
   def unarchive_application(%Client{} = client, input, options \\ []) do
     url_path = "/UnarchiveApplication"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4536,7 +4593,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4553,6 +4610,7 @@ defmodule AWS.Mgn do
   def unarchive_wave(%Client{} = client, input, options \\ []) do
     url_path = "/UnarchiveWave"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4563,7 +4621,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4581,6 +4639,7 @@ defmodule AWS.Mgn do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4596,7 +4655,7 @@ defmodule AWS.Mgn do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4613,6 +4672,7 @@ defmodule AWS.Mgn do
   def update_application(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateApplication"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4623,7 +4683,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4640,6 +4700,7 @@ defmodule AWS.Mgn do
   def update_connector(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateConnector"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4650,7 +4711,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4669,6 +4730,7 @@ defmodule AWS.Mgn do
   def update_launch_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateLaunchConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4679,7 +4741,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4700,6 +4762,7 @@ defmodule AWS.Mgn do
   def update_launch_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateLaunchConfigurationTemplate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4710,7 +4773,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4731,6 +4794,7 @@ defmodule AWS.Mgn do
   def update_replication_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateReplicationConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4741,7 +4805,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4762,6 +4826,7 @@ defmodule AWS.Mgn do
   def update_replication_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateReplicationConfigurationTemplate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4772,7 +4837,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4789,6 +4854,7 @@ defmodule AWS.Mgn do
   def update_source_server(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateSourceServer"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4799,7 +4865,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4821,6 +4887,7 @@ defmodule AWS.Mgn do
   def update_source_server_replication_type(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateSourceServerReplicationType"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4831,7 +4898,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4848,6 +4915,7 @@ defmodule AWS.Mgn do
   def update_wave(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateWave"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4858,7 +4926,7 @@ defmodule AWS.Mgn do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

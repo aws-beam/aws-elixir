@@ -2587,6 +2587,7 @@ defmodule AWS.Bedrock do
   def batch_delete_evaluation_job(%Client{} = client, input, options \\ []) do
     url_path = "/evaluation-jobs/batch-delete"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2597,7 +2598,7 @@ defmodule AWS.Bedrock do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -2618,6 +2619,7 @@ defmodule AWS.Bedrock do
   def create_evaluation_job(%Client{} = client, input, options \\ []) do
     url_path = "/evaluation-jobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2628,7 +2630,7 @@ defmodule AWS.Bedrock do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -2686,6 +2688,7 @@ defmodule AWS.Bedrock do
   def create_guardrail(%Client{} = client, input, options \\ []) do
     url_path = "/guardrails"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2696,7 +2699,7 @@ defmodule AWS.Bedrock do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -2717,6 +2720,7 @@ defmodule AWS.Bedrock do
   def create_guardrail_version(%Client{} = client, guardrail_identifier, input, options \\ []) do
     url_path = "/guardrails/#{AWS.Util.encode_uri(guardrail_identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2727,7 +2731,7 @@ defmodule AWS.Bedrock do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -2753,6 +2757,7 @@ defmodule AWS.Bedrock do
   def create_inference_profile(%Client{} = client, input, options \\ []) do
     url_path = "/inference-profiles"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2763,7 +2768,7 @@ defmodule AWS.Bedrock do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2783,6 +2788,7 @@ defmodule AWS.Bedrock do
   def create_model_copy_job(%Client{} = client, input, options \\ []) do
     url_path = "/model-copy-jobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2793,7 +2799,7 @@ defmodule AWS.Bedrock do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2825,6 +2831,7 @@ defmodule AWS.Bedrock do
   def create_model_customization_job(%Client{} = client, input, options \\ []) do
     url_path = "/model-customization-jobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2835,7 +2842,7 @@ defmodule AWS.Bedrock do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2856,6 +2863,7 @@ defmodule AWS.Bedrock do
   def create_model_import_job(%Client{} = client, input, options \\ []) do
     url_path = "/model-import-jobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2866,7 +2874,7 @@ defmodule AWS.Bedrock do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2890,6 +2898,7 @@ defmodule AWS.Bedrock do
   def create_model_invocation_job(%Client{} = client, input, options \\ []) do
     url_path = "/model-invocation-job"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2900,7 +2909,7 @@ defmodule AWS.Bedrock do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2926,6 +2935,7 @@ defmodule AWS.Bedrock do
   def create_provisioned_model_throughput(%Client{} = client, input, options \\ []) do
     url_path = "/provisioned-model-throughput"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2936,7 +2946,7 @@ defmodule AWS.Bedrock do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2956,6 +2966,7 @@ defmodule AWS.Bedrock do
   def delete_custom_model(%Client{} = client, model_identifier, input, options \\ []) do
     url_path = "/custom-models/#{AWS.Util.encode_uri(model_identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2966,7 +2977,7 @@ defmodule AWS.Bedrock do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2992,6 +3003,7 @@ defmodule AWS.Bedrock do
   def delete_guardrail(%Client{} = client, guardrail_identifier, input, options \\ []) do
     url_path = "/guardrails/#{AWS.Util.encode_uri(guardrail_identifier)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3007,7 +3019,7 @@ defmodule AWS.Bedrock do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -3028,6 +3040,7 @@ defmodule AWS.Bedrock do
   def delete_imported_model(%Client{} = client, model_identifier, input, options \\ []) do
     url_path = "/imported-models/#{AWS.Util.encode_uri(model_identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3038,7 +3051,7 @@ defmodule AWS.Bedrock do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3064,6 +3077,7 @@ defmodule AWS.Bedrock do
       ) do
     url_path = "/inference-profiles/#{AWS.Util.encode_uri(inference_profile_identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3074,7 +3088,7 @@ defmodule AWS.Bedrock do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3095,6 +3109,7 @@ defmodule AWS.Bedrock do
   def delete_model_invocation_logging_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/logging/modelinvocations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3105,7 +3120,7 @@ defmodule AWS.Bedrock do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3136,6 +3151,7 @@ defmodule AWS.Bedrock do
       ) do
     url_path = "/provisioned-model-throughput/#{AWS.Util.encode_uri(provisioned_model_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3146,7 +3162,7 @@ defmodule AWS.Bedrock do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4407,6 +4423,7 @@ defmodule AWS.Bedrock do
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     url_path = "/listTagsForResource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4417,7 +4434,7 @@ defmodule AWS.Bedrock do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4438,11 +4455,22 @@ defmodule AWS.Bedrock do
   def put_model_invocation_logging_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/logging/modelinvocations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4455,6 +4483,7 @@ defmodule AWS.Bedrock do
   def stop_evaluation_job(%Client{} = client, job_identifier, input, options \\ []) do
     url_path = "/evaluation-job/#{AWS.Util.encode_uri(job_identifier)}/stop"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4465,7 +4494,7 @@ defmodule AWS.Bedrock do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4490,6 +4519,7 @@ defmodule AWS.Bedrock do
   def stop_model_customization_job(%Client{} = client, job_identifier, input, options \\ []) do
     url_path = "/model-customization-jobs/#{AWS.Util.encode_uri(job_identifier)}/stop"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4500,7 +4530,7 @@ defmodule AWS.Bedrock do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4520,6 +4550,7 @@ defmodule AWS.Bedrock do
   def stop_model_invocation_job(%Client{} = client, job_identifier, input, options \\ []) do
     url_path = "/model-invocation-job/#{AWS.Util.encode_uri(job_identifier)}/stop"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4530,7 +4561,7 @@ defmodule AWS.Bedrock do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4550,6 +4581,7 @@ defmodule AWS.Bedrock do
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tagResource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4560,7 +4592,7 @@ defmodule AWS.Bedrock do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4580,6 +4612,7 @@ defmodule AWS.Bedrock do
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/untagResource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4590,7 +4623,7 @@ defmodule AWS.Bedrock do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4648,11 +4681,22 @@ defmodule AWS.Bedrock do
   def update_guardrail(%Client{} = client, guardrail_identifier, input, options \\ []) do
     url_path = "/guardrails/#{AWS.Util.encode_uri(guardrail_identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -4678,6 +4722,7 @@ defmodule AWS.Bedrock do
       ) do
     url_path = "/provisioned-model-throughput/#{AWS.Util.encode_uri(provisioned_model_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4688,7 +4733,7 @@ defmodule AWS.Bedrock do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

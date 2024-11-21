@@ -1922,6 +1922,7 @@ defmodule AWS.LexModelBuilding do
   def create_bot_version(%Client{} = client, name, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(name)}/versions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1932,7 +1933,7 @@ defmodule AWS.LexModelBuilding do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1966,6 +1967,7 @@ defmodule AWS.LexModelBuilding do
   def create_intent_version(%Client{} = client, name, input, options \\ []) do
     url_path = "/intents/#{AWS.Util.encode_uri(name)}/versions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1976,7 +1978,7 @@ defmodule AWS.LexModelBuilding do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2010,6 +2012,7 @@ defmodule AWS.LexModelBuilding do
   def create_slot_type_version(%Client{} = client, name, input, options \\ []) do
     url_path = "/slottypes/#{AWS.Util.encode_uri(name)}/versions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2020,7 +2023,7 @@ defmodule AWS.LexModelBuilding do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2059,6 +2062,7 @@ defmodule AWS.LexModelBuilding do
   def delete_bot(%Client{} = client, name, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2069,7 +2073,7 @@ defmodule AWS.LexModelBuilding do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2095,6 +2099,7 @@ defmodule AWS.LexModelBuilding do
   def delete_bot_alias(%Client{} = client, bot_name, name, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2105,7 +2110,7 @@ defmodule AWS.LexModelBuilding do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2142,6 +2147,7 @@ defmodule AWS.LexModelBuilding do
       "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases/#{AWS.Util.encode_uri(bot_alias)}/channels/#{AWS.Util.encode_uri(name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2152,7 +2158,7 @@ defmodule AWS.LexModelBuilding do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2175,6 +2181,7 @@ defmodule AWS.LexModelBuilding do
   def delete_bot_version(%Client{} = client, name, version, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(name)}/versions/#{AWS.Util.encode_uri(version)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2185,7 +2192,7 @@ defmodule AWS.LexModelBuilding do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2221,6 +2228,7 @@ defmodule AWS.LexModelBuilding do
   def delete_intent(%Client{} = client, name, input, options \\ []) do
     url_path = "/intents/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2231,7 +2239,7 @@ defmodule AWS.LexModelBuilding do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2260,6 +2268,7 @@ defmodule AWS.LexModelBuilding do
   def delete_intent_version(%Client{} = client, name, version, input, options \\ []) do
     url_path = "/intents/#{AWS.Util.encode_uri(name)}/versions/#{AWS.Util.encode_uri(version)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2270,7 +2279,7 @@ defmodule AWS.LexModelBuilding do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2306,6 +2315,7 @@ defmodule AWS.LexModelBuilding do
   def delete_slot_type(%Client{} = client, name, input, options \\ []) do
     url_path = "/slottypes/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2316,7 +2326,7 @@ defmodule AWS.LexModelBuilding do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2345,6 +2355,7 @@ defmodule AWS.LexModelBuilding do
   def delete_slot_type_version(%Client{} = client, name, version, input, options \\ []) do
     url_path = "/slottypes/#{AWS.Util.encode_uri(name)}/version/#{AWS.Util.encode_uri(version)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2355,7 +2366,7 @@ defmodule AWS.LexModelBuilding do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2387,6 +2398,7 @@ defmodule AWS.LexModelBuilding do
   def delete_utterances(%Client{} = client, bot_name, user_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/utterances/#{AWS.Util.encode_uri(user_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2397,7 +2409,7 @@ defmodule AWS.LexModelBuilding do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3380,11 +3392,22 @@ defmodule AWS.LexModelBuilding do
   def put_bot(%Client{} = client, name, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(name)}/versions/$LATEST"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3405,11 +3428,22 @@ defmodule AWS.LexModelBuilding do
   def put_bot_alias(%Client{} = client, bot_name, name, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3480,11 +3514,22 @@ defmodule AWS.LexModelBuilding do
   def put_intent(%Client{} = client, name, input, options \\ []) do
     url_path = "/intents/#{AWS.Util.encode_uri(name)}/versions/$LATEST"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3514,11 +3559,22 @@ defmodule AWS.LexModelBuilding do
   def put_slot_type(%Client{} = client, name, input, options \\ []) do
     url_path = "/slottypes/#{AWS.Util.encode_uri(name)}/versions/$LATEST"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3531,6 +3587,7 @@ defmodule AWS.LexModelBuilding do
   def start_import(%Client{} = client, input, options \\ []) do
     url_path = "/imports"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3541,7 +3598,7 @@ defmodule AWS.LexModelBuilding do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -3564,6 +3621,7 @@ defmodule AWS.LexModelBuilding do
   def start_migration(%Client{} = client, input, options \\ []) do
     url_path = "/migrations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3574,7 +3632,7 @@ defmodule AWS.LexModelBuilding do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -3594,6 +3652,7 @@ defmodule AWS.LexModelBuilding do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3604,7 +3663,7 @@ defmodule AWS.LexModelBuilding do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3621,6 +3680,7 @@ defmodule AWS.LexModelBuilding do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3636,7 +3696,7 @@ defmodule AWS.LexModelBuilding do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204

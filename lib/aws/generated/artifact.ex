@@ -541,10 +541,21 @@ defmodule AWS.Artifact do
   def put_account_settings(%Client{} = client, input, options \\ []) do
     url_path = "/v1/account-settings/put"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

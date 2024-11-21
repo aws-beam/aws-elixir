@@ -1157,6 +1157,7 @@ defmodule AWS.GeoPlaces do
   def autocomplete(%Client{} = client, input, options \\ []) do
     url_path = "/autocomplete"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1179,7 +1180,7 @@ defmodule AWS.GeoPlaces do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1197,6 +1198,7 @@ defmodule AWS.GeoPlaces do
   def geocode(%Client{} = client, input, options \\ []) do
     url_path = "/geocode"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1219,7 +1221,7 @@ defmodule AWS.GeoPlaces do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1317,6 +1319,7 @@ defmodule AWS.GeoPlaces do
   def reverse_geocode(%Client{} = client, input, options \\ []) do
     url_path = "/reverse-geocode"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1339,7 +1342,7 @@ defmodule AWS.GeoPlaces do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1356,6 +1359,7 @@ defmodule AWS.GeoPlaces do
   def search_nearby(%Client{} = client, input, options \\ []) do
     url_path = "/search-nearby"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1378,7 +1382,7 @@ defmodule AWS.GeoPlaces do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1398,6 +1402,7 @@ defmodule AWS.GeoPlaces do
   def search_text(%Client{} = client, input, options \\ []) do
     url_path = "/search-text"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1420,7 +1425,7 @@ defmodule AWS.GeoPlaces do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1441,6 +1446,7 @@ defmodule AWS.GeoPlaces do
   def suggest(%Client{} = client, input, options \\ []) do
     url_path = "/suggest"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1463,7 +1469,7 @@ defmodule AWS.GeoPlaces do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

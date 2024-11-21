@@ -517,6 +517,7 @@ defmodule AWS.KinesisVideoArchivedMedia do
   def get_clip(%Client{} = client, input, options \\ []) do
     url_path = "/getClip"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -534,7 +535,7 @@ defmodule AWS.KinesisVideoArchivedMedia do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -702,6 +703,7 @@ defmodule AWS.KinesisVideoArchivedMedia do
   def get_dash_streaming_session_url(%Client{} = client, input, options \\ []) do
     url_path = "/getDASHStreamingSessionURL"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -712,7 +714,7 @@ defmodule AWS.KinesisVideoArchivedMedia do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -925,6 +927,7 @@ defmodule AWS.KinesisVideoArchivedMedia do
   def get_hls_streaming_session_url(%Client{} = client, input, options \\ []) do
     url_path = "/getHLSStreamingSessionURL"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -935,7 +938,7 @@ defmodule AWS.KinesisVideoArchivedMedia do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -954,6 +957,7 @@ defmodule AWS.KinesisVideoArchivedMedia do
   def get_images(%Client{} = client, input, options \\ []) do
     url_path = "/getImages"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -964,7 +968,7 @@ defmodule AWS.KinesisVideoArchivedMedia do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1014,6 +1018,7 @@ defmodule AWS.KinesisVideoArchivedMedia do
   def get_media_for_fragment_list(%Client{} = client, input, options \\ []) do
     url_path = "/getMediaForFragmentList"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -1031,7 +1036,7 @@ defmodule AWS.KinesisVideoArchivedMedia do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1083,6 +1088,7 @@ defmodule AWS.KinesisVideoArchivedMedia do
   def list_fragments(%Client{} = client, input, options \\ []) do
     url_path = "/listFragments"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1093,7 +1099,7 @@ defmodule AWS.KinesisVideoArchivedMedia do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

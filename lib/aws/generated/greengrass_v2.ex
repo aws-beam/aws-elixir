@@ -1551,11 +1551,22 @@ defmodule AWS.GreengrassV2 do
   def associate_service_role_to_account(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/servicerole"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1598,6 +1609,7 @@ defmodule AWS.GreengrassV2 do
       "/greengrass/v2/coreDevices/#{AWS.Util.encode_uri(core_device_thing_name)}/associateClientDevices"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1608,7 +1620,7 @@ defmodule AWS.GreengrassV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1642,6 +1654,7 @@ defmodule AWS.GreengrassV2 do
       "/greengrass/v2/coreDevices/#{AWS.Util.encode_uri(core_device_thing_name)}/disassociateClientDevices"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1652,7 +1665,7 @@ defmodule AWS.GreengrassV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1674,6 +1687,7 @@ defmodule AWS.GreengrassV2 do
   def cancel_deployment(%Client{} = client, deployment_id, input, options \\ []) do
     url_path = "/greengrass/v2/deployments/#{AWS.Util.encode_uri(deployment_id)}/cancel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1684,7 +1698,7 @@ defmodule AWS.GreengrassV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1743,6 +1757,7 @@ defmodule AWS.GreengrassV2 do
   def create_component_version(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/v2/createComponentVersion"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1753,7 +1768,7 @@ defmodule AWS.GreengrassV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1791,6 +1806,7 @@ defmodule AWS.GreengrassV2 do
   def create_deployment(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/v2/deployments"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1801,7 +1817,7 @@ defmodule AWS.GreengrassV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1826,6 +1842,7 @@ defmodule AWS.GreengrassV2 do
   def delete_component(%Client{} = client, arn, input, options \\ []) do
     url_path = "/greengrass/v2/components/#{AWS.Util.encode_uri(arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1836,7 +1853,7 @@ defmodule AWS.GreengrassV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1861,6 +1878,7 @@ defmodule AWS.GreengrassV2 do
   def delete_core_device(%Client{} = client, core_device_thing_name, input, options \\ []) do
     url_path = "/greengrass/v2/coreDevices/#{AWS.Util.encode_uri(core_device_thing_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1871,7 +1889,7 @@ defmodule AWS.GreengrassV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1898,6 +1916,7 @@ defmodule AWS.GreengrassV2 do
   def delete_deployment(%Client{} = client, deployment_id, input, options \\ []) do
     url_path = "/greengrass/v2/deployments/#{AWS.Util.encode_uri(deployment_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1908,7 +1927,7 @@ defmodule AWS.GreengrassV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1953,6 +1972,7 @@ defmodule AWS.GreengrassV2 do
   def disassociate_service_role_from_account(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/servicerole"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1963,7 +1983,7 @@ defmodule AWS.GreengrassV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2630,6 +2650,7 @@ defmodule AWS.GreengrassV2 do
   def resolve_component_candidates(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/v2/resolveComponentCandidates"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2640,7 +2661,7 @@ defmodule AWS.GreengrassV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2660,6 +2681,7 @@ defmodule AWS.GreengrassV2 do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2670,7 +2692,7 @@ defmodule AWS.GreengrassV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2687,6 +2709,7 @@ defmodule AWS.GreengrassV2 do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2702,7 +2725,7 @@ defmodule AWS.GreengrassV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2728,10 +2751,21 @@ defmodule AWS.GreengrassV2 do
   def update_connectivity_info(%Client{} = client, thing_name, input, options \\ []) do
     url_path = "/greengrass/things/#{AWS.Util.encode_uri(thing_name)}/connectivityInfo"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

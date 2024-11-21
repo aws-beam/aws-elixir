@@ -3273,6 +3273,7 @@ defmodule AWS.WellArchitected do
   def associate_lenses(%Client{} = client, workload_id, input, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/associateLenses"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3283,7 +3284,7 @@ defmodule AWS.WellArchitected do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3300,6 +3301,7 @@ defmodule AWS.WellArchitected do
   def associate_profiles(%Client{} = client, workload_id, input, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/associateProfiles"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3310,7 +3312,7 @@ defmodule AWS.WellArchitected do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3353,6 +3355,7 @@ defmodule AWS.WellArchitected do
   def create_lens_share(%Client{} = client, lens_alias, input, options \\ []) do
     url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}/shares"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3363,7 +3366,7 @@ defmodule AWS.WellArchitected do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3389,6 +3392,7 @@ defmodule AWS.WellArchitected do
   def create_lens_version(%Client{} = client, lens_alias, input, options \\ []) do
     url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}/versions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3399,7 +3403,7 @@ defmodule AWS.WellArchitected do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3416,6 +3420,7 @@ defmodule AWS.WellArchitected do
   def create_milestone(%Client{} = client, workload_id, input, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/milestones"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3426,7 +3431,7 @@ defmodule AWS.WellArchitected do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3443,6 +3448,7 @@ defmodule AWS.WellArchitected do
   def create_profile(%Client{} = client, input, options \\ []) do
     url_path = "/profiles"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3453,7 +3459,7 @@ defmodule AWS.WellArchitected do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3470,6 +3476,7 @@ defmodule AWS.WellArchitected do
   def create_profile_share(%Client{} = client, profile_arn, input, options \\ []) do
     url_path = "/profiles/#{AWS.Util.encode_uri(profile_arn)}/shares"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3480,7 +3487,7 @@ defmodule AWS.WellArchitected do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3508,6 +3515,7 @@ defmodule AWS.WellArchitected do
   def create_review_template(%Client{} = client, input, options \\ []) do
     url_path = "/reviewTemplates"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3518,7 +3526,7 @@ defmodule AWS.WellArchitected do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3553,6 +3561,7 @@ defmodule AWS.WellArchitected do
   def create_template_share(%Client{} = client, template_arn, input, options \\ []) do
     url_path = "/templates/shares/#{AWS.Util.encode_uri(template_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3563,7 +3572,7 @@ defmodule AWS.WellArchitected do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3615,6 +3624,7 @@ defmodule AWS.WellArchitected do
   def create_workload(%Client{} = client, input, options \\ []) do
     url_path = "/workloads"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3625,7 +3635,7 @@ defmodule AWS.WellArchitected do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3656,6 +3666,7 @@ defmodule AWS.WellArchitected do
   def create_workload_share(%Client{} = client, workload_id, input, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/shares"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3666,7 +3677,7 @@ defmodule AWS.WellArchitected do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3698,6 +3709,7 @@ defmodule AWS.WellArchitected do
   def delete_lens(%Client{} = client, lens_alias, input, options \\ []) do
     url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3714,7 +3726,7 @@ defmodule AWS.WellArchitected do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3749,6 +3761,7 @@ defmodule AWS.WellArchitected do
       "/lenses/#{AWS.Util.encode_uri(lens_alias)}/shares/#{AWS.Util.encode_uri(share_id)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3764,7 +3777,7 @@ defmodule AWS.WellArchitected do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3791,6 +3804,7 @@ defmodule AWS.WellArchitected do
   def delete_profile(%Client{} = client, profile_arn, input, options \\ []) do
     url_path = "/profiles/#{AWS.Util.encode_uri(profile_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3806,7 +3820,7 @@ defmodule AWS.WellArchitected do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3825,6 +3839,7 @@ defmodule AWS.WellArchitected do
       "/profiles/#{AWS.Util.encode_uri(profile_arn)}/shares/#{AWS.Util.encode_uri(share_id)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3840,7 +3855,7 @@ defmodule AWS.WellArchitected do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3864,6 +3879,7 @@ defmodule AWS.WellArchitected do
   def delete_review_template(%Client{} = client, template_arn, input, options \\ []) do
     url_path = "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3879,7 +3895,7 @@ defmodule AWS.WellArchitected do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3909,6 +3925,7 @@ defmodule AWS.WellArchitected do
       "/templates/shares/#{AWS.Util.encode_uri(template_arn)}/#{AWS.Util.encode_uri(share_id)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3924,7 +3941,7 @@ defmodule AWS.WellArchitected do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3941,6 +3958,7 @@ defmodule AWS.WellArchitected do
   def delete_workload(%Client{} = client, workload_id, input, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3956,7 +3974,7 @@ defmodule AWS.WellArchitected do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3981,6 +3999,7 @@ defmodule AWS.WellArchitected do
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/shares/#{AWS.Util.encode_uri(share_id)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3996,7 +4015,7 @@ defmodule AWS.WellArchitected do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4019,6 +4038,7 @@ defmodule AWS.WellArchitected do
   def disassociate_lenses(%Client{} = client, workload_id, input, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/disassociateLenses"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4029,7 +4049,7 @@ defmodule AWS.WellArchitected do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4046,6 +4066,7 @@ defmodule AWS.WellArchitected do
   def disassociate_profiles(%Client{} = client, workload_id, input, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/disassociateProfiles"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4056,7 +4077,7 @@ defmodule AWS.WellArchitected do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4511,11 +4532,22 @@ defmodule AWS.WellArchitected do
   def import_lens(%Client{} = client, input, options \\ []) do
     url_path = "/importLens"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4602,6 +4634,7 @@ defmodule AWS.WellArchitected do
   def list_check_details(%Client{} = client, workload_id, input, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/checks"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4612,7 +4645,7 @@ defmodule AWS.WellArchitected do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4630,6 +4663,7 @@ defmodule AWS.WellArchitected do
   def list_check_summaries(%Client{} = client, workload_id, input, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/checkSummaries"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4640,7 +4674,7 @@ defmodule AWS.WellArchitected do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4912,6 +4946,7 @@ defmodule AWS.WellArchitected do
   def list_milestones(%Client{} = client, workload_id, input, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/milestonesSummaries"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4922,7 +4957,7 @@ defmodule AWS.WellArchitected do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4939,6 +4974,7 @@ defmodule AWS.WellArchitected do
   def list_notifications(%Client{} = client, input, options \\ []) do
     url_path = "/notifications"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4949,7 +4985,7 @@ defmodule AWS.WellArchitected do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5460,6 +5496,7 @@ defmodule AWS.WellArchitected do
   def list_workloads(%Client{} = client, input, options \\ []) do
     url_path = "/workloadsSummaries"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5470,7 +5507,7 @@ defmodule AWS.WellArchitected do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5490,6 +5527,7 @@ defmodule AWS.WellArchitected do
   def tag_resource(%Client{} = client, workload_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(workload_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5500,7 +5538,7 @@ defmodule AWS.WellArchitected do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5524,6 +5562,7 @@ defmodule AWS.WellArchitected do
   def untag_resource(%Client{} = client, workload_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(workload_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5539,7 +5578,7 @@ defmodule AWS.WellArchitected do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5565,6 +5604,7 @@ defmodule AWS.WellArchitected do
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/answers/#{AWS.Util.encode_uri(question_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5575,7 +5615,7 @@ defmodule AWS.WellArchitected do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5593,6 +5633,7 @@ defmodule AWS.WellArchitected do
   def update_global_settings(%Client{} = client, input, options \\ []) do
     url_path = "/global-settings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5603,7 +5644,7 @@ defmodule AWS.WellArchitected do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5620,6 +5661,7 @@ defmodule AWS.WellArchitected do
   def update_integration(%Client{} = client, workload_id, input, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/updateIntegration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5630,7 +5672,7 @@ defmodule AWS.WellArchitected do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5649,6 +5691,7 @@ defmodule AWS.WellArchitected do
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5659,7 +5702,7 @@ defmodule AWS.WellArchitected do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5676,6 +5719,7 @@ defmodule AWS.WellArchitected do
   def update_profile(%Client{} = client, profile_arn, input, options \\ []) do
     url_path = "/profiles/#{AWS.Util.encode_uri(profile_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5686,7 +5730,7 @@ defmodule AWS.WellArchitected do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5703,6 +5747,7 @@ defmodule AWS.WellArchitected do
   def update_review_template(%Client{} = client, template_arn, input, options \\ []) do
     url_path = "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5713,7 +5758,7 @@ defmodule AWS.WellArchitected do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5746,6 +5791,7 @@ defmodule AWS.WellArchitected do
       "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/answers/#{AWS.Util.encode_uri(question_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5756,7 +5802,7 @@ defmodule AWS.WellArchitected do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5787,6 +5833,7 @@ defmodule AWS.WellArchitected do
       "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5797,7 +5844,7 @@ defmodule AWS.WellArchitected do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5817,6 +5864,7 @@ defmodule AWS.WellArchitected do
   def update_share_invitation(%Client{} = client, share_invitation_id, input, options \\ []) do
     url_path = "/shareInvitations/#{AWS.Util.encode_uri(share_invitation_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5827,7 +5875,7 @@ defmodule AWS.WellArchitected do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5844,6 +5892,7 @@ defmodule AWS.WellArchitected do
   def update_workload(%Client{} = client, workload_id, input, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5854,7 +5903,7 @@ defmodule AWS.WellArchitected do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5879,6 +5928,7 @@ defmodule AWS.WellArchitected do
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/shares/#{AWS.Util.encode_uri(share_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5889,7 +5939,7 @@ defmodule AWS.WellArchitected do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5908,11 +5958,22 @@ defmodule AWS.WellArchitected do
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/upgrade"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5933,11 +5994,22 @@ defmodule AWS.WellArchitected do
       "/workloads/#{AWS.Util.encode_uri(workload_id)}/profiles/#{AWS.Util.encode_uri(profile_arn)}/upgrade"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5964,10 +6036,21 @@ defmodule AWS.WellArchitected do
       "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}/lensReviews/#{AWS.Util.encode_uri(lens_alias)}/upgrade"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

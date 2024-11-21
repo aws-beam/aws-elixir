@@ -1209,6 +1209,7 @@ defmodule AWS.Route53RecoveryReadiness do
   def create_cell(%Client{} = client, input, options \\ []) do
     url_path = "/cells"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1219,7 +1220,7 @@ defmodule AWS.Route53RecoveryReadiness do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1244,6 +1245,7 @@ defmodule AWS.Route53RecoveryReadiness do
   def create_cross_account_authorization(%Client{} = client, input, options \\ []) do
     url_path = "/crossaccountauthorizations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1254,7 +1256,7 @@ defmodule AWS.Route53RecoveryReadiness do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1276,6 +1278,7 @@ defmodule AWS.Route53RecoveryReadiness do
   def create_readiness_check(%Client{} = client, input, options \\ []) do
     url_path = "/readinesschecks"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1286,7 +1289,7 @@ defmodule AWS.Route53RecoveryReadiness do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1306,6 +1309,7 @@ defmodule AWS.Route53RecoveryReadiness do
   def create_recovery_group(%Client{} = client, input, options \\ []) do
     url_path = "/recoverygroups"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1316,7 +1320,7 @@ defmodule AWS.Route53RecoveryReadiness do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1337,6 +1341,7 @@ defmodule AWS.Route53RecoveryReadiness do
   def create_resource_set(%Client{} = client, input, options \\ []) do
     url_path = "/resourcesets"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1347,7 +1352,7 @@ defmodule AWS.Route53RecoveryReadiness do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1366,6 +1371,7 @@ defmodule AWS.Route53RecoveryReadiness do
   def delete_cell(%Client{} = client, cell_name, input, options \\ []) do
     url_path = "/cells/#{AWS.Util.encode_uri(cell_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1376,7 +1382,7 @@ defmodule AWS.Route53RecoveryReadiness do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1403,6 +1409,7 @@ defmodule AWS.Route53RecoveryReadiness do
       ) do
     url_path = "/crossaccountauthorizations/#{AWS.Util.encode_uri(cross_account_authorization)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1413,7 +1420,7 @@ defmodule AWS.Route53RecoveryReadiness do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1430,6 +1437,7 @@ defmodule AWS.Route53RecoveryReadiness do
   def delete_readiness_check(%Client{} = client, readiness_check_name, input, options \\ []) do
     url_path = "/readinesschecks/#{AWS.Util.encode_uri(readiness_check_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1440,7 +1448,7 @@ defmodule AWS.Route53RecoveryReadiness do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1457,6 +1465,7 @@ defmodule AWS.Route53RecoveryReadiness do
   def delete_recovery_group(%Client{} = client, recovery_group_name, input, options \\ []) do
     url_path = "/recoverygroups/#{AWS.Util.encode_uri(recovery_group_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1467,7 +1476,7 @@ defmodule AWS.Route53RecoveryReadiness do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1484,6 +1493,7 @@ defmodule AWS.Route53RecoveryReadiness do
   def delete_resource_set(%Client{} = client, resource_set_name, input, options \\ []) do
     url_path = "/resourcesets/#{AWS.Util.encode_uri(resource_set_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1494,7 +1504,7 @@ defmodule AWS.Route53RecoveryReadiness do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2040,6 +2050,7 @@ defmodule AWS.Route53RecoveryReadiness do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2050,7 +2061,7 @@ defmodule AWS.Route53RecoveryReadiness do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2067,6 +2078,7 @@ defmodule AWS.Route53RecoveryReadiness do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2082,7 +2094,7 @@ defmodule AWS.Route53RecoveryReadiness do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2100,11 +2112,22 @@ defmodule AWS.Route53RecoveryReadiness do
   def update_cell(%Client{} = client, cell_name, input, options \\ []) do
     url_path = "/cells/#{AWS.Util.encode_uri(cell_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2117,11 +2140,22 @@ defmodule AWS.Route53RecoveryReadiness do
   def update_readiness_check(%Client{} = client, readiness_check_name, input, options \\ []) do
     url_path = "/readinesschecks/#{AWS.Util.encode_uri(readiness_check_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2134,11 +2168,22 @@ defmodule AWS.Route53RecoveryReadiness do
   def update_recovery_group(%Client{} = client, recovery_group_name, input, options \\ []) do
     url_path = "/recoverygroups/#{AWS.Util.encode_uri(recovery_group_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2151,10 +2196,21 @@ defmodule AWS.Route53RecoveryReadiness do
   def update_resource_set(%Client{} = client, resource_set_name, input, options \\ []) do
     url_path = "/resourcesets/#{AWS.Util.encode_uri(resource_set_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

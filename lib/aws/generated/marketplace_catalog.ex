@@ -1543,6 +1543,7 @@ defmodule AWS.MarketplaceCatalog do
   def batch_describe_entities(%Client{} = client, input, options \\ []) do
     url_path = "/BatchDescribeEntities"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1553,7 +1554,7 @@ defmodule AWS.MarketplaceCatalog do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1575,6 +1576,7 @@ defmodule AWS.MarketplaceCatalog do
   def cancel_change_set(%Client{} = client, input, options \\ []) do
     url_path = "/CancelChangeSet"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1591,7 +1593,7 @@ defmodule AWS.MarketplaceCatalog do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1609,6 +1611,7 @@ defmodule AWS.MarketplaceCatalog do
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteResourcePolicy"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1624,7 +1627,7 @@ defmodule AWS.MarketplaceCatalog do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1738,6 +1741,7 @@ defmodule AWS.MarketplaceCatalog do
   def list_change_sets(%Client{} = client, input, options \\ []) do
     url_path = "/ListChangeSets"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1748,7 +1752,7 @@ defmodule AWS.MarketplaceCatalog do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1765,6 +1769,7 @@ defmodule AWS.MarketplaceCatalog do
   def list_entities(%Client{} = client, input, options \\ []) do
     url_path = "/ListEntities"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1775,7 +1780,7 @@ defmodule AWS.MarketplaceCatalog do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1794,6 +1799,7 @@ defmodule AWS.MarketplaceCatalog do
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     url_path = "/ListTagsForResource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1804,7 +1810,7 @@ defmodule AWS.MarketplaceCatalog do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1824,6 +1830,7 @@ defmodule AWS.MarketplaceCatalog do
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     url_path = "/PutResourcePolicy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1834,7 +1841,7 @@ defmodule AWS.MarketplaceCatalog do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1873,6 +1880,7 @@ defmodule AWS.MarketplaceCatalog do
   def start_change_set(%Client{} = client, input, options \\ []) do
     url_path = "/StartChangeSet"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1883,7 +1891,7 @@ defmodule AWS.MarketplaceCatalog do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1902,6 +1910,7 @@ defmodule AWS.MarketplaceCatalog do
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/TagResource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1912,7 +1921,7 @@ defmodule AWS.MarketplaceCatalog do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1931,6 +1940,7 @@ defmodule AWS.MarketplaceCatalog do
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/UntagResource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1941,7 +1951,7 @@ defmodule AWS.MarketplaceCatalog do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

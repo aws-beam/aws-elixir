@@ -644,6 +644,7 @@ defmodule AWS.NetworkMonitor do
   def create_monitor(%Client{} = client, input, options \\ []) do
     url_path = "/monitors"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -654,7 +655,7 @@ defmodule AWS.NetworkMonitor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -678,6 +679,7 @@ defmodule AWS.NetworkMonitor do
   def create_probe(%Client{} = client, monitor_name, input, options \\ []) do
     url_path = "/monitors/#{AWS.Util.encode_uri(monitor_name)}/probes"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -688,7 +690,7 @@ defmodule AWS.NetworkMonitor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -708,6 +710,7 @@ defmodule AWS.NetworkMonitor do
   def delete_monitor(%Client{} = client, monitor_name, input, options \\ []) do
     url_path = "/monitors/#{AWS.Util.encode_uri(monitor_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -718,7 +721,7 @@ defmodule AWS.NetworkMonitor do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -745,6 +748,7 @@ defmodule AWS.NetworkMonitor do
       "/monitors/#{AWS.Util.encode_uri(monitor_name)}/probes/#{AWS.Util.encode_uri(probe_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -755,7 +759,7 @@ defmodule AWS.NetworkMonitor do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -877,6 +881,7 @@ defmodule AWS.NetworkMonitor do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -887,7 +892,7 @@ defmodule AWS.NetworkMonitor do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -904,6 +909,7 @@ defmodule AWS.NetworkMonitor do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -919,7 +925,7 @@ defmodule AWS.NetworkMonitor do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -941,6 +947,7 @@ defmodule AWS.NetworkMonitor do
   def update_monitor(%Client{} = client, monitor_name, input, options \\ []) do
     url_path = "/monitors/#{AWS.Util.encode_uri(monitor_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -951,7 +958,7 @@ defmodule AWS.NetworkMonitor do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1006,6 +1013,7 @@ defmodule AWS.NetworkMonitor do
       "/monitors/#{AWS.Util.encode_uri(monitor_name)}/probes/#{AWS.Util.encode_uri(probe_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1016,7 +1024,7 @@ defmodule AWS.NetworkMonitor do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

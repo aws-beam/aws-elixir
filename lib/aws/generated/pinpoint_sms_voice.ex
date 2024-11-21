@@ -436,6 +436,7 @@ defmodule AWS.PinpointSMSVoice do
   def create_configuration_set(%Client{} = client, input, options \\ []) do
     url_path = "/v1/sms-voice/configuration-sets"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -446,7 +447,7 @@ defmodule AWS.PinpointSMSVoice do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -475,6 +476,7 @@ defmodule AWS.PinpointSMSVoice do
       "/v1/sms-voice/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/event-destinations"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -485,7 +487,7 @@ defmodule AWS.PinpointSMSVoice do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -502,6 +504,7 @@ defmodule AWS.PinpointSMSVoice do
   def delete_configuration_set(%Client{} = client, configuration_set_name, input, options \\ []) do
     url_path = "/v1/sms-voice/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -512,7 +515,7 @@ defmodule AWS.PinpointSMSVoice do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -543,6 +546,7 @@ defmodule AWS.PinpointSMSVoice do
       "/v1/sms-voice/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/event-destinations/#{AWS.Util.encode_uri(event_destination_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -553,7 +557,7 @@ defmodule AWS.PinpointSMSVoice do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -632,6 +636,7 @@ defmodule AWS.PinpointSMSVoice do
   def send_voice_message(%Client{} = client, input, options \\ []) do
     url_path = "/v1/sms-voice/voice/message"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -642,7 +647,7 @@ defmodule AWS.PinpointSMSVoice do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -677,10 +682,21 @@ defmodule AWS.PinpointSMSVoice do
       "/v1/sms-voice/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/event-destinations/#{AWS.Util.encode_uri(event_destination_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

@@ -4323,11 +4323,22 @@ defmodule AWS.Imagebuilder do
   def cancel_image_creation(%Client{} = client, input, options \\ []) do
     url_path = "/CancelImageCreation"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4340,11 +4351,22 @@ defmodule AWS.Imagebuilder do
   def cancel_lifecycle_execution(%Client{} = client, input, options \\ []) do
     url_path = "/CancelLifecycleExecution"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4369,11 +4391,22 @@ defmodule AWS.Imagebuilder do
   def create_component(%Client{} = client, input, options \\ []) do
     url_path = "/CreateComponent"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4389,11 +4422,22 @@ defmodule AWS.Imagebuilder do
   def create_container_recipe(%Client{} = client, input, options \\ []) do
     url_path = "/CreateContainerRecipe"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4413,11 +4457,22 @@ defmodule AWS.Imagebuilder do
   def create_distribution_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/CreateDistributionConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4436,11 +4491,22 @@ defmodule AWS.Imagebuilder do
   def create_image(%Client{} = client, input, options \\ []) do
     url_path = "/CreateImage"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4456,11 +4522,22 @@ defmodule AWS.Imagebuilder do
   def create_image_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/CreateImagePipeline"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4476,11 +4553,22 @@ defmodule AWS.Imagebuilder do
   def create_image_recipe(%Client{} = client, input, options \\ []) do
     url_path = "/CreateImageRecipe"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4500,11 +4588,22 @@ defmodule AWS.Imagebuilder do
   def create_infrastructure_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/CreateInfrastructureConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4517,11 +4616,22 @@ defmodule AWS.Imagebuilder do
   def create_lifecycle_policy(%Client{} = client, input, options \\ []) do
     url_path = "/CreateLifecyclePolicy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4534,11 +4644,22 @@ defmodule AWS.Imagebuilder do
   def create_workflow(%Client{} = client, input, options \\ []) do
     url_path = "/CreateWorkflow"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4551,6 +4672,7 @@ defmodule AWS.Imagebuilder do
   def delete_component(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteComponent"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4566,7 +4688,7 @@ defmodule AWS.Imagebuilder do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4583,6 +4705,7 @@ defmodule AWS.Imagebuilder do
   def delete_container_recipe(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteContainerRecipe"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4598,7 +4721,7 @@ defmodule AWS.Imagebuilder do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4619,6 +4742,7 @@ defmodule AWS.Imagebuilder do
   def delete_distribution_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteDistributionConfiguration"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4634,7 +4758,7 @@ defmodule AWS.Imagebuilder do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4676,6 +4800,7 @@ defmodule AWS.Imagebuilder do
   def delete_image(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteImage"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4691,7 +4816,7 @@ defmodule AWS.Imagebuilder do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4708,6 +4833,7 @@ defmodule AWS.Imagebuilder do
   def delete_image_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteImagePipeline"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4723,7 +4849,7 @@ defmodule AWS.Imagebuilder do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4740,6 +4866,7 @@ defmodule AWS.Imagebuilder do
   def delete_image_recipe(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteImageRecipe"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4755,7 +4882,7 @@ defmodule AWS.Imagebuilder do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4776,6 +4903,7 @@ defmodule AWS.Imagebuilder do
   def delete_infrastructure_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteInfrastructureConfiguration"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4791,7 +4919,7 @@ defmodule AWS.Imagebuilder do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4808,6 +4936,7 @@ defmodule AWS.Imagebuilder do
   def delete_lifecycle_policy(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteLifecyclePolicy"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4823,7 +4952,7 @@ defmodule AWS.Imagebuilder do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4840,6 +4969,7 @@ defmodule AWS.Imagebuilder do
   def delete_workflow(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteWorkflow"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4855,7 +4985,7 @@ defmodule AWS.Imagebuilder do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5267,11 +5397,22 @@ defmodule AWS.Imagebuilder do
   def import_component(%Client{} = client, input, options \\ []) do
     url_path = "/ImportComponent"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5298,11 +5439,22 @@ defmodule AWS.Imagebuilder do
   def import_vm_image(%Client{} = client, input, options \\ []) do
     url_path = "/ImportVmImage"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5316,6 +5468,7 @@ defmodule AWS.Imagebuilder do
   def list_component_build_versions(%Client{} = client, input, options \\ []) do
     url_path = "/ListComponentBuildVersions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5326,7 +5479,7 @@ defmodule AWS.Imagebuilder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5359,6 +5512,7 @@ defmodule AWS.Imagebuilder do
   def list_components(%Client{} = client, input, options \\ []) do
     url_path = "/ListComponents"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5369,7 +5523,7 @@ defmodule AWS.Imagebuilder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5386,6 +5540,7 @@ defmodule AWS.Imagebuilder do
   def list_container_recipes(%Client{} = client, input, options \\ []) do
     url_path = "/ListContainerRecipes"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5396,7 +5551,7 @@ defmodule AWS.Imagebuilder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5417,6 +5572,7 @@ defmodule AWS.Imagebuilder do
   def list_distribution_configurations(%Client{} = client, input, options \\ []) do
     url_path = "/ListDistributionConfigurations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5427,7 +5583,7 @@ defmodule AWS.Imagebuilder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5444,6 +5600,7 @@ defmodule AWS.Imagebuilder do
   def list_image_build_versions(%Client{} = client, input, options \\ []) do
     url_path = "/ListImageBuildVersions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5454,7 +5611,7 @@ defmodule AWS.Imagebuilder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5473,6 +5630,7 @@ defmodule AWS.Imagebuilder do
   def list_image_packages(%Client{} = client, input, options \\ []) do
     url_path = "/ListImagePackages"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5483,7 +5641,7 @@ defmodule AWS.Imagebuilder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5500,6 +5658,7 @@ defmodule AWS.Imagebuilder do
   def list_image_pipeline_images(%Client{} = client, input, options \\ []) do
     url_path = "/ListImagePipelineImages"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5510,7 +5669,7 @@ defmodule AWS.Imagebuilder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5527,6 +5686,7 @@ defmodule AWS.Imagebuilder do
   def list_image_pipelines(%Client{} = client, input, options \\ []) do
     url_path = "/ListImagePipelines"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5537,7 +5697,7 @@ defmodule AWS.Imagebuilder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5554,6 +5714,7 @@ defmodule AWS.Imagebuilder do
   def list_image_recipes(%Client{} = client, input, options \\ []) do
     url_path = "/ListImageRecipes"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5564,7 +5725,7 @@ defmodule AWS.Imagebuilder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5611,6 +5772,7 @@ defmodule AWS.Imagebuilder do
   def list_image_scan_finding_aggregations(%Client{} = client, input, options \\ []) do
     url_path = "/ListImageScanFindingAggregations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5621,7 +5783,7 @@ defmodule AWS.Imagebuilder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5638,6 +5800,7 @@ defmodule AWS.Imagebuilder do
   def list_image_scan_findings(%Client{} = client, input, options \\ []) do
     url_path = "/ListImageScanFindings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5648,7 +5811,7 @@ defmodule AWS.Imagebuilder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5668,6 +5831,7 @@ defmodule AWS.Imagebuilder do
   def list_images(%Client{} = client, input, options \\ []) do
     url_path = "/ListImages"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5678,7 +5842,7 @@ defmodule AWS.Imagebuilder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5699,6 +5863,7 @@ defmodule AWS.Imagebuilder do
   def list_infrastructure_configurations(%Client{} = client, input, options \\ []) do
     url_path = "/ListInfrastructureConfigurations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5709,7 +5874,7 @@ defmodule AWS.Imagebuilder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5731,6 +5896,7 @@ defmodule AWS.Imagebuilder do
   def list_lifecycle_execution_resources(%Client{} = client, input, options \\ []) do
     url_path = "/ListLifecycleExecutionResources"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5741,7 +5907,7 @@ defmodule AWS.Imagebuilder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5758,6 +5924,7 @@ defmodule AWS.Imagebuilder do
   def list_lifecycle_executions(%Client{} = client, input, options \\ []) do
     url_path = "/ListLifecycleExecutions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5768,7 +5935,7 @@ defmodule AWS.Imagebuilder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5785,6 +5952,7 @@ defmodule AWS.Imagebuilder do
   def list_lifecycle_policies(%Client{} = client, input, options \\ []) do
     url_path = "/ListLifecyclePolicies"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5795,7 +5963,7 @@ defmodule AWS.Imagebuilder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5830,6 +5998,7 @@ defmodule AWS.Imagebuilder do
   def list_waiting_workflow_steps(%Client{} = client, input, options \\ []) do
     url_path = "/ListWaitingWorkflowSteps"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5840,7 +6009,7 @@ defmodule AWS.Imagebuilder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5857,6 +6026,7 @@ defmodule AWS.Imagebuilder do
   def list_workflow_build_versions(%Client{} = client, input, options \\ []) do
     url_path = "/ListWorkflowBuildVersions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5867,7 +6037,7 @@ defmodule AWS.Imagebuilder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5886,6 +6056,7 @@ defmodule AWS.Imagebuilder do
   def list_workflow_executions(%Client{} = client, input, options \\ []) do
     url_path = "/ListWorkflowExecutions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5896,7 +6067,7 @@ defmodule AWS.Imagebuilder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5914,6 +6085,7 @@ defmodule AWS.Imagebuilder do
   def list_workflow_step_executions(%Client{} = client, input, options \\ []) do
     url_path = "/ListWorkflowStepExecutions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5924,7 +6096,7 @@ defmodule AWS.Imagebuilder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5941,6 +6113,7 @@ defmodule AWS.Imagebuilder do
   def list_workflows(%Client{} = client, input, options \\ []) do
     url_path = "/ListWorkflows"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5951,7 +6124,7 @@ defmodule AWS.Imagebuilder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5975,11 +6148,22 @@ defmodule AWS.Imagebuilder do
   def put_component_policy(%Client{} = client, input, options \\ []) do
     url_path = "/PutComponentPolicy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6005,11 +6189,22 @@ defmodule AWS.Imagebuilder do
   def put_container_recipe_policy(%Client{} = client, input, options \\ []) do
     url_path = "/PutContainerRecipePolicy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6029,11 +6224,22 @@ defmodule AWS.Imagebuilder do
   def put_image_policy(%Client{} = client, input, options \\ []) do
     url_path = "/PutImagePolicy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6053,11 +6259,22 @@ defmodule AWS.Imagebuilder do
   def put_image_recipe_policy(%Client{} = client, input, options \\ []) do
     url_path = "/PutImageRecipePolicy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6071,11 +6288,22 @@ defmodule AWS.Imagebuilder do
   def send_workflow_step_action(%Client{} = client, input, options \\ []) do
     url_path = "/SendWorkflowStepAction"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6088,11 +6316,22 @@ defmodule AWS.Imagebuilder do
   def start_image_pipeline_execution(%Client{} = client, input, options \\ []) do
     url_path = "/StartImagePipelineExecution"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6106,11 +6345,22 @@ defmodule AWS.Imagebuilder do
   def start_resource_state_update(%Client{} = client, input, options \\ []) do
     url_path = "/StartResourceStateUpdate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6123,6 +6373,7 @@ defmodule AWS.Imagebuilder do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6133,7 +6384,7 @@ defmodule AWS.Imagebuilder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6150,6 +6401,7 @@ defmodule AWS.Imagebuilder do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -6165,7 +6417,7 @@ defmodule AWS.Imagebuilder do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6189,11 +6441,22 @@ defmodule AWS.Imagebuilder do
   def update_distribution_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateDistributionConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6216,11 +6479,22 @@ defmodule AWS.Imagebuilder do
   def update_image_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateImagePipeline"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6240,11 +6514,22 @@ defmodule AWS.Imagebuilder do
   def update_infrastructure_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateInfrastructureConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6257,10 +6542,21 @@ defmodule AWS.Imagebuilder do
   def update_lifecycle_policy(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateLifecyclePolicy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

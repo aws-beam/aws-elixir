@@ -851,6 +851,7 @@ defmodule AWS.DocDBElastic do
   def apply_pending_maintenance_action(%Client{} = client, input, options \\ []) do
     url_path = "/pending-action"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -861,7 +862,7 @@ defmodule AWS.DocDBElastic do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -878,6 +879,7 @@ defmodule AWS.DocDBElastic do
   def copy_cluster_snapshot(%Client{} = client, snapshot_arn, input, options \\ []) do
     url_path = "/cluster-snapshot/#{AWS.Util.encode_uri(snapshot_arn)}/copy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -888,7 +890,7 @@ defmodule AWS.DocDBElastic do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -906,6 +908,7 @@ defmodule AWS.DocDBElastic do
   def create_cluster(%Client{} = client, input, options \\ []) do
     url_path = "/cluster"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -916,7 +919,7 @@ defmodule AWS.DocDBElastic do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -933,6 +936,7 @@ defmodule AWS.DocDBElastic do
   def create_cluster_snapshot(%Client{} = client, input, options \\ []) do
     url_path = "/cluster-snapshot"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -943,7 +947,7 @@ defmodule AWS.DocDBElastic do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -960,6 +964,7 @@ defmodule AWS.DocDBElastic do
   def delete_cluster(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(cluster_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -970,7 +975,7 @@ defmodule AWS.DocDBElastic do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -987,6 +992,7 @@ defmodule AWS.DocDBElastic do
   def delete_cluster_snapshot(%Client{} = client, snapshot_arn, input, options \\ []) do
     url_path = "/cluster-snapshot/#{AWS.Util.encode_uri(snapshot_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -997,7 +1003,7 @@ defmodule AWS.DocDBElastic do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1213,6 +1219,7 @@ defmodule AWS.DocDBElastic do
   def restore_cluster_from_snapshot(%Client{} = client, snapshot_arn, input, options \\ []) do
     url_path = "/cluster-snapshot/#{AWS.Util.encode_uri(snapshot_arn)}/restore"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1223,7 +1230,7 @@ defmodule AWS.DocDBElastic do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1240,6 +1247,7 @@ defmodule AWS.DocDBElastic do
   def start_cluster(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(cluster_arn)}/start"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1250,7 +1258,7 @@ defmodule AWS.DocDBElastic do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1269,6 +1277,7 @@ defmodule AWS.DocDBElastic do
   def stop_cluster(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(cluster_arn)}/stop"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1279,7 +1288,7 @@ defmodule AWS.DocDBElastic do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1296,6 +1305,7 @@ defmodule AWS.DocDBElastic do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1306,7 +1316,7 @@ defmodule AWS.DocDBElastic do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1323,6 +1333,7 @@ defmodule AWS.DocDBElastic do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1338,7 +1349,7 @@ defmodule AWS.DocDBElastic do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1358,10 +1369,21 @@ defmodule AWS.DocDBElastic do
   def update_cluster(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(cluster_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

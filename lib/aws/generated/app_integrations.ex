@@ -1077,6 +1077,7 @@ defmodule AWS.AppIntegrations do
   def create_application(%Client{} = client, input, options \\ []) do
     url_path = "/applications"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1087,7 +1088,7 @@ defmodule AWS.AppIntegrations do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1110,6 +1111,7 @@ defmodule AWS.AppIntegrations do
   def create_data_integration(%Client{} = client, input, options \\ []) do
     url_path = "/dataIntegrations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1120,7 +1122,7 @@ defmodule AWS.AppIntegrations do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1149,6 +1151,7 @@ defmodule AWS.AppIntegrations do
       "/dataIntegrations/#{AWS.Util.encode_uri(data_integration_identifier)}/associations"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1159,7 +1162,7 @@ defmodule AWS.AppIntegrations do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1184,6 +1187,7 @@ defmodule AWS.AppIntegrations do
   def create_event_integration(%Client{} = client, input, options \\ []) do
     url_path = "/eventIntegrations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1194,7 +1198,7 @@ defmodule AWS.AppIntegrations do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1214,6 +1218,7 @@ defmodule AWS.AppIntegrations do
   def delete_application(%Client{} = client, arn, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1224,7 +1229,7 @@ defmodule AWS.AppIntegrations do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1257,6 +1262,7 @@ defmodule AWS.AppIntegrations do
       ) do
     url_path = "/dataIntegrations/#{AWS.Util.encode_uri(data_integration_identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1267,7 +1273,7 @@ defmodule AWS.AppIntegrations do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1287,6 +1293,7 @@ defmodule AWS.AppIntegrations do
   def delete_event_integration(%Client{} = client, name, input, options \\ []) do
     url_path = "/eventIntegrations/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1297,7 +1304,7 @@ defmodule AWS.AppIntegrations do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1634,6 +1641,7 @@ defmodule AWS.AppIntegrations do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1644,7 +1652,7 @@ defmodule AWS.AppIntegrations do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1661,6 +1669,7 @@ defmodule AWS.AppIntegrations do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1676,7 +1685,7 @@ defmodule AWS.AppIntegrations do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1693,6 +1702,7 @@ defmodule AWS.AppIntegrations do
   def update_application(%Client{} = client, arn, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1703,7 +1713,7 @@ defmodule AWS.AppIntegrations do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1726,6 +1736,7 @@ defmodule AWS.AppIntegrations do
   def update_data_integration(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/dataIntegrations/#{AWS.Util.encode_uri(identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1736,7 +1747,7 @@ defmodule AWS.AppIntegrations do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1770,6 +1781,7 @@ defmodule AWS.AppIntegrations do
       "/dataIntegrations/#{AWS.Util.encode_uri(data_integration_identifier)}/associations/#{AWS.Util.encode_uri(data_integration_association_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1780,7 +1792,7 @@ defmodule AWS.AppIntegrations do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1797,6 +1809,7 @@ defmodule AWS.AppIntegrations do
   def update_event_integration(%Client{} = client, name, input, options \\ []) do
     url_path = "/eventIntegrations/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1807,7 +1820,7 @@ defmodule AWS.AppIntegrations do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

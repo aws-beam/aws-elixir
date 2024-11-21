@@ -1076,6 +1076,7 @@ defmodule AWS.Synthetics do
   def associate_resource(%Client{} = client, group_identifier, input, options \\ []) do
     url_path = "/group/#{AWS.Util.encode_uri(group_identifier)}/associate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1086,7 +1087,7 @@ defmodule AWS.Synthetics do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1127,6 +1128,7 @@ defmodule AWS.Synthetics do
   def create_canary(%Client{} = client, input, options \\ []) do
     url_path = "/canary"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1137,7 +1139,7 @@ defmodule AWS.Synthetics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1178,6 +1180,7 @@ defmodule AWS.Synthetics do
   def create_group(%Client{} = client, input, options \\ []) do
     url_path = "/group"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1188,7 +1191,7 @@ defmodule AWS.Synthetics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1251,6 +1254,7 @@ defmodule AWS.Synthetics do
   def delete_canary(%Client{} = client, name, input, options \\ []) do
     url_path = "/canary/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1266,7 +1270,7 @@ defmodule AWS.Synthetics do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1292,6 +1296,7 @@ defmodule AWS.Synthetics do
   def delete_group(%Client{} = client, group_identifier, input, options \\ []) do
     url_path = "/group/#{AWS.Util.encode_uri(group_identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1302,7 +1307,7 @@ defmodule AWS.Synthetics do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1336,6 +1341,7 @@ defmodule AWS.Synthetics do
   def describe_canaries(%Client{} = client, input, options \\ []) do
     url_path = "/canaries"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1346,7 +1352,7 @@ defmodule AWS.Synthetics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1379,6 +1385,7 @@ defmodule AWS.Synthetics do
   def describe_canaries_last_run(%Client{} = client, input, options \\ []) do
     url_path = "/canaries/last-run"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1389,7 +1396,7 @@ defmodule AWS.Synthetics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1411,6 +1418,7 @@ defmodule AWS.Synthetics do
   def describe_runtime_versions(%Client{} = client, input, options \\ []) do
     url_path = "/runtime-versions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1421,7 +1429,7 @@ defmodule AWS.Synthetics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1440,6 +1448,7 @@ defmodule AWS.Synthetics do
   def disassociate_resource(%Client{} = client, group_identifier, input, options \\ []) do
     url_path = "/group/#{AWS.Util.encode_uri(group_identifier)}/disassociate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1450,7 +1459,7 @@ defmodule AWS.Synthetics do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1489,6 +1498,7 @@ defmodule AWS.Synthetics do
   def get_canary_runs(%Client{} = client, name, input, options \\ []) do
     url_path = "/canary/#{AWS.Util.encode_uri(name)}/runs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1499,7 +1509,7 @@ defmodule AWS.Synthetics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1539,6 +1549,7 @@ defmodule AWS.Synthetics do
   def list_associated_groups(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/resource/#{AWS.Util.encode_uri(resource_arn)}/groups"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1549,7 +1560,7 @@ defmodule AWS.Synthetics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1567,6 +1578,7 @@ defmodule AWS.Synthetics do
   def list_group_resources(%Client{} = client, group_identifier, input, options \\ []) do
     url_path = "/group/#{AWS.Util.encode_uri(group_identifier)}/resources"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1577,7 +1589,7 @@ defmodule AWS.Synthetics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1598,6 +1610,7 @@ defmodule AWS.Synthetics do
   def list_groups(%Client{} = client, input, options \\ []) do
     url_path = "/groups"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1608,7 +1621,7 @@ defmodule AWS.Synthetics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1647,6 +1660,7 @@ defmodule AWS.Synthetics do
   def start_canary(%Client{} = client, name, input, options \\ []) do
     url_path = "/canary/#{AWS.Util.encode_uri(name)}/start"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1657,7 +1671,7 @@ defmodule AWS.Synthetics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1682,6 +1696,7 @@ defmodule AWS.Synthetics do
   def stop_canary(%Client{} = client, name, input, options \\ []) do
     url_path = "/canary/#{AWS.Util.encode_uri(name)}/stop"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1692,7 +1707,7 @@ defmodule AWS.Synthetics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1728,6 +1743,7 @@ defmodule AWS.Synthetics do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1738,7 +1754,7 @@ defmodule AWS.Synthetics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1755,6 +1771,7 @@ defmodule AWS.Synthetics do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1770,7 +1787,7 @@ defmodule AWS.Synthetics do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1792,6 +1809,7 @@ defmodule AWS.Synthetics do
   def update_canary(%Client{} = client, name, input, options \\ []) do
     url_path = "/canary/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1802,7 +1820,7 @@ defmodule AWS.Synthetics do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

@@ -905,6 +905,7 @@ defmodule AWS.IoTEventsData do
   def batch_acknowledge_alarm(%Client{} = client, input, options \\ []) do
     url_path = "/alarms/acknowledge"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -915,7 +916,7 @@ defmodule AWS.IoTEventsData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -938,6 +939,7 @@ defmodule AWS.IoTEventsData do
   def batch_delete_detector(%Client{} = client, input, options \\ []) do
     url_path = "/detectors/delete"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -948,7 +950,7 @@ defmodule AWS.IoTEventsData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -968,6 +970,7 @@ defmodule AWS.IoTEventsData do
   def batch_disable_alarm(%Client{} = client, input, options \\ []) do
     url_path = "/alarms/disable"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -978,7 +981,7 @@ defmodule AWS.IoTEventsData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -998,6 +1001,7 @@ defmodule AWS.IoTEventsData do
   def batch_enable_alarm(%Client{} = client, input, options \\ []) do
     url_path = "/alarms/enable"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1008,7 +1012,7 @@ defmodule AWS.IoTEventsData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1034,6 +1038,7 @@ defmodule AWS.IoTEventsData do
   def batch_put_message(%Client{} = client, input, options \\ []) do
     url_path = "/inputs/messages"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1044,7 +1049,7 @@ defmodule AWS.IoTEventsData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1064,6 +1069,7 @@ defmodule AWS.IoTEventsData do
   def batch_reset_alarm(%Client{} = client, input, options \\ []) do
     url_path = "/alarms/reset"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1074,7 +1080,7 @@ defmodule AWS.IoTEventsData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1094,6 +1100,7 @@ defmodule AWS.IoTEventsData do
   def batch_snooze_alarm(%Client{} = client, input, options \\ []) do
     url_path = "/alarms/snooze"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1104,7 +1111,7 @@ defmodule AWS.IoTEventsData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1122,6 +1129,7 @@ defmodule AWS.IoTEventsData do
   def batch_update_detector(%Client{} = client, input, options \\ []) do
     url_path = "/detectors"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1132,7 +1140,7 @@ defmodule AWS.IoTEventsData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

@@ -2338,11 +2338,22 @@ defmodule AWS.DevOpsGuru do
   def add_notification_channel(%Client{} = client, input, options \\ []) do
     url_path = "/channels"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2356,6 +2367,7 @@ defmodule AWS.DevOpsGuru do
   def delete_insight(%Client{} = client, id, input, options \\ []) do
     url_path = "/insights/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2366,7 +2378,7 @@ defmodule AWS.DevOpsGuru do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2409,6 +2421,7 @@ defmodule AWS.DevOpsGuru do
   def describe_account_overview(%Client{} = client, input, options \\ []) do
     url_path = "/accounts/overview"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2419,7 +2432,7 @@ defmodule AWS.DevOpsGuru do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2467,6 +2480,7 @@ defmodule AWS.DevOpsGuru do
   def describe_event_sources_config(%Client{} = client, input, options \\ []) do
     url_path = "/event-sources"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2477,7 +2491,7 @@ defmodule AWS.DevOpsGuru do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2495,6 +2509,7 @@ defmodule AWS.DevOpsGuru do
   def describe_feedback(%Client{} = client, input, options \\ []) do
     url_path = "/feedback"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2505,7 +2520,7 @@ defmodule AWS.DevOpsGuru do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2548,6 +2563,7 @@ defmodule AWS.DevOpsGuru do
   def describe_organization_health(%Client{} = client, input, options \\ []) do
     url_path = "/organization/health"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2558,7 +2574,7 @@ defmodule AWS.DevOpsGuru do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2578,6 +2594,7 @@ defmodule AWS.DevOpsGuru do
   def describe_organization_overview(%Client{} = client, input, options \\ []) do
     url_path = "/organization/overview"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2588,7 +2605,7 @@ defmodule AWS.DevOpsGuru do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2613,6 +2630,7 @@ defmodule AWS.DevOpsGuru do
   def describe_organization_resource_collection_health(%Client{} = client, input, options \\ []) do
     url_path = "/organization/health/resource-collection"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2623,7 +2641,7 @@ defmodule AWS.DevOpsGuru do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2779,6 +2797,7 @@ defmodule AWS.DevOpsGuru do
   def list_anomalies_for_insight(%Client{} = client, insight_id, input, options \\ []) do
     url_path = "/anomalies/insight/#{AWS.Util.encode_uri(insight_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2789,7 +2808,7 @@ defmodule AWS.DevOpsGuru do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2807,6 +2826,7 @@ defmodule AWS.DevOpsGuru do
   def list_anomalous_log_groups(%Client{} = client, input, options \\ []) do
     url_path = "/list-log-anomalies"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2817,7 +2837,7 @@ defmodule AWS.DevOpsGuru do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2837,6 +2857,7 @@ defmodule AWS.DevOpsGuru do
   def list_events(%Client{} = client, input, options \\ []) do
     url_path = "/events"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2847,7 +2868,7 @@ defmodule AWS.DevOpsGuru do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2868,6 +2889,7 @@ defmodule AWS.DevOpsGuru do
   def list_insights(%Client{} = client, input, options \\ []) do
     url_path = "/insights"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2878,7 +2900,7 @@ defmodule AWS.DevOpsGuru do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2897,6 +2919,7 @@ defmodule AWS.DevOpsGuru do
   def list_monitored_resources(%Client{} = client, input, options \\ []) do
     url_path = "/monitoredResources"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2907,7 +2930,7 @@ defmodule AWS.DevOpsGuru do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2931,6 +2954,7 @@ defmodule AWS.DevOpsGuru do
   def list_notification_channels(%Client{} = client, input, options \\ []) do
     url_path = "/channels"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2941,7 +2965,7 @@ defmodule AWS.DevOpsGuru do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2958,6 +2982,7 @@ defmodule AWS.DevOpsGuru do
   def list_organization_insights(%Client{} = client, input, options \\ []) do
     url_path = "/organization/insights"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2968,7 +2993,7 @@ defmodule AWS.DevOpsGuru do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2988,6 +3013,7 @@ defmodule AWS.DevOpsGuru do
   def list_recommendations(%Client{} = client, input, options \\ []) do
     url_path = "/recommendations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2998,7 +3024,7 @@ defmodule AWS.DevOpsGuru do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3015,11 +3041,22 @@ defmodule AWS.DevOpsGuru do
   def put_feedback(%Client{} = client, input, options \\ []) do
     url_path = "/feedback"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3042,6 +3079,7 @@ defmodule AWS.DevOpsGuru do
   def remove_notification_channel(%Client{} = client, id, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3052,7 +3090,7 @@ defmodule AWS.DevOpsGuru do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3079,6 +3117,7 @@ defmodule AWS.DevOpsGuru do
   def search_insights(%Client{} = client, input, options \\ []) do
     url_path = "/insights/search"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3089,7 +3128,7 @@ defmodule AWS.DevOpsGuru do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3116,6 +3155,7 @@ defmodule AWS.DevOpsGuru do
   def search_organization_insights(%Client{} = client, input, options \\ []) do
     url_path = "/organization/insights/search"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3126,7 +3166,7 @@ defmodule AWS.DevOpsGuru do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3145,11 +3185,22 @@ defmodule AWS.DevOpsGuru do
   def start_cost_estimation(%Client{} = client, input, options \\ []) do
     url_path = "/cost-estimation"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3169,11 +3220,22 @@ defmodule AWS.DevOpsGuru do
   def update_event_sources_config(%Client{} = client, input, options \\ []) do
     url_path = "/event-sources"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3195,11 +3257,22 @@ defmodule AWS.DevOpsGuru do
   def update_resource_collection(%Client{} = client, input, options \\ []) do
     url_path = "/resource-collections"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3218,10 +3291,21 @@ defmodule AWS.DevOpsGuru do
   def update_service_integration(%Client{} = client, input, options \\ []) do
     url_path = "/service-integrations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

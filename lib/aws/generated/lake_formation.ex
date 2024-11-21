@@ -2716,6 +2716,7 @@ defmodule AWS.LakeFormation do
   def add_l_f_tags_to_resource(%Client{} = client, input, options \\ []) do
     url_path = "/AddLFTagsToResource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2726,7 +2727,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2758,6 +2759,7 @@ defmodule AWS.LakeFormation do
   def assume_decorated_role_with_saml(%Client{} = client, input, options \\ []) do
     url_path = "/AssumeDecoratedRoleWithSAML"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2768,7 +2770,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2785,6 +2787,7 @@ defmodule AWS.LakeFormation do
   def batch_grant_permissions(%Client{} = client, input, options \\ []) do
     url_path = "/BatchGrantPermissions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2795,7 +2798,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2812,6 +2815,7 @@ defmodule AWS.LakeFormation do
   def batch_revoke_permissions(%Client{} = client, input, options \\ []) do
     url_path = "/BatchRevokePermissions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2822,7 +2826,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2841,6 +2845,7 @@ defmodule AWS.LakeFormation do
   def cancel_transaction(%Client{} = client, input, options \\ []) do
     url_path = "/CancelTransaction"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2851,7 +2856,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2871,6 +2876,7 @@ defmodule AWS.LakeFormation do
   def commit_transaction(%Client{} = client, input, options \\ []) do
     url_path = "/CommitTransaction"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2881,7 +2887,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2899,6 +2905,7 @@ defmodule AWS.LakeFormation do
   def create_data_cells_filter(%Client{} = client, input, options \\ []) do
     url_path = "/CreateDataCellsFilter"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2909,7 +2916,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2926,6 +2933,7 @@ defmodule AWS.LakeFormation do
   def create_l_f_tag(%Client{} = client, input, options \\ []) do
     url_path = "/CreateLFTag"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2936,7 +2944,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2965,6 +2973,7 @@ defmodule AWS.LakeFormation do
   def create_l_f_tag_expression(%Client{} = client, input, options \\ []) do
     url_path = "/CreateLFTagExpression"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2975,7 +2984,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3001,6 +3010,7 @@ defmodule AWS.LakeFormation do
       ) do
     url_path = "/CreateLakeFormationIdentityCenterConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3011,7 +3021,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3029,6 +3039,7 @@ defmodule AWS.LakeFormation do
   def create_lake_formation_opt_in(%Client{} = client, input, options \\ []) do
     url_path = "/CreateLakeFormationOptIn"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3039,7 +3050,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3056,6 +3067,7 @@ defmodule AWS.LakeFormation do
   def delete_data_cells_filter(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteDataCellsFilter"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3066,7 +3078,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3089,6 +3101,7 @@ defmodule AWS.LakeFormation do
   def delete_l_f_tag(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteLFTag"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3099,7 +3112,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3121,6 +3134,7 @@ defmodule AWS.LakeFormation do
   def delete_l_f_tag_expression(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteLFTagExpression"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3131,7 +3145,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3156,6 +3170,7 @@ defmodule AWS.LakeFormation do
       ) do
     url_path = "/DeleteLakeFormationIdentityCenterConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3166,7 +3181,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3184,6 +3199,7 @@ defmodule AWS.LakeFormation do
   def delete_lake_formation_opt_in(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteLakeFormationOptIn"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3194,7 +3210,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3221,6 +3237,7 @@ defmodule AWS.LakeFormation do
   def delete_objects_on_cancel(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteObjectsOnCancel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3231,7 +3248,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3251,6 +3268,7 @@ defmodule AWS.LakeFormation do
   def deregister_resource(%Client{} = client, input, options \\ []) do
     url_path = "/DeregisterResource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3261,7 +3279,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3286,6 +3304,7 @@ defmodule AWS.LakeFormation do
       ) do
     url_path = "/DescribeLakeFormationIdentityCenterConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3296,7 +3315,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3314,6 +3333,7 @@ defmodule AWS.LakeFormation do
   def describe_resource(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeResource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3324,7 +3344,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3341,6 +3361,7 @@ defmodule AWS.LakeFormation do
   def describe_transaction(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeTransaction"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3351,7 +3372,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3372,6 +3393,7 @@ defmodule AWS.LakeFormation do
   def extend_transaction(%Client{} = client, input, options \\ []) do
     url_path = "/ExtendTransaction"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3382,7 +3404,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3399,6 +3421,7 @@ defmodule AWS.LakeFormation do
   def get_data_cells_filter(%Client{} = client, input, options \\ []) do
     url_path = "/GetDataCellsFilter"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3409,7 +3432,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3426,6 +3449,7 @@ defmodule AWS.LakeFormation do
   def get_data_lake_principal(%Client{} = client, input, options \\ []) do
     url_path = "/GetDataLakePrincipal"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3436,7 +3460,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3454,6 +3478,7 @@ defmodule AWS.LakeFormation do
   def get_data_lake_settings(%Client{} = client, input, options \\ []) do
     url_path = "/GetDataLakeSettings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3464,7 +3489,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3490,6 +3515,7 @@ defmodule AWS.LakeFormation do
   def get_effective_permissions_for_path(%Client{} = client, input, options \\ []) do
     url_path = "/GetEffectivePermissionsForPath"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3500,7 +3526,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3517,6 +3543,7 @@ defmodule AWS.LakeFormation do
   def get_l_f_tag(%Client{} = client, input, options \\ []) do
     url_path = "/GetLFTag"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3527,7 +3554,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3547,6 +3574,7 @@ defmodule AWS.LakeFormation do
   def get_l_f_tag_expression(%Client{} = client, input, options \\ []) do
     url_path = "/GetLFTagExpression"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3557,7 +3585,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3578,6 +3606,7 @@ defmodule AWS.LakeFormation do
   def get_query_state(%Client{} = client, input, options \\ []) do
     url_path = "/GetQueryState"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "query-")
@@ -3588,7 +3617,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3605,6 +3634,7 @@ defmodule AWS.LakeFormation do
   def get_query_statistics(%Client{} = client, input, options \\ []) do
     url_path = "/GetQueryStatistics"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "query-")
@@ -3615,7 +3645,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3632,6 +3662,7 @@ defmodule AWS.LakeFormation do
   def get_resource_l_f_tags(%Client{} = client, input, options \\ []) do
     url_path = "/GetResourceLFTags"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3642,7 +3673,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3661,6 +3692,7 @@ defmodule AWS.LakeFormation do
   def get_table_objects(%Client{} = client, input, options \\ []) do
     url_path = "/GetTableObjects"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3671,7 +3703,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3696,6 +3728,7 @@ defmodule AWS.LakeFormation do
   def get_temporary_glue_partition_credentials(%Client{} = client, input, options \\ []) do
     url_path = "/GetTemporaryGluePartitionCredentials"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3706,7 +3739,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3735,6 +3768,7 @@ defmodule AWS.LakeFormation do
   def get_temporary_glue_table_credentials(%Client{} = client, input, options \\ []) do
     url_path = "/GetTemporaryGlueTableCredentials"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3745,7 +3779,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3764,6 +3798,7 @@ defmodule AWS.LakeFormation do
   def get_work_unit_results(%Client{} = client, input, options \\ []) do
     url_path = "/GetWorkUnitResults"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "data-")
@@ -3774,7 +3809,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3791,6 +3826,7 @@ defmodule AWS.LakeFormation do
   def get_work_units(%Client{} = client, input, options \\ []) do
     url_path = "/GetWorkUnits"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "query-")
@@ -3801,7 +3837,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3822,6 +3858,7 @@ defmodule AWS.LakeFormation do
   def grant_permissions(%Client{} = client, input, options \\ []) do
     url_path = "/GrantPermissions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3832,7 +3869,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3849,6 +3886,7 @@ defmodule AWS.LakeFormation do
   def list_data_cells_filter(%Client{} = client, input, options \\ []) do
     url_path = "/ListDataCellsFilter"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3859,7 +3897,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3880,6 +3918,7 @@ defmodule AWS.LakeFormation do
   def list_l_f_tag_expressions(%Client{} = client, input, options \\ []) do
     url_path = "/ListLFTagExpressions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3890,7 +3929,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3907,6 +3946,7 @@ defmodule AWS.LakeFormation do
   def list_l_f_tags(%Client{} = client, input, options \\ []) do
     url_path = "/ListLFTags"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3917,7 +3957,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3935,6 +3975,7 @@ defmodule AWS.LakeFormation do
   def list_lake_formation_opt_ins(%Client{} = client, input, options \\ []) do
     url_path = "/ListLakeFormationOptIns"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3945,7 +3986,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3971,6 +4012,7 @@ defmodule AWS.LakeFormation do
   def list_permissions(%Client{} = client, input, options \\ []) do
     url_path = "/ListPermissions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3981,7 +4023,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3998,6 +4040,7 @@ defmodule AWS.LakeFormation do
   def list_resources(%Client{} = client, input, options \\ []) do
     url_path = "/ListResources"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4008,7 +4051,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4026,6 +4069,7 @@ defmodule AWS.LakeFormation do
   def list_table_storage_optimizers(%Client{} = client, input, options \\ []) do
     url_path = "/ListTableStorageOptimizers"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4036,7 +4080,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4059,6 +4103,7 @@ defmodule AWS.LakeFormation do
   def list_transactions(%Client{} = client, input, options \\ []) do
     url_path = "/ListTransactions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4069,7 +4114,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4093,6 +4138,7 @@ defmodule AWS.LakeFormation do
   def put_data_lake_settings(%Client{} = client, input, options \\ []) do
     url_path = "/PutDataLakeSettings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4103,7 +4149,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4141,6 +4187,7 @@ defmodule AWS.LakeFormation do
   def register_resource(%Client{} = client, input, options \\ []) do
     url_path = "/RegisterResource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4151,7 +4198,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4171,6 +4218,7 @@ defmodule AWS.LakeFormation do
   def remove_l_f_tags_from_resource(%Client{} = client, input, options \\ []) do
     url_path = "/RemoveLFTagsFromResource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4181,7 +4229,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4199,6 +4247,7 @@ defmodule AWS.LakeFormation do
   def revoke_permissions(%Client{} = client, input, options \\ []) do
     url_path = "/RevokePermissions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4209,7 +4258,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4231,6 +4280,7 @@ defmodule AWS.LakeFormation do
   def search_databases_by_l_f_tags(%Client{} = client, input, options \\ []) do
     url_path = "/SearchDatabasesByLFTags"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4241,7 +4291,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4263,6 +4313,7 @@ defmodule AWS.LakeFormation do
   def search_tables_by_l_f_tags(%Client{} = client, input, options \\ []) do
     url_path = "/SearchTablesByLFTags"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4273,7 +4324,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4294,6 +4345,7 @@ defmodule AWS.LakeFormation do
   def start_query_planning(%Client{} = client, input, options \\ []) do
     url_path = "/StartQueryPlanning"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "query-")
@@ -4304,7 +4356,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4323,6 +4375,7 @@ defmodule AWS.LakeFormation do
   def start_transaction(%Client{} = client, input, options \\ []) do
     url_path = "/StartTransaction"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4333,7 +4386,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4350,6 +4403,7 @@ defmodule AWS.LakeFormation do
   def update_data_cells_filter(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateDataCellsFilter"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4360,7 +4414,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4383,6 +4437,7 @@ defmodule AWS.LakeFormation do
   def update_l_f_tag(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateLFTag"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4393,7 +4448,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4415,6 +4470,7 @@ defmodule AWS.LakeFormation do
   def update_l_f_tag_expression(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateLFTagExpression"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4425,7 +4481,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4450,6 +4506,7 @@ defmodule AWS.LakeFormation do
       ) do
     url_path = "/UpdateLakeFormationIdentityCenterConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4460,7 +4517,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4478,6 +4535,7 @@ defmodule AWS.LakeFormation do
   def update_resource(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateResource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4488,7 +4546,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4506,6 +4564,7 @@ defmodule AWS.LakeFormation do
   def update_table_objects(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateTableObjects"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4516,7 +4575,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4533,6 +4592,7 @@ defmodule AWS.LakeFormation do
   def update_table_storage_optimizer(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateTableStorageOptimizer"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4543,7 +4603,7 @@ defmodule AWS.LakeFormation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

@@ -2219,11 +2219,22 @@ defmodule AWS.ChimeSDKMessaging do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2247,6 +2258,7 @@ defmodule AWS.ChimeSDKMessaging do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2257,7 +2269,7 @@ defmodule AWS.ChimeSDKMessaging do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2287,6 +2299,7 @@ defmodule AWS.ChimeSDKMessaging do
   def channel_flow_callback(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}?operation=channel-flow-callback"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2297,7 +2310,7 @@ defmodule AWS.ChimeSDKMessaging do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2328,6 +2341,7 @@ defmodule AWS.ChimeSDKMessaging do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2338,7 +2352,7 @@ defmodule AWS.ChimeSDKMessaging do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2375,6 +2389,7 @@ defmodule AWS.ChimeSDKMessaging do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2385,7 +2400,7 @@ defmodule AWS.ChimeSDKMessaging do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2425,6 +2440,7 @@ defmodule AWS.ChimeSDKMessaging do
   def create_channel_flow(%Client{} = client, input, options \\ []) do
     url_path = "/channel-flows"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2435,7 +2451,7 @@ defmodule AWS.ChimeSDKMessaging do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2490,6 +2506,7 @@ defmodule AWS.ChimeSDKMessaging do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2500,7 +2517,7 @@ defmodule AWS.ChimeSDKMessaging do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2545,6 +2562,7 @@ defmodule AWS.ChimeSDKMessaging do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2555,7 +2573,7 @@ defmodule AWS.ChimeSDKMessaging do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2586,6 +2604,7 @@ defmodule AWS.ChimeSDKMessaging do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2596,7 +2615,7 @@ defmodule AWS.ChimeSDKMessaging do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2625,6 +2644,7 @@ defmodule AWS.ChimeSDKMessaging do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2635,7 +2655,7 @@ defmodule AWS.ChimeSDKMessaging do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2659,6 +2679,7 @@ defmodule AWS.ChimeSDKMessaging do
   def delete_channel_flow(%Client{} = client, channel_flow_arn, input, options \\ []) do
     url_path = "/channel-flows/#{AWS.Util.encode_uri(channel_flow_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2669,7 +2690,7 @@ defmodule AWS.ChimeSDKMessaging do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2703,6 +2724,8 @@ defmodule AWS.ChimeSDKMessaging do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"SubChannelId", "sub-channel-id"}
@@ -2717,7 +2740,7 @@ defmodule AWS.ChimeSDKMessaging do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2756,6 +2779,8 @@ defmodule AWS.ChimeSDKMessaging do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"SubChannelId", "sub-channel-id"}
@@ -2770,7 +2795,7 @@ defmodule AWS.ChimeSDKMessaging do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2811,6 +2836,7 @@ defmodule AWS.ChimeSDKMessaging do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2821,7 +2847,7 @@ defmodule AWS.ChimeSDKMessaging do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2852,6 +2878,7 @@ defmodule AWS.ChimeSDKMessaging do
       ) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/streaming-configurations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2862,7 +2889,7 @@ defmodule AWS.ChimeSDKMessaging do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3188,6 +3215,7 @@ defmodule AWS.ChimeSDKMessaging do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3198,7 +3226,7 @@ defmodule AWS.ChimeSDKMessaging do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4157,11 +4185,22 @@ defmodule AWS.ChimeSDKMessaging do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4207,11 +4246,22 @@ defmodule AWS.ChimeSDKMessaging do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4238,11 +4288,22 @@ defmodule AWS.ChimeSDKMessaging do
       ) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/streaming-configurations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4276,6 +4337,7 @@ defmodule AWS.ChimeSDKMessaging do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4286,7 +4348,7 @@ defmodule AWS.ChimeSDKMessaging do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4319,6 +4381,8 @@ defmodule AWS.ChimeSDKMessaging do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"MaxResults", "max-results"},
@@ -4334,7 +4398,7 @@ defmodule AWS.ChimeSDKMessaging do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4369,6 +4433,7 @@ defmodule AWS.ChimeSDKMessaging do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4379,7 +4444,7 @@ defmodule AWS.ChimeSDKMessaging do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -4396,6 +4461,7 @@ defmodule AWS.ChimeSDKMessaging do
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=tag-resource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4406,7 +4472,7 @@ defmodule AWS.ChimeSDKMessaging do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4424,6 +4490,7 @@ defmodule AWS.ChimeSDKMessaging do
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=untag-resource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4434,7 +4501,7 @@ defmodule AWS.ChimeSDKMessaging do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4464,11 +4531,22 @@ defmodule AWS.ChimeSDKMessaging do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4483,11 +4561,22 @@ defmodule AWS.ChimeSDKMessaging do
   def update_channel_flow(%Client{} = client, channel_flow_arn, input, options \\ []) do
     url_path = "/channel-flows/#{AWS.Util.encode_uri(channel_flow_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4518,11 +4607,22 @@ defmodule AWS.ChimeSDKMessaging do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4551,10 +4651,21 @@ defmodule AWS.ChimeSDKMessaging do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

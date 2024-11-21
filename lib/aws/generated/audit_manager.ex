@@ -2738,11 +2738,22 @@ defmodule AWS.AuditManager do
       ) do
     url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}/associateToAssessmentReport"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2768,11 +2779,22 @@ defmodule AWS.AuditManager do
       "/assessments/#{AWS.Util.encode_uri(assessment_id)}/batchAssociateToAssessmentReport"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2795,6 +2817,7 @@ defmodule AWS.AuditManager do
       ) do
     url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}/delegations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2805,7 +2828,7 @@ defmodule AWS.AuditManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2832,11 +2855,22 @@ defmodule AWS.AuditManager do
       ) do
     url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}/delegations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2861,11 +2895,22 @@ defmodule AWS.AuditManager do
       "/assessments/#{AWS.Util.encode_uri(assessment_id)}/batchDisassociateFromAssessmentReport"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2921,6 +2966,7 @@ defmodule AWS.AuditManager do
       "/assessments/#{AWS.Util.encode_uri(assessment_id)}/controlSets/#{AWS.Util.encode_uri(control_set_id)}/controls/#{AWS.Util.encode_uri(control_id)}/evidence"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2931,7 +2977,7 @@ defmodule AWS.AuditManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2948,6 +2994,7 @@ defmodule AWS.AuditManager do
   def create_assessment(%Client{} = client, input, options \\ []) do
     url_path = "/assessments"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2958,7 +3005,7 @@ defmodule AWS.AuditManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2975,6 +3022,7 @@ defmodule AWS.AuditManager do
   def create_assessment_framework(%Client{} = client, input, options \\ []) do
     url_path = "/assessmentFrameworks"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2985,7 +3033,7 @@ defmodule AWS.AuditManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3002,6 +3050,7 @@ defmodule AWS.AuditManager do
   def create_assessment_report(%Client{} = client, assessment_id, input, options \\ []) do
     url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}/reports"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3012,7 +3061,7 @@ defmodule AWS.AuditManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3029,6 +3078,7 @@ defmodule AWS.AuditManager do
   def create_control(%Client{} = client, input, options \\ []) do
     url_path = "/controls"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3039,7 +3089,7 @@ defmodule AWS.AuditManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3056,6 +3106,7 @@ defmodule AWS.AuditManager do
   def delete_assessment(%Client{} = client, assessment_id, input, options \\ []) do
     url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3066,7 +3117,7 @@ defmodule AWS.AuditManager do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3088,6 +3139,7 @@ defmodule AWS.AuditManager do
   def delete_assessment_framework(%Client{} = client, framework_id, input, options \\ []) do
     url_path = "/assessmentFrameworks/#{AWS.Util.encode_uri(framework_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3098,7 +3150,7 @@ defmodule AWS.AuditManager do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3120,6 +3172,7 @@ defmodule AWS.AuditManager do
   def delete_assessment_framework_share(%Client{} = client, request_id, input, options \\ []) do
     url_path = "/assessmentFrameworkShareRequests/#{AWS.Util.encode_uri(request_id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3135,7 +3188,7 @@ defmodule AWS.AuditManager do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3201,6 +3254,7 @@ defmodule AWS.AuditManager do
       "/assessments/#{AWS.Util.encode_uri(assessment_id)}/reports/#{AWS.Util.encode_uri(assessment_report_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3211,7 +3265,7 @@ defmodule AWS.AuditManager do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3235,6 +3289,7 @@ defmodule AWS.AuditManager do
   def delete_control(%Client{} = client, control_id, input, options \\ []) do
     url_path = "/controls/#{AWS.Util.encode_uri(control_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3245,7 +3300,7 @@ defmodule AWS.AuditManager do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3273,6 +3328,7 @@ defmodule AWS.AuditManager do
   def deregister_account(%Client{} = client, input, options \\ []) do
     url_path = "/account/deregisterAccount"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3283,7 +3339,7 @@ defmodule AWS.AuditManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3390,6 +3446,7 @@ defmodule AWS.AuditManager do
   def deregister_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/account/deregisterOrganizationAdminAccount"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3400,7 +3457,7 @@ defmodule AWS.AuditManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3430,11 +3487,22 @@ defmodule AWS.AuditManager do
       "/assessments/#{AWS.Util.encode_uri(assessment_id)}/disassociateFromAssessmentReport"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4552,6 +4620,7 @@ defmodule AWS.AuditManager do
   def register_account(%Client{} = client, input, options \\ []) do
     url_path = "/account/registerAccount"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4562,7 +4631,7 @@ defmodule AWS.AuditManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4584,6 +4653,7 @@ defmodule AWS.AuditManager do
   def register_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/account/registerOrganizationAdminAccount"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4594,7 +4664,7 @@ defmodule AWS.AuditManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4667,6 +4737,7 @@ defmodule AWS.AuditManager do
   def start_assessment_framework_share(%Client{} = client, framework_id, input, options \\ []) do
     url_path = "/assessmentFrameworks/#{AWS.Util.encode_uri(framework_id)}/shareRequests"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4677,7 +4748,7 @@ defmodule AWS.AuditManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4694,6 +4765,7 @@ defmodule AWS.AuditManager do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4704,7 +4776,7 @@ defmodule AWS.AuditManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4721,6 +4793,7 @@ defmodule AWS.AuditManager do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4736,7 +4809,7 @@ defmodule AWS.AuditManager do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4753,11 +4826,22 @@ defmodule AWS.AuditManager do
   def update_assessment(%Client{} = client, assessment_id, input, options \\ []) do
     url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4786,11 +4870,22 @@ defmodule AWS.AuditManager do
       "/assessments/#{AWS.Util.encode_uri(assessment_id)}/controlSets/#{AWS.Util.encode_uri(control_set_id)}/controls/#{AWS.Util.encode_uri(control_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4817,11 +4912,22 @@ defmodule AWS.AuditManager do
       "/assessments/#{AWS.Util.encode_uri(assessment_id)}/controlSets/#{AWS.Util.encode_uri(control_set_id)}/status"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4839,11 +4945,22 @@ defmodule AWS.AuditManager do
   def update_assessment_framework(%Client{} = client, framework_id, input, options \\ []) do
     url_path = "/assessmentFrameworks/#{AWS.Util.encode_uri(framework_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4861,11 +4978,22 @@ defmodule AWS.AuditManager do
   def update_assessment_framework_share(%Client{} = client, request_id, input, options \\ []) do
     url_path = "/assessmentFrameworkShareRequests/#{AWS.Util.encode_uri(request_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4878,11 +5006,22 @@ defmodule AWS.AuditManager do
   def update_assessment_status(%Client{} = client, assessment_id, input, options \\ []) do
     url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}/status"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4895,11 +5034,22 @@ defmodule AWS.AuditManager do
   def update_control(%Client{} = client, control_id, input, options \\ []) do
     url_path = "/controls/#{AWS.Util.encode_uri(control_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4912,11 +5062,22 @@ defmodule AWS.AuditManager do
   def update_settings(%Client{} = client, input, options \\ []) do
     url_path = "/settings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4933,6 +5094,7 @@ defmodule AWS.AuditManager do
   def validate_assessment_report_integrity(%Client{} = client, input, options \\ []) do
     url_path = "/assessmentReports/integrity"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4943,7 +5105,7 @@ defmodule AWS.AuditManager do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

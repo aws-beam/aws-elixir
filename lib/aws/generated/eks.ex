@@ -2968,6 +2968,7 @@ defmodule AWS.EKS do
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/access-entries/#{AWS.Util.encode_uri(principal_arn)}/access-policies"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2978,7 +2979,7 @@ defmodule AWS.EKS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3005,6 +3006,7 @@ defmodule AWS.EKS do
   def associate_encryption_config(%Client{} = client, cluster_name, input, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/encryption-config/associate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3015,7 +3017,7 @@ defmodule AWS.EKS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3049,6 +3051,7 @@ defmodule AWS.EKS do
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/identity-provider-configs/associate"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3059,7 +3062,7 @@ defmodule AWS.EKS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3093,6 +3096,7 @@ defmodule AWS.EKS do
   def create_access_entry(%Client{} = client, cluster_name, input, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/access-entries"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3103,7 +3107,7 @@ defmodule AWS.EKS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3125,6 +3129,7 @@ defmodule AWS.EKS do
   def create_addon(%Client{} = client, cluster_name, input, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/addons"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3135,7 +3140,7 @@ defmodule AWS.EKS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3205,6 +3210,7 @@ defmodule AWS.EKS do
   def create_cluster(%Client{} = client, input, options \\ []) do
     url_path = "/clusters"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3215,7 +3221,7 @@ defmodule AWS.EKS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3243,6 +3249,7 @@ defmodule AWS.EKS do
   def create_eks_anywhere_subscription(%Client{} = client, input, options \\ []) do
     url_path = "/eks-anywhere-subscriptions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3253,7 +3260,7 @@ defmodule AWS.EKS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3311,6 +3318,7 @@ defmodule AWS.EKS do
   def create_fargate_profile(%Client{} = client, cluster_name, input, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/fargate-profiles"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3321,7 +3329,7 @@ defmodule AWS.EKS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3356,6 +3364,7 @@ defmodule AWS.EKS do
   def create_nodegroup(%Client{} = client, cluster_name, input, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/node-groups"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3366,7 +3375,7 @@ defmodule AWS.EKS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3409,6 +3418,7 @@ defmodule AWS.EKS do
   def create_pod_identity_association(%Client{} = client, cluster_name, input, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/pod-identity-associations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3419,7 +3429,7 @@ defmodule AWS.EKS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3443,6 +3453,7 @@ defmodule AWS.EKS do
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/access-entries/#{AWS.Util.encode_uri(principal_arn)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3453,7 +3464,7 @@ defmodule AWS.EKS do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3476,6 +3487,7 @@ defmodule AWS.EKS do
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/addons/#{AWS.Util.encode_uri(addon_name)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3491,7 +3503,7 @@ defmodule AWS.EKS do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3522,6 +3534,7 @@ defmodule AWS.EKS do
   def delete_cluster(%Client{} = client, name, input, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3532,7 +3545,7 @@ defmodule AWS.EKS do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3561,6 +3574,7 @@ defmodule AWS.EKS do
   def delete_eks_anywhere_subscription(%Client{} = client, id, input, options \\ []) do
     url_path = "/eks-anywhere-subscriptions/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3571,7 +3585,7 @@ defmodule AWS.EKS do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3614,6 +3628,7 @@ defmodule AWS.EKS do
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/fargate-profiles/#{AWS.Util.encode_uri(fargate_profile_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3624,7 +3639,7 @@ defmodule AWS.EKS do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3643,6 +3658,7 @@ defmodule AWS.EKS do
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/node-groups/#{AWS.Util.encode_uri(nodegroup_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3653,7 +3669,7 @@ defmodule AWS.EKS do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3688,6 +3704,7 @@ defmodule AWS.EKS do
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/pod-identity-associations/#{AWS.Util.encode_uri(association_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3698,7 +3715,7 @@ defmodule AWS.EKS do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3720,6 +3737,7 @@ defmodule AWS.EKS do
   def deregister_cluster(%Client{} = client, name, input, options \\ []) do
     url_path = "/cluster-registrations/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3730,7 +3748,7 @@ defmodule AWS.EKS do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3980,6 +3998,7 @@ defmodule AWS.EKS do
   def describe_identity_provider_config(%Client{} = client, cluster_name, input, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/identity-provider-configs/describe"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3990,7 +4009,7 @@ defmodule AWS.EKS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4133,6 +4152,7 @@ defmodule AWS.EKS do
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/access-entries/#{AWS.Util.encode_uri(principal_arn)}/access-policies/#{AWS.Util.encode_uri(policy_arn)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4143,7 +4163,7 @@ defmodule AWS.EKS do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4178,6 +4198,7 @@ defmodule AWS.EKS do
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/identity-provider-configs/disassociate"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4188,7 +4209,7 @@ defmodule AWS.EKS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4558,6 +4579,7 @@ defmodule AWS.EKS do
   def list_insights(%Client{} = client, cluster_name, input, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/insights"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4568,7 +4590,7 @@ defmodule AWS.EKS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4795,6 +4817,7 @@ defmodule AWS.EKS do
   def register_cluster(%Client{} = client, input, options \\ []) do
     url_path = "/cluster-registrations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4805,7 +4828,7 @@ defmodule AWS.EKS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4833,6 +4856,7 @@ defmodule AWS.EKS do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4843,7 +4867,7 @@ defmodule AWS.EKS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4860,6 +4884,7 @@ defmodule AWS.EKS do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4875,7 +4900,7 @@ defmodule AWS.EKS do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4894,6 +4919,7 @@ defmodule AWS.EKS do
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/access-entries/#{AWS.Util.encode_uri(principal_arn)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4904,7 +4930,7 @@ defmodule AWS.EKS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4923,6 +4949,7 @@ defmodule AWS.EKS do
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/addons/#{AWS.Util.encode_uri(addon_name)}/update"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4933,7 +4960,7 @@ defmodule AWS.EKS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5002,6 +5029,7 @@ defmodule AWS.EKS do
   def update_cluster_config(%Client{} = client, name, input, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(name)}/update-config"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5012,7 +5040,7 @@ defmodule AWS.EKS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5047,6 +5075,7 @@ defmodule AWS.EKS do
   def update_cluster_version(%Client{} = client, name, input, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(name)}/updates"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5057,7 +5086,7 @@ defmodule AWS.EKS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5082,6 +5111,7 @@ defmodule AWS.EKS do
   def update_eks_anywhere_subscription(%Client{} = client, id, input, options \\ []) do
     url_path = "/eks-anywhere-subscriptions/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5092,7 +5122,7 @@ defmodule AWS.EKS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5130,6 +5160,7 @@ defmodule AWS.EKS do
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/node-groups/#{AWS.Util.encode_uri(nodegroup_name)}/update-config"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5140,7 +5171,7 @@ defmodule AWS.EKS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5206,6 +5237,7 @@ defmodule AWS.EKS do
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/node-groups/#{AWS.Util.encode_uri(nodegroup_name)}/update-version"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5216,7 +5248,7 @@ defmodule AWS.EKS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5253,6 +5285,7 @@ defmodule AWS.EKS do
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/pod-identity-associations/#{AWS.Util.encode_uri(association_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5263,7 +5296,7 @@ defmodule AWS.EKS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

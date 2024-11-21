@@ -615,6 +615,7 @@ defmodule AWS.RDSData do
   def batch_execute_statement(%Client{} = client, input, options \\ []) do
     url_path = "/BatchExecute"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -625,7 +626,7 @@ defmodule AWS.RDSData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -654,6 +655,7 @@ defmodule AWS.RDSData do
   def begin_transaction(%Client{} = client, input, options \\ []) do
     url_path = "/BeginTransaction"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -664,7 +666,7 @@ defmodule AWS.RDSData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -682,6 +684,7 @@ defmodule AWS.RDSData do
   def commit_transaction(%Client{} = client, input, options \\ []) do
     url_path = "/CommitTransaction"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -692,7 +695,7 @@ defmodule AWS.RDSData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -714,6 +717,7 @@ defmodule AWS.RDSData do
   def execute_sql(%Client{} = client, input, options \\ []) do
     url_path = "/ExecuteSql"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -724,7 +728,7 @@ defmodule AWS.RDSData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -748,6 +752,7 @@ defmodule AWS.RDSData do
   def execute_statement(%Client{} = client, input, options \\ []) do
     url_path = "/Execute"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -758,7 +763,7 @@ defmodule AWS.RDSData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -777,6 +782,7 @@ defmodule AWS.RDSData do
   def rollback_transaction(%Client{} = client, input, options \\ []) do
     url_path = "/RollbackTransaction"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -787,7 +793,7 @@ defmodule AWS.RDSData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

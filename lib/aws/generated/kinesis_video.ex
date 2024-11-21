@@ -1438,6 +1438,7 @@ defmodule AWS.KinesisVideo do
   def create_signaling_channel(%Client{} = client, input, options \\ []) do
     url_path = "/createSignalingChannel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1448,7 +1449,7 @@ defmodule AWS.KinesisVideo do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1476,6 +1477,7 @@ defmodule AWS.KinesisVideo do
   def create_stream(%Client{} = client, input, options \\ []) do
     url_path = "/createStream"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1486,7 +1488,7 @@ defmodule AWS.KinesisVideo do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1513,6 +1515,7 @@ defmodule AWS.KinesisVideo do
   def delete_edge_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/deleteEdgeConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1523,7 +1526,7 @@ defmodule AWS.KinesisVideo do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1545,6 +1548,7 @@ defmodule AWS.KinesisVideo do
   def delete_signaling_channel(%Client{} = client, input, options \\ []) do
     url_path = "/deleteSignalingChannel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1555,7 +1559,7 @@ defmodule AWS.KinesisVideo do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1585,6 +1589,7 @@ defmodule AWS.KinesisVideo do
   def delete_stream(%Client{} = client, input, options \\ []) do
     url_path = "/deleteStream"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1595,7 +1600,7 @@ defmodule AWS.KinesisVideo do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1619,6 +1624,7 @@ defmodule AWS.KinesisVideo do
   def describe_edge_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/describeEdgeConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1629,7 +1635,7 @@ defmodule AWS.KinesisVideo do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1650,6 +1656,7 @@ defmodule AWS.KinesisVideo do
   def describe_image_generation_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/describeImageGenerationConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1660,7 +1667,7 @@ defmodule AWS.KinesisVideo do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1684,6 +1691,7 @@ defmodule AWS.KinesisVideo do
   def describe_mapped_resource_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/describeMappedResourceConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1694,7 +1702,7 @@ defmodule AWS.KinesisVideo do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1718,6 +1726,7 @@ defmodule AWS.KinesisVideo do
   def describe_media_storage_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/describeMediaStorageConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1728,7 +1737,7 @@ defmodule AWS.KinesisVideo do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1749,6 +1758,7 @@ defmodule AWS.KinesisVideo do
   def describe_notification_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/describeNotificationConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1759,7 +1769,7 @@ defmodule AWS.KinesisVideo do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1781,6 +1791,7 @@ defmodule AWS.KinesisVideo do
   def describe_signaling_channel(%Client{} = client, input, options \\ []) do
     url_path = "/describeSignalingChannel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1791,7 +1802,7 @@ defmodule AWS.KinesisVideo do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1811,6 +1822,7 @@ defmodule AWS.KinesisVideo do
   def describe_stream(%Client{} = client, input, options \\ []) do
     url_path = "/describeStream"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1821,7 +1833,7 @@ defmodule AWS.KinesisVideo do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1849,6 +1861,7 @@ defmodule AWS.KinesisVideo do
   def get_data_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/getDataEndpoint"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1859,7 +1872,7 @@ defmodule AWS.KinesisVideo do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1891,6 +1904,7 @@ defmodule AWS.KinesisVideo do
   def get_signaling_channel_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/getSignalingChannelEndpoint"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1901,7 +1915,7 @@ defmodule AWS.KinesisVideo do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1921,6 +1935,7 @@ defmodule AWS.KinesisVideo do
   def list_edge_agent_configurations(%Client{} = client, input, options \\ []) do
     url_path = "/listEdgeAgentConfigurations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1931,7 +1946,7 @@ defmodule AWS.KinesisVideo do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1953,6 +1968,7 @@ defmodule AWS.KinesisVideo do
   def list_signaling_channels(%Client{} = client, input, options \\ []) do
     url_path = "/listSignalingChannels"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1963,7 +1979,7 @@ defmodule AWS.KinesisVideo do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1985,6 +2001,7 @@ defmodule AWS.KinesisVideo do
   def list_streams(%Client{} = client, input, options \\ []) do
     url_path = "/listStreams"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1995,7 +2012,7 @@ defmodule AWS.KinesisVideo do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2012,6 +2029,7 @@ defmodule AWS.KinesisVideo do
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     url_path = "/ListTagsForResource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2022,7 +2040,7 @@ defmodule AWS.KinesisVideo do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2042,6 +2060,7 @@ defmodule AWS.KinesisVideo do
   def list_tags_for_stream(%Client{} = client, input, options \\ []) do
     url_path = "/listTagsForStream"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2052,7 +2071,7 @@ defmodule AWS.KinesisVideo do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2094,6 +2113,7 @@ defmodule AWS.KinesisVideo do
   def start_edge_configuration_update(%Client{} = client, input, options \\ []) do
     url_path = "/startEdgeConfigurationUpdate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2104,7 +2124,7 @@ defmodule AWS.KinesisVideo do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2130,6 +2150,7 @@ defmodule AWS.KinesisVideo do
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/TagResource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2140,7 +2161,7 @@ defmodule AWS.KinesisVideo do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2173,6 +2194,7 @@ defmodule AWS.KinesisVideo do
   def tag_stream(%Client{} = client, input, options \\ []) do
     url_path = "/tagStream"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2183,7 +2205,7 @@ defmodule AWS.KinesisVideo do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2205,6 +2227,7 @@ defmodule AWS.KinesisVideo do
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/UntagResource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2215,7 +2238,7 @@ defmodule AWS.KinesisVideo do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2240,6 +2263,7 @@ defmodule AWS.KinesisVideo do
   def untag_stream(%Client{} = client, input, options \\ []) do
     url_path = "/untagStream"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2250,7 +2274,7 @@ defmodule AWS.KinesisVideo do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2290,6 +2314,7 @@ defmodule AWS.KinesisVideo do
   def update_data_retention(%Client{} = client, input, options \\ []) do
     url_path = "/updateDataRetention"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2300,7 +2325,7 @@ defmodule AWS.KinesisVideo do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2321,6 +2346,7 @@ defmodule AWS.KinesisVideo do
   def update_image_generation_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/updateImageGenerationConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2331,7 +2357,7 @@ defmodule AWS.KinesisVideo do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2371,6 +2397,7 @@ defmodule AWS.KinesisVideo do
   def update_media_storage_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/updateMediaStorageConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2381,7 +2408,7 @@ defmodule AWS.KinesisVideo do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2402,6 +2429,7 @@ defmodule AWS.KinesisVideo do
   def update_notification_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/updateNotificationConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2412,7 +2440,7 @@ defmodule AWS.KinesisVideo do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2438,6 +2466,7 @@ defmodule AWS.KinesisVideo do
   def update_signaling_channel(%Client{} = client, input, options \\ []) do
     url_path = "/updateSignalingChannel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2448,7 +2477,7 @@ defmodule AWS.KinesisVideo do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2479,6 +2508,7 @@ defmodule AWS.KinesisVideo do
   def update_stream(%Client{} = client, input, options \\ []) do
     url_path = "/updateStream"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2489,7 +2519,7 @@ defmodule AWS.KinesisVideo do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

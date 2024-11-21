@@ -11770,6 +11770,7 @@ defmodule AWS.Connect do
       "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_form_id)}/activate"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11780,7 +11781,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11805,11 +11806,22 @@ defmodule AWS.Connect do
   def associate_analytics_data_set(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/analytics-data/instance/#{AWS.Util.encode_uri(instance_id)}/association"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11824,11 +11836,22 @@ defmodule AWS.Connect do
   def associate_approved_origin(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/approved-origin"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11844,11 +11867,22 @@ defmodule AWS.Connect do
   def associate_bot(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/bot"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11878,11 +11912,22 @@ defmodule AWS.Connect do
       "/default-vocabulary/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(language_code)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11895,11 +11940,22 @@ defmodule AWS.Connect do
   def associate_flow(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/flow-associations/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11929,11 +11985,22 @@ defmodule AWS.Connect do
   def associate_instance_storage_config(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/storage-config"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11949,11 +12016,22 @@ defmodule AWS.Connect do
   def associate_lambda_function(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/lambda-function"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11969,11 +12047,22 @@ defmodule AWS.Connect do
   def associate_lex_bot(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/lex-bot"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12010,11 +12099,22 @@ defmodule AWS.Connect do
       ) do
     url_path = "/phone-number/#{AWS.Util.encode_uri(phone_number_id)}/contact-flow"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12043,6 +12143,7 @@ defmodule AWS.Connect do
       "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/associate-quick-connects"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12053,7 +12154,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12084,6 +12185,7 @@ defmodule AWS.Connect do
       "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}/associate-queues"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12094,7 +12196,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12113,11 +12215,22 @@ defmodule AWS.Connect do
   def associate_security_key(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/security-key"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12145,11 +12258,22 @@ defmodule AWS.Connect do
       "/traffic-distribution-group/#{AWS.Util.encode_uri(traffic_distribution_group_id)}/user"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12170,6 +12294,7 @@ defmodule AWS.Connect do
       "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/associate-proficiencies"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12180,7 +12305,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12206,11 +12331,22 @@ defmodule AWS.Connect do
   def batch_associate_analytics_data_set(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/analytics-data/instance/#{AWS.Util.encode_uri(instance_id)}/associations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12231,6 +12367,7 @@ defmodule AWS.Connect do
   def batch_disassociate_analytics_data_set(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/analytics-data/instance/#{AWS.Util.encode_uri(instance_id)}/associations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12241,7 +12378,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12267,6 +12404,7 @@ defmodule AWS.Connect do
   def batch_get_attached_file_metadata(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/attached-files/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -12282,7 +12420,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12304,6 +12442,7 @@ defmodule AWS.Connect do
   def batch_get_flow_association(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/flow-associations-batch/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12314,7 +12453,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12345,11 +12484,22 @@ defmodule AWS.Connect do
   def batch_put_contact(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/contact/batch/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12405,6 +12555,7 @@ defmodule AWS.Connect do
   def claim_phone_number(%Client{} = client, input, options \\ []) do
     url_path = "/phone-number/claim"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12415,7 +12566,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12448,6 +12599,7 @@ defmodule AWS.Connect do
       "/attached-files/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(file_id)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -12463,7 +12615,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12482,11 +12634,22 @@ defmodule AWS.Connect do
   def create_agent_status(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/agent-status/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12502,11 +12665,22 @@ defmodule AWS.Connect do
   def create_contact_flow(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/contact-flows/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12524,11 +12698,22 @@ defmodule AWS.Connect do
   def create_contact_flow_module(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/contact-flow-modules/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12565,11 +12750,22 @@ defmodule AWS.Connect do
       "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}/version"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12589,11 +12785,22 @@ defmodule AWS.Connect do
   def create_evaluation_form(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12608,11 +12815,22 @@ defmodule AWS.Connect do
   def create_hours_of_operation(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/hours-of-operations/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12642,11 +12860,22 @@ defmodule AWS.Connect do
   def create_instance(%Client{} = client, input, options \\ []) do
     url_path = "/instance"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12665,11 +12894,22 @@ defmodule AWS.Connect do
   def create_integration_association(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/integration-associations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12685,6 +12925,7 @@ defmodule AWS.Connect do
   def create_participant(%Client{} = client, input, options \\ []) do
     url_path = "/contact/create-participant"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12695,7 +12936,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12731,6 +12972,7 @@ defmodule AWS.Connect do
       "/contact/persistent-contact-association/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(initial_contact_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12741,7 +12983,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12770,11 +13012,22 @@ defmodule AWS.Connect do
   def create_predefined_attribute(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/predefined-attributes/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12792,11 +13045,22 @@ defmodule AWS.Connect do
   def create_prompt(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/prompts/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12838,11 +13102,22 @@ defmodule AWS.Connect do
   def create_queue(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/queues/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12855,11 +13130,22 @@ defmodule AWS.Connect do
   def create_quick_connect(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/quick-connects/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12872,11 +13158,22 @@ defmodule AWS.Connect do
   def create_routing_profile(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12893,6 +13190,7 @@ defmodule AWS.Connect do
   def create_rule(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12903,7 +13201,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12926,11 +13224,22 @@ defmodule AWS.Connect do
   def create_security_profile(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/security-profiles/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12943,11 +13252,22 @@ defmodule AWS.Connect do
   def create_task_template(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/task/template"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12978,11 +13298,22 @@ defmodule AWS.Connect do
   def create_traffic_distribution_group(%Client{} = client, input, options \\ []) do
     url_path = "/traffic-distribution-group"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -13003,11 +13334,22 @@ defmodule AWS.Connect do
       "/instance/#{AWS.Util.encode_uri(instance_id)}/integration-associations/#{AWS.Util.encode_uri(integration_association_id)}/use-cases"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -13032,11 +13374,22 @@ defmodule AWS.Connect do
   def create_user(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/users/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -13054,11 +13407,22 @@ defmodule AWS.Connect do
   def create_user_hierarchy_group(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/user-hierarchy-groups/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -13082,11 +13446,22 @@ defmodule AWS.Connect do
   def create_view(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/views/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -13109,11 +13484,22 @@ defmodule AWS.Connect do
       "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}/versions"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -13132,6 +13518,7 @@ defmodule AWS.Connect do
   def create_vocabulary(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/vocabulary/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13142,7 +13529,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13176,6 +13563,7 @@ defmodule AWS.Connect do
       "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_form_id)}/deactivate"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13186,7 +13574,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13214,6 +13602,7 @@ defmodule AWS.Connect do
       "/attached-files/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(file_id)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -13229,7 +13618,7 @@ defmodule AWS.Connect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13260,6 +13649,7 @@ defmodule AWS.Connect do
       "/contact-evaluations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13270,7 +13660,7 @@ defmodule AWS.Connect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13289,6 +13679,7 @@ defmodule AWS.Connect do
       "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13299,7 +13690,7 @@ defmodule AWS.Connect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13330,6 +13721,7 @@ defmodule AWS.Connect do
       "/contact-flow-modules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_module_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13340,7 +13732,7 @@ defmodule AWS.Connect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13379,6 +13771,7 @@ defmodule AWS.Connect do
       "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_form_id)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -13394,7 +13787,7 @@ defmodule AWS.Connect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13427,6 +13820,7 @@ defmodule AWS.Connect do
       "/hours-of-operations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(hours_of_operation_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13437,7 +13831,7 @@ defmodule AWS.Connect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13466,6 +13860,7 @@ defmodule AWS.Connect do
   def delete_instance(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13476,7 +13871,7 @@ defmodule AWS.Connect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13511,6 +13906,7 @@ defmodule AWS.Connect do
       "/instance/#{AWS.Util.encode_uri(instance_id)}/integration-associations/#{AWS.Util.encode_uri(integration_association_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13521,7 +13917,7 @@ defmodule AWS.Connect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13546,6 +13942,7 @@ defmodule AWS.Connect do
       "/predefined-attributes/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13556,7 +13953,7 @@ defmodule AWS.Connect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13573,6 +13970,7 @@ defmodule AWS.Connect do
   def delete_prompt(%Client{} = client, instance_id, prompt_id, input, options \\ []) do
     url_path = "/prompts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(prompt_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13583,7 +13981,7 @@ defmodule AWS.Connect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13602,6 +14000,7 @@ defmodule AWS.Connect do
   def delete_queue(%Client{} = client, instance_id, queue_id, input, options \\ []) do
     url_path = "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13612,7 +14011,7 @@ defmodule AWS.Connect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13662,6 +14061,7 @@ defmodule AWS.Connect do
       "/quick-connects/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(quick_connect_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13672,7 +14072,7 @@ defmodule AWS.Connect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13703,6 +14103,7 @@ defmodule AWS.Connect do
       "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13713,7 +14114,7 @@ defmodule AWS.Connect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13730,6 +14131,7 @@ defmodule AWS.Connect do
   def delete_rule(%Client{} = client, instance_id, rule_id, input, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(rule_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13740,7 +14142,7 @@ defmodule AWS.Connect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13771,6 +14173,7 @@ defmodule AWS.Connect do
       "/security-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(security_profile_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13781,7 +14184,7 @@ defmodule AWS.Connect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13812,6 +14215,7 @@ defmodule AWS.Connect do
       "/instance/#{AWS.Util.encode_uri(instance_id)}/task/template/#{AWS.Util.encode_uri(task_template_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13822,7 +14226,7 @@ defmodule AWS.Connect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13858,6 +14262,7 @@ defmodule AWS.Connect do
       ) do
     url_path = "/traffic-distribution-group/#{AWS.Util.encode_uri(traffic_distribution_group_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13868,7 +14273,7 @@ defmodule AWS.Connect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13901,6 +14306,7 @@ defmodule AWS.Connect do
       "/instance/#{AWS.Util.encode_uri(instance_id)}/integration-associations/#{AWS.Util.encode_uri(integration_association_id)}/use-cases/#{AWS.Util.encode_uri(use_case_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13911,7 +14317,7 @@ defmodule AWS.Connect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13952,6 +14358,7 @@ defmodule AWS.Connect do
   def delete_user(%Client{} = client, instance_id, user_id, input, options \\ []) do
     url_path = "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13962,7 +14369,7 @@ defmodule AWS.Connect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13996,6 +14403,7 @@ defmodule AWS.Connect do
       "/user-hierarchy-groups/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(hierarchy_group_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14006,7 +14414,7 @@ defmodule AWS.Connect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14026,6 +14434,7 @@ defmodule AWS.Connect do
   def delete_view(%Client{} = client, instance_id, view_id, input, options \\ []) do
     url_path = "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14036,7 +14445,7 @@ defmodule AWS.Connect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14069,6 +14478,7 @@ defmodule AWS.Connect do
       "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}/versions/#{AWS.Util.encode_uri(view_version)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14079,7 +14489,7 @@ defmodule AWS.Connect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14098,6 +14508,7 @@ defmodule AWS.Connect do
       "/vocabulary-remove/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(vocabulary_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14108,7 +14519,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14744,6 +15155,7 @@ defmodule AWS.Connect do
   def disassociate_analytics_data_set(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/analytics-data/instance/#{AWS.Util.encode_uri(instance_id)}/association"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14754,7 +15166,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14778,6 +15190,7 @@ defmodule AWS.Connect do
   def disassociate_approved_origin(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/approved-origin"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -14793,7 +15206,7 @@ defmodule AWS.Connect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14814,6 +15227,7 @@ defmodule AWS.Connect do
   def disassociate_bot(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/bot"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14824,7 +15238,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14857,6 +15271,7 @@ defmodule AWS.Connect do
       "/flow-associations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(resource_id)}/#{AWS.Util.encode_uri(resource_type)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14867,7 +15282,7 @@ defmodule AWS.Connect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14902,6 +15317,7 @@ defmodule AWS.Connect do
       "/instance/#{AWS.Util.encode_uri(instance_id)}/storage-config/#{AWS.Util.encode_uri(association_id)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -14917,7 +15333,7 @@ defmodule AWS.Connect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14942,6 +15358,7 @@ defmodule AWS.Connect do
   def disassociate_lambda_function(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/lambda-function"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -14957,7 +15374,7 @@ defmodule AWS.Connect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14978,6 +15395,7 @@ defmodule AWS.Connect do
   def disassociate_lex_bot(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/lex-bot"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -14994,7 +15412,7 @@ defmodule AWS.Connect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15034,6 +15452,7 @@ defmodule AWS.Connect do
       ) do
     url_path = "/phone-number/#{AWS.Util.encode_uri(phone_number_id)}/contact-flow"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -15049,7 +15468,7 @@ defmodule AWS.Connect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15082,6 +15501,7 @@ defmodule AWS.Connect do
       "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/disassociate-quick-connects"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -15092,7 +15512,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15123,6 +15543,7 @@ defmodule AWS.Connect do
       "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}/disassociate-queues"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -15133,7 +15554,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15166,6 +15587,7 @@ defmodule AWS.Connect do
       "/instance/#{AWS.Util.encode_uri(instance_id)}/security-key/#{AWS.Util.encode_uri(association_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -15176,7 +15598,7 @@ defmodule AWS.Connect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15208,6 +15630,7 @@ defmodule AWS.Connect do
       "/traffic-distribution-group/#{AWS.Util.encode_uri(traffic_distribution_group_id)}/user"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -15224,7 +15647,7 @@ defmodule AWS.Connect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15255,6 +15678,7 @@ defmodule AWS.Connect do
       "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/disassociate-proficiencies"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -15265,7 +15689,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15297,6 +15721,7 @@ defmodule AWS.Connect do
       "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/contact"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -15307,7 +15732,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15391,6 +15816,7 @@ defmodule AWS.Connect do
   def get_current_metric_data(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/metrics/current/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -15401,7 +15827,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15418,6 +15844,7 @@ defmodule AWS.Connect do
   def get_current_user_data(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/metrics/userdata/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -15428,7 +15855,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15522,6 +15949,7 @@ defmodule AWS.Connect do
   def get_metric_data(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/metrics/historical/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -15532,7 +15960,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15564,6 +15992,7 @@ defmodule AWS.Connect do
   def get_metric_data_v2(%Client{} = client, input, options \\ []) do
     url_path = "/metrics/data"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -15574,7 +16003,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15696,6 +16125,7 @@ defmodule AWS.Connect do
   def import_phone_number(%Client{} = client, input, options \\ []) do
     url_path = "/phone-number/import"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -15706,7 +16136,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -16217,6 +16647,7 @@ defmodule AWS.Connect do
   def list_default_vocabularies(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/default-vocabulary-summary/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -16227,7 +16658,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -16807,6 +17238,7 @@ defmodule AWS.Connect do
   def list_phone_numbers_v2(%Client{} = client, input, options \\ []) do
     url_path = "/phone-number/list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -16817,7 +17249,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -17094,6 +17526,7 @@ defmodule AWS.Connect do
       "/contact/list-real-time-analysis-segments-v2/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -17104,7 +17537,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -17910,6 +18343,7 @@ defmodule AWS.Connect do
   def monitor_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/monitor"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -17920,7 +18354,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -17937,6 +18371,7 @@ defmodule AWS.Connect do
   def pause_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/pause"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -17947,7 +18382,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -17971,11 +18406,22 @@ defmodule AWS.Connect do
   def put_user_status(%Client{} = client, instance_id, user_id, input, options \\ []) do
     url_path = "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/status"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -18026,6 +18472,7 @@ defmodule AWS.Connect do
   def release_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
     url_path = "/phone-number/#{AWS.Util.encode_uri(phone_number_id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -18041,7 +18488,7 @@ defmodule AWS.Connect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18066,6 +18513,7 @@ defmodule AWS.Connect do
   def replicate_instance(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/replicate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18076,7 +18524,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18093,6 +18541,7 @@ defmodule AWS.Connect do
   def resume_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/resume"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18103,7 +18552,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18128,6 +18577,7 @@ defmodule AWS.Connect do
   def resume_contact_recording(%Client{} = client, input, options \\ []) do
     url_path = "/contact/resume-recording"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18138,7 +18588,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18155,6 +18605,7 @@ defmodule AWS.Connect do
   def search_agent_statuses(%Client{} = client, input, options \\ []) do
     url_path = "/search-agent-statuses"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18165,7 +18616,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18188,6 +18639,7 @@ defmodule AWS.Connect do
   def search_available_phone_numbers(%Client{} = client, input, options \\ []) do
     url_path = "/phone-number/search-available"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18198,7 +18650,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18216,6 +18668,7 @@ defmodule AWS.Connect do
   def search_contact_flow_modules(%Client{} = client, input, options \\ []) do
     url_path = "/search-contact-flow-modules"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18226,7 +18679,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18244,6 +18697,7 @@ defmodule AWS.Connect do
   def search_contact_flows(%Client{} = client, input, options \\ []) do
     url_path = "/search-contact-flows"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18254,7 +18708,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18271,6 +18725,7 @@ defmodule AWS.Connect do
   def search_contacts(%Client{} = client, input, options \\ []) do
     url_path = "/search-contacts"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18281,7 +18736,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18299,6 +18754,7 @@ defmodule AWS.Connect do
   def search_hours_of_operations(%Client{} = client, input, options \\ []) do
     url_path = "/search-hours-of-operations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18309,7 +18765,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18333,6 +18789,7 @@ defmodule AWS.Connect do
   def search_predefined_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/search-predefined-attributes"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18343,7 +18800,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18360,6 +18817,7 @@ defmodule AWS.Connect do
   def search_prompts(%Client{} = client, input, options \\ []) do
     url_path = "/search-prompts"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18370,7 +18828,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18387,6 +18845,7 @@ defmodule AWS.Connect do
   def search_queues(%Client{} = client, input, options \\ []) do
     url_path = "/search-queues"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18397,7 +18856,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18414,6 +18873,7 @@ defmodule AWS.Connect do
   def search_quick_connects(%Client{} = client, input, options \\ []) do
     url_path = "/search-quick-connects"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18424,7 +18884,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18441,6 +18901,7 @@ defmodule AWS.Connect do
   def search_resource_tags(%Client{} = client, input, options \\ []) do
     url_path = "/search-resource-tags"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18451,7 +18912,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18469,6 +18930,7 @@ defmodule AWS.Connect do
   def search_routing_profiles(%Client{} = client, input, options \\ []) do
     url_path = "/search-routing-profiles"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18479,7 +18941,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18503,6 +18965,7 @@ defmodule AWS.Connect do
   def search_security_profiles(%Client{} = client, input, options \\ []) do
     url_path = "/search-security-profiles"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18513,7 +18976,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18535,6 +18998,7 @@ defmodule AWS.Connect do
   def search_user_hierarchy_groups(%Client{} = client, input, options \\ []) do
     url_path = "/search-user-hierarchy-groups"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18545,7 +19009,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18564,6 +19028,7 @@ defmodule AWS.Connect do
   def search_users(%Client{} = client, input, options \\ []) do
     url_path = "/search-users"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18574,7 +19039,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18592,6 +19057,7 @@ defmodule AWS.Connect do
   def search_vocabularies(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/vocabulary-summary/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18602,7 +19068,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18640,6 +19106,7 @@ defmodule AWS.Connect do
   def send_chat_integration_event(%Client{} = client, input, options \\ []) do
     url_path = "/chat-integration-event"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18650,7 +19117,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18674,6 +19141,7 @@ defmodule AWS.Connect do
   def start_attached_file_upload(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/attached-files/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -18683,7 +19151,17 @@ defmodule AWS.Connect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -18733,11 +19211,22 @@ defmodule AWS.Connect do
   def start_chat_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/chat"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -18761,11 +19250,22 @@ defmodule AWS.Connect do
   def start_contact_evaluation(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/contact-evaluations/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -18802,6 +19302,7 @@ defmodule AWS.Connect do
   def start_contact_recording(%Client{} = client, input, options \\ []) do
     url_path = "/contact/start-recording"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18812,7 +19313,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18843,6 +19344,7 @@ defmodule AWS.Connect do
   def start_contact_streaming(%Client{} = client, input, options \\ []) do
     url_path = "/contact/start-streaming"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18853,7 +19355,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18899,11 +19401,22 @@ defmodule AWS.Connect do
   def start_outbound_chat_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/outbound-chat"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -18941,11 +19454,22 @@ defmodule AWS.Connect do
   def start_outbound_voice_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/outbound-voice"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -18963,11 +19487,22 @@ defmodule AWS.Connect do
   def start_screen_sharing(%Client{} = client, input, options \\ []) do
     url_path = "/contact/screen-sharing"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -19037,11 +19572,22 @@ defmodule AWS.Connect do
   def start_task_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/task"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -19059,11 +19605,22 @@ defmodule AWS.Connect do
   def start_web_r_t_c_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/webrtc"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -19097,6 +19654,7 @@ defmodule AWS.Connect do
   def stop_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/stop"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19107,7 +19665,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19135,6 +19693,7 @@ defmodule AWS.Connect do
   def stop_contact_recording(%Client{} = client, input, options \\ []) do
     url_path = "/contact/stop-recording"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19145,7 +19704,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19167,6 +19726,7 @@ defmodule AWS.Connect do
   def stop_contact_streaming(%Client{} = client, input, options \\ []) do
     url_path = "/contact/stop-streaming"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19177,7 +19737,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19219,6 +19779,7 @@ defmodule AWS.Connect do
       "/contact-evaluations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_id)}/submit"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19229,7 +19790,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19261,6 +19822,7 @@ defmodule AWS.Connect do
   def suspend_contact_recording(%Client{} = client, input, options \\ []) do
     url_path = "/contact/suspend-recording"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19271,7 +19833,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19292,6 +19854,7 @@ defmodule AWS.Connect do
   def tag_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/tags"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19302,7 +19865,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19330,6 +19893,7 @@ defmodule AWS.Connect do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19340,7 +19904,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19385,6 +19949,7 @@ defmodule AWS.Connect do
   def transfer_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/transfer"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19395,7 +19960,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19418,6 +19983,7 @@ defmodule AWS.Connect do
       "/contact/tags/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_id)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -19433,7 +19999,7 @@ defmodule AWS.Connect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19450,6 +20016,7 @@ defmodule AWS.Connect do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -19465,7 +20032,7 @@ defmodule AWS.Connect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19486,6 +20053,7 @@ defmodule AWS.Connect do
       "/agent-status/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(agent_status_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19496,7 +20064,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19532,6 +20100,7 @@ defmodule AWS.Connect do
       "/authentication-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(authentication_profile_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19542,7 +20111,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19567,6 +20136,7 @@ defmodule AWS.Connect do
   def update_contact(%Client{} = client, contact_id, instance_id, input, options \\ []) do
     url_path = "/contacts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19577,7 +20147,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19617,6 +20187,7 @@ defmodule AWS.Connect do
   def update_contact_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/contact/attributes"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19627,7 +20198,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19666,6 +20237,7 @@ defmodule AWS.Connect do
       "/contact-evaluations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19676,7 +20248,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19716,6 +20288,7 @@ defmodule AWS.Connect do
       "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}/content"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19726,7 +20299,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19757,6 +20330,7 @@ defmodule AWS.Connect do
       "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}/metadata"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19767,7 +20341,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19804,6 +20378,7 @@ defmodule AWS.Connect do
       "/contact-flow-modules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_module_id)}/content"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19814,7 +20389,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19845,6 +20420,7 @@ defmodule AWS.Connect do
       "/contact-flow-modules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_module_id)}/metadata"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19855,7 +20431,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19889,6 +20465,7 @@ defmodule AWS.Connect do
       "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}/name"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19899,7 +20476,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19949,6 +20526,7 @@ defmodule AWS.Connect do
       "/contacts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_id)}/routing-data"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19959,7 +20537,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19976,6 +20554,7 @@ defmodule AWS.Connect do
   def update_contact_schedule(%Client{} = client, input, options \\ []) do
     url_path = "/contact/schedule"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19986,7 +20565,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20026,11 +20605,22 @@ defmodule AWS.Connect do
       "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_form_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -20059,6 +20649,7 @@ defmodule AWS.Connect do
       "/hours-of-operations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(hours_of_operation_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20069,7 +20660,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20102,6 +20693,7 @@ defmodule AWS.Connect do
       "/instance/#{AWS.Util.encode_uri(instance_id)}/attribute/#{AWS.Util.encode_uri(attribute_type)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20112,7 +20704,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20145,6 +20737,7 @@ defmodule AWS.Connect do
       "/instance/#{AWS.Util.encode_uri(instance_id)}/storage-config/#{AWS.Util.encode_uri(association_id)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -20160,7 +20753,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20210,11 +20803,22 @@ defmodule AWS.Connect do
       "/contact/participant-role-config/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -20244,11 +20848,22 @@ defmodule AWS.Connect do
   def update_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
     url_path = "/phone-number/#{AWS.Util.encode_uri(phone_number_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -20270,11 +20885,22 @@ defmodule AWS.Connect do
   def update_phone_number_metadata(%Client{} = client, phone_number_id, input, options \\ []) do
     url_path = "/phone-number/#{AWS.Util.encode_uri(phone_number_id)}/metadata"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -20302,6 +20928,7 @@ defmodule AWS.Connect do
       "/predefined-attributes/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20312,7 +20939,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20329,6 +20956,7 @@ defmodule AWS.Connect do
   def update_prompt(%Client{} = client, instance_id, prompt_id, input, options \\ []) do
     url_path = "/prompts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(prompt_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20339,7 +20967,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20372,6 +21000,7 @@ defmodule AWS.Connect do
       "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/hours-of-operation"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20382,7 +21011,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20411,6 +21040,7 @@ defmodule AWS.Connect do
       "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/max-contacts"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20421,7 +21051,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20441,6 +21071,7 @@ defmodule AWS.Connect do
   def update_queue_name(%Client{} = client, instance_id, queue_id, input, options \\ []) do
     url_path = "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/name"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20451,7 +21082,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20513,6 +21144,7 @@ defmodule AWS.Connect do
       "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/outbound-caller-config"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20523,7 +21155,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20544,6 +21176,7 @@ defmodule AWS.Connect do
       "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/status"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20554,7 +21187,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20585,6 +21218,7 @@ defmodule AWS.Connect do
       "/quick-connects/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(quick_connect_id)}/config"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20595,7 +21229,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20629,6 +21263,7 @@ defmodule AWS.Connect do
       "/quick-connects/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(quick_connect_id)}/name"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20639,7 +21274,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20673,6 +21308,7 @@ defmodule AWS.Connect do
       "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}/agent-availability-timer"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20683,7 +21319,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20716,6 +21352,7 @@ defmodule AWS.Connect do
       "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}/concurrency"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20726,7 +21363,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20757,6 +21394,7 @@ defmodule AWS.Connect do
       "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}/default-outbound-queue"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20767,7 +21405,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20801,6 +21439,7 @@ defmodule AWS.Connect do
       "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}/name"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20811,7 +21450,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20842,6 +21481,7 @@ defmodule AWS.Connect do
       "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(routing_profile_id)}/queues"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20852,7 +21492,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20873,11 +21513,22 @@ defmodule AWS.Connect do
   def update_rule(%Client{} = client, instance_id, rule_id, input, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(rule_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -20910,6 +21561,7 @@ defmodule AWS.Connect do
       "/security-profiles/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(security_profile_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20920,7 +21572,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20956,6 +21608,7 @@ defmodule AWS.Connect do
       "/instance/#{AWS.Util.encode_uri(instance_id)}/task/template/#{AWS.Util.encode_uri(task_template_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20966,7 +21619,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -21001,11 +21654,22 @@ defmodule AWS.Connect do
   def update_traffic_distribution(%Client{} = client, id, input, options \\ []) do
     url_path = "/traffic-distribution/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -21026,6 +21690,7 @@ defmodule AWS.Connect do
       "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/hierarchy"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -21036,7 +21701,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -21067,6 +21732,7 @@ defmodule AWS.Connect do
       "/user-hierarchy-groups/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(hierarchy_group_id)}/name"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -21077,7 +21743,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -21100,6 +21766,7 @@ defmodule AWS.Connect do
   def update_user_hierarchy_structure(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/user-hierarchy-structure/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -21110,7 +21777,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -21147,6 +21814,7 @@ defmodule AWS.Connect do
       "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/identity-info"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -21157,7 +21825,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -21182,6 +21850,7 @@ defmodule AWS.Connect do
       "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/phone-config"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -21192,7 +21861,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -21217,6 +21886,7 @@ defmodule AWS.Connect do
       "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/proficiencies"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -21227,7 +21897,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -21252,6 +21922,7 @@ defmodule AWS.Connect do
       "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/routing-profile"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -21262,7 +21933,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -21293,6 +21964,7 @@ defmodule AWS.Connect do
       "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/security-profiles"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -21303,7 +21975,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -21327,6 +21999,7 @@ defmodule AWS.Connect do
   def update_view_content(%Client{} = client, instance_id, view_id, input, options \\ []) do
     url_path = "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -21337,7 +22010,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -21365,6 +22038,7 @@ defmodule AWS.Connect do
       "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}/metadata"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -21375,7 +22049,7 @@ defmodule AWS.Connect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

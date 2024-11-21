@@ -521,11 +521,22 @@ defmodule AWS.IoT1ClickDevices do
   def claim_devices_by_claim_code(%Client{} = client, claim_code, input, options \\ []) do
     url_path = "/claims/#{AWS.Util.encode_uri(claim_code)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -561,11 +572,22 @@ defmodule AWS.IoT1ClickDevices do
   def finalize_device_claim(%Client{} = client, device_id, input, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(device_id)}/finalize-claim"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -600,11 +622,22 @@ defmodule AWS.IoT1ClickDevices do
   def initiate_device_claim(%Client{} = client, device_id, input, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(device_id)}/initiate-claim"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -621,6 +654,7 @@ defmodule AWS.IoT1ClickDevices do
   def invoke_device_method(%Client{} = client, device_id, input, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(device_id)}/methods"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -631,7 +665,7 @@ defmodule AWS.IoT1ClickDevices do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -775,6 +809,7 @@ defmodule AWS.IoT1ClickDevices do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -785,7 +820,7 @@ defmodule AWS.IoT1ClickDevices do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -802,11 +837,22 @@ defmodule AWS.IoT1ClickDevices do
   def unclaim_device(%Client{} = client, device_id, input, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(device_id)}/unclaim"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -820,6 +866,7 @@ defmodule AWS.IoT1ClickDevices do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -835,7 +882,7 @@ defmodule AWS.IoT1ClickDevices do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -853,10 +900,21 @@ defmodule AWS.IoT1ClickDevices do
   def update_device_state(%Client{} = client, device_id, input, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(device_id)}/state"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

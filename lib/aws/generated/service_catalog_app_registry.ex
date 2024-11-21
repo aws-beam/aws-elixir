@@ -971,11 +971,22 @@ defmodule AWS.ServiceCatalogAppRegistry do
       "/applications/#{AWS.Util.encode_uri(application)}/attribute-groups/#{AWS.Util.encode_uri(attribute_group)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1044,11 +1055,22 @@ defmodule AWS.ServiceCatalogAppRegistry do
       "/applications/#{AWS.Util.encode_uri(application)}/resources/#{AWS.Util.encode_uri(resource_type)}/#{AWS.Util.encode_uri(resource)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1062,6 +1084,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   def create_application(%Client{} = client, input, options \\ []) do
     url_path = "/applications"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1072,7 +1095,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1096,6 +1119,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   def create_attribute_group(%Client{} = client, input, options \\ []) do
     url_path = "/attribute-groups"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1106,7 +1130,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1127,6 +1151,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   def delete_application(%Client{} = client, application, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1137,7 +1162,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1155,6 +1180,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   def delete_attribute_group(%Client{} = client, attribute_group, input, options \\ []) do
     url_path = "/attribute-groups/#{AWS.Util.encode_uri(attribute_group)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1165,7 +1191,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1199,6 +1225,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
       "/applications/#{AWS.Util.encode_uri(application)}/attribute-groups/#{AWS.Util.encode_uri(attribute_group)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1209,7 +1236,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1283,6 +1310,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
       "/applications/#{AWS.Util.encode_uri(application)}/resources/#{AWS.Util.encode_uri(resource_type)}/#{AWS.Util.encode_uri(resource)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1293,7 +1321,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1680,11 +1708,22 @@ defmodule AWS.ServiceCatalogAppRegistry do
   def put_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1702,6 +1741,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   def sync_resource(%Client{} = client, resource, resource_type, input, options \\ []) do
     url_path = "/sync/#{AWS.Util.encode_uri(resource_type)}/#{AWS.Util.encode_uri(resource)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1712,7 +1752,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1734,6 +1774,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1744,7 +1785,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1763,6 +1804,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1778,7 +1820,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1795,6 +1837,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   def update_application(%Client{} = client, application, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1805,7 +1848,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1822,6 +1865,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   def update_attribute_group(%Client{} = client, attribute_group, input, options \\ []) do
     url_path = "/attribute-groups/#{AWS.Util.encode_uri(attribute_group)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1832,7 +1876,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

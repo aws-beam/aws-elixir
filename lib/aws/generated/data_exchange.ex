@@ -2224,6 +2224,7 @@ defmodule AWS.DataExchange do
   def accept_data_grant(%Client{} = client, data_grant_arn, input, options \\ []) do
     url_path = "/v1/data-grants/#{AWS.Util.encode_uri(data_grant_arn)}/accept"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2234,7 +2235,7 @@ defmodule AWS.DataExchange do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2254,6 +2255,7 @@ defmodule AWS.DataExchange do
   def cancel_job(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/v1/jobs/#{AWS.Util.encode_uri(job_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2264,7 +2266,7 @@ defmodule AWS.DataExchange do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2281,6 +2283,7 @@ defmodule AWS.DataExchange do
   def create_data_grant(%Client{} = client, input, options \\ []) do
     url_path = "/v1/data-grants"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2291,7 +2294,7 @@ defmodule AWS.DataExchange do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2308,6 +2311,7 @@ defmodule AWS.DataExchange do
   def create_data_set(%Client{} = client, input, options \\ []) do
     url_path = "/v1/data-sets"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2318,7 +2322,7 @@ defmodule AWS.DataExchange do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2335,6 +2339,7 @@ defmodule AWS.DataExchange do
   def create_event_action(%Client{} = client, input, options \\ []) do
     url_path = "/v1/event-actions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2345,7 +2350,7 @@ defmodule AWS.DataExchange do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2362,6 +2367,7 @@ defmodule AWS.DataExchange do
   def create_job(%Client{} = client, input, options \\ []) do
     url_path = "/v1/jobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2372,7 +2378,7 @@ defmodule AWS.DataExchange do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2389,6 +2395,7 @@ defmodule AWS.DataExchange do
   def create_revision(%Client{} = client, data_set_id, input, options \\ []) do
     url_path = "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/revisions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2399,7 +2406,7 @@ defmodule AWS.DataExchange do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2418,6 +2425,7 @@ defmodule AWS.DataExchange do
       "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/revisions/#{AWS.Util.encode_uri(revision_id)}/assets/#{AWS.Util.encode_uri(asset_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2428,7 +2436,7 @@ defmodule AWS.DataExchange do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2445,6 +2453,7 @@ defmodule AWS.DataExchange do
   def delete_data_grant(%Client{} = client, data_grant_id, input, options \\ []) do
     url_path = "/v1/data-grants/#{AWS.Util.encode_uri(data_grant_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2455,7 +2464,7 @@ defmodule AWS.DataExchange do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2472,6 +2481,7 @@ defmodule AWS.DataExchange do
   def delete_data_set(%Client{} = client, data_set_id, input, options \\ []) do
     url_path = "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2482,7 +2492,7 @@ defmodule AWS.DataExchange do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2499,6 +2509,7 @@ defmodule AWS.DataExchange do
   def delete_event_action(%Client{} = client, event_action_id, input, options \\ []) do
     url_path = "/v1/event-actions/#{AWS.Util.encode_uri(event_action_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2509,7 +2520,7 @@ defmodule AWS.DataExchange do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2528,6 +2539,7 @@ defmodule AWS.DataExchange do
       "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/revisions/#{AWS.Util.encode_uri(revision_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2538,7 +2550,7 @@ defmodule AWS.DataExchange do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3014,6 +3026,7 @@ defmodule AWS.DataExchange do
       "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/revisions/#{AWS.Util.encode_uri(revision_id)}/revoke"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3024,7 +3037,7 @@ defmodule AWS.DataExchange do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3051,6 +3064,12 @@ defmodule AWS.DataExchange do
         {"Method", "x-amzn-dataexchange-http-method"},
         {"Path", "x-amzn-dataexchange-path"},
         {"RevisionId", "x-amzn-dataexchange-revision-id"}
+      ]
+      |> Request.build_params(input)
+
+    {custom_headers, input} =
+      [
+        {"RequestHeaders", "x-amzn-dataexchange-header-"}
       ]
       |> Request.build_params(input)
 
@@ -3082,7 +3101,7 @@ defmodule AWS.DataExchange do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3104,6 +3123,7 @@ defmodule AWS.DataExchange do
   def send_data_set_notification(%Client{} = client, data_set_id, input, options \\ []) do
     url_path = "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/notification"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3114,7 +3134,7 @@ defmodule AWS.DataExchange do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -3131,6 +3151,7 @@ defmodule AWS.DataExchange do
   def start_job(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/v1/jobs/#{AWS.Util.encode_uri(job_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3141,7 +3162,7 @@ defmodule AWS.DataExchange do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -3157,6 +3178,7 @@ defmodule AWS.DataExchange do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3167,7 +3189,7 @@ defmodule AWS.DataExchange do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3183,6 +3205,7 @@ defmodule AWS.DataExchange do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3198,7 +3221,7 @@ defmodule AWS.DataExchange do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3217,6 +3240,7 @@ defmodule AWS.DataExchange do
       "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/revisions/#{AWS.Util.encode_uri(revision_id)}/assets/#{AWS.Util.encode_uri(asset_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3227,7 +3251,7 @@ defmodule AWS.DataExchange do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3244,6 +3268,7 @@ defmodule AWS.DataExchange do
   def update_data_set(%Client{} = client, data_set_id, input, options \\ []) do
     url_path = "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3254,7 +3279,7 @@ defmodule AWS.DataExchange do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3271,6 +3296,7 @@ defmodule AWS.DataExchange do
   def update_event_action(%Client{} = client, event_action_id, input, options \\ []) do
     url_path = "/v1/event-actions/#{AWS.Util.encode_uri(event_action_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3281,7 +3307,7 @@ defmodule AWS.DataExchange do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3300,6 +3326,7 @@ defmodule AWS.DataExchange do
       "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/revisions/#{AWS.Util.encode_uri(revision_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3310,7 +3337,7 @@ defmodule AWS.DataExchange do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

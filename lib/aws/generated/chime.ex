@@ -7173,6 +7173,7 @@ defmodule AWS.Chime do
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}?operation=associate-phone-number"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7183,7 +7184,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7223,6 +7224,7 @@ defmodule AWS.Chime do
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}?operation=associate-phone-numbers"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7233,7 +7235,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7273,6 +7275,7 @@ defmodule AWS.Chime do
       "/voice-connector-groups/#{AWS.Util.encode_uri(voice_connector_group_id)}?operation=associate-phone-numbers"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7283,7 +7286,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7313,6 +7316,7 @@ defmodule AWS.Chime do
       "/accounts/#{AWS.Util.encode_uri(account_id)}?operation=associate-signin-delegate-groups"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7323,7 +7327,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7356,6 +7360,7 @@ defmodule AWS.Chime do
   def batch_create_attendee(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees?operation=batch-create"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7366,7 +7371,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7405,6 +7410,7 @@ defmodule AWS.Chime do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
@@ -7415,7 +7421,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7443,6 +7449,7 @@ defmodule AWS.Chime do
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}/memberships?operation=batch-create"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7453,7 +7460,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7478,6 +7485,7 @@ defmodule AWS.Chime do
   def batch_delete_phone_number(%Client{} = client, input, options \\ []) do
     url_path = "/phone-numbers?operation=batch-delete"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7488,7 +7496,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7526,6 +7534,7 @@ defmodule AWS.Chime do
   def batch_suspend_user(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users?operation=suspend"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7536,7 +7545,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7567,6 +7576,7 @@ defmodule AWS.Chime do
   def batch_unsuspend_user(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users?operation=unsuspend"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7577,7 +7587,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7605,6 +7615,7 @@ defmodule AWS.Chime do
   def batch_update_phone_number(%Client{} = client, input, options \\ []) do
     url_path = "/phone-numbers?operation=batch-update"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7615,7 +7626,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7635,6 +7646,7 @@ defmodule AWS.Chime do
   def batch_update_user(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7645,7 +7657,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7669,6 +7681,7 @@ defmodule AWS.Chime do
   def create_account(%Client{} = client, input, options \\ []) do
     url_path = "/accounts"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7679,7 +7692,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7711,6 +7724,7 @@ defmodule AWS.Chime do
   def create_app_instance(%Client{} = client, input, options \\ []) do
     url_path = "/app-instances"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "identity-")
@@ -7721,7 +7735,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7761,6 +7775,7 @@ defmodule AWS.Chime do
   def create_app_instance_admin(%Client{} = client, app_instance_arn, input, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/admins"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "identity-")
@@ -7771,7 +7786,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7802,6 +7817,7 @@ defmodule AWS.Chime do
   def create_app_instance_user(%Client{} = client, input, options \\ []) do
     url_path = "/app-instance-users"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "identity-")
@@ -7812,7 +7828,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7846,6 +7862,7 @@ defmodule AWS.Chime do
   def create_attendee(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7856,7 +7873,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7873,6 +7890,7 @@ defmodule AWS.Chime do
   def create_bot(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/bots"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7883,7 +7901,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7924,6 +7942,7 @@ defmodule AWS.Chime do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
@@ -7934,7 +7953,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7981,6 +8000,7 @@ defmodule AWS.Chime do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
@@ -7991,7 +8011,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -8057,6 +8077,7 @@ defmodule AWS.Chime do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
@@ -8067,7 +8088,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -8122,6 +8143,7 @@ defmodule AWS.Chime do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
@@ -8132,7 +8154,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -8160,6 +8182,7 @@ defmodule AWS.Chime do
   def create_media_capture_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/media-capture-pipelines"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8170,7 +8193,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -8206,6 +8229,7 @@ defmodule AWS.Chime do
   def create_meeting(%Client{} = client, input, options \\ []) do
     url_path = "/meetings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8216,7 +8240,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -8243,6 +8267,7 @@ defmodule AWS.Chime do
   def create_meeting_dial_out(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/dial-outs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8253,7 +8278,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -8293,6 +8318,7 @@ defmodule AWS.Chime do
   def create_meeting_with_attendees(%Client{} = client, input, options \\ []) do
     url_path = "/meetings?operation=create-attendees"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8303,7 +8329,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -8325,6 +8351,7 @@ defmodule AWS.Chime do
   def create_phone_number_order(%Client{} = client, input, options \\ []) do
     url_path = "/phone-number-orders"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8335,7 +8362,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -8364,6 +8391,7 @@ defmodule AWS.Chime do
   def create_proxy_session(%Client{} = client, voice_connector_id, input, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8374,7 +8402,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -8391,6 +8419,7 @@ defmodule AWS.Chime do
   def create_room(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8401,7 +8430,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -8429,6 +8458,7 @@ defmodule AWS.Chime do
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}/memberships"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8439,7 +8469,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -8467,6 +8497,7 @@ defmodule AWS.Chime do
   def create_sip_media_application(%Client{} = client, input, options \\ []) do
     url_path = "/sip-media-applications"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8477,7 +8508,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -8517,6 +8548,7 @@ defmodule AWS.Chime do
       ) do
     url_path = "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}/calls"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8527,7 +8559,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -8556,6 +8588,7 @@ defmodule AWS.Chime do
   def create_sip_rule(%Client{} = client, input, options \\ []) do
     url_path = "/sip-rules"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8566,7 +8599,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -8583,6 +8616,7 @@ defmodule AWS.Chime do
   def create_user(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users?operation=create"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8593,7 +8627,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -8629,6 +8663,7 @@ defmodule AWS.Chime do
   def create_voice_connector(%Client{} = client, input, options \\ []) do
     url_path = "/voice-connectors"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8639,7 +8674,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -8677,6 +8712,7 @@ defmodule AWS.Chime do
   def create_voice_connector_group(%Client{} = client, input, options \\ []) do
     url_path = "/voice-connector-groups"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8687,7 +8723,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -8720,6 +8756,7 @@ defmodule AWS.Chime do
   def delete_account(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8730,7 +8767,7 @@ defmodule AWS.Chime do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8758,6 +8795,7 @@ defmodule AWS.Chime do
   def delete_app_instance(%Client{} = client, app_instance_arn, input, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "identity-")
@@ -8768,7 +8806,7 @@ defmodule AWS.Chime do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8812,6 +8850,7 @@ defmodule AWS.Chime do
       "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/admins/#{AWS.Util.encode_uri(app_instance_admin_arn)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "identity-")
@@ -8822,7 +8861,7 @@ defmodule AWS.Chime do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8860,6 +8899,7 @@ defmodule AWS.Chime do
       ) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/streaming-configurations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8870,7 +8910,7 @@ defmodule AWS.Chime do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8898,6 +8938,7 @@ defmodule AWS.Chime do
   def delete_app_instance_user(%Client{} = client, app_instance_user_arn, input, options \\ []) do
     url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "identity-")
@@ -8908,7 +8949,7 @@ defmodule AWS.Chime do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8945,6 +8986,7 @@ defmodule AWS.Chime do
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8955,7 +8997,7 @@ defmodule AWS.Chime do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8996,6 +9038,7 @@ defmodule AWS.Chime do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
@@ -9006,7 +9049,7 @@ defmodule AWS.Chime do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -9045,6 +9088,7 @@ defmodule AWS.Chime do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
@@ -9055,7 +9099,7 @@ defmodule AWS.Chime do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -9100,6 +9144,7 @@ defmodule AWS.Chime do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
@@ -9110,7 +9155,7 @@ defmodule AWS.Chime do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -9159,6 +9204,7 @@ defmodule AWS.Chime do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
@@ -9169,7 +9215,7 @@ defmodule AWS.Chime do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -9220,6 +9266,7 @@ defmodule AWS.Chime do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
@@ -9230,7 +9277,7 @@ defmodule AWS.Chime do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -9255,6 +9302,7 @@ defmodule AWS.Chime do
       "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}/events-configuration"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9265,7 +9313,7 @@ defmodule AWS.Chime do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -9298,6 +9346,7 @@ defmodule AWS.Chime do
   def delete_media_capture_pipeline(%Client{} = client, media_pipeline_id, input, options \\ []) do
     url_path = "/media-capture-pipelines/#{AWS.Util.encode_uri(media_pipeline_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9308,7 +9357,7 @@ defmodule AWS.Chime do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -9342,6 +9391,7 @@ defmodule AWS.Chime do
   def delete_meeting(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9352,7 +9402,7 @@ defmodule AWS.Chime do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -9378,6 +9428,7 @@ defmodule AWS.Chime do
   def delete_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9388,7 +9439,7 @@ defmodule AWS.Chime do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -9431,6 +9482,7 @@ defmodule AWS.Chime do
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions/#{AWS.Util.encode_uri(proxy_session_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9441,7 +9493,7 @@ defmodule AWS.Chime do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -9460,6 +9512,7 @@ defmodule AWS.Chime do
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9470,7 +9523,7 @@ defmodule AWS.Chime do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -9503,6 +9556,7 @@ defmodule AWS.Chime do
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}/memberships/#{AWS.Util.encode_uri(member_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9513,7 +9567,7 @@ defmodule AWS.Chime do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -9551,6 +9605,7 @@ defmodule AWS.Chime do
       ) do
     url_path = "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9561,7 +9616,7 @@ defmodule AWS.Chime do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -9591,6 +9646,7 @@ defmodule AWS.Chime do
   def delete_sip_rule(%Client{} = client, sip_rule_id, input, options \\ []) do
     url_path = "/sip-rules/#{AWS.Util.encode_uri(sip_rule_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9601,7 +9657,7 @@ defmodule AWS.Chime do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -9633,6 +9689,7 @@ defmodule AWS.Chime do
   def delete_voice_connector(%Client{} = client, voice_connector_id, input, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9643,7 +9700,7 @@ defmodule AWS.Chime do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -9684,6 +9741,7 @@ defmodule AWS.Chime do
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/emergency-calling-configuration"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9694,7 +9752,7 @@ defmodule AWS.Chime do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -9737,6 +9795,7 @@ defmodule AWS.Chime do
       ) do
     url_path = "/voice-connector-groups/#{AWS.Util.encode_uri(voice_connector_group_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9747,7 +9806,7 @@ defmodule AWS.Chime do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -9788,6 +9847,7 @@ defmodule AWS.Chime do
       ) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/origination"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9798,7 +9858,7 @@ defmodule AWS.Chime do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -9833,6 +9893,7 @@ defmodule AWS.Chime do
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/programmable-numbers/proxy"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9843,7 +9904,7 @@ defmodule AWS.Chime do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -9884,6 +9945,7 @@ defmodule AWS.Chime do
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/streaming-configuration"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9894,7 +9956,7 @@ defmodule AWS.Chime do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -9935,6 +9997,7 @@ defmodule AWS.Chime do
       ) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9945,7 +10008,7 @@ defmodule AWS.Chime do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -9986,6 +10049,7 @@ defmodule AWS.Chime do
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination/credentials?operation=delete"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9996,7 +10060,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -10426,6 +10490,7 @@ defmodule AWS.Chime do
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}?operation=disassociate-phone-number"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -10436,7 +10501,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -10477,6 +10542,7 @@ defmodule AWS.Chime do
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}?operation=disassociate-phone-numbers"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -10487,7 +10553,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -10528,6 +10594,7 @@ defmodule AWS.Chime do
       "/voice-connector-groups/#{AWS.Util.encode_uri(voice_connector_group_id)}?operation=disassociate-phone-numbers"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -10538,7 +10605,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -10568,6 +10635,7 @@ defmodule AWS.Chime do
       "/accounts/#{AWS.Util.encode_uri(account_id)}?operation=disassociate-signin-delegate-groups"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -10578,7 +10646,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11492,6 +11560,7 @@ defmodule AWS.Chime do
   def invite_users(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users?operation=add"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11502,7 +11571,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -13166,6 +13235,7 @@ defmodule AWS.Chime do
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}?operation=logout"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13176,7 +13246,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -13214,11 +13284,22 @@ defmodule AWS.Chime do
       ) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/retention-settings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "identity-")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -13252,11 +13333,22 @@ defmodule AWS.Chime do
       ) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/streaming-configurations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -13282,11 +13374,22 @@ defmodule AWS.Chime do
       "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}/events-configuration"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -13314,11 +13417,22 @@ defmodule AWS.Chime do
   def put_retention_settings(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/retention-settings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -13354,11 +13468,22 @@ defmodule AWS.Chime do
       "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}/logging-configuration"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -13398,11 +13523,22 @@ defmodule AWS.Chime do
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/emergency-calling-configuration"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -13442,11 +13578,22 @@ defmodule AWS.Chime do
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/logging-configuration"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -13483,11 +13630,22 @@ defmodule AWS.Chime do
       ) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/origination"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -13514,11 +13672,22 @@ defmodule AWS.Chime do
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/programmable-numbers/proxy"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -13559,11 +13728,22 @@ defmodule AWS.Chime do
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/streaming-configuration"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -13600,11 +13780,22 @@ defmodule AWS.Chime do
       ) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -13640,6 +13831,7 @@ defmodule AWS.Chime do
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination/credentials?operation=put"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13650,7 +13842,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -13698,6 +13890,7 @@ defmodule AWS.Chime do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
@@ -13708,7 +13901,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13741,6 +13934,7 @@ defmodule AWS.Chime do
       "/accounts/#{AWS.Util.encode_uri(account_id)}/conversations/#{AWS.Util.encode_uri(conversation_id)}/messages/#{AWS.Util.encode_uri(message_id)}?operation=redact"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13751,7 +13945,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13784,6 +13978,7 @@ defmodule AWS.Chime do
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}/messages/#{AWS.Util.encode_uri(message_id)}?operation=redact"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13794,7 +13989,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13819,6 +14014,7 @@ defmodule AWS.Chime do
       "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}?operation=regenerate-security-token"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13829,7 +14025,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13852,6 +14048,7 @@ defmodule AWS.Chime do
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}?operation=reset-personal-pin"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13862,7 +14059,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13880,6 +14077,7 @@ defmodule AWS.Chime do
   def restore_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}?operation=restore"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13890,7 +14088,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14032,6 +14230,7 @@ defmodule AWS.Chime do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
@@ -14042,7 +14241,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -14093,6 +14292,7 @@ defmodule AWS.Chime do
   def start_meeting_transcription(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/transcription?operation=start"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14103,7 +14303,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14136,6 +14336,7 @@ defmodule AWS.Chime do
   def stop_meeting_transcription(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/transcription?operation=stop"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14146,7 +14347,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14168,6 +14369,7 @@ defmodule AWS.Chime do
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}/tags?operation=add"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14178,7 +14380,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -14206,6 +14408,7 @@ defmodule AWS.Chime do
   def tag_meeting(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/tags?operation=add"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14216,7 +14419,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -14244,6 +14447,7 @@ defmodule AWS.Chime do
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=tag-resource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14254,7 +14458,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -14276,6 +14480,7 @@ defmodule AWS.Chime do
       "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees/#{AWS.Util.encode_uri(attendee_id)}/tags?operation=delete"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14286,7 +14491,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -14314,6 +14519,7 @@ defmodule AWS.Chime do
   def untag_meeting(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/tags?operation=delete"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14324,7 +14530,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -14354,6 +14560,7 @@ defmodule AWS.Chime do
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=untag-resource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14364,7 +14571,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -14384,6 +14591,7 @@ defmodule AWS.Chime do
   def update_account(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14394,7 +14602,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14418,11 +14626,22 @@ defmodule AWS.Chime do
   def update_account_settings(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/settings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -14446,11 +14665,22 @@ defmodule AWS.Chime do
   def update_app_instance(%Client{} = client, app_instance_arn, input, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "identity-")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -14476,11 +14706,22 @@ defmodule AWS.Chime do
   def update_app_instance_user(%Client{} = client, app_instance_user_arn, input, options \\ []) do
     url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "identity-")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -14494,6 +14735,7 @@ defmodule AWS.Chime do
   def update_bot(%Client{} = client, account_id, bot_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14504,7 +14746,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14544,11 +14786,22 @@ defmodule AWS.Chime do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -14589,11 +14842,22 @@ defmodule AWS.Chime do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -14632,11 +14896,22 @@ defmodule AWS.Chime do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "messaging-")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -14650,11 +14925,22 @@ defmodule AWS.Chime do
   def update_global_settings(%Client{} = client, input, options \\ []) do
     url_path = "/settings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -14679,6 +14965,7 @@ defmodule AWS.Chime do
   def update_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14689,7 +14976,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14711,11 +14998,22 @@ defmodule AWS.Chime do
   def update_phone_number_settings(%Client{} = client, input, options \\ []) do
     url_path = "/settings/phone-number"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -14753,6 +15051,7 @@ defmodule AWS.Chime do
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions/#{AWS.Util.encode_uri(proxy_session_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14763,7 +15062,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -14783,6 +15082,7 @@ defmodule AWS.Chime do
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14793,7 +15093,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14833,6 +15133,7 @@ defmodule AWS.Chime do
       "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms/#{AWS.Util.encode_uri(room_id)}/memberships/#{AWS.Util.encode_uri(member_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14843,7 +15144,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14881,11 +15182,22 @@ defmodule AWS.Chime do
       ) do
     url_path = "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -14926,6 +15238,7 @@ defmodule AWS.Chime do
       "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}/calls/#{AWS.Util.encode_uri(transaction_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14936,7 +15249,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -14964,11 +15277,22 @@ defmodule AWS.Chime do
   def update_sip_rule(%Client{} = client, sip_rule_id, input, options \\ []) do
     url_path = "/sip-rules/#{AWS.Util.encode_uri(sip_rule_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -14985,6 +15309,7 @@ defmodule AWS.Chime do
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14995,7 +15320,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15020,11 +15345,22 @@ defmodule AWS.Chime do
       "/accounts/#{AWS.Util.encode_uri(account_id)}/users/#{AWS.Util.encode_uri(user_id)}/settings"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -15048,11 +15384,22 @@ defmodule AWS.Chime do
   def update_voice_connector(%Client{} = client, voice_connector_id, input, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -15088,11 +15435,22 @@ defmodule AWS.Chime do
       ) do
     url_path = "/voice-connector-groups/#{AWS.Util.encode_uri(voice_connector_group_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -15123,6 +15481,7 @@ defmodule AWS.Chime do
   def validate_e911_address(%Client{} = client, input, options \\ []) do
     url_path = "/emergency-calling/address"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -15133,7 +15492,7 @@ defmodule AWS.Chime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202

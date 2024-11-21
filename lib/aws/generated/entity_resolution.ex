@@ -1828,6 +1828,7 @@ defmodule AWS.EntityResolution do
   def add_policy_statement(%Client{} = client, arn, statement_id, input, options \\ []) do
     url_path = "/policies/#{AWS.Util.encode_uri(arn)}/#{AWS.Util.encode_uri(statement_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1838,7 +1839,7 @@ defmodule AWS.EntityResolution do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1862,6 +1863,7 @@ defmodule AWS.EntityResolution do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1872,7 +1874,7 @@ defmodule AWS.EntityResolution do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1894,6 +1896,7 @@ defmodule AWS.EntityResolution do
   def create_id_mapping_workflow(%Client{} = client, input, options \\ []) do
     url_path = "/idmappingworkflows"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1904,7 +1907,7 @@ defmodule AWS.EntityResolution do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1926,6 +1929,7 @@ defmodule AWS.EntityResolution do
   def create_id_namespace(%Client{} = client, input, options \\ []) do
     url_path = "/idnamespaces"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1936,7 +1940,7 @@ defmodule AWS.EntityResolution do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1958,6 +1962,7 @@ defmodule AWS.EntityResolution do
   def create_matching_workflow(%Client{} = client, input, options \\ []) do
     url_path = "/matchingworkflows"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1968,7 +1973,7 @@ defmodule AWS.EntityResolution do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1989,6 +1994,7 @@ defmodule AWS.EntityResolution do
   def create_schema_mapping(%Client{} = client, input, options \\ []) do
     url_path = "/schemas"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1999,7 +2005,7 @@ defmodule AWS.EntityResolution do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2019,6 +2025,7 @@ defmodule AWS.EntityResolution do
   def delete_id_mapping_workflow(%Client{} = client, workflow_name, input, options \\ []) do
     url_path = "/idmappingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2029,7 +2036,7 @@ defmodule AWS.EntityResolution do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2046,6 +2053,7 @@ defmodule AWS.EntityResolution do
   def delete_id_namespace(%Client{} = client, id_namespace_name, input, options \\ []) do
     url_path = "/idnamespaces/#{AWS.Util.encode_uri(id_namespace_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2056,7 +2064,7 @@ defmodule AWS.EntityResolution do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2076,6 +2084,7 @@ defmodule AWS.EntityResolution do
   def delete_matching_workflow(%Client{} = client, workflow_name, input, options \\ []) do
     url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2086,7 +2095,7 @@ defmodule AWS.EntityResolution do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2109,6 +2118,7 @@ defmodule AWS.EntityResolution do
   def delete_policy_statement(%Client{} = client, arn, statement_id, input, options \\ []) do
     url_path = "/policies/#{AWS.Util.encode_uri(arn)}/#{AWS.Util.encode_uri(statement_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2119,7 +2129,7 @@ defmodule AWS.EntityResolution do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2142,6 +2152,7 @@ defmodule AWS.EntityResolution do
   def delete_schema_mapping(%Client{} = client, schema_name, input, options \\ []) do
     url_path = "/schemas/#{AWS.Util.encode_uri(schema_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2152,7 +2163,7 @@ defmodule AWS.EntityResolution do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2225,6 +2236,7 @@ defmodule AWS.EntityResolution do
   def get_match_id(%Client{} = client, workflow_name, input, options \\ []) do
     url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}/matches"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2235,7 +2247,7 @@ defmodule AWS.EntityResolution do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2635,11 +2647,22 @@ defmodule AWS.EntityResolution do
   def put_policy(%Client{} = client, arn, input, options \\ []) do
     url_path = "/policies/#{AWS.Util.encode_uri(arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2655,6 +2678,7 @@ defmodule AWS.EntityResolution do
   def start_id_mapping_job(%Client{} = client, workflow_name, input, options \\ []) do
     url_path = "/idmappingworkflows/#{AWS.Util.encode_uri(workflow_name)}/jobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2665,7 +2689,7 @@ defmodule AWS.EntityResolution do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2685,6 +2709,7 @@ defmodule AWS.EntityResolution do
   def start_matching_job(%Client{} = client, workflow_name, input, options \\ []) do
     url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}/jobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2695,7 +2720,7 @@ defmodule AWS.EntityResolution do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2728,6 +2753,7 @@ defmodule AWS.EntityResolution do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2738,7 +2764,7 @@ defmodule AWS.EntityResolution do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2758,6 +2784,7 @@ defmodule AWS.EntityResolution do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2773,7 +2800,7 @@ defmodule AWS.EntityResolution do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2795,11 +2822,22 @@ defmodule AWS.EntityResolution do
   def update_id_mapping_workflow(%Client{} = client, workflow_name, input, options \\ []) do
     url_path = "/idmappingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2812,11 +2850,22 @@ defmodule AWS.EntityResolution do
   def update_id_namespace(%Client{} = client, id_namespace_name, input, options \\ []) do
     url_path = "/idnamespaces/#{AWS.Util.encode_uri(id_namespace_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2834,11 +2883,22 @@ defmodule AWS.EntityResolution do
   def update_matching_workflow(%Client{} = client, workflow_name, input, options \\ []) do
     url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2855,10 +2915,21 @@ defmodule AWS.EntityResolution do
   def update_schema_mapping(%Client{} = client, schema_name, input, options \\ []) do
     url_path = "/schemas/#{AWS.Util.encode_uri(schema_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

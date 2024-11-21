@@ -18255,6 +18255,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}/batch-create-reviewed-answers"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18265,7 +18266,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18296,6 +18297,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}/batch-delete-reviewed-answers"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18306,7 +18308,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18339,6 +18341,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/ingestions/#{AWS.Util.encode_uri(ingestion_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18349,7 +18352,7 @@ defmodule AWS.QuickSight do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18409,6 +18412,7 @@ defmodule AWS.QuickSight do
   def create_account_customization(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/customizations"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -18424,7 +18428,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18483,6 +18487,7 @@ defmodule AWS.QuickSight do
   def create_account_subscription(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/account/#{AWS.Util.encode_uri(aws_account_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18493,7 +18498,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18514,6 +18519,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/analyses/#{AWS.Util.encode_uri(analysis_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18524,7 +18530,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18543,6 +18549,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/brands/#{AWS.Util.encode_uri(brand_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18553,7 +18560,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18570,6 +18577,7 @@ defmodule AWS.QuickSight do
   def create_custom_permissions(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/custom-permissions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18580,7 +18588,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18619,6 +18627,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18629,7 +18638,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18648,6 +18657,7 @@ defmodule AWS.QuickSight do
   def create_data_set(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18658,7 +18668,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18675,6 +18685,7 @@ defmodule AWS.QuickSight do
   def create_data_source(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sources"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18685,7 +18696,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18704,6 +18715,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders/#{AWS.Util.encode_uri(folder_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18714,7 +18726,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18749,11 +18761,22 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders/#{AWS.Util.encode_uri(folder_id)}/members/#{AWS.Util.encode_uri(member_type)}/#{AWS.Util.encode_uri(member_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -18782,6 +18805,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/groups"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18792,7 +18816,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18827,11 +18851,22 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/groups/#{AWS.Util.encode_uri(group_name)}/members/#{AWS.Util.encode_uri(member_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -18866,6 +18901,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/iam-policy-assignments"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18876,7 +18912,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18923,11 +18959,22 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/ingestions/#{AWS.Util.encode_uri(ingestion_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -18954,6 +19001,7 @@ defmodule AWS.QuickSight do
   def create_namespace(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -18964,7 +19012,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -18997,6 +19045,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/refresh-schedules"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19007,7 +19056,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19043,6 +19092,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/roles/#{AWS.Util.encode_uri(role)}/members/#{AWS.Util.encode_uri(member_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19053,7 +19103,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19087,6 +19137,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19097,7 +19148,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19130,6 +19181,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}/aliases/#{AWS.Util.encode_uri(alias_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19140,7 +19192,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19164,6 +19216,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19174,7 +19227,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19207,6 +19260,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}/aliases/#{AWS.Util.encode_uri(alias_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19217,7 +19271,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19234,6 +19288,7 @@ defmodule AWS.QuickSight do
   def create_topic(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19244,7 +19299,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19275,6 +19330,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}/schedules"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19285,7 +19341,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19302,6 +19358,7 @@ defmodule AWS.QuickSight do
   def create_vpc_connection(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/vpc-connections"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19312,7 +19369,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19336,6 +19393,7 @@ defmodule AWS.QuickSight do
   def delete_account_customization(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/customizations"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -19351,7 +19409,7 @@ defmodule AWS.QuickSight do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19380,6 +19438,7 @@ defmodule AWS.QuickSight do
   def delete_account_subscription(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/account/#{AWS.Util.encode_uri(aws_account_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19390,7 +19449,7 @@ defmodule AWS.QuickSight do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19429,6 +19488,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/analyses/#{AWS.Util.encode_uri(analysis_id)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -19445,7 +19505,7 @@ defmodule AWS.QuickSight do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19464,6 +19524,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/brands/#{AWS.Util.encode_uri(brand_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19474,7 +19535,7 @@ defmodule AWS.QuickSight do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19491,6 +19552,7 @@ defmodule AWS.QuickSight do
   def delete_brand_assignment(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/brandassignments"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19501,7 +19563,7 @@ defmodule AWS.QuickSight do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19532,6 +19594,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/custom-permissions/#{AWS.Util.encode_uri(custom_permissions_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19542,7 +19605,7 @@ defmodule AWS.QuickSight do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19561,6 +19624,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -19576,7 +19640,7 @@ defmodule AWS.QuickSight do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19595,6 +19659,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19605,7 +19670,7 @@ defmodule AWS.QuickSight do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19636,6 +19701,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/refresh-properties"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19646,7 +19712,7 @@ defmodule AWS.QuickSight do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19668,6 +19734,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sources/#{AWS.Util.encode_uri(data_source_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19678,7 +19745,7 @@ defmodule AWS.QuickSight do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19697,6 +19764,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders/#{AWS.Util.encode_uri(folder_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19707,7 +19775,7 @@ defmodule AWS.QuickSight do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19742,6 +19810,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders/#{AWS.Util.encode_uri(folder_id)}/members/#{AWS.Util.encode_uri(member_type)}/#{AWS.Util.encode_uri(member_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19752,7 +19821,7 @@ defmodule AWS.QuickSight do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19778,6 +19847,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/groups/#{AWS.Util.encode_uri(group_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19788,7 +19858,7 @@ defmodule AWS.QuickSight do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19823,6 +19893,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/groups/#{AWS.Util.encode_uri(group_name)}/members/#{AWS.Util.encode_uri(member_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19833,7 +19904,7 @@ defmodule AWS.QuickSight do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19866,6 +19937,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespace/#{AWS.Util.encode_uri(namespace)}/iam-policy-assignments/#{AWS.Util.encode_uri(assignment_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19876,7 +19948,7 @@ defmodule AWS.QuickSight do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19911,6 +19983,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/identity-propagation-config/#{AWS.Util.encode_uri(service)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19921,7 +19994,7 @@ defmodule AWS.QuickSight do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19946,6 +20019,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19956,7 +20030,7 @@ defmodule AWS.QuickSight do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -19989,6 +20063,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/refresh-schedules/#{AWS.Util.encode_uri(schedule_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -19999,7 +20074,7 @@ defmodule AWS.QuickSight do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20032,6 +20107,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/roles/#{AWS.Util.encode_uri(role)}/custom-permission"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20042,7 +20118,7 @@ defmodule AWS.QuickSight do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20077,6 +20153,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/roles/#{AWS.Util.encode_uri(role)}/members/#{AWS.Util.encode_uri(member_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20087,7 +20164,7 @@ defmodule AWS.QuickSight do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20106,6 +20183,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -20121,7 +20199,7 @@ defmodule AWS.QuickSight do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20157,6 +20235,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}/aliases/#{AWS.Util.encode_uri(alias_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20167,7 +20246,7 @@ defmodule AWS.QuickSight do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20186,6 +20265,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -20201,7 +20281,7 @@ defmodule AWS.QuickSight do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20237,6 +20317,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}/aliases/#{AWS.Util.encode_uri(alias_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20247,7 +20328,7 @@ defmodule AWS.QuickSight do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20266,6 +20347,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20276,7 +20358,7 @@ defmodule AWS.QuickSight do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20309,6 +20391,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}/schedules/#{AWS.Util.encode_uri(dataset_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20319,7 +20402,7 @@ defmodule AWS.QuickSight do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20342,6 +20425,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/users/#{AWS.Util.encode_uri(user_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20352,7 +20436,7 @@ defmodule AWS.QuickSight do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20385,6 +20469,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/user-principals/#{AWS.Util.encode_uri(principal_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20395,7 +20480,7 @@ defmodule AWS.QuickSight do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20428,6 +20513,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/users/#{AWS.Util.encode_uri(user_name)}/custom-permission"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20438,7 +20524,7 @@ defmodule AWS.QuickSight do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -20469,6 +20555,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/vpc-connections/#{AWS.Util.encode_uri(vpc_connection_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -20479,7 +20566,7 @@ defmodule AWS.QuickSight do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -21954,6 +22041,7 @@ defmodule AWS.QuickSight do
       ) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/embed-url/anonymous-user"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -21964,7 +22052,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -22029,6 +22117,7 @@ defmodule AWS.QuickSight do
       ) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/embed-url/registered-user"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -22039,7 +22128,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -23691,11 +23780,22 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/refresh-properties"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -23719,6 +23819,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/users"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -23729,7 +23830,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -23748,6 +23849,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/restore/analyses/#{AWS.Util.encode_uri(analysis_id)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -23763,7 +23865,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -23783,6 +23885,7 @@ defmodule AWS.QuickSight do
   def search_analyses(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/analyses"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -23793,7 +23896,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -23813,6 +23916,7 @@ defmodule AWS.QuickSight do
   def search_dashboards(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/dashboards"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -23823,7 +23927,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -23841,6 +23945,7 @@ defmodule AWS.QuickSight do
   def search_data_sets(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/data-sets"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -23851,7 +23956,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -23869,6 +23974,7 @@ defmodule AWS.QuickSight do
   def search_data_sources(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/data-sources"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -23879,7 +23985,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -23896,6 +24002,7 @@ defmodule AWS.QuickSight do
   def search_folders(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/folders"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -23906,7 +24013,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -23926,6 +24033,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/groups-search"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -23942,7 +24050,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -23975,6 +24083,7 @@ defmodule AWS.QuickSight do
   def start_asset_bundle_export_job(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/asset-bundle-export-jobs/export"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -23985,7 +24094,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -24018,6 +24127,7 @@ defmodule AWS.QuickSight do
   def start_asset_bundle_import_job(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/asset-bundle-import-jobs/import"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -24028,7 +24138,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -24150,6 +24260,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}/snapshot-jobs"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -24160,7 +24271,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -24201,6 +24312,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}/schedules/#{AWS.Util.encode_uri(schedule_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -24211,7 +24323,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -24257,6 +24369,7 @@ defmodule AWS.QuickSight do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(resource_arn)}/tags"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -24267,7 +24380,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -24284,6 +24397,7 @@ defmodule AWS.QuickSight do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(resource_arn)}/tags"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -24299,7 +24413,7 @@ defmodule AWS.QuickSight do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -24332,6 +24446,7 @@ defmodule AWS.QuickSight do
   def update_account_customization(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/customizations"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -24341,7 +24456,17 @@ defmodule AWS.QuickSight do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -24354,11 +24479,22 @@ defmodule AWS.QuickSight do
   def update_account_settings(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/settings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -24373,11 +24509,22 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/analyses/#{AWS.Util.encode_uri(analysis_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -24404,11 +24551,22 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/analyses/#{AWS.Util.encode_uri(analysis_id)}/permissions"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -24423,11 +24581,22 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/brands/#{AWS.Util.encode_uri(brand_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -24440,11 +24609,22 @@ defmodule AWS.QuickSight do
   def update_brand_assignment(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/brandassignments"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -24471,11 +24651,22 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/brands/#{AWS.Util.encode_uri(brand_id)}/publishedversion"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -24502,11 +24693,22 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/custom-permissions/#{AWS.Util.encode_uri(custom_permissions_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -24534,11 +24736,22 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -24565,11 +24778,22 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}/linked-entities"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -24596,11 +24820,22 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}/permissions"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -24629,11 +24864,22 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards/#{AWS.Util.encode_uri(dashboard_id)}/versions/#{AWS.Util.encode_uri(version_number)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -24651,11 +24897,22 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -24685,6 +24942,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/permissions"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -24695,7 +24953,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -24714,11 +24972,22 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sources/#{AWS.Util.encode_uri(data_source_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -24745,6 +25014,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sources/#{AWS.Util.encode_uri(data_source_id)}/permissions"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -24755,7 +25025,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -24774,11 +25044,22 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders/#{AWS.Util.encode_uri(folder_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -24805,11 +25086,22 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/folders/#{AWS.Util.encode_uri(folder_id)}/permissions"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -24831,11 +25123,22 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/groups/#{AWS.Util.encode_uri(group_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -24869,11 +25172,22 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/iam-policy-assignments/#{AWS.Util.encode_uri(assignment_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -24904,6 +25218,7 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/identity-propagation-config/#{AWS.Util.encode_uri(service)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -24914,7 +25229,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -24936,6 +25251,7 @@ defmodule AWS.QuickSight do
   def update_ip_restriction(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/ip-restriction"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -24946,7 +25262,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -24963,6 +25279,7 @@ defmodule AWS.QuickSight do
   def update_key_registration(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/key-registration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -24973,7 +25290,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -25009,11 +25326,22 @@ defmodule AWS.QuickSight do
   def update_public_sharing_settings(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/public-sharing-settings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -25036,11 +25364,22 @@ defmodule AWS.QuickSight do
       ) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/q-personalization-configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -25067,11 +25406,22 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/refresh-schedules"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -25100,11 +25450,22 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/roles/#{AWS.Util.encode_uri(role)}/custom-permission"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -25127,6 +25488,7 @@ defmodule AWS.QuickSight do
       ) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/spice-capacity-configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -25137,7 +25499,7 @@ defmodule AWS.QuickSight do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -25157,11 +25519,22 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -25190,11 +25563,22 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}/aliases/#{AWS.Util.encode_uri(alias_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -25221,11 +25605,22 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/templates/#{AWS.Util.encode_uri(template_id)}/permissions"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -25240,11 +25635,22 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -25273,11 +25679,22 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}/aliases/#{AWS.Util.encode_uri(alias_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -25374,11 +25791,22 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/themes/#{AWS.Util.encode_uri(theme_id)}/permissions"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -25393,11 +25821,22 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -25418,11 +25857,22 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}/permissions"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -25451,11 +25901,22 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics/#{AWS.Util.encode_uri(topic_id)}/schedules/#{AWS.Util.encode_uri(dataset_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -25470,11 +25931,22 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/users/#{AWS.Util.encode_uri(user_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -25503,11 +25975,22 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/users/#{AWS.Util.encode_uri(user_name)}/custom-permission"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -25534,10 +26017,21 @@ defmodule AWS.QuickSight do
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/vpc-connections/#{AWS.Util.encode_uri(vpc_connection_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

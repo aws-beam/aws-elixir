@@ -1678,6 +1678,7 @@ defmodule AWS.Ivs do
   def batch_get_channel(%Client{} = client, input, options \\ []) do
     url_path = "/BatchGetChannel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1688,7 +1689,7 @@ defmodule AWS.Ivs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1704,6 +1705,7 @@ defmodule AWS.Ivs do
   def batch_get_stream_key(%Client{} = client, input, options \\ []) do
     url_path = "/BatchGetStreamKey"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1714,7 +1716,7 @@ defmodule AWS.Ivs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1736,6 +1738,7 @@ defmodule AWS.Ivs do
   def batch_start_viewer_session_revocation(%Client{} = client, input, options \\ []) do
     url_path = "/BatchStartViewerSessionRevocation"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1746,7 +1749,7 @@ defmodule AWS.Ivs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1763,6 +1766,7 @@ defmodule AWS.Ivs do
   def create_channel(%Client{} = client, input, options \\ []) do
     url_path = "/CreateChannel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1773,7 +1777,7 @@ defmodule AWS.Ivs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1796,6 +1800,7 @@ defmodule AWS.Ivs do
   def create_playback_restriction_policy(%Client{} = client, input, options \\ []) do
     url_path = "/CreatePlaybackRestrictionPolicy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1806,7 +1811,7 @@ defmodule AWS.Ivs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1838,6 +1843,7 @@ defmodule AWS.Ivs do
   def create_recording_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/CreateRecordingConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1848,7 +1854,7 @@ defmodule AWS.Ivs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1871,6 +1877,7 @@ defmodule AWS.Ivs do
   def create_stream_key(%Client{} = client, input, options \\ []) do
     url_path = "/CreateStreamKey"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1881,7 +1888,7 @@ defmodule AWS.Ivs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1905,6 +1912,7 @@ defmodule AWS.Ivs do
   def delete_channel(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteChannel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1915,7 +1923,7 @@ defmodule AWS.Ivs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1937,6 +1945,7 @@ defmodule AWS.Ivs do
   def delete_playback_key_pair(%Client{} = client, input, options \\ []) do
     url_path = "/DeletePlaybackKeyPair"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1947,7 +1956,7 @@ defmodule AWS.Ivs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1968,6 +1977,7 @@ defmodule AWS.Ivs do
   def delete_playback_restriction_policy(%Client{} = client, input, options \\ []) do
     url_path = "/DeletePlaybackRestrictionPolicy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1978,7 +1988,7 @@ defmodule AWS.Ivs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2003,6 +2013,7 @@ defmodule AWS.Ivs do
   def delete_recording_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteRecordingConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2013,7 +2024,7 @@ defmodule AWS.Ivs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2031,6 +2042,7 @@ defmodule AWS.Ivs do
   def delete_stream_key(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteStreamKey"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2041,7 +2053,7 @@ defmodule AWS.Ivs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2060,6 +2072,7 @@ defmodule AWS.Ivs do
   def get_channel(%Client{} = client, input, options \\ []) do
     url_path = "/GetChannel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2070,7 +2083,7 @@ defmodule AWS.Ivs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2095,6 +2108,7 @@ defmodule AWS.Ivs do
   def get_playback_key_pair(%Client{} = client, input, options \\ []) do
     url_path = "/GetPlaybackKeyPair"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2105,7 +2119,7 @@ defmodule AWS.Ivs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2122,6 +2136,7 @@ defmodule AWS.Ivs do
   def get_playback_restriction_policy(%Client{} = client, input, options \\ []) do
     url_path = "/GetPlaybackRestrictionPolicy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2132,7 +2147,7 @@ defmodule AWS.Ivs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2149,6 +2164,7 @@ defmodule AWS.Ivs do
   def get_recording_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/GetRecordingConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2159,7 +2175,7 @@ defmodule AWS.Ivs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2176,6 +2192,7 @@ defmodule AWS.Ivs do
   def get_stream(%Client{} = client, input, options \\ []) do
     url_path = "/GetStream"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2186,7 +2203,7 @@ defmodule AWS.Ivs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2203,6 +2220,7 @@ defmodule AWS.Ivs do
   def get_stream_key(%Client{} = client, input, options \\ []) do
     url_path = "/GetStreamKey"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2213,7 +2231,7 @@ defmodule AWS.Ivs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2230,6 +2248,7 @@ defmodule AWS.Ivs do
   def get_stream_session(%Client{} = client, input, options \\ []) do
     url_path = "/GetStreamSession"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2240,7 +2259,7 @@ defmodule AWS.Ivs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2265,6 +2284,7 @@ defmodule AWS.Ivs do
   def import_playback_key_pair(%Client{} = client, input, options \\ []) do
     url_path = "/ImportPlaybackKeyPair"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2275,7 +2295,7 @@ defmodule AWS.Ivs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2299,6 +2319,7 @@ defmodule AWS.Ivs do
   def list_channels(%Client{} = client, input, options \\ []) do
     url_path = "/ListChannels"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2309,7 +2330,7 @@ defmodule AWS.Ivs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2329,6 +2350,7 @@ defmodule AWS.Ivs do
   def list_playback_key_pairs(%Client{} = client, input, options \\ []) do
     url_path = "/ListPlaybackKeyPairs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2339,7 +2361,7 @@ defmodule AWS.Ivs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2360,6 +2382,7 @@ defmodule AWS.Ivs do
   def list_playback_restriction_policies(%Client{} = client, input, options \\ []) do
     url_path = "/ListPlaybackRestrictionPolicies"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2370,7 +2393,7 @@ defmodule AWS.Ivs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2389,6 +2412,7 @@ defmodule AWS.Ivs do
   def list_recording_configurations(%Client{} = client, input, options \\ []) do
     url_path = "/ListRecordingConfigurations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2399,7 +2423,7 @@ defmodule AWS.Ivs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2416,6 +2440,7 @@ defmodule AWS.Ivs do
   def list_stream_keys(%Client{} = client, input, options \\ []) do
     url_path = "/ListStreamKeys"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2426,7 +2451,7 @@ defmodule AWS.Ivs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2445,6 +2470,7 @@ defmodule AWS.Ivs do
   def list_stream_sessions(%Client{} = client, input, options \\ []) do
     url_path = "/ListStreamSessions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2455,7 +2481,7 @@ defmodule AWS.Ivs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2474,6 +2500,7 @@ defmodule AWS.Ivs do
   def list_streams(%Client{} = client, input, options \\ []) do
     url_path = "/ListStreams"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2484,7 +2511,7 @@ defmodule AWS.Ivs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2527,6 +2554,7 @@ defmodule AWS.Ivs do
   def put_metadata(%Client{} = client, input, options \\ []) do
     url_path = "/PutMetadata"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2537,7 +2565,7 @@ defmodule AWS.Ivs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2562,6 +2590,7 @@ defmodule AWS.Ivs do
   def start_viewer_session_revocation(%Client{} = client, input, options \\ []) do
     url_path = "/StartViewerSessionRevocation"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2572,7 +2601,7 @@ defmodule AWS.Ivs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2597,6 +2626,7 @@ defmodule AWS.Ivs do
   def stop_stream(%Client{} = client, input, options \\ []) do
     url_path = "/StopStream"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2607,7 +2637,7 @@ defmodule AWS.Ivs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2625,6 +2655,7 @@ defmodule AWS.Ivs do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2635,7 +2666,7 @@ defmodule AWS.Ivs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2652,6 +2683,7 @@ defmodule AWS.Ivs do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2667,7 +2699,7 @@ defmodule AWS.Ivs do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2689,6 +2721,7 @@ defmodule AWS.Ivs do
   def update_channel(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateChannel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2699,7 +2732,7 @@ defmodule AWS.Ivs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2720,6 +2753,7 @@ defmodule AWS.Ivs do
   def update_playback_restriction_policy(%Client{} = client, input, options \\ []) do
     url_path = "/UpdatePlaybackRestrictionPolicy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2730,7 +2764,7 @@ defmodule AWS.Ivs do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

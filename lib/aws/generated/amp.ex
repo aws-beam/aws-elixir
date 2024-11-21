@@ -1164,6 +1164,7 @@ defmodule AWS.Amp do
   def create_alert_manager_definition(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/alertmanager/definition"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1174,7 +1175,7 @@ defmodule AWS.Amp do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1200,6 +1201,7 @@ defmodule AWS.Amp do
   def create_logging_configuration(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/logging"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1210,7 +1212,7 @@ defmodule AWS.Amp do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1240,6 +1242,7 @@ defmodule AWS.Amp do
   def create_rule_groups_namespace(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/rulegroupsnamespaces"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1250,7 +1253,7 @@ defmodule AWS.Amp do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1292,6 +1295,7 @@ defmodule AWS.Amp do
   def create_scraper(%Client{} = client, input, options \\ []) do
     url_path = "/scrapers"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1302,7 +1306,7 @@ defmodule AWS.Amp do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1324,6 +1328,7 @@ defmodule AWS.Amp do
   def create_workspace(%Client{} = client, input, options \\ []) do
     url_path = "/workspaces"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1334,7 +1339,7 @@ defmodule AWS.Amp do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1356,6 +1361,7 @@ defmodule AWS.Amp do
   def delete_alert_manager_definition(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/alertmanager/definition"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1371,7 +1377,7 @@ defmodule AWS.Amp do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1393,6 +1399,7 @@ defmodule AWS.Amp do
   def delete_logging_configuration(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/logging"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1408,7 +1415,7 @@ defmodule AWS.Amp do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1433,6 +1440,7 @@ defmodule AWS.Amp do
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/rulegroupsnamespaces/#{AWS.Util.encode_uri(name)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1448,7 +1456,7 @@ defmodule AWS.Amp do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1466,6 +1474,7 @@ defmodule AWS.Amp do
   def delete_scraper(%Client{} = client, scraper_id, input, options \\ []) do
     url_path = "/scrapers/#{AWS.Util.encode_uri(scraper_id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1481,7 +1490,7 @@ defmodule AWS.Amp do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1501,6 +1510,7 @@ defmodule AWS.Amp do
   def delete_workspace(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1516,7 +1526,7 @@ defmodule AWS.Amp do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1822,11 +1832,22 @@ defmodule AWS.Amp do
   def put_alert_manager_definition(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/alertmanager/definition"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -1859,11 +1880,22 @@ defmodule AWS.Amp do
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/rulegroupsnamespaces/#{AWS.Util.encode_uri(name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -1889,6 +1921,7 @@ defmodule AWS.Amp do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1899,7 +1932,7 @@ defmodule AWS.Amp do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1920,6 +1953,7 @@ defmodule AWS.Amp do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1935,7 +1969,7 @@ defmodule AWS.Amp do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1958,11 +1992,22 @@ defmodule AWS.Amp do
   def update_logging_configuration(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/logging"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -1979,11 +2024,22 @@ defmodule AWS.Amp do
   def update_scraper(%Client{} = client, scraper_id, input, options \\ []) do
     url_path = "/scrapers/#{AWS.Util.encode_uri(scraper_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -1996,6 +2052,7 @@ defmodule AWS.Amp do
   def update_workspace_alias(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/alias"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2006,7 +2063,7 @@ defmodule AWS.Amp do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204

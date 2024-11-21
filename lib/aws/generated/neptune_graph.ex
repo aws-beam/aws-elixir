@@ -1276,6 +1276,7 @@ defmodule AWS.NeptuneGraph do
   def cancel_import_task(%Client{} = client, task_identifier, input, options \\ []) do
     url_path = "/importtasks/#{AWS.Util.encode_uri(task_identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1286,7 +1287,7 @@ defmodule AWS.NeptuneGraph do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1309,6 +1310,7 @@ defmodule AWS.NeptuneGraph do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{graphIdentifier}.")
@@ -1319,7 +1321,7 @@ defmodule AWS.NeptuneGraph do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1336,6 +1338,7 @@ defmodule AWS.NeptuneGraph do
   def create_graph(%Client{} = client, input, options \\ []) do
     url_path = "/graphs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1346,7 +1349,7 @@ defmodule AWS.NeptuneGraph do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1363,6 +1366,7 @@ defmodule AWS.NeptuneGraph do
   def create_graph_snapshot(%Client{} = client, input, options \\ []) do
     url_path = "/snapshots"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1373,7 +1377,7 @@ defmodule AWS.NeptuneGraph do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1396,6 +1400,7 @@ defmodule AWS.NeptuneGraph do
   def create_graph_using_import_task(%Client{} = client, input, options \\ []) do
     url_path = "/importtasks"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1406,7 +1411,7 @@ defmodule AWS.NeptuneGraph do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1434,6 +1439,7 @@ defmodule AWS.NeptuneGraph do
   def create_private_graph_endpoint(%Client{} = client, graph_identifier, input, options \\ []) do
     url_path = "/graphs/#{AWS.Util.encode_uri(graph_identifier)}/endpoints/"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1444,7 +1450,7 @@ defmodule AWS.NeptuneGraph do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1463,6 +1469,7 @@ defmodule AWS.NeptuneGraph do
   def delete_graph(%Client{} = client, graph_identifier, input, options \\ []) do
     url_path = "/graphs/#{AWS.Util.encode_uri(graph_identifier)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1478,7 +1485,7 @@ defmodule AWS.NeptuneGraph do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1495,6 +1502,7 @@ defmodule AWS.NeptuneGraph do
   def delete_graph_snapshot(%Client{} = client, snapshot_identifier, input, options \\ []) do
     url_path = "/snapshots/#{AWS.Util.encode_uri(snapshot_identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1505,7 +1513,7 @@ defmodule AWS.NeptuneGraph do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1536,6 +1544,7 @@ defmodule AWS.NeptuneGraph do
       "/graphs/#{AWS.Util.encode_uri(graph_identifier)}/endpoints/#{AWS.Util.encode_uri(vpc_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1546,7 +1555,7 @@ defmodule AWS.NeptuneGraph do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1583,6 +1592,7 @@ defmodule AWS.NeptuneGraph do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{graphIdentifier}.")
@@ -1593,7 +1603,7 @@ defmodule AWS.NeptuneGraph do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1946,11 +1956,22 @@ defmodule AWS.NeptuneGraph do
   def reset_graph(%Client{} = client, graph_identifier, input, options \\ []) do
     url_path = "/graphs/#{AWS.Util.encode_uri(graph_identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1968,6 +1989,7 @@ defmodule AWS.NeptuneGraph do
   def restore_graph_from_snapshot(%Client{} = client, snapshot_identifier, input, options \\ []) do
     url_path = "/snapshots/#{AWS.Util.encode_uri(snapshot_identifier)}/restore"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1978,7 +2000,7 @@ defmodule AWS.NeptuneGraph do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1998,6 +2020,7 @@ defmodule AWS.NeptuneGraph do
   def start_import_task(%Client{} = client, graph_identifier, input, options \\ []) do
     url_path = "/graphs/#{AWS.Util.encode_uri(graph_identifier)}/importtasks"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2008,7 +2031,7 @@ defmodule AWS.NeptuneGraph do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2025,6 +2048,7 @@ defmodule AWS.NeptuneGraph do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2035,7 +2059,7 @@ defmodule AWS.NeptuneGraph do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2052,6 +2076,7 @@ defmodule AWS.NeptuneGraph do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2067,7 +2092,7 @@ defmodule AWS.NeptuneGraph do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2084,6 +2109,7 @@ defmodule AWS.NeptuneGraph do
   def update_graph(%Client{} = client, graph_identifier, input, options \\ []) do
     url_path = "/graphs/#{AWS.Util.encode_uri(graph_identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2094,7 +2120,7 @@ defmodule AWS.NeptuneGraph do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

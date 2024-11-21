@@ -4789,6 +4789,7 @@ defmodule AWS.IoTSiteWise do
   def associate_assets(%Client{} = client, asset_id, input, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}/associate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -4799,7 +4800,7 @@ defmodule AWS.IoTSiteWise do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4820,6 +4821,7 @@ defmodule AWS.IoTSiteWise do
   def associate_time_series_to_asset_property(%Client{} = client, input, options \\ []) do
     url_path = "/timeseries/associate"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4837,7 +4839,7 @@ defmodule AWS.IoTSiteWise do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4859,6 +4861,7 @@ defmodule AWS.IoTSiteWise do
   def batch_associate_project_assets(%Client{} = client, project_id, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_id)}/assets/associate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
@@ -4869,7 +4872,7 @@ defmodule AWS.IoTSiteWise do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4891,6 +4894,7 @@ defmodule AWS.IoTSiteWise do
   def batch_disassociate_project_assets(%Client{} = client, project_id, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_id)}/assets/disassociate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
@@ -4901,7 +4905,7 @@ defmodule AWS.IoTSiteWise do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4928,6 +4932,7 @@ defmodule AWS.IoTSiteWise do
   def batch_get_asset_property_aggregates(%Client{} = client, input, options \\ []) do
     url_path = "/properties/batch/aggregates"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "data.")
@@ -4938,7 +4943,7 @@ defmodule AWS.IoTSiteWise do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4959,6 +4964,7 @@ defmodule AWS.IoTSiteWise do
   def batch_get_asset_property_value(%Client{} = client, input, options \\ []) do
     url_path = "/properties/batch/latest"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "data.")
@@ -4969,7 +4975,7 @@ defmodule AWS.IoTSiteWise do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4994,6 +5000,7 @@ defmodule AWS.IoTSiteWise do
   def batch_get_asset_property_value_history(%Client{} = client, input, options \\ []) do
     url_path = "/properties/batch/history"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "data.")
@@ -5004,7 +5011,7 @@ defmodule AWS.IoTSiteWise do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5055,6 +5062,7 @@ defmodule AWS.IoTSiteWise do
   def batch_put_asset_property_value(%Client{} = client, input, options \\ []) do
     url_path = "/properties"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "data.")
@@ -5065,7 +5073,7 @@ defmodule AWS.IoTSiteWise do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5085,6 +5093,7 @@ defmodule AWS.IoTSiteWise do
   def create_access_policy(%Client{} = client, input, options \\ []) do
     url_path = "/access-policies"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
@@ -5095,7 +5104,7 @@ defmodule AWS.IoTSiteWise do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -5116,6 +5125,7 @@ defmodule AWS.IoTSiteWise do
   def create_asset(%Client{} = client, input, options \\ []) do
     url_path = "/assets"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -5126,7 +5136,7 @@ defmodule AWS.IoTSiteWise do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -5167,6 +5177,7 @@ defmodule AWS.IoTSiteWise do
   def create_asset_model(%Client{} = client, input, options \\ []) do
     url_path = "/asset-models"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -5177,7 +5188,7 @@ defmodule AWS.IoTSiteWise do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -5236,6 +5247,7 @@ defmodule AWS.IoTSiteWise do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -5246,7 +5258,7 @@ defmodule AWS.IoTSiteWise do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -5276,6 +5288,7 @@ defmodule AWS.IoTSiteWise do
   def create_bulk_import_job(%Client{} = client, input, options \\ []) do
     url_path = "/jobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "data.")
@@ -5286,7 +5299,7 @@ defmodule AWS.IoTSiteWise do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -5303,6 +5316,7 @@ defmodule AWS.IoTSiteWise do
   def create_dashboard(%Client{} = client, input, options \\ []) do
     url_path = "/dashboards"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
@@ -5313,7 +5327,7 @@ defmodule AWS.IoTSiteWise do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -5330,6 +5344,7 @@ defmodule AWS.IoTSiteWise do
   def create_dataset(%Client{} = client, input, options \\ []) do
     url_path = "/datasets"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -5340,7 +5355,7 @@ defmodule AWS.IoTSiteWise do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -5363,6 +5378,7 @@ defmodule AWS.IoTSiteWise do
   def create_gateway(%Client{} = client, input, options \\ []) do
     url_path = "/20200301/gateways"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -5373,7 +5389,7 @@ defmodule AWS.IoTSiteWise do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -5398,6 +5414,7 @@ defmodule AWS.IoTSiteWise do
   def create_portal(%Client{} = client, input, options \\ []) do
     url_path = "/portals"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
@@ -5408,7 +5425,7 @@ defmodule AWS.IoTSiteWise do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -5428,6 +5445,7 @@ defmodule AWS.IoTSiteWise do
   def create_project(%Client{} = client, input, options \\ []) do
     url_path = "/projects"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
@@ -5438,7 +5456,7 @@ defmodule AWS.IoTSiteWise do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -5460,6 +5478,7 @@ defmodule AWS.IoTSiteWise do
   def delete_access_policy(%Client{} = client, access_policy_id, input, options \\ []) do
     url_path = "/access-policies/#{AWS.Util.encode_uri(access_policy_id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5475,7 +5494,7 @@ defmodule AWS.IoTSiteWise do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -5499,6 +5518,7 @@ defmodule AWS.IoTSiteWise do
   def delete_asset(%Client{} = client, asset_id, input, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5514,7 +5534,7 @@ defmodule AWS.IoTSiteWise do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -5549,6 +5569,8 @@ defmodule AWS.IoTSiteWise do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"clientToken", "clientToken"}
@@ -5563,7 +5585,7 @@ defmodule AWS.IoTSiteWise do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -5610,6 +5632,8 @@ defmodule AWS.IoTSiteWise do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"clientToken", "clientToken"}
@@ -5624,7 +5648,7 @@ defmodule AWS.IoTSiteWise do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -5641,6 +5665,7 @@ defmodule AWS.IoTSiteWise do
   def delete_dashboard(%Client{} = client, dashboard_id, input, options \\ []) do
     url_path = "/dashboards/#{AWS.Util.encode_uri(dashboard_id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5656,7 +5681,7 @@ defmodule AWS.IoTSiteWise do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -5675,6 +5700,7 @@ defmodule AWS.IoTSiteWise do
   def delete_dataset(%Client{} = client, dataset_id, input, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5690,7 +5716,7 @@ defmodule AWS.IoTSiteWise do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -5710,6 +5736,7 @@ defmodule AWS.IoTSiteWise do
   def delete_gateway(%Client{} = client, gateway_id, input, options \\ []) do
     url_path = "/20200301/gateways/#{AWS.Util.encode_uri(gateway_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -5720,7 +5747,7 @@ defmodule AWS.IoTSiteWise do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5737,6 +5764,7 @@ defmodule AWS.IoTSiteWise do
   def delete_portal(%Client{} = client, portal_id, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_uri(portal_id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5752,7 +5780,7 @@ defmodule AWS.IoTSiteWise do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -5769,6 +5797,7 @@ defmodule AWS.IoTSiteWise do
   def delete_project(%Client{} = client, project_id, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5784,7 +5813,7 @@ defmodule AWS.IoTSiteWise do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -5822,6 +5851,7 @@ defmodule AWS.IoTSiteWise do
   def delete_time_series(%Client{} = client, input, options \\ []) do
     url_path = "/timeseries/delete"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5839,7 +5869,7 @@ defmodule AWS.IoTSiteWise do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6322,6 +6352,7 @@ defmodule AWS.IoTSiteWise do
   def disassociate_assets(%Client{} = client, asset_id, input, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}/disassociate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -6332,7 +6363,7 @@ defmodule AWS.IoTSiteWise do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6353,6 +6384,7 @@ defmodule AWS.IoTSiteWise do
   def disassociate_time_series_from_asset_property(%Client{} = client, input, options \\ []) do
     url_path = "/timeseries/disassociate"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -6370,7 +6402,7 @@ defmodule AWS.IoTSiteWise do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6387,6 +6419,7 @@ defmodule AWS.IoTSiteWise do
   def execute_action(%Client{} = client, input, options \\ []) do
     url_path = "/actions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -6397,7 +6430,7 @@ defmodule AWS.IoTSiteWise do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -6416,6 +6449,7 @@ defmodule AWS.IoTSiteWise do
   def execute_query(%Client{} = client, input, options \\ []) do
     url_path = "/queries/execution"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "data.")
@@ -6426,7 +6460,7 @@ defmodule AWS.IoTSiteWise do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6923,6 +6957,7 @@ defmodule AWS.IoTSiteWise do
   def invoke_assistant(%Client{} = client, input, options \\ []) do
     url_path = "/assistant/invocation"
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -6940,7 +6975,7 @@ defmodule AWS.IoTSiteWise do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7958,6 +7993,7 @@ defmodule AWS.IoTSiteWise do
   def put_default_encryption_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/configuration/account/encryption"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -7968,7 +8004,7 @@ defmodule AWS.IoTSiteWise do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7985,11 +8021,22 @@ defmodule AWS.IoTSiteWise do
   def put_logging_options(%Client{} = client, input, options \\ []) do
     url_path = "/logging"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -8002,6 +8049,7 @@ defmodule AWS.IoTSiteWise do
   def put_storage_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/configuration/account/storage"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -8012,7 +8060,7 @@ defmodule AWS.IoTSiteWise do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8032,6 +8080,7 @@ defmodule AWS.IoTSiteWise do
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -8047,7 +8096,7 @@ defmodule AWS.IoTSiteWise do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8064,6 +8113,7 @@ defmodule AWS.IoTSiteWise do
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -8080,7 +8130,7 @@ defmodule AWS.IoTSiteWise do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8099,11 +8149,22 @@ defmodule AWS.IoTSiteWise do
   def update_access_policy(%Client{} = client, access_policy_id, input, options \\ []) do
     url_path = "/access-policies/#{AWS.Util.encode_uri(access_policy_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -8120,11 +8181,22 @@ defmodule AWS.IoTSiteWise do
   def update_asset(%Client{} = client, asset_id, input, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -8168,11 +8240,22 @@ defmodule AWS.IoTSiteWise do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -8232,11 +8315,22 @@ defmodule AWS.IoTSiteWise do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -8264,11 +8358,22 @@ defmodule AWS.IoTSiteWise do
       "/assets/#{AWS.Util.encode_uri(asset_id)}/properties/#{AWS.Util.encode_uri(property_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -8281,11 +8386,22 @@ defmodule AWS.IoTSiteWise do
   def update_dashboard(%Client{} = client, dashboard_id, input, options \\ []) do
     url_path = "/dashboards/#{AWS.Util.encode_uri(dashboard_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -8298,11 +8414,22 @@ defmodule AWS.IoTSiteWise do
   def update_dataset(%Client{} = client, dataset_id, input, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -8315,11 +8442,22 @@ defmodule AWS.IoTSiteWise do
   def update_gateway(%Client{} = client, gateway_id, input, options \\ []) do
     url_path = "/20200301/gateways/#{AWS.Util.encode_uri(gateway_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -8352,6 +8490,7 @@ defmodule AWS.IoTSiteWise do
       ) do
     url_path = "/20200301/gateways/#{AWS.Util.encode_uri(gateway_id)}/capability"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -8362,7 +8501,7 @@ defmodule AWS.IoTSiteWise do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -8379,11 +8518,22 @@ defmodule AWS.IoTSiteWise do
   def update_portal(%Client{} = client, portal_id, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_uri(portal_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -8396,10 +8546,21 @@ defmodule AWS.IoTSiteWise do
   def update_project(%Client{} = client, project_id, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "monitor.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

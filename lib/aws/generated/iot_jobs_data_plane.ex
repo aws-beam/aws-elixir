@@ -378,11 +378,22 @@ defmodule AWS.IoTJobsDataPlane do
   def start_next_pending_job_execution(%Client{} = client, thing_name, input, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/jobs/$next"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -401,6 +412,7 @@ defmodule AWS.IoTJobsDataPlane do
   def update_job_execution(%Client{} = client, job_id, thing_name, input, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/jobs/#{AWS.Util.encode_uri(job_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -411,7 +423,7 @@ defmodule AWS.IoTJobsDataPlane do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

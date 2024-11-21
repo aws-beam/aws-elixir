@@ -178,6 +178,7 @@ defmodule AWS.KinesisVideoWebRTCStorage do
   def join_storage_session(%Client{} = client, input, options \\ []) do
     url_path = "/joinStorageSession"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -188,7 +189,7 @@ defmodule AWS.KinesisVideoWebRTCStorage do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -226,6 +227,7 @@ defmodule AWS.KinesisVideoWebRTCStorage do
   def join_storage_session_as_viewer(%Client{} = client, input, options \\ []) do
     url_path = "/joinStorageSessionAsViewer"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -236,7 +238,7 @@ defmodule AWS.KinesisVideoWebRTCStorage do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

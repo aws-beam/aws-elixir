@@ -84,6 +84,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      optimize_prompt_response() :: %{
+        "optimizedPrompt" => list()
+      }
+
+  """
+  @type optimize_prompt_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       text_inference_config() :: %{
         "maxTokens" => integer(),
         "stopSequences" => list([String.t()]()),
@@ -184,6 +195,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type function_parameter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      optimized_prompt_event() :: %{
+        "optimizedPrompt" => list()
+      }
+
+  """
+  @type optimized_prompt_event() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1217,6 +1239,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      text_prompt() :: %{
+        "text" => [String.t()]
+      }
+
+  """
+  @type text_prompt() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       throttling_exception() :: %{
         "message" => String.t()
       }
@@ -1333,6 +1366,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      analyze_prompt_event() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type analyze_prompt_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       byte_content_file() :: %{
         "data" => binary(),
         "mediaType" => String.t()
@@ -1340,6 +1384,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type byte_content_file() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      optimize_prompt_request() :: %{
+        required("input") => list(),
+        required("targetModelId") => [String.t()]
+      }
+
+  """
+  @type optimize_prompt_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1592,6 +1648,14 @@ defmodule AWS.BedrockAgentRuntime do
           | dependency_failed_exception()
           | bad_gateway_exception()
 
+  @type optimize_prompt_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | dependency_failed_exception()
+          | bad_gateway_exception()
+
   @type retrieve_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1642,6 +1706,7 @@ defmodule AWS.BedrockAgentRuntime do
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentAliases/#{AWS.Util.encode_uri(agent_alias_id)}/memories"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1657,7 +1722,7 @@ defmodule AWS.BedrockAgentRuntime do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1780,6 +1845,7 @@ defmodule AWS.BedrockAgentRuntime do
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentAliases/#{AWS.Util.encode_uri(agent_alias_id)}/sessions/#{AWS.Util.encode_uri(session_id)}/text"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     options =
@@ -1801,7 +1867,7 @@ defmodule AWS.BedrockAgentRuntime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1814,7 +1880,7 @@ defmodule AWS.BedrockAgentRuntime do
 
   If there's an error, the error is returned. For more information, see [Test a flow in Amazon
   Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-test.html)
-  in the Amazon Bedrock User Guide.
+  in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
 
   The CLI doesn't support streaming operations in Amazon Bedrock, including
   `InvokeFlow`.
@@ -1834,6 +1900,7 @@ defmodule AWS.BedrockAgentRuntime do
       "/flows/#{AWS.Util.encode_uri(flow_identifier)}/aliases/#{AWS.Util.encode_uri(flow_alias_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1844,7 +1911,38 @@ defmodule AWS.BedrockAgentRuntime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Optimizes a prompt for the task that you specify.
+
+  For more information, see [Optimize a prompt](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-optimize.html)
+  in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
+  """
+  @spec optimize_prompt(map(), optimize_prompt_request(), list()) ::
+          {:ok, optimize_prompt_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, optimize_prompt_errors()}
+  def optimize_prompt(%Client{} = client, input, options \\ []) do
+    url_path = "/optimize-prompt"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1861,6 +1959,7 @@ defmodule AWS.BedrockAgentRuntime do
   def retrieve(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/retrieve"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1871,7 +1970,7 @@ defmodule AWS.BedrockAgentRuntime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1891,6 +1990,7 @@ defmodule AWS.BedrockAgentRuntime do
   def retrieve_and_generate(%Client{} = client, input, options \\ []) do
     url_path = "/retrieveAndGenerate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1901,7 +2001,7 @@ defmodule AWS.BedrockAgentRuntime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

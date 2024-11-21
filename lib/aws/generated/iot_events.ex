@@ -1750,6 +1750,7 @@ defmodule AWS.IoTEvents do
   def create_alarm_model(%Client{} = client, input, options \\ []) do
     url_path = "/alarm-models"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1760,7 +1761,7 @@ defmodule AWS.IoTEvents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1777,6 +1778,7 @@ defmodule AWS.IoTEvents do
   def create_detector_model(%Client{} = client, input, options \\ []) do
     url_path = "/detector-models"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1787,7 +1789,7 @@ defmodule AWS.IoTEvents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1804,6 +1806,7 @@ defmodule AWS.IoTEvents do
   def create_input(%Client{} = client, input, options \\ []) do
     url_path = "/inputs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1814,7 +1817,7 @@ defmodule AWS.IoTEvents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1834,6 +1837,7 @@ defmodule AWS.IoTEvents do
   def delete_alarm_model(%Client{} = client, alarm_model_name, input, options \\ []) do
     url_path = "/alarm-models/#{AWS.Util.encode_uri(alarm_model_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1844,7 +1848,7 @@ defmodule AWS.IoTEvents do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1864,6 +1868,7 @@ defmodule AWS.IoTEvents do
   def delete_detector_model(%Client{} = client, detector_model_name, input, options \\ []) do
     url_path = "/detector-models/#{AWS.Util.encode_uri(detector_model_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1874,7 +1879,7 @@ defmodule AWS.IoTEvents do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1891,6 +1896,7 @@ defmodule AWS.IoTEvents do
   def delete_input(%Client{} = client, input_name, input, options \\ []) do
     url_path = "/inputs/#{AWS.Util.encode_uri(input_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1901,7 +1907,7 @@ defmodule AWS.IoTEvents do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2242,6 +2248,7 @@ defmodule AWS.IoTEvents do
   def list_input_routings(%Client{} = client, input, options \\ []) do
     url_path = "/input-routings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2252,7 +2259,7 @@ defmodule AWS.IoTEvents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2330,11 +2337,22 @@ defmodule AWS.IoTEvents do
   def put_logging_options(%Client{} = client, input, options \\ []) do
     url_path = "/logging"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2351,6 +2369,7 @@ defmodule AWS.IoTEvents do
   def start_detector_model_analysis(%Client{} = client, input, options \\ []) do
     url_path = "/analysis/detector-models"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2361,7 +2380,7 @@ defmodule AWS.IoTEvents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2381,6 +2400,7 @@ defmodule AWS.IoTEvents do
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2396,7 +2416,7 @@ defmodule AWS.IoTEvents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2413,6 +2433,7 @@ defmodule AWS.IoTEvents do
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2429,7 +2450,7 @@ defmodule AWS.IoTEvents do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2449,6 +2470,7 @@ defmodule AWS.IoTEvents do
   def update_alarm_model(%Client{} = client, alarm_model_name, input, options \\ []) do
     url_path = "/alarm-models/#{AWS.Util.encode_uri(alarm_model_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2459,7 +2481,7 @@ defmodule AWS.IoTEvents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2479,6 +2501,7 @@ defmodule AWS.IoTEvents do
   def update_detector_model(%Client{} = client, detector_model_name, input, options \\ []) do
     url_path = "/detector-models/#{AWS.Util.encode_uri(detector_model_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2489,7 +2512,7 @@ defmodule AWS.IoTEvents do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2506,10 +2529,21 @@ defmodule AWS.IoTEvents do
   def update_input(%Client{} = client, input_name, input, options \\ []) do
     url_path = "/inputs/#{AWS.Util.encode_uri(input_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

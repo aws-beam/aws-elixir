@@ -4658,6 +4658,7 @@ defmodule AWS.GuardDuty do
   def accept_administrator_invitation(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/administrator"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4668,7 +4669,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4685,6 +4686,7 @@ defmodule AWS.GuardDuty do
   def accept_invitation(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/master"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4695,7 +4697,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4715,6 +4717,7 @@ defmodule AWS.GuardDuty do
   def archive_findings(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/archive"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4725,7 +4728,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4771,6 +4774,7 @@ defmodule AWS.GuardDuty do
   def create_detector(%Client{} = client, input, options \\ []) do
     url_path = "/detector"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4781,7 +4785,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4802,6 +4806,7 @@ defmodule AWS.GuardDuty do
   def create_filter(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/filter"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4812,7 +4817,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4838,6 +4843,7 @@ defmodule AWS.GuardDuty do
   def create_ip_set(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/ipset"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4848,7 +4854,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4870,6 +4876,7 @@ defmodule AWS.GuardDuty do
   def create_malware_protection_plan(%Client{} = client, input, options \\ []) do
     url_path = "/malware-protection-plan"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4880,7 +4887,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4935,6 +4942,7 @@ defmodule AWS.GuardDuty do
   def create_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4945,7 +4953,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4970,6 +4978,7 @@ defmodule AWS.GuardDuty do
   def create_publishing_destination(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/publishingDestination"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4980,7 +4989,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5001,6 +5010,7 @@ defmodule AWS.GuardDuty do
   def create_sample_findings(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/create"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5011,7 +5021,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5033,6 +5043,7 @@ defmodule AWS.GuardDuty do
   def create_threat_intel_set(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/threatintelset"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5043,7 +5054,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5062,6 +5073,7 @@ defmodule AWS.GuardDuty do
   def decline_invitations(%Client{} = client, input, options \\ []) do
     url_path = "/invitation/decline"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5072,7 +5084,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5089,6 +5101,7 @@ defmodule AWS.GuardDuty do
   def delete_detector(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5099,7 +5112,7 @@ defmodule AWS.GuardDuty do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5118,6 +5131,7 @@ defmodule AWS.GuardDuty do
       "/detector/#{AWS.Util.encode_uri(detector_id)}/filter/#{AWS.Util.encode_uri(filter_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5128,7 +5142,7 @@ defmodule AWS.GuardDuty do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5147,6 +5161,7 @@ defmodule AWS.GuardDuty do
   def delete_invitations(%Client{} = client, input, options \\ []) do
     url_path = "/invitation/delete"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5157,7 +5172,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5179,6 +5194,7 @@ defmodule AWS.GuardDuty do
       "/detector/#{AWS.Util.encode_uri(detector_id)}/ipset/#{AWS.Util.encode_uri(ip_set_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5189,7 +5205,7 @@ defmodule AWS.GuardDuty do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5221,6 +5237,7 @@ defmodule AWS.GuardDuty do
       ) do
     url_path = "/malware-protection-plan/#{AWS.Util.encode_uri(malware_protection_plan_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5231,7 +5248,7 @@ defmodule AWS.GuardDuty do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5254,6 +5271,7 @@ defmodule AWS.GuardDuty do
   def delete_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/delete"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5264,7 +5282,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5295,6 +5313,7 @@ defmodule AWS.GuardDuty do
       "/detector/#{AWS.Util.encode_uri(detector_id)}/publishingDestination/#{AWS.Util.encode_uri(destination_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5305,7 +5324,7 @@ defmodule AWS.GuardDuty do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5336,6 +5355,7 @@ defmodule AWS.GuardDuty do
       "/detector/#{AWS.Util.encode_uri(detector_id)}/threatintelset/#{AWS.Util.encode_uri(threat_intel_set_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5346,7 +5366,7 @@ defmodule AWS.GuardDuty do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5372,6 +5392,7 @@ defmodule AWS.GuardDuty do
   def describe_malware_scans(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/malware-scans"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5382,7 +5403,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5482,6 +5503,7 @@ defmodule AWS.GuardDuty do
   def disable_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/admin/disable"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5492,7 +5514,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5537,6 +5559,7 @@ defmodule AWS.GuardDuty do
       ) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/administrator/disassociate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5547,7 +5570,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5583,6 +5606,7 @@ defmodule AWS.GuardDuty do
   def disassociate_from_master_account(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/master/disassociate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5593,7 +5617,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5646,6 +5670,7 @@ defmodule AWS.GuardDuty do
   def disassociate_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/disassociate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5656,7 +5681,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5682,6 +5707,7 @@ defmodule AWS.GuardDuty do
   def enable_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/admin/enable"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5692,7 +5718,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5739,6 +5765,7 @@ defmodule AWS.GuardDuty do
   def get_coverage_statistics(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/coverage/statistics"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5749,7 +5776,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5807,6 +5834,7 @@ defmodule AWS.GuardDuty do
   def get_findings(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/get"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5817,7 +5845,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5842,6 +5870,7 @@ defmodule AWS.GuardDuty do
   def get_findings_statistics(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/statistics"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5852,7 +5881,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5972,6 +6001,7 @@ defmodule AWS.GuardDuty do
   def get_member_detectors(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/detector/get"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5982,7 +6012,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6001,6 +6031,7 @@ defmodule AWS.GuardDuty do
   def get_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/get"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6011,7 +6042,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6057,6 +6088,7 @@ defmodule AWS.GuardDuty do
   def get_remaining_free_trial_days(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/freeTrial/daysRemaining"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6067,7 +6099,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6112,6 +6144,7 @@ defmodule AWS.GuardDuty do
   def get_usage_statistics(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/usage/statistics"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6122,7 +6155,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6186,6 +6219,7 @@ defmodule AWS.GuardDuty do
   def invite_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/invite"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6196,7 +6230,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6221,6 +6255,7 @@ defmodule AWS.GuardDuty do
   def list_coverage(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/coverage"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6231,7 +6266,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6320,6 +6355,7 @@ defmodule AWS.GuardDuty do
   def list_findings(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6330,7 +6366,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6657,6 +6693,7 @@ defmodule AWS.GuardDuty do
   def start_malware_scan(%Client{} = client, input, options \\ []) do
     url_path = "/malware-scan/start"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6667,7 +6704,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6689,6 +6726,7 @@ defmodule AWS.GuardDuty do
   def start_monitoring_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/start"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6699,7 +6737,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6724,6 +6762,7 @@ defmodule AWS.GuardDuty do
   def stop_monitoring_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/stop"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6734,7 +6773,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6751,6 +6790,7 @@ defmodule AWS.GuardDuty do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6761,7 +6801,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -6778,6 +6818,7 @@ defmodule AWS.GuardDuty do
   def unarchive_findings(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/unarchive"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6788,7 +6829,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6805,6 +6846,7 @@ defmodule AWS.GuardDuty do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -6820,7 +6862,7 @@ defmodule AWS.GuardDuty do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -6849,6 +6891,7 @@ defmodule AWS.GuardDuty do
   def update_detector(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6859,7 +6902,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6878,6 +6921,7 @@ defmodule AWS.GuardDuty do
       "/detector/#{AWS.Util.encode_uri(detector_id)}/filter/#{AWS.Util.encode_uri(filter_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6888,7 +6932,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6905,6 +6949,7 @@ defmodule AWS.GuardDuty do
   def update_findings_feedback(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/feedback"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6915,7 +6960,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6934,6 +6979,7 @@ defmodule AWS.GuardDuty do
       "/detector/#{AWS.Util.encode_uri(detector_id)}/ipset/#{AWS.Util.encode_uri(ip_set_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6944,7 +6990,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6971,6 +7017,7 @@ defmodule AWS.GuardDuty do
       ) do
     url_path = "/malware-protection-plan/#{AWS.Util.encode_uri(malware_protection_plan_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6981,7 +7028,7 @@ defmodule AWS.GuardDuty do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7008,6 +7055,7 @@ defmodule AWS.GuardDuty do
   def update_malware_scan_settings(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/malware-scan-settings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7018,7 +7066,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7047,6 +7095,7 @@ defmodule AWS.GuardDuty do
   def update_member_detectors(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/detector/update"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7057,7 +7106,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7095,6 +7144,7 @@ defmodule AWS.GuardDuty do
   def update_organization_configuration(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/admin"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7105,7 +7155,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7137,6 +7187,7 @@ defmodule AWS.GuardDuty do
       "/detector/#{AWS.Util.encode_uri(detector_id)}/publishingDestination/#{AWS.Util.encode_uri(destination_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7147,7 +7198,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7178,6 +7229,7 @@ defmodule AWS.GuardDuty do
       "/detector/#{AWS.Util.encode_uri(detector_id)}/threatintelset/#{AWS.Util.encode_uri(threat_intel_set_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7188,7 +7240,7 @@ defmodule AWS.GuardDuty do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

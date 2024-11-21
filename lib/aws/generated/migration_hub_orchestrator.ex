@@ -1385,6 +1385,7 @@ defmodule AWS.MigrationHubOrchestrator do
   def create_template(%Client{} = client, input, options \\ []) do
     url_path = "/template"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1395,7 +1396,7 @@ defmodule AWS.MigrationHubOrchestrator do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1412,6 +1413,7 @@ defmodule AWS.MigrationHubOrchestrator do
   def create_workflow(%Client{} = client, input, options \\ []) do
     url_path = "/migrationworkflow/"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1422,7 +1424,7 @@ defmodule AWS.MigrationHubOrchestrator do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1439,6 +1441,7 @@ defmodule AWS.MigrationHubOrchestrator do
   def create_workflow_step(%Client{} = client, input, options \\ []) do
     url_path = "/workflowstep"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1449,7 +1452,7 @@ defmodule AWS.MigrationHubOrchestrator do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1466,6 +1469,7 @@ defmodule AWS.MigrationHubOrchestrator do
   def create_workflow_step_group(%Client{} = client, input, options \\ []) do
     url_path = "/workflowstepgroups"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1476,7 +1480,7 @@ defmodule AWS.MigrationHubOrchestrator do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1493,6 +1497,7 @@ defmodule AWS.MigrationHubOrchestrator do
   def delete_template(%Client{} = client, id, input, options \\ []) do
     url_path = "/template/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1503,7 +1508,7 @@ defmodule AWS.MigrationHubOrchestrator do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1523,6 +1528,7 @@ defmodule AWS.MigrationHubOrchestrator do
   def delete_workflow(%Client{} = client, id, input, options \\ []) do
     url_path = "/migrationworkflow/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1533,7 +1539,7 @@ defmodule AWS.MigrationHubOrchestrator do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1553,6 +1559,7 @@ defmodule AWS.MigrationHubOrchestrator do
   def delete_workflow_step(%Client{} = client, id, input, options \\ []) do
     url_path = "/workflowstep/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1569,7 +1576,7 @@ defmodule AWS.MigrationHubOrchestrator do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1591,6 +1598,7 @@ defmodule AWS.MigrationHubOrchestrator do
   def delete_workflow_step_group(%Client{} = client, id, input, options \\ []) do
     url_path = "/workflowstepgroup/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1606,7 +1614,7 @@ defmodule AWS.MigrationHubOrchestrator do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -2119,6 +2127,7 @@ defmodule AWS.MigrationHubOrchestrator do
   def retry_workflow_step(%Client{} = client, id, input, options \\ []) do
     url_path = "/retryworkflowstep/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2135,7 +2144,7 @@ defmodule AWS.MigrationHubOrchestrator do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2152,6 +2161,7 @@ defmodule AWS.MigrationHubOrchestrator do
   def start_workflow(%Client{} = client, id, input, options \\ []) do
     url_path = "/migrationworkflow/#{AWS.Util.encode_uri(id)}/start"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2162,7 +2172,7 @@ defmodule AWS.MigrationHubOrchestrator do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2179,6 +2189,7 @@ defmodule AWS.MigrationHubOrchestrator do
   def stop_workflow(%Client{} = client, id, input, options \\ []) do
     url_path = "/migrationworkflow/#{AWS.Util.encode_uri(id)}/stop"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2189,7 +2200,7 @@ defmodule AWS.MigrationHubOrchestrator do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2206,6 +2217,7 @@ defmodule AWS.MigrationHubOrchestrator do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2216,7 +2228,7 @@ defmodule AWS.MigrationHubOrchestrator do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2233,6 +2245,7 @@ defmodule AWS.MigrationHubOrchestrator do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2248,7 +2261,7 @@ defmodule AWS.MigrationHubOrchestrator do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2265,6 +2278,7 @@ defmodule AWS.MigrationHubOrchestrator do
   def update_template(%Client{} = client, id, input, options \\ []) do
     url_path = "/template/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2275,7 +2289,7 @@ defmodule AWS.MigrationHubOrchestrator do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2292,6 +2306,7 @@ defmodule AWS.MigrationHubOrchestrator do
   def update_workflow(%Client{} = client, id, input, options \\ []) do
     url_path = "/migrationworkflow/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2302,7 +2317,7 @@ defmodule AWS.MigrationHubOrchestrator do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2319,6 +2334,7 @@ defmodule AWS.MigrationHubOrchestrator do
   def update_workflow_step(%Client{} = client, id, input, options \\ []) do
     url_path = "/workflowstep/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2329,7 +2345,7 @@ defmodule AWS.MigrationHubOrchestrator do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2351,6 +2367,7 @@ defmodule AWS.MigrationHubOrchestrator do
   def update_workflow_step_group(%Client{} = client, id, input, options \\ []) do
     url_path = "/workflowstepgroup/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2366,7 +2383,7 @@ defmodule AWS.MigrationHubOrchestrator do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202

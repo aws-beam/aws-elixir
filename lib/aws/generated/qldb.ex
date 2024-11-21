@@ -772,6 +772,7 @@ defmodule AWS.QLDB do
       "/ledgers/#{AWS.Util.encode_uri(ledger_name)}/journal-kinesis-streams/#{AWS.Util.encode_uri(stream_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -782,7 +783,7 @@ defmodule AWS.QLDB do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -799,6 +800,7 @@ defmodule AWS.QLDB do
   def create_ledger(%Client{} = client, input, options \\ []) do
     url_path = "/ledgers"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -809,7 +811,7 @@ defmodule AWS.QLDB do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -833,6 +835,7 @@ defmodule AWS.QLDB do
   def delete_ledger(%Client{} = client, name, input, options \\ []) do
     url_path = "/ledgers/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -843,7 +846,7 @@ defmodule AWS.QLDB do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -959,6 +962,7 @@ defmodule AWS.QLDB do
   def export_journal_to_s3(%Client{} = client, name, input, options \\ []) do
     url_path = "/ledgers/#{AWS.Util.encode_uri(name)}/journal-s3-exports"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -969,7 +973,7 @@ defmodule AWS.QLDB do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1002,6 +1006,7 @@ defmodule AWS.QLDB do
   def get_block(%Client{} = client, name, input, options \\ []) do
     url_path = "/ledgers/#{AWS.Util.encode_uri(name)}/block"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1012,7 +1017,7 @@ defmodule AWS.QLDB do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1032,6 +1037,7 @@ defmodule AWS.QLDB do
   def get_digest(%Client{} = client, name, input, options \\ []) do
     url_path = "/ledgers/#{AWS.Util.encode_uri(name)}/digest"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1042,7 +1048,7 @@ defmodule AWS.QLDB do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1063,6 +1069,7 @@ defmodule AWS.QLDB do
   def get_revision(%Client{} = client, name, input, options \\ []) do
     url_path = "/ledgers/#{AWS.Util.encode_uri(name)}/revision"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1073,7 +1080,7 @@ defmodule AWS.QLDB do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1297,6 +1304,7 @@ defmodule AWS.QLDB do
   def stream_journal_to_kinesis(%Client{} = client, ledger_name, input, options \\ []) do
     url_path = "/ledgers/#{AWS.Util.encode_uri(ledger_name)}/journal-kinesis-streams"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1307,7 +1315,7 @@ defmodule AWS.QLDB do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1327,6 +1335,7 @@ defmodule AWS.QLDB do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1337,7 +1346,7 @@ defmodule AWS.QLDB do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1357,6 +1366,7 @@ defmodule AWS.QLDB do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1372,7 +1382,7 @@ defmodule AWS.QLDB do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1389,6 +1399,7 @@ defmodule AWS.QLDB do
   def update_ledger(%Client{} = client, name, input, options \\ []) do
     url_path = "/ledgers/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1399,7 +1410,7 @@ defmodule AWS.QLDB do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1428,6 +1439,7 @@ defmodule AWS.QLDB do
   def update_ledger_permissions_mode(%Client{} = client, name, input, options \\ []) do
     url_path = "/ledgers/#{AWS.Util.encode_uri(name)}/permissions-mode"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1438,7 +1450,7 @@ defmodule AWS.QLDB do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

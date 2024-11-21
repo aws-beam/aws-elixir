@@ -189,6 +189,7 @@ defmodule AWS.CloudTrailData do
   def put_audit_events(%Client{} = client, input, options \\ []) do
     url_path = "/PutAuditEvents"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -205,7 +206,7 @@ defmodule AWS.CloudTrailData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

@@ -190,6 +190,7 @@ defmodule AWS.WorkMailMessageFlow do
   def put_raw_message_content(%Client{} = client, message_id, input, options \\ []) do
     url_path = "/messages/#{AWS.Util.encode_uri(message_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -200,7 +201,7 @@ defmodule AWS.WorkMailMessageFlow do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

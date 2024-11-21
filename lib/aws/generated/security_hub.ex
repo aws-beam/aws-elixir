@@ -12611,6 +12611,7 @@ defmodule AWS.SecurityHub do
   def accept_administrator_invitation(%Client{} = client, input, options \\ []) do
     url_path = "/administrator"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12621,7 +12622,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12658,6 +12659,7 @@ defmodule AWS.SecurityHub do
   def accept_invitation(%Client{} = client, input, options \\ []) do
     url_path = "/master"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12668,7 +12670,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12686,6 +12688,7 @@ defmodule AWS.SecurityHub do
   def batch_delete_automation_rules(%Client{} = client, input, options \\ []) do
     url_path = "/automationrules/delete"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12696,7 +12699,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12718,6 +12721,7 @@ defmodule AWS.SecurityHub do
   def batch_disable_standards(%Client{} = client, input, options \\ []) do
     url_path = "/standards/deregister"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12728,7 +12732,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12752,6 +12756,7 @@ defmodule AWS.SecurityHub do
   def batch_enable_standards(%Client{} = client, input, options \\ []) do
     url_path = "/standards/register"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12762,7 +12767,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12782,6 +12787,7 @@ defmodule AWS.SecurityHub do
   def batch_get_automation_rules(%Client{} = client, input, options \\ []) do
     url_path = "/automationrules/get"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12792,7 +12798,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12819,6 +12825,7 @@ defmodule AWS.SecurityHub do
   def batch_get_configuration_policy_associations(%Client{} = client, input, options \\ []) do
     url_path = "/configurationPolicyAssociation/batchget"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12829,7 +12836,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12848,6 +12855,7 @@ defmodule AWS.SecurityHub do
   def batch_get_security_controls(%Client{} = client, input, options \\ []) do
     url_path = "/securityControls/batchGet"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12858,7 +12866,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12881,6 +12889,7 @@ defmodule AWS.SecurityHub do
   def batch_get_standards_control_associations(%Client{} = client, input, options \\ []) do
     url_path = "/associations/batchGet"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12891,7 +12900,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12981,6 +12990,7 @@ defmodule AWS.SecurityHub do
   def batch_import_findings(%Client{} = client, input, options \\ []) do
     url_path = "/findings/import"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12991,7 +13001,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13010,6 +13020,7 @@ defmodule AWS.SecurityHub do
   def batch_update_automation_rules(%Client{} = client, input, options \\ []) do
     url_path = "/automationrules/update"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13020,7 +13031,7 @@ defmodule AWS.SecurityHub do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13094,6 +13105,7 @@ defmodule AWS.SecurityHub do
   def batch_update_findings(%Client{} = client, input, options \\ []) do
     url_path = "/findings/batchupdate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13104,7 +13116,7 @@ defmodule AWS.SecurityHub do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13127,6 +13139,7 @@ defmodule AWS.SecurityHub do
   def batch_update_standards_control_associations(%Client{} = client, input, options \\ []) do
     url_path = "/associations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13137,7 +13150,7 @@ defmodule AWS.SecurityHub do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13158,6 +13171,7 @@ defmodule AWS.SecurityHub do
   def create_action_target(%Client{} = client, input, options \\ []) do
     url_path = "/actionTargets"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13168,7 +13182,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13186,6 +13200,7 @@ defmodule AWS.SecurityHub do
   def create_automation_rule(%Client{} = client, input, options \\ []) do
     url_path = "/automationrules/create"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13196,7 +13211,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13217,6 +13232,7 @@ defmodule AWS.SecurityHub do
   def create_configuration_policy(%Client{} = client, input, options \\ []) do
     url_path = "/configurationPolicy/create"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13227,7 +13243,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13252,6 +13268,7 @@ defmodule AWS.SecurityHub do
   def create_finding_aggregator(%Client{} = client, input, options \\ []) do
     url_path = "/findingAggregator/create"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13262,7 +13279,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13285,6 +13302,7 @@ defmodule AWS.SecurityHub do
   def create_insight(%Client{} = client, input, options \\ []) do
     url_path = "/insights"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13295,7 +13313,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13363,6 +13381,7 @@ defmodule AWS.SecurityHub do
   def create_members(%Client{} = client, input, options \\ []) do
     url_path = "/members"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13373,7 +13392,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13405,6 +13424,7 @@ defmodule AWS.SecurityHub do
   def decline_invitations(%Client{} = client, input, options \\ []) do
     url_path = "/invitations/decline"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13415,7 +13435,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13436,6 +13456,7 @@ defmodule AWS.SecurityHub do
   def delete_action_target(%Client{} = client, action_target_arn, input, options \\ []) do
     url_path = "/actionTargets/#{AWS.Util.encode_multi_segment_uri(action_target_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13446,7 +13467,7 @@ defmodule AWS.SecurityHub do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13475,6 +13496,7 @@ defmodule AWS.SecurityHub do
   def delete_configuration_policy(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/configurationPolicy/#{AWS.Util.encode_uri(identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13485,7 +13507,7 @@ defmodule AWS.SecurityHub do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13514,6 +13536,7 @@ defmodule AWS.SecurityHub do
       "/findingAggregator/delete/#{AWS.Util.encode_multi_segment_uri(finding_aggregator_arn)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13524,7 +13547,7 @@ defmodule AWS.SecurityHub do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13541,6 +13564,7 @@ defmodule AWS.SecurityHub do
   def delete_insight(%Client{} = client, insight_arn, input, options \\ []) do
     url_path = "/insights/#{AWS.Util.encode_multi_segment_uri(insight_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13551,7 +13575,7 @@ defmodule AWS.SecurityHub do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13583,6 +13607,7 @@ defmodule AWS.SecurityHub do
   def delete_invitations(%Client{} = client, input, options \\ []) do
     url_path = "/invitations/delete"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13593,7 +13618,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13614,6 +13639,7 @@ defmodule AWS.SecurityHub do
   def delete_members(%Client{} = client, input, options \\ []) do
     url_path = "/members/delete"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13624,7 +13650,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13641,6 +13667,7 @@ defmodule AWS.SecurityHub do
   def describe_action_targets(%Client{} = client, input, options \\ []) do
     url_path = "/actionTargets/get"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13651,7 +13678,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13858,6 +13885,7 @@ defmodule AWS.SecurityHub do
       "/productSubscriptions/#{AWS.Util.encode_multi_segment_uri(product_subscription_arn)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13868,7 +13896,7 @@ defmodule AWS.SecurityHub do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13892,6 +13920,7 @@ defmodule AWS.SecurityHub do
   def disable_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/organization/admin/disable"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13902,7 +13931,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13938,6 +13967,7 @@ defmodule AWS.SecurityHub do
   def disable_security_hub(%Client{} = client, input, options \\ []) do
     url_path = "/accounts"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13948,7 +13978,7 @@ defmodule AWS.SecurityHub do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -13976,6 +14006,7 @@ defmodule AWS.SecurityHub do
   def disassociate_from_administrator_account(%Client{} = client, input, options \\ []) do
     url_path = "/administrator/disassociate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -13986,7 +14017,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14026,6 +14057,7 @@ defmodule AWS.SecurityHub do
   def disassociate_from_master_account(%Client{} = client, input, options \\ []) do
     url_path = "/master/disassociate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14036,7 +14068,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14058,6 +14090,7 @@ defmodule AWS.SecurityHub do
   def disassociate_members(%Client{} = client, input, options \\ []) do
     url_path = "/members/disassociate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14068,7 +14101,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14096,6 +14129,7 @@ defmodule AWS.SecurityHub do
   def enable_import_findings_for_product(%Client{} = client, input, options \\ []) do
     url_path = "/productSubscriptions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14106,7 +14140,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14130,6 +14164,7 @@ defmodule AWS.SecurityHub do
   def enable_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/organization/admin/enable"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14140,7 +14175,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14185,6 +14220,7 @@ defmodule AWS.SecurityHub do
   def enable_security_hub(%Client{} = client, input, options \\ []) do
     url_path = "/accounts"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14195,7 +14231,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14266,6 +14302,7 @@ defmodule AWS.SecurityHub do
   def get_configuration_policy_association(%Client{} = client, input, options \\ []) do
     url_path = "/configurationPolicyAssociation/get"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14276,7 +14313,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14293,6 +14330,7 @@ defmodule AWS.SecurityHub do
   def get_enabled_standards(%Client{} = client, input, options \\ []) do
     url_path = "/standards/get"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14303,7 +14341,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14348,6 +14386,7 @@ defmodule AWS.SecurityHub do
   def get_finding_history(%Client{} = client, input, options \\ []) do
     url_path = "/findingHistory/get"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14358,7 +14397,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14379,6 +14418,7 @@ defmodule AWS.SecurityHub do
   def get_findings(%Client{} = client, input, options \\ []) do
     url_path = "/findings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14389,7 +14429,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14423,6 +14463,7 @@ defmodule AWS.SecurityHub do
   def get_insights(%Client{} = client, input, options \\ []) do
     url_path = "/insights/get"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14433,7 +14474,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14519,6 +14560,7 @@ defmodule AWS.SecurityHub do
   def get_members(%Client{} = client, input, options \\ []) do
     url_path = "/members/get"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14529,7 +14571,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14596,6 +14638,7 @@ defmodule AWS.SecurityHub do
   def invite_members(%Client{} = client, input, options \\ []) do
     url_path = "/members/invite"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14606,7 +14649,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -14711,6 +14754,7 @@ defmodule AWS.SecurityHub do
   def list_configuration_policy_associations(%Client{} = client, input, options \\ []) do
     url_path = "/configurationPolicyAssociation/list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -14721,7 +14765,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15080,6 +15124,7 @@ defmodule AWS.SecurityHub do
   def start_configuration_policy_association(%Client{} = client, input, options \\ []) do
     url_path = "/configurationPolicyAssociation/associate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -15090,7 +15135,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15122,6 +15167,7 @@ defmodule AWS.SecurityHub do
   def start_configuration_policy_disassociation(%Client{} = client, input, options \\ []) do
     url_path = "/configurationPolicyAssociation/disassociate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -15132,7 +15178,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15149,6 +15195,7 @@ defmodule AWS.SecurityHub do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -15159,7 +15206,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15176,6 +15223,7 @@ defmodule AWS.SecurityHub do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -15191,7 +15239,7 @@ defmodule AWS.SecurityHub do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15208,6 +15256,7 @@ defmodule AWS.SecurityHub do
   def update_action_target(%Client{} = client, action_target_arn, input, options \\ []) do
     url_path = "/actionTargets/#{AWS.Util.encode_multi_segment_uri(action_target_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -15218,7 +15267,7 @@ defmodule AWS.SecurityHub do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15244,6 +15293,7 @@ defmodule AWS.SecurityHub do
   def update_configuration_policy(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/configurationPolicy/#{AWS.Util.encode_uri(identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -15254,7 +15304,7 @@ defmodule AWS.SecurityHub do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15279,6 +15329,7 @@ defmodule AWS.SecurityHub do
   def update_finding_aggregator(%Client{} = client, input, options \\ []) do
     url_path = "/findingAggregator/update"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -15289,7 +15340,7 @@ defmodule AWS.SecurityHub do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15322,6 +15373,7 @@ defmodule AWS.SecurityHub do
   def update_findings(%Client{} = client, input, options \\ []) do
     url_path = "/findings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -15332,7 +15384,7 @@ defmodule AWS.SecurityHub do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15349,6 +15401,7 @@ defmodule AWS.SecurityHub do
   def update_insight(%Client{} = client, insight_arn, input, options \\ []) do
     url_path = "/insights/#{AWS.Util.encode_multi_segment_uri(insight_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -15359,7 +15412,7 @@ defmodule AWS.SecurityHub do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15383,6 +15436,7 @@ defmodule AWS.SecurityHub do
   def update_organization_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/organization/configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -15393,7 +15447,7 @@ defmodule AWS.SecurityHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15411,6 +15465,7 @@ defmodule AWS.SecurityHub do
   def update_security_control(%Client{} = client, input, options \\ []) do
     url_path = "/securityControl/update"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -15421,7 +15476,7 @@ defmodule AWS.SecurityHub do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15442,6 +15497,7 @@ defmodule AWS.SecurityHub do
   def update_security_hub_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/accounts"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -15452,7 +15508,7 @@ defmodule AWS.SecurityHub do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -15470,6 +15526,7 @@ defmodule AWS.SecurityHub do
   def update_standards_control(%Client{} = client, standards_control_arn, input, options \\ []) do
     url_path = "/standards/control/#{AWS.Util.encode_multi_segment_uri(standards_control_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -15480,7 +15537,7 @@ defmodule AWS.SecurityHub do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

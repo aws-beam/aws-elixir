@@ -6999,11 +6999,22 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/customvocabulary/DEFAULT/batchcreate"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -7033,6 +7044,7 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/customvocabulary/DEFAULT/batchdelete"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7043,7 +7055,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7077,11 +7089,22 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/customvocabulary/DEFAULT/batchupdate"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -7107,6 +7130,7 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7117,7 +7141,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -7134,11 +7158,22 @@ defmodule AWS.LexModelsV2 do
   def create_bot(%Client{} = client, input, options \\ []) do
     url_path = "/bots"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -7158,11 +7193,22 @@ defmodule AWS.LexModelsV2 do
   def create_bot_alias(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/botaliases"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -7182,11 +7228,22 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -7199,11 +7256,22 @@ defmodule AWS.LexModelsV2 do
   def create_bot_replica(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/replicas"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -7224,11 +7292,22 @@ defmodule AWS.LexModelsV2 do
   def create_bot_version(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -7253,11 +7332,22 @@ defmodule AWS.LexModelsV2 do
   def create_export(%Client{} = client, input, options \\ []) do
     url_path = "/exports"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -7309,11 +7399,22 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/intents"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -7327,6 +7428,7 @@ defmodule AWS.LexModelsV2 do
   def create_resource_policy(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/policy/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7337,7 +7439,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7369,6 +7471,7 @@ defmodule AWS.LexModelsV2 do
   def create_resource_policy_statement(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/policy/#{AWS.Util.encode_uri(resource_arn)}/statements"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -7384,7 +7487,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7425,11 +7528,22 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/intents/#{AWS.Util.encode_uri(intent_id)}/slots"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -7455,11 +7569,22 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/slottypes"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -7477,6 +7602,7 @@ defmodule AWS.LexModelsV2 do
   def create_test_set_discrepancy_report(%Client{} = client, test_set_id, input, options \\ []) do
     url_path = "/testsets/#{AWS.Util.encode_uri(test_set_id)}/testsetdiscrepancy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7487,7 +7613,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -7505,6 +7631,7 @@ defmodule AWS.LexModelsV2 do
   def create_upload_url(%Client{} = client, input, options \\ []) do
     url_path = "/createuploadurl"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7515,7 +7642,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7545,6 +7672,7 @@ defmodule AWS.LexModelsV2 do
   def delete_bot(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -7560,7 +7688,7 @@ defmodule AWS.LexModelsV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -7579,6 +7707,7 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botaliases/#{AWS.Util.encode_uri(bot_alias_id)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -7594,7 +7723,7 @@ defmodule AWS.LexModelsV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -7623,6 +7752,7 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7633,7 +7763,7 @@ defmodule AWS.LexModelsV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -7652,6 +7782,7 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/replicas/#{AWS.Util.encode_uri(replica_region)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7662,7 +7793,7 @@ defmodule AWS.LexModelsV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -7686,6 +7817,7 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -7701,7 +7833,7 @@ defmodule AWS.LexModelsV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -7735,6 +7867,7 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/customvocabulary"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7745,7 +7878,7 @@ defmodule AWS.LexModelsV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -7763,6 +7896,7 @@ defmodule AWS.LexModelsV2 do
   def delete_export(%Client{} = client, export_id, input, options \\ []) do
     url_path = "/exports/#{AWS.Util.encode_uri(export_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7773,7 +7907,7 @@ defmodule AWS.LexModelsV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -7791,6 +7925,7 @@ defmodule AWS.LexModelsV2 do
   def delete_import(%Client{} = client, import_id, input, options \\ []) do
     url_path = "/imports/#{AWS.Util.encode_uri(import_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7801,7 +7936,7 @@ defmodule AWS.LexModelsV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -7839,6 +7974,7 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/intents/#{AWS.Util.encode_uri(intent_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7849,7 +7985,7 @@ defmodule AWS.LexModelsV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -7869,6 +8005,7 @@ defmodule AWS.LexModelsV2 do
   def delete_resource_policy(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/policy/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -7884,7 +8021,7 @@ defmodule AWS.LexModelsV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -7924,6 +8061,7 @@ defmodule AWS.LexModelsV2 do
       "/policy/#{AWS.Util.encode_uri(resource_arn)}/statements/#{AWS.Util.encode_uri(statement_id)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -7939,7 +8077,7 @@ defmodule AWS.LexModelsV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -7976,6 +8114,7 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/intents/#{AWS.Util.encode_uri(intent_id)}/slots/#{AWS.Util.encode_uri(slot_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7986,7 +8125,7 @@ defmodule AWS.LexModelsV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8026,6 +8165,7 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/slottypes/#{AWS.Util.encode_uri(slot_type_id)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -8041,7 +8181,7 @@ defmodule AWS.LexModelsV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8058,6 +8198,7 @@ defmodule AWS.LexModelsV2 do
   def delete_test_set(%Client{} = client, test_set_id, input, options \\ []) do
     url_path = "/testsets/#{AWS.Util.encode_uri(test_set_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8068,7 +8209,7 @@ defmodule AWS.LexModelsV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8100,6 +8241,7 @@ defmodule AWS.LexModelsV2 do
   def delete_utterances(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/utterances"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -8116,7 +8258,7 @@ defmodule AWS.LexModelsV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8542,6 +8684,7 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/generate"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8552,7 +8695,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -8617,6 +8760,7 @@ defmodule AWS.LexModelsV2 do
   def list_aggregated_utterances(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/aggregatedutterances"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8627,7 +8771,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8652,6 +8796,7 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/replicas/#{AWS.Util.encode_uri(replica_region)}/botaliases"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8662,7 +8807,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8679,6 +8824,7 @@ defmodule AWS.LexModelsV2 do
   def list_bot_aliases(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/botaliases"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8689,7 +8835,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8708,6 +8854,7 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8718,7 +8865,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8752,6 +8899,7 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/botrecommendations"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8762,7 +8910,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8779,6 +8927,7 @@ defmodule AWS.LexModelsV2 do
   def list_bot_replicas(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/replicas"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8789,7 +8938,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8822,6 +8971,7 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/generations"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8832,7 +8982,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8858,6 +9008,7 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/replicas/#{AWS.Util.encode_uri(replica_region)}/botversions"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8868,7 +9019,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8894,6 +9045,7 @@ defmodule AWS.LexModelsV2 do
   def list_bot_versions(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8904,7 +9056,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8921,6 +9073,7 @@ defmodule AWS.LexModelsV2 do
   def list_bots(%Client{} = client, input, options \\ []) do
     url_path = "/bots"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8931,7 +9084,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8955,6 +9108,7 @@ defmodule AWS.LexModelsV2 do
   def list_built_in_intents(%Client{} = client, locale_id, input, options \\ []) do
     url_path = "/builtins/locales/#{AWS.Util.encode_uri(locale_id)}/intents"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8965,7 +9119,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8983,6 +9137,7 @@ defmodule AWS.LexModelsV2 do
   def list_built_in_slot_types(%Client{} = client, locale_id, input, options \\ []) do
     url_path = "/builtins/locales/#{AWS.Util.encode_uri(locale_id)}/slottypes"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8993,7 +9148,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9027,6 +9182,7 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/customvocabulary/DEFAULT/list"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9037,7 +9193,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9056,6 +9212,7 @@ defmodule AWS.LexModelsV2 do
   def list_exports(%Client{} = client, input, options \\ []) do
     url_path = "/exports"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9066,7 +9223,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9085,6 +9242,7 @@ defmodule AWS.LexModelsV2 do
   def list_imports(%Client{} = client, input, options \\ []) do
     url_path = "/imports"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9095,7 +9253,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9143,6 +9301,7 @@ defmodule AWS.LexModelsV2 do
   def list_intent_metrics(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/analytics/intentmetrics"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9153,7 +9312,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9188,6 +9347,7 @@ defmodule AWS.LexModelsV2 do
   def list_intent_paths(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/analytics/intentpaths"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9198,7 +9358,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9246,6 +9406,7 @@ defmodule AWS.LexModelsV2 do
   def list_intent_stage_metrics(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/analytics/intentstagemetrics"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9256,7 +9417,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9275,6 +9436,7 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/intents"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9285,7 +9447,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9324,6 +9486,7 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/botrecommendations/#{AWS.Util.encode_uri(bot_recommendation_id)}/intents"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9334,7 +9497,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9369,6 +9532,7 @@ defmodule AWS.LexModelsV2 do
   def list_session_analytics_data(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/analytics/sessions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9379,7 +9543,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9427,6 +9591,7 @@ defmodule AWS.LexModelsV2 do
   def list_session_metrics(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/analytics/sessionmetrics"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9437,7 +9602,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9463,6 +9628,7 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/slottypes"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9473,7 +9639,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9508,6 +9674,7 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/intents/#{AWS.Util.encode_uri(intent_id)}/slots"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9518,7 +9685,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9565,6 +9732,7 @@ defmodule AWS.LexModelsV2 do
       ) do
     url_path = "/testexecutions/#{AWS.Util.encode_uri(test_execution_id)}/results"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9575,7 +9743,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9592,6 +9760,7 @@ defmodule AWS.LexModelsV2 do
   def list_test_executions(%Client{} = client, input, options \\ []) do
     url_path = "/testexecutions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9602,7 +9771,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9619,6 +9788,7 @@ defmodule AWS.LexModelsV2 do
   def list_test_set_records(%Client{} = client, test_set_id, input, options \\ []) do
     url_path = "/testsets/#{AWS.Util.encode_uri(test_set_id)}/records"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9629,7 +9799,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9646,6 +9816,7 @@ defmodule AWS.LexModelsV2 do
   def list_test_sets(%Client{} = client, input, options \\ []) do
     url_path = "/testsets"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9656,7 +9827,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9705,6 +9876,7 @@ defmodule AWS.LexModelsV2 do
   def list_utterance_analytics_data(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/analytics/utterances"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9715,7 +9887,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9772,6 +9944,7 @@ defmodule AWS.LexModelsV2 do
   def list_utterance_metrics(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/analytics/utterancemetrics"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9782,7 +9955,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9818,6 +9991,7 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/botrecommendations/#{AWS.Util.encode_uri(bot_recommendation_id)}/associatedtranscripts"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9828,7 +10002,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9862,11 +10036,22 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/botrecommendations"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -9904,11 +10089,22 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/startgeneration"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -9922,11 +10118,22 @@ defmodule AWS.LexModelsV2 do
   def start_import(%Client{} = client, input, options \\ []) do
     url_path = "/imports"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -9939,6 +10146,7 @@ defmodule AWS.LexModelsV2 do
   def start_test_execution(%Client{} = client, test_set_id, input, options \\ []) do
     url_path = "/testsets/#{AWS.Util.encode_uri(test_set_id)}/testexecutions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9949,7 +10157,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -9966,11 +10174,22 @@ defmodule AWS.LexModelsV2 do
   def start_test_set_generation(%Client{} = client, input, options \\ []) do
     url_path = "/testsetgenerations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -10001,11 +10220,22 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/botrecommendations/#{AWS.Util.encode_uri(bot_recommendation_id)}/stopbotrecommendation"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -10022,6 +10252,7 @@ defmodule AWS.LexModelsV2 do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -10032,7 +10263,7 @@ defmodule AWS.LexModelsV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -10049,6 +10280,7 @@ defmodule AWS.LexModelsV2 do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -10064,7 +10296,7 @@ defmodule AWS.LexModelsV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -10081,11 +10313,22 @@ defmodule AWS.LexModelsV2 do
   def update_bot(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -10100,11 +10343,22 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botaliases/#{AWS.Util.encode_uri(bot_alias_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -10126,11 +10380,22 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -10161,11 +10426,22 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/botrecommendations/#{AWS.Util.encode_uri(bot_recommendation_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -10184,11 +10460,22 @@ defmodule AWS.LexModelsV2 do
   def update_export(%Client{} = client, export_id, input, options \\ []) do
     url_path = "/exports/#{AWS.Util.encode_uri(export_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -10219,11 +10506,22 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/intents/#{AWS.Util.encode_uri(intent_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -10240,6 +10538,7 @@ defmodule AWS.LexModelsV2 do
   def update_resource_policy(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/policy/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -10249,7 +10548,17 @@ defmodule AWS.LexModelsV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -10282,11 +10591,22 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/intents/#{AWS.Util.encode_uri(intent_id)}/slots/#{AWS.Util.encode_uri(slot_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -10317,11 +10637,22 @@ defmodule AWS.LexModelsV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions/#{AWS.Util.encode_uri(bot_version)}/botlocales/#{AWS.Util.encode_uri(locale_id)}/slottypes/#{AWS.Util.encode_uri(slot_type_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -10334,10 +10665,21 @@ defmodule AWS.LexModelsV2 do
   def update_test_set(%Client{} = client, test_set_id, input, options \\ []) do
     url_path = "/testsets/#{AWS.Util.encode_uri(test_set_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

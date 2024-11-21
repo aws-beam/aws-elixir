@@ -857,11 +857,22 @@ defmodule AWS.Braket do
   def cancel_job(%Client{} = client, job_arn, input, options \\ []) do
     url_path = "/job/#{AWS.Util.encode_uri(job_arn)}/cancel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -874,11 +885,22 @@ defmodule AWS.Braket do
   def cancel_quantum_task(%Client{} = client, quantum_task_arn, input, options \\ []) do
     url_path = "/quantum-task/#{AWS.Util.encode_uri(quantum_task_arn)}/cancel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -891,6 +913,7 @@ defmodule AWS.Braket do
   def create_job(%Client{} = client, input, options \\ []) do
     url_path = "/job"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -901,7 +924,7 @@ defmodule AWS.Braket do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -918,6 +941,7 @@ defmodule AWS.Braket do
   def create_quantum_task(%Client{} = client, input, options \\ []) do
     url_path = "/quantum-task"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -928,7 +952,7 @@ defmodule AWS.Braket do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1045,6 +1069,7 @@ defmodule AWS.Braket do
   def search_devices(%Client{} = client, input, options \\ []) do
     url_path = "/devices"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1055,7 +1080,7 @@ defmodule AWS.Braket do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1072,6 +1097,7 @@ defmodule AWS.Braket do
   def search_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/jobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1082,7 +1108,7 @@ defmodule AWS.Braket do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1099,6 +1125,7 @@ defmodule AWS.Braket do
   def search_quantum_tasks(%Client{} = client, input, options \\ []) do
     url_path = "/quantum-tasks"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1109,7 +1136,7 @@ defmodule AWS.Braket do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1126,6 +1153,7 @@ defmodule AWS.Braket do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1136,7 +1164,7 @@ defmodule AWS.Braket do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1153,6 +1181,7 @@ defmodule AWS.Braket do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1168,7 +1197,7 @@ defmodule AWS.Braket do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

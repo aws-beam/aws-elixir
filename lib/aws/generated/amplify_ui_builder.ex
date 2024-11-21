@@ -1748,6 +1748,7 @@ defmodule AWS.AmplifyUIBuilder do
       "/app/#{AWS.Util.encode_uri(app_id)}/environment/#{AWS.Util.encode_uri(environment_name)}/components"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1763,7 +1764,7 @@ defmodule AWS.AmplifyUIBuilder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1782,6 +1783,7 @@ defmodule AWS.AmplifyUIBuilder do
       "/app/#{AWS.Util.encode_uri(app_id)}/environment/#{AWS.Util.encode_uri(environment_name)}/forms"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1797,7 +1799,7 @@ defmodule AWS.AmplifyUIBuilder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1816,6 +1818,7 @@ defmodule AWS.AmplifyUIBuilder do
       "/app/#{AWS.Util.encode_uri(app_id)}/environment/#{AWS.Util.encode_uri(environment_name)}/themes"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1831,7 +1834,7 @@ defmodule AWS.AmplifyUIBuilder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1857,6 +1860,7 @@ defmodule AWS.AmplifyUIBuilder do
       "/app/#{AWS.Util.encode_uri(app_id)}/environment/#{AWS.Util.encode_uri(environment_name)}/components/#{AWS.Util.encode_uri(id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1867,7 +1871,7 @@ defmodule AWS.AmplifyUIBuilder do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1886,6 +1890,7 @@ defmodule AWS.AmplifyUIBuilder do
       "/app/#{AWS.Util.encode_uri(app_id)}/environment/#{AWS.Util.encode_uri(environment_name)}/forms/#{AWS.Util.encode_uri(id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1896,7 +1901,7 @@ defmodule AWS.AmplifyUIBuilder do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1915,6 +1920,7 @@ defmodule AWS.AmplifyUIBuilder do
       "/app/#{AWS.Util.encode_uri(app_id)}/environment/#{AWS.Util.encode_uri(environment_name)}/themes/#{AWS.Util.encode_uri(id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1925,7 +1931,7 @@ defmodule AWS.AmplifyUIBuilder do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1945,6 +1951,7 @@ defmodule AWS.AmplifyUIBuilder do
   def exchange_code_for_token(%Client{} = client, provider, input, options \\ []) do
     url_path = "/tokens/#{AWS.Util.encode_uri(provider)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1955,7 +1962,7 @@ defmodule AWS.AmplifyUIBuilder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2363,11 +2370,22 @@ defmodule AWS.AmplifyUIBuilder do
       "/app/#{AWS.Util.encode_uri(app_id)}/environment/#{AWS.Util.encode_uri(environment_name)}/metadata/features/#{AWS.Util.encode_uri(feature_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2384,6 +2402,7 @@ defmodule AWS.AmplifyUIBuilder do
   def refresh_token(%Client{} = client, provider, input, options \\ []) do
     url_path = "/tokens/#{AWS.Util.encode_uri(provider)}/refresh"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2394,7 +2413,7 @@ defmodule AWS.AmplifyUIBuilder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2414,6 +2433,7 @@ defmodule AWS.AmplifyUIBuilder do
       "/app/#{AWS.Util.encode_uri(app_id)}/environment/#{AWS.Util.encode_uri(environment_name)}/codegen-jobs"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2429,7 +2449,7 @@ defmodule AWS.AmplifyUIBuilder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2446,6 +2466,7 @@ defmodule AWS.AmplifyUIBuilder do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2456,7 +2477,7 @@ defmodule AWS.AmplifyUIBuilder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2473,6 +2494,7 @@ defmodule AWS.AmplifyUIBuilder do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2488,7 +2510,7 @@ defmodule AWS.AmplifyUIBuilder do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2514,6 +2536,7 @@ defmodule AWS.AmplifyUIBuilder do
       "/app/#{AWS.Util.encode_uri(app_id)}/environment/#{AWS.Util.encode_uri(environment_name)}/components/#{AWS.Util.encode_uri(id)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2529,7 +2552,7 @@ defmodule AWS.AmplifyUIBuilder do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2548,6 +2571,7 @@ defmodule AWS.AmplifyUIBuilder do
       "/app/#{AWS.Util.encode_uri(app_id)}/environment/#{AWS.Util.encode_uri(environment_name)}/forms/#{AWS.Util.encode_uri(id)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2563,7 +2587,7 @@ defmodule AWS.AmplifyUIBuilder do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2582,6 +2606,7 @@ defmodule AWS.AmplifyUIBuilder do
       "/app/#{AWS.Util.encode_uri(app_id)}/environment/#{AWS.Util.encode_uri(environment_name)}/themes/#{AWS.Util.encode_uri(id)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2597,7 +2622,7 @@ defmodule AWS.AmplifyUIBuilder do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

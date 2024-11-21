@@ -1301,11 +1301,22 @@ defmodule AWS.Detective do
   def accept_invitation(%Client{} = client, input, options \\ []) do
     url_path = "/invitation"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1322,6 +1333,7 @@ defmodule AWS.Detective do
   def batch_get_graph_member_datasources(%Client{} = client, input, options \\ []) do
     url_path = "/graph/datasources/get"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1332,7 +1344,7 @@ defmodule AWS.Detective do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1353,6 +1365,7 @@ defmodule AWS.Detective do
   def batch_get_membership_datasources(%Client{} = client, input, options \\ []) do
     url_path = "/membership/datasources/get"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1363,7 +1376,7 @@ defmodule AWS.Detective do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1396,6 +1409,7 @@ defmodule AWS.Detective do
   def create_graph(%Client{} = client, input, options \\ []) do
     url_path = "/graph"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1406,7 +1420,7 @@ defmodule AWS.Detective do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1464,6 +1478,7 @@ defmodule AWS.Detective do
   def create_members(%Client{} = client, input, options \\ []) do
     url_path = "/graph/members"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1474,7 +1489,7 @@ defmodule AWS.Detective do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1497,6 +1512,7 @@ defmodule AWS.Detective do
   def delete_graph(%Client{} = client, input, options \\ []) do
     url_path = "/graph/removal"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1507,7 +1523,7 @@ defmodule AWS.Detective do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1546,6 +1562,7 @@ defmodule AWS.Detective do
   def delete_members(%Client{} = client, input, options \\ []) do
     url_path = "/graph/members/removal"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1556,7 +1573,7 @@ defmodule AWS.Detective do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1583,6 +1600,7 @@ defmodule AWS.Detective do
   def describe_organization_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/orgs/describeOrganizationConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1593,7 +1611,7 @@ defmodule AWS.Detective do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1623,6 +1641,7 @@ defmodule AWS.Detective do
   def disable_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/orgs/disableAdminAccount"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1633,7 +1652,7 @@ defmodule AWS.Detective do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1659,6 +1678,7 @@ defmodule AWS.Detective do
   def disassociate_membership(%Client{} = client, input, options \\ []) do
     url_path = "/membership/removal"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1669,7 +1689,7 @@ defmodule AWS.Detective do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1708,6 +1728,7 @@ defmodule AWS.Detective do
   def enable_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/orgs/enableAdminAccount"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1718,7 +1739,7 @@ defmodule AWS.Detective do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1741,6 +1762,7 @@ defmodule AWS.Detective do
   def get_investigation(%Client{} = client, input, options \\ []) do
     url_path = "/investigations/getInvestigation"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1751,7 +1773,7 @@ defmodule AWS.Detective do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1769,6 +1791,7 @@ defmodule AWS.Detective do
   def get_members(%Client{} = client, input, options \\ []) do
     url_path = "/graph/members/get"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1779,7 +1802,7 @@ defmodule AWS.Detective do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1796,6 +1819,7 @@ defmodule AWS.Detective do
   def list_datasource_packages(%Client{} = client, input, options \\ []) do
     url_path = "/graph/datasources/list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1806,7 +1830,7 @@ defmodule AWS.Detective do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1831,6 +1855,7 @@ defmodule AWS.Detective do
   def list_graphs(%Client{} = client, input, options \\ []) do
     url_path = "/graphs/list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1841,7 +1866,7 @@ defmodule AWS.Detective do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1862,6 +1887,7 @@ defmodule AWS.Detective do
   def list_indicators(%Client{} = client, input, options \\ []) do
     url_path = "/investigations/listIndicators"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1872,7 +1898,7 @@ defmodule AWS.Detective do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1897,6 +1923,7 @@ defmodule AWS.Detective do
   def list_investigations(%Client{} = client, input, options \\ []) do
     url_path = "/investigations/listInvestigations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1907,7 +1934,7 @@ defmodule AWS.Detective do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1936,6 +1963,7 @@ defmodule AWS.Detective do
   def list_invitations(%Client{} = client, input, options \\ []) do
     url_path = "/invitations/list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1946,7 +1974,7 @@ defmodule AWS.Detective do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1972,6 +2000,7 @@ defmodule AWS.Detective do
   def list_members(%Client{} = client, input, options \\ []) do
     url_path = "/graph/members/list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1982,7 +2011,7 @@ defmodule AWS.Detective do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2006,6 +2035,7 @@ defmodule AWS.Detective do
   def list_organization_admin_accounts(%Client{} = client, input, options \\ []) do
     url_path = "/orgs/adminAccountslist"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2016,7 +2046,7 @@ defmodule AWS.Detective do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2059,6 +2089,7 @@ defmodule AWS.Detective do
   def reject_invitation(%Client{} = client, input, options \\ []) do
     url_path = "/invitation/removal"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2069,7 +2100,7 @@ defmodule AWS.Detective do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2092,6 +2123,7 @@ defmodule AWS.Detective do
   def start_investigation(%Client{} = client, input, options \\ []) do
     url_path = "/investigations/startInvestigation"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2102,7 +2134,7 @@ defmodule AWS.Detective do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2130,6 +2162,7 @@ defmodule AWS.Detective do
   def start_monitoring_member(%Client{} = client, input, options \\ []) do
     url_path = "/graph/member/monitoringstate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2140,7 +2173,7 @@ defmodule AWS.Detective do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2157,6 +2190,7 @@ defmodule AWS.Detective do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2167,7 +2201,7 @@ defmodule AWS.Detective do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2184,6 +2218,7 @@ defmodule AWS.Detective do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2199,7 +2234,7 @@ defmodule AWS.Detective do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2216,6 +2251,7 @@ defmodule AWS.Detective do
   def update_datasource_packages(%Client{} = client, input, options \\ []) do
     url_path = "/graph/datasources/update"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2226,7 +2262,7 @@ defmodule AWS.Detective do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2243,6 +2279,7 @@ defmodule AWS.Detective do
   def update_investigation_state(%Client{} = client, input, options \\ []) do
     url_path = "/investigations/updateInvestigationState"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2253,7 +2290,7 @@ defmodule AWS.Detective do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2278,6 +2315,7 @@ defmodule AWS.Detective do
   def update_organization_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/orgs/updateOrganizationConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2288,7 +2326,7 @@ defmodule AWS.Detective do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

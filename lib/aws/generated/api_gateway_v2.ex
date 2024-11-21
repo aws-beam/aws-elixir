@@ -2569,6 +2569,7 @@ defmodule AWS.ApiGatewayV2 do
   def create_api(%Client{} = client, input, options \\ []) do
     url_path = "/v2/apis"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2579,7 +2580,7 @@ defmodule AWS.ApiGatewayV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2596,6 +2597,7 @@ defmodule AWS.ApiGatewayV2 do
   def create_api_mapping(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/v2/domainnames/#{AWS.Util.encode_uri(domain_name)}/apimappings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2606,7 +2608,7 @@ defmodule AWS.ApiGatewayV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2623,6 +2625,7 @@ defmodule AWS.ApiGatewayV2 do
   def create_authorizer(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/authorizers"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2633,7 +2636,7 @@ defmodule AWS.ApiGatewayV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2650,6 +2653,7 @@ defmodule AWS.ApiGatewayV2 do
   def create_deployment(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/deployments"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2660,7 +2664,7 @@ defmodule AWS.ApiGatewayV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2677,6 +2681,7 @@ defmodule AWS.ApiGatewayV2 do
   def create_domain_name(%Client{} = client, input, options \\ []) do
     url_path = "/v2/domainnames"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2687,7 +2692,7 @@ defmodule AWS.ApiGatewayV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2704,6 +2709,7 @@ defmodule AWS.ApiGatewayV2 do
   def create_integration(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/integrations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2714,7 +2720,7 @@ defmodule AWS.ApiGatewayV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2745,6 +2751,7 @@ defmodule AWS.ApiGatewayV2 do
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/integrations/#{AWS.Util.encode_uri(integration_id)}/integrationresponses"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2755,7 +2762,7 @@ defmodule AWS.ApiGatewayV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2772,6 +2779,7 @@ defmodule AWS.ApiGatewayV2 do
   def create_model(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/models"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2782,7 +2790,7 @@ defmodule AWS.ApiGatewayV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2799,6 +2807,7 @@ defmodule AWS.ApiGatewayV2 do
   def create_route(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2809,7 +2818,7 @@ defmodule AWS.ApiGatewayV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2834,6 +2843,7 @@ defmodule AWS.ApiGatewayV2 do
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes/#{AWS.Util.encode_uri(route_id)}/routeresponses"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2844,7 +2854,7 @@ defmodule AWS.ApiGatewayV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2861,6 +2871,7 @@ defmodule AWS.ApiGatewayV2 do
   def create_stage(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/stages"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2871,7 +2882,7 @@ defmodule AWS.ApiGatewayV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2888,6 +2899,7 @@ defmodule AWS.ApiGatewayV2 do
   def create_vpc_link(%Client{} = client, input, options \\ []) do
     url_path = "/v2/vpclinks"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2898,7 +2910,7 @@ defmodule AWS.ApiGatewayV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2925,6 +2937,7 @@ defmodule AWS.ApiGatewayV2 do
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}/accesslogsettings"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2935,7 +2948,7 @@ defmodule AWS.ApiGatewayV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2952,6 +2965,7 @@ defmodule AWS.ApiGatewayV2 do
   def delete_api(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2962,7 +2976,7 @@ defmodule AWS.ApiGatewayV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2981,6 +2995,7 @@ defmodule AWS.ApiGatewayV2 do
       "/v2/domainnames/#{AWS.Util.encode_uri(domain_name)}/apimappings/#{AWS.Util.encode_uri(api_mapping_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2991,7 +3006,7 @@ defmodule AWS.ApiGatewayV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3010,6 +3025,7 @@ defmodule AWS.ApiGatewayV2 do
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/authorizers/#{AWS.Util.encode_uri(authorizer_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3020,7 +3036,7 @@ defmodule AWS.ApiGatewayV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3037,6 +3053,7 @@ defmodule AWS.ApiGatewayV2 do
   def delete_cors_configuration(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/cors"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3047,7 +3064,7 @@ defmodule AWS.ApiGatewayV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3066,6 +3083,7 @@ defmodule AWS.ApiGatewayV2 do
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/deployments/#{AWS.Util.encode_uri(deployment_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3076,7 +3094,7 @@ defmodule AWS.ApiGatewayV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3093,6 +3111,7 @@ defmodule AWS.ApiGatewayV2 do
   def delete_domain_name(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/v2/domainnames/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3103,7 +3122,7 @@ defmodule AWS.ApiGatewayV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3122,6 +3141,7 @@ defmodule AWS.ApiGatewayV2 do
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/integrations/#{AWS.Util.encode_uri(integration_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3132,7 +3152,7 @@ defmodule AWS.ApiGatewayV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3165,6 +3185,7 @@ defmodule AWS.ApiGatewayV2 do
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/integrations/#{AWS.Util.encode_uri(integration_id)}/integrationresponses/#{AWS.Util.encode_uri(integration_response_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3175,7 +3196,7 @@ defmodule AWS.ApiGatewayV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3192,6 +3213,7 @@ defmodule AWS.ApiGatewayV2 do
   def delete_model(%Client{} = client, api_id, model_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/models/#{AWS.Util.encode_uri(model_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3202,7 +3224,7 @@ defmodule AWS.ApiGatewayV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3219,6 +3241,7 @@ defmodule AWS.ApiGatewayV2 do
   def delete_route(%Client{} = client, api_id, route_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes/#{AWS.Util.encode_uri(route_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3229,7 +3252,7 @@ defmodule AWS.ApiGatewayV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3264,6 +3287,7 @@ defmodule AWS.ApiGatewayV2 do
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes/#{AWS.Util.encode_uri(route_id)}/requestparameters/#{AWS.Util.encode_uri(request_parameter_key)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3274,7 +3298,7 @@ defmodule AWS.ApiGatewayV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3307,6 +3331,7 @@ defmodule AWS.ApiGatewayV2 do
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes/#{AWS.Util.encode_uri(route_id)}/routeresponses/#{AWS.Util.encode_uri(route_response_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3317,7 +3342,7 @@ defmodule AWS.ApiGatewayV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3350,6 +3375,7 @@ defmodule AWS.ApiGatewayV2 do
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}/routesettings/#{AWS.Util.encode_uri(route_key)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3360,7 +3386,7 @@ defmodule AWS.ApiGatewayV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3377,6 +3403,7 @@ defmodule AWS.ApiGatewayV2 do
   def delete_stage(%Client{} = client, api_id, stage_name, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3387,7 +3414,7 @@ defmodule AWS.ApiGatewayV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -3404,6 +3431,7 @@ defmodule AWS.ApiGatewayV2 do
   def delete_vpc_link(%Client{} = client, vpc_link_id, input, options \\ []) do
     url_path = "/v2/vpclinks/#{AWS.Util.encode_uri(vpc_link_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3414,7 +3442,7 @@ defmodule AWS.ApiGatewayV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -4179,6 +4207,7 @@ defmodule AWS.ApiGatewayV2 do
   def import_api(%Client{} = client, input, options \\ []) do
     url_path = "/v2/apis"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4196,7 +4225,17 @@ defmodule AWS.ApiGatewayV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -4209,6 +4248,7 @@ defmodule AWS.ApiGatewayV2 do
   def reimport_api(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4226,7 +4266,17 @@ defmodule AWS.ApiGatewayV2 do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -4249,6 +4299,7 @@ defmodule AWS.ApiGatewayV2 do
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}/cache/authorizers"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4259,7 +4310,7 @@ defmodule AWS.ApiGatewayV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4276,6 +4327,7 @@ defmodule AWS.ApiGatewayV2 do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v2/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4286,7 +4338,7 @@ defmodule AWS.ApiGatewayV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -4303,6 +4355,7 @@ defmodule AWS.ApiGatewayV2 do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v2/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4318,7 +4371,7 @@ defmodule AWS.ApiGatewayV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4335,6 +4388,7 @@ defmodule AWS.ApiGatewayV2 do
   def update_api(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4345,7 +4399,7 @@ defmodule AWS.ApiGatewayV2 do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4364,6 +4418,7 @@ defmodule AWS.ApiGatewayV2 do
       "/v2/domainnames/#{AWS.Util.encode_uri(domain_name)}/apimappings/#{AWS.Util.encode_uri(api_mapping_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4374,7 +4429,7 @@ defmodule AWS.ApiGatewayV2 do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4393,6 +4448,7 @@ defmodule AWS.ApiGatewayV2 do
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/authorizers/#{AWS.Util.encode_uri(authorizer_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4403,7 +4459,7 @@ defmodule AWS.ApiGatewayV2 do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4422,6 +4478,7 @@ defmodule AWS.ApiGatewayV2 do
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/deployments/#{AWS.Util.encode_uri(deployment_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4432,7 +4489,7 @@ defmodule AWS.ApiGatewayV2 do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4449,6 +4506,7 @@ defmodule AWS.ApiGatewayV2 do
   def update_domain_name(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/v2/domainnames/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4459,7 +4517,7 @@ defmodule AWS.ApiGatewayV2 do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4478,6 +4536,7 @@ defmodule AWS.ApiGatewayV2 do
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/integrations/#{AWS.Util.encode_uri(integration_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4488,7 +4547,7 @@ defmodule AWS.ApiGatewayV2 do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4521,6 +4580,7 @@ defmodule AWS.ApiGatewayV2 do
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/integrations/#{AWS.Util.encode_uri(integration_id)}/integrationresponses/#{AWS.Util.encode_uri(integration_response_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4531,7 +4591,7 @@ defmodule AWS.ApiGatewayV2 do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4548,6 +4608,7 @@ defmodule AWS.ApiGatewayV2 do
   def update_model(%Client{} = client, api_id, model_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/models/#{AWS.Util.encode_uri(model_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4558,7 +4619,7 @@ defmodule AWS.ApiGatewayV2 do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4575,6 +4636,7 @@ defmodule AWS.ApiGatewayV2 do
   def update_route(%Client{} = client, api_id, route_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes/#{AWS.Util.encode_uri(route_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4585,7 +4647,7 @@ defmodule AWS.ApiGatewayV2 do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4618,6 +4680,7 @@ defmodule AWS.ApiGatewayV2 do
       "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes/#{AWS.Util.encode_uri(route_id)}/routeresponses/#{AWS.Util.encode_uri(route_response_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4628,7 +4691,7 @@ defmodule AWS.ApiGatewayV2 do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4645,6 +4708,7 @@ defmodule AWS.ApiGatewayV2 do
   def update_stage(%Client{} = client, api_id, stage_name, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4655,7 +4719,7 @@ defmodule AWS.ApiGatewayV2 do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4672,6 +4736,7 @@ defmodule AWS.ApiGatewayV2 do
   def update_vpc_link(%Client{} = client, vpc_link_id, input, options \\ []) do
     url_path = "/v2/vpclinks/#{AWS.Util.encode_uri(vpc_link_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4682,7 +4747,7 @@ defmodule AWS.ApiGatewayV2 do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

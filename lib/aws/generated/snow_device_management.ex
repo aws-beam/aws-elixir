@@ -695,6 +695,7 @@ defmodule AWS.SnowDeviceManagement do
   def cancel_task(%Client{} = client, task_id, input, options \\ []) do
     url_path = "/task/#{AWS.Util.encode_uri(task_id)}/cancel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -705,7 +706,7 @@ defmodule AWS.SnowDeviceManagement do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -722,6 +723,7 @@ defmodule AWS.SnowDeviceManagement do
   def create_task(%Client{} = client, input, options \\ []) do
     url_path = "/task"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -732,7 +734,7 @@ defmodule AWS.SnowDeviceManagement do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -751,6 +753,7 @@ defmodule AWS.SnowDeviceManagement do
   def describe_device(%Client{} = client, managed_device_id, input, options \\ []) do
     url_path = "/managed-device/#{AWS.Util.encode_uri(managed_device_id)}/describe"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -761,7 +764,7 @@ defmodule AWS.SnowDeviceManagement do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -782,6 +785,7 @@ defmodule AWS.SnowDeviceManagement do
   def describe_device_ec2_instances(%Client{} = client, managed_device_id, input, options \\ []) do
     url_path = "/managed-device/#{AWS.Util.encode_uri(managed_device_id)}/resources/ec2/describe"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -792,7 +796,7 @@ defmodule AWS.SnowDeviceManagement do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -811,6 +815,7 @@ defmodule AWS.SnowDeviceManagement do
       "/task/#{AWS.Util.encode_uri(task_id)}/execution/#{AWS.Util.encode_uri(managed_device_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -821,7 +826,7 @@ defmodule AWS.SnowDeviceManagement do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -838,6 +843,7 @@ defmodule AWS.SnowDeviceManagement do
   def describe_task(%Client{} = client, task_id, input, options \\ []) do
     url_path = "/task/#{AWS.Util.encode_uri(task_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -848,7 +854,7 @@ defmodule AWS.SnowDeviceManagement do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1085,6 +1091,7 @@ defmodule AWS.SnowDeviceManagement do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1095,7 +1102,7 @@ defmodule AWS.SnowDeviceManagement do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1112,6 +1119,7 @@ defmodule AWS.SnowDeviceManagement do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1127,7 +1135,7 @@ defmodule AWS.SnowDeviceManagement do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

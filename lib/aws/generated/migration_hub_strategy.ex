@@ -1672,6 +1672,7 @@ defmodule AWS.MigrationHubStrategy do
   def list_analyzable_servers(%Client{} = client, input, options \\ []) do
     url_path = "/list-analyzable-servers"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1682,7 +1683,7 @@ defmodule AWS.MigrationHubStrategy do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1699,6 +1700,7 @@ defmodule AWS.MigrationHubStrategy do
   def list_application_components(%Client{} = client, input, options \\ []) do
     url_path = "/list-applicationcomponents"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1709,7 +1711,7 @@ defmodule AWS.MigrationHubStrategy do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1793,6 +1795,7 @@ defmodule AWS.MigrationHubStrategy do
   def list_servers(%Client{} = client, input, options \\ []) do
     url_path = "/list-servers"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1803,7 +1806,7 @@ defmodule AWS.MigrationHubStrategy do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1820,6 +1823,7 @@ defmodule AWS.MigrationHubStrategy do
   def put_portfolio_preferences(%Client{} = client, input, options \\ []) do
     url_path = "/put-portfolio-preferences"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1830,7 +1834,7 @@ defmodule AWS.MigrationHubStrategy do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1847,6 +1851,7 @@ defmodule AWS.MigrationHubStrategy do
   def start_assessment(%Client{} = client, input, options \\ []) do
     url_path = "/start-assessment"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1857,7 +1862,7 @@ defmodule AWS.MigrationHubStrategy do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1874,6 +1879,7 @@ defmodule AWS.MigrationHubStrategy do
   def start_import_file_task(%Client{} = client, input, options \\ []) do
     url_path = "/start-import-file-task"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1884,7 +1890,7 @@ defmodule AWS.MigrationHubStrategy do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1905,6 +1911,7 @@ defmodule AWS.MigrationHubStrategy do
   def start_recommendation_report_generation(%Client{} = client, input, options \\ []) do
     url_path = "/start-recommendation-report-generation"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1915,7 +1922,7 @@ defmodule AWS.MigrationHubStrategy do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1932,6 +1939,7 @@ defmodule AWS.MigrationHubStrategy do
   def stop_assessment(%Client{} = client, input, options \\ []) do
     url_path = "/stop-assessment"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1942,7 +1950,7 @@ defmodule AWS.MigrationHubStrategy do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1963,6 +1971,7 @@ defmodule AWS.MigrationHubStrategy do
   def update_application_component_config(%Client{} = client, input, options \\ []) do
     url_path = "/update-applicationcomponent-config/"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1973,7 +1982,7 @@ defmodule AWS.MigrationHubStrategy do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1990,6 +1999,7 @@ defmodule AWS.MigrationHubStrategy do
   def update_server_config(%Client{} = client, input, options \\ []) do
     url_path = "/update-server-config/"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2000,7 +2010,7 @@ defmodule AWS.MigrationHubStrategy do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

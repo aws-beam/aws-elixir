@@ -4006,6 +4006,7 @@ defmodule AWS.Inspector2 do
   def associate_member(%Client{} = client, input, options \\ []) do
     url_path = "/members/associate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4016,7 +4017,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4034,6 +4035,7 @@ defmodule AWS.Inspector2 do
   def batch_get_account_status(%Client{} = client, input, options \\ []) do
     url_path = "/status/batch/get"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4044,7 +4046,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4062,6 +4064,7 @@ defmodule AWS.Inspector2 do
   def batch_get_code_snippet(%Client{} = client, input, options \\ []) do
     url_path = "/codesnippet/batchget"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4072,7 +4075,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4089,6 +4092,7 @@ defmodule AWS.Inspector2 do
   def batch_get_finding_details(%Client{} = client, input, options \\ []) do
     url_path = "/findings/details/batch/get"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4099,7 +4103,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4116,6 +4120,7 @@ defmodule AWS.Inspector2 do
   def batch_get_free_trial_info(%Client{} = client, input, options \\ []) do
     url_path = "/freetrialinfo/batchget"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4126,7 +4131,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4151,6 +4156,7 @@ defmodule AWS.Inspector2 do
   def batch_get_member_ec2_deep_inspection_status(%Client{} = client, input, options \\ []) do
     url_path = "/ec2deepinspectionstatus/member/batch/get"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4161,7 +4167,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4186,6 +4192,7 @@ defmodule AWS.Inspector2 do
   def batch_update_member_ec2_deep_inspection_status(%Client{} = client, input, options \\ []) do
     url_path = "/ec2deepinspectionstatus/member/batch/update"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4196,7 +4203,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4213,6 +4220,7 @@ defmodule AWS.Inspector2 do
   def cancel_findings_report(%Client{} = client, input, options \\ []) do
     url_path = "/reporting/cancel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4223,7 +4231,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4240,6 +4248,7 @@ defmodule AWS.Inspector2 do
   def cancel_sbom_export(%Client{} = client, input, options \\ []) do
     url_path = "/sbomexport/cancel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4250,7 +4259,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4267,6 +4276,7 @@ defmodule AWS.Inspector2 do
   def create_cis_scan_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/cis/scan-configuration/create"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4277,7 +4287,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4297,6 +4307,7 @@ defmodule AWS.Inspector2 do
   def create_filter(%Client{} = client, input, options \\ []) do
     url_path = "/filters/create"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4307,7 +4318,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4328,6 +4339,7 @@ defmodule AWS.Inspector2 do
   def create_findings_report(%Client{} = client, input, options \\ []) do
     url_path = "/reporting/create"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4338,7 +4350,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4355,6 +4367,7 @@ defmodule AWS.Inspector2 do
   def create_sbom_export(%Client{} = client, input, options \\ []) do
     url_path = "/sbomexport/create"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4365,7 +4378,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4382,6 +4395,7 @@ defmodule AWS.Inspector2 do
   def delete_cis_scan_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/cis/scan-configuration/delete"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4392,7 +4406,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4409,6 +4423,7 @@ defmodule AWS.Inspector2 do
   def delete_filter(%Client{} = client, input, options \\ []) do
     url_path = "/filters/delete"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4419,7 +4434,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4441,6 +4456,7 @@ defmodule AWS.Inspector2 do
   def describe_organization_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/organizationconfiguration/describe"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4451,7 +4467,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4471,6 +4487,7 @@ defmodule AWS.Inspector2 do
   def disable(%Client{} = client, input, options \\ []) do
     url_path = "/disable"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4481,7 +4498,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4498,6 +4515,7 @@ defmodule AWS.Inspector2 do
   def disable_delegated_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/delegatedadminaccounts/disable"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4508,7 +4526,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4525,6 +4543,7 @@ defmodule AWS.Inspector2 do
   def disassociate_member(%Client{} = client, input, options \\ []) do
     url_path = "/members/disassociate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4535,7 +4554,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4552,6 +4571,7 @@ defmodule AWS.Inspector2 do
   def enable(%Client{} = client, input, options \\ []) do
     url_path = "/enable"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4562,7 +4582,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4580,6 +4600,7 @@ defmodule AWS.Inspector2 do
   def enable_delegated_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/delegatedadminaccounts/enable"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4590,7 +4611,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4607,6 +4628,7 @@ defmodule AWS.Inspector2 do
   def get_cis_scan_report(%Client{} = client, input, options \\ []) do
     url_path = "/cis/scan/report/get"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4617,7 +4639,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4634,6 +4656,7 @@ defmodule AWS.Inspector2 do
   def get_cis_scan_result_details(%Client{} = client, input, options \\ []) do
     url_path = "/cis/scan-result/details/get"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4644,7 +4667,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4661,6 +4684,7 @@ defmodule AWS.Inspector2 do
   def get_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/configuration/get"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4671,7 +4695,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4690,6 +4714,7 @@ defmodule AWS.Inspector2 do
   def get_delegated_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/delegatedadminaccounts/get"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4700,7 +4725,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4722,6 +4747,7 @@ defmodule AWS.Inspector2 do
   def get_ec2_deep_inspection_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/ec2deepinspectionconfiguration/get"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4732,7 +4758,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4780,6 +4806,7 @@ defmodule AWS.Inspector2 do
   def get_findings_report_status(%Client{} = client, input, options \\ []) do
     url_path = "/reporting/status/get"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4790,7 +4817,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4807,6 +4834,7 @@ defmodule AWS.Inspector2 do
   def get_member(%Client{} = client, input, options \\ []) do
     url_path = "/members/get"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4817,7 +4845,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4834,6 +4862,7 @@ defmodule AWS.Inspector2 do
   def get_sbom_export(%Client{} = client, input, options \\ []) do
     url_path = "/sbomexport/get"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4844,7 +4873,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4861,6 +4890,7 @@ defmodule AWS.Inspector2 do
   def list_account_permissions(%Client{} = client, input, options \\ []) do
     url_path = "/accountpermissions/list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4871,7 +4901,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4888,6 +4918,7 @@ defmodule AWS.Inspector2 do
   def list_cis_scan_configurations(%Client{} = client, input, options \\ []) do
     url_path = "/cis/scan-configuration/list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4898,7 +4929,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4919,6 +4950,7 @@ defmodule AWS.Inspector2 do
   def list_cis_scan_results_aggregated_by_checks(%Client{} = client, input, options \\ []) do
     url_path = "/cis/scan-result/check/list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4929,7 +4961,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4954,6 +4986,7 @@ defmodule AWS.Inspector2 do
       ) do
     url_path = "/cis/scan-result/resource/list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4964,7 +4997,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4981,6 +5014,7 @@ defmodule AWS.Inspector2 do
   def list_cis_scans(%Client{} = client, input, options \\ []) do
     url_path = "/cis/scan/list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4991,7 +5025,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5008,6 +5042,7 @@ defmodule AWS.Inspector2 do
   def list_coverage(%Client{} = client, input, options \\ []) do
     url_path = "/coverage/list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5018,7 +5053,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5035,6 +5070,7 @@ defmodule AWS.Inspector2 do
   def list_coverage_statistics(%Client{} = client, input, options \\ []) do
     url_path = "/coverage/statistics/list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5045,7 +5081,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5063,6 +5099,7 @@ defmodule AWS.Inspector2 do
   def list_delegated_admin_accounts(%Client{} = client, input, options \\ []) do
     url_path = "/delegatedadminaccounts/list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5073,7 +5110,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5090,6 +5127,7 @@ defmodule AWS.Inspector2 do
   def list_filters(%Client{} = client, input, options \\ []) do
     url_path = "/filters/list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5100,7 +5138,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5117,6 +5155,7 @@ defmodule AWS.Inspector2 do
   def list_finding_aggregations(%Client{} = client, input, options \\ []) do
     url_path = "/findings/aggregation/list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5127,7 +5166,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5144,6 +5183,7 @@ defmodule AWS.Inspector2 do
   def list_findings(%Client{} = client, input, options \\ []) do
     url_path = "/findings/list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5154,7 +5194,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5173,6 +5213,7 @@ defmodule AWS.Inspector2 do
   def list_members(%Client{} = client, input, options \\ []) do
     url_path = "/members/list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5183,7 +5224,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5217,6 +5258,7 @@ defmodule AWS.Inspector2 do
   def list_usage_totals(%Client{} = client, input, options \\ []) do
     url_path = "/usage/list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5227,7 +5269,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5247,11 +5289,22 @@ defmodule AWS.Inspector2 do
   def reset_encryption_key(%Client{} = client, input, options \\ []) do
     url_path = "/encryptionkey/reset"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5264,6 +5317,7 @@ defmodule AWS.Inspector2 do
   def search_vulnerabilities(%Client{} = client, input, options \\ []) do
     url_path = "/vulnerabilities/search"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5274,7 +5328,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5297,11 +5351,22 @@ defmodule AWS.Inspector2 do
   def send_cis_session_health(%Client{} = client, input, options \\ []) do
     url_path = "/cissession/health/send"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5320,11 +5385,22 @@ defmodule AWS.Inspector2 do
   def send_cis_session_telemetry(%Client{} = client, input, options \\ []) do
     url_path = "/cissession/telemetry/send"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5343,11 +5419,22 @@ defmodule AWS.Inspector2 do
   def start_cis_session(%Client{} = client, input, options \\ []) do
     url_path = "/cissession/start"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5366,11 +5453,22 @@ defmodule AWS.Inspector2 do
   def stop_cis_session(%Client{} = client, input, options \\ []) do
     url_path = "/cissession/stop"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5383,6 +5481,7 @@ defmodule AWS.Inspector2 do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5393,7 +5492,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5410,6 +5509,7 @@ defmodule AWS.Inspector2 do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5425,7 +5525,7 @@ defmodule AWS.Inspector2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5442,6 +5542,7 @@ defmodule AWS.Inspector2 do
   def update_cis_scan_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/cis/scan-configuration/update"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5452,7 +5553,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5473,6 +5574,7 @@ defmodule AWS.Inspector2 do
   def update_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/configuration/update"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5483,7 +5585,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5505,6 +5607,7 @@ defmodule AWS.Inspector2 do
   def update_ec2_deep_inspection_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/ec2deepinspectionconfiguration/update"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5515,7 +5618,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5535,11 +5638,22 @@ defmodule AWS.Inspector2 do
   def update_encryption_key(%Client{} = client, input, options \\ []) do
     url_path = "/encryptionkey/update"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5553,6 +5667,7 @@ defmodule AWS.Inspector2 do
   def update_filter(%Client{} = client, input, options \\ []) do
     url_path = "/filters/update"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5563,7 +5678,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5586,6 +5701,7 @@ defmodule AWS.Inspector2 do
   def update_org_ec2_deep_inspection_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/ec2deepinspectionconfiguration/org/update"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5596,7 +5712,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5617,6 +5733,7 @@ defmodule AWS.Inspector2 do
   def update_organization_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/organizationconfiguration/update"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5627,7 +5744,7 @@ defmodule AWS.Inspector2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

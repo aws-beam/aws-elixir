@@ -528,6 +528,7 @@ defmodule AWS.LexRuntime do
       "/bot/#{AWS.Util.encode_uri(bot_name)}/alias/#{AWS.Util.encode_uri(bot_alias)}/user/#{AWS.Util.encode_uri(user_id)}/session"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -538,7 +539,7 @@ defmodule AWS.LexRuntime do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -674,6 +675,7 @@ defmodule AWS.LexRuntime do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -709,7 +711,7 @@ defmodule AWS.LexRuntime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -800,6 +802,7 @@ defmodule AWS.LexRuntime do
       "/bot/#{AWS.Util.encode_uri(bot_name)}/alias/#{AWS.Util.encode_uri(bot_alias)}/user/#{AWS.Util.encode_uri(user_id)}/text"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -810,7 +813,7 @@ defmodule AWS.LexRuntime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -840,6 +843,7 @@ defmodule AWS.LexRuntime do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -869,7 +873,7 @@ defmodule AWS.LexRuntime do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

@@ -284,6 +284,7 @@ defmodule AWS.AppConfigData do
   def start_configuration_session(%Client{} = client, input, options \\ []) do
     url_path = "/configurationsessions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -294,7 +295,7 @@ defmodule AWS.AppConfigData do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201

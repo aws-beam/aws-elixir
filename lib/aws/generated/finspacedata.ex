@@ -1426,6 +1426,7 @@ defmodule AWS.Finspacedata do
       "/permission-group/#{AWS.Util.encode_uri(permission_group_id)}/users/#{AWS.Util.encode_uri(user_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1436,7 +1437,7 @@ defmodule AWS.Finspacedata do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1453,6 +1454,7 @@ defmodule AWS.Finspacedata do
   def create_changeset(%Client{} = client, dataset_id, input, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}/changesetsv2"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1463,7 +1465,7 @@ defmodule AWS.Finspacedata do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1480,6 +1482,7 @@ defmodule AWS.Finspacedata do
   def create_data_view(%Client{} = client, dataset_id, input, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}/dataviewsv2"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1490,7 +1493,7 @@ defmodule AWS.Finspacedata do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1507,6 +1510,7 @@ defmodule AWS.Finspacedata do
   def create_dataset(%Client{} = client, input, options \\ []) do
     url_path = "/datasetsv2"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1517,7 +1521,7 @@ defmodule AWS.Finspacedata do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1535,6 +1539,7 @@ defmodule AWS.Finspacedata do
   def create_permission_group(%Client{} = client, input, options \\ []) do
     url_path = "/permission-group"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1545,7 +1550,7 @@ defmodule AWS.Finspacedata do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1562,6 +1567,7 @@ defmodule AWS.Finspacedata do
   def create_user(%Client{} = client, input, options \\ []) do
     url_path = "/user"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1572,7 +1578,7 @@ defmodule AWS.Finspacedata do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1589,6 +1595,7 @@ defmodule AWS.Finspacedata do
   def delete_dataset(%Client{} = client, dataset_id, input, options \\ []) do
     url_path = "/datasetsv2/#{AWS.Util.encode_uri(dataset_id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1604,7 +1611,7 @@ defmodule AWS.Finspacedata do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1623,6 +1630,7 @@ defmodule AWS.Finspacedata do
   def delete_permission_group(%Client{} = client, permission_group_id, input, options \\ []) do
     url_path = "/permission-group/#{AWS.Util.encode_uri(permission_group_id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1638,7 +1646,7 @@ defmodule AWS.Finspacedata do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1655,6 +1663,7 @@ defmodule AWS.Finspacedata do
   def disable_user(%Client{} = client, user_id, input, options \\ []) do
     url_path = "/user/#{AWS.Util.encode_uri(user_id)}/disable"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1665,7 +1674,7 @@ defmodule AWS.Finspacedata do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1696,6 +1705,7 @@ defmodule AWS.Finspacedata do
       "/permission-group/#{AWS.Util.encode_uri(permission_group_id)}/users/#{AWS.Util.encode_uri(user_id)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1711,7 +1721,7 @@ defmodule AWS.Finspacedata do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1728,6 +1738,7 @@ defmodule AWS.Finspacedata do
   def enable_user(%Client{} = client, user_id, input, options \\ []) do
     url_path = "/user/#{AWS.Util.encode_uri(user_id)}/enable"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1738,7 +1749,7 @@ defmodule AWS.Finspacedata do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1833,6 +1844,7 @@ defmodule AWS.Finspacedata do
       "/datasets/#{AWS.Util.encode_uri(dataset_id)}/dataviewsv2/#{AWS.Util.encode_uri(data_view_id)}/external-access-details"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1843,7 +1855,7 @@ defmodule AWS.Finspacedata do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1935,6 +1947,7 @@ defmodule AWS.Finspacedata do
   def get_working_location(%Client{} = client, input, options \\ []) do
     url_path = "/workingLocationV1"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1945,7 +1958,7 @@ defmodule AWS.Finspacedata do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2206,6 +2219,7 @@ defmodule AWS.Finspacedata do
   def reset_user_password(%Client{} = client, user_id, input, options \\ []) do
     url_path = "/user/#{AWS.Util.encode_uri(user_id)}/password"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2216,7 +2230,7 @@ defmodule AWS.Finspacedata do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2235,11 +2249,22 @@ defmodule AWS.Finspacedata do
       "/datasets/#{AWS.Util.encode_uri(dataset_id)}/changesetsv2/#{AWS.Util.encode_uri(changeset_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2252,11 +2277,22 @@ defmodule AWS.Finspacedata do
   def update_dataset(%Client{} = client, dataset_id, input, options \\ []) do
     url_path = "/datasetsv2/#{AWS.Util.encode_uri(dataset_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2271,11 +2307,22 @@ defmodule AWS.Finspacedata do
   def update_permission_group(%Client{} = client, permission_group_id, input, options \\ []) do
     url_path = "/permission-group/#{AWS.Util.encode_uri(permission_group_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2290,10 +2337,21 @@ defmodule AWS.Finspacedata do
   def update_user(%Client{} = client, user_id, input, options \\ []) do
     url_path = "/user/#{AWS.Util.encode_uri(user_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

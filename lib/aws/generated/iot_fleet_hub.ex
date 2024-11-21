@@ -354,6 +354,7 @@ defmodule AWS.IoTFleetHub do
   def create_application(%Client{} = client, input, options \\ []) do
     url_path = "/applications"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -364,7 +365,7 @@ defmodule AWS.IoTFleetHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -381,6 +382,7 @@ defmodule AWS.IoTFleetHub do
   def delete_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -396,7 +398,7 @@ defmodule AWS.IoTFleetHub do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -474,6 +476,7 @@ defmodule AWS.IoTFleetHub do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -484,7 +487,7 @@ defmodule AWS.IoTFleetHub do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -501,6 +504,7 @@ defmodule AWS.IoTFleetHub do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -516,7 +520,7 @@ defmodule AWS.IoTFleetHub do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -533,6 +537,7 @@ defmodule AWS.IoTFleetHub do
   def update_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -543,7 +548,7 @@ defmodule AWS.IoTFleetHub do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202

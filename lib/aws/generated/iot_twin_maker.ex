@@ -2376,6 +2376,7 @@ defmodule AWS.IoTTwinMaker do
   def batch_put_property_values(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entity-properties"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "data.")
@@ -2386,7 +2387,7 @@ defmodule AWS.IoTTwinMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2413,11 +2414,22 @@ defmodule AWS.IoTTwinMaker do
       ) do
     url_path = "/metadata-transfer-jobs/#{AWS.Util.encode_uri(metadata_transfer_job_id)}/cancel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2444,6 +2456,7 @@ defmodule AWS.IoTTwinMaker do
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/component-types/#{AWS.Util.encode_uri(component_type_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -2454,7 +2467,7 @@ defmodule AWS.IoTTwinMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2471,6 +2484,7 @@ defmodule AWS.IoTTwinMaker do
   def create_entity(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entities"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -2481,7 +2495,7 @@ defmodule AWS.IoTTwinMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2498,6 +2512,7 @@ defmodule AWS.IoTTwinMaker do
   def create_metadata_transfer_job(%Client{} = client, input, options \\ []) do
     url_path = "/metadata-transfer-jobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -2508,7 +2523,7 @@ defmodule AWS.IoTTwinMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2525,6 +2540,7 @@ defmodule AWS.IoTTwinMaker do
   def create_scene(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/scenes"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -2535,7 +2551,7 @@ defmodule AWS.IoTTwinMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2554,6 +2570,7 @@ defmodule AWS.IoTTwinMaker do
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/sync-jobs/#{AWS.Util.encode_uri(sync_source)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -2564,7 +2581,7 @@ defmodule AWS.IoTTwinMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2581,6 +2598,7 @@ defmodule AWS.IoTTwinMaker do
   def create_workspace(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -2591,7 +2609,7 @@ defmodule AWS.IoTTwinMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2622,6 +2640,7 @@ defmodule AWS.IoTTwinMaker do
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/component-types/#{AWS.Util.encode_uri(component_type_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -2632,7 +2651,7 @@ defmodule AWS.IoTTwinMaker do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2651,6 +2670,7 @@ defmodule AWS.IoTTwinMaker do
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entities/#{AWS.Util.encode_uri(entity_id)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2666,7 +2686,7 @@ defmodule AWS.IoTTwinMaker do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2685,6 +2705,7 @@ defmodule AWS.IoTTwinMaker do
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/scenes/#{AWS.Util.encode_uri(scene_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -2695,7 +2716,7 @@ defmodule AWS.IoTTwinMaker do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2714,6 +2735,7 @@ defmodule AWS.IoTTwinMaker do
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/sync-jobs/#{AWS.Util.encode_uri(sync_source)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -2724,7 +2746,7 @@ defmodule AWS.IoTTwinMaker do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2741,6 +2763,7 @@ defmodule AWS.IoTTwinMaker do
   def delete_workspace(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -2751,7 +2774,7 @@ defmodule AWS.IoTTwinMaker do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2772,6 +2795,7 @@ defmodule AWS.IoTTwinMaker do
   def execute_query(%Client{} = client, input, options \\ []) do
     url_path = "/queries/execution"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -2782,7 +2806,7 @@ defmodule AWS.IoTTwinMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2874,6 +2898,7 @@ defmodule AWS.IoTTwinMaker do
   def get_property_value(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entity-properties/value"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "data.")
@@ -2884,7 +2909,7 @@ defmodule AWS.IoTTwinMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2912,6 +2937,7 @@ defmodule AWS.IoTTwinMaker do
   def get_property_value_history(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entity-properties/history"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "data.")
@@ -2922,7 +2948,7 @@ defmodule AWS.IoTTwinMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2999,6 +3025,7 @@ defmodule AWS.IoTTwinMaker do
   def list_component_types(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/component-types-list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -3009,7 +3036,7 @@ defmodule AWS.IoTTwinMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3028,6 +3055,7 @@ defmodule AWS.IoTTwinMaker do
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entities/#{AWS.Util.encode_uri(entity_id)}/components-list"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -3038,7 +3066,7 @@ defmodule AWS.IoTTwinMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3055,6 +3083,7 @@ defmodule AWS.IoTTwinMaker do
   def list_entities(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entities-list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -3065,7 +3094,7 @@ defmodule AWS.IoTTwinMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3082,6 +3111,7 @@ defmodule AWS.IoTTwinMaker do
   def list_metadata_transfer_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/metadata-transfer-jobs-list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -3092,7 +3122,7 @@ defmodule AWS.IoTTwinMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3109,6 +3139,7 @@ defmodule AWS.IoTTwinMaker do
   def list_properties(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/properties-list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -3119,7 +3150,7 @@ defmodule AWS.IoTTwinMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3136,6 +3167,7 @@ defmodule AWS.IoTTwinMaker do
   def list_scenes(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/scenes-list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -3146,7 +3178,7 @@ defmodule AWS.IoTTwinMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3163,6 +3195,7 @@ defmodule AWS.IoTTwinMaker do
   def list_sync_jobs(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/sync-jobs-list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -3173,7 +3206,7 @@ defmodule AWS.IoTTwinMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3192,6 +3225,7 @@ defmodule AWS.IoTTwinMaker do
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/sync-jobs/#{AWS.Util.encode_uri(sync_source)}/resources-list"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -3202,7 +3236,7 @@ defmodule AWS.IoTTwinMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3219,6 +3253,7 @@ defmodule AWS.IoTTwinMaker do
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags-list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -3229,7 +3264,7 @@ defmodule AWS.IoTTwinMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3246,6 +3281,7 @@ defmodule AWS.IoTTwinMaker do
   def list_workspaces(%Client{} = client, input, options \\ []) do
     url_path = "/workspaces-list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -3256,7 +3292,7 @@ defmodule AWS.IoTTwinMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3273,6 +3309,7 @@ defmodule AWS.IoTTwinMaker do
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -3283,7 +3320,7 @@ defmodule AWS.IoTTwinMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3300,6 +3337,7 @@ defmodule AWS.IoTTwinMaker do
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3316,7 +3354,7 @@ defmodule AWS.IoTTwinMaker do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3347,11 +3385,22 @@ defmodule AWS.IoTTwinMaker do
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/component-types/#{AWS.Util.encode_uri(component_type_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3366,11 +3415,22 @@ defmodule AWS.IoTTwinMaker do
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entities/#{AWS.Util.encode_uri(entity_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3383,6 +3443,7 @@ defmodule AWS.IoTTwinMaker do
   def update_pricing_plan(%Client{} = client, input, options \\ []) do
     url_path = "/pricingplan"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
@@ -3393,7 +3454,7 @@ defmodule AWS.IoTTwinMaker do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3412,11 +3473,22 @@ defmodule AWS.IoTTwinMaker do
       "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/scenes/#{AWS.Util.encode_uri(scene_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3429,10 +3501,21 @@ defmodule AWS.IoTTwinMaker do
   def update_workspace(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

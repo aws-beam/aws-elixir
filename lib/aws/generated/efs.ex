@@ -1384,6 +1384,7 @@ defmodule AWS.EFS do
   def create_access_point(%Client{} = client, input, options \\ []) do
     url_path = "/2015-02-01/access-points"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1394,7 +1395,7 @@ defmodule AWS.EFS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1489,6 +1490,7 @@ defmodule AWS.EFS do
   def create_file_system(%Client{} = client, input, options \\ []) do
     url_path = "/2015-02-01/file-systems"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1499,7 +1501,7 @@ defmodule AWS.EFS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1688,6 +1690,7 @@ defmodule AWS.EFS do
   def create_mount_target(%Client{} = client, input, options \\ []) do
     url_path = "/2015-02-01/mount-targets"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1698,7 +1701,7 @@ defmodule AWS.EFS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1759,6 +1762,7 @@ defmodule AWS.EFS do
       "/2015-02-01/file-systems/#{AWS.Util.encode_uri(source_file_system_id)}/replication-configuration"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1769,7 +1773,7 @@ defmodule AWS.EFS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1802,6 +1806,7 @@ defmodule AWS.EFS do
   def create_tags(%Client{} = client, file_system_id, input, options \\ []) do
     url_path = "/2015-02-01/create-tags/#{AWS.Util.encode_uri(file_system_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1812,7 +1817,7 @@ defmodule AWS.EFS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1837,6 +1842,7 @@ defmodule AWS.EFS do
   def delete_access_point(%Client{} = client, access_point_id, input, options \\ []) do
     url_path = "/2015-02-01/access-points/#{AWS.Util.encode_uri(access_point_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1847,7 +1853,7 @@ defmodule AWS.EFS do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1893,6 +1899,7 @@ defmodule AWS.EFS do
   def delete_file_system(%Client{} = client, file_system_id, input, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1903,7 +1910,7 @@ defmodule AWS.EFS do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1928,6 +1935,7 @@ defmodule AWS.EFS do
   def delete_file_system_policy(%Client{} = client, file_system_id, input, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/policy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1938,7 +1946,7 @@ defmodule AWS.EFS do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1989,6 +1997,7 @@ defmodule AWS.EFS do
   def delete_mount_target(%Client{} = client, mount_target_id, input, options \\ []) do
     url_path = "/2015-02-01/mount-targets/#{AWS.Util.encode_uri(mount_target_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1999,7 +2008,7 @@ defmodule AWS.EFS do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2037,6 +2046,7 @@ defmodule AWS.EFS do
       "/2015-02-01/file-systems/#{AWS.Util.encode_uri(source_file_system_id)}/replication-configuration"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2052,7 +2062,7 @@ defmodule AWS.EFS do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2083,6 +2093,7 @@ defmodule AWS.EFS do
   def delete_tags(%Client{} = client, file_system_id, input, options \\ []) do
     url_path = "/2015-02-01/delete-tags/#{AWS.Util.encode_uri(file_system_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2093,7 +2104,7 @@ defmodule AWS.EFS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2647,11 +2658,22 @@ defmodule AWS.EFS do
       ) do
     url_path = "/2015-02-01/mount-targets/#{AWS.Util.encode_uri(mount_target_id)}/security-groups"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -2681,11 +2703,22 @@ defmodule AWS.EFS do
   def put_account_preferences(%Client{} = client, input, options \\ []) do
     url_path = "/2015-02-01/account-preferences"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2700,11 +2733,22 @@ defmodule AWS.EFS do
   def put_backup_policy(%Client{} = client, file_system_id, input, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/backup-policy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2736,11 +2780,22 @@ defmodule AWS.EFS do
   def put_file_system_policy(%Client{} = client, file_system_id, input, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/policy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2832,11 +2887,22 @@ defmodule AWS.EFS do
       "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/lifecycle-configuration"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2855,6 +2921,7 @@ defmodule AWS.EFS do
   def tag_resource(%Client{} = client, resource_id, input, options \\ []) do
     url_path = "/2015-02-01/resource-tags/#{AWS.Util.encode_uri(resource_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2865,7 +2932,7 @@ defmodule AWS.EFS do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2888,6 +2955,7 @@ defmodule AWS.EFS do
   def untag_resource(%Client{} = client, resource_id, input, options \\ []) do
     url_path = "/2015-02-01/resource-tags/#{AWS.Util.encode_uri(resource_id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2903,7 +2971,7 @@ defmodule AWS.EFS do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2922,11 +2990,22 @@ defmodule AWS.EFS do
   def update_file_system(%Client{} = client, file_system_id, input, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 202)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -2947,10 +3026,21 @@ defmodule AWS.EFS do
   def update_file_system_protection(%Client{} = client, file_system_id, input, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/protection"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

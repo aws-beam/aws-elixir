@@ -336,6 +336,7 @@ defmodule AWS.CloudFrontKeyValueStore do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -353,7 +354,7 @@ defmodule AWS.CloudFrontKeyValueStore do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -451,6 +452,7 @@ defmodule AWS.CloudFrontKeyValueStore do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -462,7 +464,17 @@ defmodule AWS.CloudFrontKeyValueStore do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -481,6 +493,7 @@ defmodule AWS.CloudFrontKeyValueStore do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -498,7 +511,7 @@ defmodule AWS.CloudFrontKeyValueStore do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

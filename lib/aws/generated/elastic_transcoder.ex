@@ -1143,6 +1143,7 @@ defmodule AWS.ElasticTranscoder do
   def cancel_job(%Client{} = client, id, input, options \\ []) do
     url_path = "/2012-09-25/jobs/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1153,7 +1154,7 @@ defmodule AWS.ElasticTranscoder do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1178,6 +1179,7 @@ defmodule AWS.ElasticTranscoder do
   def create_job(%Client{} = client, input, options \\ []) do
     url_path = "/2012-09-25/jobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1188,7 +1190,7 @@ defmodule AWS.ElasticTranscoder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1205,6 +1207,7 @@ defmodule AWS.ElasticTranscoder do
   def create_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/2012-09-25/pipelines"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1215,7 +1218,7 @@ defmodule AWS.ElasticTranscoder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1254,6 +1257,7 @@ defmodule AWS.ElasticTranscoder do
   def create_preset(%Client{} = client, input, options \\ []) do
     url_path = "/2012-09-25/presets"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1264,7 +1268,7 @@ defmodule AWS.ElasticTranscoder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1286,6 +1290,7 @@ defmodule AWS.ElasticTranscoder do
   def delete_pipeline(%Client{} = client, id, input, options \\ []) do
     url_path = "/2012-09-25/pipelines/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1296,7 +1301,7 @@ defmodule AWS.ElasticTranscoder do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1315,6 +1320,7 @@ defmodule AWS.ElasticTranscoder do
   def delete_preset(%Client{} = client, id, input, options \\ []) do
     url_path = "/2012-09-25/presets/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1325,7 +1331,7 @@ defmodule AWS.ElasticTranscoder do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1549,6 +1555,7 @@ defmodule AWS.ElasticTranscoder do
   def test_role(%Client{} = client, input, options \\ []) do
     url_path = "/2012-09-25/roleTests"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1559,7 +1566,7 @@ defmodule AWS.ElasticTranscoder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1581,11 +1588,22 @@ defmodule AWS.ElasticTranscoder do
   def update_pipeline(%Client{} = client, id, input, options \\ []) do
     url_path = "/2012-09-25/pipelines/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1607,6 +1625,7 @@ defmodule AWS.ElasticTranscoder do
   def update_pipeline_notifications(%Client{} = client, id, input, options \\ []) do
     url_path = "/2012-09-25/pipelines/#{AWS.Util.encode_uri(id)}/notifications"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1617,7 +1636,7 @@ defmodule AWS.ElasticTranscoder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1644,6 +1663,7 @@ defmodule AWS.ElasticTranscoder do
   def update_pipeline_status(%Client{} = client, id, input, options \\ []) do
     url_path = "/2012-09-25/pipelines/#{AWS.Util.encode_uri(id)}/status"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1654,7 +1674,7 @@ defmodule AWS.ElasticTranscoder do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

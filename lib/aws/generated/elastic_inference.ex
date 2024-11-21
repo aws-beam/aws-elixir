@@ -308,6 +308,7 @@ defmodule AWS.ElasticInference do
   def describe_accelerator_offerings(%Client{} = client, input, options \\ []) do
     url_path = "/describe-accelerator-offerings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -318,7 +319,7 @@ defmodule AWS.ElasticInference do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -360,6 +361,7 @@ defmodule AWS.ElasticInference do
   def describe_accelerators(%Client{} = client, input, options \\ []) do
     url_path = "/describe-accelerators"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -370,7 +372,7 @@ defmodule AWS.ElasticInference do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -410,6 +412,7 @@ defmodule AWS.ElasticInference do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -420,7 +423,7 @@ defmodule AWS.ElasticInference do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -440,6 +443,7 @@ defmodule AWS.ElasticInference do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -455,7 +459,7 @@ defmodule AWS.ElasticInference do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

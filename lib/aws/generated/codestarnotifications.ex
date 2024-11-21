@@ -657,6 +657,7 @@ defmodule AWS.Codestarnotifications do
   def create_notification_rule(%Client{} = client, input, options \\ []) do
     url_path = "/createNotificationRule"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -667,7 +668,7 @@ defmodule AWS.Codestarnotifications do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -684,6 +685,7 @@ defmodule AWS.Codestarnotifications do
   def delete_notification_rule(%Client{} = client, input, options \\ []) do
     url_path = "/deleteNotificationRule"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -694,7 +696,7 @@ defmodule AWS.Codestarnotifications do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -711,6 +713,7 @@ defmodule AWS.Codestarnotifications do
   def delete_target(%Client{} = client, input, options \\ []) do
     url_path = "/deleteTarget"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -721,7 +724,7 @@ defmodule AWS.Codestarnotifications do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -738,6 +741,7 @@ defmodule AWS.Codestarnotifications do
   def describe_notification_rule(%Client{} = client, input, options \\ []) do
     url_path = "/describeNotificationRule"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -748,7 +752,7 @@ defmodule AWS.Codestarnotifications do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -766,6 +770,7 @@ defmodule AWS.Codestarnotifications do
   def list_event_types(%Client{} = client, input, options \\ []) do
     url_path = "/listEventTypes"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -776,7 +781,7 @@ defmodule AWS.Codestarnotifications do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -793,6 +798,7 @@ defmodule AWS.Codestarnotifications do
   def list_notification_rules(%Client{} = client, input, options \\ []) do
     url_path = "/listNotificationRules"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -803,7 +809,7 @@ defmodule AWS.Codestarnotifications do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -820,6 +826,7 @@ defmodule AWS.Codestarnotifications do
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     url_path = "/listTagsForResource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -830,7 +837,7 @@ defmodule AWS.Codestarnotifications do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -848,6 +855,7 @@ defmodule AWS.Codestarnotifications do
   def list_targets(%Client{} = client, input, options \\ []) do
     url_path = "/listTargets"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -858,7 +866,7 @@ defmodule AWS.Codestarnotifications do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -879,6 +887,7 @@ defmodule AWS.Codestarnotifications do
   def subscribe(%Client{} = client, input, options \\ []) do
     url_path = "/subscribe"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -889,7 +898,7 @@ defmodule AWS.Codestarnotifications do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -906,6 +915,7 @@ defmodule AWS.Codestarnotifications do
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tagResource"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -916,7 +926,7 @@ defmodule AWS.Codestarnotifications do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -936,6 +946,7 @@ defmodule AWS.Codestarnotifications do
   def unsubscribe(%Client{} = client, input, options \\ []) do
     url_path = "/unsubscribe"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -946,7 +957,7 @@ defmodule AWS.Codestarnotifications do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -964,6 +975,7 @@ defmodule AWS.Codestarnotifications do
   def untag_resource(%Client{} = client, arn, input, options \\ []) do
     url_path = "/untagResource/#{AWS.Util.encode_uri(arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -979,7 +991,7 @@ defmodule AWS.Codestarnotifications do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1003,6 +1015,7 @@ defmodule AWS.Codestarnotifications do
   def update_notification_rule(%Client{} = client, input, options \\ []) do
     url_path = "/updateNotificationRule"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1013,7 +1026,7 @@ defmodule AWS.Codestarnotifications do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

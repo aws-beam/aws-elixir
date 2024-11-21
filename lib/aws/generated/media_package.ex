@@ -1110,11 +1110,22 @@ defmodule AWS.MediaPackage do
   def configure_logs(%Client{} = client, id, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(id)}/configure_logs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1127,6 +1138,7 @@ defmodule AWS.MediaPackage do
   def create_channel(%Client{} = client, input, options \\ []) do
     url_path = "/channels"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1137,7 +1149,7 @@ defmodule AWS.MediaPackage do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1154,6 +1166,7 @@ defmodule AWS.MediaPackage do
   def create_harvest_job(%Client{} = client, input, options \\ []) do
     url_path = "/harvest_jobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1164,7 +1177,7 @@ defmodule AWS.MediaPackage do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1181,6 +1194,7 @@ defmodule AWS.MediaPackage do
   def create_origin_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/origin_endpoints"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1191,7 +1205,7 @@ defmodule AWS.MediaPackage do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1208,6 +1222,7 @@ defmodule AWS.MediaPackage do
   def delete_channel(%Client{} = client, id, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1218,7 +1233,7 @@ defmodule AWS.MediaPackage do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1235,6 +1250,7 @@ defmodule AWS.MediaPackage do
   def delete_origin_endpoint(%Client{} = client, id, input, options \\ []) do
     url_path = "/origin_endpoints/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1245,7 +1261,7 @@ defmodule AWS.MediaPackage do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1468,11 +1484,22 @@ defmodule AWS.MediaPackage do
   def rotate_channel_credentials(%Client{} = client, id, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(id)}/credentials"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1500,11 +1527,22 @@ defmodule AWS.MediaPackage do
       "/channels/#{AWS.Util.encode_uri(id)}/ingest_endpoints/#{AWS.Util.encode_uri(ingest_endpoint_id)}/credentials"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
@@ -1513,6 +1551,7 @@ defmodule AWS.MediaPackage do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1523,7 +1562,7 @@ defmodule AWS.MediaPackage do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1536,6 +1575,7 @@ defmodule AWS.MediaPackage do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1551,7 +1591,7 @@ defmodule AWS.MediaPackage do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1568,11 +1608,22 @@ defmodule AWS.MediaPackage do
   def update_channel(%Client{} = client, id, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1585,10 +1636,21 @@ defmodule AWS.MediaPackage do
   def update_origin_endpoint(%Client{} = client, id, input, options \\ []) do
     url_path = "/origin_endpoints/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

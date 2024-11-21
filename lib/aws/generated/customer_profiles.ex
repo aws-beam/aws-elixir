@@ -3543,6 +3543,7 @@ defmodule AWS.CustomerProfiles do
   def add_profile_key(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/keys"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3553,7 +3554,7 @@ defmodule AWS.CustomerProfiles do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3584,6 +3585,7 @@ defmodule AWS.CustomerProfiles do
       "/domains/#{AWS.Util.encode_uri(domain_name)}/calculated-attributes/#{AWS.Util.encode_uri(calculated_attribute_name)}/batch-get-for-profiles"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3594,7 +3596,7 @@ defmodule AWS.CustomerProfiles do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3611,6 +3613,7 @@ defmodule AWS.CustomerProfiles do
   def batch_get_profile(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/batch-get-profiles"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3621,7 +3624,7 @@ defmodule AWS.CustomerProfiles do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3663,6 +3666,7 @@ defmodule AWS.CustomerProfiles do
       "/domains/#{AWS.Util.encode_uri(domain_name)}/calculated-attributes/#{AWS.Util.encode_uri(calculated_attribute_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3673,7 +3677,7 @@ defmodule AWS.CustomerProfiles do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3719,6 +3723,7 @@ defmodule AWS.CustomerProfiles do
   def create_domain(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3729,7 +3734,7 @@ defmodule AWS.CustomerProfiles do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3760,6 +3765,7 @@ defmodule AWS.CustomerProfiles do
       "/domains/#{AWS.Util.encode_uri(domain_name)}/event-streams/#{AWS.Util.encode_uri(event_stream_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3770,7 +3776,7 @@ defmodule AWS.CustomerProfiles do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3796,6 +3802,7 @@ defmodule AWS.CustomerProfiles do
   def create_integration_workflow(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/workflows/integrations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3806,7 +3813,7 @@ defmodule AWS.CustomerProfiles do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3827,6 +3834,7 @@ defmodule AWS.CustomerProfiles do
   def create_profile(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3837,7 +3845,7 @@ defmodule AWS.CustomerProfiles do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3868,6 +3876,7 @@ defmodule AWS.CustomerProfiles do
       "/domains/#{AWS.Util.encode_uri(domain_name)}/segment-definitions/#{AWS.Util.encode_uri(segment_definition_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3878,7 +3887,7 @@ defmodule AWS.CustomerProfiles do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3895,6 +3904,7 @@ defmodule AWS.CustomerProfiles do
   def create_segment_estimate(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/segment-estimates"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3905,7 +3915,7 @@ defmodule AWS.CustomerProfiles do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3936,6 +3946,7 @@ defmodule AWS.CustomerProfiles do
       "/domains/#{AWS.Util.encode_uri(domain_name)}/segments/#{AWS.Util.encode_uri(segment_definition_name)}/snapshots"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3946,7 +3957,7 @@ defmodule AWS.CustomerProfiles do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3983,6 +3994,7 @@ defmodule AWS.CustomerProfiles do
       "/domains/#{AWS.Util.encode_uri(domain_name)}/calculated-attributes/#{AWS.Util.encode_uri(calculated_attribute_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3993,7 +4005,7 @@ defmodule AWS.CustomerProfiles do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4011,6 +4023,7 @@ defmodule AWS.CustomerProfiles do
   def delete_domain(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4021,7 +4034,7 @@ defmodule AWS.CustomerProfiles do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4046,6 +4059,7 @@ defmodule AWS.CustomerProfiles do
       "/domains/#{AWS.Util.encode_uri(domain_name)}/event-streams/#{AWS.Util.encode_uri(event_stream_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4056,7 +4070,7 @@ defmodule AWS.CustomerProfiles do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4073,6 +4087,7 @@ defmodule AWS.CustomerProfiles do
   def delete_integration(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/integrations/delete"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4083,7 +4098,7 @@ defmodule AWS.CustomerProfiles do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4100,6 +4115,7 @@ defmodule AWS.CustomerProfiles do
   def delete_profile(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/delete"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4110,7 +4126,7 @@ defmodule AWS.CustomerProfiles do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4127,6 +4143,7 @@ defmodule AWS.CustomerProfiles do
   def delete_profile_key(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/keys/delete"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4137,7 +4154,7 @@ defmodule AWS.CustomerProfiles do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4154,6 +4171,7 @@ defmodule AWS.CustomerProfiles do
   def delete_profile_object(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/objects/delete"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4164,7 +4182,7 @@ defmodule AWS.CustomerProfiles do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4201,6 +4219,7 @@ defmodule AWS.CustomerProfiles do
       "/domains/#{AWS.Util.encode_uri(domain_name)}/object-types/#{AWS.Util.encode_uri(object_type_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4211,7 +4230,7 @@ defmodule AWS.CustomerProfiles do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4242,6 +4261,7 @@ defmodule AWS.CustomerProfiles do
       "/domains/#{AWS.Util.encode_uri(domain_name)}/segment-definitions/#{AWS.Util.encode_uri(segment_definition_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4252,7 +4272,7 @@ defmodule AWS.CustomerProfiles do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4274,6 +4294,7 @@ defmodule AWS.CustomerProfiles do
       "/domains/#{AWS.Util.encode_uri(domain_name)}/workflows/#{AWS.Util.encode_uri(workflow_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4284,7 +4305,7 @@ defmodule AWS.CustomerProfiles do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4306,6 +4327,7 @@ defmodule AWS.CustomerProfiles do
   def detect_profile_object_type(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/detect/object-types"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4316,7 +4338,7 @@ defmodule AWS.CustomerProfiles do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4354,6 +4376,7 @@ defmodule AWS.CustomerProfiles do
       "/domains/#{AWS.Util.encode_uri(domain_name)}/identity-resolution-jobs/auto-merging-preview"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4364,7 +4387,7 @@ defmodule AWS.CustomerProfiles do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4490,6 +4513,7 @@ defmodule AWS.CustomerProfiles do
   def get_integration(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/integrations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4500,7 +4524,7 @@ defmodule AWS.CustomerProfiles do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4708,6 +4732,7 @@ defmodule AWS.CustomerProfiles do
       "/domains/#{AWS.Util.encode_uri(domain_name)}/segments/#{AWS.Util.encode_uri(segment_definition_name)}/membership"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4718,7 +4743,7 @@ defmodule AWS.CustomerProfiles do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4765,6 +4790,7 @@ defmodule AWS.CustomerProfiles do
   def get_similar_profiles(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/matches"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4781,7 +4807,7 @@ defmodule AWS.CustomerProfiles do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4864,6 +4890,7 @@ defmodule AWS.CustomerProfiles do
   def list_account_integrations(%Client{} = client, input, options \\ []) do
     url_path = "/integrations"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4881,7 +4908,7 @@ defmodule AWS.CustomerProfiles do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5299,6 +5326,7 @@ defmodule AWS.CustomerProfiles do
   def list_profile_objects(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/objects"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5315,7 +5343,7 @@ defmodule AWS.CustomerProfiles do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5427,6 +5455,7 @@ defmodule AWS.CustomerProfiles do
   def list_workflows(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/workflows"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5443,7 +5472,7 @@ defmodule AWS.CustomerProfiles do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5501,6 +5530,7 @@ defmodule AWS.CustomerProfiles do
   def merge_profiles(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/objects/merge"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5511,7 +5541,7 @@ defmodule AWS.CustomerProfiles do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5537,11 +5567,22 @@ defmodule AWS.CustomerProfiles do
   def put_integration(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/integrations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5570,11 +5611,22 @@ defmodule AWS.CustomerProfiles do
   def put_profile_object(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/objects"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5604,11 +5656,22 @@ defmodule AWS.CustomerProfiles do
       "/domains/#{AWS.Util.encode_uri(domain_name)}/object-types/#{AWS.Util.encode_uri(object_type_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5632,6 +5695,7 @@ defmodule AWS.CustomerProfiles do
   def search_profiles(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/search"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5648,7 +5712,7 @@ defmodule AWS.CustomerProfiles do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5688,6 +5752,7 @@ defmodule AWS.CustomerProfiles do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5698,7 +5763,7 @@ defmodule AWS.CustomerProfiles do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5720,6 +5785,7 @@ defmodule AWS.CustomerProfiles do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5735,7 +5801,7 @@ defmodule AWS.CustomerProfiles do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5771,11 +5837,22 @@ defmodule AWS.CustomerProfiles do
       "/domains/#{AWS.Util.encode_uri(domain_name)}/calculated-attributes/#{AWS.Util.encode_uri(calculated_attribute_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5806,11 +5883,22 @@ defmodule AWS.CustomerProfiles do
   def update_domain(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5832,10 +5920,21 @@ defmodule AWS.CustomerProfiles do
   def update_profile(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

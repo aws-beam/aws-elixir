@@ -332,6 +332,7 @@ defmodule AWS.S3Outposts do
   def create_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/S3Outposts/CreateEndpoint"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -342,7 +343,7 @@ defmodule AWS.S3Outposts do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -371,6 +372,7 @@ defmodule AWS.S3Outposts do
   def delete_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/S3Outposts/DeleteEndpoint"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -387,7 +389,7 @@ defmodule AWS.S3Outposts do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

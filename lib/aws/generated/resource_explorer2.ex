@@ -1044,6 +1044,7 @@ defmodule AWS.ResourceExplorer2 do
   def associate_default_view(%Client{} = client, input, options \\ []) do
     url_path = "/AssociateDefaultView"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1054,7 +1055,7 @@ defmodule AWS.ResourceExplorer2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1071,6 +1072,7 @@ defmodule AWS.ResourceExplorer2 do
   def batch_get_view(%Client{} = client, input, options \\ []) do
     url_path = "/BatchGetView"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1081,7 +1083,7 @@ defmodule AWS.ResourceExplorer2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1163,6 +1165,7 @@ defmodule AWS.ResourceExplorer2 do
   def create_index(%Client{} = client, input, options \\ []) do
     url_path = "/CreateIndex"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1173,7 +1176,7 @@ defmodule AWS.ResourceExplorer2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1202,6 +1205,7 @@ defmodule AWS.ResourceExplorer2 do
   def create_view(%Client{} = client, input, options \\ []) do
     url_path = "/CreateView"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1212,7 +1216,7 @@ defmodule AWS.ResourceExplorer2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1246,6 +1250,7 @@ defmodule AWS.ResourceExplorer2 do
   def delete_index(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteIndex"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1256,7 +1261,7 @@ defmodule AWS.ResourceExplorer2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1279,6 +1284,7 @@ defmodule AWS.ResourceExplorer2 do
   def delete_view(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteView"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1289,7 +1295,7 @@ defmodule AWS.ResourceExplorer2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1315,6 +1321,7 @@ defmodule AWS.ResourceExplorer2 do
   def disassociate_default_view(%Client{} = client, input, options \\ []) do
     url_path = "/DisassociateDefaultView"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1325,7 +1332,7 @@ defmodule AWS.ResourceExplorer2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1347,6 +1354,7 @@ defmodule AWS.ResourceExplorer2 do
   def get_account_level_service_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/GetAccountLevelServiceConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1357,7 +1365,7 @@ defmodule AWS.ResourceExplorer2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1377,6 +1385,7 @@ defmodule AWS.ResourceExplorer2 do
   def get_default_view(%Client{} = client, input, options \\ []) do
     url_path = "/GetDefaultView"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1387,7 +1396,7 @@ defmodule AWS.ResourceExplorer2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1406,6 +1415,7 @@ defmodule AWS.ResourceExplorer2 do
   def get_index(%Client{} = client, input, options \\ []) do
     url_path = "/GetIndex"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1416,7 +1426,7 @@ defmodule AWS.ResourceExplorer2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1433,6 +1443,7 @@ defmodule AWS.ResourceExplorer2 do
   def get_managed_view(%Client{} = client, input, options \\ []) do
     url_path = "/GetManagedView"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1443,7 +1454,7 @@ defmodule AWS.ResourceExplorer2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1460,6 +1471,7 @@ defmodule AWS.ResourceExplorer2 do
   def get_view(%Client{} = client, input, options \\ []) do
     url_path = "/GetView"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1470,7 +1482,7 @@ defmodule AWS.ResourceExplorer2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1489,6 +1501,7 @@ defmodule AWS.ResourceExplorer2 do
   def list_indexes(%Client{} = client, input, options \\ []) do
     url_path = "/ListIndexes"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1499,7 +1512,7 @@ defmodule AWS.ResourceExplorer2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1521,6 +1534,7 @@ defmodule AWS.ResourceExplorer2 do
   def list_indexes_for_members(%Client{} = client, input, options \\ []) do
     url_path = "/ListIndexesForMembers"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1531,7 +1545,7 @@ defmodule AWS.ResourceExplorer2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1551,6 +1565,7 @@ defmodule AWS.ResourceExplorer2 do
   def list_managed_views(%Client{} = client, input, options \\ []) do
     url_path = "/ListManagedViews"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1561,7 +1576,7 @@ defmodule AWS.ResourceExplorer2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1583,6 +1598,7 @@ defmodule AWS.ResourceExplorer2 do
   def list_resources(%Client{} = client, input, options \\ []) do
     url_path = "/ListResources"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1593,7 +1609,7 @@ defmodule AWS.ResourceExplorer2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1611,6 +1627,7 @@ defmodule AWS.ResourceExplorer2 do
   def list_supported_resource_types(%Client{} = client, input, options \\ []) do
     url_path = "/ListSupportedResourceTypes"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1621,7 +1638,7 @@ defmodule AWS.ResourceExplorer2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1665,6 +1682,7 @@ defmodule AWS.ResourceExplorer2 do
   def list_views(%Client{} = client, input, options \\ []) do
     url_path = "/ListViews"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1675,7 +1693,7 @@ defmodule AWS.ResourceExplorer2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1710,6 +1728,7 @@ defmodule AWS.ResourceExplorer2 do
   def search(%Client{} = client, input, options \\ []) do
     url_path = "/Search"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1720,7 +1739,7 @@ defmodule AWS.ResourceExplorer2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1738,6 +1757,7 @@ defmodule AWS.ResourceExplorer2 do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1748,7 +1768,7 @@ defmodule AWS.ResourceExplorer2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1766,6 +1786,7 @@ defmodule AWS.ResourceExplorer2 do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1781,7 +1802,7 @@ defmodule AWS.ResourceExplorer2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1864,6 +1885,7 @@ defmodule AWS.ResourceExplorer2 do
   def update_index_type(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateIndexType"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1874,7 +1896,7 @@ defmodule AWS.ResourceExplorer2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1894,6 +1916,7 @@ defmodule AWS.ResourceExplorer2 do
   def update_view(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateView"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1904,7 +1927,7 @@ defmodule AWS.ResourceExplorer2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

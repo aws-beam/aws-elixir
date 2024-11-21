@@ -4547,6 +4547,7 @@ defmodule AWS.Macie2 do
   def accept_invitation(%Client{} = client, input, options \\ []) do
     url_path = "/invitations/accept"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4557,7 +4558,7 @@ defmodule AWS.Macie2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4578,6 +4579,7 @@ defmodule AWS.Macie2 do
   def batch_get_custom_data_identifiers(%Client{} = client, input, options \\ []) do
     url_path = "/custom-data-identifiers/get"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4588,7 +4590,7 @@ defmodule AWS.Macie2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4610,6 +4612,7 @@ defmodule AWS.Macie2 do
   def batch_update_automated_discovery_accounts(%Client{} = client, input, options \\ []) do
     url_path = "/automated-discovery/accounts"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4620,7 +4623,7 @@ defmodule AWS.Macie2 do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4637,6 +4640,7 @@ defmodule AWS.Macie2 do
   def create_allow_list(%Client{} = client, input, options \\ []) do
     url_path = "/allow-lists"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4647,7 +4651,7 @@ defmodule AWS.Macie2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4664,6 +4668,7 @@ defmodule AWS.Macie2 do
   def create_classification_job(%Client{} = client, input, options \\ []) do
     url_path = "/jobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4674,7 +4679,7 @@ defmodule AWS.Macie2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4692,6 +4697,7 @@ defmodule AWS.Macie2 do
   def create_custom_data_identifier(%Client{} = client, input, options \\ []) do
     url_path = "/custom-data-identifiers"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4702,7 +4708,7 @@ defmodule AWS.Macie2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4719,6 +4725,7 @@ defmodule AWS.Macie2 do
   def create_findings_filter(%Client{} = client, input, options \\ []) do
     url_path = "/findingsfilters"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4729,7 +4736,7 @@ defmodule AWS.Macie2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4746,6 +4753,7 @@ defmodule AWS.Macie2 do
   def create_invitations(%Client{} = client, input, options \\ []) do
     url_path = "/invitations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4756,7 +4764,7 @@ defmodule AWS.Macie2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4773,6 +4781,7 @@ defmodule AWS.Macie2 do
   def create_member(%Client{} = client, input, options \\ []) do
     url_path = "/members"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4783,7 +4792,7 @@ defmodule AWS.Macie2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4800,6 +4809,7 @@ defmodule AWS.Macie2 do
   def create_sample_findings(%Client{} = client, input, options \\ []) do
     url_path = "/findings/sample"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4810,7 +4820,7 @@ defmodule AWS.Macie2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4828,6 +4838,7 @@ defmodule AWS.Macie2 do
   def decline_invitations(%Client{} = client, input, options \\ []) do
     url_path = "/invitations/decline"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4838,7 +4849,7 @@ defmodule AWS.Macie2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4855,6 +4866,7 @@ defmodule AWS.Macie2 do
   def delete_allow_list(%Client{} = client, id, input, options \\ []) do
     url_path = "/allow-lists/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4870,7 +4882,7 @@ defmodule AWS.Macie2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4892,6 +4904,7 @@ defmodule AWS.Macie2 do
   def delete_custom_data_identifier(%Client{} = client, id, input, options \\ []) do
     url_path = "/custom-data-identifiers/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4902,7 +4915,7 @@ defmodule AWS.Macie2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4919,6 +4932,7 @@ defmodule AWS.Macie2 do
   def delete_findings_filter(%Client{} = client, id, input, options \\ []) do
     url_path = "/findingsfilters/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4929,7 +4943,7 @@ defmodule AWS.Macie2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4947,6 +4961,7 @@ defmodule AWS.Macie2 do
   def delete_invitations(%Client{} = client, input, options \\ []) do
     url_path = "/invitations/delete"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4957,7 +4972,7 @@ defmodule AWS.Macie2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4975,6 +4990,7 @@ defmodule AWS.Macie2 do
   def delete_member(%Client{} = client, id, input, options \\ []) do
     url_path = "/members/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4985,7 +5001,7 @@ defmodule AWS.Macie2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5003,6 +5019,7 @@ defmodule AWS.Macie2 do
   def describe_buckets(%Client{} = client, input, options \\ []) do
     url_path = "/datasources/s3"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5013,7 +5030,7 @@ defmodule AWS.Macie2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5066,6 +5083,7 @@ defmodule AWS.Macie2 do
   def disable_macie(%Client{} = client, input, options \\ []) do
     url_path = "/macie"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5076,7 +5094,7 @@ defmodule AWS.Macie2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5098,6 +5116,7 @@ defmodule AWS.Macie2 do
   def disable_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/admin"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -5113,7 +5132,7 @@ defmodule AWS.Macie2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5134,6 +5153,7 @@ defmodule AWS.Macie2 do
   def disassociate_from_administrator_account(%Client{} = client, input, options \\ []) do
     url_path = "/administrator/disassociate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5144,7 +5164,7 @@ defmodule AWS.Macie2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5169,6 +5189,7 @@ defmodule AWS.Macie2 do
   def disassociate_from_master_account(%Client{} = client, input, options \\ []) do
     url_path = "/master/disassociate"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5179,7 +5200,7 @@ defmodule AWS.Macie2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5196,6 +5217,7 @@ defmodule AWS.Macie2 do
   def disassociate_member(%Client{} = client, id, input, options \\ []) do
     url_path = "/members/disassociate/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5206,7 +5228,7 @@ defmodule AWS.Macie2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5224,6 +5246,7 @@ defmodule AWS.Macie2 do
   def enable_macie(%Client{} = client, input, options \\ []) do
     url_path = "/macie"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5234,7 +5257,7 @@ defmodule AWS.Macie2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5256,6 +5279,7 @@ defmodule AWS.Macie2 do
   def enable_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/admin"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5266,7 +5290,7 @@ defmodule AWS.Macie2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5337,6 +5361,7 @@ defmodule AWS.Macie2 do
   def get_bucket_statistics(%Client{} = client, input, options \\ []) do
     url_path = "/datasources/s3/statistics"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5347,7 +5372,7 @@ defmodule AWS.Macie2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5415,6 +5440,7 @@ defmodule AWS.Macie2 do
   def get_finding_statistics(%Client{} = client, input, options \\ []) do
     url_path = "/findings/statistics"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5425,7 +5451,7 @@ defmodule AWS.Macie2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5442,6 +5468,7 @@ defmodule AWS.Macie2 do
   def get_findings(%Client{} = client, input, options \\ []) do
     url_path = "/findings/describe"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5452,7 +5479,7 @@ defmodule AWS.Macie2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5670,6 +5697,7 @@ defmodule AWS.Macie2 do
   def get_usage_statistics(%Client{} = client, input, options \\ []) do
     url_path = "/usage/statistics"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5680,7 +5708,7 @@ defmodule AWS.Macie2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5803,6 +5831,7 @@ defmodule AWS.Macie2 do
   def list_classification_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/jobs/list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5813,7 +5842,7 @@ defmodule AWS.Macie2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5867,6 +5896,7 @@ defmodule AWS.Macie2 do
   def list_custom_data_identifiers(%Client{} = client, input, options \\ []) do
     url_path = "/custom-data-identifiers/list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5877,7 +5907,7 @@ defmodule AWS.Macie2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5894,6 +5924,7 @@ defmodule AWS.Macie2 do
   def list_findings(%Client{} = client, input, options \\ []) do
     url_path = "/findings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5904,7 +5935,7 @@ defmodule AWS.Macie2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5989,6 +6020,7 @@ defmodule AWS.Macie2 do
   def list_managed_data_identifiers(%Client{} = client, input, options \\ []) do
     url_path = "/managed-data-identifiers/list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5999,7 +6031,7 @@ defmodule AWS.Macie2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6245,11 +6277,22 @@ defmodule AWS.Macie2 do
   def put_classification_export_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/classification-export-configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6266,11 +6309,22 @@ defmodule AWS.Macie2 do
   def put_findings_publication_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/findings-publication-configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6284,6 +6338,7 @@ defmodule AWS.Macie2 do
   def search_resources(%Client{} = client, input, options \\ []) do
     url_path = "/datasources/search-resources"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6294,7 +6349,7 @@ defmodule AWS.Macie2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6311,6 +6366,7 @@ defmodule AWS.Macie2 do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6321,7 +6377,7 @@ defmodule AWS.Macie2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -6338,6 +6394,7 @@ defmodule AWS.Macie2 do
   def test_custom_data_identifier(%Client{} = client, input, options \\ []) do
     url_path = "/custom-data-identifiers/test"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6348,7 +6405,7 @@ defmodule AWS.Macie2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6364,6 +6421,7 @@ defmodule AWS.Macie2 do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -6379,7 +6437,7 @@ defmodule AWS.Macie2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -6396,11 +6454,22 @@ defmodule AWS.Macie2 do
   def update_allow_list(%Client{} = client, id, input, options \\ []) do
     url_path = "/allow-lists/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6418,11 +6487,22 @@ defmodule AWS.Macie2 do
   def update_automated_discovery_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/automated-discovery/configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6435,6 +6515,7 @@ defmodule AWS.Macie2 do
   def update_classification_job(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6445,7 +6526,7 @@ defmodule AWS.Macie2 do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6467,6 +6548,7 @@ defmodule AWS.Macie2 do
   def update_classification_scope(%Client{} = client, id, input, options \\ []) do
     url_path = "/classification-scopes/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6477,7 +6559,7 @@ defmodule AWS.Macie2 do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6494,6 +6576,7 @@ defmodule AWS.Macie2 do
   def update_findings_filter(%Client{} = client, id, input, options \\ []) do
     url_path = "/findingsfilters/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6504,7 +6587,7 @@ defmodule AWS.Macie2 do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6522,6 +6605,7 @@ defmodule AWS.Macie2 do
   def update_macie_session(%Client{} = client, input, options \\ []) do
     url_path = "/macie"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6532,7 +6616,7 @@ defmodule AWS.Macie2 do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6550,6 +6634,7 @@ defmodule AWS.Macie2 do
   def update_member_session(%Client{} = client, id, input, options \\ []) do
     url_path = "/macie/members/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6560,7 +6645,7 @@ defmodule AWS.Macie2 do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6582,6 +6667,7 @@ defmodule AWS.Macie2 do
   def update_organization_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/admin/configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6592,7 +6678,7 @@ defmodule AWS.Macie2 do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6609,6 +6695,7 @@ defmodule AWS.Macie2 do
   def update_resource_profile(%Client{} = client, input, options \\ []) do
     url_path = "/resource-profiles"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -6624,7 +6711,7 @@ defmodule AWS.Macie2 do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6645,6 +6732,7 @@ defmodule AWS.Macie2 do
   def update_resource_profile_detections(%Client{} = client, input, options \\ []) do
     url_path = "/resource-profiles/detections"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -6660,7 +6748,7 @@ defmodule AWS.Macie2 do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6678,11 +6766,22 @@ defmodule AWS.Macie2 do
   def update_reveal_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/reveal-configuration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6700,10 +6799,21 @@ defmodule AWS.Macie2 do
   def update_sensitivity_inspection_template(%Client{} = client, id, input, options \\ []) do
     url_path = "/templates/sensitivity-inspections/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

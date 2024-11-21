@@ -1488,6 +1488,7 @@ defmodule AWS.ManagedBlockchain do
   def create_accessor(%Client{} = client, input, options \\ []) do
     url_path = "/accessors"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1498,7 +1499,7 @@ defmodule AWS.ManagedBlockchain do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1517,6 +1518,7 @@ defmodule AWS.ManagedBlockchain do
   def create_member(%Client{} = client, network_id, input, options \\ []) do
     url_path = "/networks/#{AWS.Util.encode_uri(network_id)}/members"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1527,7 +1529,7 @@ defmodule AWS.ManagedBlockchain do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1546,6 +1548,7 @@ defmodule AWS.ManagedBlockchain do
   def create_network(%Client{} = client, input, options \\ []) do
     url_path = "/networks"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1556,7 +1559,7 @@ defmodule AWS.ManagedBlockchain do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1575,6 +1578,7 @@ defmodule AWS.ManagedBlockchain do
   def create_node(%Client{} = client, network_id, input, options \\ []) do
     url_path = "/networks/#{AWS.Util.encode_uri(network_id)}/nodes"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1585,7 +1589,7 @@ defmodule AWS.ManagedBlockchain do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1607,6 +1611,7 @@ defmodule AWS.ManagedBlockchain do
   def create_proposal(%Client{} = client, network_id, input, options \\ []) do
     url_path = "/networks/#{AWS.Util.encode_uri(network_id)}/proposals"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1617,7 +1622,7 @@ defmodule AWS.ManagedBlockchain do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1645,6 +1650,7 @@ defmodule AWS.ManagedBlockchain do
   def delete_accessor(%Client{} = client, accessor_id, input, options \\ []) do
     url_path = "/accessors/#{AWS.Util.encode_uri(accessor_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1655,7 +1661,7 @@ defmodule AWS.ManagedBlockchain do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1684,6 +1690,7 @@ defmodule AWS.ManagedBlockchain do
       "/networks/#{AWS.Util.encode_uri(network_id)}/members/#{AWS.Util.encode_uri(member_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1694,7 +1701,7 @@ defmodule AWS.ManagedBlockchain do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1717,6 +1724,7 @@ defmodule AWS.ManagedBlockchain do
       "/networks/#{AWS.Util.encode_uri(network_id)}/nodes/#{AWS.Util.encode_uri(node_id)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1732,7 +1740,7 @@ defmodule AWS.ManagedBlockchain do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2262,6 +2270,7 @@ defmodule AWS.ManagedBlockchain do
   def reject_invitation(%Client{} = client, invitation_id, input, options \\ []) do
     url_path = "/invitations/#{AWS.Util.encode_uri(invitation_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2272,7 +2281,7 @@ defmodule AWS.ManagedBlockchain do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2302,6 +2311,7 @@ defmodule AWS.ManagedBlockchain do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2312,7 +2322,7 @@ defmodule AWS.ManagedBlockchain do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2333,6 +2343,7 @@ defmodule AWS.ManagedBlockchain do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2348,7 +2359,7 @@ defmodule AWS.ManagedBlockchain do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2369,6 +2380,7 @@ defmodule AWS.ManagedBlockchain do
       "/networks/#{AWS.Util.encode_uri(network_id)}/members/#{AWS.Util.encode_uri(member_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2379,7 +2391,7 @@ defmodule AWS.ManagedBlockchain do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2400,6 +2412,7 @@ defmodule AWS.ManagedBlockchain do
       "/networks/#{AWS.Util.encode_uri(network_id)}/nodes/#{AWS.Util.encode_uri(node_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2410,7 +2423,7 @@ defmodule AWS.ManagedBlockchain do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2434,6 +2447,7 @@ defmodule AWS.ManagedBlockchain do
       "/networks/#{AWS.Util.encode_uri(network_id)}/proposals/#{AWS.Util.encode_uri(proposal_id)}/votes"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2444,7 +2458,7 @@ defmodule AWS.ManagedBlockchain do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

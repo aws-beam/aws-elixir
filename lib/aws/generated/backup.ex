@@ -3600,6 +3600,7 @@ defmodule AWS.Backup do
   def cancel_legal_hold(%Client{} = client, legal_hold_id, input, options \\ []) do
     url_path = "/legal-holds/#{AWS.Util.encode_uri(legal_hold_id)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3616,7 +3617,7 @@ defmodule AWS.Backup do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -3640,11 +3641,22 @@ defmodule AWS.Backup do
   def create_backup_plan(%Client{} = client, input, options \\ []) do
     url_path = "/backup/plans"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3660,11 +3672,22 @@ defmodule AWS.Backup do
   def create_backup_selection(%Client{} = client, backup_plan_id, input, options \\ []) do
     url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/selections"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3685,11 +3708,22 @@ defmodule AWS.Backup do
   def create_backup_vault(%Client{} = client, backup_vault_name, input, options \\ []) do
     url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3709,6 +3743,7 @@ defmodule AWS.Backup do
   def create_framework(%Client{} = client, input, options \\ []) do
     url_path = "/audit/frameworks"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3719,7 +3754,7 @@ defmodule AWS.Backup do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3743,6 +3778,7 @@ defmodule AWS.Backup do
   def create_legal_hold(%Client{} = client, input, options \\ []) do
     url_path = "/legal-holds"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3753,7 +3789,7 @@ defmodule AWS.Backup do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3789,11 +3825,22 @@ defmodule AWS.Backup do
       ) do
     url_path = "/logically-air-gapped-backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3812,6 +3859,7 @@ defmodule AWS.Backup do
   def create_report_plan(%Client{} = client, input, options \\ []) do
     url_path = "/audit/report-plans"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3822,7 +3870,7 @@ defmodule AWS.Backup do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3843,11 +3891,22 @@ defmodule AWS.Backup do
   def create_restore_testing_plan(%Client{} = client, input, options \\ []) do
     url_path = "/restore-testing/plans"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -3897,11 +3956,22 @@ defmodule AWS.Backup do
       "/restore-testing/plans/#{AWS.Util.encode_uri(restore_testing_plan_name)}/selections"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -3919,6 +3989,7 @@ defmodule AWS.Backup do
   def delete_backup_plan(%Client{} = client, backup_plan_id, input, options \\ []) do
     url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3929,7 +4000,7 @@ defmodule AWS.Backup do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3962,6 +4033,7 @@ defmodule AWS.Backup do
       "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/selections/#{AWS.Util.encode_uri(selection_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3972,7 +4044,7 @@ defmodule AWS.Backup do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3992,6 +4064,7 @@ defmodule AWS.Backup do
   def delete_backup_vault(%Client{} = client, backup_vault_name, input, options \\ []) do
     url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4002,7 +4075,7 @@ defmodule AWS.Backup do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4029,6 +4102,7 @@ defmodule AWS.Backup do
       ) do
     url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/access-policy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4039,7 +4113,7 @@ defmodule AWS.Backup do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4074,6 +4148,7 @@ defmodule AWS.Backup do
       ) do
     url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/vault-lock"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4084,7 +4159,7 @@ defmodule AWS.Backup do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4113,6 +4188,7 @@ defmodule AWS.Backup do
       "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/notification-configuration"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4123,7 +4199,7 @@ defmodule AWS.Backup do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4140,6 +4216,7 @@ defmodule AWS.Backup do
   def delete_framework(%Client{} = client, framework_name, input, options \\ []) do
     url_path = "/audit/frameworks/#{AWS.Util.encode_uri(framework_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4150,7 +4227,7 @@ defmodule AWS.Backup do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4201,6 +4278,7 @@ defmodule AWS.Backup do
       "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/recovery-points/#{AWS.Util.encode_uri(recovery_point_arn)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4211,7 +4289,7 @@ defmodule AWS.Backup do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4228,6 +4306,7 @@ defmodule AWS.Backup do
   def delete_report_plan(%Client{} = client, report_plan_name, input, options \\ []) do
     url_path = "/audit/report-plans/#{AWS.Util.encode_uri(report_plan_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4238,7 +4317,7 @@ defmodule AWS.Backup do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4268,6 +4347,7 @@ defmodule AWS.Backup do
       ) do
     url_path = "/restore-testing/plans/#{AWS.Util.encode_uri(restore_testing_plan_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4278,7 +4358,7 @@ defmodule AWS.Backup do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4313,6 +4393,7 @@ defmodule AWS.Backup do
       "/restore-testing/plans/#{AWS.Util.encode_uri(restore_testing_plan_name)}/selections/#{AWS.Util.encode_uri(restore_testing_selection_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4323,7 +4404,7 @@ defmodule AWS.Backup do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4596,6 +4677,7 @@ defmodule AWS.Backup do
       "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/recovery-points/#{AWS.Util.encode_uri(recovery_point_arn)}/disassociate"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4606,7 +4688,7 @@ defmodule AWS.Backup do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4638,6 +4720,7 @@ defmodule AWS.Backup do
       "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/recovery-points/#{AWS.Util.encode_uri(recovery_point_arn)}/parentAssociation"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4648,7 +4731,7 @@ defmodule AWS.Backup do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -4710,6 +4793,7 @@ defmodule AWS.Backup do
   def get_backup_plan_from_json(%Client{} = client, input, options \\ []) do
     url_path = "/backup/template/json/toPlan"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4720,7 +4804,7 @@ defmodule AWS.Backup do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6582,11 +6666,22 @@ defmodule AWS.Backup do
   def put_backup_vault_access_policy(%Client{} = client, backup_vault_name, input, options \\ []) do
     url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/access-policy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6628,11 +6723,22 @@ defmodule AWS.Backup do
       ) do
     url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/vault-lock"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6652,11 +6758,22 @@ defmodule AWS.Backup do
       "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/notification-configuration"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6679,11 +6796,22 @@ defmodule AWS.Backup do
   def put_restore_validation_result(%Client{} = client, restore_job_id, input, options \\ []) do
     url_path = "/restore-jobs/#{AWS.Util.encode_uri(restore_job_id)}/validations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 204)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -6696,11 +6824,22 @@ defmodule AWS.Backup do
   def start_backup_job(%Client{} = client, input, options \\ []) do
     url_path = "/backup-jobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6715,11 +6854,22 @@ defmodule AWS.Backup do
   def start_copy_job(%Client{} = client, input, options \\ []) do
     url_path = "/copy-jobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6732,6 +6882,7 @@ defmodule AWS.Backup do
   def start_report_job(%Client{} = client, report_plan_name, input, options \\ []) do
     url_path = "/audit/report-jobs/#{AWS.Util.encode_uri(report_plan_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6742,7 +6893,7 @@ defmodule AWS.Backup do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6759,11 +6910,22 @@ defmodule AWS.Backup do
   def start_restore_job(%Client{} = client, input, options \\ []) do
     url_path = "/restore-jobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6783,6 +6945,7 @@ defmodule AWS.Backup do
   def stop_backup_job(%Client{} = client, backup_job_id, input, options \\ []) do
     url_path = "/backup-jobs/#{AWS.Util.encode_uri(backup_job_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6793,7 +6956,7 @@ defmodule AWS.Backup do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6816,6 +6979,7 @@ defmodule AWS.Backup do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6826,7 +6990,7 @@ defmodule AWS.Backup do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6851,6 +7015,7 @@ defmodule AWS.Backup do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/untag/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6861,7 +7026,7 @@ defmodule AWS.Backup do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6880,6 +7045,7 @@ defmodule AWS.Backup do
   def update_backup_plan(%Client{} = client, backup_plan_id, input, options \\ []) do
     url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6890,7 +7056,7 @@ defmodule AWS.Backup do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6907,11 +7073,22 @@ defmodule AWS.Backup do
   def update_framework(%Client{} = client, framework_name, input, options \\ []) do
     url_path = "/audit/frameworks/#{AWS.Util.encode_uri(framework_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6929,11 +7106,22 @@ defmodule AWS.Backup do
   def update_global_settings(%Client{} = client, input, options \\ []) do
     url_path = "/global-settings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6986,6 +7174,7 @@ defmodule AWS.Backup do
       "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/recovery-points/#{AWS.Util.encode_uri(recovery_point_arn)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6996,7 +7185,7 @@ defmodule AWS.Backup do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7017,11 +7206,22 @@ defmodule AWS.Backup do
   def update_region_settings(%Client{} = client, input, options \\ []) do
     url_path = "/account-settings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -7034,11 +7234,22 @@ defmodule AWS.Backup do
   def update_report_plan(%Client{} = client, report_plan_name, input, options \\ []) do
     url_path = "/audit/report-plans/#{AWS.Util.encode_uri(report_plan_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -7087,11 +7298,22 @@ defmodule AWS.Backup do
       ) do
     url_path = "/restore-testing/plans/#{AWS.Util.encode_uri(restore_testing_plan_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -7123,10 +7345,21 @@ defmodule AWS.Backup do
       "/restore-testing/plans/#{AWS.Util.encode_uri(restore_testing_plan_name)}/selections/#{AWS.Util.encode_uri(restore_testing_selection_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

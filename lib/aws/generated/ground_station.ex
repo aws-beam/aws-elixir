@@ -1547,6 +1547,7 @@ defmodule AWS.GroundStation do
   def cancel_contact(%Client{} = client, contact_id, input, options \\ []) do
     url_path = "/contact/#{AWS.Util.encode_uri(contact_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1557,7 +1558,7 @@ defmodule AWS.GroundStation do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1576,6 +1577,7 @@ defmodule AWS.GroundStation do
   def create_config(%Client{} = client, input, options \\ []) do
     url_path = "/config"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1586,7 +1588,7 @@ defmodule AWS.GroundStation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1611,6 +1613,7 @@ defmodule AWS.GroundStation do
   def create_dataflow_endpoint_group(%Client{} = client, input, options \\ []) do
     url_path = "/dataflowEndpointGroup"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1621,7 +1624,7 @@ defmodule AWS.GroundStation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1638,6 +1641,7 @@ defmodule AWS.GroundStation do
   def create_ephemeris(%Client{} = client, input, options \\ []) do
     url_path = "/ephemeris"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1648,7 +1652,7 @@ defmodule AWS.GroundStation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1668,6 +1672,7 @@ defmodule AWS.GroundStation do
   def create_mission_profile(%Client{} = client, input, options \\ []) do
     url_path = "/missionprofile"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1678,7 +1683,7 @@ defmodule AWS.GroundStation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1695,6 +1700,7 @@ defmodule AWS.GroundStation do
   def delete_config(%Client{} = client, config_id, config_type, input, options \\ []) do
     url_path = "/config/#{AWS.Util.encode_uri(config_type)}/#{AWS.Util.encode_uri(config_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1705,7 +1711,7 @@ defmodule AWS.GroundStation do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1732,6 +1738,7 @@ defmodule AWS.GroundStation do
       ) do
     url_path = "/dataflowEndpointGroup/#{AWS.Util.encode_uri(dataflow_endpoint_group_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1742,7 +1749,7 @@ defmodule AWS.GroundStation do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1759,6 +1766,7 @@ defmodule AWS.GroundStation do
   def delete_ephemeris(%Client{} = client, ephemeris_id, input, options \\ []) do
     url_path = "/ephemeris/#{AWS.Util.encode_uri(ephemeris_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1769,7 +1777,7 @@ defmodule AWS.GroundStation do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1786,6 +1794,7 @@ defmodule AWS.GroundStation do
   def delete_mission_profile(%Client{} = client, mission_profile_id, input, options \\ []) do
     url_path = "/missionprofile/#{AWS.Util.encode_uri(mission_profile_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1796,7 +1805,7 @@ defmodule AWS.GroundStation do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1903,6 +1912,7 @@ defmodule AWS.GroundStation do
   def get_minute_usage(%Client{} = client, input, options \\ []) do
     url_path = "/minute-usage"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1913,7 +1923,7 @@ defmodule AWS.GroundStation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1998,6 +2008,7 @@ defmodule AWS.GroundStation do
   def list_contacts(%Client{} = client, input, options \\ []) do
     url_path = "/contacts"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2008,7 +2019,7 @@ defmodule AWS.GroundStation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2061,6 +2072,7 @@ defmodule AWS.GroundStation do
   def list_ephemerides(%Client{} = client, input, options \\ []) do
     url_path = "/ephemerides"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2077,7 +2089,7 @@ defmodule AWS.GroundStation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2225,6 +2237,7 @@ defmodule AWS.GroundStation do
   def register_agent(%Client{} = client, input, options \\ []) do
     url_path = "/agent"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2235,7 +2248,7 @@ defmodule AWS.GroundStation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2252,6 +2265,7 @@ defmodule AWS.GroundStation do
   def reserve_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2262,7 +2276,7 @@ defmodule AWS.GroundStation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2279,6 +2293,7 @@ defmodule AWS.GroundStation do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2289,7 +2304,7 @@ defmodule AWS.GroundStation do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2306,6 +2321,7 @@ defmodule AWS.GroundStation do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2321,7 +2337,7 @@ defmodule AWS.GroundStation do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2341,11 +2357,22 @@ defmodule AWS.GroundStation do
   def update_agent_status(%Client{} = client, agent_id, input, options \\ []) do
     url_path = "/agent/#{AWS.Util.encode_uri(agent_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2361,11 +2388,22 @@ defmodule AWS.GroundStation do
   def update_config(%Client{} = client, config_id, config_type, input, options \\ []) do
     url_path = "/config/#{AWS.Util.encode_uri(config_type)}/#{AWS.Util.encode_uri(config_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2378,11 +2416,22 @@ defmodule AWS.GroundStation do
   def update_ephemeris(%Client{} = client, ephemeris_id, input, options \\ []) do
     url_path = "/ephemeris/#{AWS.Util.encode_uri(ephemeris_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2398,10 +2447,21 @@ defmodule AWS.GroundStation do
   def update_mission_profile(%Client{} = client, mission_profile_id, input, options \\ []) do
     url_path = "/missionprofile/#{AWS.Util.encode_uri(mission_profile_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

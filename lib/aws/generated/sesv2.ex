@@ -3830,6 +3830,7 @@ defmodule AWS.SESv2 do
   def batch_get_metric_data(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/metrics/batch"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3840,7 +3841,7 @@ defmodule AWS.SESv2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3857,11 +3858,22 @@ defmodule AWS.SESv2 do
   def cancel_export_job(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/v2/email/export-jobs/#{AWS.Util.encode_uri(job_id)}/cancel"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3883,6 +3895,7 @@ defmodule AWS.SESv2 do
   def create_configuration_set(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/configuration-sets"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3893,7 +3906,7 @@ defmodule AWS.SESv2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3931,6 +3944,7 @@ defmodule AWS.SESv2 do
       "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/event-destinations"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3941,7 +3955,7 @@ defmodule AWS.SESv2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3960,6 +3974,7 @@ defmodule AWS.SESv2 do
   def create_contact(%Client{} = client, contact_list_name, input, options \\ []) do
     url_path = "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}/contacts"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3970,7 +3985,7 @@ defmodule AWS.SESv2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3987,6 +4002,7 @@ defmodule AWS.SESv2 do
   def create_contact_list(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/contact-lists"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3997,7 +4013,7 @@ defmodule AWS.SESv2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4025,6 +4041,7 @@ defmodule AWS.SESv2 do
   def create_custom_verification_email_template(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/custom-verification-email-templates"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4035,7 +4052,7 @@ defmodule AWS.SESv2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4059,6 +4076,7 @@ defmodule AWS.SESv2 do
   def create_dedicated_ip_pool(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/dedicated-ip-pools"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4069,7 +4087,7 @@ defmodule AWS.SESv2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4102,6 +4120,7 @@ defmodule AWS.SESv2 do
   def create_deliverability_test_report(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/deliverability-dashboard/test"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4112,7 +4131,7 @@ defmodule AWS.SESv2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4172,6 +4191,7 @@ defmodule AWS.SESv2 do
   def create_email_identity(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/identities"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4182,7 +4202,7 @@ defmodule AWS.SESv2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4226,6 +4246,7 @@ defmodule AWS.SESv2 do
       "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}/policies/#{AWS.Util.encode_uri(policy_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4236,7 +4257,7 @@ defmodule AWS.SESv2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4259,6 +4280,7 @@ defmodule AWS.SESv2 do
   def create_email_template(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/templates"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4269,7 +4291,7 @@ defmodule AWS.SESv2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4288,6 +4310,7 @@ defmodule AWS.SESv2 do
   def create_export_job(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/export-jobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4298,7 +4321,7 @@ defmodule AWS.SESv2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4315,6 +4338,7 @@ defmodule AWS.SESv2 do
   def create_import_job(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/import-jobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4325,7 +4349,7 @@ defmodule AWS.SESv2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4349,6 +4373,7 @@ defmodule AWS.SESv2 do
   def delete_configuration_set(%Client{} = client, configuration_set_name, input, options \\ []) do
     url_path = "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4359,7 +4384,7 @@ defmodule AWS.SESv2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4396,6 +4421,7 @@ defmodule AWS.SESv2 do
       "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/event-destinations/#{AWS.Util.encode_uri(event_destination_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4406,7 +4432,7 @@ defmodule AWS.SESv2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4425,6 +4451,7 @@ defmodule AWS.SESv2 do
       "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}/contacts/#{AWS.Util.encode_uri(email_address)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4435,7 +4462,7 @@ defmodule AWS.SESv2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4452,6 +4479,7 @@ defmodule AWS.SESv2 do
   def delete_contact_list(%Client{} = client, contact_list_name, input, options \\ []) do
     url_path = "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4462,7 +4490,7 @@ defmodule AWS.SESv2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4498,6 +4526,7 @@ defmodule AWS.SESv2 do
       "/v2/email/custom-verification-email-templates/#{AWS.Util.encode_uri(template_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4508,7 +4537,7 @@ defmodule AWS.SESv2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4525,6 +4554,7 @@ defmodule AWS.SESv2 do
   def delete_dedicated_ip_pool(%Client{} = client, pool_name, input, options \\ []) do
     url_path = "/v2/email/dedicated-ip-pools/#{AWS.Util.encode_uri(pool_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4535,7 +4565,7 @@ defmodule AWS.SESv2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4555,6 +4585,7 @@ defmodule AWS.SESv2 do
   def delete_email_identity(%Client{} = client, email_identity, input, options \\ []) do
     url_path = "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4565,7 +4596,7 @@ defmodule AWS.SESv2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4612,6 +4643,7 @@ defmodule AWS.SESv2 do
       "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}/policies/#{AWS.Util.encode_uri(policy_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4622,7 +4654,7 @@ defmodule AWS.SESv2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4641,6 +4673,7 @@ defmodule AWS.SESv2 do
   def delete_email_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v2/email/templates/#{AWS.Util.encode_uri(template_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4651,7 +4684,7 @@ defmodule AWS.SESv2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4673,6 +4706,7 @@ defmodule AWS.SESv2 do
   def delete_suppressed_destination(%Client{} = client, email_address, input, options \\ []) do
     url_path = "/v2/email/suppression/addresses/#{AWS.Util.encode_uri(email_address)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4683,7 +4717,7 @@ defmodule AWS.SESv2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5285,6 +5319,7 @@ defmodule AWS.SESv2 do
   def list_contacts(%Client{} = client, contact_list_name, input, options \\ []) do
     url_path = "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}/contacts/list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5295,7 +5330,7 @@ defmodule AWS.SESv2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5588,6 +5623,7 @@ defmodule AWS.SESv2 do
   def list_export_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/list-export-jobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5598,7 +5634,7 @@ defmodule AWS.SESv2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5615,6 +5651,7 @@ defmodule AWS.SESv2 do
   def list_import_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/import-jobs/list"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5625,7 +5662,7 @@ defmodule AWS.SESv2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5645,6 +5682,7 @@ defmodule AWS.SESv2 do
   def list_recommendations(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/vdm/recommendations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5655,7 +5693,7 @@ defmodule AWS.SESv2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5778,11 +5816,22 @@ defmodule AWS.SESv2 do
   def put_account_dedicated_ip_warmup_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/account/dedicated-ips/warmup"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5795,6 +5844,7 @@ defmodule AWS.SESv2 do
   def put_account_details(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/account/details"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -5805,7 +5855,7 @@ defmodule AWS.SESv2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -5822,11 +5872,22 @@ defmodule AWS.SESv2 do
   def put_account_sending_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/account/sending"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5843,11 +5904,22 @@ defmodule AWS.SESv2 do
   def put_account_suppression_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/account/suppression"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5862,11 +5934,22 @@ defmodule AWS.SESv2 do
   def put_account_vdm_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/account/vdm"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5894,11 +5977,22 @@ defmodule AWS.SESv2 do
       "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/delivery-options"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5925,11 +6019,22 @@ defmodule AWS.SESv2 do
       "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/reputation-options"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5956,11 +6061,22 @@ defmodule AWS.SESv2 do
       "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/sending"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5985,11 +6101,22 @@ defmodule AWS.SESv2 do
       "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/suppression-options"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6016,11 +6143,22 @@ defmodule AWS.SESv2 do
       "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/tracking-options"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6047,11 +6185,22 @@ defmodule AWS.SESv2 do
       "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/vdm-options"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6071,11 +6220,22 @@ defmodule AWS.SESv2 do
   def put_dedicated_ip_in_pool(%Client{} = client, ip, input, options \\ []) do
     url_path = "/v2/email/dedicated-ips/#{AWS.Util.encode_uri(ip)}/pool"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6100,11 +6260,22 @@ defmodule AWS.SESv2 do
       ) do
     url_path = "/v2/email/dedicated-ip-pools/#{AWS.Util.encode_uri(pool_name)}/scaling"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @spec put_dedicated_ip_warmup_attributes(
@@ -6119,11 +6290,22 @@ defmodule AWS.SESv2 do
   def put_dedicated_ip_warmup_attributes(%Client{} = client, ip, input, options \\ []) do
     url_path = "/v2/email/dedicated-ips/#{AWS.Util.encode_uri(ip)}/warmup"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6153,11 +6335,22 @@ defmodule AWS.SESv2 do
   def put_deliverability_dashboard_option(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/deliverability-dashboard"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6180,11 +6373,22 @@ defmodule AWS.SESv2 do
       ) do
     url_path = "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}/configuration-set"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6202,11 +6406,22 @@ defmodule AWS.SESv2 do
   def put_email_identity_dkim_attributes(%Client{} = client, email_identity, input, options \\ []) do
     url_path = "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}/dkim"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6251,11 +6466,22 @@ defmodule AWS.SESv2 do
       ) do
     url_path = "/v1/email/identities/#{AWS.Util.encode_uri(email_identity)}/dkim/signing"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6296,11 +6522,22 @@ defmodule AWS.SESv2 do
       ) do
     url_path = "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}/feedback"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6324,11 +6561,22 @@ defmodule AWS.SESv2 do
       ) do
     url_path = "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}/mail-from"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6341,11 +6589,22 @@ defmodule AWS.SESv2 do
   def put_suppressed_destination(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/suppression/addresses"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6358,6 +6617,7 @@ defmodule AWS.SESv2 do
   def send_bulk_email(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/outbound-bulk-emails"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6368,7 +6628,7 @@ defmodule AWS.SESv2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6401,6 +6661,7 @@ defmodule AWS.SESv2 do
   def send_custom_verification_email(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/outbound-custom-verification-emails"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6411,7 +6672,7 @@ defmodule AWS.SESv2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6452,6 +6713,7 @@ defmodule AWS.SESv2 do
   def send_email(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/outbound-emails"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6462,7 +6724,7 @@ defmodule AWS.SESv2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6493,6 +6755,7 @@ defmodule AWS.SESv2 do
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/tags"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6503,7 +6766,7 @@ defmodule AWS.SESv2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6529,6 +6792,7 @@ defmodule AWS.SESv2 do
   def test_render_email_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v2/email/templates/#{AWS.Util.encode_uri(template_name)}/render"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -6539,7 +6803,7 @@ defmodule AWS.SESv2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6556,6 +6820,7 @@ defmodule AWS.SESv2 do
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/tags"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -6572,7 +6837,7 @@ defmodule AWS.SESv2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -6609,11 +6874,22 @@ defmodule AWS.SESv2 do
       "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/event-destinations/#{AWS.Util.encode_uri(event_destination_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6632,11 +6908,22 @@ defmodule AWS.SESv2 do
       "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}/contacts/#{AWS.Util.encode_uri(email_address)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6651,11 +6938,22 @@ defmodule AWS.SESv2 do
   def update_contact_list(%Client{} = client, contact_list_name, input, options \\ []) do
     url_path = "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6687,11 +6985,22 @@ defmodule AWS.SESv2 do
       "/v2/email/custom-verification-email-templates/#{AWS.Util.encode_uri(template_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6734,11 +7043,22 @@ defmodule AWS.SESv2 do
       "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}/policies/#{AWS.Util.encode_uri(policy_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6757,10 +7077,21 @@ defmodule AWS.SESv2 do
   def update_email_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v2/email/templates/#{AWS.Util.encode_uri(template_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

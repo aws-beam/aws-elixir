@@ -775,6 +775,7 @@ defmodule AWS.LexRuntimeV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botAliases/#{AWS.Util.encode_uri(bot_alias_id)}/botLocales/#{AWS.Util.encode_uri(locale_id)}/sessions/#{AWS.Util.encode_uri(session_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -785,7 +786,7 @@ defmodule AWS.LexRuntimeV2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -858,6 +859,7 @@ defmodule AWS.LexRuntimeV2 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -881,7 +883,7 @@ defmodule AWS.LexRuntimeV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -951,6 +953,7 @@ defmodule AWS.LexRuntimeV2 do
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botAliases/#{AWS.Util.encode_uri(bot_alias_id)}/botLocales/#{AWS.Util.encode_uri(locale_id)}/sessions/#{AWS.Util.encode_uri(session_id)}/text"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -961,7 +964,7 @@ defmodule AWS.LexRuntimeV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1069,6 +1072,7 @@ defmodule AWS.LexRuntimeV2 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -1096,7 +1100,7 @@ defmodule AWS.LexRuntimeV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1203,6 +1207,7 @@ defmodule AWS.LexRuntimeV2 do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1213,7 +1218,7 @@ defmodule AWS.LexRuntimeV2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

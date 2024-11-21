@@ -51,6 +51,17 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      metadata_form_enforcement_detail() :: %{
+        "requiredMetadataForms" => list(metadata_form_reference()())
+      }
+
+  """
+  @type metadata_form_enforcement_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_group_profile_input() :: %{
         required("status") => list(any())
       }
@@ -532,6 +543,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      metadata_form_reference() :: %{
+        "typeIdentifier" => String.t(),
+        "typeRevision" => String.t()
+      }
+
+  """
+  @type metadata_form_reference() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_asset_filter_output() :: %{
         "assetId" => String.t(),
         "configuration" => list(),
@@ -942,6 +965,7 @@ defmodule AWS.DataZone do
 
       create_subscription_request_input() :: %{
         optional("clientToken") => [String.t()],
+        optional("metadataForms") => list(form_input()()),
         required("requestReason") => String.t(),
         required("subscribedListings") => list(subscribed_listing_input()()),
         required("subscribedPrincipals") => list(list()())
@@ -1200,6 +1224,29 @@ defmodule AWS.DataZone do
 
   """
   @type revoke_subscription_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_rule_output() :: %{
+        "action" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
+        "description" => String.t(),
+        "detail" => list(),
+        "identifier" => String.t(),
+        "lastUpdatedBy" => String.t(),
+        "name" => String.t(),
+        "revision" => String.t(),
+        "ruleType" => list(any()),
+        "scope" => rule_scope(),
+        "target" => list(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type update_rule_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1904,6 +1951,27 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      create_rule_output() :: %{
+        "action" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
+        "description" => String.t(),
+        "detail" => list(),
+        "identifier" => String.t(),
+        "name" => String.t(),
+        "ruleType" => list(any()),
+        "scope" => rule_scope(),
+        "target" => list(),
+        "targetType" => list(any())
+      }
+
+  """
+  @type create_rule_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_data_product_input() :: %{}
 
   """
@@ -1975,6 +2043,19 @@ defmodule AWS.DataZone do
 
   """
   @type get_domain_unit_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metadata_form_summary() :: %{
+        "formName" => String.t(),
+        "typeName" => String.t(),
+        "typeRevision" => String.t()
+      }
+
+  """
+  @type metadata_form_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2075,6 +2156,30 @@ defmodule AWS.DataZone do
 
   """
   @type get_metadata_generation_run_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_rule_output() :: %{
+        "action" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
+        "description" => String.t(),
+        "detail" => list(),
+        "identifier" => String.t(),
+        "lastUpdatedBy" => String.t(),
+        "name" => String.t(),
+        "revision" => String.t(),
+        "ruleType" => list(any()),
+        "scope" => rule_scope(),
+        "target" => list(),
+        "targetType" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_rule_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2336,6 +2441,15 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      delete_rule_output() :: %{}
+
+  """
+  @type delete_rule_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       create_user_profile_input() :: %{
         optional("clientToken") => [String.t()],
         optional("userType") => list(any()),
@@ -2525,6 +2639,17 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      get_rule_input() :: %{
+        optional("revision") => String.t()
+      }
+
+  """
+  @type get_rule_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_domain_units_for_parent_input() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
@@ -2560,6 +2685,18 @@ defmodule AWS.DataZone do
 
   """
   @type get_asset_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      projects_for_rule() :: %{
+        "selectionMode" => list(any()),
+        "specificProjects" => list(String.t()())
+      }
+
+  """
+  @type projects_for_rule() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2984,7 +3121,9 @@ defmodule AWS.DataZone do
         "createdBy" => String.t(),
         "decisionComment" => String.t(),
         "domainId" => String.t(),
+        "existingSubscriptionId" => String.t(),
         "id" => String.t(),
+        "metadataForms" => list(form_output()()),
         "requestReason" => String.t(),
         "reviewerId" => [String.t()],
         "status" => list(any()),
@@ -3524,6 +3663,19 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      rule_scope() :: %{
+        "assetType" => asset_types_for_rule(),
+        "dataProduct" => [boolean()],
+        "project" => projects_for_rule()
+      }
+
+  """
+  @type rule_scope() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_glossary_term_output() :: %{
         "domainId" => String.t(),
         "glossaryId" => String.t(),
@@ -3718,6 +3870,23 @@ defmodule AWS.DataZone do
 
   """
   @type start_data_source_run_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_rule_input() :: %{
+        optional("clientToken") => String.t(),
+        optional("description") => String.t(),
+        required("action") => list(any()),
+        required("detail") => list(),
+        required("name") => String.t(),
+        required("scope") => rule_scope(),
+        required("target") => list()
+      }
+
+  """
+  @type create_rule_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3933,6 +4102,24 @@ defmodule AWS.DataZone do
 
   """
   @type create_project_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_rules_input() :: %{
+        optional("action") => list(any()),
+        optional("assetTypes") => list(String.t()()),
+        optional("dataProduct") => [boolean()],
+        optional("includeCascaded") => [boolean()],
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t(),
+        optional("projectIds") => list(String.t()()),
+        optional("ruleType") => list(any())
+      }
+
+  """
+  @type list_rules_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4170,6 +4357,26 @@ defmodule AWS.DataZone do
 
   """
   @type create_asset_type_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rule_summary() :: %{
+        "action" => list(any()),
+        "identifier" => String.t(),
+        "lastUpdatedBy" => String.t(),
+        "name" => String.t(),
+        "revision" => String.t(),
+        "ruleType" => list(any()),
+        "scope" => rule_scope(),
+        "target" => list(),
+        "targetType" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type rule_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4614,6 +4821,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      domain_unit_target() :: %{
+        "domainUnitId" => String.t(),
+        "includeChildDomainUnits" => [boolean()]
+      }
+
+  """
+  @type domain_unit_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_data_product_input() :: %{
         optional("revision") => String.t()
       }
@@ -4692,7 +4911,9 @@ defmodule AWS.DataZone do
         "createdBy" => String.t(),
         "decisionComment" => String.t(),
         "domainId" => String.t(),
+        "existingSubscriptionId" => String.t(),
         "id" => String.t(),
+        "metadataFormsSummary" => list(metadata_form_summary()()),
         "requestReason" => String.t(),
         "reviewerId" => [String.t()],
         "status" => list(any()),
@@ -4843,7 +5064,9 @@ defmodule AWS.DataZone do
         "createdBy" => String.t(),
         "decisionComment" => String.t(),
         "domainId" => String.t(),
+        "existingSubscriptionId" => String.t(),
         "id" => String.t(),
+        "metadataForms" => list(form_output()()),
         "requestReason" => String.t(),
         "reviewerId" => [String.t()],
         "status" => list(any()),
@@ -4865,7 +5088,9 @@ defmodule AWS.DataZone do
         "createdBy" => String.t(),
         "decisionComment" => String.t(),
         "domainId" => String.t(),
+        "existingSubscriptionId" => String.t(),
         "id" => String.t(),
+        "metadataForms" => list(form_output()()),
         "requestReason" => String.t(),
         "reviewerId" => [String.t()],
         "status" => list(any()),
@@ -4877,6 +5102,18 @@ defmodule AWS.DataZone do
 
   """
   @type update_subscription_request_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_rules_output() :: %{
+        "items" => list(rule_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_rules_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5392,6 +5629,15 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      delete_rule_input() :: %{}
+
+  """
+  @type delete_rule_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       subscribed_listing_input() :: %{
         "identifier" => String.t()
       }
@@ -5423,6 +5669,18 @@ defmodule AWS.DataZone do
 
   """
   @type asset_scope() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_types_for_rule() :: %{
+        "selectionMode" => list(any()),
+        "specificAssetTypes" => list(String.t()())
+      }
+
+  """
+  @type asset_types_for_rule() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5587,7 +5845,9 @@ defmodule AWS.DataZone do
         "createdBy" => String.t(),
         "decisionComment" => String.t(),
         "domainId" => String.t(),
+        "existingSubscriptionId" => String.t(),
         "id" => String.t(),
+        "metadataForms" => list(form_output()()),
         "requestReason" => String.t(),
         "reviewerId" => [String.t()],
         "status" => list(any()),
@@ -5703,6 +5963,21 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      update_rule_input() :: %{
+        optional("description") => String.t(),
+        optional("detail") => list(),
+        optional("includeChildDomainUnits") => [boolean()],
+        optional("name") => String.t(),
+        optional("scope") => rule_scope()
+      }
+
+  """
+  @type update_rule_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_asset_output() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
@@ -5810,7 +6085,9 @@ defmodule AWS.DataZone do
         "createdBy" => String.t(),
         "decisionComment" => String.t(),
         "domainId" => String.t(),
+        "existingSubscriptionId" => String.t(),
         "id" => String.t(),
+        "metadataForms" => list(form_output()()),
         "requestReason" => String.t(),
         "reviewerId" => [String.t()],
         "status" => list(any()),
@@ -6363,6 +6640,15 @@ defmodule AWS.DataZone do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type create_rule_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type create_subscription_grant_errors() ::
           throttling_exception()
           | validation_exception()
@@ -6521,6 +6807,14 @@ defmodule AWS.DataZone do
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+
+  @type delete_rule_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type delete_subscription_grant_errors() ::
           throttling_exception()
@@ -6726,6 +7020,13 @@ defmodule AWS.DataZone do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_rule_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_subscription_errors() ::
           throttling_exception()
           | validation_exception()
@@ -6905,6 +7206,13 @@ defmodule AWS.DataZone do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+
+  @type list_rules_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type list_subscription_grants_errors() ::
           throttling_exception()
@@ -7149,6 +7457,15 @@ defmodule AWS.DataZone do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type update_rule_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type update_subscription_grant_status_errors() ::
           throttling_exception()
           | validation_exception()
@@ -7209,6 +7526,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/assets/#{AWS.Util.encode_uri(identifier)}/accept-predictions"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -7218,7 +7536,17 @@ defmodule AWS.DataZone do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -7245,11 +7573,22 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/subscription-requests/#{AWS.Util.encode_uri(identifier)}/accept"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -7278,6 +7617,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/entities/#{AWS.Util.encode_uri(entity_type)}/#{AWS.Util.encode_uri(entity_identifier)}/addOwner"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7288,7 +7628,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7323,6 +7663,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/policies/managed/#{AWS.Util.encode_uri(entity_type)}/#{AWS.Util.encode_uri(entity_identifier)}/addGrant"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7333,7 +7674,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7366,11 +7707,22 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments/#{AWS.Util.encode_uri(environment_identifier)}/roles/#{AWS.Util.encode_uri(environment_role_arn)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -7397,6 +7749,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/metadata-generation-runs/#{AWS.Util.encode_uri(identifier)}/cancel"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7407,7 +7760,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7426,11 +7779,22 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/subscriptions/#{AWS.Util.encode_uri(identifier)}/cancel"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -7443,6 +7807,7 @@ defmodule AWS.DataZone do
   def create_asset(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/assets"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7453,7 +7818,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7478,6 +7843,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/assets/#{AWS.Util.encode_uri(asset_identifier)}/filters"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7488,7 +7854,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7519,6 +7885,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/assets/#{AWS.Util.encode_uri(identifier)}/revisions"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7529,7 +7896,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7546,6 +7913,7 @@ defmodule AWS.DataZone do
   def create_asset_type(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/asset-types"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7556,7 +7924,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7573,6 +7941,7 @@ defmodule AWS.DataZone do
   def create_data_product(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/data-products"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7583,7 +7952,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7614,6 +7983,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/data-products/#{AWS.Util.encode_uri(identifier)}/revisions"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7624,7 +7994,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7641,6 +8011,7 @@ defmodule AWS.DataZone do
   def create_data_source(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/data-sources"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7651,7 +8022,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7668,6 +8039,7 @@ defmodule AWS.DataZone do
   def create_domain(%Client{} = client, input, options \\ []) do
     url_path = "/v2/domains"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7678,7 +8050,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7695,6 +8067,7 @@ defmodule AWS.DataZone do
   def create_domain_unit(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/domain-units"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7705,7 +8078,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7722,6 +8095,7 @@ defmodule AWS.DataZone do
   def create_environment(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7732,7 +8106,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7765,6 +8139,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments/#{AWS.Util.encode_uri(environment_identifier)}/actions"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7775,7 +8150,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7792,6 +8167,7 @@ defmodule AWS.DataZone do
   def create_environment_profile(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environment-profiles"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7802,7 +8178,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7819,6 +8195,7 @@ defmodule AWS.DataZone do
   def create_form_type(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/form-types"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7829,7 +8206,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7846,6 +8223,7 @@ defmodule AWS.DataZone do
   def create_glossary(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/glossaries"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7856,7 +8234,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7873,6 +8251,7 @@ defmodule AWS.DataZone do
   def create_glossary_term(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/glossary-terms"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7883,7 +8262,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7900,6 +8279,7 @@ defmodule AWS.DataZone do
   def create_group_profile(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/group-profiles"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7910,7 +8290,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7929,6 +8309,7 @@ defmodule AWS.DataZone do
   def create_listing_change_set(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/listings/change-set"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7939,7 +8320,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -7956,6 +8337,7 @@ defmodule AWS.DataZone do
   def create_project(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/projects"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -7966,7 +8348,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -7997,6 +8379,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/projects/#{AWS.Util.encode_uri(project_identifier)}/createMembership"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8007,7 +8390,48 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a rule in Amazon DataZone.
+
+  A rule is a formal agreement that enforces specific
+  requirements across user workflows (e.g., publishing assets to the catalog,
+  requesting
+  subscriptions, creating projects) within the Amazon DataZone data portal. These
+  rules help
+  maintain consistency, ensure compliance, and uphold governance standards in data
+  management
+  processes. For instance, a metadata enforcement rule can specify the required
+  information
+  for creating a subscription request or publishing a data asset to the catalog,
+  ensuring
+  alignment with organizational standards.
+  """
+  @spec create_rule(map(), String.t(), create_rule_input(), list()) ::
+          {:ok, create_rule_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_rule_errors()}
+  def create_rule(%Client{} = client, domain_identifier, input, options \\ []) do
+    url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/rules"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -8024,6 +8448,7 @@ defmodule AWS.DataZone do
   def create_subscription_grant(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/subscription-grants"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8034,7 +8459,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8056,6 +8481,7 @@ defmodule AWS.DataZone do
   def create_subscription_request(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/subscription-requests"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8066,7 +8492,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8097,6 +8523,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments/#{AWS.Util.encode_uri(environment_identifier)}/subscription-targets"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8107,7 +8534,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8124,6 +8551,7 @@ defmodule AWS.DataZone do
   def create_user_profile(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/user-profiles"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8134,7 +8562,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -8153,6 +8581,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/assets/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8163,7 +8592,7 @@ defmodule AWS.DataZone do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8196,6 +8625,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/assets/#{AWS.Util.encode_uri(asset_identifier)}/filters/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8206,7 +8636,7 @@ defmodule AWS.DataZone do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8225,6 +8655,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/asset-types/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8235,7 +8666,7 @@ defmodule AWS.DataZone do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8254,6 +8685,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/data-products/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8264,7 +8696,7 @@ defmodule AWS.DataZone do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8283,6 +8715,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/data-sources/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -8299,7 +8732,7 @@ defmodule AWS.DataZone do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8316,6 +8749,7 @@ defmodule AWS.DataZone do
   def delete_domain(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(identifier)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -8332,7 +8766,7 @@ defmodule AWS.DataZone do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -8351,6 +8785,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/domain-units/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8361,7 +8796,7 @@ defmodule AWS.DataZone do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8380,6 +8815,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8390,7 +8826,7 @@ defmodule AWS.DataZone do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8425,6 +8861,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments/#{AWS.Util.encode_uri(environment_identifier)}/actions/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8435,7 +8872,7 @@ defmodule AWS.DataZone do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8466,6 +8903,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environment-blueprint-configurations/#{AWS.Util.encode_uri(environment_blueprint_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8476,7 +8914,7 @@ defmodule AWS.DataZone do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8507,6 +8945,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environment-profiles/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8517,7 +8956,7 @@ defmodule AWS.DataZone do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8542,6 +8981,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/form-types/#{AWS.Util.encode_uri(form_type_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8552,7 +8992,7 @@ defmodule AWS.DataZone do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8571,6 +9011,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/glossaries/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8581,7 +9022,7 @@ defmodule AWS.DataZone do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8606,6 +9047,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/glossary-terms/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8616,7 +9058,7 @@ defmodule AWS.DataZone do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8635,6 +9077,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/listings/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8645,7 +9088,7 @@ defmodule AWS.DataZone do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8664,6 +9107,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/projects/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -8679,7 +9123,7 @@ defmodule AWS.DataZone do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8710,6 +9154,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/projects/#{AWS.Util.encode_uri(project_identifier)}/deleteMembership"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8720,7 +9165,50 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes a rule in Amazon DataZone.
+
+  A rule is a formal agreement that enforces specific
+  requirements across user workflows (e.g., publishing assets to the catalog,
+  requesting
+  subscriptions, creating projects) within the Amazon DataZone data portal. These
+  rules help
+  maintain consistency, ensure compliance, and uphold governance standards in data
+  management
+  processes. For instance, a metadata enforcement rule can specify the required
+  information
+  for creating a subscription request or publishing a data asset to the catalog,
+  ensuring
+  alignment with organizational standards.
+  """
+  @spec delete_rule(map(), String.t(), String.t(), delete_rule_input(), list()) ::
+          {:ok, delete_rule_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_rule_errors()}
+  def delete_rule(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/rules/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8751,6 +9239,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/subscription-grants/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8761,7 +9250,7 @@ defmodule AWS.DataZone do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -8792,6 +9281,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/subscription-requests/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8802,7 +9292,7 @@ defmodule AWS.DataZone do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8835,6 +9325,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments/#{AWS.Util.encode_uri(environment_identifier)}/subscription-targets/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8845,7 +9336,7 @@ defmodule AWS.DataZone do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8878,6 +9369,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/entities/#{AWS.Util.encode_uri(entity_type)}/#{AWS.Util.encode_uri(entity_identifier)}/time-series-data-points"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -8894,7 +9386,7 @@ defmodule AWS.DataZone do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -8927,6 +9419,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments/#{AWS.Util.encode_uri(environment_identifier)}/roles/#{AWS.Util.encode_uri(environment_role_arn)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -8937,7 +9430,7 @@ defmodule AWS.DataZone do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9362,6 +9855,7 @@ defmodule AWS.DataZone do
   def get_iam_portal_login_url(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/get-portal-login-url"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -9372,7 +9866,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -9483,6 +9977,45 @@ defmodule AWS.DataZone do
 
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets the details of a rule in Amazon DataZone.
+
+  A rule is a formal agreement that
+  enforces specific requirements across user workflows (e.g., publishing assets to
+  the
+  catalog, requesting subscriptions, creating projects) within the Amazon DataZone
+  data
+  portal. These rules help maintain consistency, ensure compliance, and uphold
+  governance
+  standards in data management processes. For instance, a metadata enforcement
+  rule can
+  specify the required information for creating a subscription request or
+  publishing a data
+  asset to the catalog, ensuring alignment with organizational standards.
+  """
+  @spec get_rule(map(), String.t(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_rule_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_rule_errors()}
+  def get_rule(%Client{} = client, domain_identifier, identifier, revision \\ nil, options \\ []) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/rules/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(revision) do
+        [{"revision", revision} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -10927,6 +11460,122 @@ defmodule AWS.DataZone do
   end
 
   @doc """
+  Lists existing rules.
+
+  In Amazon DataZone, a rule is a formal agreement that enforces
+  specific requirements across user workflows (e.g., publishing assets to the
+  catalog,
+  requesting subscriptions, creating projects) within the Amazon DataZone data
+  portal. These
+  rules help maintain consistency, ensure compliance, and uphold governance
+  standards in data
+  management processes. For instance, a metadata enforcement rule can specify the
+  required
+  information for creating a subscription request or publishing a data asset to
+  the catalog,
+  ensuring alignment with organizational standards.
+  """
+  @spec list_rules(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_rules_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_rules_errors()}
+  def list_rules(
+        %Client{} = client,
+        domain_identifier,
+        target_identifier,
+        target_type,
+        action \\ nil,
+        asset_types \\ nil,
+        data_product \\ nil,
+        include_cascaded \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        project_ids \\ nil,
+        rule_type \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/list-rules/#{AWS.Util.encode_uri(target_type)}/#{AWS.Util.encode_uri(target_identifier)}"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(rule_type) do
+        [{"ruleType", rule_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(project_ids) do
+        [{"projectIds", project_ids} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(include_cascaded) do
+        [{"includeCascaded", include_cascaded} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(data_product) do
+        [{"dataProduct", data_product} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(asset_types) do
+        [{"assetTypes", asset_types} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(action) do
+        [{"ruleAction", action} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists subscription grants.
   """
   @spec list_subscription_grants(
@@ -11403,6 +12052,7 @@ defmodule AWS.DataZone do
   def post_lineage_event(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/lineage/events"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -11418,7 +12068,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11451,6 +12101,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/entities/#{AWS.Util.encode_uri(entity_type)}/#{AWS.Util.encode_uri(entity_identifier)}/time-series-data-points"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11461,7 +12112,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -11493,11 +12144,22 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environment-blueprint-configurations/#{AWS.Util.encode_uri(environment_blueprint_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11514,6 +12176,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/assets/#{AWS.Util.encode_uri(identifier)}/reject-predictions"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -11523,7 +12186,17 @@ defmodule AWS.DataZone do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11550,11 +12223,22 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/subscription-requests/#{AWS.Util.encode_uri(identifier)}/reject"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11583,6 +12267,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/entities/#{AWS.Util.encode_uri(entity_type)}/#{AWS.Util.encode_uri(entity_identifier)}/removeOwner"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11593,7 +12278,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -11626,6 +12311,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/policies/managed/#{AWS.Util.encode_uri(entity_type)}/#{AWS.Util.encode_uri(entity_identifier)}/removeGrant"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11636,7 +12322,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -11655,11 +12341,22 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/subscriptions/#{AWS.Util.encode_uri(identifier)}/revoke"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -11672,6 +12369,7 @@ defmodule AWS.DataZone do
   def search(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/search"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11682,7 +12380,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11699,6 +12397,7 @@ defmodule AWS.DataZone do
   def search_group_profiles(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/search-group-profiles"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11709,7 +12408,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11726,6 +12425,7 @@ defmodule AWS.DataZone do
   def search_listings(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/listings/search"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11736,7 +12436,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11753,6 +12453,7 @@ defmodule AWS.DataZone do
   def search_types(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/types-search"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11763,7 +12464,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11780,6 +12481,7 @@ defmodule AWS.DataZone do
   def search_user_profiles(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/search-user-profiles"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11790,7 +12492,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11821,6 +12523,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/data-sources/#{AWS.Util.encode_uri(data_source_identifier)}/runs"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11831,7 +12534,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11853,6 +12556,7 @@ defmodule AWS.DataZone do
   def start_metadata_generation_run(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/metadata-generation-runs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11863,7 +12567,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11880,6 +12584,7 @@ defmodule AWS.DataZone do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11890,7 +12595,7 @@ defmodule AWS.DataZone do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11907,6 +12612,7 @@ defmodule AWS.DataZone do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -11922,7 +12628,7 @@ defmodule AWS.DataZone do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11955,6 +12661,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/assets/#{AWS.Util.encode_uri(asset_identifier)}/filters/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11965,7 +12672,7 @@ defmodule AWS.DataZone do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -11984,6 +12691,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/data-sources/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -11994,7 +12702,7 @@ defmodule AWS.DataZone do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12011,6 +12719,7 @@ defmodule AWS.DataZone do
   def update_domain(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(identifier)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -12020,7 +12729,17 @@ defmodule AWS.DataZone do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12035,11 +12754,22 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/domain-units/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12054,6 +12784,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12064,7 +12795,7 @@ defmodule AWS.DataZone do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12097,6 +12828,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments/#{AWS.Util.encode_uri(environment_identifier)}/actions/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12107,7 +12839,7 @@ defmodule AWS.DataZone do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12138,6 +12870,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environment-profiles/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12148,7 +12881,7 @@ defmodule AWS.DataZone do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12167,6 +12900,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/glossaries/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12177,7 +12911,7 @@ defmodule AWS.DataZone do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12202,6 +12936,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/glossary-terms/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12212,7 +12947,7 @@ defmodule AWS.DataZone do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12237,11 +12972,22 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/group-profiles/#{AWS.Util.encode_uri(group_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -12256,6 +13002,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/projects/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12266,7 +13013,50 @@ defmodule AWS.DataZone do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a rule.
+
+  In Amazon DataZone, a rule is a formal agreement that enforces specific
+  requirements across user workflows (e.g., publishing assets to the catalog,
+  requesting
+  subscriptions, creating projects) within the Amazon DataZone data portal. These
+  rules help
+  maintain consistency, ensure compliance, and uphold governance standards in data
+  management
+  processes. For instance, a metadata enforcement rule can specify the required
+  information
+  for creating a subscription request or publishing a data asset to the catalog,
+  ensuring
+  alignment with organizational standards.
+  """
+  @spec update_rule(map(), String.t(), String.t(), update_rule_input(), list()) ::
+          {:ok, update_rule_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_rule_errors()}
+  def update_rule(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/rules/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12300,6 +13090,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/subscription-grants/#{AWS.Util.encode_uri(identifier)}/status/#{AWS.Util.encode_uri(asset_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12310,7 +13101,7 @@ defmodule AWS.DataZone do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12341,6 +13132,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/subscription-requests/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12351,7 +13143,7 @@ defmodule AWS.DataZone do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12384,6 +13176,7 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments/#{AWS.Util.encode_uri(environment_identifier)}/subscription-targets/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -12394,7 +13187,7 @@ defmodule AWS.DataZone do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -12419,10 +13212,21 @@ defmodule AWS.DataZone do
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/user-profiles/#{AWS.Util.encode_uri(user_identifier)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

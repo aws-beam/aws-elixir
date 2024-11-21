@@ -1769,6 +1769,7 @@ defmodule AWS.PinpointEmail do
   def create_configuration_set(%Client{} = client, input, options \\ []) do
     url_path = "/v1/email/configuration-sets"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1779,7 +1780,7 @@ defmodule AWS.PinpointEmail do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1819,6 +1820,7 @@ defmodule AWS.PinpointEmail do
       "/v1/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/event-destinations"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1829,7 +1831,7 @@ defmodule AWS.PinpointEmail do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1853,6 +1855,7 @@ defmodule AWS.PinpointEmail do
   def create_dedicated_ip_pool(%Client{} = client, input, options \\ []) do
     url_path = "/v1/email/dedicated-ip-pools"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1863,7 +1866,7 @@ defmodule AWS.PinpointEmail do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1896,6 +1899,7 @@ defmodule AWS.PinpointEmail do
   def create_deliverability_test_report(%Client{} = client, input, options \\ []) do
     url_path = "/v1/email/deliverability-dashboard/test"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1906,7 +1910,7 @@ defmodule AWS.PinpointEmail do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1946,6 +1950,7 @@ defmodule AWS.PinpointEmail do
   def create_email_identity(%Client{} = client, input, options \\ []) do
     url_path = "/v1/email/identities"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1956,7 +1961,7 @@ defmodule AWS.PinpointEmail do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1981,6 +1986,7 @@ defmodule AWS.PinpointEmail do
   def delete_configuration_set(%Client{} = client, configuration_set_name, input, options \\ []) do
     url_path = "/v1/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1991,7 +1997,7 @@ defmodule AWS.PinpointEmail do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2030,6 +2036,7 @@ defmodule AWS.PinpointEmail do
       "/v1/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/event-destinations/#{AWS.Util.encode_uri(event_destination_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2040,7 +2047,7 @@ defmodule AWS.PinpointEmail do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2057,6 +2064,7 @@ defmodule AWS.PinpointEmail do
   def delete_dedicated_ip_pool(%Client{} = client, pool_name, input, options \\ []) do
     url_path = "/v1/email/dedicated-ip-pools/#{AWS.Util.encode_uri(pool_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2067,7 +2075,7 @@ defmodule AWS.PinpointEmail do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2088,6 +2096,7 @@ defmodule AWS.PinpointEmail do
   def delete_email_identity(%Client{} = client, email_identity, input, options \\ []) do
     url_path = "/v1/email/identities/#{AWS.Util.encode_uri(email_identity)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2098,7 +2107,7 @@ defmodule AWS.PinpointEmail do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2689,11 +2698,22 @@ defmodule AWS.PinpointEmail do
   def put_account_dedicated_ip_warmup_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/v1/email/account/dedicated-ips/warmup"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2706,11 +2726,22 @@ defmodule AWS.PinpointEmail do
   def put_account_sending_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/v1/email/account/sending"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2738,11 +2769,22 @@ defmodule AWS.PinpointEmail do
       "/v1/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/delivery-options"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2769,11 +2811,22 @@ defmodule AWS.PinpointEmail do
       "/v1/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/reputation-options"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2800,11 +2853,22 @@ defmodule AWS.PinpointEmail do
       "/v1/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/sending"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2831,11 +2895,22 @@ defmodule AWS.PinpointEmail do
       "/v1/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/tracking-options"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2855,11 +2930,22 @@ defmodule AWS.PinpointEmail do
   def put_dedicated_ip_in_pool(%Client{} = client, ip, input, options \\ []) do
     url_path = "/v1/email/dedicated-ips/#{AWS.Util.encode_uri(ip)}/pool"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @spec put_dedicated_ip_warmup_attributes(
@@ -2874,11 +2960,22 @@ defmodule AWS.PinpointEmail do
   def put_dedicated_ip_warmup_attributes(%Client{} = client, ip, input, options \\ []) do
     url_path = "/v1/email/dedicated-ips/#{AWS.Util.encode_uri(ip)}/warmup"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2908,11 +3005,22 @@ defmodule AWS.PinpointEmail do
   def put_deliverability_dashboard_option(%Client{} = client, input, options \\ []) do
     url_path = "/v1/email/deliverability-dashboard"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2930,11 +3038,22 @@ defmodule AWS.PinpointEmail do
   def put_email_identity_dkim_attributes(%Client{} = client, email_identity, input, options \\ []) do
     url_path = "/v1/email/identities/#{AWS.Util.encode_uri(email_identity)}/dkim"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2978,11 +3097,22 @@ defmodule AWS.PinpointEmail do
       ) do
     url_path = "/v1/email/identities/#{AWS.Util.encode_uri(email_identity)}/feedback"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3006,11 +3136,22 @@ defmodule AWS.PinpointEmail do
       ) do
     url_path = "/v1/email/identities/#{AWS.Util.encode_uri(email_identity)}/mail-from"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3040,6 +3181,7 @@ defmodule AWS.PinpointEmail do
   def send_email(%Client{} = client, input, options \\ []) do
     url_path = "/v1/email/outbound-emails"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3050,7 +3192,7 @@ defmodule AWS.PinpointEmail do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3081,6 +3223,7 @@ defmodule AWS.PinpointEmail do
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v1/email/tags"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3091,7 +3234,7 @@ defmodule AWS.PinpointEmail do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3108,6 +3251,7 @@ defmodule AWS.PinpointEmail do
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v1/email/tags"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3124,7 +3268,7 @@ defmodule AWS.PinpointEmail do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3163,10 +3307,21 @@ defmodule AWS.PinpointEmail do
       "/v1/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/event-destinations/#{AWS.Util.encode_uri(event_destination_name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

@@ -1463,6 +1463,7 @@ defmodule AWS.AppConfig do
   def create_application(%Client{} = client, input, options \\ []) do
     url_path = "/applications"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1473,7 +1474,7 @@ defmodule AWS.AppConfig do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1540,6 +1541,7 @@ defmodule AWS.AppConfig do
   def create_configuration_profile(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/configurationprofiles"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1550,7 +1552,7 @@ defmodule AWS.AppConfig do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1574,6 +1576,7 @@ defmodule AWS.AppConfig do
   def create_deployment_strategy(%Client{} = client, input, options \\ []) do
     url_path = "/deploymentstrategies"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1584,7 +1587,7 @@ defmodule AWS.AppConfig do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1612,6 +1615,7 @@ defmodule AWS.AppConfig do
   def create_environment(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/environments"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1622,7 +1626,7 @@ defmodule AWS.AppConfig do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1675,6 +1679,7 @@ defmodule AWS.AppConfig do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1685,7 +1690,7 @@ defmodule AWS.AppConfig do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1724,6 +1729,7 @@ defmodule AWS.AppConfig do
   def create_extension_association(%Client{} = client, input, options \\ []) do
     url_path = "/extensionassociations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1734,7 +1740,7 @@ defmodule AWS.AppConfig do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1780,6 +1786,7 @@ defmodule AWS.AppConfig do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     options =
@@ -1805,7 +1812,7 @@ defmodule AWS.AppConfig do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1822,6 +1829,7 @@ defmodule AWS.AppConfig do
   def delete_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1832,7 +1840,7 @@ defmodule AWS.AppConfig do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1872,6 +1880,7 @@ defmodule AWS.AppConfig do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1882,7 +1891,7 @@ defmodule AWS.AppConfig do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1904,6 +1913,7 @@ defmodule AWS.AppConfig do
   def delete_deployment_strategy(%Client{} = client, deployment_strategy_id, input, options \\ []) do
     url_path = "/deployementstrategies/#{AWS.Util.encode_uri(deployment_strategy_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1914,7 +1924,7 @@ defmodule AWS.AppConfig do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1941,6 +1951,7 @@ defmodule AWS.AppConfig do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1951,7 +1962,7 @@ defmodule AWS.AppConfig do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1971,6 +1982,7 @@ defmodule AWS.AppConfig do
   def delete_extension(%Client{} = client, extension_identifier, input, options \\ []) do
     url_path = "/extensions/#{AWS.Util.encode_uri(extension_identifier)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1986,7 +1998,7 @@ defmodule AWS.AppConfig do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2016,6 +2028,7 @@ defmodule AWS.AppConfig do
       ) do
     url_path = "/extensionassociations/#{AWS.Util.encode_uri(extension_association_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2026,7 +2039,7 @@ defmodule AWS.AppConfig do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2060,6 +2073,7 @@ defmodule AWS.AppConfig do
       "/applications/#{AWS.Util.encode_uri(application_id)}/configurationprofiles/#{AWS.Util.encode_uri(configuration_profile_id)}/hostedconfigurationversions/#{AWS.Util.encode_uri(version_number)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2070,7 +2084,7 @@ defmodule AWS.AppConfig do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2786,6 +2800,7 @@ defmodule AWS.AppConfig do
       "/applications/#{AWS.Util.encode_uri(application_id)}/environments/#{AWS.Util.encode_uri(environment_id)}/deployments"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2796,7 +2811,7 @@ defmodule AWS.AppConfig do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2841,6 +2856,7 @@ defmodule AWS.AppConfig do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2851,7 +2867,7 @@ defmodule AWS.AppConfig do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -2872,6 +2888,7 @@ defmodule AWS.AppConfig do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2882,7 +2899,7 @@ defmodule AWS.AppConfig do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2899,6 +2916,7 @@ defmodule AWS.AppConfig do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2914,7 +2932,7 @@ defmodule AWS.AppConfig do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2931,6 +2949,7 @@ defmodule AWS.AppConfig do
   def update_account_settings(%Client{} = client, input, options \\ []) do
     url_path = "/settings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2941,7 +2960,7 @@ defmodule AWS.AppConfig do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2958,6 +2977,7 @@ defmodule AWS.AppConfig do
   def update_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2968,7 +2988,7 @@ defmodule AWS.AppConfig do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2999,6 +3019,7 @@ defmodule AWS.AppConfig do
       "/applications/#{AWS.Util.encode_uri(application_id)}/configurationprofiles/#{AWS.Util.encode_uri(configuration_profile_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3009,7 +3030,7 @@ defmodule AWS.AppConfig do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3031,6 +3052,7 @@ defmodule AWS.AppConfig do
   def update_deployment_strategy(%Client{} = client, deployment_strategy_id, input, options \\ []) do
     url_path = "/deploymentstrategies/#{AWS.Util.encode_uri(deployment_strategy_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3041,7 +3063,7 @@ defmodule AWS.AppConfig do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3060,6 +3082,7 @@ defmodule AWS.AppConfig do
       "/applications/#{AWS.Util.encode_uri(application_id)}/environments/#{AWS.Util.encode_uri(environment_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3070,7 +3093,7 @@ defmodule AWS.AppConfig do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3091,6 +3114,7 @@ defmodule AWS.AppConfig do
   def update_extension(%Client{} = client, extension_identifier, input, options \\ []) do
     url_path = "/extensions/#{AWS.Util.encode_uri(extension_identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3101,7 +3125,7 @@ defmodule AWS.AppConfig do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3132,6 +3156,7 @@ defmodule AWS.AppConfig do
       ) do
     url_path = "/extensionassociations/#{AWS.Util.encode_uri(extension_association_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3142,7 +3167,7 @@ defmodule AWS.AppConfig do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3173,6 +3198,7 @@ defmodule AWS.AppConfig do
       "/applications/#{AWS.Util.encode_uri(application_id)}/configurationprofiles/#{AWS.Util.encode_uri(configuration_profile_id)}/validators"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3188,7 +3214,7 @@ defmodule AWS.AppConfig do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204

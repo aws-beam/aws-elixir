@@ -1333,6 +1333,7 @@ defmodule AWS.KafkaConnect do
   def create_connector(%Client{} = client, input, options \\ []) do
     url_path = "/v1/connectors"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1343,7 +1344,7 @@ defmodule AWS.KafkaConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1360,6 +1361,7 @@ defmodule AWS.KafkaConnect do
   def create_custom_plugin(%Client{} = client, input, options \\ []) do
     url_path = "/v1/custom-plugins"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1370,7 +1372,7 @@ defmodule AWS.KafkaConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1387,6 +1389,7 @@ defmodule AWS.KafkaConnect do
   def create_worker_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/v1/worker-configurations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1397,7 +1400,7 @@ defmodule AWS.KafkaConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1414,6 +1417,7 @@ defmodule AWS.KafkaConnect do
   def delete_connector(%Client{} = client, connector_arn, input, options \\ []) do
     url_path = "/v1/connectors/#{AWS.Util.encode_uri(connector_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1429,7 +1433,7 @@ defmodule AWS.KafkaConnect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1446,6 +1450,7 @@ defmodule AWS.KafkaConnect do
   def delete_custom_plugin(%Client{} = client, custom_plugin_arn, input, options \\ []) do
     url_path = "/v1/custom-plugins/#{AWS.Util.encode_uri(custom_plugin_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1456,7 +1461,7 @@ defmodule AWS.KafkaConnect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1483,6 +1488,7 @@ defmodule AWS.KafkaConnect do
       ) do
     url_path = "/v1/worker-configurations/#{AWS.Util.encode_uri(worker_configuration_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1493,7 +1499,7 @@ defmodule AWS.KafkaConnect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1721,6 +1727,7 @@ defmodule AWS.KafkaConnect do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1731,7 +1738,7 @@ defmodule AWS.KafkaConnect do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1748,6 +1755,7 @@ defmodule AWS.KafkaConnect do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1763,7 +1771,7 @@ defmodule AWS.KafkaConnect do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1780,6 +1788,7 @@ defmodule AWS.KafkaConnect do
   def update_connector(%Client{} = client, connector_arn, input, options \\ []) do
     url_path = "/v1/connectors/#{AWS.Util.encode_uri(connector_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1789,6 +1798,16 @@ defmodule AWS.KafkaConnect do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

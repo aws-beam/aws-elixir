@@ -2578,6 +2578,7 @@ defmodule AWS.Codeartifact do
   def associate_external_connection(%Client{} = client, input, options \\ []) do
     url_path = "/v1/repository/external-connection"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2596,7 +2597,7 @@ defmodule AWS.Codeartifact do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2617,6 +2618,7 @@ defmodule AWS.Codeartifact do
   def copy_package_versions(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package/versions/copy"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2638,7 +2640,7 @@ defmodule AWS.Codeartifact do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2668,6 +2670,7 @@ defmodule AWS.Codeartifact do
   def create_domain(%Client{} = client, input, options \\ []) do
     url_path = "/v1/domain"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2683,7 +2686,7 @@ defmodule AWS.Codeartifact do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2705,6 +2708,7 @@ defmodule AWS.Codeartifact do
   def create_package_group(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package-group"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2721,7 +2725,7 @@ defmodule AWS.Codeartifact do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2739,6 +2743,7 @@ defmodule AWS.Codeartifact do
   def create_repository(%Client{} = client, input, options \\ []) do
     url_path = "/v1/repository"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2756,7 +2761,7 @@ defmodule AWS.Codeartifact do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2778,6 +2783,7 @@ defmodule AWS.Codeartifact do
   def delete_domain(%Client{} = client, input, options \\ []) do
     url_path = "/v1/domain"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2794,7 +2800,7 @@ defmodule AWS.Codeartifact do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2816,6 +2822,7 @@ defmodule AWS.Codeartifact do
   def delete_domain_permissions_policy(%Client{} = client, input, options \\ []) do
     url_path = "/v1/domain/permissions/policy"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2833,7 +2840,7 @@ defmodule AWS.Codeartifact do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2855,6 +2862,7 @@ defmodule AWS.Codeartifact do
   def delete_package(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2875,7 +2883,7 @@ defmodule AWS.Codeartifact do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2900,6 +2908,7 @@ defmodule AWS.Codeartifact do
   def delete_package_group(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package-group"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2917,7 +2926,7 @@ defmodule AWS.Codeartifact do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2943,6 +2952,7 @@ defmodule AWS.Codeartifact do
   def delete_package_versions(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package/versions/delete"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2963,7 +2973,7 @@ defmodule AWS.Codeartifact do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2981,6 +2991,7 @@ defmodule AWS.Codeartifact do
   def delete_repository(%Client{} = client, input, options \\ []) do
     url_path = "/v1/repository"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2998,7 +3009,7 @@ defmodule AWS.Codeartifact do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3028,6 +3039,7 @@ defmodule AWS.Codeartifact do
   def delete_repository_permissions_policy(%Client{} = client, input, options \\ []) do
     url_path = "/v1/repository/permissions/policies"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3046,7 +3058,7 @@ defmodule AWS.Codeartifact do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3366,6 +3378,7 @@ defmodule AWS.Codeartifact do
   def disassociate_external_connection(%Client{} = client, input, options \\ []) do
     url_path = "/v1/repository/external-connection"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3384,7 +3397,7 @@ defmodule AWS.Codeartifact do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3415,6 +3428,7 @@ defmodule AWS.Codeartifact do
   def dispose_package_versions(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package/versions/dispose"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3435,7 +3449,7 @@ defmodule AWS.Codeartifact do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3560,6 +3574,7 @@ defmodule AWS.Codeartifact do
   def get_authorization_token(%Client{} = client, input, options \\ []) do
     url_path = "/v1/authorization-token"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3577,7 +3592,7 @@ defmodule AWS.Codeartifact do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4166,6 +4181,7 @@ defmodule AWS.Codeartifact do
   def list_domains(%Client{} = client, input, options \\ []) do
     url_path = "/v1/domains"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -4176,7 +4192,7 @@ defmodule AWS.Codeartifact do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4193,6 +4209,7 @@ defmodule AWS.Codeartifact do
   def list_package_groups(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package-groups"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4212,7 +4229,7 @@ defmodule AWS.Codeartifact do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4233,6 +4250,7 @@ defmodule AWS.Codeartifact do
   def list_package_version_assets(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package/version/assets"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4256,7 +4274,7 @@ defmodule AWS.Codeartifact do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4288,6 +4306,7 @@ defmodule AWS.Codeartifact do
   def list_package_version_dependencies(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package/version/dependencies"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4310,7 +4329,7 @@ defmodule AWS.Codeartifact do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4334,6 +4353,7 @@ defmodule AWS.Codeartifact do
   def list_package_versions(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package/versions"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4359,7 +4379,7 @@ defmodule AWS.Codeartifact do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4380,6 +4400,7 @@ defmodule AWS.Codeartifact do
   def list_packages(%Client{} = client, input, options \\ []) do
     url_path = "/v1/packages"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4404,7 +4425,7 @@ defmodule AWS.Codeartifact do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4429,6 +4450,7 @@ defmodule AWS.Codeartifact do
   def list_repositories(%Client{} = client, input, options \\ []) do
     url_path = "/v1/repositories"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4446,7 +4468,7 @@ defmodule AWS.Codeartifact do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4471,6 +4493,7 @@ defmodule AWS.Codeartifact do
   def list_repositories_in_domain(%Client{} = client, input, options \\ []) do
     url_path = "/v1/domain/repositories"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4491,7 +4514,7 @@ defmodule AWS.Codeartifact do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4513,6 +4536,7 @@ defmodule AWS.Codeartifact do
   def list_sub_package_groups(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package-groups/sub-groups"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4532,7 +4556,7 @@ defmodule AWS.Codeartifact do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4550,6 +4574,7 @@ defmodule AWS.Codeartifact do
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v1/tags"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4565,7 +4590,7 @@ defmodule AWS.Codeartifact do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4602,6 +4627,8 @@ defmodule AWS.Codeartifact do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
     {query_params, input} =
       [
         {"assetName", "asset"},
@@ -4624,7 +4651,7 @@ defmodule AWS.Codeartifact do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4648,11 +4675,22 @@ defmodule AWS.Codeartifact do
   def put_domain_permissions_policy(%Client{} = client, input, options \\ []) do
     url_path = "/v1/domain/permissions/policy"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4686,6 +4724,7 @@ defmodule AWS.Codeartifact do
   def put_package_origin_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4706,7 +4745,7 @@ defmodule AWS.Codeartifact do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4735,6 +4774,7 @@ defmodule AWS.Codeartifact do
   def put_repository_permissions_policy(%Client{} = client, input, options \\ []) do
     url_path = "/v1/repository/permissions/policy"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4746,7 +4786,17 @@ defmodule AWS.Codeartifact do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4759,6 +4809,7 @@ defmodule AWS.Codeartifact do
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v1/tag"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4774,7 +4825,7 @@ defmodule AWS.Codeartifact do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4791,6 +4842,7 @@ defmodule AWS.Codeartifact do
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v1/untag"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4806,7 +4858,7 @@ defmodule AWS.Codeartifact do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4828,6 +4880,7 @@ defmodule AWS.Codeartifact do
   def update_package_group(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package-group"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4838,7 +4891,17 @@ defmodule AWS.Codeartifact do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4863,6 +4926,7 @@ defmodule AWS.Codeartifact do
   def update_package_group_origin_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package-group-origin-configuration"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4874,7 +4938,17 @@ defmodule AWS.Codeartifact do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4894,6 +4968,7 @@ defmodule AWS.Codeartifact do
   def update_package_versions_status(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package/versions/update_status"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4914,7 +4989,7 @@ defmodule AWS.Codeartifact do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4932,6 +5007,7 @@ defmodule AWS.Codeartifact do
   def update_repository(%Client{} = client, input, options \\ []) do
     url_path = "/v1/repository"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4943,6 +5019,16 @@ defmodule AWS.Codeartifact do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

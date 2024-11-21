@@ -905,11 +905,22 @@ defmodule AWS.MediaPackageVod do
   def configure_logs(%Client{} = client, id, input, options \\ []) do
     url_path = "/packaging_groups/#{AWS.Util.encode_uri(id)}/configure_logs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -922,6 +933,7 @@ defmodule AWS.MediaPackageVod do
   def create_asset(%Client{} = client, input, options \\ []) do
     url_path = "/assets"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -932,7 +944,7 @@ defmodule AWS.MediaPackageVod do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -949,6 +961,7 @@ defmodule AWS.MediaPackageVod do
   def create_packaging_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/packaging_configurations"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -959,7 +972,7 @@ defmodule AWS.MediaPackageVod do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -976,6 +989,7 @@ defmodule AWS.MediaPackageVod do
   def create_packaging_group(%Client{} = client, input, options \\ []) do
     url_path = "/packaging_groups"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -986,7 +1000,7 @@ defmodule AWS.MediaPackageVod do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1003,6 +1017,7 @@ defmodule AWS.MediaPackageVod do
   def delete_asset(%Client{} = client, id, input, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1013,7 +1028,7 @@ defmodule AWS.MediaPackageVod do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1035,6 +1050,7 @@ defmodule AWS.MediaPackageVod do
   def delete_packaging_configuration(%Client{} = client, id, input, options \\ []) do
     url_path = "/packaging_configurations/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1045,7 +1061,7 @@ defmodule AWS.MediaPackageVod do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1062,6 +1078,7 @@ defmodule AWS.MediaPackageVod do
   def delete_packaging_group(%Client{} = client, id, input, options \\ []) do
     url_path = "/packaging_groups/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1072,7 +1089,7 @@ defmodule AWS.MediaPackageVod do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       202
@@ -1287,6 +1304,7 @@ defmodule AWS.MediaPackageVod do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1297,7 +1315,7 @@ defmodule AWS.MediaPackageVod do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1315,6 +1333,7 @@ defmodule AWS.MediaPackageVod do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1330,7 +1349,7 @@ defmodule AWS.MediaPackageVod do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1349,10 +1368,21 @@ defmodule AWS.MediaPackageVod do
   def update_packaging_group(%Client{} = client, id, input, options \\ []) do
     url_path = "/packaging_groups/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

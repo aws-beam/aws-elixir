@@ -2051,6 +2051,7 @@ defmodule AWS.IoTAnalytics do
   def batch_put_message(%Client{} = client, input, options \\ []) do
     url_path = "/messages/batch"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2061,7 +2062,7 @@ defmodule AWS.IoTAnalytics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2092,6 +2093,7 @@ defmodule AWS.IoTAnalytics do
       "/pipelines/#{AWS.Util.encode_uri(pipeline_name)}/reprocessing/#{AWS.Util.encode_uri(reprocessing_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2102,7 +2104,7 @@ defmodule AWS.IoTAnalytics do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2122,6 +2124,7 @@ defmodule AWS.IoTAnalytics do
   def create_channel(%Client{} = client, input, options \\ []) do
     url_path = "/channels"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2132,7 +2135,7 @@ defmodule AWS.IoTAnalytics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2157,6 +2160,7 @@ defmodule AWS.IoTAnalytics do
   def create_dataset(%Client{} = client, input, options \\ []) do
     url_path = "/datasets"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2167,7 +2171,7 @@ defmodule AWS.IoTAnalytics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2185,6 +2189,7 @@ defmodule AWS.IoTAnalytics do
   def create_dataset_content(%Client{} = client, dataset_name, input, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_name)}/content"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2195,7 +2200,7 @@ defmodule AWS.IoTAnalytics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2212,6 +2217,7 @@ defmodule AWS.IoTAnalytics do
   def create_datastore(%Client{} = client, input, options \\ []) do
     url_path = "/datastores"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2222,7 +2228,7 @@ defmodule AWS.IoTAnalytics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2246,6 +2252,7 @@ defmodule AWS.IoTAnalytics do
   def create_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/pipelines"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2256,7 +2263,7 @@ defmodule AWS.IoTAnalytics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -2273,6 +2280,7 @@ defmodule AWS.IoTAnalytics do
   def delete_channel(%Client{} = client, channel_name, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2283,7 +2291,7 @@ defmodule AWS.IoTAnalytics do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2303,6 +2311,7 @@ defmodule AWS.IoTAnalytics do
   def delete_dataset(%Client{} = client, dataset_name, input, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2313,7 +2322,7 @@ defmodule AWS.IoTAnalytics do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2330,6 +2339,7 @@ defmodule AWS.IoTAnalytics do
   def delete_dataset_content(%Client{} = client, dataset_name, input, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_name)}/content"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2345,7 +2355,7 @@ defmodule AWS.IoTAnalytics do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2362,6 +2372,7 @@ defmodule AWS.IoTAnalytics do
   def delete_datastore(%Client{} = client, datastore_name, input, options \\ []) do
     url_path = "/datastores/#{AWS.Util.encode_uri(datastore_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2372,7 +2383,7 @@ defmodule AWS.IoTAnalytics do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2389,6 +2400,7 @@ defmodule AWS.IoTAnalytics do
   def delete_pipeline(%Client{} = client, pipeline_name, input, options \\ []) do
     url_path = "/pipelines/#{AWS.Util.encode_uri(pipeline_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2399,7 +2411,7 @@ defmodule AWS.IoTAnalytics do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2759,11 +2771,22 @@ defmodule AWS.IoTAnalytics do
   def put_logging_options(%Client{} = client, input, options \\ []) do
     url_path = "/logging"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2776,6 +2799,7 @@ defmodule AWS.IoTAnalytics do
   def run_pipeline_activity(%Client{} = client, input, options \\ []) do
     url_path = "/pipelineactivities/run"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2786,7 +2810,7 @@ defmodule AWS.IoTAnalytics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2864,6 +2888,7 @@ defmodule AWS.IoTAnalytics do
   def start_pipeline_reprocessing(%Client{} = client, pipeline_name, input, options \\ []) do
     url_path = "/pipelines/#{AWS.Util.encode_uri(pipeline_name)}/reprocessing"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2874,7 +2899,7 @@ defmodule AWS.IoTAnalytics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2894,6 +2919,7 @@ defmodule AWS.IoTAnalytics do
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2909,7 +2935,7 @@ defmodule AWS.IoTAnalytics do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2926,6 +2952,7 @@ defmodule AWS.IoTAnalytics do
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2942,7 +2969,7 @@ defmodule AWS.IoTAnalytics do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2959,11 +2986,22 @@ defmodule AWS.IoTAnalytics do
   def update_channel(%Client{} = client, channel_name, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2976,11 +3014,22 @@ defmodule AWS.IoTAnalytics do
   def update_dataset(%Client{} = client, dataset_name, input, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2993,11 +3042,22 @@ defmodule AWS.IoTAnalytics do
   def update_datastore(%Client{} = client, datastore_name, input, options \\ []) do
     url_path = "/datastores/#{AWS.Util.encode_uri(datastore_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3014,10 +3074,21 @@ defmodule AWS.IoTAnalytics do
   def update_pipeline(%Client{} = client, pipeline_name, input, options \\ []) do
     url_path = "/pipelines/#{AWS.Util.encode_uri(pipeline_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

@@ -1777,6 +1777,7 @@ defmodule AWS.M2 do
       "/applications/#{AWS.Util.encode_uri(application_id)}/batch-job-executions/#{AWS.Util.encode_uri(execution_id)}/cancel"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1787,7 +1788,7 @@ defmodule AWS.M2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1807,6 +1808,7 @@ defmodule AWS.M2 do
   def create_application(%Client{} = client, input, options \\ []) do
     url_path = "/applications"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1817,7 +1819,7 @@ defmodule AWS.M2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1839,6 +1841,7 @@ defmodule AWS.M2 do
   def create_data_set_import_task(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/dataset-import-task"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1849,7 +1852,7 @@ defmodule AWS.M2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1867,6 +1870,7 @@ defmodule AWS.M2 do
   def create_deployment(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/deployments"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1877,7 +1881,7 @@ defmodule AWS.M2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1894,6 +1898,7 @@ defmodule AWS.M2 do
   def create_environment(%Client{} = client, input, options \\ []) do
     url_path = "/environments"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1904,7 +1909,7 @@ defmodule AWS.M2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1923,6 +1928,7 @@ defmodule AWS.M2 do
   def delete_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1933,7 +1939,7 @@ defmodule AWS.M2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1972,6 +1978,7 @@ defmodule AWS.M2 do
       "/applications/#{AWS.Util.encode_uri(application_id)}/environment/#{AWS.Util.encode_uri(environment_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1982,7 +1989,7 @@ defmodule AWS.M2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2004,6 +2011,7 @@ defmodule AWS.M2 do
   def delete_environment(%Client{} = client, environment_id, input, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(environment_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2014,7 +2022,7 @@ defmodule AWS.M2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2737,6 +2745,7 @@ defmodule AWS.M2 do
   def start_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/start"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2747,7 +2756,7 @@ defmodule AWS.M2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2767,6 +2776,7 @@ defmodule AWS.M2 do
   def start_batch_job(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/batch-job"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2777,7 +2787,7 @@ defmodule AWS.M2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2794,6 +2804,7 @@ defmodule AWS.M2 do
   def stop_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/stop"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2804,7 +2815,7 @@ defmodule AWS.M2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2821,6 +2832,7 @@ defmodule AWS.M2 do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2831,7 +2843,7 @@ defmodule AWS.M2 do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2848,6 +2860,7 @@ defmodule AWS.M2 do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2863,7 +2876,7 @@ defmodule AWS.M2 do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2880,6 +2893,7 @@ defmodule AWS.M2 do
   def update_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2890,7 +2904,7 @@ defmodule AWS.M2 do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2907,6 +2921,7 @@ defmodule AWS.M2 do
   def update_environment(%Client{} = client, environment_id, input, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(environment_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2917,7 +2932,7 @@ defmodule AWS.M2 do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

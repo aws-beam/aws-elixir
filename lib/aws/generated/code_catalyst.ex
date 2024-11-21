@@ -1635,11 +1635,22 @@ defmodule AWS.CodeCatalyst do
   def create_access_token(%Client{} = client, input, options \\ []) do
     url_path = "/v1/accessTokens"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -1666,11 +1677,22 @@ defmodule AWS.CodeCatalyst do
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/devEnvironments"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -1682,11 +1704,22 @@ defmodule AWS.CodeCatalyst do
   def create_project(%Client{} = client, space_name, input, options \\ []) do
     url_path = "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -1717,11 +1750,22 @@ defmodule AWS.CodeCatalyst do
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/sourceRepositories/#{AWS.Util.encode_uri(name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -1754,11 +1798,22 @@ defmodule AWS.CodeCatalyst do
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/sourceRepositories/#{AWS.Util.encode_uri(source_repository_name)}/branches/#{AWS.Util.encode_uri(name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 201)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -1772,6 +1827,7 @@ defmodule AWS.CodeCatalyst do
   def delete_access_token(%Client{} = client, id, input, options \\ []) do
     url_path = "/v1/accessTokens/#{AWS.Util.encode_uri(id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1782,7 +1838,7 @@ defmodule AWS.CodeCatalyst do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1814,6 +1870,7 @@ defmodule AWS.CodeCatalyst do
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/devEnvironments/#{AWS.Util.encode_uri(id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1824,7 +1881,7 @@ defmodule AWS.CodeCatalyst do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1842,6 +1899,7 @@ defmodule AWS.CodeCatalyst do
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1852,7 +1910,7 @@ defmodule AWS.CodeCatalyst do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1887,6 +1945,7 @@ defmodule AWS.CodeCatalyst do
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/sourceRepositories/#{AWS.Util.encode_uri(name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1897,7 +1956,7 @@ defmodule AWS.CodeCatalyst do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1916,6 +1975,7 @@ defmodule AWS.CodeCatalyst do
   def delete_space(%Client{} = client, name, input, options \\ []) do
     url_path = "/v1/spaces/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1926,7 +1986,7 @@ defmodule AWS.CodeCatalyst do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2128,6 +2188,7 @@ defmodule AWS.CodeCatalyst do
   def list_access_tokens(%Client{} = client, input, options \\ []) do
     url_path = "/v1/accessTokens"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2138,7 +2199,7 @@ defmodule AWS.CodeCatalyst do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2170,6 +2231,7 @@ defmodule AWS.CodeCatalyst do
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/devEnvironments/#{AWS.Util.encode_uri(dev_environment_id)}/sessions"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2180,7 +2242,7 @@ defmodule AWS.CodeCatalyst do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2196,6 +2258,7 @@ defmodule AWS.CodeCatalyst do
   def list_dev_environments(%Client{} = client, space_name, input, options \\ []) do
     url_path = "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/devEnvironments"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2206,7 +2269,7 @@ defmodule AWS.CodeCatalyst do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2238,6 +2301,7 @@ defmodule AWS.CodeCatalyst do
   def list_event_logs(%Client{} = client, space_name, input, options \\ []) do
     url_path = "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/eventLogs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2248,7 +2312,7 @@ defmodule AWS.CodeCatalyst do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2264,6 +2328,7 @@ defmodule AWS.CodeCatalyst do
   def list_projects(%Client{} = client, space_name, input, options \\ []) do
     url_path = "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2274,7 +2339,7 @@ defmodule AWS.CodeCatalyst do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2298,6 +2363,7 @@ defmodule AWS.CodeCatalyst do
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/sourceRepositories"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2308,7 +2374,7 @@ defmodule AWS.CodeCatalyst do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2340,6 +2406,7 @@ defmodule AWS.CodeCatalyst do
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/sourceRepositories/#{AWS.Util.encode_uri(source_repository_name)}/branches"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2350,7 +2417,7 @@ defmodule AWS.CodeCatalyst do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2366,6 +2433,7 @@ defmodule AWS.CodeCatalyst do
   def list_spaces(%Client{} = client, input, options \\ []) do
     url_path = "/v1/spaces"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2376,7 +2444,7 @@ defmodule AWS.CodeCatalyst do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2394,6 +2462,7 @@ defmodule AWS.CodeCatalyst do
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/workflowRuns"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2411,7 +2480,7 @@ defmodule AWS.CodeCatalyst do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2429,6 +2498,7 @@ defmodule AWS.CodeCatalyst do
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/workflows"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2445,7 +2515,7 @@ defmodule AWS.CodeCatalyst do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2477,11 +2547,22 @@ defmodule AWS.CodeCatalyst do
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/devEnvironments/#{AWS.Util.encode_uri(id)}/start"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2509,11 +2590,22 @@ defmodule AWS.CodeCatalyst do
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/devEnvironments/#{AWS.Util.encode_uri(id)}/session"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2527,6 +2619,7 @@ defmodule AWS.CodeCatalyst do
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/workflowRuns"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2536,7 +2629,17 @@ defmodule AWS.CodeCatalyst do
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2559,11 +2662,22 @@ defmodule AWS.CodeCatalyst do
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/devEnvironments/#{AWS.Util.encode_uri(id)}/stop"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -2593,6 +2707,7 @@ defmodule AWS.CodeCatalyst do
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/devEnvironments/#{AWS.Util.encode_uri(id)}/session/#{AWS.Util.encode_uri(session_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2603,7 +2718,7 @@ defmodule AWS.CodeCatalyst do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2637,6 +2752,7 @@ defmodule AWS.CodeCatalyst do
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/devEnvironments/#{AWS.Util.encode_uri(id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2647,7 +2763,7 @@ defmodule AWS.CodeCatalyst do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2665,6 +2781,7 @@ defmodule AWS.CodeCatalyst do
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(name)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2675,7 +2792,7 @@ defmodule AWS.CodeCatalyst do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2691,6 +2808,7 @@ defmodule AWS.CodeCatalyst do
   def update_space(%Client{} = client, name, input, options \\ []) do
     url_path = "/v1/spaces/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2701,7 +2819,7 @@ defmodule AWS.CodeCatalyst do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

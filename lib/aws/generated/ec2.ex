@@ -199,6 +199,7 @@ defmodule AWS.EC2 do
         "AllowedInstanceTypes" => list(String.t()()),
         "BareMetal" => list(any()),
         "BaselineEbsBandwidthMbps" => baseline_ebs_bandwidth_mbps_request(),
+        "BaselinePerformanceFactors" => baseline_performance_factors_request(),
         "BurstablePerformance" => list(any()),
         "CpuManufacturers" => list(list(any())()),
         "ExcludedInstanceTypes" => list(String.t()()),
@@ -1045,6 +1046,17 @@ defmodule AWS.EC2 do
       
   """
   @type revoked_security_group_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cpu_performance_factor() :: %{
+        "References" => list(performance_factor_reference()())
+      }
+      
+  """
+  @type cpu_performance_factor() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4823,6 +4835,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      baseline_performance_factors_request() :: %{
+        "Cpu" => cpu_performance_factor_request()
+      }
+      
+  """
+  @type baseline_performance_factors_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       register_transit_gateway_multicast_group_members_result() :: %{
         "RegisteredMulticastGroupMembers" => transit_gateway_multicast_registered_group_members()
       }
@@ -8380,6 +8403,17 @@ defmodule AWS.EC2 do
       
   """
   @type disable_image_deregistration_protection_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      performance_factor_reference() :: %{
+        "InstanceFamily" => String.t()
+      }
+      
+  """
+  @type performance_factor_reference() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -13469,6 +13503,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      baseline_performance_factors() :: %{
+        "Cpu" => cpu_performance_factor()
+      }
+      
+  """
+  @type baseline_performance_factors() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       modify_instance_metadata_defaults_request() :: %{
         optional("DryRun") => boolean(),
         optional("HttpEndpoint") => list(any()),
@@ -13703,6 +13748,17 @@ defmodule AWS.EC2 do
       
   """
   @type describe_instances_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      performance_factor_reference_request() :: %{
+        "InstanceFamily" => String.t()
+      }
+      
+  """
+  @type performance_factor_reference_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -20161,6 +20217,7 @@ defmodule AWS.EC2 do
         "AllowedInstanceTypes" => list(String.t()()),
         "BareMetal" => list(any()),
         "BaselineEbsBandwidthMbps" => baseline_ebs_bandwidth_mbps(),
+        "BaselinePerformanceFactors" => baseline_performance_factors(),
         "BurstablePerformance" => list(any()),
         "CpuManufacturers" => list(list(any())()),
         "ExcludedInstanceTypes" => list(String.t()()),
@@ -22864,6 +22921,17 @@ defmodule AWS.EC2 do
       
   """
   @type disable_image_deprecation_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cpu_performance_factor_request() :: %{
+        "References" => list(performance_factor_reference_request()())
+      }
+      
+  """
+  @type cpu_performance_factor_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -38838,7 +38906,8 @@ defmodule AWS.EC2 do
   Use this action to configure an
   instance to target a specific Capacity Reservation, run in any `open` Capacity
   Reservation with matching
-  attributes, or run On-Demand Instance capacity.
+  attributes, run in On-Demand Instance capacity, or only run in a Capacity
+  Reservation.
   """
   @spec modify_instance_capacity_reservation_attributes(
           map(),

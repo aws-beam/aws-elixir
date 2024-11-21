@@ -2859,6 +2859,7 @@ defmodule AWS.Location do
   def associate_tracker_consumer(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/consumers"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.tracking.")
@@ -2869,7 +2870,7 @@ defmodule AWS.Location do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2891,6 +2892,7 @@ defmodule AWS.Location do
   def batch_delete_device_position_history(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/delete-positions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "tracking.")
@@ -2901,7 +2903,7 @@ defmodule AWS.Location do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2922,6 +2924,7 @@ defmodule AWS.Location do
       "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/delete-geofences"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "geofencing.")
@@ -2932,7 +2935,7 @@ defmodule AWS.Location do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2975,6 +2978,7 @@ defmodule AWS.Location do
   def batch_evaluate_geofences(%Client{} = client, collection_name, input, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/positions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "geofencing.")
@@ -2985,7 +2989,7 @@ defmodule AWS.Location do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3002,6 +3006,7 @@ defmodule AWS.Location do
   def batch_get_device_position(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/get-positions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "tracking.")
@@ -3012,7 +3017,7 @@ defmodule AWS.Location do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3032,6 +3037,7 @@ defmodule AWS.Location do
   def batch_put_geofence(%Client{} = client, collection_name, input, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/put-geofences"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "geofencing.")
@@ -3042,7 +3048,7 @@ defmodule AWS.Location do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3092,6 +3098,7 @@ defmodule AWS.Location do
   def batch_update_device_position(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/positions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "tracking.")
@@ -3102,7 +3109,7 @@ defmodule AWS.Location do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3155,6 +3162,7 @@ defmodule AWS.Location do
   def calculate_route(%Client{} = client, calculator_name, input, options \\ []) do
     url_path = "/routes/v0/calculators/#{AWS.Util.encode_uri(calculator_name)}/calculate/route"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3170,7 +3178,7 @@ defmodule AWS.Location do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3234,6 +3242,7 @@ defmodule AWS.Location do
       "/routes/v0/calculators/#{AWS.Util.encode_uri(calculator_name)}/calculate/route-matrix"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3249,7 +3258,7 @@ defmodule AWS.Location do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3266,6 +3275,7 @@ defmodule AWS.Location do
   def create_geofence_collection(%Client{} = client, input, options \\ []) do
     url_path = "/geofencing/v0/collections"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.geofencing.")
@@ -3276,7 +3286,7 @@ defmodule AWS.Location do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3297,6 +3307,7 @@ defmodule AWS.Location do
   def create_key(%Client{} = client, input, options \\ []) do
     url_path = "/metadata/v0/keys"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.metadata.")
@@ -3307,7 +3318,7 @@ defmodule AWS.Location do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3330,6 +3341,7 @@ defmodule AWS.Location do
   def create_map(%Client{} = client, input, options \\ []) do
     url_path = "/maps/v0/maps"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.maps.")
@@ -3340,7 +3352,7 @@ defmodule AWS.Location do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3367,6 +3379,7 @@ defmodule AWS.Location do
   def create_place_index(%Client{} = client, input, options \\ []) do
     url_path = "/places/v0/indexes"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.places.")
@@ -3377,7 +3390,7 @@ defmodule AWS.Location do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3403,6 +3416,7 @@ defmodule AWS.Location do
   def create_route_calculator(%Client{} = client, input, options \\ []) do
     url_path = "/routes/v0/calculators"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.routes.")
@@ -3413,7 +3427,7 @@ defmodule AWS.Location do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3432,6 +3446,7 @@ defmodule AWS.Location do
   def create_tracker(%Client{} = client, input, options \\ []) do
     url_path = "/tracking/v0/trackers"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.tracking.")
@@ -3442,7 +3457,7 @@ defmodule AWS.Location do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3468,6 +3483,7 @@ defmodule AWS.Location do
   def delete_geofence_collection(%Client{} = client, collection_name, input, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.geofencing.")
@@ -3478,7 +3494,7 @@ defmodule AWS.Location do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3498,6 +3514,7 @@ defmodule AWS.Location do
   def delete_key(%Client{} = client, key_name, input, options \\ []) do
     url_path = "/metadata/v0/keys/#{AWS.Util.encode_uri(key_name)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3513,7 +3530,7 @@ defmodule AWS.Location do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3534,6 +3551,7 @@ defmodule AWS.Location do
   def delete_map(%Client{} = client, map_name, input, options \\ []) do
     url_path = "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.maps.")
@@ -3544,7 +3562,7 @@ defmodule AWS.Location do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3563,6 +3581,7 @@ defmodule AWS.Location do
   def delete_place_index(%Client{} = client, index_name, input, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.places.")
@@ -3573,7 +3592,7 @@ defmodule AWS.Location do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3592,6 +3611,7 @@ defmodule AWS.Location do
   def delete_route_calculator(%Client{} = client, calculator_name, input, options \\ []) do
     url_path = "/routes/v0/calculators/#{AWS.Util.encode_uri(calculator_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.routes.")
@@ -3602,7 +3622,7 @@ defmodule AWS.Location do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3625,6 +3645,7 @@ defmodule AWS.Location do
   def delete_tracker(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.tracking.")
@@ -3635,7 +3656,7 @@ defmodule AWS.Location do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3771,6 +3792,7 @@ defmodule AWS.Location do
       "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/consumers/#{AWS.Util.encode_uri(consumer_arn)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.tracking.")
@@ -3781,7 +3803,7 @@ defmodule AWS.Location do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3812,6 +3834,7 @@ defmodule AWS.Location do
       "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/forecast-geofence-events"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "geofencing.")
@@ -3822,7 +3845,7 @@ defmodule AWS.Location do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3878,6 +3901,7 @@ defmodule AWS.Location do
       "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/devices/#{AWS.Util.encode_uri(device_id)}/list-positions"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "tracking.")
@@ -3888,7 +3912,7 @@ defmodule AWS.Location do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4147,6 +4171,7 @@ defmodule AWS.Location do
   def list_device_positions(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/list-positions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "tracking.")
@@ -4157,7 +4182,7 @@ defmodule AWS.Location do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4174,6 +4199,7 @@ defmodule AWS.Location do
   def list_geofence_collections(%Client{} = client, input, options \\ []) do
     url_path = "/geofencing/v0/list-collections"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.geofencing.")
@@ -4184,7 +4210,7 @@ defmodule AWS.Location do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4201,6 +4227,7 @@ defmodule AWS.Location do
   def list_geofences(%Client{} = client, collection_name, input, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/list-geofences"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "geofencing.")
@@ -4211,7 +4238,7 @@ defmodule AWS.Location do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4228,6 +4255,7 @@ defmodule AWS.Location do
   def list_keys(%Client{} = client, input, options \\ []) do
     url_path = "/metadata/v0/list-keys"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.metadata.")
@@ -4238,7 +4266,7 @@ defmodule AWS.Location do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4255,6 +4283,7 @@ defmodule AWS.Location do
   def list_maps(%Client{} = client, input, options \\ []) do
     url_path = "/maps/v0/list-maps"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.maps.")
@@ -4265,7 +4294,7 @@ defmodule AWS.Location do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4282,6 +4311,7 @@ defmodule AWS.Location do
   def list_place_indexes(%Client{} = client, input, options \\ []) do
     url_path = "/places/v0/list-indexes"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.places.")
@@ -4292,7 +4322,7 @@ defmodule AWS.Location do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4309,6 +4339,7 @@ defmodule AWS.Location do
   def list_route_calculators(%Client{} = client, input, options \\ []) do
     url_path = "/routes/v0/list-calculators"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.routes.")
@@ -4319,7 +4350,7 @@ defmodule AWS.Location do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4354,6 +4385,7 @@ defmodule AWS.Location do
   def list_tracker_consumers(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/list-consumers"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.tracking.")
@@ -4364,7 +4396,7 @@ defmodule AWS.Location do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4381,6 +4413,7 @@ defmodule AWS.Location do
   def list_trackers(%Client{} = client, input, options \\ []) do
     url_path = "/tracking/v0/list-trackers"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.tracking.")
@@ -4391,7 +4424,7 @@ defmodule AWS.Location do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4412,11 +4445,22 @@ defmodule AWS.Location do
       "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/geofences/#{AWS.Util.encode_uri(geofence_id)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "geofencing.")
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4437,6 +4481,7 @@ defmodule AWS.Location do
   def search_place_index_for_position(%Client{} = client, index_name, input, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}/search/position"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4452,7 +4497,7 @@ defmodule AWS.Location do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4488,6 +4533,7 @@ defmodule AWS.Location do
   def search_place_index_for_suggestions(%Client{} = client, index_name, input, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}/search/suggestions"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4503,7 +4549,7 @@ defmodule AWS.Location do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4537,6 +4583,7 @@ defmodule AWS.Location do
   def search_place_index_for_text(%Client{} = client, index_name, input, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}/search/text"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4552,7 +4599,7 @@ defmodule AWS.Location do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4588,6 +4635,7 @@ defmodule AWS.Location do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.metadata.")
@@ -4598,7 +4646,7 @@ defmodule AWS.Location do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4615,6 +4663,7 @@ defmodule AWS.Location do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -4630,7 +4679,7 @@ defmodule AWS.Location do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4652,6 +4701,7 @@ defmodule AWS.Location do
   def update_geofence_collection(%Client{} = client, collection_name, input, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.geofencing.")
@@ -4662,7 +4712,7 @@ defmodule AWS.Location do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4679,6 +4729,7 @@ defmodule AWS.Location do
   def update_key(%Client{} = client, key_name, input, options \\ []) do
     url_path = "/metadata/v0/keys/#{AWS.Util.encode_uri(key_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.metadata.")
@@ -4689,7 +4740,7 @@ defmodule AWS.Location do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4706,6 +4757,7 @@ defmodule AWS.Location do
   def update_map(%Client{} = client, map_name, input, options \\ []) do
     url_path = "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.maps.")
@@ -4716,7 +4768,7 @@ defmodule AWS.Location do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4733,6 +4785,7 @@ defmodule AWS.Location do
   def update_place_index(%Client{} = client, index_name, input, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.places.")
@@ -4743,7 +4796,7 @@ defmodule AWS.Location do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4760,6 +4813,7 @@ defmodule AWS.Location do
   def update_route_calculator(%Client{} = client, calculator_name, input, options \\ []) do
     url_path = "/routes/v0/calculators/#{AWS.Util.encode_uri(calculator_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.routes.")
@@ -4770,7 +4824,7 @@ defmodule AWS.Location do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4787,6 +4841,7 @@ defmodule AWS.Location do
   def update_tracker(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "cp.tracking.")
@@ -4797,7 +4852,7 @@ defmodule AWS.Location do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -4816,6 +4871,7 @@ defmodule AWS.Location do
   def verify_device_position(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/positions/verify"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "tracking.")
@@ -4826,7 +4882,7 @@ defmodule AWS.Location do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

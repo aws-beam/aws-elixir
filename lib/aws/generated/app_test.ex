@@ -1702,6 +1702,7 @@ defmodule AWS.AppTest do
   def create_test_case(%Client{} = client, input, options \\ []) do
     url_path = "/testcase"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1712,7 +1713,7 @@ defmodule AWS.AppTest do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1729,6 +1730,7 @@ defmodule AWS.AppTest do
   def create_test_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/testconfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1739,7 +1741,7 @@ defmodule AWS.AppTest do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1756,6 +1758,7 @@ defmodule AWS.AppTest do
   def create_test_suite(%Client{} = client, input, options \\ []) do
     url_path = "/testsuite"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1766,7 +1769,7 @@ defmodule AWS.AppTest do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -1783,6 +1786,7 @@ defmodule AWS.AppTest do
   def delete_test_case(%Client{} = client, test_case_id, input, options \\ []) do
     url_path = "/testcases/#{AWS.Util.encode_uri(test_case_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1793,7 +1797,7 @@ defmodule AWS.AppTest do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1810,6 +1814,7 @@ defmodule AWS.AppTest do
   def delete_test_configuration(%Client{} = client, test_configuration_id, input, options \\ []) do
     url_path = "/testconfigurations/#{AWS.Util.encode_uri(test_configuration_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1820,7 +1825,7 @@ defmodule AWS.AppTest do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1837,6 +1842,7 @@ defmodule AWS.AppTest do
   def delete_test_run(%Client{} = client, test_run_id, input, options \\ []) do
     url_path = "/testruns/#{AWS.Util.encode_uri(test_run_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1847,7 +1853,7 @@ defmodule AWS.AppTest do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1864,6 +1870,7 @@ defmodule AWS.AppTest do
   def delete_test_suite(%Client{} = client, test_suite_id, input, options \\ []) do
     url_path = "/testsuites/#{AWS.Util.encode_uri(test_suite_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1874,7 +1881,7 @@ defmodule AWS.AppTest do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -2327,6 +2334,7 @@ defmodule AWS.AppTest do
   def start_test_run(%Client{} = client, input, options \\ []) do
     url_path = "/testrun"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2337,7 +2345,7 @@ defmodule AWS.AppTest do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2354,6 +2362,7 @@ defmodule AWS.AppTest do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2364,7 +2373,7 @@ defmodule AWS.AppTest do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2381,6 +2390,7 @@ defmodule AWS.AppTest do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -2396,7 +2406,7 @@ defmodule AWS.AppTest do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2413,6 +2423,7 @@ defmodule AWS.AppTest do
   def update_test_case(%Client{} = client, test_case_id, input, options \\ []) do
     url_path = "/testcases/#{AWS.Util.encode_uri(test_case_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2423,7 +2434,7 @@ defmodule AWS.AppTest do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2440,6 +2451,7 @@ defmodule AWS.AppTest do
   def update_test_configuration(%Client{} = client, test_configuration_id, input, options \\ []) do
     url_path = "/testconfigurations/#{AWS.Util.encode_uri(test_configuration_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2450,7 +2462,7 @@ defmodule AWS.AppTest do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2467,6 +2479,7 @@ defmodule AWS.AppTest do
   def update_test_suite(%Client{} = client, test_suite_id, input, options \\ []) do
     url_path = "/testsuites/#{AWS.Util.encode_uri(test_suite_id)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2477,7 +2490,7 @@ defmodule AWS.AppTest do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

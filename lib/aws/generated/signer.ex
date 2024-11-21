@@ -1042,6 +1042,7 @@ defmodule AWS.Signer do
   def add_profile_permission(%Client{} = client, profile_name, input, options \\ []) do
     url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}/permissions"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1052,7 +1053,7 @@ defmodule AWS.Signer do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1074,6 +1075,7 @@ defmodule AWS.Signer do
   def cancel_signing_profile(%Client{} = client, profile_name, input, options \\ []) do
     url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1084,7 +1086,7 @@ defmodule AWS.Signer do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1544,11 +1546,22 @@ defmodule AWS.Signer do
   def put_signing_profile(%Client{} = client, profile_name, input, options \\ []) do
     url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1575,6 +1588,7 @@ defmodule AWS.Signer do
       "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}/permissions/#{AWS.Util.encode_uri(statement_id)}"
 
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1590,7 +1604,7 @@ defmodule AWS.Signer do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1610,11 +1624,22 @@ defmodule AWS.Signer do
   def revoke_signature(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/signing-jobs/#{AWS.Util.encode_uri(job_id)}/revoke"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1631,11 +1656,22 @@ defmodule AWS.Signer do
   def revoke_signing_profile(%Client{} = client, profile_name, input, options \\ []) do
     url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}/revoke"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1648,6 +1684,7 @@ defmodule AWS.Signer do
   def sign_payload(%Client{} = client, input, options \\ []) do
     url_path = "/signing-jobs/with-payload"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1658,7 +1695,7 @@ defmodule AWS.Signer do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1710,6 +1747,7 @@ defmodule AWS.Signer do
   def start_signing_job(%Client{} = client, input, options \\ []) do
     url_path = "/signing-jobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1720,7 +1758,7 @@ defmodule AWS.Signer do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1744,6 +1782,7 @@ defmodule AWS.Signer do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1754,7 +1793,7 @@ defmodule AWS.Signer do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1774,6 +1813,7 @@ defmodule AWS.Signer do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1789,7 +1829,7 @@ defmodule AWS.Signer do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

@@ -2092,6 +2092,7 @@ defmodule AWS.DataBrew do
   def batch_delete_recipe_version(%Client{} = client, name, input, options \\ []) do
     url_path = "/recipes/#{AWS.Util.encode_uri(name)}/batchDeleteRecipeVersion"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2102,7 +2103,7 @@ defmodule AWS.DataBrew do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2119,6 +2120,7 @@ defmodule AWS.DataBrew do
   def create_dataset(%Client{} = client, input, options \\ []) do
     url_path = "/datasets"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2129,7 +2131,7 @@ defmodule AWS.DataBrew do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2146,6 +2148,7 @@ defmodule AWS.DataBrew do
   def create_profile_job(%Client{} = client, input, options \\ []) do
     url_path = "/profileJobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2156,7 +2159,7 @@ defmodule AWS.DataBrew do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2173,6 +2176,7 @@ defmodule AWS.DataBrew do
   def create_project(%Client{} = client, input, options \\ []) do
     url_path = "/projects"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2183,7 +2187,7 @@ defmodule AWS.DataBrew do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2200,6 +2204,7 @@ defmodule AWS.DataBrew do
   def create_recipe(%Client{} = client, input, options \\ []) do
     url_path = "/recipes"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2210,7 +2215,7 @@ defmodule AWS.DataBrew do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2228,6 +2233,7 @@ defmodule AWS.DataBrew do
   def create_recipe_job(%Client{} = client, input, options \\ []) do
     url_path = "/recipeJobs"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2238,7 +2244,7 @@ defmodule AWS.DataBrew do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2256,6 +2262,7 @@ defmodule AWS.DataBrew do
   def create_ruleset(%Client{} = client, input, options \\ []) do
     url_path = "/rulesets"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2266,7 +2273,7 @@ defmodule AWS.DataBrew do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2286,6 +2293,7 @@ defmodule AWS.DataBrew do
   def create_schedule(%Client{} = client, input, options \\ []) do
     url_path = "/schedules"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2296,7 +2304,7 @@ defmodule AWS.DataBrew do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2313,6 +2321,7 @@ defmodule AWS.DataBrew do
   def delete_dataset(%Client{} = client, name, input, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2323,7 +2332,7 @@ defmodule AWS.DataBrew do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2340,6 +2349,7 @@ defmodule AWS.DataBrew do
   def delete_job(%Client{} = client, name, input, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2350,7 +2360,7 @@ defmodule AWS.DataBrew do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2367,6 +2377,7 @@ defmodule AWS.DataBrew do
   def delete_project(%Client{} = client, name, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2377,7 +2388,7 @@ defmodule AWS.DataBrew do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2402,6 +2413,7 @@ defmodule AWS.DataBrew do
       "/recipes/#{AWS.Util.encode_uri(name)}/recipeVersion/#{AWS.Util.encode_uri(recipe_version)}"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2412,7 +2424,7 @@ defmodule AWS.DataBrew do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2429,6 +2441,7 @@ defmodule AWS.DataBrew do
   def delete_ruleset(%Client{} = client, name, input, options \\ []) do
     url_path = "/rulesets/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2439,7 +2452,7 @@ defmodule AWS.DataBrew do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2456,6 +2469,7 @@ defmodule AWS.DataBrew do
   def delete_schedule(%Client{} = client, name, input, options \\ []) do
     url_path = "/schedules/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2466,7 +2480,7 @@ defmodule AWS.DataBrew do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2964,6 +2978,7 @@ defmodule AWS.DataBrew do
   def publish_recipe(%Client{} = client, name, input, options \\ []) do
     url_path = "/recipes/#{AWS.Util.encode_uri(name)}/publishRecipe"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -2974,7 +2989,7 @@ defmodule AWS.DataBrew do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -2997,11 +3012,22 @@ defmodule AWS.DataBrew do
   def send_project_session_action(%Client{} = client, name, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(name)}/sendProjectSessionAction"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3014,6 +3040,7 @@ defmodule AWS.DataBrew do
   def start_job_run(%Client{} = client, name, input, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(name)}/startJobRun"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3024,7 +3051,7 @@ defmodule AWS.DataBrew do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3042,11 +3069,22 @@ defmodule AWS.DataBrew do
   def start_project_session(%Client{} = client, name, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(name)}/startProjectSession"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3061,6 +3099,7 @@ defmodule AWS.DataBrew do
       "/jobs/#{AWS.Util.encode_uri(name)}/jobRun/#{AWS.Util.encode_uri(run_id)}/stopJobRun"
 
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3071,7 +3110,7 @@ defmodule AWS.DataBrew do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3090,6 +3129,7 @@ defmodule AWS.DataBrew do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -3100,7 +3140,7 @@ defmodule AWS.DataBrew do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3117,6 +3157,7 @@ defmodule AWS.DataBrew do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -3132,7 +3173,7 @@ defmodule AWS.DataBrew do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -3149,11 +3190,22 @@ defmodule AWS.DataBrew do
   def update_dataset(%Client{} = client, name, input, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3166,11 +3218,22 @@ defmodule AWS.DataBrew do
   def update_profile_job(%Client{} = client, name, input, options \\ []) do
     url_path = "/profileJobs/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3183,11 +3246,22 @@ defmodule AWS.DataBrew do
   def update_project(%Client{} = client, name, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3201,11 +3275,22 @@ defmodule AWS.DataBrew do
   def update_recipe(%Client{} = client, name, input, options \\ []) do
     url_path = "/recipes/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3218,11 +3303,22 @@ defmodule AWS.DataBrew do
   def update_recipe_job(%Client{} = client, name, input, options \\ []) do
     url_path = "/recipeJobs/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3235,11 +3331,22 @@ defmodule AWS.DataBrew do
   def update_ruleset(%Client{} = client, name, input, options \\ []) do
     url_path = "/rulesets/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3252,10 +3359,21 @@ defmodule AWS.DataBrew do
   def update_schedule(%Client{} = client, name, input, options \\ []) do
     url_path = "/schedules/#{AWS.Util.encode_uri(name)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

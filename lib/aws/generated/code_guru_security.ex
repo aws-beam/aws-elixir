@@ -780,6 +780,7 @@ defmodule AWS.CodeGuruSecurity do
   def batch_get_findings(%Client{} = client, input, options \\ []) do
     url_path = "/batchGetFindings"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -790,7 +791,7 @@ defmodule AWS.CodeGuruSecurity do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -807,6 +808,7 @@ defmodule AWS.CodeGuruSecurity do
   def create_scan(%Client{} = client, input, options \\ []) do
     url_path = "/scans"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -817,7 +819,7 @@ defmodule AWS.CodeGuruSecurity do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -840,6 +842,7 @@ defmodule AWS.CodeGuruSecurity do
   def create_upload_url(%Client{} = client, input, options \\ []) do
     url_path = "/uploadUrl"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -850,7 +853,7 @@ defmodule AWS.CodeGuruSecurity do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -1098,6 +1101,7 @@ defmodule AWS.CodeGuruSecurity do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -1108,7 +1112,7 @@ defmodule AWS.CodeGuruSecurity do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1125,6 +1129,7 @@ defmodule AWS.CodeGuruSecurity do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -1140,7 +1145,7 @@ defmodule AWS.CodeGuruSecurity do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -1157,10 +1162,21 @@ defmodule AWS.CodeGuruSecurity do
   def update_account_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/updateAccountConfiguration"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :put, url_path, query_params, headers, input, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 end

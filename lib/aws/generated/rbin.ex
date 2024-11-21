@@ -52,6 +52,7 @@ defmodule AWS.Rbin do
 
       create_rule_request() :: %{
         optional("Description") => String.t(),
+        optional("ExcludeResourceTags") => list(resource_tag()()),
         optional("LockConfiguration") => lock_configuration(),
         optional("ResourceTags") => list(resource_tag()()),
         optional("Tags") => list(tag()()),
@@ -68,6 +69,7 @@ defmodule AWS.Rbin do
 
       create_rule_response() :: %{
         "Description" => String.t(),
+        "ExcludeResourceTags" => list(resource_tag()()),
         "Identifier" => String.t(),
         "LockConfiguration" => lock_configuration(),
         "LockState" => list(any()),
@@ -115,6 +117,7 @@ defmodule AWS.Rbin do
 
       get_rule_response() :: %{
         "Description" => String.t(),
+        "ExcludeResourceTags" => list(resource_tag()()),
         "Identifier" => String.t(),
         "LockConfiguration" => lock_configuration(),
         "LockEndTime" => non_neg_integer(),
@@ -145,6 +148,7 @@ defmodule AWS.Rbin do
   ## Example:
 
       list_rules_request() :: %{
+        optional("ExcludeResourceTags") => list(resource_tag()()),
         optional("LockState") => list(any()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -215,6 +219,7 @@ defmodule AWS.Rbin do
 
       lock_rule_response() :: %{
         "Description" => String.t(),
+        "ExcludeResourceTags" => list(resource_tag()()),
         "Identifier" => String.t(),
         "LockConfiguration" => lock_configuration(),
         "LockState" => list(any()),
@@ -350,6 +355,7 @@ defmodule AWS.Rbin do
 
       unlock_rule_response() :: %{
         "Description" => String.t(),
+        "ExcludeResourceTags" => list(resource_tag()()),
         "Identifier" => String.t(),
         "LockConfiguration" => lock_configuration(),
         "LockEndTime" => non_neg_integer(),
@@ -390,6 +396,7 @@ defmodule AWS.Rbin do
 
       update_rule_request() :: %{
         optional("Description") => String.t(),
+        optional("ExcludeResourceTags") => list(resource_tag()()),
         optional("ResourceTags") => list(resource_tag()()),
         optional("ResourceType") => list(any()),
         optional("RetentionPeriod") => retention_period()
@@ -404,6 +411,7 @@ defmodule AWS.Rbin do
 
       update_rule_response() :: %{
         "Description" => String.t(),
+        "ExcludeResourceTags" => list(resource_tag()()),
         "Identifier" => String.t(),
         "LockEndTime" => non_neg_integer(),
         "LockState" => list(any()),
@@ -495,10 +503,35 @@ defmodule AWS.Rbin do
   @doc """
   Creates a Recycle Bin retention rule.
 
+  You can create two types of retention rules:
+
+    *
+
+  **Tag-level retention rules** - These retention rules use
+  resource tags to identify the resources to protect. For each retention rule, you
+  specify one or
+  more tag key and value pairs. Resources (of the specified type) that have at
+  least one of these
+  tag key and value pairs are automatically retained in the Recycle Bin upon
+  deletion. Use this
+  type of retention rule to protect specific resources in your account based on
+  their tags.
+
+    *
+
+  **Region-level retention rules** - These retention rules,
+  by default, apply to all of the resources (of the specified type) in the Region,
+  even if the
+  resources are not tagged. However, you can specify exclusion tags to exclude
+  resources that have
+  specific tags. Use this type of retention rule to protect all resources of a
+  specific type in a
+  Region.
+
   For more information, see [
   Create Recycle Bin retention
-  rules](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-create-rule)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  rules](https://docs.aws.amazon.com/ebs/latest/userguide/recycle-bin.html) in the
+  *Amazon EBS User Guide*.
   """
   @spec create_rule(map(), create_rule_request(), list()) ::
           {:ok, create_rule_response(), any()}
@@ -507,6 +540,7 @@ defmodule AWS.Rbin do
   def create_rule(%Client{} = client, input, options \\ []) do
     url_path = "/rules"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -517,7 +551,7 @@ defmodule AWS.Rbin do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -539,6 +573,7 @@ defmodule AWS.Rbin do
   def delete_rule(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -549,7 +584,7 @@ defmodule AWS.Rbin do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -583,6 +618,7 @@ defmodule AWS.Rbin do
   def list_rules(%Client{} = client, input, options \\ []) do
     url_path = "/list-rules"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -593,7 +629,7 @@ defmodule AWS.Rbin do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -618,9 +654,13 @@ defmodule AWS.Rbin do
   end
 
   @doc """
-  Locks a retention rule.
+  Locks a Region-level retention rule.
 
-  A locked retention rule can't be modified or deleted.
+  A locked retention rule can't be modified or
+  deleted.
+
+  You can't lock tag-level retention rules, or Region-level retention rules that
+  have exclusion tags.
   """
   @spec lock_rule(map(), String.t(), lock_rule_request(), list()) ::
           {:ok, lock_rule_response(), any()}
@@ -629,6 +669,7 @@ defmodule AWS.Rbin do
   def lock_rule(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(identifier)}/lock"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -639,7 +680,7 @@ defmodule AWS.Rbin do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -656,6 +697,7 @@ defmodule AWS.Rbin do
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -666,7 +708,7 @@ defmodule AWS.Rbin do
       :post,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       201
@@ -686,6 +728,7 @@ defmodule AWS.Rbin do
   def unlock_rule(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(identifier)}/unlock"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -696,7 +739,7 @@ defmodule AWS.Rbin do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200
@@ -713,6 +756,7 @@ defmodule AWS.Rbin do
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
+    custom_headers = []
 
     {query_params, input} =
       [
@@ -728,7 +772,7 @@ defmodule AWS.Rbin do
       :delete,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       204
@@ -753,6 +797,7 @@ defmodule AWS.Rbin do
   def update_rule(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(identifier)}"
     headers = []
+    custom_headers = []
     query_params = []
 
     meta = metadata()
@@ -763,7 +808,7 @@ defmodule AWS.Rbin do
       :patch,
       url_path,
       query_params,
-      headers,
+      custom_headers ++ headers,
       input,
       options,
       200

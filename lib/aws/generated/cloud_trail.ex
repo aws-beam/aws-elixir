@@ -52,6 +52,31 @@ defmodule AWS.CloudTrail do
 
   ## Example:
       
+      list_dashboards_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NamePrefix") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("Type") => list(any())
+      }
+      
+  """
+  @type list_dashboards_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_dashboard_request() :: %{
+        required("DashboardId") => String.t()
+      }
+      
+  """
+  @type get_dashboard_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_trail_request() :: %{
         required("Name") => String.t()
       }
@@ -63,12 +88,44 @@ defmodule AWS.CloudTrail do
 
   ## Example:
       
+      update_dashboard_response() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "DashboardArn" => String.t(),
+        "Name" => String.t(),
+        "RefreshSchedule" => refresh_schedule(),
+        "TerminationProtectionEnabled" => boolean(),
+        "Type" => list(any()),
+        "UpdatedTimestamp" => non_neg_integer(),
+        "Widgets" => list(widget()())
+      }
+      
+  """
+  @type update_dashboard_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_channel_request() :: %{
         required("Channel") => String.t()
       }
       
   """
   @type delete_channel_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_dashboard_request() :: %{
+        optional("RefreshSchedule") => refresh_schedule(),
+        optional("TerminationProtectionEnabled") => boolean(),
+        optional("Widgets") => list(request_widget()()),
+        required("DashboardId") => String.t()
+      }
+      
+  """
+  @type update_dashboard_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -131,6 +188,7 @@ defmodule AWS.CloudTrail do
         "DeliveryS3Uri" => String.t(),
         "DeliveryStatus" => list(any()),
         "ErrorMessage" => String.t(),
+        "EventDataStoreOwnerAccountId" => String.t(),
         "Prompt" => String.t(),
         "QueryId" => String.t(),
         "QueryStatistics" => query_statistics_for_describe_query(),
@@ -432,6 +490,7 @@ defmodule AWS.CloudTrail do
       
       get_query_results_request() :: %{
         optional("EventDataStore") => String.t(),
+        optional("EventDataStoreOwnerAccountId") => String.t(),
         optional("MaxQueryResults") => integer(),
         optional("NextToken") => String.t(),
         required("QueryId") => String.t()
@@ -572,6 +631,18 @@ defmodule AWS.CloudTrail do
 
   ## Example:
       
+      start_dashboard_refresh_request() :: %{
+        optional("QueryParameterValues") => map(),
+        required("DashboardId") => String.t()
+      }
+      
+  """
+  @type start_dashboard_refresh_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_tags_response() :: %{
         "NextToken" => String.t(),
         "ResourceTagList" => list(resource_tag()())
@@ -585,6 +656,7 @@ defmodule AWS.CloudTrail do
   ## Example:
       
       get_resource_policy_response() :: %{
+        "DelegatedAdminResourcePolicy" => String.t(),
         "ResourceArn" => String.t(),
         "ResourcePolicy" => String.t()
       }
@@ -618,8 +690,10 @@ defmodule AWS.CloudTrail do
       
       describe_query_request() :: %{
         optional("EventDataStore") => String.t(),
+        optional("EventDataStoreOwnerAccountId") => String.t(),
         optional("QueryAlias") => String.t(),
-        optional("QueryId") => String.t()
+        optional("QueryId") => String.t(),
+        optional("RefreshId") => String.t()
       }
       
   """
@@ -685,6 +759,7 @@ defmodule AWS.CloudTrail do
       
       start_query_request() :: %{
         optional("DeliveryS3Uri") => String.t(),
+        optional("EventDataStoreOwnerAccountId") => String.t(),
         optional("QueryAlias") => String.t(),
         optional("QueryParameters") => list(String.t()()),
         optional("QueryStatement") => String.t()
@@ -709,6 +784,7 @@ defmodule AWS.CloudTrail do
   ## Example:
       
       cancel_query_response() :: %{
+        "EventDataStoreOwnerAccountId" => String.t(),
         "QueryId" => String.t(),
         "QueryStatus" => list(any())
       }
@@ -751,6 +827,7 @@ defmodule AWS.CloudTrail do
   ## Example:
       
       generate_query_response() :: %{
+        "EventDataStoreOwnerAccountId" => String.t(),
         "QueryAlias" => String.t(),
         "QueryStatement" => String.t()
       }
@@ -1065,6 +1142,7 @@ defmodule AWS.CloudTrail do
       
       cancel_query_request() :: %{
         optional("EventDataStore") => String.t(),
+        optional("EventDataStoreOwnerAccountId") => String.t(),
         required("QueryId") => String.t()
       }
       
@@ -1114,6 +1192,19 @@ defmodule AWS.CloudTrail do
       
   """
   @type insufficient_dependency_service_access_permission_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      request_widget() :: %{
+        "QueryParameters" => list(String.t()()),
+        "QueryStatement" => String.t(),
+        "ViewProperties" => map()
+      }
+      
+  """
+  @type request_widget() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1178,6 +1269,17 @@ defmodule AWS.CloudTrail do
       
   """
   @type event_data_store_federation_enabled_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1461,6 +1563,18 @@ defmodule AWS.CloudTrail do
 
   ## Example:
       
+      refresh_schedule_frequency() :: %{
+        "Unit" => list(any()),
+        "Value" => integer()
+      }
+      
+  """
+  @type refresh_schedule_frequency() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       account_not_found_exception() :: %{
         "Message" => String.t()
       }
@@ -1599,6 +1713,37 @@ defmodule AWS.CloudTrail do
 
   ## Example:
       
+      get_dashboard_response() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "DashboardArn" => String.t(),
+        "LastRefreshFailureReason" => String.t(),
+        "LastRefreshId" => String.t(),
+        "RefreshSchedule" => refresh_schedule(),
+        "Status" => list(any()),
+        "TerminationProtectionEnabled" => boolean(),
+        "Type" => list(any()),
+        "UpdatedTimestamp" => non_neg_integer(),
+        "Widgets" => list(widget()())
+      }
+      
+  """
+  @type get_dashboard_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_dashboard_request() :: %{
+        required("DashboardId") => String.t()
+      }
+      
+  """
+  @type delete_dashboard_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_event_data_store_request() :: %{
         required("EventDataStore") => String.t()
       }
@@ -1616,6 +1761,28 @@ defmodule AWS.CloudTrail do
       
   """
   @type get_event_selectors_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      refresh_schedule() :: %{
+        "Frequency" => refresh_schedule_frequency(),
+        "Status" => list(any()),
+        "TimeOfDay" => String.t()
+      }
+      
+  """
+  @type refresh_schedule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_dashboard_response() :: %{}
+      
+  """
+  @type delete_dashboard_response() :: %{}
 
   @typedoc """
 
@@ -1648,6 +1815,23 @@ defmodule AWS.CloudTrail do
       
   """
   @type restore_event_data_store_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_dashboard_response() :: %{
+        "DashboardArn" => String.t(),
+        "Name" => String.t(),
+        "RefreshSchedule" => refresh_schedule(),
+        "TagsList" => list(tag()()),
+        "TerminationProtectionEnabled" => boolean(),
+        "Type" => list(any()),
+        "Widgets" => list(widget()())
+      }
+      
+  """
+  @type create_dashboard_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1742,6 +1926,7 @@ defmodule AWS.CloudTrail do
   ## Example:
       
       start_query_response() :: %{
+        "EventDataStoreOwnerAccountId" => String.t(),
         "QueryId" => String.t()
       }
       
@@ -1872,6 +2057,17 @@ defmodule AWS.CloudTrail do
       
   """
   @type invalid_parameter_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_dashboard_refresh_response() :: %{
+        "RefreshId" => String.t()
+      }
+      
+  """
+  @type start_dashboard_refresh_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2081,6 +2277,21 @@ defmodule AWS.CloudTrail do
 
   ## Example:
       
+      create_dashboard_request() :: %{
+        optional("RefreshSchedule") => refresh_schedule(),
+        optional("TagsList") => list(tag()()),
+        optional("TerminationProtectionEnabled") => boolean(),
+        optional("Widgets") => list(request_widget()()),
+        required("Name") => String.t()
+      }
+      
+  """
+  @type create_dashboard_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_imports_request() :: %{
         optional("Destination") => String.t(),
         optional("ImportStatus") => list(any()),
@@ -2139,6 +2350,7 @@ defmodule AWS.CloudTrail do
   ## Example:
       
       put_resource_policy_response() :: %{
+        "DelegatedAdminResourcePolicy" => String.t(),
         "ResourceArn" => String.t(),
         "ResourcePolicy" => String.t()
       }
@@ -2157,6 +2369,20 @@ defmodule AWS.CloudTrail do
       
   """
   @type list_trails_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      widget() :: %{
+        "QueryAlias" => String.t(),
+        "QueryParameters" => list(String.t()()),
+        "QueryStatement" => String.t(),
+        "ViewProperties" => map()
+      }
+      
+  """
+  @type widget() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2474,6 +2700,18 @@ defmodule AWS.CloudTrail do
 
   ## Example:
       
+      list_dashboards_response() :: %{
+        "Dashboards" => list(dashboard_detail()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type list_dashboards_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       resource_arn_not_valid_exception() :: %{
         "Message" => String.t()
       }
@@ -2648,6 +2886,18 @@ defmodule AWS.CloudTrail do
 
   ## Example:
       
+      dashboard_detail() :: %{
+        "DashboardArn" => String.t(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type dashboard_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_trail_response() :: %{
         "Trail" => trail()
       }
@@ -2724,6 +2974,16 @@ defmodule AWS.CloudTrail do
           | event_data_store_arn_invalid_exception()
           | unsupported_operation_exception()
 
+  @type create_dashboard_errors() ::
+          invalid_query_statement_exception()
+          | event_data_store_not_found_exception()
+          | inactive_event_data_store_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+          | invalid_tag_parameter_exception()
+          | insufficient_encryption_policy_exception()
+          | unsupported_operation_exception()
+
   @type create_event_data_store_errors() ::
           cloud_trail_access_not_enabled_exception()
           | event_data_store_max_limit_exceeded_exception()
@@ -2785,6 +3045,11 @@ defmodule AWS.CloudTrail do
           | channel_not_found_exception()
           | unsupported_operation_exception()
 
+  @type delete_dashboard_errors() ::
+          resource_not_found_exception()
+          | conflict_exception()
+          | unsupported_operation_exception()
+
   @type delete_event_data_store_errors() ::
           event_data_store_has_ongoing_import_exception()
           | event_data_store_not_found_exception()
@@ -2806,6 +3071,7 @@ defmodule AWS.CloudTrail do
           | resource_policy_not_found_exception()
           | operation_not_permitted_exception()
           | resource_not_found_exception()
+          | conflict_exception()
           | unsupported_operation_exception()
           | resource_type_not_supported_exception()
 
@@ -2901,6 +3167,9 @@ defmodule AWS.CloudTrail do
           | channel_not_found_exception()
           | unsupported_operation_exception()
 
+  @type get_dashboard_errors() ::
+          resource_not_found_exception() | unsupported_operation_exception()
+
   @type get_event_data_store_errors() ::
           event_data_store_not_found_exception()
           | invalid_parameter_exception()
@@ -2974,6 +3243,8 @@ defmodule AWS.CloudTrail do
           operation_not_permitted_exception()
           | invalid_next_token_exception()
           | unsupported_operation_exception()
+
+  @type list_dashboards_errors() :: unsupported_operation_exception()
 
   @type list_event_data_stores_errors() ::
           operation_not_permitted_exception()
@@ -3082,6 +3353,7 @@ defmodule AWS.CloudTrail do
           | resource_policy_not_valid_exception()
           | operation_not_permitted_exception()
           | resource_not_found_exception()
+          | conflict_exception()
           | unsupported_operation_exception()
           | resource_type_not_supported_exception()
 
@@ -3130,6 +3402,13 @@ defmodule AWS.CloudTrail do
           | organization_not_in_all_features_mode_exception()
           | no_management_account_s_l_r_exists_exception()
           | event_data_store_arn_invalid_exception()
+          | unsupported_operation_exception()
+
+  @type start_dashboard_refresh_errors() ::
+          event_data_store_not_found_exception()
+          | inactive_event_data_store_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
           | unsupported_operation_exception()
 
   @type start_event_data_store_ingestion_errors() ::
@@ -3230,6 +3509,16 @@ defmodule AWS.CloudTrail do
           | event_data_store_arn_invalid_exception()
           | unsupported_operation_exception()
 
+  @type update_dashboard_errors() ::
+          invalid_query_statement_exception()
+          | event_data_store_not_found_exception()
+          | inactive_event_data_store_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | insufficient_encryption_policy_exception()
+          | unsupported_operation_exception()
+
   @type update_event_data_store_errors() ::
           invalid_insight_selectors_exception()
           | cloud_trail_access_not_enabled_exception()
@@ -3304,8 +3593,8 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
-  Adds one or more tags to a trail, event data store, or channel, up to a limit of
-  50.
+  Adds one or more tags to a trail, event data store, dashboard, or channel, up to
+  a limit of 50.
 
   Overwrites an
   existing tag's value when a new value is specified for an existing tag key. Tag
@@ -3367,6 +3656,56 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
+
+  Creates a custom dashboard or the Highlights dashboard.
+
+    *
+
+  **Custom dashboards** - Custom dashboards allow you to query
+  events in any event data store type. You can add up to 10 widgets to a custom
+  dashboard. You can manually refresh a custom dashboard, or you can set a refresh
+  schedule.
+
+    *
+
+  **Highlights dashboard** - You can create
+  the Highlights dashboard to see a summary of key user activities and API usage
+  across all your event data stores.
+  CloudTrail Lake manages the Highlights dashboard and refreshes the dashboard
+  every 6 hours. To create the Highlights dashboard, you must set and enable a
+  refresh schedule.
+
+  CloudTrail runs queries to populate the dashboard's widgets during a manual or
+  scheduled refresh. CloudTrail must be granted permissions to run the
+  `StartQuery` operation on your behalf. To provide permissions, run the
+  `PutResourcePolicy` operation to attach a resource-based policy to each event
+  data store. For more information,
+  see [Example: Allow CloudTrail to run queries to populate a dashboard](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html#security_iam_resource-based-policy-examples-eds-dashboard)
+  in the *CloudTrail User Guide*.
+
+  To set a refresh schedule, CloudTrail must be granted permissions to run the
+  `StartDashboardRefresh` operation to refresh the dashboard on your behalf. To
+  provide permissions, run the `PutResourcePolicy` operation to attach a
+  resource-based policy to the dashboard. For more information,
+  see [
+  Resource-based policy example for a
+  dashboard](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html#security_iam_resource-based-policy-examples-dashboards)
+  in the *CloudTrail User Guide*.
+
+  For more information about dashboards, see [CloudTrail Lake dashboards](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/lake-dashboard.html)
+  in the *CloudTrail User Guide*.
+  """
+  @spec create_dashboard(map(), create_dashboard_request(), list()) ::
+          {:ok, create_dashboard_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_dashboard_errors()}
+  def create_dashboard(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateDashboard", input, options)
+  end
+
+  @doc """
   Creates a new event data store.
   """
   @spec create_event_data_store(map(), create_event_data_store_request(), list()) ::
@@ -3407,6 +3746,22 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
+
+  Deletes the specified dashboard.
+
+  You cannot delete a dashboard that has termination protection enabled.
+  """
+  @spec delete_dashboard(map(), delete_dashboard_request(), list()) ::
+          {:ok, delete_dashboard_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_dashboard_errors()}
+  def delete_dashboard(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDashboard", input, options)
+  end
+
+  @doc """
   Disables the event data store specified by `EventDataStore`, which accepts an
   event data store ARN.
 
@@ -3434,7 +3789,8 @@ defmodule AWS.CloudTrail do
 
   @doc """
 
-  Deletes the resource-based policy attached to the CloudTrail channel.
+  Deletes the resource-based policy attached to the CloudTrail event data store,
+  dashboard, or channel.
   """
   @spec delete_resource_policy(map(), delete_resource_policy_request(), list()) ::
           {:ok, delete_resource_policy_response(), any()}
@@ -3489,9 +3845,11 @@ defmodule AWS.CloudTrail do
   If the query results were delivered to an S3 bucket,
   the response also provides the S3 URI and the delivery status.
 
-  You must specify either a `QueryID` or a `QueryAlias`. Specifying
-  the `QueryAlias` parameter returns information about the last query run for the
-  alias.
+  You must specify either `QueryId` or `QueryAlias`. Specifying the `QueryAlias`
+  parameter
+  returns information about the last query run for the alias. You can provide
+  `RefreshId` along with `QueryAlias` to view the query results
+  of a dashboard query for the specified `RefreshId`.
   """
   @spec describe_query(map(), describe_query_request(), list()) ::
           {:ok, describe_query_response(), any()}
@@ -3622,6 +3980,20 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
+
+  Returns the specified dashboard.
+  """
+  @spec get_dashboard(map(), get_dashboard_request(), list()) ::
+          {:ok, get_dashboard_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_dashboard_errors()}
+  def get_dashboard(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDashboard", input, options)
+  end
+
+  @doc """
   Returns information about an event data store specified as either an ARN or the
   ID
   portion of the ARN.
@@ -3747,7 +4119,7 @@ defmodule AWS.CloudTrail do
   @doc """
 
   Retrieves the JSON text of the resource-based policy document attached to the
-  CloudTrail channel.
+  CloudTrail event data store, dashboard, or channel.
   """
   @spec get_resource_policy(map(), get_resource_policy_request(), list()) ::
           {:ok, get_resource_policy_response(), any()}
@@ -3804,6 +4176,20 @@ defmodule AWS.CloudTrail do
     meta = metadata()
 
     Request.request_post(client, meta, "ListChannels", input, options)
+  end
+
+  @doc """
+
+  Returns information about all dashboards in the account, in the current Region.
+  """
+  @spec list_dashboards(map(), list_dashboards_request(), list()) ::
+          {:ok, list_dashboards_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_dashboards_errors()}
+  def list_dashboards(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDashboards", input, options)
   end
 
   @doc """
@@ -3929,8 +4315,8 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
-  Lists the tags for the specified trails, event data stores, or channels in the
-  current Region.
+  Lists the tags for the specified trails, event data stores, dashboards, or
+  channels in the current Region.
   """
   @spec list_tags(map(), list_tags_request(), list()) ::
           {:ok, list_tags_response(), any()}
@@ -4170,8 +4556,8 @@ defmodule AWS.CloudTrail do
 
   @doc """
 
-  Attaches a resource-based permission policy to a CloudTrail channel that is used
-  for an integration with an event source outside of Amazon Web Services.
+  Attaches a resource-based permission policy to a CloudTrail event data store,
+  dashboard, or channel.
 
   For more information about resource-based policies, see
   [CloudTrail resource-based policy examples](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html)
@@ -4205,7 +4591,8 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
-  Removes the specified tags from a trail, event data store, or channel.
+  Removes the specified tags from a trail, event data store, dashboard, or
+  channel.
   """
   @spec remove_tags(map(), remove_tags_request(), list()) ::
           {:ok, remove_tags_response(), any()}
@@ -4234,6 +4621,28 @@ defmodule AWS.CloudTrail do
     meta = metadata()
 
     Request.request_post(client, meta, "RestoreEventDataStore", input, options)
+  end
+
+  @doc """
+
+  Starts a refresh of the specified dashboard.
+
+  Each time a dashboard is refreshed, CloudTrail runs queries to populate the
+  dashboard's widgets. CloudTrail must be granted permissions to run the
+  `StartQuery` operation on your behalf. To provide permissions, run the
+  `PutResourcePolicy` operation to attach a resource-based policy to each event
+  data store. For more information,
+  see [Example: Allow CloudTrail to run queries to populate a dashboard](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html#security_iam_resource-based-policy-examples-eds-dashboard)
+  in the *CloudTrail User Guide*.
+  """
+  @spec start_dashboard_refresh(map(), start_dashboard_refresh_request(), list()) ::
+          {:ok, start_dashboard_refresh_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_dashboard_refresh_errors()}
+  def start_dashboard_refresh(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartDashboardRefresh", input, options)
   end
 
   @doc """
@@ -4407,6 +4816,37 @@ defmodule AWS.CloudTrail do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateChannel", input, options)
+  end
+
+  @doc """
+
+  Updates the specified dashboard.
+
+  To set a refresh schedule, CloudTrail must be granted permissions to run the
+  `StartDashboardRefresh` operation to refresh the dashboard on your behalf. To
+  provide permissions, run the `PutResourcePolicy` operation to attach a
+  resource-based policy to the dashboard. For more information,
+  see [
+  Resource-based policy example for a
+  dashboard](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html#security_iam_resource-based-policy-examples-dashboards)
+  in the *CloudTrail User Guide*.
+
+  CloudTrail runs queries to populate the dashboard's widgets during a manual or
+  scheduled refresh. CloudTrail must be granted permissions to run the
+  `StartQuery` operation on your behalf. To provide permissions, run the
+  `PutResourcePolicy` operation to attach a resource-based policy to each event
+  data store. For more information,
+  see [Example: Allow CloudTrail to run queries to populate a dashboard](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html#security_iam_resource-based-policy-examples-eds-dashboard)
+  in the *CloudTrail User Guide*.
+  """
+  @spec update_dashboard(map(), update_dashboard_request(), list()) ::
+          {:ok, update_dashboard_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_dashboard_errors()}
+  def update_dashboard(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateDashboard", input, options)
   end
 
   @doc """

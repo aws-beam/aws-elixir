@@ -31,7 +31,7 @@ defmodule AWS.Lambda do
 
   For a list of Region-specific endpoints that Lambda supports,
   see [Lambda endpoints and quotas
-  ](https://docs.aws.amazon.com/general/latest/gr/lambda-service.html/) in the
+  ](https://docs.aws.amazon.com/general/latest/gr/lambda-service.html) in the
   *Amazon Web Services General Reference.*.
 
   When making the API calls, you will need to
@@ -231,6 +231,7 @@ defmodule AWS.Lambda do
         optional("MaximumBatchingWindowInSeconds") => integer(),
         optional("MaximumRecordAgeInSeconds") => integer(),
         optional("MaximumRetryAttempts") => integer(),
+        optional("MetricsConfig") => event_source_mapping_metrics_config(),
         optional("ParallelizationFactor") => integer(),
         optional("ScalingConfig") => scaling_config(),
         optional("SourceAccessConfigurations") => list(source_access_configuration()()),
@@ -1283,6 +1284,7 @@ defmodule AWS.Lambda do
         "MaximumBatchingWindowInSeconds" => integer(),
         "MaximumRecordAgeInSeconds" => integer(),
         "MaximumRetryAttempts" => integer(),
+        "MetricsConfig" => event_source_mapping_metrics_config(),
         "ParallelizationFactor" => integer(),
         "Queues" => list(String.t()()),
         "ScalingConfig" => scaling_config(),
@@ -1319,6 +1321,7 @@ defmodule AWS.Lambda do
         optional("MaximumBatchingWindowInSeconds") => integer(),
         optional("MaximumRecordAgeInSeconds") => integer(),
         optional("MaximumRetryAttempts") => integer(),
+        optional("MetricsConfig") => event_source_mapping_metrics_config(),
         optional("ParallelizationFactor") => integer(),
         optional("Queues") => list(String.t()()),
         optional("ScalingConfig") => scaling_config(),
@@ -1802,6 +1805,17 @@ defmodule AWS.Lambda do
 
   """
   @type invalid_zip_file_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_source_mapping_metrics_config() :: %{
+        "Metrics" => list(list(any())())
+      }
+
+  """
+  @type event_source_mapping_metrics_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3436,18 +3450,13 @@ defmodule AWS.Lambda do
   Amazon
   DocumentDB](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html)
 
-  The following error handling options are available only for stream sources
-  (DynamoDB and Kinesis):
+  The following error handling options are available only for DynamoDB and Kinesis
+  event sources:
 
     *
 
   `BisectBatchOnFunctionError` – If the function returns an error, split the batch
   in two and retry.
-
-    *
-
-  `DestinationConfig` – Send discarded records to an Amazon SQS queue or Amazon
-  SNS topic.
 
     *
 
@@ -3464,6 +3473,15 @@ defmodule AWS.Lambda do
     *
 
   `ParallelizationFactor` – Process multiple batches from each shard concurrently.
+
+  For stream sources (DynamoDB, Kinesis, Amazon MSK, and self-managed Apache
+  Kafka), the following option is also available:
+
+    *
+
+  `DestinationConfig` – Send discarded records to an Amazon SQS queue, Amazon SNS
+  topic, or
+  Amazon S3 bucket.
 
   For information about which configuration parameters apply to each event source,
   see the following topics.
@@ -5469,14 +5487,17 @@ defmodule AWS.Lambda do
   configure a dead-letter queue with
   `UpdateFunctionConfiguration`.
 
-  To send an invocation record to a queue, topic, function, or event bus, specify
-  a
+  To send an invocation record to a queue, topic, S3 bucket, function, or event
+  bus, specify a
   [destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations).
   You can configure separate destinations for successful invocations (on-success)
   and events
   that fail all processing attempts (on-failure). You can configure destinations
   in addition to or instead of a
   dead-letter queue.
+
+  S3 buckets are supported only for on-failure destinations. To retain records of
+  successful invocations, use another destination type.
   """
   @spec put_function_event_invoke_config(
           map(),
@@ -5920,18 +5941,13 @@ defmodule AWS.Lambda do
   Amazon
   DocumentDB](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html)
 
-  The following error handling options are available only for stream sources
-  (DynamoDB and Kinesis):
+  The following error handling options are available only for DynamoDB and Kinesis
+  event sources:
 
     *
 
   `BisectBatchOnFunctionError` – If the function returns an error, split the batch
   in two and retry.
-
-    *
-
-  `DestinationConfig` – Send discarded records to an Amazon SQS queue or Amazon
-  SNS topic.
 
     *
 
@@ -5948,6 +5964,15 @@ defmodule AWS.Lambda do
     *
 
   `ParallelizationFactor` – Process multiple batches from each shard concurrently.
+
+  For stream sources (DynamoDB, Kinesis, Amazon MSK, and self-managed Apache
+  Kafka), the following option is also available:
+
+    *
+
+  `DestinationConfig` – Send discarded records to an Amazon SQS queue, Amazon SNS
+  topic, or
+  Amazon S3 bucket.
 
   For information about which configuration parameters apply to each event source,
   see the following topics.

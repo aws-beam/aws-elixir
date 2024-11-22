@@ -573,10 +573,12 @@ defmodule AWS.APIGateway do
 
   ## Example:
 
-      get_base_path_mapping_request() :: %{}
+      get_base_path_mapping_request() :: %{
+        optional("domainNameId") => String.t()
+      }
 
   """
-  @type get_base_path_mapping_request() :: %{}
+  @type get_base_path_mapping_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -591,6 +593,15 @@ defmodule AWS.APIGateway do
 
   """
   @type create_model_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_domain_name_access_association_request() :: %{}
+
+  """
+  @type delete_domain_name_access_association_request() :: %{}
 
   @typedoc """
 
@@ -660,6 +671,7 @@ defmodule AWS.APIGateway do
         optional("endpointConfiguration") => endpoint_configuration(),
         optional("mutualTlsAuthentication") => mutual_tls_authentication_input(),
         optional("ownershipVerificationCertificateArn") => String.t(),
+        optional("policy") => String.t(),
         optional("regionalCertificateArn") => String.t(),
         optional("regionalCertificateName") => String.t(),
         optional("securityPolicy") => list(any()),
@@ -675,6 +687,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       update_base_path_mapping_request() :: %{
+        optional("domainNameId") => String.t(),
         optional("patchOperations") => list(patch_operation()())
       }
 
@@ -745,6 +758,21 @@ defmodule AWS.APIGateway do
 
   """
   @type update_documentation_part_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_name_access_association() :: %{
+        "accessAssociationSource" => String.t(),
+        "accessAssociationSourceType" => list(any()),
+        "domainNameAccessAssociationArn" => String.t(),
+        "domainNameArn" => String.t(),
+        "tags" => map()
+      }
+
+  """
+  @type domain_name_access_association() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1269,9 +1297,22 @@ defmodule AWS.APIGateway do
 
   ## Example:
 
+      reject_domain_name_access_association_request() :: %{
+        required("domainNameAccessAssociationArn") => String.t(),
+        required("domainNameArn") => String.t()
+      }
+
+  """
+  @type reject_domain_name_access_association_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_domain_names_request() :: %{
         optional("limit") => integer(),
-        optional("position") => String.t()
+        optional("position") => String.t(),
+        optional("resourceOwner") => list(any())
       }
 
   """
@@ -1391,6 +1432,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       update_domain_name_request() :: %{
+        optional("domainNameId") => String.t(),
         optional("patchOperations") => list(patch_operation()())
       }
 
@@ -1442,6 +1484,18 @@ defmodule AWS.APIGateway do
 
   ## Example:
 
+      domain_name_access_associations() :: %{
+        optional("items") => list(domain_name_access_association()()),
+        optional("position") => String.t()
+      }
+
+  """
+  @type domain_name_access_associations() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       domain_name() :: %{
         "certificateArn" => String.t(),
         "certificateName" => String.t(),
@@ -1449,11 +1503,15 @@ defmodule AWS.APIGateway do
         "distributionDomainName" => String.t(),
         "distributionHostedZoneId" => String.t(),
         "domainName" => String.t(),
+        "domainNameArn" => String.t(),
+        "domainNameId" => String.t(),
         "domainNameStatus" => list(any()),
         "domainNameStatusMessage" => String.t(),
         "endpointConfiguration" => endpoint_configuration(),
+        "managementPolicy" => String.t(),
         "mutualTlsAuthentication" => mutual_tls_authentication(),
         "ownershipVerificationCertificateArn" => String.t(),
+        "policy" => String.t(),
         "regionalCertificateArn" => String.t(),
         "regionalCertificateName" => String.t(),
         "regionalDomainName" => String.t(),
@@ -1619,6 +1677,19 @@ defmodule AWS.APIGateway do
 
   ## Example:
 
+      get_domain_name_access_associations_request() :: %{
+        optional("limit") => integer(),
+        optional("position") => String.t(),
+        optional("resourceOwner") => list(any())
+      }
+
+  """
+  @type get_domain_name_access_associations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_model_request() :: %{}
 
   """
@@ -1718,6 +1789,7 @@ defmodule AWS.APIGateway do
 
       create_base_path_mapping_request() :: %{
         optional("basePath") => String.t(),
+        optional("domainNameId") => String.t(),
         optional("stage") => String.t(),
         required("restApiId") => String.t()
       }
@@ -1780,10 +1852,12 @@ defmodule AWS.APIGateway do
 
   ## Example:
 
-      get_domain_name_request() :: %{}
+      get_domain_name_request() :: %{
+        optional("domainNameId") => String.t()
+      }
 
   """
-  @type get_domain_name_request() :: %{}
+  @type get_domain_name_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1975,19 +2049,23 @@ defmodule AWS.APIGateway do
 
   ## Example:
 
-      delete_base_path_mapping_request() :: %{}
+      delete_base_path_mapping_request() :: %{
+        optional("domainNameId") => String.t()
+      }
 
   """
-  @type delete_base_path_mapping_request() :: %{}
+  @type delete_base_path_mapping_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_domain_name_request() :: %{}
+      delete_domain_name_request() :: %{
+        optional("domainNameId") => String.t()
+      }
 
   """
-  @type delete_domain_name_request() :: %{}
+  @type delete_domain_name_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2147,6 +2225,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       get_base_path_mappings_request() :: %{
+        optional("domainNameId") => String.t(),
         optional("limit") => integer(),
         optional("position") => String.t()
       }
@@ -2347,6 +2426,20 @@ defmodule AWS.APIGateway do
 
   ## Example:
 
+      create_domain_name_access_association_request() :: %{
+        optional("tags") => map(),
+        required("accessAssociationSource") => String.t(),
+        required("accessAssociationSourceType") => list(any()),
+        required("domainNameArn") => String.t()
+      }
+
+  """
+  @type create_domain_name_access_association_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       usage_plan_key() :: %{
         "id" => String.t(),
         "name" => String.t(),
@@ -2482,6 +2575,13 @@ defmodule AWS.APIGateway do
           | too_many_requests_exception()
           | unauthorized_exception()
 
+  @type create_domain_name_access_association_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
+
   @type create_model_errors() ::
           bad_request_exception()
           | limit_exceeded_exception()
@@ -2595,6 +2695,13 @@ defmodule AWS.APIGateway do
           | unauthorized_exception()
 
   @type delete_domain_name_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
+
+  @type delete_domain_name_access_association_errors() ::
           bad_request_exception()
           | not_found_exception()
           | conflict_exception()
@@ -2805,6 +2912,12 @@ defmodule AWS.APIGateway do
           | unauthorized_exception()
 
   @type get_domain_name_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
+
+  @type get_domain_name_access_associations_errors() ::
           bad_request_exception()
           | not_found_exception()
           | too_many_requests_exception()
@@ -3056,6 +3169,13 @@ defmodule AWS.APIGateway do
   @type put_rest_api_errors() ::
           bad_request_exception()
           | limit_exceeded_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | unauthorized_exception()
+
+  @type reject_domain_name_access_association_errors() ::
+          bad_request_exception()
           | not_found_exception()
           | conflict_exception()
           | too_many_requests_exception()
@@ -3347,7 +3467,12 @@ defmodule AWS.APIGateway do
     url_path = "/domainnames/#{AWS.Util.encode_uri(domain_name)}/basepathmappings"
     headers = []
     custom_headers = []
-    query_params = []
+
+    {query_params, input} =
+      [
+        {"domainNameId", "domainNameId"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 
@@ -3463,6 +3588,40 @@ defmodule AWS.APIGateway do
           | {:error, create_domain_name_errors()}
   def create_domain_name(%Client{} = client, input, options \\ []) do
     url_path = "/domainnames"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a domain name access association resource between an access association
+  source and a private custom
+  domain name.
+  """
+  @spec create_domain_name_access_association(
+          map(),
+          create_domain_name_access_association_request(),
+          list()
+        ) ::
+          {:ok, domain_name_access_association(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_domain_name_access_association_errors()}
+  def create_domain_name_access_association(%Client{} = client, input, options \\ []) do
+    url_path = "/domainnameaccessassociations"
     headers = []
     custom_headers = []
     query_params = []
@@ -3791,7 +3950,12 @@ defmodule AWS.APIGateway do
 
     headers = []
     custom_headers = []
-    query_params = []
+
+    {query_params, input} =
+      [
+        {"domainNameId", "domainNameId"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 
@@ -3962,6 +4126,56 @@ defmodule AWS.APIGateway do
           | {:error, delete_domain_name_errors()}
   def delete_domain_name(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domainnames/#{AWS.Util.encode_uri(domain_name)}"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"domainNameId", "domainNameId"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Deletes the DomainNameAccessAssociation resource.
+
+  Only the AWS account that created the DomainNameAccessAssociation resource can
+  delete it. To stop an access association source in another AWS account from
+  accessing your private custom domain name, use the
+  RejectDomainNameAccessAssociation operation.
+  """
+  @spec delete_domain_name_access_association(
+          map(),
+          String.t(),
+          delete_domain_name_access_association_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_domain_name_access_association_errors()}
+  def delete_domain_name_access_association(
+        %Client{} = client,
+        domain_name_access_association_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/domainnameaccessassociations/#{AWS.Util.encode_uri(domain_name_access_association_arn)}"
+
     headers = []
     custom_headers = []
     query_params = []
@@ -4718,16 +4932,29 @@ defmodule AWS.APIGateway do
   @doc """
   Describe a BasePathMapping resource.
   """
-  @spec get_base_path_mapping(map(), String.t(), String.t(), list()) ::
+  @spec get_base_path_mapping(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, base_path_mapping(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_base_path_mapping_errors()}
-  def get_base_path_mapping(%Client{} = client, base_path, domain_name, options \\ []) do
+  def get_base_path_mapping(
+        %Client{} = client,
+        base_path,
+        domain_name,
+        domain_name_id \\ nil,
+        options \\ []
+      ) do
     url_path =
       "/domainnames/#{AWS.Util.encode_uri(domain_name)}/basepathmappings/#{AWS.Util.encode_uri(base_path)}"
 
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(domain_name_id) do
+        [{"domainNameId", domain_name_id} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -4737,13 +4964,21 @@ defmodule AWS.APIGateway do
   @doc """
   Represents a collection of BasePathMapping resources.
   """
-  @spec get_base_path_mappings(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_base_path_mappings(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
           {:ok, base_path_mappings(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_base_path_mappings_errors()}
   def get_base_path_mappings(
         %Client{} = client,
         domain_name,
+        domain_name_id \\ nil,
         limit \\ nil,
         position \\ nil,
         options \\ []
@@ -4762,6 +4997,13 @@ defmodule AWS.APIGateway do
     query_params =
       if !is_nil(limit) do
         [{"limit", limit} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(domain_name_id) do
+        [{"domainNameId", domain_name_id} | query_params]
       else
         query_params
       end
@@ -5050,14 +5292,71 @@ defmodule AWS.APIGateway do
   Represents a domain name that is contained in a simpler, more intuitive URL that
   can be called.
   """
-  @spec get_domain_name(map(), String.t(), list()) ::
+  @spec get_domain_name(map(), String.t(), String.t() | nil, list()) ::
           {:ok, domain_name(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_domain_name_errors()}
-  def get_domain_name(%Client{} = client, domain_name, options \\ []) do
+  def get_domain_name(%Client{} = client, domain_name, domain_name_id \\ nil, options \\ []) do
     url_path = "/domainnames/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(domain_name_id) do
+        [{"domainNameId", domain_name_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Represents a collection on DomainNameAccessAssociations resources.
+  """
+  @spec get_domain_name_access_associations(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, domain_name_access_associations(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_domain_name_access_associations_errors()}
+  def get_domain_name_access_associations(
+        %Client{} = client,
+        limit \\ nil,
+        position \\ nil,
+        resource_owner \\ nil,
+        options \\ []
+      ) do
+    url_path = "/domainnameaccessassociations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(resource_owner) do
+        [{"resourceOwner", resource_owner} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(position) do
+        [{"position", position} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(limit) do
+        [{"limit", limit} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -5067,14 +5366,27 @@ defmodule AWS.APIGateway do
   @doc """
   Represents a collection of DomainName resources.
   """
-  @spec get_domain_names(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_domain_names(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, domain_names(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_domain_names_errors()}
-  def get_domain_names(%Client{} = client, limit \\ nil, position \\ nil, options \\ []) do
+  def get_domain_names(
+        %Client{} = client,
+        limit \\ nil,
+        position \\ nil,
+        resource_owner \\ nil,
+        options \\ []
+      ) do
     url_path = "/domainnames"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(resource_owner) do
+        [{"resourceOwner", resource_owner} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(position) do
@@ -6325,6 +6637,49 @@ defmodule AWS.APIGateway do
   end
 
   @doc """
+  Rejects a domain name access association with a private custom domain name.
+
+  To reject a domain name access association with an access association source in
+  another AWS account, use this operation. To remove a domain name access
+  association with an access association source in your own account, use the
+  DeleteDomainNameAccessAssociation operation.
+  """
+  @spec reject_domain_name_access_association(
+          map(),
+          reject_domain_name_access_association_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, reject_domain_name_access_association_errors()}
+  def reject_domain_name_access_association(%Client{} = client, input, options \\ []) do
+    url_path = "/rejectdomainnameaccessassociations"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"domainNameAccessAssociationArn", "domainNameAccessAssociationArn"},
+        {"domainNameArn", "domainNameArn"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Adds or updates a tag on a given resource.
   """
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
@@ -6572,7 +6927,12 @@ defmodule AWS.APIGateway do
 
     headers = []
     custom_headers = []
-    query_params = []
+
+    {query_params, input} =
+      [
+        {"domainNameId", "domainNameId"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 
@@ -6742,7 +7102,12 @@ defmodule AWS.APIGateway do
     url_path = "/domainnames/#{AWS.Util.encode_uri(domain_name)}"
     headers = []
     custom_headers = []
-    query_params = []
+
+    {query_params, input} =
+      [
+        {"domainNameId", "domainNameId"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 

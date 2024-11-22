@@ -411,6 +411,7 @@ defmodule AWS.ElastiCache do
   ## Example:
       
       modify_user_group_message() :: %{
+        optional("Engine") => String.t(),
         optional("UserIdsToAdd") => list(String.t()()),
         optional("UserIdsToRemove") => list(String.t()()),
         required("UserGroupId") => String.t()
@@ -2295,6 +2296,7 @@ defmodule AWS.ElastiCache do
         optional("AccessString") => String.t(),
         optional("AppendAccessString") => String.t(),
         optional("AuthenticationMode") => authentication_mode(),
+        optional("Engine") => String.t(),
         optional("NoPasswordRequired") => boolean(),
         optional("Passwords") => list(String.t()()),
         required("UserId") => String.t()
@@ -4417,7 +4419,7 @@ defmodule AWS.ElastiCache do
   replication group. When you add or remove tags on replication groups, those
   actions will
   be replicated to all nodes in the replication group. For more information, see
-  [Resource-level permissions](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ResourceLevelPermissions.html).
+  [Resource-level permissions](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/IAM.ResourceLevelPermissions.html).
 
   For example, you can use cost-allocation tags to your ElastiCache resources,
   Amazon
@@ -4430,7 +4432,7 @@ defmodule AWS.ElastiCache do
   multiple services.
 
   For more information, see [Using Cost Allocation Tags in Amazon
-  ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Tagging.html)
+  ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Tagging.html)
   in the *ElastiCache User
   Guide*.
   """
@@ -4474,7 +4476,7 @@ defmodule AWS.ElastiCache do
   Apply the service update.
 
   For more information on service updates and applying them,
-  see [Applying Service Updates](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/applying-updates.html).
+  see [Applying Service Updates](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/applying-updates.html).
   """
   @spec batch_apply_update_action(map(), batch_apply_update_action_message(), list()) ::
           {:ok, update_action_results_message(), any()}
@@ -4491,7 +4493,7 @@ defmodule AWS.ElastiCache do
 
   For more information on service updates and stopping them,
   see [Stopping Service
-  Updates](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/stopping-self-service-updates.html).
+  Updates](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/stopping-self-service-updates.html).
   """
   @spec batch_stop_update_action(map(), batch_stop_update_action_message(), list()) ::
           {:ok, update_action_results_message(), any()}
@@ -4541,8 +4543,8 @@ defmodule AWS.ElastiCache do
   control access to your snapshots, use an IAM policy to control who has the
   ability
   to use the `CopySnapshot` operation. For more information about using IAM
-  to control the use of ElastiCache operations, see [Exporting Snapshots](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html)
-  and [Authentication & Access Control](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.html).
+  to control the use of ElastiCache operations, see [Exporting Snapshots](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/backups-exporting.html)
+  and [Authentication & Access Control](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/IAM.html).
 
   You could receive the following error messages.
 
@@ -4555,7 +4557,7 @@ defmodule AWS.ElastiCache do
 
   **Solution:** Create an Amazon S3 bucket in the
   same region as your snapshot. For more information, see [Step 1: Create an Amazon S3
-  Bucket](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-create-s3-bucket)
+  Bucket](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/backups-exporting.html#backups-exporting-create-s3-bucket)
   in the ElastiCache User
   Guide.
 
@@ -4566,7 +4568,7 @@ defmodule AWS.ElastiCache do
 
   **Solution:** Create an Amazon S3 bucket in the
   same region as your snapshot. For more information, see [Step 1: Create an Amazon S3
-  Bucket](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-create-s3-bucket)
+  Bucket](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/backups-exporting.html#backups-exporting-create-s3-bucket)
   in the ElastiCache User
   Guide.
 
@@ -4577,7 +4579,7 @@ defmodule AWS.ElastiCache do
 
   **Solution:** Create an Amazon S3 bucket in the
   same region as your snapshot. For more information, see [Step 1: Create an Amazon S3
-  Bucket](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-create-s3-bucket)
+  Bucket](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/backups-exporting.html#backups-exporting-create-s3-bucket)
   in the ElastiCache User
   Guide.
 
@@ -4606,7 +4608,7 @@ defmodule AWS.ElastiCache do
 
   **Solution:** Add List and Read permissions on
   the bucket. For more information, see [Step 2: Grant ElastiCache Access to Your Amazon S3
-  Bucket](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-grant-access)
+  Bucket](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/backups-exporting.html#backups-exporting-grant-access)
   in the
   ElastiCache User Guide.
 
@@ -4617,7 +4619,7 @@ defmodule AWS.ElastiCache do
 
   **Solution:** Add Upload/Delete permissions on
   the bucket. For more information, see [Step 2: Grant ElastiCache Access to Your Amazon S3
-  Bucket](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-grant-access)
+  Bucket](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/backups-exporting.html#backups-exporting-grant-access)
   in the
   ElastiCache User Guide.
 
@@ -4627,7 +4629,7 @@ defmodule AWS.ElastiCache do
   granted READ_ACP permissions %s on the S3 Bucket.
 
   **Solution:** Add View Permissions on the bucket.
-  For more information, see [Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-grant-access)
+  For more information, see [Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/backups-exporting.html#backups-exporting-grant-access)
   in the
   ElastiCache User Guide.
   """
@@ -4682,7 +4684,7 @@ defmodule AWS.ElastiCache do
 
   [Parameters and
   Parameter
-  Groups](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.html)
+  Groups](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ParameterGroups.html)
   in the ElastiCache User Guide.
   """
   @spec create_cache_parameter_group(map(), create_cache_parameter_group_message(), list()) ::
@@ -4742,7 +4744,7 @@ defmodule AWS.ElastiCache do
   Using Global Datastore with Valkey or Redis OSS, you can create cross-region
   read replica clusters for ElastiCache to enable low-latency reads and disaster
   recovery across regions. For more information, see [Replication Across Regions Using Global
-  Datastore](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html).
+  Datastore](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Redis-Global-Datastore.html).
 
     *
   The **GlobalReplicationGroupIdSuffix** is the
@@ -4796,7 +4798,7 @@ defmodule AWS.ElastiCache do
   the subnet
   group have too small a CIDR range or the subnets are shared and heavily used by
   other
-  clusters. For more information, see [Creating a Subnet Group](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.Creating.html).
+  clusters. For more information, see [Creating a Subnet Group](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/SubnetGroups.Creating.html).
   For versions below 5.0.6, the limit is 250 per cluster.
 
   To request a limit increase, see [Amazon Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)
@@ -4810,7 +4812,7 @@ defmodule AWS.ElastiCache do
   If you
   need to increase or decrease the number of node groups (console: shards), you
   can use scaling.
-  For more information, see [Scaling self-designed clusters](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html)
+  For more information, see [Scaling self-designed clusters](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Scaling.html)
   in the *ElastiCache User
   Guide*.
 
@@ -4880,7 +4882,7 @@ defmodule AWS.ElastiCache do
   user.
 
   For more information, see
-  [Using Role Based Access Control (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html).
+  [Using Role Based Access Control (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Clusters.RBAC.html).
   """
   @spec create_user(map(), create_user_message(), list()) ::
           {:ok, user(), any()}
@@ -4897,7 +4899,7 @@ defmodule AWS.ElastiCache do
   group.
 
   For more
-  information, see [Using Role Based Access Control (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html)
+  information, see [Using Role Based Access Control (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Clusters.RBAC.html)
   """
   @spec create_user_group(map(), create_user_group_message(), list()) ::
           {:ok, user_group(), any()}
@@ -5177,7 +5179,7 @@ defmodule AWS.ElastiCache do
   The user will be removed from
   all user groups and in turn removed from all replication groups. For more
   information,
-  see [Using Role Based Access Control (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html).
+  see [Using Role Based Access Control (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Clusters.RBAC.html).
   """
   @spec delete_user(map(), delete_user_message(), list()) ::
           {:ok, user(), any()}
@@ -5195,7 +5197,7 @@ defmodule AWS.ElastiCache do
 
   The user group must first
   be disassociated from the replication group before it can be deleted. For more
-  information, see [Using Role Based Access Control (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html).
+  information, see [Using Role Based Access Control (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Clusters.RBAC.html).
   """
   @spec delete_user_group(map(), delete_user_group_message(), list()) ::
           {:ok, user_group(), any()}
@@ -5690,7 +5692,7 @@ defmodule AWS.ElastiCache do
   those
   actions will be replicated to all nodes in the replication group. For more
   information,
-  see [Resource-level permissions](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ResourceLevelPermissions.html).
+  see [Resource-level permissions](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/IAM.ResourceLevelPermissions.html).
 
   If the cluster is not in the *available* state,
   `ListTagsForResource` returns an error.
@@ -5771,7 +5773,7 @@ defmodule AWS.ElastiCache do
 
     *
 
-  [Scaling for Valkey or Redis OSS (cluster mode enabled)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/scaling-redis-cluster-mode-enabled.html)
+  [Scaling for Valkey or Redis OSS (cluster mode enabled)](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/scaling-redis-cluster-mode-enabled.html)
   in
   the ElastiCache User Guide
 
@@ -5856,7 +5858,7 @@ defmodule AWS.ElastiCache do
 
   Reserved nodes are not eligible
   for cancellation and are non-refundable. For more information, see [Managing Costs with Reserved
-  Nodes](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/reserved-nodes.html).
+  Nodes](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/reserved-nodes.html).
   """
   @spec purchase_reserved_cache_nodes_offering(
           map(),
@@ -5914,7 +5916,7 @@ defmodule AWS.ElastiCache do
 
   If you make changes to parameters that require a Valkey or Redis OSS (cluster
   mode enabled) cluster
-  reboot for the changes to be applied, see [Rebooting a Cluster](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes.rebooting.html)
+  reboot for the changes to be applied, see [Rebooting a Cluster](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/nodes.rebooting.html)
   for an alternate process.
   """
   @spec reboot_cache_cluster(map(), reboot_cache_cluster_message(), list()) ::
@@ -5937,7 +5939,7 @@ defmodule AWS.ElastiCache do
   replication group. When you add or remove tags on replication groups, those
   actions will
   be replicated to all nodes in the replication group. For more information, see
-  [Resource-level permissions](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ResourceLevelPermissions.html).
+  [Resource-level permissions](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/IAM.ResourceLevelPermissions.html).
   """
   @spec remove_tags_from_resource(map(), remove_tags_from_resource_message(), list()) ::
           {:ok, tag_list_message(), any()}
@@ -6084,7 +6086,7 @@ defmodule AWS.ElastiCache do
       *
 
   [Viewing ElastiCache
-  Events](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ECEvents.Viewing.html)
+  Events](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ECEvents.Viewing.html)
   in the *ElastiCache User
   Guide*
 
@@ -6094,7 +6096,7 @@ defmodule AWS.ElastiCache do
 
   Also see, [Testing
   Multi-AZ
-  ](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html#auto-failover-test)
+  ](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/AutoFailover.html#auto-failover-test)
   in the *ElastiCache User Guide*.
   """
   @spec test_failover(map(), test_failover_message(), list()) ::

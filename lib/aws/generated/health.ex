@@ -8,7 +8,7 @@ defmodule AWS.Health do
   The Health API provides access to the Health information that appears in the
   [Health Dashboard](https://health.aws.amazon.com/health/home).  You can use
   the API operations to get information about events that might affect your Amazon
-  Web Services and resources.
+  Web Services services and resources.
 
   You must have a Business, Enterprise On-Ramp, or Enterprise Support plan from
   [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/) to use the
@@ -172,6 +172,7 @@ defmodule AWS.Health do
       affected_entity() :: %{
         "awsAccountId" => String.t(),
         "entityArn" => String.t(),
+        "entityMetadata" => map(),
         "entityUrl" => String.t(),
         "entityValue" => String.t(),
         "eventArn" => String.t(),
@@ -783,8 +784,8 @@ defmodule AWS.Health do
   specified filter criteria.
 
   Entities can refer to individual customer resources, groups of
-  customer resources, or any other construct, depending on the Amazon Web Service.
-  Events that
+  customer resources, or any other construct, depending on the Amazon Web Services
+  service. Events that
   have impact beyond that of the affected entities, or where the extent of impact
   is unknown,
   include at least one entity indicating this.
@@ -819,7 +820,7 @@ defmodule AWS.Health do
   Entities can refer
   to individual customer resources, groups of customer resources, or any other
   construct,
-  depending on the Amazon Web Service.
+  depending on the Amazon Web Services service.
 
   At least one event Amazon Resource Name (ARN) and account ID are required.
 
@@ -997,7 +998,8 @@ defmodule AWS.Health do
 
   You can use this API
   operation to find information about the Health event, such as the category,
-  Amazon Web Service, and event code. The metadata for each event appears in the
+  Amazon Web Services service, and event code. The metadata for each event appears
+  in the
   [EventType](https://docs.aws.amazon.com/health/latest/APIReference/API_EventType.html)
   object.
 

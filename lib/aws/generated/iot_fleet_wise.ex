@@ -15,6 +15,10 @@ defmodule AWS.IoTFleetWise do
   For more information, see [What is Amazon Web Services IoT FleetWise?](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/) in
   the
   *Amazon Web Services IoT FleetWise Developer Guide*.
+
+  Access to certain Amazon Web Services IoT FleetWise features is currently gated.
+  For more information, see [Amazon Web Services Region and feature availability](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html)
+  in the *Amazon Web Services IoT FleetWise Developer Guide*.
   """
 
   alias AWS.Client
@@ -68,6 +72,7 @@ defmodule AWS.IoTFleetWise do
         "attributes" => map(),
         "decoderManifestArn" => String.t(),
         "modelManifestArn" => String.t(),
+        "stateTemplates" => list(state_template_association()()),
         "tags" => list(tag()()),
         "vehicleName" => String.t()
       }
@@ -134,6 +139,15 @@ defmodule AWS.IoTFleetWise do
       
   """
   @type vehicle_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      on_change_state_template_update_strategy() :: %{}
+      
+  """
+  @type on_change_state_template_update_strategy() :: %{}
 
   @typedoc """
 
@@ -209,6 +223,7 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       create_decoder_manifest_request() :: %{
+        optional("defaultForUnmappedSignals") => list(any()),
         optional("description") => String.t(),
         optional("networkInterfaces") => list(network_interface()()),
         optional("signalDecoders") => list(signal_decoder()()),
@@ -232,6 +247,15 @@ defmodule AWS.IoTFleetWise do
 
   ## Example:
       
+      delete_state_template_request() :: %{}
+      
+  """
+  @type delete_state_template_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       message_signal() :: %{
         "structuredMessage" => list(),
         "topicName" => String.t()
@@ -246,6 +270,7 @@ defmodule AWS.IoTFleetWise do
       
       signal_decoder() :: %{
         "canSignal" => can_signal(),
+        "customDecodingSignal" => custom_decoding_signal(),
         "fullyQualifiedName" => String.t(),
         "interfaceId" => String.t(),
         "messageSignal" => message_signal(),
@@ -282,6 +307,17 @@ defmodule AWS.IoTFleetWise do
       
   """
   @type delete_signal_catalog_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      periodic_state_template_update_strategy() :: %{
+        "stateTemplateUpdateRate" => time_period()
+      }
+      
+  """
+  @type periodic_state_template_update_strategy() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -379,6 +415,18 @@ defmodule AWS.IoTFleetWise do
       
   """
   @type get_register_account_status_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_partition_upload_options() :: %{
+        "conditionLanguageVersion" => integer(),
+        "expression" => String.t()
+      }
+      
+  """
+  @type data_partition_upload_options() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -508,6 +556,7 @@ defmodule AWS.IoTFleetWise do
       
       network_interface() :: %{
         "canInterface" => can_interface(),
+        "customDecodingInterface" => custom_decoding_interface(),
         "interfaceId" => String.t(),
         "obdInterface" => obd_interface(),
         "type" => list(any()),
@@ -707,6 +756,32 @@ defmodule AWS.IoTFleetWise do
 
   ## Example:
       
+      time_period() :: %{
+        "unit" => list(any()),
+        "value" => integer()
+      }
+      
+  """
+  @type time_period() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      signal_fetch_information() :: %{
+        "actions" => list(String.t()()),
+        "conditionLanguageVersion" => integer(),
+        "fullyQualifiedName" => String.t(),
+        "signalFetchConfig" => list()
+      }
+      
+  """
+  @type signal_fetch_information() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_signal_catalog_response() :: %{
         required("arn") => String.t(),
         required("name") => String.t()
@@ -791,6 +866,18 @@ defmodule AWS.IoTFleetWise do
 
   ## Example:
       
+      storage_maximum_size() :: %{
+        "unit" => list(any()),
+        "value" => integer()
+      }
+      
+  """
+  @type storage_maximum_size() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_vehicle_response() :: %{
         required("arn") => String.t(),
         required("vehicleName") => String.t()
@@ -829,7 +916,19 @@ defmodule AWS.IoTFleetWise do
 
   ## Example:
       
+      custom_decoding_interface() :: %{
+        "name" => String.t()
+      }
+      
+  """
+  @type custom_decoding_interface() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_decoder_manifest_request() :: %{
+        optional("defaultForUnmappedSignals") => list(any()),
         optional("description") => String.t(),
         optional("networkInterfacesToAdd") => list(network_interface()()),
         optional("networkInterfacesToRemove") => list(String.t()()),
@@ -842,6 +941,15 @@ defmodule AWS.IoTFleetWise do
       
   """
   @type update_decoder_manifest_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_state_template_request() :: %{}
+      
+  """
+  @type get_state_template_request() :: %{}
 
   @typedoc """
 
@@ -866,6 +974,18 @@ defmodule AWS.IoTFleetWise do
       
   """
   @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      mqtt_topic_config() :: %{
+        "executionRoleArn" => String.t(),
+        "mqttTopicArn" => String.t()
+      }
+      
+  """
+  @type mqtt_topic_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1108,10 +1228,34 @@ defmodule AWS.IoTFleetWise do
 
   ## Example:
       
+      list_state_templates_response() :: %{
+        "nextToken" => String.t(),
+        "summaries" => list(state_template_summary()())
+      }
+      
+  """
+  @type list_state_templates_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_decoder_manifest_request() :: %{}
       
   """
   @type get_decoder_manifest_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      condition_based_signal_fetch_config() :: %{
+        "conditionExpression" => String.t(),
+        "triggerMode" => list(any())
+      }
+      
+  """
+  @type condition_based_signal_fetch_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1146,6 +1290,19 @@ defmodule AWS.IoTFleetWise do
 
   ## Example:
       
+      data_partition() :: %{
+        "id" => String.t(),
+        "storageOptions" => data_partition_storage_options(),
+        "uploadOptions" => data_partition_upload_options()
+      }
+      
+  """
+  @type data_partition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       validation_exception_field() :: %{
         "message" => [String.t()],
         "name" => [String.t()]
@@ -1167,11 +1324,33 @@ defmodule AWS.IoTFleetWise do
 
   ## Example:
       
+      get_state_template_response() :: %{
+        "arn" => String.t(),
+        "creationTime" => non_neg_integer(),
+        "dataExtraDimensions" => list(String.t()()),
+        "description" => String.t(),
+        "id" => String.t(),
+        "lastModificationTime" => non_neg_integer(),
+        "metadataExtraDimensions" => list(String.t()()),
+        "name" => String.t(),
+        "signalCatalogArn" => String.t(),
+        "stateTemplateProperties" => list(String.t()())
+      }
+      
+  """
+  @type get_state_template_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_vehicle_request_item() :: %{
         "attributeUpdateMode" => list(any()),
         "attributes" => map(),
         "decoderManifestArn" => String.t(),
         "modelManifestArn" => String.t(),
+        "stateTemplatesToAdd" => list(state_template_association()()),
+        "stateTemplatesToRemove" => list(String.t()()),
         "vehicleName" => String.t()
       }
       
@@ -1222,6 +1401,18 @@ defmodule AWS.IoTFleetWise do
       
   """
   @type list_signal_catalog_nodes_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      storage_minimum_time_to_live() :: %{
+        "unit" => list(any()),
+        "value" => integer()
+      }
+      
+  """
+  @type storage_minimum_time_to_live() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1303,6 +1494,19 @@ defmodule AWS.IoTFleetWise do
 
   ## Example:
       
+      delete_state_template_response() :: %{
+        "arn" => String.t(),
+        "id" => String.t(),
+        "name" => String.t()
+      }
+      
+  """
+  @type delete_state_template_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       internal_server_exception() :: %{
         "message" => String.t(),
         "retryAfterSeconds" => integer()
@@ -1310,6 +1514,21 @@ defmodule AWS.IoTFleetWise do
       
   """
   @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_state_template_request() :: %{
+        optional("dataExtraDimensions") => list(String.t()()),
+        optional("description") => String.t(),
+        optional("metadataExtraDimensions") => list(String.t()()),
+        optional("stateTemplatePropertiesToAdd") => list(String.t()()),
+        optional("stateTemplatePropertiesToRemove") => list(String.t()())
+      }
+      
+  """
+  @type update_state_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1373,6 +1592,23 @@ defmodule AWS.IoTFleetWise do
 
   ## Example:
       
+      state_template_summary() :: %{
+        "arn" => String.t(),
+        "creationTime" => non_neg_integer(),
+        "description" => String.t(),
+        "id" => String.t(),
+        "lastModificationTime" => non_neg_integer(),
+        "name" => String.t(),
+        "signalCatalogArn" => String.t()
+      }
+      
+  """
+  @type state_template_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       tag_resource_response() :: %{}
       
   """
@@ -1386,12 +1622,14 @@ defmodule AWS.IoTFleetWise do
         optional("compression") => list(any()),
         optional("dataDestinationConfigs") => list(list()()),
         optional("dataExtraDimensions") => list(String.t()()),
+        optional("dataPartitions") => list(data_partition()()),
         optional("description") => String.t(),
         optional("diagnosticsMode") => list(any()),
         optional("expiryTime") => non_neg_integer(),
         optional("postTriggerCollectionDuration") => float(),
         optional("priority") => integer(),
         optional("signalsToCollect") => list(signal_information()()),
+        optional("signalsToFetch") => list(signal_fetch_information()()),
         optional("spoolingMode") => list(any()),
         optional("startTime") => non_neg_integer(),
         optional("tags") => list(tag()()),
@@ -1425,6 +1663,19 @@ defmodule AWS.IoTFleetWise do
       
   """
   @type get_vehicle_status_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_state_template_response() :: %{
+        "arn" => String.t(),
+        "id" => String.t(),
+        "name" => String.t()
+      }
+      
+  """
+  @type create_state_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1504,6 +1755,7 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       signal_information() :: %{
+        "dataPartitionId" => String.t(),
         "maxSampleCount" => float(),
         "minimumSamplingIntervalMs" => float(),
         "name" => String.t()
@@ -1523,6 +1775,17 @@ defmodule AWS.IoTFleetWise do
       
   """
   @type list_model_manifests_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_decoding_signal() :: %{
+        "id" => String.t()
+      }
+      
+  """
+  @type custom_decoding_signal() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1564,6 +1827,30 @@ defmodule AWS.IoTFleetWise do
 
   ## Example:
       
+      update_state_template_response() :: %{
+        "arn" => String.t(),
+        "id" => String.t(),
+        "name" => String.t()
+      }
+      
+  """
+  @type update_state_template_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      time_based_signal_fetch_config() :: %{
+        "executionFrequencyMs" => float()
+      }
+      
+  """
+  @type time_based_signal_fetch_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       invalid_signals_exception() :: %{
         "invalidSignals" => list(invalid_signal()()),
         "message" => String.t()
@@ -1597,6 +1884,7 @@ defmodule AWS.IoTFleetWise do
         optional("creationTime") => non_neg_integer(),
         optional("dataDestinationConfigs") => list(list()()),
         optional("dataExtraDimensions") => list(String.t()()),
+        optional("dataPartitions") => list(data_partition()()),
         optional("description") => String.t(),
         optional("diagnosticsMode") => list(any()),
         optional("expiryTime") => non_neg_integer(),
@@ -1606,6 +1894,7 @@ defmodule AWS.IoTFleetWise do
         optional("priority") => integer(),
         optional("signalCatalogArn") => String.t(),
         optional("signalsToCollect") => list(signal_information()()),
+        optional("signalsToFetch") => list(signal_fetch_information()()),
         optional("spoolingMode") => list(any()),
         optional("startTime") => non_neg_integer(),
         optional("status") => list(any()),
@@ -1655,7 +1944,9 @@ defmodule AWS.IoTFleetWise do
         optional("attributeUpdateMode") => list(any()),
         optional("attributes") => map(),
         optional("decoderManifestArn") => String.t(),
-        optional("modelManifestArn") => String.t()
+        optional("modelManifestArn") => String.t(),
+        optional("stateTemplatesToAdd") => list(state_template_association()()),
+        optional("stateTemplatesToRemove") => list(String.t()())
       }
       
   """
@@ -1809,6 +2100,18 @@ defmodule AWS.IoTFleetWise do
 
   ## Example:
       
+      list_state_templates_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+      
+  """
+  @type list_state_templates_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_campaign_request() :: %{
         optional("dataExtraDimensions") => list(String.t()()),
         optional("description") => String.t(),
@@ -1894,6 +2197,31 @@ defmodule AWS.IoTFleetWise do
       
   """
   @type create_fleet_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      state_template_association() :: %{
+        "identifier" => String.t(),
+        "stateTemplateUpdateStrategy" => list()
+      }
+      
+  """
+  @type state_template_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_partition_storage_options() :: %{
+        "maximumSize" => storage_maximum_size(),
+        "minimumTimeToLive" => storage_minimum_time_to_live(),
+        "storageLocation" => String.t()
+      }
+      
+  """
+  @type data_partition_storage_options() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1986,6 +2314,7 @@ defmodule AWS.IoTFleetWise do
       create_vehicle_request() :: %{
         optional("associationBehavior") => list(any()),
         optional("attributes") => map(),
+        optional("stateTemplates") => list(state_template_association()()),
         optional("tags") => list(tag()()),
         required("decoderManifestArn") => String.t(),
         required("modelManifestArn") => String.t()
@@ -2044,6 +2373,7 @@ defmodule AWS.IoTFleetWise do
         optional("decoderManifestArn") => String.t(),
         optional("lastModificationTime") => non_neg_integer(),
         optional("modelManifestArn") => String.t(),
+        optional("stateTemplates") => list(state_template_association()()),
         optional("vehicleName") => String.t()
       }
       
@@ -2092,6 +2422,22 @@ defmodule AWS.IoTFleetWise do
       
   """
   @type decoder_manifest_validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_state_template_request() :: %{
+        optional("dataExtraDimensions") => list(String.t()()),
+        optional("description") => String.t(),
+        optional("metadataExtraDimensions") => list(String.t()()),
+        optional("tags") => list(tag()()),
+        required("signalCatalogArn") => String.t(),
+        required("stateTemplateProperties") => list(String.t()())
+      }
+      
+  """
+  @type create_state_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2173,6 +2519,16 @@ defmodule AWS.IoTFleetWise do
           | invalid_node_exception()
           | conflict_exception()
 
+  @type create_state_template_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | invalid_signals_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type create_vehicle_errors() ::
           limit_exceeded_exception()
           | throttling_exception()
@@ -2214,6 +2570,12 @@ defmodule AWS.IoTFleetWise do
           | access_denied_exception()
           | internal_server_exception()
           | conflict_exception()
+
+  @type delete_state_template_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
 
   @type delete_vehicle_errors() ::
           throttling_exception()
@@ -2273,6 +2635,13 @@ defmodule AWS.IoTFleetWise do
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type get_state_template_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
 
   @type get_vehicle_errors() ::
@@ -2367,6 +2736,12 @@ defmodule AWS.IoTFleetWise do
           | resource_not_found_exception()
 
   @type list_signal_catalogs_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_state_templates_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -2473,6 +2848,15 @@ defmodule AWS.IoTFleetWise do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type update_state_template_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | invalid_signals_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type update_vehicle_errors() ::
           limit_exceeded_exception()
           | throttling_exception()
@@ -2565,6 +2949,10 @@ defmodule AWS.IoTFleetWise do
 
   For more information, see [Collect and transfer data with
   campaigns](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/campaigns.html)
+  in the *Amazon Web Services IoT FleetWise Developer Guide*.
+
+  Access to certain Amazon Web Services IoT FleetWise features is currently gated.
+  For more information, see [Amazon Web Services Region and feature availability](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html)
   in the *Amazon Web Services IoT FleetWise Developer Guide*.
   """
   @spec create_campaign(map(), create_campaign_request(), list()) ::
@@ -2659,6 +3047,27 @@ defmodule AWS.IoTFleetWise do
   end
 
   @doc """
+  Creates a state template.
+
+  State templates contain state properties, which are signals that belong to a
+  signal catalog that is synchronized between the Amazon Web Services IoT
+  FleetWise Edge and the Amazon Web Services Cloud.
+
+  Access to certain Amazon Web Services IoT FleetWise features is currently gated.
+  For more information, see [Amazon Web Services Region and feature availability](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html)
+  in the *Amazon Web Services IoT FleetWise Developer Guide*.
+  """
+  @spec create_state_template(map(), create_state_template_request(), list()) ::
+          {:ok, create_state_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_state_template_errors()}
+  def create_state_template(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateStateTemplate", input, options)
+  end
+
+  @doc """
   Creates a vehicle, which is an instance of a vehicle model (model manifest).
 
   Vehicles
@@ -2705,10 +3114,6 @@ defmodule AWS.IoTFleetWise do
 
   You can't delete a decoder manifest if it has vehicles
   associated with it.
-
-  If the decoder manifest is successfully deleted, Amazon Web Services IoT
-  FleetWise sends back an HTTP 200
-  response with an empty body.
   """
   @spec delete_decoder_manifest(map(), delete_decoder_manifest_request(), list()) ::
           {:ok, delete_decoder_manifest_response(), any()}
@@ -2726,10 +3131,6 @@ defmodule AWS.IoTFleetWise do
   Before you delete a fleet, all vehicles must be
   dissociated from the fleet. For more information, see [Delete a fleet (AWS CLI)](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/delete-fleet-cli.html)
   in the *Amazon Web Services IoT FleetWise Developer Guide*.
-
-  If the fleet is successfully deleted, Amazon Web Services IoT FleetWise sends
-  back an HTTP 200 response
-  with an empty body.
   """
   @spec delete_fleet(map(), delete_fleet_request(), list()) ::
           {:ok, delete_fleet_response(), any()}
@@ -2743,10 +3144,6 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Deletes a vehicle model (model manifest).
-
-  If the vehicle model is successfully deleted, Amazon Web Services IoT FleetWise
-  sends back an HTTP 200
-  response with an empty body.
   """
   @spec delete_model_manifest(map(), delete_model_manifest_request(), list()) ::
           {:ok, delete_model_manifest_response(), any()}
@@ -2760,10 +3157,6 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Deletes a signal catalog.
-
-  If the signal catalog is successfully deleted, Amazon Web Services IoT FleetWise
-  sends back an HTTP 200
-  response with an empty body.
   """
   @spec delete_signal_catalog(map(), delete_signal_catalog_request(), list()) ::
           {:ok, delete_signal_catalog_response(), any()}
@@ -2776,11 +3169,20 @@ defmodule AWS.IoTFleetWise do
   end
 
   @doc """
-  Deletes a vehicle and removes it from any campaigns.
+  Deletes a state template.
+  """
+  @spec delete_state_template(map(), delete_state_template_request(), list()) ::
+          {:ok, delete_state_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_state_template_errors()}
+  def delete_state_template(%Client{} = client, input, options \\ []) do
+    meta = metadata()
 
-  If the vehicle is successfully deleted, Amazon Web Services IoT FleetWise sends
-  back an HTTP 200 response
-  with an empty body.
+    Request.request_post(client, meta, "DeleteStateTemplate", input, options)
+  end
+
+  @doc """
+  Deletes a vehicle and removes it from any campaigns.
   """
   @spec delete_vehicle(map(), delete_vehicle_request(), list()) ::
           {:ok, delete_vehicle_response(), any()}
@@ -2797,10 +3199,6 @@ defmodule AWS.IoTFleetWise do
 
   Disassociating a vehicle from a
   fleet doesn't delete the vehicle.
-
-  If the vehicle is successfully dissociated from a fleet, Amazon Web Services IoT
-  FleetWise sends back an
-  HTTP 200 response with an empty body.
   """
   @spec disassociate_vehicle_fleet(map(), disassociate_vehicle_fleet_request(), list()) ::
           {:ok, disassociate_vehicle_fleet_response(), any()}
@@ -2814,6 +3212,10 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Retrieves information about a campaign.
+
+  Access to certain Amazon Web Services IoT FleetWise features is currently gated.
+  For more information, see [Amazon Web Services Region and feature availability](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html)
+  in the *Amazon Web Services IoT FleetWise Developer Guide*.
   """
   @spec get_campaign(map(), get_campaign_request(), list()) ::
           {:ok, get_campaign_response(), any()}
@@ -2927,6 +3329,23 @@ defmodule AWS.IoTFleetWise do
   end
 
   @doc """
+  Retrieves information about a state template.
+
+  Access to certain Amazon Web Services IoT FleetWise features is currently gated.
+  For more information, see [Amazon Web Services Region and feature availability](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html)
+  in the *Amazon Web Services IoT FleetWise Developer Guide*.
+  """
+  @spec get_state_template(map(), get_state_template_request(), list()) ::
+          {:ok, get_state_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_state_template_errors()}
+  def get_state_template(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetStateTemplate", input, options)
+  end
+
+  @doc """
   Retrieves information about a vehicle.
   """
   @spec get_vehicle(map(), get_vehicle_request(), list()) ::
@@ -2940,8 +3359,9 @@ defmodule AWS.IoTFleetWise do
   end
 
   @doc """
-  Retrieves information about the status of a vehicle with any associated
-  campaigns.
+  Retrieves information about the status of campaigns, decoder manifests, or state
+  templates
+  associated with a vehicle.
   """
   @spec get_vehicle_status(map(), get_vehicle_status_request(), list()) ::
           {:ok, get_vehicle_status_response(), any()}
@@ -2956,6 +3376,9 @@ defmodule AWS.IoTFleetWise do
   @doc """
   Creates a decoder manifest using your existing CAN DBC file from your local
   device.
+
+  The CAN signal name must be unique and not repeated across CAN message
+  definitions in a .dbc file.
   """
   @spec import_decoder_manifest(map(), import_decoder_manifest_request(), list()) ::
           {:ok, import_decoder_manifest_response(), any()}
@@ -3150,6 +3573,23 @@ defmodule AWS.IoTFleetWise do
   end
 
   @doc """
+  Lists information about created state templates.
+
+  Access to certain Amazon Web Services IoT FleetWise features is currently gated.
+  For more information, see [Amazon Web Services Region and feature availability](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html)
+  in the *Amazon Web Services IoT FleetWise Developer Guide*.
+  """
+  @spec list_state_templates(map(), list_state_templates_request(), list()) ::
+          {:ok, list_state_templates_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_state_templates_errors()}
+  def list_state_templates(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListStateTemplates", input, options)
+  end
+
+  @doc """
   Lists the tags (metadata) you have assigned to the resource.
   """
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
@@ -3197,8 +3637,9 @@ defmodule AWS.IoTFleetWise do
   @doc """
   Creates or updates the encryption configuration.
 
-  Amazon Web Services IoT FleetWise can encrypt your data and resources using an
-  Amazon Web Services managed key. Or, you can use a KMS key that you own and
+  Amazon Web Services IoT FleetWise can encrypt your data and
+  resources using an Amazon Web Services managed key. Or, you can use a KMS key
+  that you own and
   manage. For more information, see [Data encryption](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/data-encryption.html)
   in the *Amazon Web Services IoT FleetWise Developer Guide*.
   """
@@ -3229,9 +3670,10 @@ defmodule AWS.IoTFleetWise do
 
   This API operation contains deprecated parameters.
 
-  Register your account again without the Timestream resources parameter so that
-  Amazon Web Services IoT FleetWise can remove the Timestream metadata stored. You
-  should then pass the data destination into the
+  Register your account again
+  without the Timestream resources parameter so that Amazon Web Services IoT
+  FleetWise can remove the Timestream
+  metadata stored. You should then pass the data destination into the
   [CreateCampaign](https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_CreateCampaign.html) API operation.
 
   You must delete any existing campaigns that include an empty data destination
@@ -3240,10 +3682,13 @@ defmodule AWS.IoTFleetWise do
   API operation.
 
   If you want to delete the Timestream inline policy from the service-linked role,
-  such as to mitigate an overly permissive policy, you must first delete any
-  existing campaigns. Then delete the service-linked role and register your
-  account again to enable CloudWatch metrics. For more information, see
-  [DeleteServiceLinkedRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServiceLinkedRole.html) in the *Identity and Access Management API Reference*.
+  such
+  as to mitigate an overly permissive policy, you must first delete any existing
+  campaigns. Then delete the service-linked role and register your account again
+  to
+  enable CloudWatch metrics. For more information, see
+  [DeleteServiceLinkedRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServiceLinkedRole.html) in the *Identity and Access Management API
+  Reference*.
 
   Registers your Amazon Web Services account, IAM, and Amazon Timestream resources
   so Amazon Web Services IoT FleetWise can
@@ -3253,8 +3698,8 @@ defmodule AWS.IoTFleetWise do
   Amazon Web Services IoT
   FleetWise](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/setting-up.html).
 
-  An Amazon Web Services account is **not** the same thing as a "user." An [Amazon Web Services
-  user](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_identity-management.html#intro-identity-users)
+  An Amazon Web Services account is **not** the same thing as a
+  "user." An [Amazon Web Services user](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_identity-management.html#intro-identity-users)
   is an identity that you create using Identity and Access Management (IAM) and
   takes the form of either an [IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users.html) or an [IAM role, both
   with
@@ -3332,10 +3777,6 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Updates the description of an existing fleet.
-
-  If the fleet is successfully updated, Amazon Web Services IoT FleetWise sends
-  back an HTTP 200 response
-  with an empty HTTP body.
   """
   @spec update_fleet(map(), update_fleet_request(), list()) ::
           {:ok, update_fleet_response(), any()}
@@ -3374,6 +3815,23 @@ defmodule AWS.IoTFleetWise do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateSignalCatalog", input, options)
+  end
+
+  @doc """
+  Updates a state template.
+
+  Access to certain Amazon Web Services IoT FleetWise features is currently gated.
+  For more information, see [Amazon Web Services Region and feature availability](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html)
+  in the *Amazon Web Services IoT FleetWise Developer Guide*.
+  """
+  @spec update_state_template(map(), update_state_template_request(), list()) ::
+          {:ok, update_state_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_state_template_errors()}
+  def update_state_template(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateStateTemplate", input, options)
   end
 
   @doc """

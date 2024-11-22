@@ -1144,7 +1144,9 @@ defmodule AWS.EC2 do
         "CapacityReservationArn" => String.t(),
         "CapacityReservationFleetId" => String.t(),
         "CapacityReservationId" => String.t(),
+        "CommitmentInfo" => capacity_reservation_commitment_info(),
         "CreateDate" => non_neg_integer(),
+        "DeliveryPreference" => list(any()),
         "EbsOptimized" => boolean(),
         "EndDate" => non_neg_integer(),
         "EndDateType" => list(any()),
@@ -4168,6 +4170,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      capacity_reservation_commitment_info() :: %{
+        "CommitmentEndDate" => non_neg_integer(),
+        "CommittedInstanceCount" => integer()
+      }
+      
+  """
+  @type capacity_reservation_commitment_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       elastic_gpu_association() :: %{
         "ElasticGpuAssociationId" => String.t(),
         "ElasticGpuAssociationState" => String.t(),
@@ -4403,6 +4417,29 @@ defmodule AWS.EC2 do
       
   """
   @type delete_instance_event_window_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_block_extension() :: %{
+        "AvailabilityZone" => String.t(),
+        "AvailabilityZoneId" => String.t(),
+        "CapacityBlockExtensionDurationHours" => integer(),
+        "CapacityBlockExtensionEndDate" => non_neg_integer(),
+        "CapacityBlockExtensionOfferingId" => String.t(),
+        "CapacityBlockExtensionPurchaseDate" => non_neg_integer(),
+        "CapacityBlockExtensionStartDate" => non_neg_integer(),
+        "CapacityBlockExtensionStatus" => list(any()),
+        "CapacityReservationId" => String.t(),
+        "CurrencyCode" => String.t(),
+        "InstanceCount" => integer(),
+        "InstanceType" => String.t(),
+        "UpfrontFee" => String.t()
+      }
+      
+  """
+  @type capacity_block_extension() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6706,6 +6743,17 @@ defmodule AWS.EC2 do
       
   """
   @type describe_capacity_reservation_billing_requests_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_ipam_organizational_unit_exclusion() :: %{
+        "OrganizationsEntityPath" => String.t()
+      }
+      
+  """
+  @type add_ipam_organizational_unit_exclusion() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -9289,6 +9337,7 @@ defmodule AWS.EC2 do
         "IpamResourceDiscoveryRegion" => String.t(),
         "IsDefault" => boolean(),
         "OperatingRegions" => list(ipam_operating_region()()),
+        "OrganizationalUnitExclusions" => list(ipam_organizational_unit_exclusion()()),
         "OwnerId" => String.t(),
         "State" => list(any()),
         "Tags" => list(tag()())
@@ -10828,6 +10877,8 @@ defmodule AWS.EC2 do
         optional("AvailabilityZone") => String.t(),
         optional("AvailabilityZoneId") => String.t(),
         optional("ClientToken") => String.t(),
+        optional("CommitmentDuration") => float(),
+        optional("DeliveryPreference") => list(any()),
         optional("DryRun") => boolean(),
         optional("EbsOptimized") => boolean(),
         optional("EndDate") => non_neg_integer(),
@@ -10836,6 +10887,7 @@ defmodule AWS.EC2 do
         optional("InstanceMatchCriteria") => list(any()),
         optional("OutpostArn") => String.t(),
         optional("PlacementGroupArn") => String.t(),
+        optional("StartDate") => non_neg_integer(),
         optional("TagSpecifications") => list(tag_specification()()),
         optional("Tenancy") => list(any()),
         required("InstanceCount") => integer(),
@@ -11801,6 +11853,18 @@ defmodule AWS.EC2 do
       
   """
   @type launch_template_enclave_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_capacity_block_extension_offerings_result() :: %{
+        "CapacityBlockExtensionOfferings" => list(capacity_block_extension_offering()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type describe_capacity_block_extension_offerings_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -13046,6 +13110,7 @@ defmodule AWS.EC2 do
       capacity_block_offering() :: %{
         "AvailabilityZone" => String.t(),
         "CapacityBlockDurationHours" => integer(),
+        "CapacityBlockDurationMinutes" => integer(),
         "CapacityBlockOfferingId" => String.t(),
         "CurrencyCode" => String.t(),
         "EndDate" => non_neg_integer(),
@@ -14644,6 +14709,28 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      capacity_block_extension_offering() :: %{
+        "AvailabilityZone" => String.t(),
+        "AvailabilityZoneId" => String.t(),
+        "CapacityBlockExtensionDurationHours" => integer(),
+        "CapacityBlockExtensionEndDate" => non_neg_integer(),
+        "CapacityBlockExtensionOfferingId" => String.t(),
+        "CapacityBlockExtensionStartDate" => non_neg_integer(),
+        "CurrencyCode" => String.t(),
+        "InstanceCount" => integer(),
+        "InstanceType" => String.t(),
+        "StartDate" => non_neg_integer(),
+        "Tenancy" => list(any()),
+        "UpfrontFee" => String.t()
+      }
+      
+  """
+  @type capacity_block_extension_offering() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       reserved_instances_offering() :: %{
         "AvailabilityZone" => String.t(),
         "CurrencyCode" => list(any()),
@@ -15746,6 +15833,30 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      remove_ipam_organizational_unit_exclusion() :: %{
+        "OrganizationsEntityPath" => String.t()
+      }
+      
+  """
+  @type remove_ipam_organizational_unit_exclusion() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      purchase_capacity_block_extension_request() :: %{
+        optional("DryRun") => boolean(),
+        required("CapacityBlockExtensionOfferingId") => String.t(),
+        required("CapacityReservationId") => String.t()
+      }
+      
+  """
+  @type purchase_capacity_block_extension_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       launch_template_ena_srd_udp_specification() :: %{
         "EnaSrdUdpEnabled" => boolean()
       }
@@ -16151,6 +16262,21 @@ defmodule AWS.EC2 do
   @type create_local_gateway_route_table_virtual_interface_group_association_request() :: %{
           String.t() => any()
         }
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_capacity_block_extension_history_request() :: %{
+        optional("CapacityReservationIds") => list(String.t()()),
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type describe_capacity_block_extension_history_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -17326,6 +17452,18 @@ defmodule AWS.EC2 do
       
   """
   @type accept_transit_gateway_peering_attachment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_capacity_block_extension_history_result() :: %{
+        "CapacityBlockExtensions" => list(capacity_block_extension()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type describe_capacity_block_extension_history_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -19554,9 +19692,11 @@ defmodule AWS.EC2 do
       
       modify_ipam_resource_discovery_request() :: %{
         optional("AddOperatingRegions") => list(add_ipam_operating_region()()),
+        optional("AddOrganizationalUnitExclusions") => list(add_ipam_organizational_unit_exclusion()()),
         optional("Description") => String.t(),
         optional("DryRun") => boolean(),
         optional("RemoveOperatingRegions") => list(remove_ipam_operating_region()()),
+        optional("RemoveOrganizationalUnitExclusions") => list(remove_ipam_organizational_unit_exclusion()()),
         required("IpamResourceDiscoveryId") => String.t()
       }
       
@@ -20592,6 +20732,21 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_capacity_block_extension_offerings_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("CapacityBlockExtensionDurationHours") => integer(),
+        required("CapacityReservationId") => String.t()
+      }
+      
+  """
+  @type describe_capacity_block_extension_offerings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       peering_tgw_info() :: %{
         "CoreNetworkId" => String.t(),
         "OwnerId" => String.t(),
@@ -21459,7 +21614,8 @@ defmodule AWS.EC2 do
         "DiscoveryRegion" => String.t(),
         "FailureReason" => ipam_discovery_failure_reason(),
         "LastAttemptedDiscoveryTime" => non_neg_integer(),
-        "LastSuccessfulDiscoveryTime" => non_neg_integer()
+        "LastSuccessfulDiscoveryTime" => non_neg_integer(),
+        "OrganizationalUnitId" => String.t()
       }
       
   """
@@ -23873,6 +24029,17 @@ defmodule AWS.EC2 do
       
   """
   @type describe_regions_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ipam_organizational_unit_exclusion() :: %{
+        "OrganizationsEntityPath" => String.t()
+      }
+      
+  """
+  @type ipam_organizational_unit_exclusion() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -27560,6 +27727,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      purchase_capacity_block_extension_result() :: %{
+        "CapacityBlockExtensions" => list(capacity_block_extension()())
+      }
+      
+  """
+  @type purchase_capacity_block_extension_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       associate_iam_instance_profile_result() :: %{
         "IamInstanceProfileAssociation" => iam_instance_profile_association()
       }
@@ -27682,11 +27860,10 @@ defmodule AWS.EC2 do
 
   @doc """
   Accepts a request to assign billing of the available capacity of a shared
-  Capacity Reservation to your
-  account.
+  Capacity
+  Reservation to your account.
 
-  For more information, see [
-  Billing assignment for shared Amazon EC2 Capacity
+  For more information, see [ Billing assignment for shared Amazon EC2 Capacity
   Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html).
   """
   @spec accept_capacity_reservation_billing_ownership(
@@ -28098,12 +28275,12 @@ defmodule AWS.EC2 do
 
   @doc """
   Initiates a request to assign billing of the unused capacity of a shared
-  Capacity Reservation to a consumer
-  account that is consolidated under the same Amazon Web Services organizations
-  payer account.
+  Capacity
+  Reservation to a consumer account that is consolidated under the same Amazon Web
+  Services
+  organizations payer account.
 
-  For more information, see
-  [Billing assignment for shared Amazon EC2 Capacity
+  For more information, see [Billing assignment for shared Amazon EC2 Capacity
   Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html).
   """
   @spec associate_capacity_reservation_billing_owner(
@@ -28765,8 +28942,25 @@ defmodule AWS.EC2 do
 
   @doc """
   Cancels the specified Capacity Reservation, releases the reserved capacity, and
-  changes the Capacity Reservation's state to
-  `cancelled`.
+  changes
+  the Capacity Reservation's state to `cancelled`.
+
+  You can cancel a Capacity Reservation that is in the following states:
+
+    *
+
+  `assessing`
+
+    *
+
+  `active` and there is no commitment duration or the commitment
+  duration has elapsed. You can't cancel a future-dated Capacity Reservation
+  during the commitment duration.
+
+  If a future-dated Capacity Reservation enters the `delayed` state, the
+  commitment
+  duration is waived, and you can cancel it as soon as it enters the `active`
+  state.
 
   Instances running in the reserved capacity continue running until you stop them.
   Stopped
@@ -28788,18 +28982,17 @@ defmodule AWS.EC2 do
   @doc """
   Cancels one or more Capacity Reservation Fleets.
 
-  When you cancel a Capacity Reservation
-  Fleet, the following happens:
+  When you cancel a Capacity
+  Reservation Fleet, the following happens:
 
     *
-  The Capacity Reservation Fleet's status changes to `cancelled`.
+  The Capacity Reservation Fleet's status changes to
+  `cancelled`.
 
     *
   The individual Capacity Reservations in the Fleet are cancelled. Instances
-  running
-  in the Capacity Reservations at the time of cancelling the Fleet continue to run
-  in
-  shared capacity.
+  running in the Capacity Reservations at the time of cancelling the Fleet
+  continue to run in shared capacity.
 
     *
   The Fleet stops creating new Capacity Reservations.
@@ -29057,32 +29250,39 @@ defmodule AWS.EC2 do
   @doc """
   Creates a new Capacity Reservation with the specified attributes.
 
-  Capacity Reservations enable you to reserve capacity for your Amazon EC2
-  instances in a specific Availability Zone for any duration. This
-  gives you the flexibility to selectively add capacity reservations and still get
-  the Regional RI discounts for that usage.
-  By creating Capacity Reservations, you ensure that you always have access to
-  Amazon EC2 capacity when you need it, for as long as you need it.
-  For more information, see [Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html)
+  Capacity Reservations enable
+  you to reserve capacity for your Amazon EC2 instances in a specific Availability
+  Zone for any
+  duration.
+
+  You can create a Capacity Reservation at any time, and you can choose when it
+  starts. You can create a
+  Capacity Reservation for immediate use or you can request a Capacity Reservation
+  for a future date.
+
+  For more information, see [
+  Reserve compute capacity with On-Demand Capacity
+  Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html)
   in the *Amazon EC2 User Guide*.
 
-  Your request to create a Capacity Reservation could fail if Amazon EC2 does not
-  have sufficient capacity to
-  fulfill the request. If your request fails due to Amazon EC2 capacity
-  constraints, either try
-  again at a later time, try in a different Availability Zone, or request a
-  smaller
-  capacity reservation. If your application is flexible across instance types and
-  sizes,
-  try to create a Capacity Reservation with different instance attributes.
+  Your request to create a Capacity Reservation could fail if:
 
-  Your request could also fail if the requested quantity exceeds your On-Demand
-  Instance
-  limit for the selected instance type. If your request fails due to limit
-  constraints,
-  increase your On-Demand Instance limit for the required instance type and try
-  again. For
-  more information about increasing your instance limits, see [Amazon EC2 Service Quotas](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html)
+    *
+  Amazon EC2 does not have sufficient capacity. In this case, try again at a later
+  time, try in a different Availability Zone, or request a smaller Capacity
+  Reservation. If
+  your workload is flexible across instance types and sizes, try with different
+  instance
+  attributes.
+
+    *
+  The requested quantity exceeds your On-Demand Instance quota. In this case,
+  increase your
+  On-Demand Instance quota for the requested instance type and try again. For more
+  information,
+  see [
+  Amazon EC2 Service
+  Quotas](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html)
   in the *Amazon EC2 User Guide*.
   """
   @spec create_capacity_reservation(map(), create_capacity_reservation_request(), list()) ::
@@ -29095,9 +29295,9 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-
   Create a new Capacity Reservation by splitting the capacity of the source
-  Capacity Reservation.
+  Capacity
+  Reservation.
 
   The new Capacity Reservation will have the same attributes as the source
   Capacity Reservation except for tags. The source Capacity Reservation must be
@@ -32916,11 +33116,47 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Describes the events for the specified Capacity Block extension during the
+  specified
+  time.
+  """
+  @spec describe_capacity_block_extension_history(
+          map(),
+          describe_capacity_block_extension_history_request(),
+          list()
+        ) ::
+          {:ok, describe_capacity_block_extension_history_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def describe_capacity_block_extension_history(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCapacityBlockExtensionHistory", input, options)
+  end
+
+  @doc """
+  Describes Capacity Block extension offerings available for purchase in the
+  Amazon Web Services Region
+  that you're currently using.
+  """
+  @spec describe_capacity_block_extension_offerings(
+          map(),
+          describe_capacity_block_extension_offerings_request(),
+          list()
+        ) ::
+          {:ok, describe_capacity_block_extension_offerings_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def describe_capacity_block_extension_offerings(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCapacityBlockExtensionOfferings", input, options)
+  end
+
+  @doc """
   Describes Capacity Block offerings available for purchase in the Amazon Web
   Services Region that you're currently using.
 
-  With Capacity Blocks, you purchase a specific instance type for a period of
-  time.
+  With Capacity Blocks, you purchase a
+  specific instance type for a period of time.
   """
   @spec describe_capacity_block_offerings(
           map(),
@@ -32939,8 +33175,7 @@ defmodule AWS.EC2 do
   Describes a request to assign the billing of the unused capacity of a Capacity
   Reservation.
 
-  For more information, see [
-  Billing assignment for shared Amazon EC2 Capacity
+  For more information, see [ Billing assignment for shared Amazon EC2 Capacity
   Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/transfer-billing.html).
   """
   @spec describe_capacity_reservation_billing_requests(
@@ -32981,8 +33216,9 @@ defmodule AWS.EC2 do
   @doc """
   Describes one or more of your Capacity Reservations.
 
-  The results describe only the Capacity Reservations in the
-  Amazon Web Services Region that you're currently using.
+  The results describe only the
+  Capacity Reservations in the Amazon Web Services Region that you're currently
+  using.
   """
   @spec describe_capacity_reservations(map(), describe_capacity_reservations_request(), list()) ::
           {:ok, describe_capacity_reservations_result(), any()}
@@ -35719,7 +35955,7 @@ defmodule AWS.EC2 do
   @doc """
   Describe VPC Block Public Access (BPA) options.
 
-  VPC Block public Access (BPA) enables you to block resources in VPCs and subnets
+  VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets
   that you own in a Region from reaching or being reached from the internet
   through internet gateways and egress-only internet gateways. To learn more about
   VPC BPA, see [Block public access to VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html)
@@ -36481,11 +36717,10 @@ defmodule AWS.EC2 do
 
   @doc """
   Cancels a pending request to assign billing of the unused capacity of a Capacity
-  Reservation to a
-  consumer account, or revokes a request that has already been accepted.
+  Reservation to a consumer account, or revokes a request that has already been
+  accepted.
 
-  For more information, see
-  [Billing assignment for shared Amazon EC2 Capacity
+  For more information, see [Billing assignment for shared Amazon EC2 Capacity
   Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html).
   """
   @spec disassociate_capacity_reservation_billing_owner(
@@ -37388,11 +37623,11 @@ defmodule AWS.EC2 do
   @doc """
   Gets usage information about a Capacity Reservation.
 
-  If the Capacity Reservation is shared, it shows usage information for the
-  Capacity Reservation owner
-  and each Amazon Web Services account that is currently using the shared
-  capacity. If the Capacity Reservation is not shared, it shows only
-  the Capacity Reservation owner's usage.
+  If the Capacity Reservation is
+  shared, it shows usage information for the Capacity Reservation owner and each
+  Amazon Web Services account that is currently using the shared capacity. If the
+  Capacity
+  Reservation is not shared, it shows only the Capacity Reservation owner's usage.
   """
   @spec get_capacity_reservation_usage(map(), get_capacity_reservation_usage_request(), list()) ::
           {:ok, get_capacity_reservation_usage_result(), any()}
@@ -38538,14 +38773,47 @@ defmodule AWS.EC2 do
 
   @doc """
   Modifies a Capacity Reservation's capacity, instance eligibility, and the
-  conditions under which it is to be released.
+  conditions under
+  which it is to be released.
 
-  You
-  can't modify a Capacity Reservation's instance type, EBS optimization, platform,
-  instance store settings, Availability Zone, or
-  tenancy. If you need to modify any of these attributes, we recommend that you
-  cancel the Capacity Reservation, and then create a new one with
-  the required attributes. For more information, see [Modify an active Capacity Reservation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-modify.html).
+  You can't modify a Capacity Reservation's instance type, EBS
+  optimization, platform, instance store settings, Availability Zone, or tenancy.
+  If you need
+  to modify any of these attributes, we recommend that you cancel the Capacity
+  Reservation,
+  and then create a new one with the required attributes. For more information,
+  see
+  [
+  Modify an active Capacity
+  Reservation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-modify.html).
+
+  The allowed modifications depend on the state of the Capacity Reservation:
+
+    *
+
+  `assessing` or `scheduled` state - You can modify the tags only.
+
+    *
+
+  `pending` state - You can't modify the Capacity Reservation in any way.
+
+    *
+
+  `active` state but still within the commitment duration - You can't decrease the
+  instance
+  count or set an end date that is within the commitment duration. All other
+  modifications are allowed.
+
+    *
+
+  `active` state with no commitment duration or elapsed commitment duration - All
+  modifications
+  are allowed.
+
+    *
+
+  `expired`, `cancelled`, `unsupported`, or `failed` state -
+  You can't modify the Capacity Reservation in any way.
   """
   @spec modify_capacity_reservation(map(), modify_capacity_reservation_request(), list()) ::
           {:ok, modify_capacity_reservation_result(), any()}
@@ -38560,13 +38828,13 @@ defmodule AWS.EC2 do
   Modifies a Capacity Reservation Fleet.
 
   When you modify the total target capacity of a Capacity Reservation Fleet, the
-  Fleet automatically
-  creates new Capacity Reservations, or modifies or cancels existing Capacity
-  Reservations in the Fleet
-  to meet the new total target capacity. When you modify the end date for the
-  Fleet, the end dates for
-  all of the individual Capacity Reservations in the Fleet are updated
-  accordingly.
+  Fleet
+  automatically creates new Capacity Reservations, or modifies or cancels existing
+  Capacity Reservations in the Fleet to meet the new total target capacity. When
+  you
+  modify the end date for the Fleet, the end dates for all of the individual
+  Capacity
+  Reservations in the Fleet are updated accordingly.
   """
   @spec modify_capacity_reservation_fleet(
           map(),
@@ -38903,11 +39171,10 @@ defmodule AWS.EC2 do
   @doc """
   Modifies the Capacity Reservation settings for a stopped instance.
 
-  Use this action to configure an
-  instance to target a specific Capacity Reservation, run in any `open` Capacity
-  Reservation with matching
-  attributes, run in On-Demand Instance capacity, or only run in a Capacity
-  Reservation.
+  Use this action to
+  configure an instance to target a specific Capacity Reservation, run in any
+  `open` Capacity Reservation with matching attributes, run in On-Demand
+  Instance capacity, or only run in a Capacity Reservation.
   """
   @spec modify_instance_capacity_reservation_attributes(
           map(),
@@ -39782,7 +40049,7 @@ defmodule AWS.EC2 do
   @doc """
   Modify VPC Block Public Access (BPA) options.
 
-  VPC Block public Access (BPA) enables you to block resources in VPCs and subnets
+  VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets
   that you own in a Region from reaching or being reached from the internet
   through internet gateways and egress-only internet gateways. To learn more about
   VPC BPA, see [Block public access to VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html)
@@ -40152,10 +40419,12 @@ defmodule AWS.EC2 do
 
   @doc """
   Move available capacity from a source Capacity Reservation to a destination
-  Capacity Reservation.
+  Capacity
+  Reservation.
 
-  The source Capacity Reservation and the destination Capacity Reservation must be
-  `active`, owned by your Amazon Web Services account, and share the following:
+  The source Capacity Reservation and the destination Capacity Reservation
+  must be `active`, owned by your Amazon Web Services account, and share the
+  following:
 
     *
   Instance type
@@ -40173,7 +40442,8 @@ defmodule AWS.EC2 do
   Placement group
 
     *
-  Capacity Reservation end time - `At specific time` or `Manually`.
+  Capacity Reservation end time - `At specific time` or
+  `Manually`.
   """
   @spec move_capacity_reservation_instances(
           map(),
@@ -40278,9 +40548,10 @@ defmodule AWS.EC2 do
   @doc """
   Purchase the Capacity Block for use with your account.
 
-  With Capacity Blocks you ensure GPU capacity is available for machine learning
-  (ML) workloads. You must specify the ID of the Capacity Block offering you are
-  purchasing.
+  With Capacity Blocks you ensure
+  GPU capacity is available for machine learning (ML) workloads. You must specify
+  the ID
+  of the Capacity Block offering you are purchasing.
   """
   @spec purchase_capacity_block(map(), purchase_capacity_block_request(), list()) ::
           {:ok, purchase_capacity_block_result(), any()}
@@ -40289,6 +40560,25 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "PurchaseCapacityBlock", input, options)
+  end
+
+  @doc """
+  Purchase the Capacity Block extension for use with your account.
+
+  You must specify the
+  ID of the Capacity Block extension offering you are purchasing.
+  """
+  @spec purchase_capacity_block_extension(
+          map(),
+          purchase_capacity_block_extension_request(),
+          list()
+        ) ::
+          {:ok, purchase_capacity_block_extension_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def purchase_capacity_block_extension(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PurchaseCapacityBlockExtension", input, options)
   end
 
   @doc """
@@ -40578,11 +40868,10 @@ defmodule AWS.EC2 do
 
   @doc """
   Rejects a request to assign billing of the available capacity of a shared
-  Capacity Reservation
-  to your account.
+  Capacity
+  Reservation to your account.
 
-  For more information, see [
-  Billing assignment for shared Amazon EC2 Capacity
+  For more information, see [ Billing assignment for shared Amazon EC2 Capacity
   Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html).
   """
   @spec reject_capacity_reservation_billing_ownership(

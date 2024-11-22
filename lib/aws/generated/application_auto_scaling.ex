@@ -112,6 +112,23 @@ defmodule AWS.ApplicationAutoScaling do
 
   ## Example:
       
+      predictive_scaling_metric_specification() :: %{
+        "CustomizedCapacityMetricSpecification" => predictive_scaling_customized_metric_specification(),
+        "CustomizedLoadMetricSpecification" => predictive_scaling_customized_metric_specification(),
+        "CustomizedScalingMetricSpecification" => predictive_scaling_customized_metric_specification(),
+        "PredefinedLoadMetricSpecification" => predictive_scaling_predefined_load_metric_specification(),
+        "PredefinedMetricPairSpecification" => predictive_scaling_predefined_metric_pair_specification(),
+        "PredefinedScalingMetricSpecification" => predictive_scaling_predefined_scaling_metric_specification(),
+        "TargetValue" => float()
+      }
+      
+  """
+  @type predictive_scaling_metric_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       tag_resource_request() :: %{
         required("ResourceARN") => String.t(),
         required("Tags") => map()
@@ -119,6 +136,22 @@ defmodule AWS.ApplicationAutoScaling do
       
   """
   @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_predictive_scaling_forecast_request() :: %{
+        required("EndTime") => non_neg_integer(),
+        required("PolicyName") => String.t(),
+        required("ResourceId") => String.t(),
+        required("ScalableDimension") => list(any()),
+        required("ServiceNamespace") => list(any()),
+        required("StartTime") => non_neg_integer()
+      }
+      
+  """
+  @type get_predictive_scaling_forecast_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -140,6 +173,18 @@ defmodule AWS.ApplicationAutoScaling do
 
   ## Example:
       
+      predictive_scaling_metric_dimension() :: %{
+        "Name" => String.t(),
+        "Value" => String.t()
+      }
+      
+  """
+  @type predictive_scaling_metric_dimension() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_scheduled_action_response() :: %{}
       
   """
@@ -153,6 +198,18 @@ defmodule AWS.ApplicationAutoScaling do
       
   """
   @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      predictive_scaling_predefined_scaling_metric_specification() :: %{
+        "PredefinedMetricType" => String.t(),
+        "ResourceLabel" => String.t()
+      }
+      
+  """
+  @type predictive_scaling_predefined_scaling_metric_specification() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -186,6 +243,19 @@ defmodule AWS.ApplicationAutoScaling do
 
   ## Example:
       
+      get_predictive_scaling_forecast_response() :: %{
+        "CapacityForecast" => capacity_forecast(),
+        "LoadForecast" => list(load_forecast()()),
+        "UpdateTime" => non_neg_integer()
+      }
+      
+  """
+  @type get_predictive_scaling_forecast_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       deregister_scalable_target_request() :: %{
         required("ResourceId") => String.t(),
         required("ScalableDimension") => list(any()),
@@ -205,6 +275,7 @@ defmodule AWS.ApplicationAutoScaling do
         "PolicyARN" => String.t(),
         "PolicyName" => String.t(),
         "PolicyType" => list(any()),
+        "PredictiveScalingPolicyConfiguration" => predictive_scaling_policy_configuration(),
         "ResourceId" => String.t(),
         "ScalableDimension" => list(any()),
         "ServiceNamespace" => list(any()),
@@ -270,6 +341,18 @@ defmodule AWS.ApplicationAutoScaling do
 
   ## Example:
       
+      predictive_scaling_predefined_load_metric_specification() :: %{
+        "PredefinedMetricType" => String.t(),
+        "ResourceLabel" => String.t()
+      }
+      
+  """
+  @type predictive_scaling_predefined_load_metric_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       customized_metric_specification() :: %{
         "Dimensions" => list(metric_dimension()()),
         "MetricName" => String.t(),
@@ -323,6 +406,19 @@ defmodule AWS.ApplicationAutoScaling do
 
   ## Example:
       
+      load_forecast() :: %{
+        "MetricSpecification" => predictive_scaling_metric_specification(),
+        "Timestamps" => list(non_neg_integer()()),
+        "Values" => list(float()())
+      }
+      
+  """
+  @type load_forecast() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       invalid_next_token_exception() :: %{
         "Message" => String.t()
       }
@@ -363,6 +459,18 @@ defmodule AWS.ApplicationAutoScaling do
       
   """
   @type scheduled_action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      predictive_scaling_predefined_metric_pair_specification() :: %{
+        "PredefinedMetricType" => String.t(),
+        "ResourceLabel" => String.t()
+      }
+      
+  """
+  @type predictive_scaling_predefined_metric_pair_specification() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -475,6 +583,17 @@ defmodule AWS.ApplicationAutoScaling do
 
   ## Example:
       
+      predictive_scaling_customized_metric_specification() :: %{
+        "MetricDataQueries" => list(predictive_scaling_metric_data_query()())
+      }
+      
+  """
+  @type predictive_scaling_customized_metric_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       put_scaling_policy_response() :: %{
         "Alarms" => list(alarm()()),
         "PolicyARN" => String.t()
@@ -482,6 +601,21 @@ defmodule AWS.ApplicationAutoScaling do
       
   """
   @type put_scaling_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      predictive_scaling_metric_data_query() :: %{
+        "Expression" => String.t(),
+        "Id" => String.t(),
+        "Label" => String.t(),
+        "MetricStat" => predictive_scaling_metric_stat(),
+        "ReturnData" => boolean()
+      }
+      
+  """
+  @type predictive_scaling_metric_data_query() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -595,6 +729,7 @@ defmodule AWS.ApplicationAutoScaling do
         "CreationTime" => non_neg_integer(),
         "MaxCapacity" => integer(),
         "MinCapacity" => integer(),
+        "PredictedCapacity" => integer(),
         "ResourceId" => String.t(),
         "RoleARN" => String.t(),
         "ScalableDimension" => list(any()),
@@ -614,6 +749,21 @@ defmodule AWS.ApplicationAutoScaling do
       
   """
   @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      predictive_scaling_policy_configuration() :: %{
+        "MaxCapacityBreachBehavior" => list(any()),
+        "MaxCapacityBuffer" => integer(),
+        "MetricSpecifications" => list(predictive_scaling_metric_specification()()),
+        "Mode" => list(any()),
+        "SchedulingBufferTime" => integer()
+      }
+      
+  """
+  @type predictive_scaling_policy_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -654,6 +804,7 @@ defmodule AWS.ApplicationAutoScaling do
       
       put_scaling_policy_request() :: %{
         optional("PolicyType") => list(any()),
+        optional("PredictiveScalingPolicyConfiguration") => predictive_scaling_policy_configuration(),
         optional("StepScalingPolicyConfiguration") => step_scaling_policy_configuration(),
         optional("TargetTrackingScalingPolicyConfiguration") => target_tracking_scaling_policy_configuration(),
         required("PolicyName") => String.t(),
@@ -715,6 +866,19 @@ defmodule AWS.ApplicationAutoScaling do
 
   ## Example:
       
+      predictive_scaling_metric_stat() :: %{
+        "Metric" => predictive_scaling_metric(),
+        "Stat" => String.t(),
+        "Unit" => String.t()
+      }
+      
+  """
+  @type predictive_scaling_metric_stat() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_scalable_targets_response() :: %{
         "NextToken" => String.t(),
         "ScalableTargets" => list(scalable_target()())
@@ -742,6 +906,18 @@ defmodule AWS.ApplicationAutoScaling do
 
   ## Example:
       
+      capacity_forecast() :: %{
+        "Timestamps" => list(non_neg_integer()()),
+        "Values" => list(float()())
+      }
+      
+  """
+  @type capacity_forecast() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       not_scaled_reason() :: %{
         "Code" => String.t(),
         "CurrentCapacity" => integer(),
@@ -751,6 +927,19 @@ defmodule AWS.ApplicationAutoScaling do
       
   """
   @type not_scaled_reason() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      predictive_scaling_metric() :: %{
+        "Dimensions" => list(predictive_scaling_metric_dimension()()),
+        "MetricName" => String.t(),
+        "Namespace" => String.t()
+      }
+      
+  """
+  @type predictive_scaling_metric() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -837,6 +1026,9 @@ defmodule AWS.ApplicationAutoScaling do
           | concurrent_update_exception()
           | invalid_next_token_exception()
           | internal_service_exception()
+
+  @type get_predictive_scaling_forecast_errors() ::
+          validation_exception() | internal_service_exception()
 
   @type list_tags_for_resource_errors() :: resource_not_found_exception()
 
@@ -1021,6 +1213,31 @@ defmodule AWS.ApplicationAutoScaling do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeScheduledActions", input, options)
+  end
+
+  @doc """
+  Retrieves the forecast data for a predictive scaling policy.
+
+  Load forecasts are predictions of the hourly load values using historical load
+  data
+  from CloudWatch and an analysis of historical trends. Capacity forecasts are
+  represented as
+  predicted values for the minimum capacity that is needed on an hourly basis,
+  based on
+  the hourly load forecast.
+
+  A minimum of 24 hours of data is required to create the initial forecasts.
+  However,
+  having a full 14 days of historical data results in more accurate forecasts.
+  """
+  @spec get_predictive_scaling_forecast(map(), get_predictive_scaling_forecast_request(), list()) ::
+          {:ok, get_predictive_scaling_forecast_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_predictive_scaling_forecast_errors()}
+  def get_predictive_scaling_forecast(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetPredictiveScalingForecast", input, options)
   end
 
   @doc """

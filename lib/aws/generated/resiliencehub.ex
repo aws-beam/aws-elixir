@@ -154,6 +154,20 @@ defmodule AWS.Resiliencehub do
 
   ## Example:
 
+      describe_metrics_export_response() :: %{
+        "errorMessage" => String.t(),
+        "exportLocation" => s3_location(),
+        "metricsExportId" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type describe_metrics_export_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_app_component_recommendations_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
@@ -958,6 +972,18 @@ defmodule AWS.Resiliencehub do
 
   ## Example:
 
+      start_metrics_export_response() :: %{
+        "metricsExportId" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type start_metrics_export_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       scoring_component_resiliency_score() :: %{
         "excludedCount" => float(),
         "outstandingCount" => float(),
@@ -1087,6 +1113,17 @@ defmodule AWS.Resiliencehub do
 
   ## Example:
 
+      describe_metrics_export_request() :: %{
+        required("metricsExportId") => String.t()
+      }
+
+  """
+  @type describe_metrics_export_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_app_version_app_component_request() :: %{
         required("appArn") => String.t(),
         required("appVersion") => String.t(),
@@ -1177,6 +1214,18 @@ defmodule AWS.Resiliencehub do
 
   ## Example:
 
+      field() :: %{
+        "aggregation" => list(any()),
+        "name" => String.t()
+      }
+
+  """
+  @type field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       reject_grouping_recommendation_entry() :: %{
         "groupingRecommendationId" => String.t(),
         "rejectionReason" => list(any())
@@ -1184,6 +1233,18 @@ defmodule AWS.Resiliencehub do
 
   """
   @type reject_grouping_recommendation_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_metrics_response() :: %{
+        "nextToken" => String.t(),
+        "rows" => list(list(String.t()())())
+      }
+
+  """
+  @type list_metrics_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1324,6 +1385,19 @@ defmodule AWS.Resiliencehub do
 
   ## Example:
 
+      condition() :: %{
+        "field" => String.t(),
+        "operator" => list(any()),
+        "value" => String.t()
+      }
+
+  """
+  @type condition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       s3_location() :: %{
         "bucket" => String.t(),
         "prefix" => String.t()
@@ -1392,6 +1466,18 @@ defmodule AWS.Resiliencehub do
 
   """
   @type physical_resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sort() :: %{
+        "ascending" => boolean(),
+        "field" => String.t()
+      }
+
+  """
+  @type sort() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2049,6 +2135,22 @@ defmodule AWS.Resiliencehub do
 
   ## Example:
 
+      list_metrics_request() :: %{
+        optional("conditions") => list(condition()()),
+        optional("dataSource") => String.t(),
+        optional("fields") => list(field()()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("sorts") => list(sort()())
+      }
+
+  """
+  @type list_metrics_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_resiliency_policy_response() :: %{
         required("policyArn") => String.t()
       }
@@ -2344,6 +2446,18 @@ defmodule AWS.Resiliencehub do
 
   """
   @type failed_grouping_recommendation_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_metrics_export_request() :: %{
+        optional("bucketName") => String.t(),
+        optional("clientToken") => String.t()
+      }
+
+  """
+  @type start_metrics_export_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2649,6 +2763,13 @@ defmodule AWS.Resiliencehub do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type describe_metrics_export_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type describe_resiliency_policy_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2749,6 +2870,12 @@ defmodule AWS.Resiliencehub do
           | resource_not_found_exception()
 
   @type list_apps_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_metrics_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -2858,6 +2985,14 @@ defmodule AWS.Resiliencehub do
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | conflict_exception()
+
+  @type start_metrics_export_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
 
   @type start_resource_grouping_recommendation_task_errors() ::
@@ -3743,6 +3878,34 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
+  Describes the metrics of the application configuration being exported.
+  """
+  @spec describe_metrics_export(map(), describe_metrics_export_request(), list()) ::
+          {:ok, describe_metrics_export_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_metrics_export_errors()}
+  def describe_metrics_export(%Client{} = client, input, options \\ []) do
+    url_path = "/describe-metrics-export"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Describes a specified resiliency policy for an Resilience Hub application.
 
   The
@@ -3874,7 +4037,7 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Indicates the list of compliance drifts that were detected while running an
+  List of compliance drifts that were detected while running an
   assessment.
   """
   @spec list_app_assessment_compliance_drifts(
@@ -3907,7 +4070,7 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
-  Indicates the list of resource drifts that were detected while running an
+  List of resource drifts that were detected while running an
   assessment.
   """
   @spec list_app_assessment_resource_drifts(
@@ -4355,6 +4518,34 @@ defmodule AWS.Resiliencehub do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the metrics that can be exported.
+  """
+  @spec list_metrics(map(), list_metrics_request(), list()) ::
+          {:ok, list_metrics_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_metrics_errors()}
+  def list_metrics(%Client{} = client, input, options \\ []) do
+    url_path = "/list-metrics"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4850,6 +5041,34 @@ defmodule AWS.Resiliencehub do
           | {:error, start_app_assessment_errors()}
   def start_app_assessment(%Client{} = client, input, options \\ []) do
     url_path = "/start-app-assessment"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Initiates the export task of metrics.
+  """
+  @spec start_metrics_export(map(), start_metrics_export_request(), list()) ::
+          {:ok, start_metrics_export_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_metrics_export_errors()}
+  def start_metrics_export(%Client{} = client, input, options \\ []) do
+    url_path = "/start-metrics-export"
     headers = []
     custom_headers = []
     query_params = []

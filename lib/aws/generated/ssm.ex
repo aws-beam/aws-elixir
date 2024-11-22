@@ -277,6 +277,19 @@ defmodule AWS.SSM do
 
   ## Example:
       
+      node_filter() :: %{
+        "Key" => list(any()),
+        "Type" => list(any()),
+        "Values" => list(String.t()())
+      }
+      
+  """
+  @type node_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_maintenance_window_task_request() :: %{
         optional("AlarmConfiguration") => alarm_configuration(),
         optional("CutoffBehavior") => list(any()),
@@ -372,6 +385,17 @@ defmodule AWS.SSM do
 
   ## Example:
       
+      start_execution_preview_response() :: %{
+        "ExecutionPreviewId" => String.t()
+      }
+      
+  """
+  @type start_execution_preview_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_resource_policy_response() :: %{}
       
   """
@@ -421,6 +445,19 @@ defmodule AWS.SSM do
       
   """
   @type max_document_size_exceeded() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_execution_preview_request() :: %{
+        optional("DocumentVersion") => String.t(),
+        optional("ExecutionInputs") => list(),
+        required("DocumentName") => String.t()
+      }
+      
+  """
+  @type start_execution_preview_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -518,6 +555,17 @@ defmodule AWS.SSM do
       
   """
   @type ops_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unsupported_operation_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type unsupported_operation_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -670,6 +718,18 @@ defmodule AWS.SSM do
       
   """
   @type invalid_item_content_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_nodes_summary_result() :: %{
+        "NextToken" => String.t(),
+        "Summary" => list(map()())
+      }
+      
+  """
+  @type list_nodes_summary_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2432,6 +2492,17 @@ defmodule AWS.SSM do
 
   ## Example:
       
+      get_execution_preview_request() :: %{
+        required("ExecutionPreviewId") => String.t()
+      }
+      
+  """
+  @type get_execution_preview_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       cancel_maintenance_window_execution_request() :: %{
         required("WindowExecutionId") => String.t()
       }
@@ -2518,6 +2589,32 @@ defmodule AWS.SSM do
       
   """
   @type start_automation_execution_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      automation_execution_preview() :: %{
+        "Regions" => list(String.t()()),
+        "StepPreviews" => map(),
+        "TargetPreviews" => list(target_preview()()),
+        "TotalAccounts" => integer()
+      }
+      
+  """
+  @type automation_execution_preview() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_nodes_result() :: %{
+        "NextToken" => String.t(),
+        "Nodes" => list(ssm_node()())
+      }
+      
+  """
+  @type list_nodes_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3370,6 +3467,20 @@ defmodule AWS.SSM do
 
   ## Example:
       
+      node_aggregator() :: %{
+        "AggregatorType" => list(any()),
+        "Aggregators" => list(node_aggregator()()),
+        "AttributeName" => list(any()),
+        "TypeName" => list(any())
+      }
+      
+  """
+  @type node_aggregator() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       send_command_request() :: %{
         optional("AlarmConfiguration") => alarm_configuration(),
         optional("CloudWatchOutputConfig") => cloud_watch_output_config(),
@@ -3533,6 +3644,21 @@ defmodule AWS.SSM do
       
   """
   @type get_calendar_state_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_nodes_summary_request() :: %{
+        optional("Filters") => list(node_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SyncName") => String.t(),
+        required("Aggregators") => list(node_aggregator()())
+      }
+      
+  """
+  @type list_nodes_summary_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3956,6 +4082,20 @@ defmodule AWS.SSM do
       
   """
   @type association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_nodes_request() :: %{
+        optional("Filters") => list(node_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SyncName") => String.t()
+      }
+      
+  """
+  @type list_nodes_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4402,6 +4542,22 @@ defmodule AWS.SSM do
 
   ## Example:
       
+      automation_execution_inputs() :: %{
+        "Parameters" => map(),
+        "TargetLocations" => list(target_location()()),
+        "TargetLocationsURL" => String.t(),
+        "TargetMaps" => list(map()()),
+        "TargetParameterName" => String.t(),
+        "Targets" => list(target()())
+      }
+      
+  """
+  @type automation_execution_inputs() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       session() :: %{
         "Details" => String.t(),
         "DocumentName" => String.t(),
@@ -4753,6 +4909,34 @@ defmodule AWS.SSM do
       
   """
   @type resource_data_sync_aws_organizations_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      node_owner_info() :: %{
+        "AccountId" => String.t(),
+        "OrganizationalUnitId" => String.t(),
+        "OrganizationalUnitPath" => String.t()
+      }
+      
+  """
+  @type node_owner_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_execution_preview_response() :: %{
+        "EndedAt" => non_neg_integer(),
+        "ExecutionPreview" => list(),
+        "ExecutionPreviewId" => String.t(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t()
+      }
+      
+  """
+  @type get_execution_preview_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5783,6 +5967,18 @@ defmodule AWS.SSM do
 
   ## Example:
       
+      validation_exception() :: %{
+        "Message" => String.t(),
+        "ReasonCode" => String.t()
+      }
+      
+  """
+  @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_tags_for_resource_request() :: %{
         required("ResourceId") => String.t(),
         required("ResourceType") => list(any())
@@ -6381,6 +6577,21 @@ defmodule AWS.SSM do
 
   ## Example:
       
+      ssm_node() :: %{
+        "CaptureTime" => non_neg_integer(),
+        "Id" => String.t(),
+        "NodeType" => list(),
+        "Owner" => node_owner_info(),
+        "Region" => String.t()
+      }
+      
+  """
+  @type ssm_node() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_ops_metadata_result() :: %{
         "OpsMetadataArn" => String.t()
       }
@@ -6569,6 +6780,18 @@ defmodule AWS.SSM do
 
   ## Example:
       
+      target_preview() :: %{
+        "Count" => integer(),
+        "TargetType" => String.t()
+      }
+      
+  """
+  @type target_preview() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       automation_execution_limit_exceeded_exception() :: %{
         "Message" => String.t()
       }
@@ -6637,6 +6860,26 @@ defmodule AWS.SSM do
       
   """
   @type start_automation_execution_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_info() :: %{
+        "AgentType" => String.t(),
+        "AgentVersion" => String.t(),
+        "ComputerName" => String.t(),
+        "InstanceStatus" => String.t(),
+        "IpAddress" => String.t(),
+        "ManagedStatus" => list(any()),
+        "PlatformName" => String.t(),
+        "PlatformType" => list(any()),
+        "PlatformVersion" => String.t(),
+        "ResourceType" => list(any())
+      }
+      
+  """
+  @type instance_info() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -8097,6 +8340,8 @@ defmodule AWS.SSM do
   @type get_document_errors() ::
           internal_server_error() | invalid_document_version() | invalid_document()
 
+  @type get_execution_preview_errors() :: internal_server_error() | resource_not_found_exception()
+
   @type get_inventory_errors() ::
           invalid_next_token()
           | invalid_filter()
@@ -8229,6 +8474,21 @@ defmodule AWS.SSM do
           | invalid_instance_id()
           | internal_server_error()
           | invalid_type_name_exception()
+
+  @type list_nodes_errors() ::
+          invalid_next_token()
+          | resource_data_sync_not_found_exception()
+          | invalid_filter()
+          | internal_server_error()
+          | unsupported_operation_exception()
+
+  @type list_nodes_summary_errors() ::
+          invalid_next_token()
+          | resource_data_sync_not_found_exception()
+          | invalid_filter()
+          | internal_server_error()
+          | invalid_aggregator_exception()
+          | unsupported_operation_exception()
 
   @type list_ops_item_events_errors() ::
           ops_item_limit_exceeded_exception()
@@ -8381,6 +8641,8 @@ defmodule AWS.SSM do
           | internal_server_error()
           | invalid_automation_execution_parameters_exception()
           | idempotent_parameter_mismatch()
+
+  @type start_execution_preview_errors() :: validation_exception() | internal_server_error()
 
   @type start_session_errors() ::
           target_not_connected() | internal_server_error() | invalid_document()
@@ -8822,7 +9084,7 @@ defmodule AWS.SSM do
   to
   synchronize Inventory data from multiple Amazon Web Services Regions to a single
   Amazon Simple Storage Service (Amazon S3) bucket. For more information, see
-  [Creatinga a resource data sync for
+  [Creating a resource data sync for
   Inventory](https://docs.aws.amazon.com/systems-manager/latest/userguide/inventory-create-resource-data-sync.html)
   in the *Amazon Web Services Systems Manager User Guide*.
 
@@ -10010,6 +10272,21 @@ defmodule AWS.SSM do
   end
 
   @doc """
+  Initiates the process of retrieving an existing preview that shows the effects
+  that running
+  a specified Automation runbook would have on the targeted resources.
+  """
+  @spec get_execution_preview(map(), get_execution_preview_request(), list()) ::
+          {:ok, get_execution_preview_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_execution_preview_errors()}
+  def get_execution_preview(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetExecutionPreview", input, options)
+  end
+
+  @doc """
   Query inventory information.
 
   This includes managed node status, such as `Stopped`
@@ -10569,6 +10846,37 @@ defmodule AWS.SSM do
   end
 
   @doc """
+  Takes in filters and returns a list of managed nodes matching the filter
+  criteria.
+  """
+  @spec list_nodes(map(), list_nodes_request(), list()) ::
+          {:ok, list_nodes_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_nodes_errors()}
+  def list_nodes(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListNodes", input, options)
+  end
+
+  @doc """
+  Generates a summary of managed instance/node metadata based on the filters and
+  aggregators
+  you specify.
+
+  Results are grouped by the input aggregator you specify.
+  """
+  @spec list_nodes_summary(map(), list_nodes_summary_request(), list()) ::
+          {:ok, list_nodes_summary_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_nodes_summary_errors()}
+  def list_nodes_summary(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListNodesSummary", input, options)
+  end
+
+  @doc """
   Returns a list of all OpsItem events in the current Amazon Web Services Region
   and Amazon Web Services account.
 
@@ -11087,6 +11395,21 @@ defmodule AWS.SSM do
     meta = metadata()
 
     Request.request_post(client, meta, "StartChangeRequestExecution", input, options)
+  end
+
+  @doc """
+  Initiates the process of creating a preview showing the effects that running a
+  specified
+  Automation runbook would have on the targeted resources.
+  """
+  @spec start_execution_preview(map(), start_execution_preview_request(), list()) ::
+          {:ok, start_execution_preview_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_execution_preview_errors()}
+  def start_execution_preview(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartExecutionPreview", input, options)
   end
 
   @doc """

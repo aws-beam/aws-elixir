@@ -90,6 +90,19 @@ defmodule AWS.XRay do
 
   ## Example:
 
+      graph_link() :: %{
+        "DestinationTraceIds" => list(String.t()()),
+        "ReferenceType" => String.t(),
+        "SourceTraceId" => String.t()
+      }
+
+  """
+  @type graph_link() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       response_time_root_cause_service() :: %{
         "AccountId" => String.t(),
         "EntityPath" => list(response_time_root_cause_entity()()),
@@ -101,6 +114,17 @@ defmodule AWS.XRay do
 
   """
   @type response_time_root_cause_service() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_trace_retrieval_result() :: %{
+        "RetrievalToken" => String.t()
+      }
+
+  """
+  @type start_trace_retrieval_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -177,6 +201,17 @@ defmodule AWS.XRay do
 
   ## Example:
 
+      get_indexing_rules_request() :: %{
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type get_indexing_rules_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_group_result() :: %{
         "Group" => group()
       }
@@ -205,6 +240,20 @@ defmodule AWS.XRay do
 
   """
   @type get_groups_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_retrieved_traces_result() :: %{
+        "NextToken" => String.t(),
+        "RetrievalStatus" => list(any()),
+        "TraceFormat" => list(any()),
+        "Traces" => list(retrieved_trace()())
+      }
+
+  """
+  @type list_retrieved_traces_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -280,6 +329,18 @@ defmodule AWS.XRay do
 
   ## Example:
 
+      probabilistic_rule_value() :: %{
+        "ActualSamplingPercentage" => float(),
+        "DesiredSamplingPercentage" => float()
+      }
+
+  """
+  @type probabilistic_rule_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       insight_impact_graph_service() :: %{
         "AccountId" => String.t(),
         "Edges" => list(insight_impact_graph_edge()()),
@@ -291,6 +352,19 @@ defmodule AWS.XRay do
 
   """
   @type insight_impact_graph_service() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_retrieved_traces_request() :: %{
+        optional("NextToken") => String.t(),
+        optional("TraceFormat") => list(any()),
+        required("RetrievalToken") => String.t()
+      }
+
+  """
+  @type list_retrieved_traces_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -453,6 +527,17 @@ defmodule AWS.XRay do
 
   ## Example:
 
+      probabilistic_rule_value_update() :: %{
+        "DesiredSamplingPercentage" => float()
+      }
+
+  """
+  @type probabilistic_rule_value_update() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       sampling_target_document() :: %{
         "FixedRate" => float(),
         "Interval" => integer(),
@@ -480,6 +565,19 @@ defmodule AWS.XRay do
 
   ## Example:
 
+      retrieved_trace() :: %{
+        "Duration" => float(),
+        "Id" => String.t(),
+        "Spans" => list(span()())
+      }
+
+  """
+  @type retrieved_trace() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_get_traces_result() :: %{
         "NextToken" => String.t(),
         "Traces" => list(trace()()),
@@ -488,6 +586,19 @@ defmodule AWS.XRay do
 
   """
   @type batch_get_traces_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      indexing_rule() :: %{
+        "ModifiedAt" => non_neg_integer(),
+        "Name" => String.t(),
+        "Rule" => list()
+      }
+
+  """
+  @type indexing_rule() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -519,6 +630,18 @@ defmodule AWS.XRay do
 
   ## Example:
 
+      update_trace_segment_destination_result() :: %{
+        "Destination" => list(any()),
+        "Status" => list(any())
+      }
+
+  """
+  @type update_trace_segment_destination_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_insight_events_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -527,6 +650,18 @@ defmodule AWS.XRay do
 
   """
   @type get_insight_events_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retrieved_service() :: %{
+        "Links" => list(graph_link()()),
+        "Service" => service()
+      }
+
+  """
+  @type retrieved_service() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -564,6 +699,31 @@ defmodule AWS.XRay do
 
   """
   @type value_with_service_ids() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_trace_retrieval_request() :: %{
+        required("EndTime") => non_neg_integer(),
+        required("StartTime") => non_neg_integer(),
+        required("TraceIds") => list(String.t()())
+      }
+
+  """
+  @type start_trace_retrieval_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      span() :: %{
+        "Document" => String.t(),
+        "Id" => String.t()
+      }
+
+  """
+  @type span() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1035,6 +1195,29 @@ defmodule AWS.XRay do
 
   ## Example:
 
+      update_trace_segment_destination_request() :: %{
+        optional("Destination") => list(any())
+      }
+
+  """
+  @type update_trace_segment_destination_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_retrieved_traces_graph_request() :: %{
+        optional("NextToken") => String.t(),
+        required("RetrievalToken") => String.t()
+      }
+
+  """
+  @type get_retrieved_traces_graph_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_sampling_rule_result() :: %{
         "SamplingRuleRecord" => sampling_rule_record()
       }
@@ -1091,6 +1274,15 @@ defmodule AWS.XRay do
 
   """
   @type alias() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_trace_retrieval_result() :: %{}
+
+  """
+  @type cancel_trace_retrieval_result() :: %{}
 
   @typedoc """
 
@@ -1195,6 +1387,18 @@ defmodule AWS.XRay do
 
   ## Example:
 
+      get_indexing_rules_result() :: %{
+        "IndexingRules" => list(indexing_rule()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type get_indexing_rules_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_tags_for_resource_request() :: %{
         optional("NextToken") => String.t(),
         required("ResourceARN") => String.t()
@@ -1202,6 +1406,15 @@ defmodule AWS.XRay do
 
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_trace_segment_destination_request() :: %{}
+
+  """
+  @type get_trace_segment_destination_request() :: %{}
 
   @typedoc """
 
@@ -1417,6 +1630,18 @@ defmodule AWS.XRay do
 
   ## Example:
 
+      get_trace_segment_destination_result() :: %{
+        "Destination" => list(any()),
+        "Status" => list(any())
+      }
+
+  """
+  @type get_trace_segment_destination_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       resource_arn_detail() :: %{
         "ARN" => String.t()
       }
@@ -1496,6 +1721,30 @@ defmodule AWS.XRay do
 
   """
   @type get_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_trace_retrieval_request() :: %{
+        required("RetrievalToken") => String.t()
+      }
+
+  """
+  @type cancel_trace_retrieval_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_retrieved_traces_graph_result() :: %{
+        "NextToken" => String.t(),
+        "RetrievalStatus" => list(any()),
+        "Services" => list(retrieved_service()())
+      }
+
+  """
+  @type get_retrieved_traces_graph_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1594,6 +1843,17 @@ defmodule AWS.XRay do
 
   ## Example:
 
+      update_indexing_rule_result() :: %{
+        "IndexingRule" => indexing_rule()
+      }
+
+  """
+  @type update_indexing_rule_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_insight_result() :: %{
         "Insight" => insight()
       }
@@ -1631,6 +1891,18 @@ defmodule AWS.XRay do
 
   ## Example:
 
+      update_indexing_rule_request() :: %{
+        required("Name") => String.t(),
+        required("Rule") => list()
+      }
+
+  """
+  @type update_indexing_rule_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_resource_policies_result() :: %{
         "NextToken" => String.t(),
         "ResourcePolicies" => list(resource_policy()())
@@ -1640,6 +1912,9 @@ defmodule AWS.XRay do
   @type list_resource_policies_result() :: %{String.t() => any()}
 
   @type batch_get_traces_errors() :: invalid_request_exception() | throttled_exception()
+
+  @type cancel_trace_retrieval_errors() ::
+          invalid_request_exception() | resource_not_found_exception() | throttled_exception()
 
   @type create_group_errors() :: invalid_request_exception() | throttled_exception()
 
@@ -1661,6 +1936,8 @@ defmodule AWS.XRay do
 
   @type get_groups_errors() :: invalid_request_exception() | throttled_exception()
 
+  @type get_indexing_rules_errors() :: invalid_request_exception() | throttled_exception()
+
   @type get_insight_errors() :: invalid_request_exception() | throttled_exception()
 
   @type get_insight_events_errors() :: invalid_request_exception() | throttled_exception()
@@ -1668,6 +1945,9 @@ defmodule AWS.XRay do
   @type get_insight_impact_graph_errors() :: invalid_request_exception() | throttled_exception()
 
   @type get_insight_summaries_errors() :: invalid_request_exception() | throttled_exception()
+
+  @type get_retrieved_traces_graph_errors() ::
+          invalid_request_exception() | resource_not_found_exception() | throttled_exception()
 
   @type get_sampling_rules_errors() :: invalid_request_exception() | throttled_exception()
 
@@ -1683,9 +1963,15 @@ defmodule AWS.XRay do
 
   @type get_trace_graph_errors() :: invalid_request_exception() | throttled_exception()
 
+  @type get_trace_segment_destination_errors() ::
+          invalid_request_exception() | throttled_exception()
+
   @type get_trace_summaries_errors() :: invalid_request_exception() | throttled_exception()
 
   @type list_resource_policies_errors() :: invalid_request_exception() | throttled_exception()
+
+  @type list_retrieved_traces_errors() ::
+          invalid_request_exception() | resource_not_found_exception() | throttled_exception()
 
   @type list_tags_for_resource_errors() ::
           invalid_request_exception() | resource_not_found_exception() | throttled_exception()
@@ -1704,6 +1990,9 @@ defmodule AWS.XRay do
 
   @type put_trace_segments_errors() :: invalid_request_exception() | throttled_exception()
 
+  @type start_trace_retrieval_errors() ::
+          invalid_request_exception() | resource_not_found_exception() | throttled_exception()
+
   @type tag_resource_errors() ::
           too_many_tags_exception()
           | invalid_request_exception()
@@ -1715,7 +2004,13 @@ defmodule AWS.XRay do
 
   @type update_group_errors() :: invalid_request_exception() | throttled_exception()
 
+  @type update_indexing_rule_errors() ::
+          invalid_request_exception() | resource_not_found_exception() | throttled_exception()
+
   @type update_sampling_rule_errors() :: invalid_request_exception() | throttled_exception()
+
+  @type update_trace_segment_destination_errors() ::
+          invalid_request_exception() | throttled_exception()
 
   def metadata do
     %{
@@ -1734,9 +2029,12 @@ defmodule AWS.XRay do
   end
 
   @doc """
-  Retrieves a list of traces specified by ID.
 
-  Each trace is a collection of segment
+  You cannot find traces through this API if Transaction Search is enabled since
+  trace is not indexed in X-Ray.
+
+  Retrieves a list of traces specified by ID. Each trace is a collection of
+  segment
   documents that originates from a single request. Use `GetTraceSummaries` to get
   a
   list of trace IDs.
@@ -1747,6 +2045,38 @@ defmodule AWS.XRay do
           | {:error, batch_get_traces_errors()}
   def batch_get_traces(%Client{} = client, input, options \\ []) do
     url_path = "/Traces"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+
+  Cancels an ongoing trace retrieval job initiated by `StartTraceRetrieval` using
+  the provided `RetrievalToken`.
+
+  A successful cancellation will return an HTTP 200 response.
+  """
+  @spec cancel_trace_retrieval(map(), cancel_trace_retrieval_request(), list()) ::
+          {:ok, cancel_trace_retrieval_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, cancel_trace_retrieval_errors()}
+  def cancel_trace_retrieval(%Client{} = client, input, options \\ []) do
+    url_path = "/CancelTraceRetrieval"
     headers = []
     custom_headers = []
     query_params = []
@@ -2004,6 +2334,39 @@ defmodule AWS.XRay do
   end
 
   @doc """
+
+  Retrieves all indexing rules.
+
+  Indexing rules are used to determine the server-side sampling rate for spans
+  ingested through the CloudWatchLogs destination and indexed by X-Ray. For more
+  information, see [Transaction Search](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search.html).
+  """
+  @spec get_indexing_rules(map(), get_indexing_rules_request(), list()) ::
+          {:ok, get_indexing_rules_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_indexing_rules_errors()}
+  def get_indexing_rules(%Client{} = client, input, options \\ []) do
+    url_path = "/GetIndexingRules"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves the summary information of an insight.
 
   This includes impact to clients and
@@ -2112,6 +2475,54 @@ defmodule AWS.XRay do
           | {:error, get_insight_summaries_errors()}
   def get_insight_summaries(%Client{} = client, input, options \\ []) do
     url_path = "/InsightSummaries"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+
+  Retrieves a service graph for traces based on the specified `RetrievalToken`
+  from the CloudWatch log group generated by Transaction Search.
+
+  This API does not initiate a retrieval job. You must first execute
+  `StartTraceRetrieval` to obtain the required `RetrievalToken`.
+
+  The trace graph describes services that process incoming requests and any
+  downstream services they call, which may include Amazon Web Services resources,
+  external APIs, or databases.
+
+  The response is empty until the `RetrievalStatus` is *COMPLETE*. Retry the
+  request after the status changes from *RUNNING* or *SCHEDULED* to *COMPLETE* to
+  access the full service graph.
+
+  When CloudWatch log is the destination, this API can support cross-account
+  observability and service graph retrieval across linked accounts.
+
+  For retrieving graphs from X-Ray directly as opposed to the Transaction-Search
+  Log group, see
+  [GetTraceGraph](https://docs.aws.amazon.com/xray/latest/api/API_GetTraceGraph.html).
+  """
+  @spec get_retrieved_traces_graph(map(), get_retrieved_traces_graph_request(), list()) ::
+          {:ok, get_retrieved_traces_graph_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_retrieved_traces_graph_errors()}
+  def get_retrieved_traces_graph(%Client{} = client, input, options \\ []) do
+    url_path = "/GetRetrievedTracesGraph"
     headers = []
     custom_headers = []
     query_params = []
@@ -2318,6 +2729,41 @@ defmodule AWS.XRay do
   end
 
   @doc """
+
+  Retrieves the current destination of data sent to `PutTraceSegments` and
+  *OpenTelemetry* API.
+
+  The Transaction Search feature requires a CloudWatchLogs destination. For more
+  information, see [Transaction Search](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search.html)
+  and
+  [OpenTelemetry](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-OpenTelemetry-Sections.html).
+  """
+  @spec get_trace_segment_destination(map(), get_trace_segment_destination_request(), list()) ::
+          {:ok, get_trace_segment_destination_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_trace_segment_destination_errors()}
+  def get_trace_segment_destination(%Client{} = client, input, options \\ []) do
+    url_path = "/GetTraceSegmentDestination"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves IDs and annotations for traces available for a specified time frame
   using an
   optional filter.
@@ -2340,7 +2786,7 @@ defmodule AWS.XRay do
 
   For a full list of indexed fields and keywords that you can use in filter
   expressions,
-  see [Using Filter Expressions](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html)
+  see [Use filter expressions](https://docs.aws.amazon.com/xray/latest/devguide/aws-xray-interface-console.html#xray-console-filters)
   in the *Amazon Web Services X-Ray Developer Guide*.
   """
   @spec get_trace_summaries(map(), get_trace_summaries_request(), list()) ::
@@ -2377,6 +2823,54 @@ defmodule AWS.XRay do
           | {:error, list_resource_policies_errors()}
   def list_resource_policies(%Client{} = client, input, options \\ []) do
     url_path = "/ListResourcePolicies"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+
+  Retrieves a list of traces for a given `RetrievalToken` from the CloudWatch log
+  group generated by Transaction Search.
+
+  For information on what each trace returns, see
+  [BatchGetTraces](https://docs.aws.amazon.com/xray/latest/api/API_BatchGetTraces.html). 
+  This API does not initiate a retrieval job. To start a trace retrieval, use
+  `StartTraceRetrieval`, which generates the required `RetrievalToken`.
+
+  When the `RetrievalStatus` is not *COMPLETE*, the API will return an empty
+  response. Retry the request once the retrieval has completed to access the full
+  list of traces.
+
+  For cross-account observability, this API can retrieve traces from linked
+  accounts when CloudWatch log is the destination across relevant accounts. For
+  more details, see [CloudWatch cross-account
+  observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
+
+  For retrieving data from X-Ray directly as opposed to the Transaction-Search Log
+  group, see
+  [BatchGetTraces](https://docs.aws.amazon.com/xray/latest/api/API_BatchGetTraces.html).
+  """
+  @spec list_retrieved_traces(map(), list_retrieved_traces_request(), list()) ::
+          {:ok, list_retrieved_traces_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_retrieved_traces_errors()}
+  def list_retrieved_traces(%Client{} = client, input, options \\ []) do
+    url_path = "/ListRetrievedTraces"
     headers = []
     custom_headers = []
     query_params = []
@@ -2521,16 +3015,14 @@ defmodule AWS.XRay do
   @doc """
   Uploads segment documents to Amazon Web Services X-Ray.
 
-  The [X-Ray SDK](https://docs.aws.amazon.com/xray/index.html) generates segment documents and sends them to the X-Ray daemon, which uploads them in
-  batches. A segment document can be a completed segment, an in-progress segment,
-  or an array of
+  A segment document can be a completed segment, an in-progress segment, or an
+  array of
   subsegments.
 
   Segments must include the following fields. For the full segment document
   schema, see
-  [Amazon Web Services X-Ray
-  Segment
-  Documents](https://docs.aws.amazon.com/xray/latest/devguide/xray-api-segmentdocuments.html)
+  [Amazon Web Services X-Ray Segment
+  Documents](https://docs.aws.amazon.com/xray/latest/devguide/aws-xray-interface-api.html#xray-api-segmentdocuments.html)
   in the *Amazon Web Services X-Ray Developer Guide*.
 
   ## Required segment document fields
@@ -2575,7 +3067,9 @@ defmodule AWS.XRay do
   segment.
 
   A `trace_id` consists of three numbers separated by hyphens. For example,
-  1-58406520-a006649127e371903a2de979. This includes:
+  1-58406520-a006649127e371903a2de979. For trace IDs created by an X-Ray SDK, or
+  by Amazon Web Services services
+  integrated with X-Ray, a trace ID includes:
 
   ## Trace ID Format
 
@@ -2591,6 +3085,16 @@ defmodule AWS.XRay do
     *
   A 96-bit identifier for the trace, globally unique, in 24 hexadecimal
   digits.
+
+  Trace IDs created via OpenTelemetry have a different format based on the
+  [W3C Trace Context specification](https://www.w3.org/TR/trace-context/).
+  A W3C trace ID must be formatted in the X-Ray trace ID format when sending to
+  X-Ray. For example, a W3C
+  trace ID `4efaaf4d1e8720b39541901950019ee5` should be formatted as
+  `1-4efaaf4d-1e8720b39541901950019ee5` when sending to X-Ray. While X-Ray trace
+  IDs include
+  the original request timestamp in Unix epoch time, this is not required or
+  validated.
   """
   @spec put_trace_segments(map(), put_trace_segments_request(), list()) ::
           {:ok, put_trace_segments_result(), any()}
@@ -2598,6 +3102,51 @@ defmodule AWS.XRay do
           | {:error, put_trace_segments_errors()}
   def put_trace_segments(%Client{} = client, input, options \\ []) do
     url_path = "/TraceSegments"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+
+  Initiates a trace retrieval process using the specified time range and for the
+  give trace IDs on Transaction Search generated by the CloudWatch log group.
+
+  For more information, see [Transaction Search](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search.html).
+
+  API returns a `RetrievalToken`, which can be used with `ListRetrievedTraces` or
+  `GetRetrievedTracesGraph` to fetch results. Retrievals will time out after 60
+  minutes. To execute long time ranges, consider segmenting into multiple
+  retrievals.
+
+  If you are using [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html),
+  you can use this operation in a monitoring account to retrieve data from a
+  linked source account, as long as both accounts have transaction search enabled.
+
+  For retrieving data from X-Ray directly as opposed to the Transaction-Search Log
+  group, see
+  [BatchGetTraces](https://docs.aws.amazon.com/xray/latest/api/API_BatchGetTraces.html).
+  """
+  @spec start_trace_retrieval(map(), start_trace_retrieval_request(), list()) ::
+          {:ok, start_trace_retrieval_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_trace_retrieval_errors()}
+  def start_trace_retrieval(%Client{} = client, input, options \\ []) do
+    url_path = "/StartTraceRetrieval"
     headers = []
     custom_headers = []
     query_params = []
@@ -2705,6 +3254,38 @@ defmodule AWS.XRay do
   end
 
   @doc """
+
+  Modifies an indexing rule’s configuration.
+
+  Indexing rules are used for determining the sampling rate for spans indexed from
+  CloudWatch Logs. For more information, see [Transaction Search](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search.html).
+  """
+  @spec update_indexing_rule(map(), update_indexing_rule_request(), list()) ::
+          {:ok, update_indexing_rule_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_indexing_rule_errors()}
+  def update_indexing_rule(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdateIndexingRule"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Modifies a sampling rule's configuration.
   """
   @spec update_sampling_rule(map(), update_sampling_rule_request(), list()) ::
@@ -2713,6 +3294,42 @@ defmodule AWS.XRay do
           | {:error, update_sampling_rule_errors()}
   def update_sampling_rule(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateSamplingRule"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+
+  Modifies the destination of data sent to `PutTraceSegments`.
+
+  The Transaction Search feature requires the CloudWatchLogs destination. For more
+  information, see [Transaction Search](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search.html).
+  """
+  @spec update_trace_segment_destination(
+          map(),
+          update_trace_segment_destination_request(),
+          list()
+        ) ::
+          {:ok, update_trace_segment_destination_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_trace_segment_destination_errors()}
+  def update_trace_segment_destination(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdateTraceSegmentDestination"
     headers = []
     custom_headers = []
     query_params = []

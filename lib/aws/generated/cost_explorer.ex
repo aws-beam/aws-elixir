@@ -590,6 +590,23 @@ defmodule AWS.CostExplorer do
 
   ## Example:
       
+      analysis_summary() :: %{
+        "AnalysisCompletionTime" => String.t(),
+        "AnalysisId" => String.t(),
+        "AnalysisStartedTime" => String.t(),
+        "AnalysisStatus" => list(any()),
+        "CommitmentPurchaseAnalysisConfiguration" => commitment_purchase_analysis_configuration(),
+        "ErrorCode" => list(any()),
+        "EstimatedCompletionTime" => String.t()
+      }
+      
+  """
+  @type analysis_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_cost_category_definition_response() :: %{
         "CostCategoryArn" => String.t(),
         "EffectiveStart" => String.t()
@@ -792,6 +809,38 @@ defmodule AWS.CostExplorer do
 
   ## Example:
       
+      savings_plans_purchase_analysis_details() :: %{
+        "AdditionalMetadata" => String.t(),
+        "CurrencyCode" => String.t(),
+        "CurrentAverageCoverage" => String.t(),
+        "CurrentAverageHourlyOnDemandSpend" => String.t(),
+        "CurrentMaximumHourlyOnDemandSpend" => String.t(),
+        "CurrentMinimumHourlyOnDemandSpend" => String.t(),
+        "CurrentOnDemandSpend" => String.t(),
+        "EstimatedAverageCoverage" => String.t(),
+        "EstimatedAverageUtilization" => String.t(),
+        "EstimatedCommitmentCost" => String.t(),
+        "EstimatedMonthlySavingsAmount" => String.t(),
+        "EstimatedOnDemandCost" => String.t(),
+        "EstimatedOnDemandCostWithCurrentCommitment" => String.t(),
+        "EstimatedROI" => String.t(),
+        "EstimatedSavingsAmount" => String.t(),
+        "EstimatedSavingsPercentage" => String.t(),
+        "ExistingHourlyCommitment" => String.t(),
+        "HourlyCommitmentToPurchase" => String.t(),
+        "LatestUsageTimestamp" => String.t(),
+        "LookbackPeriodInHours" => String.t(),
+        "MetricsOverLookbackPeriod" => list(recommendation_detail_hourly_metrics()()),
+        "UpfrontCost" => String.t()
+      }
+      
+  """
+  @type savings_plans_purchase_analysis_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       savings_plans_savings() :: %{
         "NetSavings" => String.t(),
         "OnDemandCostEquivalent" => String.t()
@@ -851,6 +900,19 @@ defmodule AWS.CostExplorer do
       
   """
   @type get_reservation_utilization_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_commitment_purchase_analysis_response() :: %{
+        "AnalysisId" => String.t(),
+        "AnalysisStartedTime" => String.t(),
+        "EstimatedCompletionTime" => String.t()
+      }
+      
+  """
+  @type start_commitment_purchase_analysis_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1051,6 +1113,24 @@ defmodule AWS.CostExplorer do
       
   """
   @type ebs_resource_utilization() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_commitment_purchase_analysis_response() :: %{
+        "AnalysisCompletionTime" => String.t(),
+        "AnalysisDetails" => analysis_details(),
+        "AnalysisId" => String.t(),
+        "AnalysisStartedTime" => String.t(),
+        "AnalysisStatus" => list(any()),
+        "CommitmentPurchaseAnalysisConfiguration" => commitment_purchase_analysis_configuration(),
+        "ErrorCode" => list(any()),
+        "EstimatedCompletionTime" => String.t()
+      }
+      
+  """
+  @type get_commitment_purchase_analysis_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1419,6 +1499,18 @@ defmodule AWS.CostExplorer do
 
   ## Example:
       
+      list_commitment_purchase_analyses_response() :: %{
+        "AnalysisSummaryList" => list(analysis_summary()()),
+        "NextPageToken" => String.t()
+      }
+      
+  """
+  @type list_commitment_purchase_analyses_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_tags_for_resource_response() :: %{
         "ResourceTags" => list(resource_tag()())
       }
@@ -1581,6 +1673,17 @@ defmodule AWS.CostExplorer do
       
   """
   @type savings_plans_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_commitment_purchase_analysis_request() :: %{
+        required("CommitmentPurchaseAnalysisConfiguration") => commitment_purchase_analysis_configuration()
+      }
+      
+  """
+  @type start_commitment_purchase_analysis_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1945,6 +2048,17 @@ defmodule AWS.CostExplorer do
 
   ## Example:
       
+      get_commitment_purchase_analysis_request() :: %{
+        required("AnalysisId") => String.t()
+      }
+      
+  """
+  @type get_commitment_purchase_analysis_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       metric_value() :: %{
         "Amount" => String.t(),
         "Unit" => String.t()
@@ -2078,6 +2192,28 @@ defmodule AWS.CostExplorer do
 
   ## Example:
       
+      commitment_purchase_analysis_configuration() :: %{
+        "SavingsPlansPurchaseAnalysisConfiguration" => savings_plans_purchase_analysis_configuration()
+      }
+      
+  """
+  @type commitment_purchase_analysis_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      analysis_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type analysis_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_anomaly_monitor_response() :: %{
         "MonitorArn" => String.t()
       }
@@ -2189,6 +2325,36 @@ defmodule AWS.CostExplorer do
       
   """
   @type reservation_aggregates() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_commitment_purchase_analyses_request() :: %{
+        optional("AnalysisIds") => list(String.t()()),
+        optional("AnalysisStatus") => list(any()),
+        optional("NextPageToken") => String.t(),
+        optional("PageSize") => integer()
+      }
+      
+  """
+  @type list_commitment_purchase_analyses_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      savings_plans_purchase_analysis_configuration() :: %{
+        "AccountId" => String.t(),
+        "AccountScope" => list(any()),
+        "AnalysisType" => list(any()),
+        "LookBackTimePeriod" => date_interval(),
+        "SavingsPlansToAdd" => list(savings_plans()()),
+        "SavingsPlansToExclude" => list(String.t()())
+      }
+      
+  """
+  @type savings_plans_purchase_analysis_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2323,6 +2489,17 @@ defmodule AWS.CostExplorer do
 
   ## Example:
       
+      analysis_details() :: %{
+        "SavingsPlansPurchaseAnalysisDetails" => savings_plans_purchase_analysis_details()
+      }
+      
+  """
+  @type analysis_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_rightsizing_recommendation_response() :: %{
         "Configuration" => rightsizing_recommendation_configuration(),
         "Metadata" => rightsizing_recommendation_metadata(),
@@ -2388,6 +2565,23 @@ defmodule AWS.CostExplorer do
       
   """
   @type delete_anomaly_monitor_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      savings_plans() :: %{
+        "InstanceFamily" => String.t(),
+        "OfferingId" => String.t(),
+        "PaymentOption" => list(any()),
+        "Region" => String.t(),
+        "SavingsPlansCommitment" => float(),
+        "SavingsPlansType" => list(any()),
+        "TermInYears" => list(any())
+      }
+      
+  """
+  @type savings_plans() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2593,6 +2787,11 @@ defmodule AWS.CostExplorer do
   @type get_approximate_usage_records_errors() ::
           limit_exceeded_exception() | data_unavailable_exception()
 
+  @type get_commitment_purchase_analysis_errors() ::
+          limit_exceeded_exception()
+          | analysis_not_found_exception()
+          | data_unavailable_exception()
+
   @type get_cost_and_usage_errors() ::
           limit_exceeded_exception()
           | bill_expiration_exception()
@@ -2672,6 +2871,11 @@ defmodule AWS.CostExplorer do
           | unresolvable_usage_unit_exception()
           | data_unavailable_exception()
 
+  @type list_commitment_purchase_analyses_errors() ::
+          limit_exceeded_exception()
+          | data_unavailable_exception()
+          | invalid_next_token_exception()
+
   @type list_cost_allocation_tag_backfill_history_errors() ::
           limit_exceeded_exception() | invalid_next_token_exception()
 
@@ -2689,6 +2893,12 @@ defmodule AWS.CostExplorer do
           limit_exceeded_exception() | resource_not_found_exception()
 
   @type provide_anomaly_feedback_errors() :: limit_exceeded_exception()
+
+  @type start_commitment_purchase_analysis_errors() ::
+          limit_exceeded_exception()
+          | data_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | generation_exists_exception()
 
   @type start_cost_allocation_tag_backfill_errors() ::
           backfill_limit_exceeded_exception() | limit_exceeded_exception()
@@ -2911,6 +3121,24 @@ defmodule AWS.CostExplorer do
     meta = metadata()
 
     Request.request_post(client, meta, "GetApproximateUsageRecords", input, options)
+  end
+
+  @doc """
+  Retrieves a commitment purchase analysis result based on the
+  `AnalysisId`.
+  """
+  @spec get_commitment_purchase_analysis(
+          map(),
+          get_commitment_purchase_analysis_request(),
+          list()
+        ) ::
+          {:ok, get_commitment_purchase_analysis_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_commitment_purchase_analysis_errors()}
+  def get_commitment_purchase_analysis(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCommitmentPurchaseAnalysis", input, options)
   end
 
   @doc """
@@ -3351,6 +3579,24 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+  Lists the commitment purchase analyses for your account based on the last 30
+  days.
+  """
+  @spec list_commitment_purchase_analyses(
+          map(),
+          list_commitment_purchase_analyses_request(),
+          list()
+        ) ::
+          {:ok, list_commitment_purchase_analyses_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_commitment_purchase_analyses_errors()}
+  def list_commitment_purchase_analyses(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListCommitmentPurchaseAnalyses", input, options)
+  end
+
+  @doc """
 
   Retrieves a list of your historical cost allocation tag backfill requests.
   """
@@ -3463,6 +3709,29 @@ defmodule AWS.CostExplorer do
     meta = metadata()
 
     Request.request_post(client, meta, "ProvideAnomalyFeedback", input, options)
+  end
+
+  @doc """
+  Specifies the parameters of a planned commitment purchase and starts the
+  generation of the
+  analysis.
+
+  This enables you to estimate the cost, coverage, and utilization impact of your
+  planned commitment purchases. You can request up to 20 analysis runs per
+  day.
+  """
+  @spec start_commitment_purchase_analysis(
+          map(),
+          start_commitment_purchase_analysis_request(),
+          list()
+        ) ::
+          {:ok, start_commitment_purchase_analysis_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_commitment_purchase_analysis_errors()}
+  def start_commitment_purchase_analysis(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartCommitmentPurchaseAnalysis", input, options)
   end
 
   @doc """

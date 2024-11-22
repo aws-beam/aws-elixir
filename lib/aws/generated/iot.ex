@@ -102,6 +102,17 @@ defmodule AWS.IoT do
 
   ## Example:
 
+      delete_command_response() :: %{
+        "statusCode" => integer()
+      }
+
+  """
+  @type delete_command_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cancel_job_request() :: %{
         optional("comment") => String.t(),
         optional("force") => boolean(),
@@ -145,6 +156,28 @@ defmodule AWS.IoT do
 
   """
   @type describe_certificate_provider_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_command_response() :: %{
+        "commandArn" => String.t(),
+        "commandId" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "deprecated" => boolean(),
+        "description" => String.t(),
+        "displayName" => String.t(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "mandatoryParameters" => list(command_parameter()()),
+        "namespace" => list(any()),
+        "payload" => command_payload(),
+        "pendingDeletion" => boolean(),
+        "roleArn" => String.t()
+      }
+
+  """
+  @type get_command_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -307,6 +340,18 @@ defmodule AWS.IoT do
 
   """
   @type create_provisioning_claim_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      command_payload() :: %{
+        "content" => binary(),
+        "contentType" => String.t()
+      }
+
+  """
+  @type command_payload() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -831,6 +876,18 @@ defmodule AWS.IoT do
 
   ## Example:
 
+      status_reason() :: %{
+        "reasonCode" => String.t(),
+        "reasonDescription" => String.t()
+      }
+
+  """
+  @type status_reason() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_domain_configuration_request() :: %{
         optional("applicationProtocol") => list(any()),
         optional("authenticationType") => list(any()),
@@ -947,6 +1004,18 @@ defmodule AWS.IoT do
 
   ## Example:
 
+      list_commands_response() :: %{
+        "commands" => list(command_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_commands_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_security_profiles_for_target_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
@@ -1008,6 +1077,15 @@ defmodule AWS.IoT do
 
   """
   @type delete_scheduled_audit_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_command_execution_response() :: %{}
+
+  """
+  @type delete_command_execution_response() :: %{}
 
   @typedoc """
 
@@ -1813,6 +1891,17 @@ defmodule AWS.IoT do
 
   """
   @type detach_security_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_command_execution_request() :: %{
+        required("targetArn") => String.t()
+      }
+
+  """
+  @type delete_command_execution_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2706,6 +2795,21 @@ defmodule AWS.IoT do
 
   ## Example:
 
+      list_commands_request() :: %{
+        optional("commandParameterName") => String.t(),
+        optional("maxResults") => integer(),
+        optional("namespace") => list(any()),
+        optional("nextToken") => String.t(),
+        optional("sortOrder") => list(any())
+      }
+
+  """
+  @type list_commands_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_authorizer_response() :: %{}
 
   """
@@ -2721,6 +2825,21 @@ defmodule AWS.IoT do
 
   """
   @type aws_job_presigned_url_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_command_response() :: %{
+        "commandId" => String.t(),
+        "deprecated" => boolean(),
+        "description" => String.t(),
+        "displayName" => String.t(),
+        "lastUpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type update_command_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3042,6 +3161,18 @@ defmodule AWS.IoT do
 
   ## Example:
 
+      get_command_execution_request() :: %{
+        optional("includeResult") => boolean(),
+        required("targetArn") => String.t()
+      }
+
+  """
+  @type get_command_execution_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_audit_mitigation_actions_task_request() :: %{}
 
   """
@@ -3302,6 +3433,32 @@ defmodule AWS.IoT do
 
   """
   @type describe_custom_metric_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_command_request() :: %{
+        optional("description") => String.t(),
+        optional("displayName") => String.t(),
+        optional("mandatoryParameters") => list(command_parameter()()),
+        optional("namespace") => list(any()),
+        optional("payload") => command_payload(),
+        optional("roleArn") => String.t(),
+        optional("tags") => list(tag()())
+      }
+
+  """
+  @type create_command_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_command_request() :: %{}
+
+  """
+  @type delete_command_request() :: %{}
 
   @typedoc """
 
@@ -3581,6 +3738,15 @@ defmodule AWS.IoT do
 
   ## Example:
 
+      get_command_request() :: %{}
+
+  """
+  @type get_command_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_managed_job_templates_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
@@ -3623,6 +3789,33 @@ defmodule AWS.IoT do
 
   """
   @type attach_security_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_command_request() :: %{
+        optional("deprecated") => boolean(),
+        optional("description") => String.t(),
+        optional("displayName") => String.t()
+      }
+
+  """
+  @type update_command_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      command_parameter() :: %{
+        "defaultValue" => command_parameter_value(),
+        "description" => String.t(),
+        "name" => String.t(),
+        "value" => command_parameter_value()
+      }
+
+  """
+  @type command_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3986,6 +4179,18 @@ defmodule AWS.IoT do
 
   """
   @type cloudwatch_alarm_action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      time_filter() :: %{
+        "after" => String.t(),
+        "before" => String.t()
+      }
+
+  """
+  @type time_filter() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5028,6 +5233,25 @@ defmodule AWS.IoT do
 
   ## Example:
 
+      list_command_executions_request() :: %{
+        optional("commandArn") => String.t(),
+        optional("completedTimeFilter") => time_filter(),
+        optional("maxResults") => integer(),
+        optional("namespace") => list(any()),
+        optional("nextToken") => String.t(),
+        optional("sortOrder") => list(any()),
+        optional("startedTimeFilter") => time_filter(),
+        optional("status") => list(any()),
+        optional("targetArn") => String.t()
+      }
+
+  """
+  @type list_command_executions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       key_pair() :: %{
         "PrivateKey" => String.t(),
         "PublicKey" => String.t()
@@ -5245,6 +5469,29 @@ defmodule AWS.IoT do
 
   """
   @type update_stream_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_command_execution_response() :: %{
+        "commandArn" => String.t(),
+        "completedAt" => non_neg_integer(),
+        "createdAt" => non_neg_integer(),
+        "executionId" => String.t(),
+        "executionTimeoutSeconds" => float(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "parameters" => map(),
+        "result" => map(),
+        "startedAt" => non_neg_integer(),
+        "status" => list(any()),
+        "statusReason" => status_reason(),
+        "targetArn" => String.t(),
+        "timeToLive" => non_neg_integer()
+      }
+
+  """
+  @type get_command_execution_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5647,6 +5894,19 @@ defmodule AWS.IoT do
 
   """
   @type describe_default_authorizer_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      command_execution_result() :: %{
+        "B" => boolean(),
+        "BIN" => binary(),
+        "S" => String.t()
+      }
+
+  """
+  @type command_execution_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6177,6 +6437,23 @@ defmodule AWS.IoT do
 
   """
   @type detect_mitigation_actions_task_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      command_execution_summary() :: %{
+        "commandArn" => String.t(),
+        "completedAt" => non_neg_integer(),
+        "createdAt" => non_neg_integer(),
+        "executionId" => String.t(),
+        "startedAt" => non_neg_integer(),
+        "status" => list(any()),
+        "targetArn" => String.t()
+      }
+
+  """
+  @type command_execution_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -7949,6 +8226,18 @@ defmodule AWS.IoT do
 
   ## Example:
 
+      list_command_executions_response() :: %{
+        "commandExecutions" => list(command_execution_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_command_executions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_logging_options_request() :: %{}
 
   """
@@ -8475,6 +8764,18 @@ defmodule AWS.IoT do
 
   ## Example:
 
+      create_command_response() :: %{
+        "commandArn" => String.t(),
+        "commandId" => String.t()
+      }
+
+  """
+  @type create_command_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       audit_mitigation_actions_task_target() :: %{
         "auditCheckToReasonCodeFilter" => map(),
         "auditTaskId" => String.t(),
@@ -8538,6 +8839,23 @@ defmodule AWS.IoT do
 
   """
   @type vpc_destination_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      command_summary() :: %{
+        "commandArn" => String.t(),
+        "commandId" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "deprecated" => boolean(),
+        "displayName" => String.t(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "pendingDeletion" => boolean()
+      }
+
+  """
+  @type command_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -8871,6 +9189,23 @@ defmodule AWS.IoT do
 
   """
   @type search_index_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      command_parameter_value() :: %{
+        "B" => boolean(),
+        "BIN" => binary(),
+        "D" => float(),
+        "I" => integer(),
+        "L" => float(),
+        "S" => String.t(),
+        "UL" => String.t()
+      }
+
+  """
+  @type command_parameter_value() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -9553,6 +9888,13 @@ defmodule AWS.IoT do
           | unauthorized_exception()
           | internal_failure_exception()
 
+  @type create_command_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
   @type create_custom_metric_errors() ::
           resource_already_exists_exception()
           | limit_exceeded_exception()
@@ -9818,6 +10160,18 @@ defmodule AWS.IoT do
           | delete_conflict_exception()
           | unauthorized_exception()
           | internal_failure_exception()
+
+  @type delete_command_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type delete_command_execution_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | conflict_exception()
 
   @type delete_custom_metric_errors() ::
           throttling_exception() | invalid_request_exception() | internal_failure_exception()
@@ -10311,6 +10665,18 @@ defmodule AWS.IoT do
           | unauthorized_exception()
           | internal_failure_exception()
 
+  @type get_command_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_command_execution_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_effective_policies_errors() ::
           limit_exceeded_exception()
           | throttling_exception()
@@ -10488,6 +10854,15 @@ defmodule AWS.IoT do
           | invalid_request_exception()
           | unauthorized_exception()
           | internal_failure_exception()
+
+  @type list_command_executions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_commands_errors() ::
+          throttling_exception() | validation_exception() | internal_server_exception()
 
   @type list_custom_metrics_errors() ::
           throttling_exception() | invalid_request_exception() | internal_failure_exception()
@@ -11022,6 +11397,13 @@ defmodule AWS.IoT do
           | unauthorized_exception()
           | internal_failure_exception()
 
+  @type update_command_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type update_custom_metric_errors() ::
           throttling_exception()
           | invalid_request_exception()
@@ -11368,14 +11750,15 @@ defmodule AWS.IoT do
   The following criteria must be met:
 
     *
-  The job must have been created with the `targetSelection` field set to
-  "CONTINUOUS".
+  The job must have been created with the `targetSelection` field
+  set to "CONTINUOUS".
 
     *
   The job status must currently be "IN_PROGRESS".
 
     *
-  The total number of targets associated with a job must not exceed 100.
+  The total number of targets associated with a job must not exceed
+  100.
 
   Requires permission to access the
   [AssociateTargetsWithJob](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -12130,6 +12513,37 @@ defmodule AWS.IoT do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a command.
+
+  A command contains reusable configurations that can be applied
+  before they are sent to the devices.
+  """
+  @spec create_command(map(), String.t(), create_command_request(), list()) ::
+          {:ok, create_command_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_command_errors()}
+  def create_command(%Client{} = client, command_id, input, options \\ []) do
+    url_path = "/commands/#{AWS.Util.encode_uri(command_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -13387,6 +13801,70 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  Delete a command resource.
+  """
+  @spec delete_command(map(), String.t(), delete_command_request(), list()) ::
+          {:ok, delete_command_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_command_errors()}
+  def delete_command(%Client{} = client, command_id, input, options \\ []) do
+    url_path = "/commands/#{AWS.Util.encode_uri(command_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Delete a command execution.
+
+  Only command executions that enter a terminal state can be deleted from
+  your account.
+  """
+  @spec delete_command_execution(map(), String.t(), delete_command_execution_request(), list()) ::
+          {:ok, delete_command_execution_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_command_execution_errors()}
+  def delete_command_execution(%Client{} = client, execution_id, input, options \\ []) do
+    url_path = "/command-executions/#{AWS.Util.encode_uri(execution_id)}"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"targetArn", "targetArn"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
 
   Deletes a Device Defender detect custom metric.
 
@@ -13586,14 +14064,16 @@ defmodule AWS.IoT do
   @doc """
   Deletes a job and its related job executions.
 
-  Deleting a job may take time, depending on the number of job
-  executions created for the job and various other factors. While the job
-  is being deleted, the status of the job will be shown as
-  "DELETION_IN_PROGRESS". Attempting to delete or cancel a job whose status
-  is already "DELETION_IN_PROGRESS" will result in an error.
+  Deleting a job may take time, depending on the number of job executions created
+  for
+  the job and various other factors. While the job is being deleted, the status of
+  the job
+  will be shown as "DELETION_IN_PROGRESS". Attempting to delete or cancel a job
+  whose
+  status is already "DELETION_IN_PROGRESS" will result in an error.
 
-  Only 10 jobs may have status "DELETION_IN_PROGRESS" at the same time, or
-  a LimitExceededException will occur.
+  Only 10 jobs may have status "DELETION_IN_PROGRESS" at the same time, or a
+  LimitExceededException will occur.
 
   Requires permission to access the
   [DeleteJob](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
@@ -15647,6 +16127,60 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  Gets information about the specified command.
+  """
+  @spec get_command(map(), String.t(), list()) ::
+          {:ok, get_command_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_command_errors()}
+  def get_command(%Client{} = client, command_id, options \\ []) do
+    url_path = "/commands/#{AWS.Util.encode_uri(command_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets information about the specific command execution on a single device.
+  """
+  @spec get_command_execution(map(), String.t(), String.t() | nil, String.t(), list()) ::
+          {:ok, get_command_execution_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_command_execution_errors()}
+  def get_command_execution(
+        %Client{} = client,
+        execution_id,
+        include_result \\ nil,
+        target_arn,
+        options \\ []
+      ) do
+    url_path = "/command-executions/#{AWS.Util.encode_uri(execution_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(target_arn) do
+        [{"targetArn", target_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(include_result) do
+        [{"includeResult", include_result} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets a list of the policies that have an effect on the authorization behavior of
   the
   specified device when it connects to the IoT device gateway.
@@ -16821,6 +17355,114 @@ defmodule AWS.IoT do
     query_params =
       if !is_nil(ascending_order) do
         [{"isAscendingOrder", ascending_order} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  List all command executions.
+
+  You must provide only the
+  `startedTimeFilter` or the `completedTimeFilter` information. If you
+  provide both time filters, the API will generate an error.
+  You can use this information to find command executions that started within
+  a specific timeframe.
+  """
+  @spec list_command_executions(map(), list_command_executions_request(), list()) ::
+          {:ok, list_command_executions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_command_executions_errors()}
+  def list_command_executions(%Client{} = client, input, options \\ []) do
+    url_path = "/command-executions"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"maxResults", "maxResults"},
+        {"nextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  List all commands in your account.
+  """
+  @spec list_commands(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_commands_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_commands_errors()}
+  def list_commands(
+        %Client{} = client,
+        command_parameter_name \\ nil,
+        max_results \\ nil,
+        namespace \\ nil,
+        next_token \\ nil,
+        sort_order \\ nil,
+        options \\ []
+      ) do
+    url_path = "/commands"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(sort_order) do
+        [{"sortOrder", sort_order} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(namespace) do
+        [{"namespace", namespace} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(command_parameter_name) do
+        [{"commandParameterName", command_parameter_name} | query_params]
       else
         query_params
       end
@@ -20823,6 +21465,34 @@ defmodule AWS.IoT do
       client,
       meta,
       :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Update information about a command or mark a command for deprecation.
+  """
+  @spec update_command(map(), String.t(), update_command_request(), list()) ::
+          {:ok, update_command_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_command_errors()}
+  def update_command(%Client{} = client, command_id, input, options \\ []) do
+    url_path = "/commands/#{AWS.Util.encode_uri(command_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
       url_path,
       query_params,
       custom_headers ++ headers,

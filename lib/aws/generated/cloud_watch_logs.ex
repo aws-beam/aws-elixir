@@ -87,6 +87,30 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      add_key_entry() :: %{
+        "key" => String.t(),
+        "overwriteIfExists" => boolean(),
+        "value" => String.t()
+      }
+      
+  """
+  @type add_key_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      trim_string() :: %{
+        "withKeys" => list(String.t()())
+      }
+      
+  """
+  @type trim_string() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_resource_policies_request() :: %{
         optional("limit") => integer(),
         optional("nextToken") => String.t()
@@ -158,6 +182,28 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      parse_cloudfront() :: %{
+        "source" => String.t()
+      }
+      
+  """
+  @type parse_cloudfront() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      copy_value() :: %{
+        "entries" => list(copy_value_entry()())
+      }
+      
+  """
+  @type copy_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_query_definition_request() :: %{
         required("queryDefinitionId") => String.t()
       }
@@ -209,6 +255,15 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      delete_index_policy_response() :: %{}
+      
+  """
+  @type delete_index_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       create_export_task_request() :: %{
         optional("destinationPrefix") => String.t(),
         optional("logStreamNamePrefix") => String.t(),
@@ -233,6 +288,29 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type tag_log_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_log_groups_for_query_response() :: %{
+        "logGroupIdentifiers" => list(String.t()()),
+        "nextToken" => String.t()
+      }
+      
+  """
+  @type list_log_groups_for_query_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      type_converter() :: %{
+        "entries" => list(type_converter_entry()())
+      }
+      
+  """
+  @type type_converter() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -339,6 +417,17 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      get_transformer_request() :: %{
+        required("logGroupIdentifier") => String.t()
+      }
+      
+  """
+  @type get_transformer_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       entity() :: %{
         "attributes" => map(),
         "keyAttributes" => map()
@@ -346,6 +435,56 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type entity() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      substitute_string_entry() :: %{
+        "from" => String.t(),
+        "source" => String.t(),
+        "to" => String.t()
+      }
+      
+  """
+  @type substitute_string_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      type_converter_entry() :: %{
+        "key" => String.t(),
+        "type" => list(any())
+      }
+      
+  """
+  @type type_converter_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      split_string_entry() :: %{
+        "delimiter" => String.t(),
+        "source" => String.t()
+      }
+      
+  """
+  @type split_string_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      copy_value_entry() :: %{
+        "overwriteIfExists" => boolean(),
+        "source" => String.t(),
+        "target" => String.t()
+      }
+      
+  """
+  @type copy_value_entry() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -440,6 +579,17 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      substitute_string() :: %{
+        "entries" => list(substitute_string_entry()())
+      }
+      
+  """
+  @type substitute_string() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_delivery_request() :: %{
         required("id") => String.t()
       }
@@ -502,6 +652,7 @@ defmodule AWS.CloudWatchLogs do
   ## Example:
       
       subscription_filter() :: %{
+        "applyOnTransformedLogs" => boolean(),
         "creationTime" => float(),
         "destinationArn" => String.t(),
         "distribution" => list(any()),
@@ -592,7 +743,8 @@ defmodule AWS.CloudWatchLogs do
   ## Example:
       
       describe_account_policies_response() :: %{
-        "accountPolicies" => list(account_policy()())
+        "accountPolicies" => list(account_policy()()),
+        "nextToken" => String.t()
       }
       
   """
@@ -622,6 +774,17 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type update_anomaly_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parse_w_a_f() :: %{
+        "source" => String.t()
+      }
+      
+  """
+  @type parse_w_a_f() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -745,6 +908,53 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      field_index() :: %{
+        "fieldIndexName" => String.t(),
+        "firstEventTime" => float(),
+        "lastEventTime" => float(),
+        "lastScanTime" => float(),
+        "logGroupIdentifier" => String.t()
+      }
+      
+  """
+  @type field_index() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      processor() :: %{
+        "addKeys" => add_keys(),
+        "copyValue" => copy_value(),
+        "csv" => csv(),
+        "dateTimeConverter" => date_time_converter(),
+        "deleteKeys" => delete_keys(),
+        "grok" => grok(),
+        "listToMap" => list_to_map(),
+        "lowerCaseString" => lower_case_string(),
+        "moveKeys" => move_keys(),
+        "parseCloudfront" => parse_cloudfront(),
+        "parseJSON" => parse_json(),
+        "parseKeyValue" => parse_key_value(),
+        "parsePostgres" => parse_postgres(),
+        "parseRoute53" => parse_route53(),
+        "parseVPC" => parse_vpc(),
+        "parseWAF" => parse_w_a_f(),
+        "renameKeys" => rename_keys(),
+        "splitString" => split_string(),
+        "substituteString" => substitute_string(),
+        "trimString" => trim_string(),
+        "typeConverter" => type_converter(),
+        "upperCaseString" => upper_case_string()
+      }
+      
+  """
+  @type processor() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       untag_resource_request() :: %{
         required("resourceArn") => String.t(),
         required("tagKeys") => list(String.t()())
@@ -752,6 +962,17 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_index_policy_response() :: %{
+        "indexPolicy" => index_policy()
+      }
+      
+  """
+  @type put_index_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -796,6 +1017,33 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type live_tail_session_update() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_transformer_response() :: %{
+        "creationTime" => float(),
+        "lastModifiedTime" => float(),
+        "logGroupIdentifier" => String.t(),
+        "transformerConfig" => list(processor()())
+      }
+      
+  """
+  @type get_transformer_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      transformed_log_record() :: %{
+        "eventMessage" => String.t(),
+        "eventNumber" => float(),
+        "transformedEventMessage" => String.t()
+      }
+      
+  """
+  @type transformed_log_record() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -869,6 +1117,17 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type put_destination_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lower_case_string() :: %{
+        "withKeys" => list(String.t()())
+      }
+      
+  """
+  @type lower_case_string() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -969,6 +1228,30 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      describe_index_policies_request() :: %{
+        optional("nextToken") => String.t(),
+        required("logGroupIdentifiers") => list(String.t()())
+      }
+      
+  """
+  @type describe_index_policies_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_field_indexes_request() :: %{
+        optional("nextToken") => String.t(),
+        required("logGroupIdentifiers") => list(String.t()())
+      }
+      
+  """
+  @type describe_field_indexes_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_log_anomaly_detector_request() :: %{
         required("anomalyDetectorArn") => String.t()
       }
@@ -987,6 +1270,17 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type disassociate_kms_key_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_transformer_request() :: %{
+        required("logGroupIdentifier") => String.t()
+      }
+      
+  """
+  @type delete_transformer_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1132,6 +1426,28 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      delete_index_policy_request() :: %{
+        required("logGroupIdentifier") => String.t()
+      }
+      
+  """
+  @type delete_index_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      test_transformer_response() :: %{
+        "transformedLogs" => list(transformed_log_record()())
+      }
+      
+  """
+  @type test_transformer_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_export_task_response() :: %{
         "taskId" => String.t()
       }
@@ -1150,6 +1466,33 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type describe_delivery_destinations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      csv() :: %{
+        "columns" => list(String.t()()),
+        "delimiter" => String.t(),
+        "quoteCharacter" => String.t(),
+        "source" => String.t()
+      }
+      
+  """
+  @type csv() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rename_key_entry() :: %{
+        "key" => String.t(),
+        "overwriteIfExists" => boolean(),
+        "renameTo" => String.t()
+      }
+      
+  """
+  @type rename_key_entry() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1251,6 +1594,18 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      describe_field_indexes_response() :: %{
+        "fieldIndexes" => list(field_index()()),
+        "nextToken" => String.t()
+      }
+      
+  """
+  @type describe_field_indexes_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       log_group_field() :: %{
         "name" => String.t(),
         "percent" => integer()
@@ -1258,6 +1613,18 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type log_group_field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_transformer_request() :: %{
+        required("logGroupIdentifier") => String.t(),
+        required("transformerConfig") => list(processor()())
+      }
+      
+  """
+  @type put_transformer_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1293,6 +1660,7 @@ defmodule AWS.CloudWatchLogs do
   ## Example:
       
       put_metric_filter_request() :: %{
+        optional("applyOnTransformedLogs") => boolean(),
         required("filterName") => String.t(),
         required("filterPattern") => String.t(),
         required("logGroupName") => String.t(),
@@ -1301,6 +1669,18 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type put_metric_filter_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_index_policies_response() :: %{
+        "indexPolicies" => list(index_policy()()),
+        "nextToken" => String.t()
+      }
+      
+  """
+  @type describe_index_policies_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1339,6 +1719,18 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      grok() :: %{
+        "match" => String.t(),
+        "source" => String.t()
+      }
+      
+  """
+  @type grok() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       service_unavailable_exception() :: %{
         "message" => String.t()
       }
@@ -1356,6 +1748,23 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type delete_destination_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parse_key_value() :: %{
+        "destination" => String.t(),
+        "fieldDelimiter" => String.t(),
+        "keyPrefix" => String.t(),
+        "keyValueDelimiter" => String.t(),
+        "nonMatchValue" => String.t(),
+        "overwriteIfExists" => boolean(),
+        "source" => String.t()
+      }
+      
+  """
+  @type parse_key_value() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1385,6 +1794,17 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      upper_case_string() :: %{
+        "withKeys" => list(String.t()())
+      }
+      
+  """
+  @type upper_case_string() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       untag_log_group_request() :: %{
         required("logGroupName") => String.t(),
         required("tags") => list(String.t()())
@@ -1398,6 +1818,7 @@ defmodule AWS.CloudWatchLogs do
   ## Example:
       
       put_subscription_filter_request() :: %{
+        optional("applyOnTransformedLogs") => boolean(),
         optional("distribution") => list(any()),
         optional("roleArn") => String.t(),
         required("destinationArn") => String.t(),
@@ -1436,6 +1857,19 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      list_log_groups_for_query_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("queryId") => String.t()
+      }
+      
+  """
+  @type list_log_groups_for_query_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delivery_destination() :: %{
         "arn" => String.t(),
         "deliveryDestinationConfiguration" => delivery_destination_configuration(),
@@ -1447,6 +1881,22 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type delivery_destination() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_to_map() :: %{
+        "flatten" => boolean(),
+        "flattenedElement" => list(any()),
+        "key" => String.t(),
+        "source" => String.t(),
+        "target" => String.t(),
+        "valueKey" => String.t()
+      }
+      
+  """
+  @type list_to_map() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1670,6 +2120,17 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      rename_keys() :: %{
+        "entries" => list(rename_key_entry()())
+      }
+      
+  """
+  @type rename_keys() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       start_query_response() :: %{
         "queryId" => String.t()
       }
@@ -1777,6 +2238,19 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      move_key_entry() :: %{
+        "overwriteIfExists" => boolean(),
+        "source" => String.t(),
+        "target" => String.t()
+      }
+      
+  """
+  @type move_key_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_log_events_request() :: %{
         optional("endTime") => float(),
         optional("limit") => integer(),
@@ -1791,6 +2265,17 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type get_log_events_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_keys() :: %{
+        "entries" => list(add_key_entry()())
+      }
+      
+  """
+  @type add_keys() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1860,6 +2345,7 @@ defmodule AWS.CloudWatchLogs do
       
       describe_account_policies_request() :: %{
         optional("accountIdentifiers") => list(String.t()()),
+        optional("nextToken") => String.t(),
         optional("policyName") => String.t(),
         required("policyType") => list(any())
       }
@@ -1872,6 +2358,7 @@ defmodule AWS.CloudWatchLogs do
   ## Example:
       
       metric_filter() :: %{
+        "applyOnTransformedLogs" => boolean(),
         "creationTime" => float(),
         "filterName" => String.t(),
         "filterPattern" => String.t(),
@@ -2055,6 +2542,23 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      date_time_converter() :: %{
+        "locale" => String.t(),
+        "matchPatterns" => list(String.t()()),
+        "source" => String.t(),
+        "sourceTimezone" => String.t(),
+        "target" => String.t(),
+        "targetFormat" => String.t(),
+        "targetTimezone" => String.t()
+      }
+      
+  """
+  @type date_time_converter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       limit_exceeded_exception() :: %{
         "message" => String.t()
       }
@@ -2104,6 +2608,9 @@ defmodule AWS.CloudWatchLogs do
       
       query_statistics() :: %{
         "bytesScanned" => float(),
+        "estimatedBytesSkipped" => float(),
+        "estimatedRecordsSkipped" => float(),
+        "logGroupsScanned" => float(),
         "recordsMatched" => float(),
         "recordsScanned" => float()
       }
@@ -2175,6 +2682,18 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      test_transformer_request() :: %{
+        required("logEventMessages") => list(String.t()()),
+        required("transformerConfig") => list(processor()())
+      }
+      
+  """
+  @type test_transformer_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_log_anomaly_detectors_response() :: %{
         "anomalyDetectors" => list(anomaly_detector()()),
         "nextToken" => String.t()
@@ -2182,6 +2701,17 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type list_log_anomaly_detectors_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parse_route53() :: %{
+        "source" => String.t()
+      }
+      
+  """
+  @type parse_route53() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2268,6 +2798,29 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      move_keys() :: %{
+        "entries" => list(move_key_entry()())
+      }
+      
+  """
+  @type move_keys() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parse_json() :: %{
+        "destination" => String.t(),
+        "source" => String.t()
+      }
+      
+  """
+  @type parse_json() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       query_definition() :: %{
         "lastModified" => float(),
         "logGroupNames" => list(String.t()()),
@@ -2278,6 +2831,17 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type query_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_keys() :: %{
+        "withKeys" => list(String.t()())
+      }
+      
+  """
+  @type delete_keys() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2357,6 +2921,17 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      parse_postgres() :: %{
+        "source" => String.t()
+      }
+      
+  """
+  @type parse_postgres() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       query_info() :: %{
         "createTime" => float(),
         "logGroupName" => String.t(),
@@ -2380,6 +2955,40 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type configuration_template_delivery_config_values() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parse_vpc() :: %{
+        "source" => String.t()
+      }
+      
+  """
+  @type parse_vpc() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_index_policy_request() :: %{
+        required("logGroupIdentifier") => String.t(),
+        required("policyDocument") => String.t()
+      }
+      
+  """
+  @type put_index_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      split_string() :: %{
+        "entries" => list(split_string_entry()())
+      }
+      
+  """
+  @type split_string() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2431,6 +3040,21 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type describe_metric_filters_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      index_policy() :: %{
+        "lastUpdateTime" => float(),
+        "logGroupIdentifier" => String.t(),
+        "policyDocument" => String.t(),
+        "policyName" => String.t(),
+        "source" => list(any())
+      }
+      
+  """
+  @type index_policy() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2552,6 +3176,13 @@ defmodule AWS.CloudWatchLogs do
           | resource_not_found_exception()
           | operation_aborted_exception()
 
+  @type delete_index_policy_errors() ::
+          limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+
   @type delete_log_anomaly_detector_errors() ::
           invalid_parameter_exception()
           | service_unavailable_exception()
@@ -2598,6 +3229,13 @@ defmodule AWS.CloudWatchLogs do
           | resource_not_found_exception()
           | operation_aborted_exception()
 
+  @type delete_transformer_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+          | invalid_operation_exception()
+
   @type describe_account_policies_errors() ::
           invalid_parameter_exception()
           | service_unavailable_exception()
@@ -2633,6 +3271,20 @@ defmodule AWS.CloudWatchLogs do
 
   @type describe_export_tasks_errors() ::
           invalid_parameter_exception() | service_unavailable_exception()
+
+  @type describe_field_indexes_errors() ::
+          limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+
+  @type describe_index_policies_errors() ::
+          limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
 
   @type describe_log_groups_errors() ::
           invalid_parameter_exception() | service_unavailable_exception()
@@ -2734,6 +3386,12 @@ defmodule AWS.CloudWatchLogs do
           | service_unavailable_exception()
           | resource_not_found_exception()
 
+  @type get_transformer_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | invalid_operation_exception()
+
   @type list_anomalies_errors() ::
           invalid_parameter_exception()
           | service_unavailable_exception()
@@ -2745,6 +3403,12 @@ defmodule AWS.CloudWatchLogs do
           | service_unavailable_exception()
           | resource_not_found_exception()
           | operation_aborted_exception()
+
+  @type list_log_groups_for_query_errors() ::
+          invalid_parameter_exception()
+          | access_denied_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
 
   @type list_tags_for_resource_errors() ::
           invalid_parameter_exception()
@@ -2799,6 +3463,13 @@ defmodule AWS.CloudWatchLogs do
           | service_unavailable_exception()
           | operation_aborted_exception()
 
+  @type put_index_policy_errors() ::
+          limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+
   @type put_log_events_errors() ::
           unrecognized_client_exception()
           | invalid_parameter_exception()
@@ -2813,6 +3484,7 @@ defmodule AWS.CloudWatchLogs do
           | service_unavailable_exception()
           | resource_not_found_exception()
           | operation_aborted_exception()
+          | invalid_operation_exception()
 
   @type put_query_definition_errors() ::
           limit_exceeded_exception()
@@ -2837,6 +3509,15 @@ defmodule AWS.CloudWatchLogs do
           | service_unavailable_exception()
           | resource_not_found_exception()
           | operation_aborted_exception()
+          | invalid_operation_exception()
+
+  @type put_transformer_errors() ::
+          limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | operation_aborted_exception()
+          | invalid_operation_exception()
 
   @type start_live_tail_errors() ::
           limit_exceeded_exception()
@@ -2867,6 +3548,11 @@ defmodule AWS.CloudWatchLogs do
 
   @type test_metric_filter_errors() ::
           invalid_parameter_exception() | service_unavailable_exception()
+
+  @type test_transformer_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | invalid_operation_exception()
 
   @type untag_log_group_errors() :: resource_not_found_exception()
 
@@ -3243,9 +3929,10 @@ defmodule AWS.CloudWatchLogs do
   @doc """
   Deletes a CloudWatch Logs account policy.
 
-  This stops the policy from applying to all log groups
-  or a subset of log groups in the account. Log-group level policies will still be
-  in effect.
+  This stops the account-wide policy from applying to log groups in the account.
+  If you delete a data protection
+  policy or subscription filter policy, any log-group level policies of those
+  types remain in effect.
 
   To use this operation, you must be signed on with the correct permissions
   depending on the type of policy
@@ -3260,6 +3947,19 @@ defmodule AWS.CloudWatchLogs do
   To delete a subscription filter policy, you must have the
   `logs:DeleteSubscriptionFilter` and
   `logs:DeleteAccountPolicy` permissions.
+
+    *
+  To delete a transformer policy, you must have the `logs:DeleteTransformer` and
+  `logs:DeleteAccountPolicy` permissions.
+
+    *
+  To delete a field index policy, you must have the `logs:DeleteIndexPolicy` and
+  `logs:DeleteAccountPolicy` permissions.
+
+  If you delete a field index policy, the indexing of the log events that happened
+  before
+  you deleted the policy will still be used for up to 30 days to improve
+  CloudWatch Logs Insights queries.
   """
   @spec delete_account_policy(map(), delete_account_policy_request(), list()) ::
           {:ok, nil, any()}
@@ -3388,6 +4088,33 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+  Deletes a log-group level field index policy that was applied to a single log
+  group.
+
+  The indexing of the log events that happened before
+  you delete the policy will still be used for as many as 30 days to improve
+  CloudWatch Logs Insights queries.
+
+  You can't use this operation to delete an account-level index policy. Instead,
+  use
+  [DeletAccountPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteAccountPolicy.html).
+
+  If you delete a log-group level field index policy and there is an account-level
+  field index policy, in a few minutes the log group begins using that
+  account-wide policy to index new
+  incoming log events.
+  """
+  @spec delete_index_policy(map(), delete_index_policy_request(), list()) ::
+          {:ok, delete_index_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_index_policy_errors()}
+  def delete_index_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteIndexPolicy", input, options)
+  end
+
+  @doc """
   Deletes the specified CloudWatch Logs anomaly detector.
   """
   @spec delete_log_anomaly_detector(map(), delete_log_anomaly_detector_request(), list()) ::
@@ -3509,6 +4236,30 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+  Deletes the log transformer for the specified log group.
+
+  As soon as you do this,
+  the transformation of incoming log events according to that transformer stops.
+  If this account has an
+  account-level transformer that applies to this log group, the log group begins
+  using that account-level transformer when this log-group level transformer is
+  deleted.
+
+  After you delete a transformer, be sure to edit any metric filters or
+  subscription filters that relied
+  on the transformed versions of the log events.
+  """
+  @spec delete_transformer(map(), delete_transformer_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_transformer_errors()}
+  def delete_transformer(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteTransformer", input, options)
+  end
+
+  @doc """
   Returns a list of all CloudWatch Logs account policies in the account.
   """
   @spec describe_account_policies(map(), describe_account_policies_request(), list()) ::
@@ -3627,6 +4378,50 @@ defmodule AWS.CloudWatchLogs do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeExportTasks", input, options)
+  end
+
+  @doc """
+  Returns a list of field indexes listed in the field index policies of
+  one or more log groups.
+
+  For more information about field index policies, see
+  [PutIndexPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutIndexPolicy.html).
+  """
+  @spec describe_field_indexes(map(), describe_field_indexes_request(), list()) ::
+          {:ok, describe_field_indexes_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_field_indexes_errors()}
+  def describe_field_indexes(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFieldIndexes", input, options)
+  end
+
+  @doc """
+  Returns the field index policies of
+  one or more log groups.
+
+  For more information about field index policies, see
+  [PutIndexPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutIndexPolicy.html). 
+  If a specified log group has a log-group level index policy, that policy is
+  returned by this operation.
+
+  If a specified log group doesn't have a log-group level index policy, but an
+  account-wide index policy applies to it,
+  that account-wide policy is returned by this operation.
+
+  To find information about only account-level policies, use
+  [DescribeAccountPolicies](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeAccountPolicies.html)
+  instead.
+  """
+  @spec describe_index_policies(map(), describe_index_policies_request(), list()) ::
+          {:ok, describe_index_policies_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_index_policies_errors()}
+  def describe_index_policies(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeIndexPolicies", input, options)
   end
 
   @doc """
@@ -4096,6 +4891,25 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+  Returns the information about the log transformer associated with this log
+  group.
+
+  This operation returns data only for transformers created at the log group
+  level. To get information
+  for an account-level transformer, use
+  [DescribeAccountPolicies](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeAccountPolicies.html).
+  """
+  @spec get_transformer(map(), get_transformer_request(), list()) ::
+          {:ok, get_transformer_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_transformer_errors()}
+  def get_transformer(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetTransformer", input, options)
+  end
+
+  @doc """
   Returns a list of anomalies that log anomaly detectors have found.
 
   For details about the structure format of
@@ -4122,6 +4936,28 @@ defmodule AWS.CloudWatchLogs do
     meta = metadata()
 
     Request.request_post(client, meta, "ListLogAnomalyDetectors", input, options)
+  end
+
+  @doc """
+  Returns a list of the log groups that were analyzed during a single CloudWatch
+  Logs Insights query.
+
+  This can be useful for queries
+  that use
+  log group name prefixes or the `filterIndex` command, because the log groups are
+  dynamically selected in these cases.
+
+  For more information about field indexes, see
+  [Create field indexes to improve query performance and reduce costs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing.html).
+  """
+  @spec list_log_groups_for_query(map(), list_log_groups_for_query_request(), list()) ::
+          {:ok, list_log_groups_for_query_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_log_groups_for_query_errors()}
+  def list_log_groups_for_query(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListLogGroupsForQuery", input, options)
   end
 
   @doc """
@@ -4161,7 +4997,8 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
-  Creates an account-level data protection policy or subscription filter policy
+  Creates an account-level data protection policy, subscription filter policy, or
+  field index policy
   that applies to all log groups
   or a subset of log groups in the account.
 
@@ -4251,6 +5088,114 @@ defmodule AWS.CloudWatchLogs do
   To perform a `PutAccountPolicy` subscription filter operation for any
   destination except a Lambda
   function, you must also have the `iam:PassRole` permission.
+
+  ## Transformer policy
+
+  Creates or updates a *log transformer policy* for your account. You use log
+  transformers to transform log events into
+  a different format, making them easier for you to process and analyze. You can
+  also transform logs from different sources into standardized formats that
+  contain
+  relevant, source-specific information. After you have created a transformer,
+  CloudWatch Logs performs this transformation at the time of log ingestion. You
+  can then refer to the transformed versions of the logs during
+  operations such as querying with CloudWatch Logs Insights or creating metric
+  filters or subscription filters.
+
+  You can also use a transformer to copy metadata from metadata keys into the log
+  events themselves. This metadata can include log group name,
+  log stream name, account ID and Region.
+
+  A transformer for a log group is a series of processors, where each processor
+  applies one type of transformation to the log events
+  ingested into this log group. For more information about the available
+  processors to use in a transformer, see [
+  Processors that you can
+  use](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-Processors).
+
+  Having log events in standardized format enables visibility across your
+  applications for your log analysis, reporting, and alarming needs.
+  CloudWatch Logs provides transformation for common log types with out-of-the-box
+  transformation templates for major Amazon Web Services log sources such
+  as VPC flow logs, Lambda, and Amazon RDS. You can use pre-built transformation
+  templates or create custom transformation policies.
+
+  You can create transformers only for the log groups in the Standard log class.
+
+  You can have one account-level transformer policy that applies to all log groups
+  in the account.
+  Or you can create as many as 20 account-level transformer policies that are each
+  scoped to a subset of log groups with
+  the `selectionCriteria` parameter. If you have multiple
+  account-level transformer policies with selection criteria, no two of them can
+  use the same or overlapping log group name prefixes.
+  For example, if you have one policy filtered to log groups that start with
+  `my-log`, you can't have another field index
+  policy filtered to `my-logpprod` or `my-logging`.
+
+  You can also set up a transformer at the log-group level. For more information,
+  see
+  [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html). If there is both a
+  log-group level transformer created with `PutTransformer` and an account-level
+  transformer that could apply to the same log
+  group, the log group uses only the log-group level transformer. It ignores the
+  account-level transformer.
+
+  ## Field index policy
+
+  You can use field index policies to create indexes on fields found in
+  log events in the log group. Creating field indexes can help lower the scan
+  volume for CloudWatch Logs Insights queries that reference
+  those fields, because these queries attempt to skip the processing of log events
+  that are known to not match the indexed field.
+  Good fields to index are fields that you often need to query for and fields or
+  values that match only a small fraction of the total log events.
+  Common examples of indexes
+  include request ID, session ID, user IDs, or instance IDs. For more information,
+  see
+  [Create field indexes to improve query performance and reduce
+  costs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing.html)
+
+  To find the fields that are in your log group events, use the
+  [GetLogGroupFields](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogGroupFields.html)  operation.
+
+  For example, suppose you have created a field index for `requestId`. Then, any
+  CloudWatch Logs Insights query on that log group that includes
+
+  ```
+  requestId = *value*
+
+  ```
+
+  or `requestId in [*value*, *value*, ...]` will attempt to process only the log
+  events where
+  the indexed field matches the specified value.
+
+  Matches of log events to the names of indexed fields are case-sensitive. For
+  example, an indexed field
+  of `RequestId` won't match a log event containing `requestId`.
+
+  You can have one account-level field index policy that applies to all log groups
+  in the account.
+  Or you can create as many as 20 account-level field index policies that are each
+  scoped to a subset of log groups with
+  the `selectionCriteria` parameter. If you have multiple
+  account-level index policies with selection criteria, no two of them can use the
+  same or overlapping log group name prefixes.
+  For example, if you have one policy filtered to log groups that start with
+  `my-log`, you can't have another field index
+  policy filtered to `my-logpprod` or `my-logging`.
+
+  If you create an account-level field index policy in a monitoring account in
+  cross-account observability, the policy is applied only
+  to the monitoring account and not to any source accounts.
+
+  If you want to create a field index policy for a single log group, you can use
+  [PutIndexPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutIndexPolicy.html) instead of
+  `PutAccountPolicy`. If you do so, that log group will use only that log-group
+  level policy, and will ignore the account-level policy
+  that you create with
+  [PutAccountPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutAccountPolicy.html).
   """
   @spec put_account_policy(map(), put_account_policy_request(), list()) ::
           {:ok, put_account_policy_response(), any()}
@@ -4543,6 +5488,71 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+  Creates or updates a *field index policy* for the specified log group.
+
+  Only log groups
+  in the Standard log class support field index policies. For more information
+  about log classes, see
+  [Log classes](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html).
+
+  You can use field index policies to create *field indexes* on fields found in
+  log events in the log group. Creating field indexes speeds up and lowers the
+  costs for CloudWatch Logs Insights queries that reference
+  those field indexes, because these queries attempt to skip the processing of log
+  events that are known to not match the indexed field.
+  Good fields to index are fields that you often need to query for and fields or
+  values that match only a small fraction of the total log events.
+  Common examples of indexes
+  include request ID, session ID, userID, and instance IDs. For more information,
+  see [Create field indexes to improve query performance and reduce costs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing.html).
+
+  To find the fields that are in your log group events, use the
+  [GetLogGroupFields](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogGroupFields.html)  operation.
+
+  For example, suppose you have created a field index for `requestId`. Then, any
+  CloudWatch Logs Insights query on that log group that includes
+
+  ```
+  requestId = *value*
+
+  ```
+
+  or `requestId IN [*value*, *value*, ...]` will process fewer log events
+  to reduce costs, and have improved performance.
+
+  Each index policy has the following quotas and restrictions:
+
+    *
+  As many as 20 fields can be included in the policy.
+
+    *
+  Each field name can include as many as 100 characters.
+
+  Matches of log events to the names of indexed fields are case-sensitive. For
+  example, a field index
+  of `RequestId` won't match a log event containing `requestId`.
+
+  Log group-level field index policies created with `PutIndexPolicy` override
+  account-level field
+  index policies created with
+  [PutAccountPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutAccountPolicy.html).
+  If you use
+  `PutIndexPolicy` to create a field
+  index policy for a log group, that log group uses only that policy. The log
+  group ignores any account-wide
+  field index policy that you might have created.
+  """
+  @spec put_index_policy(map(), put_index_policy_request(), list()) ::
+          {:ok, put_index_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_index_policy_errors()}
+  def put_index_policy(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutIndexPolicy", input, options)
+  end
+
+  @doc """
   Uploads a batch of log events to the specified log stream.
 
   The sequence token is now ignored in `PutLogEvents`
@@ -4620,8 +5630,8 @@ defmodule AWS.CloudWatchLogs do
 
   Using regular expressions to create metric filters is supported. For these
   filters,
-  there is a quotas of quota of two regular expression patterns within a single
-  filter pattern. There
+  there is a quota of two regular expression patterns within a single filter
+  pattern. There
   is also a quota of five regular expression patterns per log group.
   For more information about using regular expressions in metric filters,
   see [
@@ -4818,6 +5828,61 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+  Creates or updates a *log transformer* for a single log group.
+
+  You use log transformers to transform log events into
+  a different format, making them easier for you to process and analyze. You can
+  also transform logs from different sources into standardized formats that
+  contains
+  relevant, source-specific information.
+
+  After you have created a transformer,
+  CloudWatch Logs performs the transformations at the time of log ingestion. You
+  can then refer to the transformed versions of the logs during
+  operations such as querying with CloudWatch Logs Insights or creating metric
+  filters or subscription filers.
+
+  You can also use a transformer to copy metadata from metadata keys into the log
+  events themselves. This metadata can include log group name,
+  log stream name, account ID and Region.
+
+  A transformer for a log group is a series of processors, where each processor
+  applies one type of transformation to the log events
+  ingested into this log group. The processors work one after another, in the
+  order that you list them, like a pipeline. For more information about the
+  available processors to use in a transformer, see [
+  Processors that you can
+  use](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-Processors).
+
+  Having log events in standardized format enables visibility across your
+  applications for your log analysis, reporting, and alarming needs.
+  CloudWatch Logs provides transformation for common log types with out-of-the-box
+  transformation templates for major Amazon Web Services log sources such
+  as VPC flow logs, Lambda, and Amazon RDS. You can use pre-built transformation
+  templates or create custom transformation policies.
+
+  You can create transformers only for the log groups in the Standard log class.
+
+  You can also set up a transformer at the account level. For more information,
+  see
+  [PutAccountPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutAccountPolicy.html).
+  If there is both a
+  log-group level transformer created with `PutTransformer` and an account-level
+  transformer that could apply to the same log
+  group, the log group uses only the log-group level transformer. It ignores the
+  account-level transformer.
+  """
+  @spec put_transformer(map(), put_transformer_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_transformer_errors()}
+  def put_transformer(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutTransformer", input, options)
+  end
+
+  @doc """
   Starts a Live Tail streaming session for one or more log groups.
 
   A Live Tail session returns a stream of
@@ -4885,9 +5950,9 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
-  Schedules a query of a log group using CloudWatch Logs Insights.
+  Starts a query of one or more log groups using CloudWatch Logs Insights.
 
-  You specify the log group
+  You specify the log groups
   and time range to query and the query string to use.
 
   For more information, see [CloudWatch Logs Insights Query Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
@@ -4898,10 +5963,27 @@ defmodule AWS.CloudWatchLogs do
   [GetQueryResults](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetQueryResults.html) to retrieve
   the results of a query, using the `queryId` that `StartQuery` returns.
 
+  To specify the log groups to query, a `StartQuery` operation must include one of
+  the following:
+
+    
+  Either exactly one of the following
+  parameters: `logGroupName`, `logGroupNames`, or
+  `logGroupIdentifiers`
+
+    
+  Or the `queryString` must include a `SOURCE` command to select log
+  groups for the query. The `SOURCE` command can select log groups based on log
+  group name prefix, account ID,
+  and log class.
+
+  For more information about the `SOURCE` command,
+  see
+  [SOURCE](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax-Source.html).
+
   If you have associated a KMS key with the query results in this account,
   then
-  [StartQuery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html)
-  uses that key to
+  [StartQuery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html) uses that key to
   encrypt the results when it stores them. If no key is associated with query
   results, the query results are
   encrypted with the default CloudWatch Logs encryption method.
@@ -4914,7 +5996,8 @@ defmodule AWS.CloudWatchLogs do
   operation in a
   monitoring account to start a query in a linked source account. For more
   information, see
-  [CloudWatch cross-account
+  [CloudWatch
+  cross-account
   observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
   For a cross-account `StartQuery` operation,
   the query definition must be defined in the monitoring account.
@@ -5037,6 +6120,24 @@ defmodule AWS.CloudWatchLogs do
     meta = metadata()
 
     Request.request_post(client, meta, "TestMetricFilter", input, options)
+  end
+
+  @doc """
+  Use this operation to test a log transformer.
+
+  You enter the transformer configuration and a set of log events to test with.
+  The operation
+  responds with an array that includes the original log events and the transformed
+  versions.
+  """
+  @spec test_transformer(map(), test_transformer_request(), list()) ::
+          {:ok, test_transformer_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, test_transformer_errors()}
+  def test_transformer(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "TestTransformer", input, options)
   end
 
   @doc """

@@ -1,5 +1,8 @@
 # Change Log
 
+## [v1.0.3] - 2024-11-22
+- Add support for custom metadata
+
 ## [v1.0.2] - 2024-06-07
 - Fix correct signing name for a few endpoints which were wrong
 

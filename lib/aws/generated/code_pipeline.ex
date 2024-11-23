@@ -1359,6 +1359,7 @@ defmodule AWS.CodePipeline do
         "externalExecutionUrl" => String.t(),
         "lastStatusChange" => non_neg_integer(),
         "lastUpdatedBy" => String.t(),
+        "logStreamARN" => String.t(),
         "percentComplete" => integer(),
         "status" => list(any()),
         "summary" => String.t(),
@@ -2511,7 +2512,8 @@ defmodule AWS.CodePipeline do
         "errorDetails" => error_details(),
         "externalExecutionId" => String.t(),
         "externalExecutionSummary" => String.t(),
-        "externalExecutionUrl" => String.t()
+        "externalExecutionUrl" => String.t(),
+        "logStreamARN" => String.t()
       }
       
   """

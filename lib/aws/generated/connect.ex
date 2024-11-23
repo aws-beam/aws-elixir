@@ -320,6 +320,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      start_outbound_email_contact_response() :: %{
+        "ContactId" => String.t()
+      }
+
+  """
+  @type start_outbound_email_contact_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       security_profile_search_criteria() :: %{
         "AndConditions" => list(security_profile_search_criteria()()),
         "OrConditions" => list(security_profile_search_criteria()()),
@@ -662,6 +673,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      email_recipient() :: %{
+        "Address" => String.t(),
+        "DisplayName" => String.t()
+      }
+
+  """
+  @type email_recipient() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_traffic_distribution_group_request() :: %{}
 
   """
@@ -811,6 +834,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      searchable_segment_attributes() :: %{
+        "Criteria" => list(searchable_segment_attributes_criteria()()),
+        "MatchType" => list(any())
+      }
+
+  """
+  @type searchable_segment_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       activate_evaluation_form_request() :: %{
         required("EvaluationFormVersion") => integer()
       }
@@ -912,6 +947,7 @@ defmodule AWS.Connect do
         "InstanceId" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t(),
+        "SelfAssignFlowId" => String.t(),
         "Status" => list(any()),
         "Tags" => map()
       }
@@ -962,6 +998,15 @@ defmodule AWS.Connect do
 
   """
   @type property_validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_outbound_email_response() :: %{}
+
+  """
+  @type send_outbound_email_response() :: %{}
 
   @typedoc """
 
@@ -1214,6 +1259,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      email_attachment() :: %{
+        "FileName" => String.t(),
+        "S3Url" => String.t()
+      }
+
+  """
+  @type email_attachment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_user_proficiencies_response() :: %{
         "LastModifiedRegion" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
@@ -1309,12 +1366,33 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      delete_email_address_response() :: %{}
+
+  """
+  @type delete_email_address_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       phone_number_quick_connect_config() :: %{
         "PhoneNumber" => String.t()
       }
 
   """
   @type phone_number_quick_connect_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      searchable_segment_attributes_criteria() :: %{
+        "Key" => String.t(),
+        "Values" => list(String.t()())
+      }
+
+  """
+  @type searchable_segment_attributes_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1473,6 +1551,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      outbound_email_content() :: %{
+        "MessageSourceType" => list(any()),
+        "RawMessage" => outbound_raw_message(),
+        "TemplatedMessageConfig" => templated_message_config()
+      }
+
+  """
+  @type outbound_email_content() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_security_profile_request() :: %{
         optional("AllowedAccessControlHierarchyGroupId") => String.t(),
         optional("AllowedAccessControlTags") => map(),
@@ -1534,6 +1625,19 @@ defmodule AWS.Connect do
 
   """
   @type describe_vocabulary_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_associated_contacts_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("ContactId") => String.t()
+      }
+
+  """
+  @type list_associated_contacts_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1766,6 +1870,7 @@ defmodule AWS.Connect do
         optional("ContactFlowId") => String.t(),
         optional("Defaults") => task_template_defaults(),
         optional("Description") => String.t(),
+        optional("SelfAssignFlowId") => String.t(),
         optional("Status") => list(any()),
         required("Fields") => list(task_template_field()()),
         required("Name") => String.t()
@@ -1908,6 +2013,23 @@ defmodule AWS.Connect do
 
   """
   @type attached_file_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_outbound_email_contact_request() :: %{
+        optional("AdditionalRecipients") => outbound_additional_recipients(),
+        optional("ClientToken") => String.t(),
+        optional("FromEmailAddress") => email_address_info(),
+        required("ContactId") => String.t(),
+        required("DestinationEmailAddress") => email_address_info(),
+        required("EmailMessage") => outbound_email_content(),
+        required("InstanceId") => String.t()
+      }
+
+  """
+  @type start_outbound_email_contact_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2371,6 +2493,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      inbound_email_content() :: %{
+        "MessageSourceType" => list(any()),
+        "RawMessage" => inbound_raw_message()
+      }
+
+  """
+  @type inbound_email_content() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_view_version_request() :: %{}
 
   """
@@ -2421,6 +2555,7 @@ defmodule AWS.Connect do
         "MaxContacts" => integer(),
         "Name" => String.t(),
         "OutboundCallerConfig" => outbound_caller_config(),
+        "OutboundEmailConfig" => outbound_email_config(),
         "QueueArn" => String.t(),
         "QueueId" => String.t(),
         "Status" => list(any()),
@@ -2429,6 +2564,15 @@ defmodule AWS.Connect do
 
   """
   @type queue() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_email_address_request() :: %{}
+
+  """
+  @type delete_email_address_request() :: %{}
 
   @typedoc """
 
@@ -2870,6 +3014,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      email_address_search_criteria() :: %{
+        "AndConditions" => list(email_address_search_criteria()()),
+        "OrConditions" => list(email_address_search_criteria()()),
+        "StringCondition" => string_condition()
+      }
+
+  """
+  @type email_address_search_criteria() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       destination_not_allowed_exception() :: %{
         "Message" => String.t()
       }
@@ -2916,6 +3073,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      contact_search_summary_segment_attribute_value() :: %{
+        "ValueString" => String.t()
+      }
+
+  """
+  @type contact_search_summary_segment_attribute_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_vocabulary_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Tags") => map(),
@@ -2951,6 +3119,31 @@ defmodule AWS.Connect do
 
   """
   @type batch_get_attached_file_metadata_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      email_message_reference() :: %{
+        "Arn" => String.t(),
+        "Name" => String.t()
+      }
+
+  """
+  @type email_message_reference() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_email_address_metadata_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("Description") => String.t(),
+        optional("DisplayName") => String.t()
+      }
+
+  """
+  @type update_email_address_metadata_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3026,6 +3219,18 @@ defmodule AWS.Connect do
 
   """
   @type queue_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_contact_response() :: %{
+        "ContactArn" => String.t(),
+        "ContactId" => String.t()
+      }
+
+  """
+  @type create_contact_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3194,7 +3399,21 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      outbound_email_config() :: %{
+        "OutboundEmailAddressId" => String.t()
+      }
+
+  """
+  @type outbound_email_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       connect_reference() :: %{
+        "Arn" => String.t(),
+        "Status" => list(any()),
+        "StatusReason" => String.t(),
         "Type" => list(any()),
         "Value" => String.t()
       }
@@ -3212,6 +3431,17 @@ defmodule AWS.Connect do
 
   """
   @type describe_predefined_attribute_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_email_contact_response() :: %{
+        "ContactId" => String.t()
+      }
+
+  """
+  @type start_email_contact_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3448,6 +3678,17 @@ defmodule AWS.Connect do
 
   """
   @type view_content() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_queue_outbound_email_config_request() :: %{
+        required("OutboundEmailConfig") => outbound_email_config()
+      }
+
+  """
+  @type update_queue_outbound_email_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3912,6 +4153,7 @@ defmodule AWS.Connect do
         optional("Description") => String.t(),
         optional("Fields") => list(task_template_field()()),
         optional("Name") => String.t(),
+        optional("SelfAssignFlowId") => String.t(),
         optional("Status") => list(any())
       }
 
@@ -4106,7 +4348,8 @@ defmodule AWS.Connect do
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t(),
+        "Reason" => list()
       }
 
   """
@@ -4173,6 +4416,15 @@ defmodule AWS.Connect do
 
   """
   @type user_phone_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_email_address_request() :: %{}
+
+  """
+  @type describe_email_address_request() :: %{}
 
   @typedoc """
 
@@ -4344,6 +4596,20 @@ defmodule AWS.Connect do
 
   """
   @type vocabulary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inbound_raw_message() :: %{
+        "Body" => String.t(),
+        "ContentType" => String.t(),
+        "Headers" => map(),
+        "Subject" => String.t()
+      }
+
+  """
+  @type inbound_raw_message() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4583,6 +4849,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      email_address_info() :: %{
+        "DisplayName" => String.t(),
+        "EmailAddress" => String.t()
+      }
+
+  """
+  @type email_address_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       untag_contact_request() :: %{
         required("TagKeys") => list(String.t()())
       }
@@ -4779,6 +5057,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      conditional_operation_failed_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type conditional_operation_failed_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_user_phone_config_request() :: %{
         required("PhoneConfig") => user_phone_config()
       }
@@ -4825,6 +5114,36 @@ defmodule AWS.Connect do
 
   """
   @type kinesis_stream_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_email_address_response() :: %{
+        "CreateTimestamp" => String.t(),
+        "Description" => String.t(),
+        "DisplayName" => String.t(),
+        "EmailAddress" => String.t(),
+        "EmailAddressArn" => String.t(),
+        "EmailAddressId" => String.t(),
+        "ModifiedTimestamp" => String.t(),
+        "Tags" => map()
+      }
+
+  """
+  @type describe_email_address_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      template_attributes() :: %{
+        "CustomAttributes" => map(),
+        "CustomerProfileAttributes" => String.t()
+      }
+
+  """
+  @type template_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5121,6 +5440,7 @@ defmodule AWS.Connect do
         optional("References") => map(),
         optional("RelatedContactId") => String.t(),
         optional("ScheduledTime") => non_neg_integer(),
+        optional("SegmentAttributes") => map(),
         optional("TaskTemplateId") => String.t(),
         required("InstanceId") => String.t(),
         required("Name") => String.t()
@@ -5204,6 +5524,21 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      search_email_addresses_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SearchCriteria") => email_address_search_criteria(),
+        optional("SearchFilter") => email_address_search_filter(),
+        required("InstanceId") => String.t()
+      }
+
+  """
+  @type search_email_addresses_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_integration_associations_request() :: %{
         optional("IntegrationArn") => String.t(),
         optional("IntegrationType") => list(any()),
@@ -5222,6 +5557,7 @@ defmodule AWS.Connect do
         optional("Description") => String.t(),
         optional("MaxContacts") => integer(),
         optional("OutboundCallerConfig") => outbound_caller_config(),
+        optional("OutboundEmailConfig") => outbound_email_config(),
         optional("QuickConnectIds") => list(String.t()()),
         optional("Tags") => map(),
         required("HoursOfOperationId") => String.t(),
@@ -5251,6 +5587,21 @@ defmodule AWS.Connect do
 
   """
   @type delete_contact_flow_module_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      email_address_metadata() :: %{
+        "Description" => String.t(),
+        "DisplayName" => String.t(),
+        "EmailAddress" => String.t(),
+        "EmailAddressArn" => String.t(),
+        "EmailAddressId" => String.t()
+      }
+
+  """
+  @type email_address_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5499,38 +5850,42 @@ defmodule AWS.Connect do
   ## Example:
 
       contact() :: %{
-        "AgentInfo" => agent_info(),
-        "AnsweringMachineDetectionStatus" => list(any()),
-        "Arn" => String.t(),
-        "Campaign" => campaign(),
-        "Channel" => list(any()),
-        "ConnectedToSystemTimestamp" => non_neg_integer(),
-        "Customer" => customer(),
-        "CustomerVoiceActivity" => customer_voice_activity(),
-        "Description" => String.t(),
-        "DisconnectDetails" => disconnect_details(),
-        "DisconnectTimestamp" => non_neg_integer(),
-        "Id" => String.t(),
-        "InitialContactId" => String.t(),
-        "InitiationMethod" => list(any()),
-        "InitiationTimestamp" => non_neg_integer(),
-        "LastPausedTimestamp" => non_neg_integer(),
-        "LastResumedTimestamp" => non_neg_integer(),
-        "LastUpdateTimestamp" => non_neg_integer(),
-        "Name" => String.t(),
-        "PreviousContactId" => String.t(),
-        "QualityMetrics" => quality_metrics(),
-        "QueueInfo" => queue_info(),
-        "QueuePriority" => float(),
         "QueueTimeAdjustmentSeconds" => integer(),
         "RelatedContactId" => String.t(),
-        "RoutingCriteria" => routing_criteria(),
-        "ScheduledTimestamp" => non_neg_integer(),
-        "SegmentAttributes" => map(),
+        "InitiationTimestamp" => non_neg_integer(),
         "Tags" => map(),
-        "TotalPauseCount" => integer(),
+        "AnsweringMachineDetectionStatus" => list(any()),
+        "AgentInfo" => agent_info(),
+        "LastPausedTimestamp" => non_neg_integer(),
+        "Channel" => list(any()),
+        "LastResumedTimestamp" => non_neg_integer(),
+        "LastUpdateTimestamp" => non_neg_integer(),
+        "QueueInfo" => queue_info(),
+        "SegmentAttributes" => map(),
+        "Customer" => customer(),
+        "ContactAssociationId" => String.t(),
+        "RoutingCriteria" => routing_criteria(),
+        "WisdomInfo" => wisdom_info(),
+        "InitiationMethod" => list(any()),
+        "Id" => String.t(),
+        "AdditionalEmailRecipients" => additional_email_recipients(),
+        "Campaign" => campaign(),
+        "PreviousContactId" => String.t(),
         "TotalPauseDurationInSeconds" => integer(),
-        "WisdomInfo" => wisdom_info()
+        "CustomerEndpoint" => endpoint_info(),
+        "SystemEndpoint" => endpoint_info(),
+        "QueuePriority" => float(),
+        "ScheduledTimestamp" => non_neg_integer(),
+        "Arn" => String.t(),
+        "DisconnectTimestamp" => non_neg_integer(),
+        "QualityMetrics" => quality_metrics(),
+        "Name" => String.t(),
+        "InitialContactId" => String.t(),
+        "Description" => String.t(),
+        "ConnectedToSystemTimestamp" => non_neg_integer(),
+        "DisconnectDetails" => disconnect_details(),
+        "TotalPauseCount" => integer(),
+        "CustomerVoiceActivity" => customer_voice_activity()
       }
 
   """
@@ -5697,6 +6052,18 @@ defmodule AWS.Connect do
 
   """
   @type evaluation_form_numeric_question_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      additional_email_recipients() :: %{
+        "CcList" => list(email_recipient()()),
+        "ToList" => list(email_recipient()())
+      }
+
+  """
+  @type additional_email_recipients() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5873,6 +6240,19 @@ defmodule AWS.Connect do
 
   """
   @type list_prompts_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_email_addresses_response() :: %{
+        "ApproximateTotalCount" => float(),
+        "EmailAddresses" => list(email_address_metadata()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type search_email_addresses_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6227,6 +6607,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      outbound_raw_message() :: %{
+        "Body" => String.t(),
+        "ContentType" => String.t(),
+        "Subject" => String.t()
+      }
+
+  """
+  @type outbound_raw_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_rule_request() :: %{}
 
   """
@@ -6492,6 +6885,30 @@ defmodule AWS.Connect do
 
   """
   @type update_view_content_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_email_contact_request() :: %{
+        optional("AdditionalRecipients") => inbound_additional_recipients(),
+        optional("Attachments") => list(email_attachment()()),
+        optional("Attributes") => map(),
+        optional("ClientToken") => String.t(),
+        optional("ContactFlowId") => String.t(),
+        optional("Description") => String.t(),
+        optional("Name") => String.t(),
+        optional("References") => map(),
+        optional("RelatedContactId") => String.t(),
+        optional("SegmentAttributes") => map(),
+        required("DestinationEmailAddress") => String.t(),
+        required("EmailMessage") => inbound_email_content(),
+        required("FromEmailAddress") => email_address_info(),
+        required("InstanceId") => String.t()
+      }
+
+  """
+  @type start_email_contact_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6961,6 +7378,31 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      endpoint_info() :: %{
+        "Address" => String.t(),
+        "DisplayName" => String.t(),
+        "Type" => list(any())
+      }
+
+  """
+  @type endpoint_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_campaign() :: %{
+        "CampaignId" => String.t(),
+        "OutboundRequestId" => String.t()
+      }
+
+  """
+  @type source_campaign() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       queue_search_criteria() :: %{
         "AndConditions" => list(queue_search_criteria()()),
         "OrConditions" => list(queue_search_criteria()()),
@@ -7155,7 +7597,8 @@ defmodule AWS.Connect do
       update_contact_request() :: %{
         optional("Description") => String.t(),
         optional("Name") => String.t(),
-        optional("References") => map()
+        optional("References") => map(),
+        optional("SegmentAttributes") => map()
       }
 
   """
@@ -7183,6 +7626,29 @@ defmodule AWS.Connect do
 
   """
   @type list_queue_quick_connects_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_associated_contacts_response() :: %{
+        "ContactSummaryList" => list(associated_contact_summary()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_associated_contacts_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      outbound_additional_recipients() :: %{
+        "CcEmailAddresses" => list(email_address_info()())
+      }
+
+  """
+  @type outbound_additional_recipients() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -7628,11 +8094,24 @@ defmodule AWS.Connect do
         "InitiationTimestamp" => non_neg_integer(),
         "PreviousContactId" => String.t(),
         "QueueInfo" => contact_search_summary_queue_info(),
-        "ScheduledTimestamp" => non_neg_integer()
+        "ScheduledTimestamp" => non_neg_integer(),
+        "SegmentAttributes" => map()
       }
 
   """
   @type contact_search_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_email_address_response() :: %{
+        "EmailAddressArn" => String.t(),
+        "EmailAddressId" => String.t()
+      }
+
+  """
+  @type create_email_address_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -7644,6 +8123,29 @@ defmodule AWS.Connect do
 
   """
   @type describe_contact_flow_module_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_contact_request() :: %{
+        optional("Attributes") => map(),
+        optional("ClientToken") => String.t(),
+        optional("Description") => String.t(),
+        optional("ExpiryDurationInMinutes") => integer(),
+        optional("InitiateAs") => list(any()),
+        optional("Name") => String.t(),
+        optional("References") => map(),
+        optional("RelatedContactId") => String.t(),
+        optional("SegmentAttributes") => map(),
+        optional("UserInfo") => user_info(),
+        required("Channel") => list(any()),
+        required("InitiationMethod") => list(any()),
+        required("InstanceId") => String.t()
+      }
+
+  """
+  @type create_contact_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -7864,6 +8366,7 @@ defmodule AWS.Connect do
         "InstanceId" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t(),
+        "SelfAssignFlowId" => String.t(),
         "Status" => list(any())
       }
 
@@ -8173,6 +8676,23 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      send_outbound_email_request() :: %{
+        optional("AdditionalRecipients") => outbound_additional_recipients(),
+        optional("ClientToken") => String.t(),
+        optional("SourceCampaign") => source_campaign(),
+        required("DestinationEmailAddress") => email_address_info(),
+        required("EmailMessage") => outbound_email_content(),
+        required("FromEmailAddress") => email_address_info(),
+        required("TrafficType") => list(any())
+      }
+
+  """
+  @type send_outbound_email_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       agent_status_summary() :: %{
         "Arn" => String.t(),
         "Id" => String.t(),
@@ -8271,6 +8791,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      email_address_search_filter() :: %{
+        "TagFilter" => control_plane_tag_filter()
+      }
+
+  """
+  @type email_address_search_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_prompt_request() :: %{}
 
   """
@@ -8313,6 +8844,21 @@ defmodule AWS.Connect do
 
   """
   @type contact_search_summary_queue_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_email_address_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("Description") => String.t(),
+        optional("DisplayName") => String.t(),
+        optional("Tags") => map(),
+        required("EmailAddress") => String.t()
+      }
+
+  """
+  @type create_email_address_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -8433,6 +8979,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      templated_message_config() :: %{
+        "KnowledgeBaseId" => String.t(),
+        "MessageTemplateId" => String.t(),
+        "TemplateAttributes" => template_attributes()
+      }
+
+  """
+  @type templated_message_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       evaluation_form_scoring_strategy() :: %{
         "Mode" => list(any()),
         "Status" => list(any())
@@ -8484,6 +9043,25 @@ defmodule AWS.Connect do
 
   """
   @type search_contact_flows_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associated_contact_summary() :: %{
+        "Channel" => list(any()),
+        "ContactArn" => String.t(),
+        "ContactId" => String.t(),
+        "DisconnectTimestamp" => non_neg_integer(),
+        "InitialContactId" => String.t(),
+        "InitiationMethod" => list(any()),
+        "InitiationTimestamp" => non_neg_integer(),
+        "PreviousContactId" => String.t(),
+        "RelatedContactId" => String.t()
+      }
+
+  """
+  @type associated_contact_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -8660,6 +9238,7 @@ defmodule AWS.Connect do
   ## Example:
 
       attachment_reference() :: %{
+        "Arn" => String.t(),
         "Name" => String.t(),
         "Status" => list(any()),
         "Value" => String.t()
@@ -8875,7 +9454,8 @@ defmodule AWS.Connect do
         "ContactAnalysis" => contact_analysis(),
         "InitiationMethods" => list(list(any())()),
         "QueueIds" => list(String.t()()),
-        "SearchableContactAttributes" => searchable_contact_attributes()
+        "SearchableContactAttributes" => searchable_contact_attributes(),
+        "SearchableSegmentAttributes" => searchable_segment_attributes()
       }
 
   """
@@ -9170,6 +9750,18 @@ defmodule AWS.Connect do
 
   """
   @type create_user_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inbound_additional_recipients() :: %{
+        "CcAddresses" => list(email_address_info()()),
+        "ToAddresses" => list(email_address_info()())
+      }
+
+  """
+  @type inbound_additional_recipients() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -9490,6 +10082,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      update_email_address_metadata_response() :: %{
+        "EmailAddressArn" => String.t(),
+        "EmailAddressId" => String.t()
+      }
+
+  """
+  @type update_email_address_metadata_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       predefined_attribute() :: %{
         "LastModifiedRegion" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
@@ -9510,6 +10114,17 @@ defmodule AWS.Connect do
 
   """
   @type update_user_hierarchy_group_name_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      user_info() :: %{
+        "UserId" => String.t()
+      }
+
+  """
+  @type user_info() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -9983,6 +10598,17 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type create_contact_errors() ::
+          throttling_exception()
+          | idempotency_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | internal_service_exception()
+
   @type create_contact_flow_errors() ::
           duplicate_resource_exception()
           | limit_exceeded_exception()
@@ -10010,6 +10636,18 @@ defmodule AWS.Connect do
           | throttling_exception()
           | invalid_parameter_exception()
           | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type create_email_address_errors() ::
+          resource_conflict_exception()
+          | duplicate_resource_exception()
+          | throttling_exception()
+          | idempotency_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
@@ -10232,6 +10870,15 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type delete_email_address_errors() ::
+          resource_conflict_exception()
+          | throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type delete_evaluation_form_errors() ::
           resource_conflict_exception()
           | throttling_exception()
@@ -10408,6 +11055,14 @@ defmodule AWS.Connect do
           | contact_flow_not_published_exception()
 
   @type describe_contact_flow_module_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type describe_email_address_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
           | access_denied_exception()
@@ -10746,6 +11401,13 @@ defmodule AWS.Connect do
           | internal_service_exception()
 
   @type list_approved_origins_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type list_associated_contacts_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
           | invalid_request_exception()
@@ -11140,6 +11802,14 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type search_email_addresses_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type search_hours_of_operations_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
@@ -11224,6 +11894,15 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type send_outbound_email_errors() ::
+          throttling_exception()
+          | idempotency_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type start_attached_file_upload_errors() ::
           resource_conflict_exception()
           | throttling_exception()
@@ -11260,6 +11939,15 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type start_email_contact_errors() ::
+          throttling_exception()
+          | idempotency_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type start_outbound_chat_contact_errors() ::
           limit_exceeded_exception()
           | throttling_exception()
@@ -11267,6 +11955,15 @@ defmodule AWS.Connect do
           | invalid_request_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | internal_service_exception()
+
+  @type start_outbound_email_contact_errors() ::
+          throttling_exception()
+          | idempotency_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
           | internal_service_exception()
 
   @type start_outbound_voice_contact_errors() ::
@@ -11461,6 +12158,15 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type update_email_address_metadata_errors() ::
+          throttling_exception()
+          | idempotency_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type update_evaluation_form_errors() ::
           resource_conflict_exception()
           | throttling_exception()
@@ -11557,6 +12263,15 @@ defmodule AWS.Connect do
   @type update_queue_outbound_caller_config_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type update_queue_outbound_email_config_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | conditional_operation_failed_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
@@ -12652,6 +13367,31 @@ defmodule AWS.Connect do
     )
   end
 
+  @spec create_contact(map(), create_contact_request(), list()) ::
+          {:ok, create_contact_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_contact_errors()}
+  def create_contact(%Client{} = client, input, options \\ []) do
+    url_path = "/contact/create-contact"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
   @doc """
   Creates a flow for the specified Amazon Connect instance.
 
@@ -12749,6 +13489,31 @@ defmodule AWS.Connect do
     url_path =
       "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}/version"
 
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @spec create_email_address(map(), String.t(), create_email_address_request(), list()) ::
+          {:ok, create_email_address_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_email_address_errors()}
+  def create_email_address(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/email-addresses/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     custom_headers = []
     query_params = []
@@ -13739,6 +14504,45 @@ defmodule AWS.Connect do
     )
   end
 
+  @spec delete_email_address(
+          map(),
+          String.t(),
+          String.t(),
+          delete_email_address_request(),
+          list()
+        ) ::
+          {:ok, delete_email_address_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_email_address_errors()}
+  def delete_email_address(
+        %Client{} = client,
+        email_address_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/email-addresses/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(email_address_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
   @doc """
   Deletes an evaluation form in the specified Amazon Connect instance.
 
@@ -14673,6 +15477,22 @@ defmodule AWS.Connect do
       ) do
     url_path =
       "/contact-flow-modules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_module_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @spec describe_email_address(map(), String.t(), String.t(), list()) ::
+          {:ok, describe_email_address_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_email_address_errors()}
+  def describe_email_address(%Client{} = client, email_address_id, instance_id, options \\ []) do
+    url_path =
+      "/email-addresses/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(email_address_id)}"
 
     headers = []
     query_params = []
@@ -16280,6 +17100,55 @@ defmodule AWS.Connect do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @spec list_associated_contacts(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_associated_contacts_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_associated_contacts_errors()}
+  def list_associated_contacts(
+        %Client{} = client,
+        instance_id,
+        contact_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/contact/associated/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(contact_id) do
+        [{"contactId", contact_id} | query_params]
       else
         query_params
       end
@@ -18743,6 +19612,31 @@ defmodule AWS.Connect do
     )
   end
 
+  @spec search_email_addresses(map(), search_email_addresses_request(), list()) ::
+          {:ok, search_email_addresses_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, search_email_addresses_errors()}
+  def search_email_addresses(%Client{} = client, input, options \\ []) do
+    url_path = "/search-email-addresses"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
   @doc """
   Searches the hours of operation in an Amazon Connect instance, with optional
   filtering.
@@ -19124,6 +20018,31 @@ defmodule AWS.Connect do
     )
   end
 
+  @spec send_outbound_email(map(), String.t(), send_outbound_email_request(), list()) ::
+          {:ok, send_outbound_email_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, send_outbound_email_errors()}
+  def send_outbound_email(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/outbound-email"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
   @doc """
   Provides a pre-signed Amazon S3 URL in response for uploading your content.
 
@@ -19362,6 +20281,31 @@ defmodule AWS.Connect do
     )
   end
 
+  @spec start_email_contact(map(), start_email_contact_request(), list()) ::
+          {:ok, start_email_contact_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_email_contact_errors()}
+  def start_email_contact(%Client{} = client, input, options \\ []) do
+    url_path = "/contact/email"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
   @doc """
   Initiates a new outbound SMS contact to a customer.
 
@@ -19400,6 +20344,31 @@ defmodule AWS.Connect do
           | {:error, start_outbound_chat_contact_errors()}
   def start_outbound_chat_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/outbound-chat"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @spec start_outbound_email_contact(map(), start_outbound_email_contact_request(), list()) ::
+          {:ok, start_outbound_email_contact_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_outbound_email_contact_errors()}
+  def start_outbound_email_contact(%Client{} = client, input, options \\ []) do
+    url_path = "/contact/outbound-email"
     headers = []
     custom_headers = []
     query_params = []
@@ -20572,6 +21541,45 @@ defmodule AWS.Connect do
     )
   end
 
+  @spec update_email_address_metadata(
+          map(),
+          String.t(),
+          String.t(),
+          update_email_address_metadata_request(),
+          list()
+        ) ::
+          {:ok, update_email_address_metadata_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_email_address_metadata_errors()}
+  def update_email_address_metadata(
+        %Client{} = client,
+        email_address_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/email-addresses/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(email_address_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
   @doc """
   Updates details about a specific evaluation form version in the specified Amazon
   Connect
@@ -21142,6 +22150,45 @@ defmodule AWS.Connect do
       ) do
     url_path =
       "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/outbound-caller-config"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @spec update_queue_outbound_email_config(
+          map(),
+          String.t(),
+          String.t(),
+          update_queue_outbound_email_config_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_queue_outbound_email_config_errors()}
+  def update_queue_outbound_email_config(
+        %Client{} = client,
+        instance_id,
+        queue_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/outbound-email-config"
 
     headers = []
     custom_headers = []

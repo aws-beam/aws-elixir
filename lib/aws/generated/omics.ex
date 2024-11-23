@@ -200,6 +200,29 @@ defmodule AWS.Omics do
 
   ## Example:
 
+      update_sequence_store_response() :: %{
+        "arn" => String.t(),
+        "creationTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "eTagAlgorithmFamily" => String.t(),
+        "fallbackLocation" => String.t(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "propagatedSetLevelTags" => list(String.t()()),
+        "s3Access" => sequence_store_s3_access(),
+        "sseConfig" => sse_config(),
+        "status" => String.t(),
+        "statusMessage" => String.t(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type update_sequence_store_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_annotation_store_version_response() :: %{
         "creationTime" => non_neg_integer(),
         "description" => String.t(),
@@ -621,6 +644,28 @@ defmodule AWS.Omics do
 
   ## Example:
 
+      put_s3_access_policy_request() :: %{
+        required("s3AccessPolicy") => String.t()
+      }
+
+  """
+  @type put_s3_access_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_access_config() :: %{
+        "accessLogLocation" => String.t()
+      }
+
+  """
+  @type s3_access_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       workflow_list_item() :: %{
         "arn" => String.t(),
         "creationTime" => non_neg_integer(),
@@ -727,6 +772,15 @@ defmodule AWS.Omics do
 
   ## Example:
 
+      get_s3_access_policy_request() :: %{}
+
+  """
+  @type get_s3_access_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       annotation_store_version_item() :: %{
         "creationTime" => non_neg_integer(),
         "description" => String.t(),
@@ -820,6 +874,15 @@ defmodule AWS.Omics do
 
   """
   @type delete_run_cache_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_s3_access_policy_response() :: %{}
+
+  """
+  @type delete_s3_access_policy_response() :: %{}
 
   @typedoc """
 
@@ -1201,6 +1264,8 @@ defmodule AWS.Omics do
         optional("description") => String.t(),
         optional("eTagAlgorithmFamily") => String.t(),
         optional("fallbackLocation") => String.t(),
+        optional("propagatedSetLevelTags") => list(String.t()()),
+        optional("s3AccessConfig") => s3_access_config(),
         optional("sseConfig") => sse_config(),
         optional("tags") => map(),
         required("name") => String.t()
@@ -1416,7 +1481,10 @@ defmodule AWS.Omics do
       sequence_store_filter() :: %{
         "createdAfter" => [non_neg_integer()],
         "createdBefore" => [non_neg_integer()],
-        "name" => String.t()
+        "name" => String.t(),
+        "status" => String.t(),
+        "updatedAfter" => [non_neg_integer()],
+        "updatedBefore" => [non_neg_integer()]
       }
 
   """
@@ -1489,8 +1557,12 @@ defmodule AWS.Omics do
         "fallbackLocation" => String.t(),
         "id" => String.t(),
         "name" => String.t(),
+        "propagatedSetLevelTags" => list(String.t()()),
         "s3Access" => sequence_store_s3_access(),
-        "sseConfig" => sse_config()
+        "sseConfig" => sse_config(),
+        "status" => String.t(),
+        "statusMessage" => String.t(),
+        "updateTime" => [non_neg_integer()]
       }
 
   """
@@ -1759,6 +1831,22 @@ defmodule AWS.Omics do
 
   ## Example:
 
+      update_sequence_store_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("description") => String.t(),
+        optional("fallbackLocation") => String.t(),
+        optional("name") => String.t(),
+        optional("propagatedSetLevelTags") => list(String.t()()),
+        optional("s3AccessConfig") => s3_access_config()
+      }
+
+  """
+  @type update_sequence_store_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_read_set_import_job_response() :: %{
         "creationTime" => [non_neg_integer()],
         "id" => String.t(),
@@ -1801,6 +1889,19 @@ defmodule AWS.Omics do
 
   """
   @type read_set_upload_part_list_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_s3_access_policy_response() :: %{
+        "s3AccessPointArn" => String.t(),
+        "storeId" => String.t(),
+        "storeType" => list(any())
+      }
+
+  """
+  @type put_s3_access_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1995,7 +2096,11 @@ defmodule AWS.Omics do
         "fallbackLocation" => String.t(),
         "id" => String.t(),
         "name" => String.t(),
-        "sseConfig" => sse_config()
+        "propagatedSetLevelTags" => list(String.t()()),
+        "s3Access" => sequence_store_s3_access(),
+        "sseConfig" => sse_config(),
+        "status" => String.t(),
+        "statusMessage" => String.t()
       }
 
   """
@@ -2142,6 +2247,7 @@ defmodule AWS.Omics do
   ## Example:
 
       sequence_store_s3_access() :: %{
+        "accessLogLocation" => String.t(),
         "s3AccessPointArn" => String.t(),
         "s3Uri" => String.t()
       }
@@ -2592,6 +2698,15 @@ defmodule AWS.Omics do
 
   ## Example:
 
+      delete_s3_access_policy_request() :: %{}
+
+  """
+  @type delete_s3_access_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       multipart_read_set_upload_list_item() :: %{
         "creationTime" => [non_neg_integer()],
         "description" => String.t(),
@@ -2749,6 +2864,21 @@ defmodule AWS.Omics do
 
   """
   @type get_annotation_import_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_s3_access_policy_response() :: %{
+        "s3AccessPointArn" => String.t(),
+        "s3AccessPolicy" => String.t(),
+        "storeId" => String.t(),
+        "storeType" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type get_s3_access_policy_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3298,7 +3428,10 @@ defmodule AWS.Omics do
         "fallbackLocation" => String.t(),
         "id" => String.t(),
         "name" => String.t(),
-        "sseConfig" => sse_config()
+        "sseConfig" => sse_config(),
+        "status" => String.t(),
+        "statusMessage" => String.t(),
+        "updateTime" => [non_neg_integer()]
       }
 
   """
@@ -3559,6 +3692,15 @@ defmodule AWS.Omics do
           | conflict_exception()
           | request_timeout_exception()
 
+  @type delete_s3_access_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | not_supported_operation_exception()
+          | request_timeout_exception()
+
   @type delete_sequence_store_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3729,6 +3871,16 @@ defmodule AWS.Omics do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | request_timeout_exception()
+
+  @type get_s3_access_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | not_supported_operation_exception()
           | request_timeout_exception()
 
   @type get_sequence_store_errors() ::
@@ -3958,6 +4110,15 @@ defmodule AWS.Omics do
           | conflict_exception()
           | request_timeout_exception()
 
+  @type put_s3_access_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | not_supported_operation_exception()
+          | request_timeout_exception()
+
   @type start_annotation_import_job_errors() ::
           throttling_exception()
           | validation_exception()
@@ -4070,6 +4231,15 @@ defmodule AWS.Omics do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | request_timeout_exception()
+
+  @type update_sequence_store_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
           | request_timeout_exception()
@@ -4892,6 +5062,34 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Deletes an access policy for the specified store.
+  """
+  @spec delete_s3_access_policy(map(), String.t(), delete_s3_access_policy_request(), list()) ::
+          {:ok, delete_s3_access_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_s3_access_policy_errors()}
+  def delete_s3_access_policy(%Client{} = client, s3_access_point_arn, input, options \\ []) do
+    url_path = "/s3accesspolicy/#{AWS.Util.encode_uri(s3_access_point_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes a sequence store.
   """
   @spec delete_sequence_store(map(), String.t(), delete_sequence_store_request(), list()) ::
@@ -5377,6 +5575,23 @@ defmodule AWS.Omics do
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves details about an access policy on a given store.
+  """
+  @spec get_s3_access_policy(map(), String.t(), list()) ::
+          {:ok, get_s3_access_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_s3_access_policy_errors()}
+  def get_s3_access_policy(%Client{} = client, s3_access_point_arn, options \\ []) do
+    url_path = "/s3accesspolicy/#{AWS.Util.encode_uri(s3_access_point_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -6374,6 +6589,34 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Adds an access policy to the specified store.
+  """
+  @spec put_s3_access_policy(map(), String.t(), put_s3_access_policy_request(), list()) ::
+          {:ok, put_s3_access_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_s3_access_policy_errors()}
+  def put_s3_access_policy(%Client{} = client, s3_access_point_arn, input, options \\ []) do
+    url_path = "/s3accesspolicy/#{AWS.Util.encode_uri(s3_access_point_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Starts an annotation import job.
   """
   @spec start_annotation_import_job(map(), start_annotation_import_request(), list()) ::
@@ -6787,6 +7030,34 @@ defmodule AWS.Omics do
       input,
       options,
       202
+    )
+  end
+
+  @doc """
+  Update one or more parameters for the sequence store.
+  """
+  @spec update_sequence_store(map(), String.t(), update_sequence_store_request(), list()) ::
+          {:ok, update_sequence_store_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_sequence_store_errors()}
+  def update_sequence_store(%Client{} = client, id, input, options \\ []) do
+    url_path = "/sequencestore/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "control-storage-")
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 

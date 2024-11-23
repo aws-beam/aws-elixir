@@ -197,6 +197,18 @@ defmodule AWS.SES do
 
   ## Example:
       
+      connect_action() :: %{
+        "IAMRoleARN" => String.t(),
+        "InstanceARN" => String.t()
+      }
+      
+  """
+  @type connect_action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_receipt_rule_set_response() :: %{}
       
   """
@@ -1215,6 +1227,7 @@ defmodule AWS.SES do
       receipt_action() :: %{
         "AddHeaderAction" => add_header_action(),
         "BounceAction" => bounce_action(),
+        "ConnectAction" => connect_action(),
         "LambdaAction" => lambda_action(),
         "S3Action" => s3_action(),
         "SNSAction" => s_n_s_action(),

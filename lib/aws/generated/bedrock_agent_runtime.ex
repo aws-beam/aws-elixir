@@ -163,6 +163,21 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      inline_session_state() :: %{
+        "files" => list(input_file()()),
+        "invocationId" => [String.t()],
+        "promptSessionAttributes" => map(),
+        "returnControlInvocationResults" => list(list()()),
+        "sessionAttributes" => map()
+      }
+
+  """
+  @type inline_session_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       input_file() :: %{
         "name" => [String.t()],
         "source" => file_source(),
@@ -200,6 +215,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      prompt_override_configuration() :: %{
+        "overrideLambda" => String.t(),
+        "promptConfigurations" => list(prompt_configuration()())
+      }
+
+  """
+  @type prompt_override_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       optimized_prompt_event() :: %{
         "optimizedPrompt" => list()
       }
@@ -230,6 +257,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type citation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inline_agent_file_part() :: %{
+        "files" => list(output_file()())
+      }
+
+  """
+  @type inline_agent_file_part() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -292,6 +330,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      parameter_detail() :: %{
+        "description" => String.t(),
+        "required" => [boolean()],
+        "type" => list(any())
+      }
+
+  """
+  @type parameter_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       failure_trace() :: %{
         "failureReason" => String.t(),
         "traceId" => String.t()
@@ -299,6 +350,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type failure_trace() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inline_agent_return_control_payload() :: %{
+        "invocationId" => [String.t()],
+        "invocationInputs" => list(list()())
+      }
+
+  """
+  @type inline_agent_return_control_payload() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -460,6 +523,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      guardrail_configuration_with_arn() :: %{
+        "guardrailIdentifier" => String.t(),
+        "guardrailVersion" => String.t()
+      }
+
+  """
+  @type guardrail_configuration_with_arn() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       flow_trace_node_input_field() :: %{
         "content" => list(),
         "nodeInputName" => String.t()
@@ -570,6 +645,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type flow_trace_node_input_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      knowledge_base() :: %{
+        "description" => String.t(),
+        "knowledgeBaseId" => String.t(),
+        "retrievalConfiguration" => knowledge_base_retrieval_configuration()
+      }
+
+  """
+  @type knowledge_base() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -753,6 +841,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type session_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_inline_agent_response() :: %{
+        "completion" => list(),
+        "contentType" => String.t(),
+        "sessionId" => String.t()
+      }
+
+  """
+  @type invoke_inline_agent_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -965,6 +1066,20 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      function_definition() :: %{
+        "description" => String.t(),
+        "name" => String.t(),
+        "parameters" => map(),
+        "requireConfirmation" => list(any())
+      }
+
+  """
+  @type function_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       flow_trace_node_output_event() :: %{
         "fields" => list(flow_trace_node_output_field()()),
         "nodeName" => String.t(),
@@ -984,6 +1099,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type retrieval_result_salesforce_location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_identifier() :: %{
+        "s3BucketName" => String.t(),
+        "s3ObjectKey" => String.t()
+      }
+
+  """
+  @type s3_identifier() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1044,6 +1171,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      inline_agent_payload_part() :: %{
+        "attribution" => attribution(),
+        "bytes" => binary()
+      }
+
+  """
+  @type inline_agent_payload_part() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       attribution() :: %{
         "citations" => list(citation()())
       }
@@ -1065,6 +1204,22 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type trace_part() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_action_group() :: %{
+        "actionGroupExecutor" => list(),
+        "actionGroupName" => String.t(),
+        "apiSchema" => list(),
+        "description" => String.t(),
+        "functionSchema" => list(),
+        "parentActionGroupSignature" => list(any())
+      }
+
+  """
+  @type agent_action_group() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1280,6 +1435,28 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type flow_output_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_inline_agent_request() :: %{
+        optional("actionGroups") => list(agent_action_group()()),
+        optional("customerEncryptionKeyArn") => String.t(),
+        optional("enableTrace") => [boolean()],
+        optional("endSession") => [boolean()],
+        optional("guardrailConfiguration") => guardrail_configuration_with_arn(),
+        optional("idleSessionTTLInSeconds") => integer(),
+        optional("inlineSessionState") => inline_session_state(),
+        optional("inputText") => String.t(),
+        optional("knowledgeBases") => list(knowledge_base()()),
+        optional("promptOverrideConfiguration") => prompt_override_configuration(),
+        required("foundationModel") => String.t(),
+        required("instruction") => String.t()
+      }
+
+  """
+  @type invoke_inline_agent_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1604,6 +1781,34 @@ defmodule AWS.BedrockAgentRuntime do
   """
   @type guardrail_topic() :: %{String.t() => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      inline_agent_trace_part() :: %{
+        "sessionId" => String.t(),
+        "trace" => list()
+      }
+
+  """
+  @type inline_agent_trace_part() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      prompt_configuration() :: %{
+        "basePromptTemplate" => String.t(),
+        "inferenceConfiguration" => inference_configuration(),
+        "parserMode" => list(any()),
+        "promptCreationMode" => list(any()),
+        "promptState" => list(any()),
+        "promptType" => list(any())
+      }
+
+  """
+  @type prompt_configuration() :: %{String.t() => any()}
+
   @type delete_agent_memory_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1638,6 +1843,17 @@ defmodule AWS.BedrockAgentRuntime do
           | bad_gateway_exception()
 
   @type invoke_flow_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | dependency_failed_exception()
+          | bad_gateway_exception()
+
+  @type invoke_inline_agent_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -1902,6 +2118,70 @@ defmodule AWS.BedrockAgentRuntime do
     headers = []
     custom_headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+
+  Invokes an inline Amazon Bedrock agent using the configurations you provide with
+  the request.
+
+    *
+  Specify the following fields for security purposes.
+
+      *
+  (Optional) `customerEncryptionKeyArn` – The Amazon Resource Name (ARN) of a KMS
+  key to encrypt the creation of the agent.
+
+      *
+  (Optional) `idleSessionTTLinSeconds` – Specify the number of seconds for which
+  the agent should maintain session information. After this time expires, the
+  subsequent `InvokeInlineAgent` request begins a new session.
+
+    *
+  To override the default prompt behavior for agent orchestration and to use
+  advanced prompts, include a `promptOverrideConfiguration` object.
+  For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html).
+
+    *
+  The agent instructions will not be honored if your agent has only one knowledge
+  base, uses default prompts, has no action group, and user input is disabled.
+
+  The CLI doesn't support streaming operations in Amazon Bedrock, including
+  `InvokeInlineAgent`.
+  """
+  @spec invoke_inline_agent(map(), String.t(), invoke_inline_agent_request(), list()) ::
+          {:ok, invoke_inline_agent_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, invoke_inline_agent_errors()}
+  def invoke_inline_agent(%Client{} = client, session_id, input, options \\ []) do
+    url_path = "/agents/#{AWS.Util.encode_uri(session_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"x-amzn-bedrock-agent-content-type", "contentType"},
+          {"x-amz-bedrock-agent-session-id", "sessionId"}
+        ]
+      )
 
     meta = metadata()
 

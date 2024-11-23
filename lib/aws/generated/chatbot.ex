@@ -125,6 +125,53 @@ defmodule AWS.Chatbot do
 
   ## Example:
 
+      get_custom_action_result() :: %{
+        "CustomAction" => custom_action()
+      }
+
+  """
+  @type get_custom_action_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unauthorized_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type unauthorized_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_custom_action_request() :: %{
+        optional("AliasName") => String.t(),
+        optional("Attachments") => list(custom_action_attachment()()),
+        required("CustomActionArn") => String.t(),
+        required("Definition") => custom_action_definition()
+      }
+
+  """
+  @type update_custom_action_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_custom_action_result() :: %{
+        "CustomActionArn" => String.t()
+      }
+
+  """
+  @type create_custom_action_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_slack_workspace_authorization_result() :: %{}
 
   """
@@ -183,6 +230,18 @@ defmodule AWS.Chatbot do
 
   """
   @type delete_teams_channel_configuration_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_custom_actions_request() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t()]
+      }
+
+  """
+  @type list_custom_actions_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -284,6 +343,18 @@ defmodule AWS.Chatbot do
 
   ## Example:
 
+      list_custom_actions_result() :: %{
+        "CustomActions" => list(String.t()()),
+        "NextToken" => [String.t()]
+      }
+
+  """
+  @type list_custom_actions_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_account_preferences_exception() :: %{
         "Message" => String.t()
       }
@@ -304,12 +375,34 @@ defmodule AWS.Chatbot do
 
   ## Example:
 
+      custom_action_attachment_criteria() :: %{
+        "Operator" => list(any()),
+        "Value" => [String.t()],
+        "VariableName" => [String.t()]
+      }
+
+  """
+  @type custom_action_attachment_criteria() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_chime_webhook_configuration_result() :: %{
         "WebhookConfiguration" => chime_webhook_configuration()
       }
 
   """
   @type create_chime_webhook_configuration_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_from_configuration_result() :: %{}
+
+  """
+  @type disassociate_from_configuration_result() :: %{}
 
   @typedoc """
 
@@ -333,6 +426,17 @@ defmodule AWS.Chatbot do
 
   ## Example:
 
+      delete_custom_action_request() :: %{
+        required("CustomActionArn") => String.t()
+      }
+
+  """
+  @type delete_custom_action_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_chime_webhook_configurations_result() :: %{
         "NextToken" => String.t(),
         "WebhookConfigurations" => list(chime_webhook_configuration()())
@@ -340,6 +444,18 @@ defmodule AWS.Chatbot do
 
   """
   @type describe_chime_webhook_configurations_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_from_configuration_request() :: %{
+        required("ChatConfiguration") => String.t(),
+        required("Resource") => String.t()
+      }
+
+  """
+  @type disassociate_from_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -482,6 +598,20 @@ defmodule AWS.Chatbot do
 
   ## Example:
 
+      custom_action_attachment() :: %{
+        "ButtonText" => String.t(),
+        "Criteria" => list(custom_action_attachment_criteria()()),
+        "NotificationType" => String.t(),
+        "Variables" => map()
+      }
+
+  """
+  @type custom_action_attachment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_slack_workspaces_result() :: %{
         "NextToken" => String.t(),
         "SlackWorkspaces" => list(slack_workspace()())
@@ -522,6 +652,18 @@ defmodule AWS.Chatbot do
 
   """
   @type update_chime_webhook_configuration_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_associations_result() :: %{
+        "Associations" => list(association_listing()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_associations_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -654,6 +796,34 @@ defmodule AWS.Chatbot do
 
   ## Example:
 
+      create_custom_action_request() :: %{
+        optional("AliasName") => String.t(),
+        optional("Attachments") => list(custom_action_attachment()()),
+        optional("ClientToken") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("ActionName") => String.t(),
+        required("Definition") => custom_action_definition()
+      }
+
+  """
+  @type create_custom_action_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_to_configuration_request() :: %{
+        required("ChatConfiguration") => String.t(),
+        required("Resource") => String.t()
+      }
+
+  """
+  @type associate_to_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_chime_webhook_configuration_request() :: %{
         optional("LoggingLevel") => String.t(),
         optional("Tags") => list(tag()()),
@@ -769,6 +939,34 @@ defmodule AWS.Chatbot do
 
   ## Example:
 
+      custom_action() :: %{
+        "ActionName" => String.t(),
+        "AliasName" => String.t(),
+        "Attachments" => list(custom_action_attachment()()),
+        "CustomActionArn" => String.t(),
+        "Definition" => custom_action_definition()
+      }
+
+  """
+  @type custom_action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_associations_request() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t(),
+        required("ChatConfiguration") => String.t()
+      }
+
+  """
+  @type list_associations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_slack_user_identity_exception() :: %{
         "Message" => String.t()
       }
@@ -786,6 +984,17 @@ defmodule AWS.Chatbot do
 
   """
   @type describe_chime_webhook_configurations_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_action_definition() :: %{
+        "CommandText" => [String.t()]
+      }
+
+  """
+  @type custom_action_definition() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -855,6 +1064,17 @@ defmodule AWS.Chatbot do
 
   ## Example:
 
+      update_custom_action_result() :: %{
+        "CustomActionArn" => String.t()
+      }
+
+  """
+  @type update_custom_action_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_slack_user_identities_exception() :: %{
         "Message" => String.t()
       }
@@ -913,6 +1133,17 @@ defmodule AWS.Chatbot do
 
   ## Example:
 
+      association_listing() :: %{
+        "Resource" => String.t()
+      }
+
+  """
+  @type association_listing() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_teams_channel_configuration_result() :: %{
         "ChannelConfiguration" => teams_channel_configuration()
       }
@@ -953,6 +1184,17 @@ defmodule AWS.Chatbot do
 
   """
   @type slack_user_identity() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_custom_action_request() :: %{
+        required("CustomActionArn") => String.t()
+      }
+
+  """
+  @type get_custom_action_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1070,6 +1312,15 @@ defmodule AWS.Chatbot do
 
   ## Example:
 
+      associate_to_configuration_result() :: %{}
+
+  """
+  @type associate_to_configuration_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_slack_channel_configuration_exception() :: %{
         "Message" => String.t()
       }
@@ -1146,12 +1397,31 @@ defmodule AWS.Chatbot do
   """
   @type describe_slack_channel_configurations_result() :: %{String.t() => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      delete_custom_action_result() :: %{}
+
+  """
+  @type delete_custom_action_result() :: %{}
+
+  @type associate_to_configuration_errors() ::
+          internal_service_error() | invalid_request_exception() | unauthorized_exception()
+
   @type create_chime_webhook_configuration_errors() ::
           create_chime_webhook_configuration_exception()
           | limit_exceeded_exception()
           | invalid_parameter_exception()
           | invalid_request_exception()
           | conflict_exception()
+
+  @type create_custom_action_errors() ::
+          limit_exceeded_exception()
+          | internal_service_error()
+          | invalid_request_exception()
+          | conflict_exception()
+          | unauthorized_exception()
 
   @type create_microsoft_teams_channel_configuration_errors() ::
           limit_exceeded_exception()
@@ -1172,6 +1442,12 @@ defmodule AWS.Chatbot do
           | delete_chime_webhook_configuration_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
+
+  @type delete_custom_action_errors() ::
+          internal_service_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type delete_microsoft_teams_channel_configuration_errors() ::
           invalid_parameter_exception()
@@ -1221,13 +1497,25 @@ defmodule AWS.Chatbot do
           | invalid_request_exception()
           | describe_slack_workspaces_exception()
 
+  @type disassociate_from_configuration_errors() ::
+          internal_service_error() | invalid_request_exception() | unauthorized_exception()
+
   @type get_account_preferences_errors() ::
           invalid_request_exception() | get_account_preferences_exception()
+
+  @type get_custom_action_errors() ::
+          internal_service_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type get_microsoft_teams_channel_configuration_errors() ::
           get_teams_channel_configuration_exception()
           | invalid_parameter_exception()
           | invalid_request_exception()
+
+  @type list_custom_actions_errors() ::
+          internal_service_error() | invalid_request_exception() | unauthorized_exception()
 
   @type list_microsoft_teams_channel_configurations_errors() ::
           invalid_parameter_exception()
@@ -1271,6 +1559,12 @@ defmodule AWS.Chatbot do
           | invalid_request_exception()
           | resource_not_found_exception()
 
+  @type update_custom_action_errors() ::
+          internal_service_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
+
   @type update_microsoft_teams_channel_configuration_errors() ::
           invalid_parameter_exception()
           | invalid_request_exception()
@@ -1300,6 +1594,34 @@ defmodule AWS.Chatbot do
   end
 
   @doc """
+  Links a resource (for example, a custom action) to a channel configuration.
+  """
+  @spec associate_to_configuration(map(), associate_to_configuration_request(), list()) ::
+          {:ok, associate_to_configuration_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, associate_to_configuration_errors()}
+  def associate_to_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/associate-to-configuration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Creates an AWS Chatbot configuration for Amazon Chime.
   """
   @spec create_chime_webhook_configuration(
@@ -1312,6 +1634,35 @@ defmodule AWS.Chatbot do
           | {:error, create_chime_webhook_configuration_errors()}
   def create_chime_webhook_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/create-chime-webhook-configuration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a custom action that can be invoked as an alias or as a button on a
+  notification.
+  """
+  @spec create_custom_action(map(), create_custom_action_request(), list()) ::
+          {:ok, create_custom_action_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_custom_action_errors()}
+  def create_custom_action(%Client{} = client, input, options \\ []) do
+    url_path = "/create-custom-action"
     headers = []
     custom_headers = []
     query_params = []
@@ -1408,6 +1759,34 @@ defmodule AWS.Chatbot do
           | {:error, delete_chime_webhook_configuration_errors()}
   def delete_chime_webhook_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/delete-chime-webhook-configuration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes a custom action.
+  """
+  @spec delete_custom_action(map(), delete_custom_action_request(), list()) ::
+          {:ok, delete_custom_action_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_custom_action_errors()}
+  def delete_custom_action(%Client{} = client, input, options \\ []) do
+    url_path = "/delete-custom-action"
     headers = []
     custom_headers = []
     query_params = []
@@ -1745,6 +2124,34 @@ defmodule AWS.Chatbot do
   end
 
   @doc """
+  Unlink a resource, for example a custom action, from a channel configuration.
+  """
+  @spec disassociate_from_configuration(map(), disassociate_from_configuration_request(), list()) ::
+          {:ok, disassociate_from_configuration_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disassociate_from_configuration_errors()}
+  def disassociate_from_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/disassociate-from-configuration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Returns AWS Chatbot account preferences.
   """
   @spec get_account_preferences(map(), get_account_preferences_request(), list()) ::
@@ -1753,6 +2160,34 @@ defmodule AWS.Chatbot do
           | {:error, get_account_preferences_errors()}
   def get_account_preferences(%Client{} = client, input, options \\ []) do
     url_path = "/get-account-preferences"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns a custom action.
+  """
+  @spec get_custom_action(map(), get_custom_action_request(), list()) ::
+          {:ok, get_custom_action_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_custom_action_errors()}
+  def get_custom_action(%Client{} = client, input, options \\ []) do
+    url_path = "/get-custom-action"
     headers = []
     custom_headers = []
     query_params = []
@@ -1785,6 +2220,61 @@ defmodule AWS.Chatbot do
           | {:error, get_microsoft_teams_channel_configuration_errors()}
   def get_microsoft_teams_channel_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/get-ms-teams-channel-configuration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists resources associated with a channel configuration.
+  """
+  @spec list_associations(map(), list_associations_request(), list()) ::
+          {:ok, list_associations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def list_associations(%Client{} = client, input, options \\ []) do
+    url_path = "/list-associations"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists custom actions defined in this account.
+  """
+  @spec list_custom_actions(map(), list_custom_actions_request(), list()) ::
+          {:ok, list_custom_actions_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_custom_actions_errors()}
+  def list_custom_actions(%Client{} = client, input, options \\ []) do
+    url_path = "/list-custom-actions"
     headers = []
     custom_headers = []
     query_params = []
@@ -2034,6 +2524,34 @@ defmodule AWS.Chatbot do
           | {:error, update_chime_webhook_configuration_errors()}
   def update_chime_webhook_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/update-chime-webhook-configuration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a custom action.
+  """
+  @spec update_custom_action(map(), update_custom_action_request(), list()) ::
+          {:ok, update_custom_action_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_custom_action_errors()}
+  def update_custom_action(%Client{} = client, input, options \\ []) do
+    url_path = "/update-custom-action"
     headers = []
     custom_headers = []
     query_params = []

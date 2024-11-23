@@ -103,11 +103,21 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       create_user_pool_domain_response() :: %{
-        "CloudFrontDomain" => String.t()
+        "CloudFrontDomain" => String.t(),
+        "ManagedLoginVersion" => integer()
       }
       
   """
   @type create_user_pool_domain_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_web_authn_credential_response() :: %{}
+      
+  """
+  @type delete_web_authn_credential_response() :: %{}
 
   @typedoc """
 
@@ -173,6 +183,7 @@ defmodule AWS.CognitoIdentityProvider do
         optional("AnalyticsMetadata") => analytics_metadata_type(),
         optional("AuthParameters") => map(),
         optional("ClientMetadata") => map(),
+        optional("Session") => String.t(),
         optional("UserContextData") => user_context_data_type(),
         required("AuthFlow") => list(any()),
         required("ClientId") => String.t()
@@ -180,6 +191,18 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type initiate_auth_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      complete_web_authn_registration_request() :: %{
+        required("AccessToken") => String.t(),
+        required("Credential") => any()
+      }
+      
+  """
+  @type complete_web_authn_registration_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -198,6 +221,17 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type set_user_mfa_preference_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      web_authn_challenge_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type web_authn_challenge_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -228,12 +262,14 @@ defmodule AWS.CognitoIdentityProvider do
         optional("LambdaConfig") => lambda_config_type(),
         optional("MfaConfiguration") => list(any()),
         optional("Policies") => user_pool_policy_type(),
+        optional("PoolName") => String.t(),
         optional("SmsAuthenticationMessage") => String.t(),
         optional("SmsConfiguration") => sms_configuration_type(),
         optional("SmsVerificationMessage") => String.t(),
         optional("UserAttributeUpdateSettings") => user_attribute_update_settings_type(),
         optional("UserPoolAddOns") => user_pool_add_ons_type(),
         optional("UserPoolTags") => map(),
+        optional("UserPoolTier") => list(any()),
         optional("VerificationMessageTemplate") => verification_message_template_type(),
         required("UserPoolId") => String.t()
       }
@@ -323,6 +359,19 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type event_context_data_type() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_managed_login_branding_request() :: %{
+        optional("ReturnMergedResources") => boolean(),
+        required("ManagedLoginBrandingId") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
+  """
+  @type describe_managed_login_branding_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -501,10 +550,26 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
-      confirm_sign_up_response() :: %{}
+      confirm_sign_up_response() :: %{
+        "Session" => String.t()
+      }
       
   """
-  @type confirm_sign_up_response() :: %{}
+  @type confirm_sign_up_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_user_auth_factors_response() :: %{
+        "ConfiguredUserAuthFactors" => list(list(any())()),
+        "PreferredMfaSetting" => String.t(),
+        "UserMFASettingList" => list(String.t()()),
+        "Username" => String.t()
+      }
+      
+  """
+  @type get_user_auth_factors_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -512,6 +577,7 @@ defmodule AWS.CognitoIdentityProvider do
       
       create_user_pool_domain_request() :: %{
         optional("CustomDomainConfig") => custom_domain_config_type(),
+        optional("ManagedLoginVersion") => integer(),
         required("Domain") => String.t(),
         required("UserPoolId") => String.t()
       }
@@ -538,7 +604,8 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       update_user_pool_domain_response() :: %{
-        "CloudFrontDomain" => String.t()
+        "CloudFrontDomain" => String.t(),
+        "ManagedLoginVersion" => integer()
       }
       
   """
@@ -580,6 +647,17 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type admin_set_user_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_managed_login_branding_response() :: %{
+        "ManagedLoginBranding" => managed_login_branding_type()
+      }
+      
+  """
+  @type describe_managed_login_branding_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -730,6 +808,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      start_web_authn_registration_request() :: %{
+        required("AccessToken") => String.t()
+      }
+      
+  """
+  @type start_web_authn_registration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_identity_provider_response() :: %{
         "IdentityProvider" => identity_provider_type()
       }
@@ -759,6 +848,18 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type number_attribute_constraints_type() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      web_authn_configuration_type() :: %{
+        "RelyingPartyId" => String.t(),
+        "UserVerification" => list(any())
+      }
+      
+  """
+  @type web_authn_configuration_type() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1050,6 +1151,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      web_authn_relying_party_mismatch_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type web_authn_relying_party_mismatch_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_resource_server_request() :: %{
         required("Identifier") => String.t(),
         required("UserPoolId") => String.t()
@@ -1118,6 +1230,19 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      describe_managed_login_branding_by_client_request() :: %{
+        optional("ReturnMergedResources") => boolean(),
+        required("ClientId") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
+  """
+  @type describe_managed_login_branding_by_client_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       admin_list_groups_for_user_request() :: %{
         optional("Limit") => integer(),
         optional("NextToken") => String.t(),
@@ -1127,6 +1252,17 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type admin_list_groups_for_user_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_web_authn_registration_response() :: %{
+        "CredentialCreationOptions" => any()
+      }
+      
+  """
+  @type start_web_authn_registration_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1192,6 +1328,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      sign_in_policy_type() :: %{
+        "AllowedFirstAuthFactors" => list(list(any())())
+      }
+      
+  """
+  @type sign_in_policy_type() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       untag_resource_request() :: %{
         required("ResourceArn") => String.t(),
         required("TagKeys") => list(String.t()())
@@ -1208,7 +1355,8 @@ defmodule AWS.CognitoIdentityProvider do
         "EmailMfaConfiguration" => email_mfa_config_type(),
         "MfaConfiguration" => list(any()),
         "SmsMfaConfiguration" => sms_mfa_config_type(),
-        "SoftwareTokenMfaConfiguration" => software_token_mfa_config_type()
+        "SoftwareTokenMfaConfiguration" => software_token_mfa_config_type(),
+        "WebAuthnConfiguration" => web_authn_configuration_type()
       }
       
   """
@@ -1285,6 +1433,7 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       update_user_pool_domain_request() :: %{
+        optional("ManagedLoginVersion") => integer(),
         required("CustomDomainConfig") => custom_domain_config_type(),
         required("Domain") => String.t(),
         required("UserPoolId") => String.t()
@@ -1322,7 +1471,8 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       user_pool_policy_type() :: %{
-        "PasswordPolicy" => password_policy_type()
+        "PasswordPolicy" => password_policy_type(),
+        "SignInPolicy" => sign_in_policy_type()
       }
       
   """
@@ -1497,6 +1647,21 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      update_managed_login_branding_request() :: %{
+        optional("Assets") => list(asset_type()()),
+        optional("ManagedLoginBrandingId") => String.t(),
+        optional("Settings") => any(),
+        optional("UseCognitoProvidedValues") => boolean(),
+        optional("UserPoolId") => String.t()
+      }
+      
+  """
+  @type update_managed_login_branding_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       admin_user_global_sign_out_response() :: %{}
       
   """
@@ -1566,6 +1731,18 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      delete_managed_login_branding_request() :: %{
+        required("ManagedLoginBrandingId") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
+  """
+  @type delete_managed_login_branding_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       resource_not_found_exception() :: %{
         "message" => String.t()
       }
@@ -1581,11 +1758,23 @@ defmodule AWS.CognitoIdentityProvider do
         "EmailMfaConfiguration" => email_mfa_config_type(),
         "MfaConfiguration" => list(any()),
         "SmsMfaConfiguration" => sms_mfa_config_type(),
-        "SoftwareTokenMfaConfiguration" => software_token_mfa_config_type()
+        "SoftwareTokenMfaConfiguration" => software_token_mfa_config_type(),
+        "WebAuthnConfiguration" => web_authn_configuration_type()
       }
       
   """
   @type get_user_pool_mfa_config_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_user_auth_factors_request() :: %{
+        required("AccessToken") => String.t()
+      }
+      
+  """
+  @type get_user_auth_factors_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1708,6 +1897,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      tier_change_not_allowed_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type tier_change_not_allowed_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       set_ui_customization_response() :: %{
         "UICustomization" => ui_customization_type()
       }
@@ -1739,6 +1939,17 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type user_context_data_type() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      managed_login_branding_exists_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type managed_login_branding_exists_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1839,6 +2050,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      web_authn_client_mismatch_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type web_authn_client_mismatch_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       admin_set_user_password_response() :: %{}
       
   """
@@ -1904,6 +2126,7 @@ defmodule AWS.CognitoIdentityProvider do
         optional("UserAttributeUpdateSettings") => user_attribute_update_settings_type(),
         optional("UserPoolAddOns") => user_pool_add_ons_type(),
         optional("UserPoolTags") => map(),
+        optional("UserPoolTier") => list(any()),
         optional("UsernameAttributes") => list(list(any())()),
         optional("UsernameConfiguration") => username_configuration_type(),
         optional("VerificationMessageTemplate") => verification_message_template_type(),
@@ -2007,6 +2230,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      web_authn_configuration_missing_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type web_authn_configuration_missing_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       admin_disable_provider_for_user_response() :: %{}
       
   """
@@ -2045,6 +2279,34 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type user_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      feature_unavailable_in_tier_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type feature_unavailable_in_tier_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      managed_login_branding_type() :: %{
+        "Assets" => list(asset_type()()),
+        "CreationDate" => non_neg_integer(),
+        "LastModifiedDate" => non_neg_integer(),
+        "ManagedLoginBrandingId" => String.t(),
+        "Settings" => any(),
+        "UseCognitoProvidedValues" => boolean(),
+        "UserPoolId" => String.t()
+      }
+      
+  """
+  @type managed_login_branding_type() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2134,6 +2396,7 @@ defmodule AWS.CognitoIdentityProvider do
         optional("AuthParameters") => map(),
         optional("ClientMetadata") => map(),
         optional("ContextData") => context_data_type(),
+        optional("Session") => String.t(),
         required("AuthFlow") => list(any()),
         required("ClientId") => String.t(),
         required("UserPoolId") => String.t()
@@ -2428,9 +2691,20 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      describe_managed_login_branding_by_client_response() :: %{
+        "ManagedLoginBranding" => managed_login_branding_type()
+      }
+      
+  """
+  @type describe_managed_login_branding_by_client_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       change_password_request() :: %{
+        optional("PreviousPassword") => String.t(),
         required("AccessToken") => String.t(),
-        required("PreviousPassword") => String.t(),
         required("ProposedPassword") => String.t()
       }
       
@@ -2488,6 +2762,7 @@ defmodule AWS.CognitoIdentityProvider do
       
       initiate_auth_response() :: %{
         "AuthenticationResult" => authentication_result_type(),
+        "AvailableChallenges" => list(list(any())()),
         "ChallengeName" => list(any()),
         "ChallengeParameters" => map(),
         "Session" => String.t()
@@ -2495,6 +2770,22 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type initiate_auth_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      web_authn_credential_description() :: %{
+        "AuthenticatorAttachment" => String.t(),
+        "AuthenticatorTransports" => list(String.t()()),
+        "CreatedAt" => non_neg_integer(),
+        "CredentialId" => String.t(),
+        "FriendlyCredentialName" => String.t(),
+        "RelyingPartyId" => String.t()
+      }
+      
+  """
+  @type web_authn_credential_description() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2539,6 +2830,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      web_authn_credential_not_supported_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type web_authn_credential_not_supported_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_user_pool_domain_response() :: %{
         "DomainDescription" => domain_description_type()
       }
@@ -2550,15 +2852,26 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      create_managed_login_branding_response() :: %{
+        "ManagedLoginBranding" => managed_login_branding_type()
+      }
+      
+  """
+  @type create_managed_login_branding_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       sign_up_request() :: %{
         optional("AnalyticsMetadata") => analytics_metadata_type(),
         optional("ClientMetadata") => map(),
+        optional("Password") => String.t(),
         optional("SecretHash") => String.t(),
         optional("UserAttributes") => list(attribute_type()()),
         optional("UserContextData") => user_context_data_type(),
         optional("ValidationData") => list(attribute_type()()),
         required("ClientId") => String.t(),
-        required("Password") => String.t(),
         required("Username") => String.t()
       }
       
@@ -2800,6 +3113,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      update_managed_login_branding_response() :: %{
+        "ManagedLoginBranding" => managed_login_branding_type()
+      }
+      
+  """
+  @type update_managed_login_branding_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       invalid_user_pool_configuration_exception() :: %{
         "message" => String.t()
       }
@@ -2824,6 +3148,7 @@ defmodule AWS.CognitoIdentityProvider do
       
       sign_up_response() :: %{
         "CodeDeliveryDetails" => code_delivery_details_type(),
+        "Session" => String.t(),
         "UserConfirmed" => boolean(),
         "UserSub" => String.t()
       }
@@ -2880,7 +3205,8 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       invalid_parameter_exception() :: %{
-        "message" => String.t()
+        "message" => String.t(),
+        "reasonCode" => String.t()
       }
       
   """
@@ -2904,6 +3230,7 @@ defmodule AWS.CognitoIdentityProvider do
         optional("MfaConfiguration") => list(any()),
         optional("SmsMfaConfiguration") => sms_mfa_config_type(),
         optional("SoftwareTokenMfaConfiguration") => software_token_mfa_config_type(),
+        optional("WebAuthnConfiguration") => web_authn_configuration_type(),
         required("UserPoolId") => String.t()
       }
       
@@ -3049,6 +3376,21 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type update_auth_event_feedback_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      asset_type() :: %{
+        "Bytes" => binary(),
+        "Category" => list(any()),
+        "ColorMode" => list(any()),
+        "Extension" => list(any()),
+        "ResourceId" => String.t()
+      }
+      
+  """
+  @type asset_type() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3243,6 +3585,17 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type enable_software_token_mfa_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      web_authn_not_enabled_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type web_authn_not_enabled_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3478,6 +3831,21 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      create_managed_login_branding_request() :: %{
+        optional("Assets") => list(asset_type()()),
+        optional("Settings") => any(),
+        optional("UseCognitoProvidedValues") => boolean(),
+        required("ClientId") => String.t(),
+        required("UserPoolId") => String.t()
+      }
+      
+  """
+  @type create_managed_login_branding_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       schema_attribute_type() :: %{
         "AttributeDataType" => list(any()),
         "DeveloperOnlyAttribute" => boolean(),
@@ -3490,6 +3858,30 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type schema_attribute_type() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_web_authn_credentials_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("AccessToken") => String.t()
+      }
+      
+  """
+  @type list_web_authn_credentials_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      web_authn_origin_not_allowed_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type web_authn_origin_not_allowed_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3593,6 +3985,7 @@ defmodule AWS.CognitoIdentityProvider do
         optional("ClientMetadata") => map(),
         optional("ForceAliasCreation") => boolean(),
         optional("SecretHash") => String.t(),
+        optional("Session") => String.t(),
         optional("UserContextData") => user_context_data_type(),
         required("ClientId") => String.t(),
         required("ConfirmationCode") => String.t(),
@@ -3633,6 +4026,18 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      delete_web_authn_credential_request() :: %{
+        required("AccessToken") => String.t(),
+        required("CredentialId") => String.t()
+      }
+      
+  """
+  @type delete_web_authn_credential_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_groups_request() :: %{
         optional("Limit") => integer(),
         optional("NextToken") => String.t(),
@@ -3652,6 +4057,18 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type set_risk_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_web_authn_credentials_response() :: %{
+        "Credentials" => list(web_authn_credential_description()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type list_web_authn_credentials_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3693,6 +4110,7 @@ defmodule AWS.CognitoIdentityProvider do
         "UsernameConfiguration" => username_configuration_type(),
         "SmsConfiguration" => sms_configuration_type(),
         "LambdaConfig" => lambda_config_type(),
+        "UserPoolTier" => list(any()),
         "MfaConfiguration" => list(any()),
         "UserAttributeUpdateSettings" => user_attribute_update_settings_type(),
         "Id" => String.t(),
@@ -3898,6 +4316,15 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      complete_web_authn_registration_response() :: %{}
+      
+  """
+  @type complete_web_authn_registration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       internal_error_exception() :: %{
         "message" => String.t()
       }
@@ -4036,6 +4463,7 @@ defmodule AWS.CognitoIdentityProvider do
         "CloudFrontDistribution" => String.t(),
         "CustomDomainConfig" => custom_domain_config_type(),
         "Domain" => String.t(),
+        "ManagedLoginVersion" => integer(),
         "S3Bucket" => String.t(),
         "Status" => list(any()),
         "UserPoolId" => String.t(),
@@ -4348,6 +4776,20 @@ defmodule AWS.CognitoIdentityProvider do
           | password_history_policy_violation_exception()
           | user_not_confirmed_exception()
 
+  @type complete_web_authn_registration_errors() ::
+          internal_error_exception()
+          | web_authn_origin_not_allowed_exception()
+          | limit_exceeded_exception()
+          | web_authn_not_enabled_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | web_authn_credential_not_supported_exception()
+          | web_authn_client_mismatch_exception()
+          | too_many_requests_exception()
+          | web_authn_relying_party_mismatch_exception()
+          | forbidden_exception()
+          | web_authn_challenge_not_found_exception()
+
   @type confirm_device_errors() ::
           internal_error_exception()
           | invalid_password_exception()
@@ -4417,6 +4859,16 @@ defmodule AWS.CognitoIdentityProvider do
           | too_many_requests_exception()
           | duplicate_provider_exception()
 
+  @type create_managed_login_branding_errors() ::
+          internal_error_exception()
+          | limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | managed_login_branding_exists_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
   @type create_resource_server_errors() ::
           internal_error_exception()
           | limit_exceeded_exception()
@@ -4441,6 +4893,8 @@ defmodule AWS.CognitoIdentityProvider do
           | invalid_parameter_exception()
           | not_authorized_exception()
           | user_pool_tagging_exception()
+          | feature_unavailable_in_tier_exception()
+          | tier_change_not_allowed_exception()
           | invalid_sms_role_access_policy_exception()
           | too_many_requests_exception()
           | invalid_email_role_access_policy_exception()
@@ -4460,6 +4914,7 @@ defmodule AWS.CognitoIdentityProvider do
           | limit_exceeded_exception()
           | invalid_parameter_exception()
           | not_authorized_exception()
+          | feature_unavailable_in_tier_exception()
           | resource_not_found_exception()
 
   @type delete_group_errors() ::
@@ -4474,6 +4929,14 @@ defmodule AWS.CognitoIdentityProvider do
           | concurrent_modification_exception()
           | invalid_parameter_exception()
           | unsupported_identity_provider_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type delete_managed_login_branding_errors() ::
+          internal_error_exception()
+          | concurrent_modification_exception()
+          | invalid_parameter_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -4529,7 +4992,28 @@ defmodule AWS.CognitoIdentityProvider do
           | not_authorized_exception()
           | resource_not_found_exception()
 
+  @type delete_web_authn_credential_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | forbidden_exception()
+
   @type describe_identity_provider_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type describe_managed_login_branding_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
+  @type describe_managed_login_branding_by_client_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
           | not_authorized_exception()
@@ -4690,6 +5174,17 @@ defmodule AWS.CognitoIdentityProvider do
           | invalid_email_role_access_policy_exception()
           | user_not_confirmed_exception()
 
+  @type get_user_auth_factors_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_not_found_exception()
+          | password_reset_required_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | user_not_confirmed_exception()
+
   @type get_user_pool_mfa_config_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
@@ -4799,6 +5294,12 @@ defmodule AWS.CognitoIdentityProvider do
           | resource_not_found_exception()
           | too_many_requests_exception()
 
+  @type list_web_authn_credentials_errors() ::
+          internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | forbidden_exception()
+
   @type resend_confirmation_code_errors() ::
           unexpected_lambda_exception()
           | internal_error_exception()
@@ -4854,6 +5355,7 @@ defmodule AWS.CognitoIdentityProvider do
           internal_error_exception()
           | invalid_parameter_exception()
           | not_authorized_exception()
+          | feature_unavailable_in_tier_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
@@ -4890,6 +5392,7 @@ defmodule AWS.CognitoIdentityProvider do
           | concurrent_modification_exception()
           | invalid_parameter_exception()
           | not_authorized_exception()
+          | feature_unavailable_in_tier_exception()
           | resource_not_found_exception()
           | invalid_sms_role_access_policy_exception()
           | too_many_requests_exception()
@@ -4929,6 +5432,16 @@ defmodule AWS.CognitoIdentityProvider do
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
+
+  @type start_web_authn_registration_errors() ::
+          internal_error_exception()
+          | limit_exceeded_exception()
+          | web_authn_not_enabled_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | web_authn_configuration_missing_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
 
   @type stop_user_import_job_errors() ::
           internal_error_exception()
@@ -4989,6 +5502,14 @@ defmodule AWS.CognitoIdentityProvider do
           | resource_not_found_exception()
           | too_many_requests_exception()
 
+  @type update_managed_login_branding_errors() ::
+          internal_error_exception()
+          | concurrent_modification_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
   @type update_resource_server_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
@@ -5024,6 +5545,8 @@ defmodule AWS.CognitoIdentityProvider do
           | invalid_parameter_exception()
           | not_authorized_exception()
           | user_pool_tagging_exception()
+          | feature_unavailable_in_tier_exception()
+          | tier_change_not_allowed_exception()
           | resource_not_found_exception()
           | invalid_sms_role_access_policy_exception()
           | too_many_requests_exception()
@@ -5044,6 +5567,7 @@ defmodule AWS.CognitoIdentityProvider do
           internal_error_exception()
           | invalid_parameter_exception()
           | not_authorized_exception()
+          | feature_unavailable_in_tier_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
@@ -5213,7 +5737,7 @@ defmodule AWS.CognitoIdentityProvider do
   in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Servicesservice,
+  Web Services service,
   Amazon Simple Notification Service might place your account in the SMS sandbox.
   In *
   [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html)
@@ -5233,8 +5757,15 @@ defmodule AWS.CognitoIdentityProvider do
   Alternatively, you can call `AdminCreateUser` with `SUPPRESS`
   for the `MessageAction` parameter, and Amazon Cognito won't send any email.
 
-  In either case, the user will be in the `FORCE_CHANGE_PASSWORD` state until
-  they sign in and change their password.
+  In either case, if the user has a password, they will be in the
+  `FORCE_CHANGE_PASSWORD` state until they sign in and set their password.
+  Your invitation message template must have the `{####}` password placeholder
+  if your users have passwords. If your template doesn't have this placeholder,
+  Amazon Cognito
+  doesn't deliver the invitation message. In this case, you must update your
+  message
+  template and resend the password with a new `AdminCreateUser` request with a
+  `MessageAction` value of `RESEND`.
 
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
@@ -5513,7 +6044,9 @@ defmodule AWS.CognitoIdentityProvider do
   Gets the specified user by user name in a user pool as an administrator.
 
   Works on any
-  user.
+  user. This operation contributes to your monthly active user (MAU) count for the
+  purpose
+  of billing.
 
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
@@ -5557,7 +6090,7 @@ defmodule AWS.CognitoIdentityProvider do
   in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Servicesservice,
+  Web Services service,
   Amazon Simple Notification Service might place your account in the SMS sandbox.
   In *
   [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html)
@@ -5643,7 +6176,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Lists devices, as an administrator.
+  Lists a user's registered devices.
 
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
@@ -5782,7 +6315,7 @@ defmodule AWS.CognitoIdentityProvider do
   in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Servicesservice,
+  Web Services service,
   Amazon Simple Notification Service might place your account in the SMS sandbox.
   In *
   [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html)
@@ -5862,7 +6395,7 @@ defmodule AWS.CognitoIdentityProvider do
   in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Servicesservice,
+  Web Services service,
   Amazon Simple Notification Service might place your account in the SMS sandbox.
   In *
   [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html)
@@ -6112,7 +6645,7 @@ defmodule AWS.CognitoIdentityProvider do
   in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Servicesservice,
+  Web Services service,
   Amazon Simple Notification Service might place your account in the SMS sandbox.
   In *
   [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html)
@@ -6291,6 +6824,28 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+  Completes registration of a passkey authenticator for the current user.
+
+  Your
+  application provides data from a successful registration request with the data
+  from the
+  output of a [
+  StartWebAuthnRegistration](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_StartWebAuthnRegistration.html).
+
+  Authorize this action with a signed-in user's access token. It must include the
+  scope `aws.cognito.signin.user.admin`.
+  """
+  @spec complete_web_authn_registration(map(), complete_web_authn_registration_request(), list()) ::
+          {:ok, complete_web_authn_registration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, complete_web_authn_registration_errors()}
+  def complete_web_authn_registration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CompleteWebAuthnRegistration", input, options)
+  end
+
+  @doc """
   Confirms tracking of the device.
 
   This API call is the call that begins device
@@ -6441,6 +6996,56 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+  Creates a new set of branding settings for a user pool style and associates it
+  with an
+  app client.
+
+  This operation is the programmatic option for the creation of a new style in
+  the branding designer.
+
+  Provides values for UI customization in a `Settings` JSON object and image
+  files in an `Assets` array. To send the JSON object `Document`
+  type parameter in `Settings`, you might need to update to the most recent
+  version of your Amazon Web Services SDK.
+
+  This operation has a 2-megabyte request-size limit and include the CSS settings
+  and
+  image assets for your app client. Your branding settings might exceed 2MB in
+  size. Amazon Cognito
+  doesn't require that you pass all parameters in one request and preserves
+  existing
+  style settings that you don't specify. If your request is larger than 2MB,
+  separate it
+  into multiple requests, each with a size smaller than the limit.
+
+  For more information, see [API and SDK operations for managed login branding](https://docs.aws.amazon.com/cognito/latest/developerguide/managed-login-brandingdesigner.html#branding-designer-api)
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For
+  this operation, you must use IAM credentials to authorize requests, and you must
+  grant yourself the corresponding IAM permission in a policy.
+
+  ## Learn more
+
+    
+
+  [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+    
+
+  [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
+  """
+  @spec create_managed_login_branding(map(), create_managed_login_branding_request(), list()) ::
+          {:ok, create_managed_login_branding_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_managed_login_branding_errors()}
+  def create_managed_login_branding(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateManagedLoginBranding", input, options)
+  end
+
+  @doc """
   Creates a new OAuth2.0 resource server and defines custom scopes within it.
 
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
@@ -6513,7 +7118,7 @@ defmodule AWS.CognitoIdentityProvider do
   in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Servicesservice,
+  Web Services service,
   Amazon Simple Notification Service might place your account in the SMS sandbox.
   In *
   [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html)
@@ -6595,6 +7200,9 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Creates a new domain for a user pool.
 
+  The domain hosts user pool domain services like
+  managed login, the hosted UI (classic), and the user pool authorization server.
+
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
   this operation, you must use IAM credentials to authorize requests, and you must
@@ -6646,6 +7254,37 @@ defmodule AWS.CognitoIdentityProvider do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteIdentityProvider", input, options)
+  end
+
+  @doc """
+  Deletes a managed login branding style.
+
+  When you delete a style, you delete the
+  branding association for an app client and restore it to default settings.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For
+  this operation, you must use IAM credentials to authorize requests, and you must
+  grant yourself the corresponding IAM permission in a policy.
+
+  ## Learn more
+
+    
+
+  [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+    
+
+  [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
+  """
+  @spec delete_managed_login_branding(map(), delete_managed_login_branding_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_managed_login_branding_errors()}
+  def delete_managed_login_branding(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteManagedLoginBranding", input, options)
   end
 
   @doc """
@@ -6749,6 +7388,23 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+  Deletes a registered passkey, or webauthN, device for the currently signed-in
+  user.
+
+  Authorize this action with a signed-in user's access token. It must include the
+  scope `aws.cognito.signin.user.admin`.
+  """
+  @spec delete_web_authn_credential(map(), delete_web_authn_credential_request(), list()) ::
+          {:ok, delete_web_authn_credential_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_web_authn_credential_errors()}
+  def delete_web_authn_credential(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteWebAuthnCredential", input, options)
+  end
+
+  @doc """
   Gets information about a specific IdP.
   """
   @spec describe_identity_provider(map(), describe_identity_provider_request(), list()) ::
@@ -6759,6 +7415,40 @@ defmodule AWS.CognitoIdentityProvider do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeIdentityProvider", input, options)
+  end
+
+  @doc """
+  When given the ID of a managed login branding style, returns detailed
+  information
+  about the style.
+  """
+  @spec describe_managed_login_branding(map(), describe_managed_login_branding_request(), list()) ::
+          {:ok, describe_managed_login_branding_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_managed_login_branding_errors()}
+  def describe_managed_login_branding(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeManagedLoginBranding", input, options)
+  end
+
+  @doc """
+  When given the ID of a user pool app client, returns detailed information about
+  the
+  style assigned to the app client.
+  """
+  @spec describe_managed_login_branding_by_client(
+          map(),
+          describe_managed_login_branding_by_client_request(),
+          list()
+        ) ::
+          {:ok, describe_managed_login_branding_by_client_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_managed_login_branding_by_client_errors()}
+  def describe_managed_login_branding_by_client(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeManagedLoginBrandingByClient", input, options)
   end
 
   @doc """
@@ -6943,7 +7633,7 @@ defmodule AWS.CognitoIdentityProvider do
   in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Servicesservice,
+  Web Services service,
   Amazon Simple Notification Service might place your account in the SMS sandbox.
   In *
   [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html)
@@ -7149,7 +7839,7 @@ defmodule AWS.CognitoIdentityProvider do
   in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Servicesservice,
+  Web Services service,
   Amazon Simple Notification Service might place your account in the SMS sandbox.
   In *
   [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html)
@@ -7173,6 +7863,30 @@ defmodule AWS.CognitoIdentityProvider do
     meta = metadata()
 
     Request.request_post(client, meta, "GetUserAttributeVerificationCode", input, options)
+  end
+
+  @doc """
+  Lists the authentication options for the currently signed-in user.
+
+  Returns the
+  following:
+
+    1.
+  The user's multi-factor authentication (MFA) preferences.
+
+    2.
+  The user's options in the `USER_AUTH` flow that they can
+  select in a `SELECT_CHALLENGE` response or request in a
+  `PREFERRED_CHALLENGE`request.
+  """
+  @spec get_user_auth_factors(map(), get_user_auth_factors_request(), list()) ::
+          {:ok, get_user_auth_factors_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_user_auth_factors_errors()}
+  def get_user_auth_factors(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetUserAuthFactors", input, options)
   end
 
   @doc """
@@ -7271,7 +7985,7 @@ defmodule AWS.CognitoIdentityProvider do
   in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Servicesservice,
+  Web Services service,
   Amazon Simple Notification Service might place your account in the SMS sandbox.
   In *
   [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html)
@@ -7566,6 +8280,20 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+  Generates a list of the current user's registered passkey, or webauthN,
+  credentials.
+  """
+  @spec list_web_authn_credentials(map(), list_web_authn_credentials_request(), list()) ::
+          {:ok, list_web_authn_credentials_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_web_authn_credentials_errors()}
+  def list_web_authn_credentials(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListWebAuthnCredentials", input, options)
+  end
+
+  @doc """
   Resends the confirmation (for confirmation of registration) to a specific user
   in the
   user pool.
@@ -7592,7 +8320,7 @@ defmodule AWS.CognitoIdentityProvider do
   in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Servicesservice,
+  Web Services service,
   Amazon Simple Notification Service might place your account in the SMS sandbox.
   In *
   [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html)
@@ -7651,7 +8379,7 @@ defmodule AWS.CognitoIdentityProvider do
   in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Servicesservice,
+  Web Services service,
   Amazon Simple Notification Service might place your account in the SMS sandbox.
   In *
   [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html)
@@ -7808,7 +8536,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Sets the user pool multi-factor authentication (MFA) configuration.
+  Sets the user pool multi-factor authentication (MFA) and passkey configuration.
 
   This action might generate an SMS text message. Starting June 1, 2021, US
   telecom carriers
@@ -7824,7 +8552,7 @@ defmodule AWS.CognitoIdentityProvider do
   in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Servicesservice,
+  Web Services service,
   Amazon Simple Notification Service might place your account in the SMS sandbox.
   In *
   [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html)
@@ -7904,7 +8632,7 @@ defmodule AWS.CognitoIdentityProvider do
   in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Servicesservice,
+  Web Services service,
   Amazon Simple Notification Service might place your account in the SMS sandbox.
   In *
   [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html)
@@ -7915,6 +8643,19 @@ defmodule AWS.CognitoIdentityProvider do
   pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html)
   in the *Amazon Cognito
   Developer Guide*.
+
+  You might receive a `LimitExceeded` exception in response to this request
+  if you have exceeded a rate quota for email or SMS messages, and if your user
+  pool
+  automatically verifies email addresses or phone numbers. When you get this
+  exception in
+  the response, the user is successfully created and is in an `UNCONFIRMED`
+  state. You can send a new code with the [
+  ResendConfirmationCode](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ResendConfirmationCode.html)
+  request, or confirm the user as an administrator
+  with an [
+  AdminConfirmSignUp](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminConfirmSignUp.html)
+  request.
   """
   @spec sign_up(map(), sign_up_request(), list()) ::
           {:ok, sign_up_response(), any()}
@@ -7937,6 +8678,35 @@ defmodule AWS.CognitoIdentityProvider do
     meta = metadata()
 
     Request.request_post(client, meta, "StartUserImportJob", input, options)
+  end
+
+  @doc """
+  Requests credential creation options from your user pool for registration of a
+  passkey
+  authenticator.
+
+  Returns information about the user pool, the user profile, and
+  authentication requirements. Users must provide this information in their
+  request to
+  enroll your application with their passkey provider.
+
+  After users present this data and register with their passkey provider, return
+  the
+  response to your user pool in a [
+  CompleteWebAuthnRegistration](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CompleteWebAuthnRegistration.html)
+  API request.
+
+  Authorize this action with a signed-in user's access token. It must include the
+  scope `aws.cognito.signin.user.admin`.
+  """
+  @spec start_web_authn_registration(map(), start_web_authn_registration_request(), list()) ::
+          {:ok, start_web_authn_registration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_web_authn_registration_errors()}
+  def start_web_authn_registration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartWebAuthnRegistration", input, options)
   end
 
   @doc """
@@ -8116,6 +8886,52 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+  Configures the branding settings for a user pool style.
+
+  This operation is the
+  programmatic option for the configuration of a style in the branding designer.
+
+  Provides values for UI customization in a `Settings` JSON object and image
+  files in an `Assets` array.
+
+  This operation has a 2-megabyte request-size limit and include the CSS settings
+  and
+  image assets for your app client. Your branding settings might exceed 2MB in
+  size. Amazon Cognito
+  doesn't require that you pass all parameters in one request and preserves
+  existing
+  style settings that you don't specify. If your request is larger than 2MB,
+  separate it
+  into multiple requests, each with a size smaller than the limit.
+
+  For more information, see [API and SDK operations for managed login branding](https://docs.aws.amazon.com/cognito/latest/developerguide/managed-login-brandingdesigner.html#branding-designer-api).
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For
+  this operation, you must use IAM credentials to authorize requests, and you must
+  grant yourself the corresponding IAM permission in a policy.
+
+  ## Learn more
+
+    
+
+  [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+    
+
+  [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
+  """
+  @spec update_managed_login_branding(map(), update_managed_login_branding_request(), list()) ::
+          {:ok, update_managed_login_branding_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_managed_login_branding_errors()}
+  def update_managed_login_branding(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateManagedLoginBranding", input, options)
+  end
+
+  @doc """
   Updates the name and scopes of resource server.
 
   All other fields are read-only.
@@ -8184,7 +9000,7 @@ defmodule AWS.CognitoIdentityProvider do
   in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Servicesservice,
+  Web Services service,
   Amazon Simple Notification Service might place your account in the SMS sandbox.
   In *
   [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html)
@@ -8223,7 +9039,7 @@ defmodule AWS.CognitoIdentityProvider do
   in.
 
   If you have never used SMS text messages with Amazon Cognito or any other Amazon
-  Web Servicesservice,
+  Web Services service,
   Amazon Simple Notification Service might place your account in the SMS sandbox.
   In *
   [sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html)

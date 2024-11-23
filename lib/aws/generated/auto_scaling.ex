@@ -814,6 +814,7 @@ defmodule AWS.AutoScaling do
         "MetricName" => String.t(),
         "Metrics" => list(target_tracking_metric_data_query()()),
         "Namespace" => String.t(),
+        "Period" => integer(),
         "Statistic" => list(any()),
         "Unit" => String.t()
       }
@@ -1240,6 +1241,7 @@ defmodule AWS.AutoScaling do
       
       target_tracking_metric_stat() :: %{
         "Metric" => metric(),
+        "Period" => integer(),
         "Stat" => String.t(),
         "Unit" => String.t()
       }
@@ -2383,6 +2385,7 @@ defmodule AWS.AutoScaling do
         "Id" => String.t(),
         "Label" => String.t(),
         "MetricStat" => target_tracking_metric_stat(),
+        "Period" => integer(),
         "ReturnData" => boolean()
       }
       

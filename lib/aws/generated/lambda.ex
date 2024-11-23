@@ -233,6 +233,7 @@ defmodule AWS.Lambda do
         optional("MaximumRetryAttempts") => integer(),
         optional("MetricsConfig") => event_source_mapping_metrics_config(),
         optional("ParallelizationFactor") => integer(),
+        optional("ProvisionedPollerConfig") => provisioned_poller_config(),
         optional("ScalingConfig") => scaling_config(),
         optional("SourceAccessConfigurations") => list(source_access_configuration()()),
         optional("TumblingWindowInSeconds") => integer()
@@ -1286,6 +1287,7 @@ defmodule AWS.Lambda do
         "MaximumRetryAttempts" => integer(),
         "MetricsConfig" => event_source_mapping_metrics_config(),
         "ParallelizationFactor" => integer(),
+        "ProvisionedPollerConfig" => provisioned_poller_config(),
         "Queues" => list(String.t()()),
         "ScalingConfig" => scaling_config(),
         "SelfManagedEventSource" => self_managed_event_source(),
@@ -1307,6 +1309,18 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      provisioned_poller_config() :: %{
+        "MaximumPollers" => integer(),
+        "MinimumPollers" => integer()
+      }
+
+  """
+  @type provisioned_poller_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_event_source_mapping_request() :: %{
         optional("AmazonManagedKafkaEventSourceConfig") => amazon_managed_kafka_event_source_config(),
         optional("BatchSize") => integer(),
@@ -1323,6 +1337,7 @@ defmodule AWS.Lambda do
         optional("MaximumRetryAttempts") => integer(),
         optional("MetricsConfig") => event_source_mapping_metrics_config(),
         optional("ParallelizationFactor") => integer(),
+        optional("ProvisionedPollerConfig") => provisioned_poller_config(),
         optional("Queues") => list(String.t()()),
         optional("ScalingConfig") => scaling_config(),
         optional("SelfManagedEventSource") => self_managed_event_source(),

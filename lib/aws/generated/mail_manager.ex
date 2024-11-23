@@ -1359,6 +1359,20 @@ defmodule AWS.MailManager do
 
   ## Example:
       
+      deliver_to_q_business_action() :: %{
+        "ActionFailurePolicy" => list(any()),
+        "ApplicationId" => String.t(),
+        "IndexId" => String.t(),
+        "RoleArn" => String.t()
+      }
+      
+  """
+  @type deliver_to_q_business_action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       addon_subscription() :: %{
         "AddonName" => String.t(),
         "AddonSubscriptionArn" => String.t(),

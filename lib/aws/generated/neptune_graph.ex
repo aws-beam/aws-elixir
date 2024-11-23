@@ -38,6 +38,7 @@ defmodule AWS.NeptuneGraph do
         optional("kmsKeyIdentifier") => String.t(),
         optional("maxProvisionedMemory") => integer(),
         optional("minProvisionedMemory") => integer(),
+        optional("parquetType") => list(any()),
         optional("publicConnectivity") => [boolean()],
         optional("replicaCount") => integer(),
         optional("tags") => map(),
@@ -58,6 +59,19 @@ defmodule AWS.NeptuneGraph do
 
   """
   @type delete_private_graph_endpoint_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      export_filter_property_attributes() :: %{
+        "multiValueHandling" => list(any()),
+        "outputType" => String.t(),
+        "sourcePropertyName" => String.t()
+      }
+
+  """
+  @type export_filter_property_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -103,10 +117,26 @@ defmodule AWS.NeptuneGraph do
 
   ## Example:
 
+      export_task_details() :: %{
+        "numEdgesWritten" => [float()],
+        "numVerticesWritten" => [float()],
+        "progressPercentage" => [integer()],
+        "startTime" => [non_neg_integer()],
+        "timeElapsedSeconds" => [float()]
+      }
+
+  """
+  @type export_task_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_graph_using_import_task_output() :: %{
         "format" => list(any()),
         "graphId" => String.t(),
         "importOptions" => list(),
+        "parquetType" => list(any()),
         "roleArn" => String.t(),
         "source" => [String.t()],
         "status" => list(any()),
@@ -145,11 +175,30 @@ defmodule AWS.NeptuneGraph do
 
   ## Example:
 
+      start_export_task_input() :: %{
+        optional("exportFilter") => export_filter(),
+        optional("parquetType") => list(any()),
+        optional("tags") => map(),
+        required("destination") => [String.t()],
+        required("format") => list(any()),
+        required("graphIdentifier") => String.t(),
+        required("kmsKeyIdentifier") => String.t(),
+        required("roleArn") => String.t()
+      }
+
+  """
+  @type start_export_task_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_import_task_input() :: %{
         optional("blankNodeHandling") => list(any()),
         optional("failOnError") => [boolean()],
         optional("format") => list(any()),
         optional("importOptions") => list(),
+        optional("parquetType") => list(any()),
         required("roleArn") => String.t(),
         required("source") => [String.t()]
       }
@@ -167,6 +216,7 @@ defmodule AWS.NeptuneGraph do
         "graphId" => String.t(),
         "importOptions" => list(),
         "importTaskDetails" => import_task_details(),
+        "parquetType" => list(any()),
         "roleArn" => String.t(),
         "source" => [String.t()],
         "status" => list(any()),
@@ -195,9 +245,33 @@ defmodule AWS.NeptuneGraph do
 
   ## Example:
 
+      export_filter_element() :: %{
+        "properties" => map()
+      }
+
+  """
+  @type export_filter_element() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_filter() :: %{
+        "edgeFilter" => map(),
+        "vertexFilter" => map()
+      }
+
+  """
+  @type export_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cancel_import_task_output() :: %{
         "format" => list(any()),
         "graphId" => String.t(),
+        "parquetType" => list(any()),
         "roleArn" => String.t(),
         "source" => [String.t()],
         "status" => list(any()),
@@ -218,6 +292,18 @@ defmodule AWS.NeptuneGraph do
 
   """
   @type unprocessable_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_export_tasks_output() :: %{
+        "nextToken" => String.t(),
+        "tasks" => list(export_task_summary()())
+      }
+
+  """
+  @type list_export_tasks_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -289,6 +375,25 @@ defmodule AWS.NeptuneGraph do
 
   ## Example:
 
+      cancel_export_task_output() :: %{
+        "destination" => [String.t()],
+        "format" => list(any()),
+        "graphId" => String.t(),
+        "kmsKeyIdentifier" => String.t(),
+        "parquetType" => list(any()),
+        "roleArn" => String.t(),
+        "status" => list(any()),
+        "statusReason" => [String.t()],
+        "taskId" => String.t()
+      }
+
+  """
+  @type cancel_export_task_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       vector_search_configuration() :: %{
         "dimension" => integer()
       }
@@ -311,6 +416,25 @@ defmodule AWS.NeptuneGraph do
 
   """
   @type restore_graph_from_snapshot_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_task_summary() :: %{
+        "destination" => [String.t()],
+        "format" => list(any()),
+        "graphId" => String.t(),
+        "kmsKeyIdentifier" => String.t(),
+        "parquetType" => list(any()),
+        "roleArn" => String.t(),
+        "status" => list(any()),
+        "statusReason" => [String.t()],
+        "taskId" => String.t()
+      }
+
+  """
+  @type export_task_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -460,6 +584,15 @@ defmodule AWS.NeptuneGraph do
 
   ## Example:
 
+      cancel_export_task_input() :: %{}
+
+  """
+  @type cancel_export_task_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       service_quota_exceeded_exception() :: %{
         "message" => [String.t()],
         "quotaCode" => [String.t()],
@@ -504,6 +637,26 @@ defmodule AWS.NeptuneGraph do
 
   """
   @type restore_graph_from_snapshot_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_export_task_output() :: %{
+        "destination" => [String.t()],
+        "exportFilter" => export_filter(),
+        "format" => list(any()),
+        "graphId" => String.t(),
+        "kmsKeyIdentifier" => String.t(),
+        "parquetType" => list(any()),
+        "roleArn" => String.t(),
+        "status" => list(any()),
+        "statusReason" => [String.t()],
+        "taskId" => String.t()
+      }
+
+  """
+  @type start_export_task_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -558,6 +711,18 @@ defmodule AWS.NeptuneGraph do
 
   ## Example:
 
+      list_export_tasks_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_export_tasks_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_input() :: %{
         required("tags") => map()
       }
@@ -572,6 +737,7 @@ defmodule AWS.NeptuneGraph do
       import_task_summary() :: %{
         "format" => list(any()),
         "graphId" => String.t(),
+        "parquetType" => list(any()),
         "roleArn" => String.t(),
         "source" => [String.t()],
         "status" => list(any()),
@@ -779,6 +945,15 @@ defmodule AWS.NeptuneGraph do
 
   ## Example:
 
+      get_export_task_input() :: %{}
+
+  """
+  @type get_export_task_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       untag_resource_input() :: %{
         required("tagKeys") => list(String.t()())
       }
@@ -837,6 +1012,7 @@ defmodule AWS.NeptuneGraph do
         "format" => list(any()),
         "graphId" => String.t(),
         "importOptions" => list(),
+        "parquetType" => list(any()),
         "roleArn" => String.t(),
         "source" => [String.t()],
         "status" => list(any()),
@@ -1057,6 +1233,27 @@ defmodule AWS.NeptuneGraph do
 
   ## Example:
 
+      get_export_task_output() :: %{
+        "destination" => [String.t()],
+        "exportFilter" => export_filter(),
+        "exportTaskDetails" => export_task_details(),
+        "format" => list(any()),
+        "graphId" => String.t(),
+        "kmsKeyIdentifier" => String.t(),
+        "parquetType" => list(any()),
+        "roleArn" => String.t(),
+        "status" => list(any()),
+        "statusReason" => [String.t()],
+        "taskId" => String.t()
+      }
+
+  """
+  @type get_export_task_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_import_tasks_input() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
@@ -1064,6 +1261,13 @@ defmodule AWS.NeptuneGraph do
 
   """
   @type list_import_tasks_input() :: %{String.t() => any()}
+
+  @type cancel_export_task_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type cancel_import_task_errors() ::
           throttling_exception()
@@ -1138,6 +1342,12 @@ defmodule AWS.NeptuneGraph do
           | conflict_exception()
           | unprocessable_exception()
 
+  @type get_export_task_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_graph_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1173,6 +1383,12 @@ defmodule AWS.NeptuneGraph do
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_export_tasks_errors() ::
+          throttling_exception()
+          | validation_exception()
           | internal_server_exception()
           | resource_not_found_exception()
 
@@ -1224,6 +1440,13 @@ defmodule AWS.NeptuneGraph do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type start_export_task_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type start_import_task_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1264,6 +1487,34 @@ defmodule AWS.NeptuneGraph do
       signing_name: "neptune-graph",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Cancel the specified export task.
+  """
+  @spec cancel_export_task(map(), String.t(), cancel_export_task_input(), list()) ::
+          {:ok, cancel_export_task_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, cancel_export_task_errors()}
+  def cancel_export_task(%Client{} = client, task_identifier, input, options \\ []) do
+    url_path = "/exporttasks/#{AWS.Util.encode_uri(task_identifier)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1611,6 +1862,23 @@ defmodule AWS.NeptuneGraph do
   end
 
   @doc """
+  Retrieves a specified export task.
+  """
+  @spec get_export_task(map(), String.t(), list()) ::
+          {:ok, get_export_task_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_export_task_errors()}
+  def get_export_task(%Client{} = client, task_identifier, options \\ []) do
+    url_path = "/exporttasks/#{AWS.Util.encode_uri(task_identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets information about a specified graph.
   """
   @spec get_graph(map(), String.t(), list()) ::
@@ -1737,6 +2005,37 @@ defmodule AWS.NeptuneGraph do
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "{graphIdentifier}.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves a list of export tasks.
+  """
+  @spec list_export_tasks(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_export_tasks_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_export_tasks_errors()}
+  def list_export_tasks(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/exporttasks"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1988,6 +2287,36 @@ defmodule AWS.NeptuneGraph do
           | {:error, restore_graph_from_snapshot_errors()}
   def restore_graph_from_snapshot(%Client{} = client, snapshot_identifier, input, options \\ []) do
     url_path = "/snapshots/#{AWS.Util.encode_uri(snapshot_identifier)}/restore"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Export data from an existing Neptune Analytics graph to Amazon S3.
+
+  The graph state should be `AVAILABLE`.
+  """
+  @spec start_export_task(map(), start_export_task_input(), list()) ::
+          {:ok, start_export_task_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_export_task_errors()}
+  def start_export_task(%Client{} = client, input, options \\ []) do
+    url_path = "/exporttasks"
     headers = []
     custom_headers = []
     query_params = []

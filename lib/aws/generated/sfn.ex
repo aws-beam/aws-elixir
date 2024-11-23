@@ -767,7 +767,8 @@ defmodule AWS.SFN do
         "roleArn" => String.t(),
         "stateMachineArn" => String.t(),
         "tracingConfiguration" => tracing_configuration(),
-        "updateDate" => non_neg_integer()
+        "updateDate" => non_neg_integer(),
+        "variableReferences" => map()
       }
       
   """
@@ -919,6 +920,7 @@ defmodule AWS.SFN do
   ## Example:
       
       inspection_data() :: %{
+        "afterArguments" => String.t(),
         "afterInputPath" => String.t(),
         "afterParameters" => String.t(),
         "afterResultPath" => String.t(),
@@ -926,7 +928,8 @@ defmodule AWS.SFN do
         "input" => String.t(),
         "request" => inspection_data_request(),
         "response" => inspection_data_response(),
-        "result" => String.t()
+        "result" => String.t(),
+        "variables" => String.t()
       }
       
   """
@@ -1007,6 +1010,8 @@ defmodule AWS.SFN do
   ## Example:
       
       state_exited_event_details() :: %{
+        "assignedVariables" => map(),
+        "assignedVariablesDetails" => assigned_variables_details(),
         "name" => String.t(),
         "output" => String.t(),
         "outputDetails" => history_event_execution_data_details()
@@ -1279,6 +1284,7 @@ defmodule AWS.SFN do
       
       history_event() :: %{
         "executionRedrivenEventDetails" => execution_redriven_event_details(),
+        "evaluationFailedEventDetails" => evaluation_failed_event_details(),
         "mapIterationFailedEventDetails" => map_iteration_event_details(),
         "mapRunRedrivenEventDetails" => map_run_redriven_event_details(),
         "taskSucceededEventDetails" => task_succeeded_event_details(),
@@ -1450,6 +1456,20 @@ defmodule AWS.SFN do
 
   ## Example:
       
+      evaluation_failed_event_details() :: %{
+        "cause" => String.t(),
+        "error" => String.t(),
+        "location" => String.t(),
+        "state" => String.t()
+      }
+      
+  """
+  @type evaluation_failed_event_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       state_machine_does_not_exist() :: %{
         "message" => String.t()
       }
@@ -1576,6 +1596,17 @@ defmodule AWS.SFN do
       
   """
   @type create_activity_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      assigned_variables_details() :: %{
+        "truncated" => boolean()
+      }
+      
+  """
+  @type assigned_variables_details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1851,8 +1882,9 @@ defmodule AWS.SFN do
         optional("input") => String.t(),
         optional("inspectionLevel") => list(any()),
         optional("revealSecrets") => boolean(),
-        required("definition") => String.t(),
-        required("roleArn") => String.t()
+        optional("roleArn") => String.t(),
+        optional("variables") => String.t(),
+        required("definition") => String.t()
       }
       
   """
@@ -2149,7 +2181,8 @@ defmodule AWS.SFN do
         "stateMachineArn" => String.t(),
         "status" => list(any()),
         "tracingConfiguration" => tracing_configuration(),
-        "type" => list(any())
+        "type" => list(any()),
+        "variableReferences" => map()
       }
       
   """
@@ -3606,30 +3639,47 @@ defmodule AWS.SFN do
   end
 
   @doc """
-  Validates the syntax of a state machine definition.
+  Validates the syntax of a state machine definition specified in [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html)
+  (ASL), a
+  JSON-based, structured language.
 
-  You can validate that a state machine definition is correct without
-  creating a state machine resource. Step Functions will implicitly perform the
-  same
-  syntax check when you invoke `CreateStateMachine` and
-  `UpdateStateMachine`. State machine definitions are specified using a
-  JSON-based, structured language. For more information on Amazon States Language
-  see [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html)
-  (ASL).
+  You can validate that a state machine definition is correct without creating a
+  state
+  machine resource.
 
   Suggested uses for `ValidateStateMachineDefinition`:
 
     *
   Integrate automated checks into your code review or Continuous Integration
-  (CI) process to validate state machine definitions before starting
+  (CI) process to check state machine definitions before starting
   deployments.
 
     *
-  Run the validation from a Git pre-commit hook to check your state machine
-  definitions before committing them to your source repository.
+  Run validation from a Git pre-commit hook to verify the definition before
+  committing to your source repository.
 
-  Errors found in the state machine definition will be returned in the response as
-  a list of **diagnostic elements**, rather than raise an exception.
+  Validation will look for problems in your state machine definition and return a
+  **result** and a list of **diagnostic
+  elements**.
+
+  The **result** value will be `OK` when your
+  workflow definition can be successfully created or updated. Note the result can
+  be
+  `OK` even when diagnostic warnings are present in the response. The
+  **result** value will be `FAIL` when the
+  workflow definition contains errors that would prevent you from creating or
+  updating
+  your state machine.
+
+  The list of
+  [ValidateStateMachineDefinitionDiagnostic](https://docs.aws.amazon.com/step-functions/latest/apireference/API_ValidateStateMachineDefinitionDiagnostic.html)
+  data elements can contain zero or more **WARNING** and/or **ERROR** elements.
+
+  The **ValidateStateMachineDefinition API** might add
+  new diagnostics in the future, adjust diagnostic codes, or change the message
+  wording. Your automated processes should only rely on the value of the
+  **result** field value (OK, FAIL). Do **not** rely on the exact order, count, or
+  wording of diagnostic messages.
   """
   @spec validate_state_machine_definition(
           map(),

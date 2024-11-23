@@ -2474,7 +2474,9 @@ defmodule AWS.EMR do
   ## Example:
       
       managed_scaling_policy() :: %{
-        "ComputeLimits" => compute_limits()
+        "ComputeLimits" => compute_limits(),
+        "ScalingStrategy" => list(any()),
+        "UtilizationPerformanceIndex" => integer()
       }
       
   """

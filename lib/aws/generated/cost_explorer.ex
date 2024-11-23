@@ -1228,6 +1228,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       root_cause() :: %{
+        "Impact" => root_cause_impact(),
         "LinkedAccount" => String.t(),
         "LinkedAccountName" => String.t(),
         "Region" => String.t(),
@@ -2081,6 +2082,17 @@ defmodule AWS.CostExplorer do
       
   """
   @type redshift_instance_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      root_cause_impact() :: %{
+        "Contribution" => float()
+      }
+      
+  """
+  @type root_cause_impact() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3579,8 +3591,7 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
-  Lists the commitment purchase analyses for your account based on the last 30
-  days.
+  Lists the commitment purchase analyses for your account.
   """
   @spec list_commitment_purchase_analyses(
           map(),
@@ -3717,8 +3728,7 @@ defmodule AWS.CostExplorer do
   analysis.
 
   This enables you to estimate the cost, coverage, and utilization impact of your
-  planned commitment purchases. You can request up to 20 analysis runs per
-  day.
+  planned commitment purchases.
   """
   @spec start_commitment_purchase_analysis(
           map(),

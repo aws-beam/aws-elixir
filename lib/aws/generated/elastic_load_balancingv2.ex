@@ -493,6 +493,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       mutual_authentication_attributes() :: %{
+        "AdvertiseTrustStoreCaNames" => list(any()),
         "IgnoreClientCertificateExpiry" => boolean(),
         "Mode" => String.t(),
         "TrustStoreArn" => String.t(),

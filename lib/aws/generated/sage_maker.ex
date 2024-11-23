@@ -397,12 +397,12 @@ defmodule AWS.SageMaker do
   ## Example:
       
       create_inference_component_input() :: %{
+        optional("RuntimeConfig") => inference_component_runtime_config(),
         optional("Tags") => list(tag()()),
+        optional("VariantName") => String.t(),
         required("EndpointName") => String.t(),
         required("InferenceComponentName") => String.t(),
-        required("RuntimeConfig") => inference_component_runtime_config(),
-        required("Specification") => inference_component_specification(),
-        required("VariantName") => String.t()
+        required("Specification") => inference_component_specification()
       }
       
   """
@@ -2098,6 +2098,18 @@ defmodule AWS.SageMaker do
       
   """
   @type derived_information() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      model_sharding_config() :: %{
+        "Image" => String.t(),
+        "OverrideEnvironment" => map()
+      }
+      
+  """
+  @type model_sharding_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -10290,6 +10302,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       inference_component_specification_summary() :: %{
+        "BaseInferenceComponentName" => String.t(),
         "ComputeResourceRequirements" => inference_component_compute_resource_requirements(),
         "Container" => inference_component_container_specification_summary(),
         "ModelName" => String.t(),
@@ -14289,6 +14302,7 @@ defmodule AWS.SageMaker do
         "InstanceType" => list(any()),
         "LifeCycleConfig" => cluster_life_cycle_config(),
         "OnStartDeepHealthChecks" => list(list(any())()),
+        "OverrideVpcConfig" => vpc_config(),
         "ThreadsPerCore" => integer()
       }
       
@@ -15743,6 +15757,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       inference_component_specification() :: %{
+        "BaseInferenceComponentName" => String.t(),
         "ComputeResourceRequirements" => inference_component_compute_resource_requirements(),
         "Container" => inference_component_container_specification(),
         "ModelName" => String.t(),
@@ -16470,6 +16485,7 @@ defmodule AWS.SageMaker do
         "InstanceType" => list(any()),
         "LifeCycleConfig" => cluster_life_cycle_config(),
         "OnStartDeepHealthChecks" => list(list(any())()),
+        "OverrideVpcConfig" => vpc_config(),
         "TargetCount" => integer(),
         "ThreadsPerCore" => integer()
       }
@@ -16789,6 +16805,7 @@ defmodule AWS.SageMaker do
         "InstanceType" => list(any()),
         "LaunchTime" => non_neg_integer(),
         "LifeCycleConfig" => cluster_life_cycle_config(),
+        "OverrideVpcConfig" => vpc_config(),
         "Placement" => cluster_instance_placement(),
         "PrivateDnsHostname" => String.t(),
         "PrivatePrimaryIp" => String.t(),

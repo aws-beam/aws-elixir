@@ -1399,6 +1399,7 @@ defmodule AWS.S3 do
         optional("ContentDisposition") => String.t(),
         optional("ChecksumSHA1") => String.t(),
         optional("ContentLanguage") => String.t(),
+        optional("IfMatch") => String.t(),
         optional("GrantReadACP") => String.t(),
         optional("ChecksumAlgorithm") => list(any()),
         optional("ServerSideEncryption") => list(any()),
@@ -3977,6 +3978,7 @@ defmodule AWS.S3 do
         optional("ChecksumSHA1") => String.t(),
         optional("ChecksumSHA256") => String.t(),
         optional("ExpectedBucketOwner") => String.t(),
+        optional("IfMatch") => String.t(),
         optional("IfNoneMatch") => String.t(),
         optional("MultipartUpload") => completed_multipart_upload(),
         optional("RequestPayer") => list(any()),
@@ -4638,6 +4640,7 @@ defmodule AWS.S3 do
         {"ChecksumSHA1", "x-amz-checksum-sha1"},
         {"ChecksumSHA256", "x-amz-checksum-sha256"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"IfMatch", "If-Match"},
         {"IfNoneMatch", "If-None-Match"},
         {"RequestPayer", "x-amz-request-payer"},
         {"SSECustomerAlgorithm", "x-amz-server-side-encryption-customer-algorithm"},
@@ -13886,7 +13889,10 @@ defmodule AWS.S3 do
   This operation is not supported for directory buckets.
 
   When you enable versioning on a bucket for the first time, it might take a short
-  amount of time for the change to be fully propagated. We recommend that you wait
+  amount of time for the change to be fully propagated. While this change is
+  propagating,
+  you may encounter intermittent `HTTP 404 NoSuchKey` errors for requests to
+  objects created or updated after enabling versioning. We recommend that you wait
   for 15
   minutes after enabling versioning before issuing write operations (`PUT` or
   `DELETE`) on objects in the bucket.
@@ -14314,6 +14320,7 @@ defmodule AWS.S3 do
         {"SSECustomerAlgorithm", "x-amz-server-side-encryption-customer-algorithm"},
         {"ContentEncoding", "Content-Encoding"},
         {"ChecksumSHA256", "x-amz-checksum-sha256"},
+        {"IfMatch", "If-Match"},
         {"WriteOffsetBytes", "x-amz-write-offset-bytes"},
         {"Expires", "Expires"},
         {"ContentMD5", "Content-MD5"},

@@ -274,6 +274,19 @@ defmodule AWS.DirectConnect do
 
   ## Example:
       
+      associated_core_network() :: %{
+        "attachmentId" => String.t(),
+        "id" => String.t(),
+        "ownerAccount" => String.t()
+      }
+      
+  """
+  @type associated_core_network() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_interconnect_request() :: %{
         optional("lagId") => String.t(),
         optional("providerName") => String.t(),
@@ -490,6 +503,7 @@ defmodule AWS.DirectConnect do
       
       direct_connect_gateway_association() :: %{
         "allowedPrefixesToDirectConnectGateway" => list(route_filter_prefix()()),
+        "associatedCoreNetwork" => associated_core_network(),
         "associatedGateway" => associated_gateway(),
         "associationId" => String.t(),
         "associationState" => list(any()),

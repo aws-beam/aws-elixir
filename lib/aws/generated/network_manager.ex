@@ -719,6 +719,7 @@ defmodule AWS.NetworkManager do
         "CoreNetworkId" => String.t(),
         "CreatedAt" => non_neg_integer(),
         "EdgeLocation" => String.t(),
+        "EdgeLocations" => list(String.t()()),
         "LastModificationErrors" => list(attachment_error()()),
         "NetworkFunctionGroupName" => String.t(),
         "OwnerAccountId" => String.t(),
@@ -744,6 +745,15 @@ defmodule AWS.NetworkManager do
 
   """
   @type delete_site_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_direct_connect_gateway_attachment_request() :: %{}
+
+  """
+  @type get_direct_connect_gateway_attachment_request() :: %{}
 
   @typedoc """
 
@@ -1034,12 +1044,38 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
+      get_direct_connect_gateway_attachment_response() :: %{
+        "DirectConnectGatewayAttachment" => direct_connect_gateway_attachment()
+      }
+
+  """
+  @type get_direct_connect_gateway_attachment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_route_analysis_response() :: %{
         "RouteAnalysis" => route_analysis()
       }
 
   """
   @type start_route_analysis_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_direct_connect_gateway_attachment_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("CoreNetworkId") => String.t(),
+        required("DirectConnectGatewayArn") => String.t(),
+        required("EdgeLocations") => list(String.t()())
+      }
+
+  """
+  @type create_direct_connect_gateway_attachment_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1847,6 +1883,17 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
+      update_direct_connect_gateway_attachment_response() :: %{
+        "DirectConnectGatewayAttachment" => direct_connect_gateway_attachment()
+      }
+
+  """
+  @type update_direct_connect_gateway_attachment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception_field() :: %{
         "Message" => String.t(),
         "Name" => String.t()
@@ -2032,6 +2079,17 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
+      create_direct_connect_gateway_attachment_response() :: %{
+        "DirectConnectGatewayAttachment" => direct_connect_gateway_attachment()
+      }
+
+  """
+  @type create_direct_connect_gateway_attachment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_vpc_attachment_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Options") => vpc_options(),
@@ -2177,6 +2235,17 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
+      update_direct_connect_gateway_attachment_request() :: %{
+        optional("EdgeLocations") => list(String.t()())
+      }
+
+  """
+  @type update_direct_connect_gateway_attachment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_peering_response() :: %{
         "Peering" => peering()
       }
@@ -2205,6 +2274,18 @@ defmodule AWS.NetworkManager do
 
   """
   @type put_resource_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      direct_connect_gateway_attachment() :: %{
+        "Attachment" => attachment(),
+        "DirectConnectGatewayArn" => String.t()
+      }
+
+  """
+  @type direct_connect_gateway_attachment() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3257,6 +3338,14 @@ defmodule AWS.NetworkManager do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type create_direct_connect_gateway_attachment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type create_global_network_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3529,6 +3618,13 @@ defmodule AWS.NetworkManager do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_direct_connect_gateway_attachment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_link_associations_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3769,6 +3865,14 @@ defmodule AWS.NetworkManager do
           | conflict_exception()
 
   @type update_device_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_direct_connect_gateway_attachment_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -4179,6 +4283,38 @@ defmodule AWS.NetworkManager do
           | {:error, create_device_errors()}
   def create_device(%Client{} = client, global_network_id, input, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/devices"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates an Amazon Web Services Direct Connect gateway attachment
+  """
+  @spec create_direct_connect_gateway_attachment(
+          map(),
+          create_direct_connect_gateway_attachment_request(),
+          list()
+        ) ::
+          {:ok, create_direct_connect_gateway_attachment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_direct_connect_gateway_attachment_errors()}
+  def create_direct_connect_gateway_attachment(%Client{} = client, input, options \\ []) do
+    url_path = "/direct-connect-gateway-attachments"
     headers = []
     custom_headers = []
     query_params = []
@@ -5479,6 +5615,24 @@ defmodule AWS.NetworkManager do
       else
         query_params
       end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns information about a specific Amazon Web Services Direct Connect gateway
+  attachment.
+  """
+  @spec get_direct_connect_gateway_attachment(map(), String.t(), list()) ::
+          {:ok, get_direct_connect_gateway_attachment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_direct_connect_gateway_attachment_errors()}
+  def get_direct_connect_gateway_attachment(%Client{} = client, attachment_id, options \\ []) do
+    url_path = "/direct-connect-gateway-attachments/#{AWS.Util.encode_uri(attachment_id)}"
+    headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -6987,6 +7141,45 @@ defmodule AWS.NetworkManager do
     url_path =
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/devices/#{AWS.Util.encode_uri(device_id)}"
 
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the edge locations associated with an Amazon Web Services Direct Connect
+  gateway attachment.
+  """
+  @spec update_direct_connect_gateway_attachment(
+          map(),
+          String.t(),
+          update_direct_connect_gateway_attachment_request(),
+          list()
+        ) ::
+          {:ok, update_direct_connect_gateway_attachment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_direct_connect_gateway_attachment_errors()}
+  def update_direct_connect_gateway_attachment(
+        %Client{} = client,
+        attachment_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/direct-connect-gateway-attachments/#{AWS.Util.encode_uri(attachment_id)}"
     headers = []
     custom_headers = []
     query_params = []

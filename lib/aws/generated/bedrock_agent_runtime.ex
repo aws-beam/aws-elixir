@@ -84,6 +84,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      streaming_configurations() :: %{
+        "applyGuardrailInterval" => [integer()],
+        "streamFinalResponse" => [boolean()]
+      }
+
+  """
+  @type streaming_configurations() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       optimize_prompt_response() :: %{
         "optimizedPrompt" => list()
       }
@@ -1596,7 +1608,8 @@ defmodule AWS.BedrockAgentRuntime do
         optional("endSession") => [boolean()],
         optional("inputText") => String.t(),
         optional("memoryId") => String.t(),
-        optional("sessionState") => session_state()
+        optional("sessionState") => session_state(),
+        optional("streamingConfigurations") => streaming_configurations()
       }
 
   """
@@ -1627,6 +1640,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type request_body() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_orchestration_trace_event() :: %{
+        "text" => [String.t()]
+      }
+
+  """
+  @type custom_orchestration_trace_event() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1741,6 +1765,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type knowledge_base_lookup_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_orchestration_trace() :: %{
+        "event" => custom_orchestration_trace_event(),
+        "traceId" => String.t()
+      }
+
+  """
+  @type custom_orchestration_trace() :: %{String.t() => any()}
 
   @typedoc """
 

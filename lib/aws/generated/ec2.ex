@@ -3532,6 +3532,7 @@ defmodule AWS.EC2 do
         optional("NetworkLoadBalancerArns") => list(String.t()()),
         optional("PrivateDnsName") => String.t(),
         optional("SupportedIpAddressTypes") => list(String.t()()),
+        optional("SupportedRegions") => list(String.t()()),
         optional("TagSpecifications") => list(tag_specification()())
       }
       
@@ -3898,6 +3899,7 @@ defmodule AWS.EC2 do
         "ConnectionNotificationState" => list(any()),
         "ConnectionNotificationType" => list(any()),
         "ServiceId" => String.t(),
+        "ServiceRegion" => String.t(),
         "VpcEndpointId" => String.t()
       }
       
@@ -13077,12 +13079,14 @@ defmodule AWS.EC2 do
         optional("AddGatewayLoadBalancerArns") => list(String.t()()),
         optional("AddNetworkLoadBalancerArns") => list(String.t()()),
         optional("AddSupportedIpAddressTypes") => list(String.t()()),
+        optional("AddSupportedRegions") => list(String.t()()),
         optional("DryRun") => boolean(),
         optional("PrivateDnsName") => String.t(),
         optional("RemoveGatewayLoadBalancerArns") => list(String.t()()),
         optional("RemoveNetworkLoadBalancerArns") => list(String.t()()),
         optional("RemovePrivateDnsName") => boolean(),
         optional("RemoveSupportedIpAddressTypes") => list(String.t()()),
+        optional("RemoveSupportedRegions") => list(String.t()()),
         required("ServiceId") => String.t()
       }
       
@@ -14388,6 +14392,7 @@ defmodule AWS.EC2 do
         "RequesterManaged" => boolean(),
         "RouteTableIds" => list(String.t()()),
         "ServiceName" => String.t(),
+        "ServiceRegion" => String.t(),
         "State" => list(any()),
         "SubnetIds" => list(String.t()()),
         "Tags" => list(tag()()),
@@ -15962,6 +15967,7 @@ defmodule AWS.EC2 do
         "PrivateDnsNames" => list(private_dns_details()()),
         "ServiceId" => String.t(),
         "ServiceName" => String.t(),
+        "ServiceRegion" => String.t(),
         "ServiceType" => list(service_type_detail()()),
         "SupportedIpAddressTypes" => list(list(any())()),
         "Tags" => list(tag()()),
@@ -17401,6 +17407,7 @@ defmodule AWS.EC2 do
         optional("PrivateDnsEnabled") => boolean(),
         optional("RouteTableIds") => list(String.t()()),
         optional("SecurityGroupIds") => list(String.t()()),
+        optional("ServiceRegion") => String.t(),
         optional("SubnetConfigurations") => list(subnet_configuration()()),
         optional("SubnetIds") => list(String.t()()),
         optional("TagSpecifications") => list(tag_specification()()),
@@ -17563,6 +17570,7 @@ defmodule AWS.EC2 do
         "VpcEndpointConnectionId" => String.t(),
         "VpcEndpointId" => String.t(),
         "VpcEndpointOwner" => String.t(),
+        "VpcEndpointRegion" => String.t(),
         "VpcEndpointState" => list(any())
       }
       
@@ -18375,6 +18383,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       snapshot() :: %{
+        "CompletionDurationMinutes" => integer(),
+        "CompletionTime" => non_neg_integer(),
         "DataEncryptionKeyId" => String.t(),
         "Description" => String.t(),
         "Encrypted" => boolean(),
@@ -18391,6 +18401,7 @@ defmodule AWS.EC2 do
         "StateMessage" => String.t(),
         "StorageTier" => list(any()),
         "Tags" => list(tag()()),
+        "TransferType" => list(any()),
         "VolumeId" => String.t(),
         "VolumeSize" => integer()
       }
@@ -20465,6 +20476,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       copy_snapshot_request() :: %{
+        optional("CompletionDurationMinutes") => integer(),
         optional("Description") => String.t(),
         optional("DestinationOutpostArn") => String.t(),
         optional("DestinationRegion") => String.t(),
@@ -21016,7 +21028,8 @@ defmodule AWS.EC2 do
         optional("Filters") => list(filter()()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("ServiceNames") => list(String.t()())
+        optional("ServiceNames") => list(String.t()()),
+        optional("ServiceRegions") => list(String.t()())
       }
       
   """
@@ -26956,11 +26969,13 @@ defmodule AWS.EC2 do
         "PayerResponsibility" => list(any()),
         "PrivateDnsName" => String.t(),
         "PrivateDnsNameConfiguration" => private_dns_name_configuration(),
+        "RemoteAccessEnabled" => boolean(),
         "ServiceId" => String.t(),
         "ServiceName" => String.t(),
         "ServiceState" => list(any()),
         "ServiceType" => list(service_type_detail()()),
         "SupportedIpAddressTypes" => list(list(any())()),
+        "SupportedRegions" => list(supported_region_detail()()),
         "Tags" => list(tag()())
       }
       
@@ -27226,6 +27241,18 @@ defmodule AWS.EC2 do
       
   """
   @type disassociate_trunk_interface_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      supported_region_detail() :: %{
+        "Region" => String.t(),
+        "ServiceState" => String.t()
+      }
+      
+  """
+  @type supported_region_detail() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -40106,14 +40133,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Modifies the attributes of your VPC endpoint service configuration.
-
-  You can change the
-  Network Load Balancers or Gateway Load Balancers for your service, and you can
-  specify whether acceptance is
-  required for requests to connect to your endpoint service through an interface
-  VPC
-  endpoint.
+  Modifies the attributes of the specified VPC endpoint service configuration.
 
   If you set or modify the private DNS name, you must prove that you own the
   private DNS

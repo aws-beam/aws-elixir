@@ -2638,6 +2638,8 @@ defmodule AWS.Connect do
   ## Example:
 
       segment_attribute_value() :: %{
+        "ValueInteger" => integer(),
+        "ValueMap" => map(),
         "ValueString" => String.t()
       }
 
@@ -7745,7 +7747,6 @@ defmodule AWS.Connect do
         "Description" => String.t(),
         "FlowContentSha256" => String.t(),
         "Id" => String.t(),
-        "IsDefault" => boolean(),
         "LastModifiedRegion" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t(),
@@ -13367,6 +13368,9 @@ defmodule AWS.Connect do
     )
   end
 
+  @doc """
+  Creates a new contact.
+  """
   @spec create_contact(map(), create_contact_request(), list()) ::
           {:ok, create_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -13508,6 +13512,14 @@ defmodule AWS.Connect do
     )
   end
 
+  @doc """
+  Create new email address in the specified Amazon Connect instance.
+
+  For more information
+  about email addresses, see [Create email addresses](https://docs.aws.amazon.com/connect/latest/adminguide/create-email-address1.html)
+  in the
+  Amazon Connect Administrator Guide.
+  """
   @spec create_email_address(map(), String.t(), create_email_address_request(), list()) ::
           {:ok, create_email_address_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -14504,6 +14516,9 @@ defmodule AWS.Connect do
     )
   end
 
+  @doc """
+  Deletes email address from the specified Amazon Connect instance.
+  """
   @spec delete_email_address(
           map(),
           String.t(),
@@ -15430,8 +15445,7 @@ defmodule AWS.Connect do
   language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
 
   Use the `$SAVED` alias in the request to describe the `SAVED` content
-  of a Flow. For example, `arn:aws:.../contact-flow/{id}:$SAVED`. Once a contact
-  flow is
+  of a Flow. For example, `arn:aws:.../contact-flow/{id}:$SAVED`. After a flow is
   published, `$SAVED` needs to be supplied to view saved content that has not been
   published.
 
@@ -15460,8 +15474,7 @@ defmodule AWS.Connect do
   Describes the specified flow module.
 
   Use the `$SAVED` alias in the request to describe the `SAVED` content
-  of a Flow. For example, `arn:aws:.../contact-flow/{id}:$SAVED`. Once a contact
-  flow is
+  of a Flow. For example, `arn:aws:.../contact-flow/{id}:$SAVED`. After a flow is
   published, `$SAVED` needs to be supplied to view saved content that has not been
   published.
   """
@@ -15486,6 +15499,9 @@ defmodule AWS.Connect do
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
+  @doc """
+  Describe email address form the specified Amazon Connect instance.
+  """
   @spec describe_email_address(map(), String.t(), String.t(), list()) ::
           {:ok, describe_email_address_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -17109,6 +17125,11 @@ defmodule AWS.Connect do
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
+  @doc """
+  Provides information about contact tree, a list of associated contacts with a
+  unique
+  identifier.
+  """
   @spec list_associated_contacts(
           map(),
           String.t(),
@@ -19556,8 +19577,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Searches the contact flows in an Amazon Connect instance, with optional
-  filtering.
+  Searches the flows in an Amazon Connect instance, with optional filtering.
   """
   @spec search_contact_flows(map(), search_contact_flows_request(), list()) ::
           {:ok, search_contact_flows_response(), any()}
@@ -19612,6 +19632,9 @@ defmodule AWS.Connect do
     )
   end
 
+  @doc """
+  Searches email address in an instance, with optional filtering.
+  """
   @spec search_email_addresses(map(), search_email_addresses_request(), list()) ::
           {:ok, search_email_addresses_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -20018,6 +20041,16 @@ defmodule AWS.Connect do
     )
   end
 
+  @doc """
+  Send outbound email for outbound campaigns.
+
+  For more information about outbound campaigns,
+  see [Set up Amazon Connect outbound campaigns](https://docs.aws.amazon.com/connect/latest/adminguide/enable-outbound-campaigns.html).
+
+  Only the Amazon Connect outbound campaigns service principal is allowed to
+  assume a
+  role in your account and call this API.
+  """
   @spec send_outbound_email(map(), String.t(), send_outbound_email_request(), list()) ::
           {:ok, send_outbound_email_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -20046,7 +20079,9 @@ defmodule AWS.Connect do
   @doc """
   Provides a pre-signed Amazon S3 URL in response for uploading your content.
 
-  You may only use this API to upload attachments to an [Amazon Connect Case](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html).
+  You may only use this API to upload attachments to an [Amazon Connect Case](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html)
+  or
+  [Amazon Connect Email](https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html).
   """
   @spec start_attached_file_upload(
           map(),
@@ -20281,6 +20316,13 @@ defmodule AWS.Connect do
     )
   end
 
+  @doc """
+  Creates an inbound email contact and initiates a flow to start the email contact
+  for the
+  customer.
+
+  Response of this API provides the ContactId of the email contact created.
+  """
   @spec start_email_contact(map(), start_email_contact_request(), list()) ::
           {:ok, start_email_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -20363,6 +20405,11 @@ defmodule AWS.Connect do
     )
   end
 
+  @doc """
+  Initiates a flow to send an agent reply or outbound email contact (created from
+  the
+  CreateContact API) to a customer.
+  """
   @spec start_outbound_email_contact(map(), start_outbound_email_contact_request(), list()) ::
           {:ok, start_outbound_email_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -20846,9 +20893,9 @@ defmodule AWS.Connect do
 
   Some of the supported resource types are agents, routing profiles, queues, quick
   connects,
-  contact flows, agent statuses, hours of operation, phone numbers, security
-  profiles, and task
-  templates. For a complete list, see [Tagging resources in Amazon Connect](https://docs.aws.amazon.com/connect/latest/adminguide/tagging.html).
+  flows, agent statuses, hours of operation, phone numbers, security profiles, and
+  task templates.
+  For a complete list, see [Tagging resources in Amazon Connect](https://docs.aws.amazon.com/connect/latest/adminguide/tagging.html).
 
   For sample policies that use tags, see [Amazon Connect Identity-Based Policy
   Examples](https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html)
@@ -21231,8 +21278,7 @@ defmodule AWS.Connect do
   language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
 
   Use the `$SAVED` alias in the request to describe the `SAVED` content
-  of a Flow. For example, `arn:aws:.../contact-flow/{id}:$SAVED`. Once a contact
-  flow is
+  of a Flow. For example, `arn:aws:.../contact-flow/{id}:$SAVED`. After a flow is
   published, `$SAVED` needs to be supplied to view saved content that has not been
   published.
   """
@@ -21321,8 +21367,7 @@ defmodule AWS.Connect do
   Updates specified flow module for the specified Amazon Connect instance.
 
   Use the `$SAVED` alias in the request to describe the `SAVED` content
-  of a Flow. For example, `arn:aws:.../contact-flow/{id}:$SAVED`. Once a contact
-  flow is
+  of a Flow. For example, `arn:aws:.../contact-flow/{id}:$SAVED`. After a flow is
   published, `$SAVED` needs to be supplied to view saved content that has not been
   published.
   """
@@ -21541,6 +21586,12 @@ defmodule AWS.Connect do
     )
   end
 
+  @doc """
+  Updates an email address metadata.
+
+  For more information about email addresses, see [Create email addresses](https://docs.aws.amazon.com/connect/latest/adminguide/create-email-address1.html)
+  in the Amazon Connect Administrator Guide.
+  """
   @spec update_email_address_metadata(
           map(),
           String.t(),
@@ -22170,6 +22221,9 @@ defmodule AWS.Connect do
     )
   end
 
+  @doc """
+  Updates the outbound email address Id for a specified queue.
+  """
   @spec update_queue_outbound_email_config(
           map(),
           String.t(),

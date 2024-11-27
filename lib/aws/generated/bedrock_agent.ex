@@ -24,6 +24,17 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      custom_orchestration() :: %{
+        "executor" => list()
+      }
+
+  """
+  @type custom_orchestration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       knowledge_base_configuration() :: %{
         "type" => list(any()),
         "vectorKnowledgeBaseConfiguration" => vector_knowledge_base_configuration()
@@ -539,6 +550,7 @@ defmodule AWS.BedrockAgent do
       create_agent_request() :: %{
         optional("agentResourceRoleArn") => String.t(),
         optional("clientToken") => String.t(),
+        optional("customOrchestration") => custom_orchestration(),
         optional("customerEncryptionKeyArn") => String.t(),
         optional("description") => String.t(),
         optional("foundationModel") => String.t(),
@@ -546,6 +558,7 @@ defmodule AWS.BedrockAgent do
         optional("idleSessionTTLInSeconds") => integer(),
         optional("instruction") => String.t(),
         optional("memoryConfiguration") => memory_configuration(),
+        optional("orchestrationType") => list(any()),
         optional("promptOverrideConfiguration") => prompt_override_configuration(),
         optional("tags") => map(),
         required("agentName") => String.t()
@@ -1974,6 +1987,7 @@ defmodule AWS.BedrockAgent do
         "agentVersion" => String.t(),
         "clientToken" => String.t(),
         "createdAt" => non_neg_integer(),
+        "customOrchestration" => custom_orchestration(),
         "customerEncryptionKeyArn" => String.t(),
         "description" => String.t(),
         "failureReasons" => list(String.t()()),
@@ -1982,6 +1996,7 @@ defmodule AWS.BedrockAgent do
         "idleSessionTTLInSeconds" => integer(),
         "instruction" => String.t(),
         "memoryConfiguration" => memory_configuration(),
+        "orchestrationType" => list(any()),
         "preparedAt" => non_neg_integer(),
         "promptOverrideConfiguration" => prompt_override_configuration(),
         "recommendedActions" => list(String.t()()),
@@ -2724,12 +2739,14 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       update_agent_request() :: %{
+        optional("customOrchestration") => custom_orchestration(),
         optional("customerEncryptionKeyArn") => String.t(),
         optional("description") => String.t(),
         optional("guardrailConfiguration") => guardrail_configuration(),
         optional("idleSessionTTLInSeconds") => integer(),
         optional("instruction") => String.t(),
         optional("memoryConfiguration") => memory_configuration(),
+        optional("orchestrationType") => list(any()),
         optional("promptOverrideConfiguration") => prompt_override_configuration(),
         required("agentName") => String.t(),
         required("agentResourceRoleArn") => String.t(),

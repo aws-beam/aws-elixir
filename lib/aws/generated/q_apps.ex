@@ -100,12 +100,53 @@ defmodule AWS.QApps do
 
   ## Example:
 
+      update_q_app_permissions_output() :: %{
+        "appId" => [String.t()],
+        "permissions" => list(permission_output()()),
+        "resourceArn" => [String.t()]
+      }
+
+  """
+  @type update_q_app_permissions_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_q_app_session_metadata_input() :: %{
+        optional("sessionName") => String.t(),
+        required("instanceId") => String.t(),
+        required("sessionId") => String.t(),
+        required("sharingConfiguration") => session_sharing_configuration()
+      }
+
+  """
+  @type update_q_app_session_metadata_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       import_document_output() :: %{
         "fileId" => [String.t()]
       }
 
   """
   @type import_document_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_q_app_session_data_output() :: %{
+        "nextToken" => [String.t()],
+        "sessionArn" => [String.t()],
+        "sessionData" => list(q_app_session_data()()),
+        "sessionId" => String.t()
+      }
+
+  """
+  @type list_q_app_session_data_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -141,6 +182,30 @@ defmodule AWS.QApps do
 
   """
   @type unauthorized_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_q_app_session_metadata_input() :: %{
+        required("instanceId") => String.t(),
+        required("sessionId") => String.t()
+      }
+
+  """
+  @type get_q_app_session_metadata_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      permission_output() :: %{
+        "action" => list(any()),
+        "principal" => principal_output()
+      }
+
+  """
+  @type permission_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -202,6 +267,34 @@ defmodule AWS.QApps do
 
   ## Example:
 
+      form_input_card_input() :: %{
+        "computeMode" => list(any()),
+        "id" => String.t(),
+        "metadata" => form_input_card_metadata(),
+        "title" => String.t(),
+        "type" => list(any())
+      }
+
+  """
+  @type form_input_card_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      session_sharing_configuration() :: %{
+        "acceptResponses" => boolean(),
+        "enabled" => boolean(),
+        "revealCards" => boolean()
+      }
+
+  """
+  @type session_sharing_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       category_input() :: %{
         "color" => [String.t()],
         "id" => String.t(),
@@ -227,8 +320,20 @@ defmodule AWS.QApps do
 
   ## Example:
 
+      form_input_card_metadata() :: %{
+        "schema" => any()
+      }
+
+  """
+  @type form_input_card_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_q_app_session_input() :: %{
         optional("initialValues") => list(card_value()()),
+        optional("sessionId") => [String.t()],
         optional("tags") => map(),
         required("appId") => String.t(),
         required("appVersion") => integer(),
@@ -320,6 +425,19 @@ defmodule AWS.QApps do
 
   """
   @type associate_q_app_with_user_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_q_app_permissions_output() :: %{
+        "appId" => [String.t()],
+        "permissions" => list(permission_output()()),
+        "resourceArn" => [String.t()]
+      }
+
+  """
+  @type describe_q_app_permissions_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -447,6 +565,20 @@ defmodule AWS.QApps do
 
   ## Example:
 
+      create_presigned_url_output() :: %{
+        "fileId" => [String.t()],
+        "presignedUrl" => [String.t()],
+        "presignedUrlExpiration" => non_neg_integer(),
+        "presignedUrlFields" => map()
+      }
+
+  """
+  @type create_presigned_url_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       library_item_member() :: %{
         "appId" => String.t(),
         "appVersion" => integer(),
@@ -486,6 +618,7 @@ defmodule AWS.QApps do
   ## Example:
 
       get_q_app_input() :: %{
+        optional("appVersion") => integer(),
         required("appId") => String.t(),
         required("instanceId") => String.t()
       }
@@ -536,7 +669,8 @@ defmodule AWS.QApps do
 
       card_status() :: %{
         "currentState" => list(any()),
-        "currentValue" => [String.t()]
+        "currentValue" => [String.t()],
+        "submissions" => list(submission()())
       }
 
   """
@@ -550,6 +684,7 @@ defmodule AWS.QApps do
         "attributeFilter" => attribute_filter(),
         "dependencies" => list([String.t()]()),
         "id" => String.t(),
+        "memoryReferences" => list([String.t()]()),
         "outputSource" => list(any()),
         "prompt" => String.t(),
         "title" => String.t(),
@@ -570,6 +705,19 @@ defmodule AWS.QApps do
 
   """
   @type batch_delete_category_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      principal_output() :: %{
+        "email" => [String.t()],
+        "userId" => [String.t()],
+        "userType" => list(any())
+      }
+
+  """
+  @type principal_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -632,6 +780,20 @@ defmodule AWS.QApps do
 
   """
   @type get_q_app_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_q_app_permissions_input() :: %{
+        optional("grantPermissions") => list(permission_input()()),
+        optional("revokePermissions") => list(permission_input()()),
+        required("appId") => String.t(),
+        required("instanceId") => String.t()
+      }
+
+  """
+  @type update_q_app_permissions_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -726,12 +888,43 @@ defmodule AWS.QApps do
 
   ## Example:
 
+      update_q_app_session_metadata_output() :: %{
+        "sessionArn" => [String.t()],
+        "sessionId" => String.t(),
+        "sessionName" => String.t(),
+        "sharingConfiguration" => session_sharing_configuration()
+      }
+
+  """
+  @type update_q_app_session_metadata_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_categories_input() :: %{
         required("instanceId") => String.t()
       }
 
   """
   @type list_categories_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_presigned_url_input() :: %{
+        optional("sessionId") => String.t(),
+        required("appId") => String.t(),
+        required("cardId") => String.t(),
+        required("fileContentsSha256") => [String.t()],
+        required("fileName") => String.t(),
+        required("instanceId") => String.t(),
+        required("scope") => list(any())
+      }
+
+  """
+  @type create_presigned_url_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -749,12 +942,64 @@ defmodule AWS.QApps do
 
   ## Example:
 
+      get_q_app_session_metadata_output() :: %{
+        "sessionArn" => [String.t()],
+        "sessionId" => String.t(),
+        "sessionName" => String.t(),
+        "sessionOwner" => [boolean()],
+        "sharingConfiguration" => session_sharing_configuration()
+      }
+
+  """
+  @type get_q_app_session_metadata_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_q_app_session_data_input() :: %{
+        required("instanceId") => String.t(),
+        required("sessionId") => String.t()
+      }
+
+  """
+  @type list_q_app_session_data_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       access_denied_exception() :: %{
         "message" => [String.t()]
       }
 
   """
   @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      permission_input() :: %{
+        "action" => list(any()),
+        "principal" => [String.t()]
+      }
+
+  """
+  @type permission_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      submission() :: %{
+        "submissionId" => String.t(),
+        "timestamp" => non_neg_integer(),
+        "value" => [any()]
+      }
+
+  """
+  @type submission() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -798,10 +1043,14 @@ defmodule AWS.QApps do
   ## Example:
 
       get_q_app_session_output() :: %{
+        "appVersion" => integer(),
         "cardStatus" => map(),
+        "latestPublishedAppVersion" => integer(),
         "sessionArn" => [String.t()],
         "sessionId" => [String.t()],
-        "status" => list(any())
+        "sessionName" => String.t(),
+        "status" => list(any()),
+        "userIsHost" => [boolean()]
       }
 
   """
@@ -844,6 +1093,18 @@ defmodule AWS.QApps do
 
   ## Example:
 
+      export_q_app_session_data_input() :: %{
+        required("instanceId") => String.t(),
+        required("sessionId") => String.t()
+      }
+
+  """
+  @type export_q_app_session_data_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       throttling_exception() :: %{
         "message" => [String.t()],
         "quotaCode" => [String.t()],
@@ -853,6 +1114,17 @@ defmodule AWS.QApps do
 
   """
   @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      user() :: %{
+        "userId" => String.t()
+      }
+
+  """
+  @type user() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -889,6 +1161,7 @@ defmodule AWS.QApps do
 
       card_value() :: %{
         "cardId" => String.t(),
+        "submissionMutation" => submission_mutation(),
         "value" => [String.t()]
       }
 
@@ -1064,6 +1337,46 @@ defmodule AWS.QApps do
 
   ## Example:
 
+      describe_q_app_permissions_input() :: %{
+        required("appId") => String.t(),
+        required("instanceId") => String.t()
+      }
+
+  """
+  @type describe_q_app_permissions_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      submission_mutation() :: %{
+        "mutationType" => list(any()),
+        "submissionId" => String.t()
+      }
+
+  """
+  @type submission_mutation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      form_input_card() :: %{
+        "computeMode" => list(any()),
+        "dependencies" => list([String.t()]()),
+        "id" => String.t(),
+        "metadata" => form_input_card_metadata(),
+        "title" => String.t(),
+        "type" => list(any())
+      }
+
+  """
+  @type form_input_card() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_q_apps_output() :: %{
         "apps" => list(user_app_item()()),
         "nextToken" => [String.t()]
@@ -1071,6 +1384,34 @@ defmodule AWS.QApps do
 
   """
   @type list_q_apps_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      q_app_session_data() :: %{
+        "cardId" => String.t(),
+        "submissionId" => String.t(),
+        "timestamp" => non_neg_integer(),
+        "user" => user(),
+        "value" => [any()]
+      }
+
+  """
+  @type q_app_session_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_q_app_session_data_output() :: %{
+        "csvFileLink" => [String.t()],
+        "expiresAt" => non_neg_integer(),
+        "sessionArn" => [String.t()]
+      }
+
+  """
+  @type export_q_app_session_data_output() :: %{String.t() => any()}
 
   @type associate_library_item_review_errors() ::
           throttling_exception()
@@ -1127,6 +1468,13 @@ defmodule AWS.QApps do
           | resource_not_found_exception()
           | unauthorized_exception()
 
+  @type create_presigned_url_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | unauthorized_exception()
+
   @type create_q_app_errors() ::
           content_too_large_exception()
           | throttling_exception()
@@ -1154,6 +1502,14 @@ defmodule AWS.QApps do
           | resource_not_found_exception()
           | unauthorized_exception()
 
+  @type describe_q_app_permissions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
+
   @type disassociate_library_item_review_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1170,6 +1526,16 @@ defmodule AWS.QApps do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | unauthorized_exception()
+
+  @type export_q_app_session_data_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
           | unauthorized_exception()
 
   @type get_library_item_errors() ::
@@ -1189,6 +1555,15 @@ defmodule AWS.QApps do
           | unauthorized_exception()
 
   @type get_q_app_session_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
+
+  @type get_q_app_session_metadata_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -1220,6 +1595,15 @@ defmodule AWS.QApps do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
+
+  @type list_q_app_session_data_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
 
@@ -1304,7 +1688,24 @@ defmodule AWS.QApps do
           | resource_not_found_exception()
           | unauthorized_exception()
 
+  @type update_q_app_permissions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
+
   @type update_q_app_session_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
+
+  @type update_q_app_session_metadata_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -1554,6 +1955,45 @@ defmodule AWS.QApps do
   end
 
   @doc """
+  Creates a presigned URL for an S3 POST operation to upload a file.
+
+  You can use this URL to set a default file for a `FileUploadCard`
+  in a Q App definition or to provide a file for a single Q App run.
+  The `scope` parameter determines how the file will be used,
+  either at the app definition level or the app session level.
+  """
+  @spec create_presigned_url(map(), create_presigned_url_input(), list()) ::
+          {:ok, create_presigned_url_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_presigned_url_errors()}
+  def create_presigned_url(%Client{} = client, input, options \\ []) do
+    url_path = "/apps.createPresignedUrl"
+
+    {headers, input} =
+      [
+        {"instanceId", "instance-id"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a new Amazon Q App based on the provided definition.
 
   The Q App definition specifies
@@ -1665,6 +2105,39 @@ defmodule AWS.QApps do
   end
 
   @doc """
+  Describes read permissions for a Amazon Q App in Amazon Q Business application
+  environment instance.
+  """
+  @spec describe_q_app_permissions(map(), String.t(), String.t(), list()) ::
+          {:ok, describe_q_app_permissions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_q_app_permissions_errors()}
+  def describe_q_app_permissions(%Client{} = client, app_id, instance_id, options \\ []) do
+    url_path = "/apps.describeQAppPermissions"
+    headers = []
+
+    headers =
+      if !is_nil(instance_id) do
+        [{"instance-id", instance_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(app_id) do
+        [{"appId", app_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Removes a rating or review previously submitted by the user for a library item.
   """
   @spec disassociate_library_item_review(map(), disassociate_library_item_review_input(), list()) ::
@@ -1708,6 +2181,40 @@ defmodule AWS.QApps do
           | {:error, disassociate_q_app_from_user_errors()}
   def disassociate_q_app_from_user(%Client{} = client, input, options \\ []) do
     url_path = "/apps.uninstall"
+
+    {headers, input} =
+      [
+        {"instanceId", "instance-id"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Exports the collected data of a Q App data collection session.
+  """
+  @spec export_q_app_session_data(map(), export_q_app_session_data_input(), list()) ::
+          {:ok, export_q_app_session_data_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, export_q_app_session_data_errors()}
+  def export_q_app_session_data(%Client{} = client, input, options \\ []) do
+    url_path = "/runtime.exportQAppSessionData"
 
     {headers, input} =
       [
@@ -1784,11 +2291,11 @@ defmodule AWS.QApps do
   Retrieves the full details of an Q App, including its definition specifying the
   cards and flow.
   """
-  @spec get_q_app(map(), String.t(), String.t(), list()) ::
+  @spec get_q_app(map(), String.t(), String.t() | nil, String.t(), list()) ::
           {:ok, get_q_app_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_q_app_errors()}
-  def get_q_app(%Client{} = client, app_id, instance_id, options \\ []) do
+  def get_q_app(%Client{} = client, app_id, app_version \\ nil, instance_id, options \\ []) do
     url_path = "/apps.get"
     headers = []
 
@@ -1800,6 +2307,13 @@ defmodule AWS.QApps do
       end
 
     query_params = []
+
+    query_params =
+      if !is_nil(app_version) do
+        [{"appVersion", app_version} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(app_id) do
@@ -1823,6 +2337,38 @@ defmodule AWS.QApps do
           | {:error, get_q_app_session_errors()}
   def get_q_app_session(%Client{} = client, session_id, instance_id, options \\ []) do
     url_path = "/runtime.getQAppSession"
+    headers = []
+
+    headers =
+      if !is_nil(instance_id) do
+        [{"instance-id", instance_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(session_id) do
+        [{"sessionId", session_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the current configuration of a Q App session.
+  """
+  @spec get_q_app_session_metadata(map(), String.t(), String.t(), list()) ::
+          {:ok, get_q_app_session_metadata_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_q_app_session_metadata_errors()}
+  def get_q_app_session_metadata(%Client{} = client, session_id, instance_id, options \\ []) do
+    url_path = "/runtime.getQAppSessionMetadata"
     headers = []
 
     headers =
@@ -1965,6 +2511,38 @@ defmodule AWS.QApps do
     query_params =
       if !is_nil(category_id) do
         [{"categoryId", category_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the collected data of a Q App data collection session.
+  """
+  @spec list_q_app_session_data(map(), String.t(), String.t(), list()) ::
+          {:ok, list_q_app_session_data_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_q_app_session_data_errors()}
+  def list_q_app_session_data(%Client{} = client, session_id, instance_id, options \\ []) do
+    url_path = "/runtime.listQAppSessionData"
+    headers = []
+
+    headers =
+      if !is_nil(instance_id) do
+        [{"instance-id", instance_id} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(session_id) do
+        [{"sessionId", session_id} | query_params]
       else
         query_params
       end
@@ -2314,6 +2892,41 @@ defmodule AWS.QApps do
   end
 
   @doc """
+  Updates read permissions for a Amazon Q App in Amazon Q Business application
+  environment instance.
+  """
+  @spec update_q_app_permissions(map(), update_q_app_permissions_input(), list()) ::
+          {:ok, update_q_app_permissions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_q_app_permissions_errors()}
+  def update_q_app_permissions(%Client{} = client, input, options \\ []) do
+    url_path = "/apps.updateQAppPermissions"
+
+    {headers, input} =
+      [
+        {"instanceId", "instance-id"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates the session for a given Q App `sessionId`.
 
   This is only
@@ -2328,6 +2941,40 @@ defmodule AWS.QApps do
           | {:error, update_q_app_session_errors()}
   def update_q_app_session(%Client{} = client, input, options \\ []) do
     url_path = "/runtime.updateQAppSession"
+
+    {headers, input} =
+      [
+        {"instanceId", "instance-id"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the configuration metadata of a session for a given Q App `sessionId`.
+  """
+  @spec update_q_app_session_metadata(map(), update_q_app_session_metadata_input(), list()) ::
+          {:ok, update_q_app_session_metadata_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_q_app_session_metadata_errors()}
+  def update_q_app_session_metadata(%Client{} = client, input, options \\ []) do
+    url_path = "/runtime.updateQAppSessionMetadata"
 
     {headers, input} =
       [

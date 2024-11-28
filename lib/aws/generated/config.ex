@@ -290,6 +290,18 @@ defmodule AWS.Config do
 
   ## Example:
       
+      put_service_linked_configuration_recorder_request() :: %{
+        optional("Tags") => list(tag()()),
+        required("ServicePrincipal") => String.t()
+      }
+      
+  """
+  @type put_service_linked_configuration_recorder_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_remediation_configuration_response() :: %{}
       
   """
@@ -416,6 +428,17 @@ defmodule AWS.Config do
 
   ## Example:
       
+      associate_resource_types_response() :: %{
+        "ConfigurationRecorder" => configuration_recorder()
+      }
+      
+  """
+  @type associate_resource_types_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       insufficient_delivery_policy_exception() :: %{
         "message" => String.t()
       }
@@ -441,6 +464,7 @@ defmodule AWS.Config do
       
       configuration_aggregator() :: %{
         "AccountAggregationSources" => list(account_aggregation_source()()),
+        "AggregatorFilters" => aggregator_filters(),
         "ConfigurationAggregatorArn" => String.t(),
         "ConfigurationAggregatorName" => String.t(),
         "CreatedBy" => String.t(),
@@ -510,10 +534,13 @@ defmodule AWS.Config do
   ## Example:
       
       configuration_recorder() :: %{
+        "arn" => String.t(),
         "name" => String.t(),
         "recordingGroup" => recording_group(),
         "recordingMode" => recording_mode(),
-        "roleARN" => String.t()
+        "recordingScope" => list(any()),
+        "roleARN" => String.t(),
+        "servicePrincipal" => String.t()
       }
       
   """
@@ -799,6 +826,18 @@ defmodule AWS.Config do
 
   ## Example:
       
+      list_configuration_recorders_response() :: %{
+        "ConfigurationRecorderSummaries" => list(configuration_recorder_summary()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type list_configuration_recorders_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       compliance_contributor_count() :: %{
         "CapExceeded" => boolean(),
         "CappedCount" => integer()
@@ -903,6 +942,17 @@ defmodule AWS.Config do
 
   ## Example:
       
+      unmodifiable_entity_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type unmodifiable_entity_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       aggregation_authorization() :: %{
         "AggregationAuthorizationArn" => String.t(),
         "AuthorizedAccountId" => String.t(),
@@ -924,6 +974,20 @@ defmodule AWS.Config do
       
   """
   @type describe_organization_conformance_packs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      configuration_recorder_summary() :: %{
+        "arn" => String.t(),
+        "name" => String.t(),
+        "recordingScope" => list(any()),
+        "servicePrincipal" => String.t()
+      }
+      
+  """
+  @type configuration_recorder_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1485,6 +1549,7 @@ defmodule AWS.Config do
   ## Example:
       
       configuration_recorder_status() :: %{
+        "arn" => String.t(),
         "lastErrorCode" => String.t(),
         "lastErrorMessage" => String.t(),
         "lastStartTime" => non_neg_integer(),
@@ -1492,7 +1557,8 @@ defmodule AWS.Config do
         "lastStatusChangeTime" => non_neg_integer(),
         "lastStopTime" => non_neg_integer(),
         "name" => String.t(),
-        "recording" => boolean()
+        "recording" => boolean(),
+        "servicePrincipal" => String.t()
       }
       
   """
@@ -1540,6 +1606,18 @@ defmodule AWS.Config do
 
   ## Example:
       
+      aggregator_filter_resource_type() :: %{
+        "Type" => list(any()),
+        "Value" => list(String.t()())
+      }
+      
+  """
+  @type aggregator_filter_resource_type() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       conformance_pack_detail() :: %{
         "ConformancePackArn" => String.t(),
         "ConformancePackId" => String.t(),
@@ -1571,6 +1649,17 @@ defmodule AWS.Config do
       
   """
   @type put_conformance_pack_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1611,7 +1700,9 @@ defmodule AWS.Config do
   ## Example:
       
       describe_configuration_recorder_status_request() :: %{
-        optional("ConfigurationRecorderNames") => list(String.t()())
+        optional("Arn") => String.t(),
+        optional("ConfigurationRecorderNames") => list(String.t()()),
+        optional("ServicePrincipal") => String.t()
       }
       
   """
@@ -1877,6 +1968,18 @@ defmodule AWS.Config do
 
   ## Example:
       
+      aggregator_filters() :: %{
+        "ResourceType" => aggregator_filter_resource_type(),
+        "ServicePrincipal" => aggregator_filter_service_principal()
+      }
+      
+  """
+  @type aggregator_filters() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_aggregate_resource_config_request() :: %{
         required("ConfigurationAggregatorName") => String.t(),
         required("ResourceIdentifier") => aggregate_resource_identifier()
@@ -1929,6 +2032,18 @@ defmodule AWS.Config do
       
   """
   @type put_retention_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_resource_types_request() :: %{
+        required("ConfigurationRecorderArn") => String.t(),
+        required("ResourceTypes") => list(list(any())())
+      }
+      
+  """
+  @type disassociate_resource_types_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2228,7 +2343,9 @@ defmodule AWS.Config do
   ## Example:
       
       describe_configuration_recorders_request() :: %{
-        optional("ConfigurationRecorderNames") => list(String.t()())
+        optional("Arn") => String.t(),
+        optional("ConfigurationRecorderNames") => list(String.t()()),
+        optional("ServicePrincipal") => String.t()
       }
       
   """
@@ -2298,6 +2415,18 @@ defmodule AWS.Config do
       
   """
   @type describe_aggregate_compliance_by_conformance_packs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aggregator_filter_service_principal() :: %{
+        "Type" => list(any()),
+        "Value" => list(String.t()())
+      }
+      
+  """
+  @type aggregator_filter_service_principal() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2418,6 +2547,7 @@ defmodule AWS.Config do
       
       put_configuration_aggregator_request() :: %{
         optional("AccountAggregationSources") => list(account_aggregation_source()()),
+        optional("AggregatorFilters") => aggregator_filters(),
         optional("OrganizationAggregationSource") => organization_aggregation_source(),
         optional("Tags") => list(tag()()),
         required("ConfigurationAggregatorName") => String.t()
@@ -2477,6 +2607,17 @@ defmodule AWS.Config do
       
   """
   @type conformance_pack_evaluation_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_resource_types_response() :: %{
+        "ConfigurationRecorder" => configuration_recorder()
+      }
+      
+  """
+  @type disassociate_resource_types_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2581,6 +2722,30 @@ defmodule AWS.Config do
       
   """
   @type delete_pending_aggregation_request_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      configuration_recorder_filter() :: %{
+        "filterName" => list(any()),
+        "filterValue" => list(String.t()())
+      }
+      
+  """
+  @type configuration_recorder_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_service_linked_configuration_recorder_response() :: %{
+        "Arn" => String.t(),
+        "Name" => String.t()
+      }
+      
+  """
+  @type delete_service_linked_configuration_recorder_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2812,6 +2977,18 @@ defmodule AWS.Config do
 
   ## Example:
       
+      associate_resource_types_request() :: %{
+        required("ConfigurationRecorderArn") => String.t(),
+        required("ResourceTypes") => list(list(any())())
+      }
+      
+  """
+  @type associate_resource_types_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       put_configuration_aggregator_response() :: %{
         "ConfigurationAggregator" => configuration_aggregator()
       }
@@ -3005,6 +3182,18 @@ defmodule AWS.Config do
       
   """
   @type resource_concurrent_modification_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_service_linked_configuration_recorder_response() :: %{
+        "Arn" => String.t(),
+        "Name" => String.t()
+      }
+      
+  """
+  @type put_service_linked_configuration_recorder_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3789,6 +3978,19 @@ defmodule AWS.Config do
 
   ## Example:
       
+      list_configuration_recorders_request() :: %{
+        optional("Filters") => list(configuration_recorder_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type list_configuration_recorders_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_compliance_summary_by_config_rule_response() :: %{
         "ComplianceSummary" => compliance_summary()
       }
@@ -3960,6 +4162,17 @@ defmodule AWS.Config do
 
   ## Example:
       
+      delete_service_linked_configuration_recorder_request() :: %{
+        required("ServicePrincipal") => String.t()
+      }
+      
+  """
+  @type delete_service_linked_configuration_recorder_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       too_many_tags_exception() :: %{
         "message" => String.t()
       }
@@ -4099,6 +4312,7 @@ defmodule AWS.Config do
   ## Example:
       
       put_configuration_recorder_request() :: %{
+        optional("Tags") => list(tag()()),
         required("ConfigurationRecorder") => configuration_recorder()
       }
       
@@ -4148,6 +4362,11 @@ defmodule AWS.Config do
   """
   @type organization_custom_policy_rule_metadata_no_policy() :: %{String.t() => any()}
 
+  @type associate_resource_types_errors() ::
+          validation_exception()
+          | no_such_configuration_recorder_exception()
+          | conflict_exception()
+
   @type batch_get_aggregate_resource_config_errors() ::
           validation_exception() | no_such_configuration_aggregator_exception()
 
@@ -4161,7 +4380,8 @@ defmodule AWS.Config do
 
   @type delete_configuration_aggregator_errors() :: no_such_configuration_aggregator_exception()
 
-  @type delete_configuration_recorder_errors() :: no_such_configuration_recorder_exception()
+  @type delete_configuration_recorder_errors() ::
+          no_such_configuration_recorder_exception() | unmodifiable_entity_exception()
 
   @type delete_conformance_pack_errors() ::
           no_such_conformance_pack_exception() | resource_in_use_exception()
@@ -4197,6 +4417,11 @@ defmodule AWS.Config do
 
   @type delete_retention_configuration_errors() ::
           no_such_retention_configuration_exception() | invalid_parameter_value_exception()
+
+  @type delete_service_linked_configuration_recorder_errors() ::
+          validation_exception()
+          | no_such_configuration_recorder_exception()
+          | conflict_exception()
 
   @type delete_stored_query_errors() :: validation_exception() | resource_not_found_exception()
 
@@ -4253,9 +4478,10 @@ defmodule AWS.Config do
           | no_such_configuration_aggregator_exception()
 
   @type describe_configuration_recorder_status_errors() ::
-          no_such_configuration_recorder_exception()
+          validation_exception() | no_such_configuration_recorder_exception()
 
-  @type describe_configuration_recorders_errors() :: no_such_configuration_recorder_exception()
+  @type describe_configuration_recorders_errors() ::
+          validation_exception() | no_such_configuration_recorder_exception()
 
   @type describe_conformance_pack_compliance_errors() ::
           no_such_conformance_pack_exception()
@@ -4320,6 +4546,11 @@ defmodule AWS.Config do
           no_such_retention_configuration_exception()
           | invalid_parameter_value_exception()
           | invalid_next_token_exception()
+
+  @type disassociate_resource_types_errors() ::
+          validation_exception()
+          | no_such_configuration_recorder_exception()
+          | conflict_exception()
 
   @type get_aggregate_compliance_details_by_config_rule_errors() ::
           validation_exception()
@@ -4410,6 +4641,8 @@ defmodule AWS.Config do
           | invalid_limit_exception()
           | no_such_configuration_aggregator_exception()
 
+  @type list_configuration_recorders_errors() :: validation_exception()
+
   @type list_conformance_pack_compliance_scores_errors() ::
           invalid_parameter_value_exception()
           | invalid_next_token_exception()
@@ -4456,6 +4689,7 @@ defmodule AWS.Config do
           | validation_exception()
           | invalid_role_exception()
           | max_number_of_configuration_recorders_exceeded_exception()
+          | unmodifiable_entity_exception()
           | invalid_recording_group_exception()
 
   @type put_conformance_pack_errors() ::
@@ -4519,6 +4753,12 @@ defmodule AWS.Config do
           max_number_of_retention_configurations_exceeded_exception()
           | invalid_parameter_value_exception()
 
+  @type put_service_linked_configuration_recorder_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | conflict_exception()
+          | insufficient_permissions_exception()
+
   @type put_stored_query_errors() ::
           too_many_tags_exception()
           | resource_concurrent_modification_exception()
@@ -4542,7 +4782,9 @@ defmodule AWS.Config do
           | resource_in_use_exception()
 
   @type start_configuration_recorder_errors() ::
-          no_such_configuration_recorder_exception() | no_available_delivery_channel_exception()
+          no_such_configuration_recorder_exception()
+          | no_available_delivery_channel_exception()
+          | unmodifiable_entity_exception()
 
   @type start_remediation_execution_errors() ::
           no_such_remediation_configuration_exception()
@@ -4552,7 +4794,8 @@ defmodule AWS.Config do
   @type start_resource_evaluation_errors() ::
           invalid_parameter_value_exception() | idempotent_parameter_mismatch()
 
-  @type stop_configuration_recorder_errors() :: no_such_configuration_recorder_exception()
+  @type stop_configuration_recorder_errors() ::
+          no_such_configuration_recorder_exception() | unmodifiable_entity_exception()
 
   @type tag_resource_errors() ::
           too_many_tags_exception() | validation_exception() | resource_not_found_exception()
@@ -4573,6 +4816,25 @@ defmodule AWS.Config do
       signing_name: "config",
       target_prefix: "StarlingDoveService"
     }
+  end
+
+  @doc """
+  Adds all resource types specified in the `ResourceTypes` list to the
+  [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) of specified configuration recorder and includes those resource types when
+  recording.
+
+  For this operation, the specified configuration recorder must use a
+  [RecordingStrategy](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html)
+  that is either `INCLUSION_BY_RESOURCE_TYPES` or `EXCLUSION_BY_RESOURCE_TYPES`.
+  """
+  @spec associate_resource_types(map(), associate_resource_types_request(), list()) ::
+          {:ok, associate_resource_types_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, associate_resource_types_errors()}
+  def associate_resource_types(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateResourceTypes", input, options)
   end
 
   @doc """
@@ -4662,6 +4924,29 @@ defmodule AWS.Config do
 
   You can check the state of a rule by using the
   `DescribeConfigRules` request.
+
+  ## Recommendation: Stop recording resource compliance before deleting rules
+
+  It is highly recommended that you stop recording for the
+  `AWS::Config::ResourceCompliance` resource type before you delete rules in your
+  account.
+  Deleting rules creates CIs for `AWS::Config::ResourceCompliance` and can affect
+  your Config [configuration recorder](https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html)
+  costs.
+
+  If you are deleting rules which evaluate a large number of resource types,
+  this can lead to a spike in the number of CIs recorded.
+
+  Best practice:
+
+    
+  Stop recording `AWS::Config::ResourceCompliance`
+
+    
+  Delete rule(s)
+
+    
+  Turn on recording for `AWS::Config::ResourceCompliance`
   """
   @spec delete_config_rule(map(), delete_config_rule_request(), list()) ::
           {:ok, nil, any()}
@@ -4688,18 +4973,15 @@ defmodule AWS.Config do
   end
 
   @doc """
-  Deletes the configuration recorder.
+  Deletes the customer managed configuration recorder.
 
-  After the configuration recorder is deleted, Config will
-  not record resource configuration changes until you create a new
-  configuration recorder.
-
-  This action does not delete the configuration information that
+  This operation does not delete the configuration information that
   was previously recorded. You will be able to access the previously
   recorded information by using the
-  `GetResourceConfigHistory` action, but you will not
+  [GetResourceConfigHistory](https://docs.aws.amazon.com/config/latest/APIReference/API_GetResourceConfigHistory.html)
+  operation, but you will not
   be able to access this information in the Config console until
-  you create a new configuration recorder.
+  you have created a new customer managed configuration recorder.
   """
   @spec delete_configuration_recorder(map(), delete_configuration_recorder_request(), list()) ::
           {:ok, nil, any()}
@@ -4733,8 +5015,9 @@ defmodule AWS.Config do
   @doc """
   Deletes the delivery channel.
 
-  Before you can delete the delivery channel, you must stop the
-  configuration recorder by using the `StopConfigurationRecorder` action.
+  Before you can delete the delivery channel, you must stop the customer managed
+  configuration recorder. You can use the `StopConfigurationRecorder` operation to
+  stop the customer managed configuration recorder.
   """
   @spec delete_delivery_channel(map(), delete_delivery_channel_request(), list()) ::
           {:ok, nil, any()}
@@ -4901,6 +5184,39 @@ defmodule AWS.Config do
   end
 
   @doc """
+  Deletes an existing service-linked configuration recorder.
+
+  This operation does not delete the configuration information that was previously
+  recorded. You will be able to access the previously
+  recorded information by using the
+  [GetResourceConfigHistory](https://docs.aws.amazon.com/config/latest/APIReference/API_GetResourceConfigHistory.html)
+  operation, but you will not
+  be able to access this information in the Config console until
+  you have created a new service-linked configuration recorder for the same
+  service.
+
+  ## The recording scope determines if you receive configuration items
+
+  The recording scope is set by the service that is linked to the configuration
+  recorder and determines whether you receive configuration items (CIs) in the
+  delivery channel. If the recording scope is internal, you will not receive CIs
+  in the delivery channel.
+  """
+  @spec delete_service_linked_configuration_recorder(
+          map(),
+          delete_service_linked_configuration_recorder_request(),
+          list()
+        ) ::
+          {:ok, delete_service_linked_configuration_recorder_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_service_linked_configuration_recorder_errors()}
+  def delete_service_linked_configuration_recorder(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteServiceLinkedConfigurationRecorder", input, options)
+  end
+
+  @doc """
   Deletes the stored query for a single Amazon Web Services account and a single
   Amazon Web Services Region.
   """
@@ -4968,8 +5284,9 @@ defmodule AWS.Config do
   end
 
   @doc """
-  Returns a list of the conformance packs and their associated compliance status
-  with the count of compliant and noncompliant Config rules within each
+  Returns a list of the existing and deleted conformance packs and their
+  associated compliance status with the count of compliant and noncompliant Config
+  rules within each
   conformance pack.
 
   Also returns the total rule count which includes compliant rules, noncompliant
@@ -5019,7 +5336,8 @@ defmodule AWS.Config do
   @doc """
   Indicates whether the specified Config rules are compliant.
 
-  If a rule is noncompliant, this action returns the number of Amazon Web Services
+  If a rule is noncompliant, this operation returns the number of Amazon Web
+  Services
   resources that do not comply with the rule.
 
   A rule is compliant if all of the evaluated resources comply
@@ -5070,8 +5388,8 @@ defmodule AWS.Config do
   Indicates whether the specified Amazon Web Services resources are compliant.
 
   If
-  a resource is noncompliant, this action returns the number of Config rules that
-  the resource does not comply with.
+  a resource is noncompliant, this operation returns the number of Config rules
+  that the resource does not comply with.
 
   A resource is compliant if it complies with all the Config
   rules that evaluate it. It is noncompliant if it does not comply
@@ -5178,7 +5496,7 @@ defmodule AWS.Config do
   @doc """
   Returns the details of one or more configuration aggregators.
 
-  If the configuration aggregator is not specified, this action
+  If the configuration aggregator is not specified, this operation
   returns the details for all the configuration aggregators associated
   with the account.
   """
@@ -5197,17 +5515,19 @@ defmodule AWS.Config do
   end
 
   @doc """
-  Returns the current status of the specified configuration
-  recorder as well as the status of the last recording event for the recorder.
+  Returns the current status of the configuration
+  recorder you specify as well as the status of the last recording event for the
+  configuration recorders.
 
-  If a configuration recorder is not specified, this action
-  returns the status of all configuration recorders associated with
-  the account.
-
-  >You can specify only one configuration recorder for each Amazon Web Services
-  Region for each account.
   For a detailed status of recording events over time, add your Config events to
   Amazon CloudWatch metrics and use CloudWatch metrics.
+
+  If a configuration recorder is not specified, this operation returns the status
+  for the customer managed configuration recorder configured for the
+  account, if applicable.
+
+  When making a request to this operation, you can only specify one configuration
+  recorder.
   """
   @spec describe_configuration_recorder_status(
           map(),
@@ -5224,14 +5544,14 @@ defmodule AWS.Config do
   end
 
   @doc """
-  Returns the details for the specified configuration recorders.
+  Returns details for the configuration recorder you specify.
 
-  If the configuration recorder is not specified, this action returns
-  the details for all configuration recorders associated with the
-  account.
+  If a configuration recorder is not specified, this operation returns details for
+  the customer managed configuration recorder configured for the
+  account, if applicable.
 
-  You can specify only one configuration recorder for each Amazon Web Services
-  Region for each account.
+  When making a request to this operation, you can only specify one configuration
+  recorder.
   """
   @spec describe_configuration_recorders(
           map(),
@@ -5301,7 +5621,7 @@ defmodule AWS.Config do
   @doc """
   Returns the current status of the specified delivery channel.
 
-  If a delivery channel is not specified, this action returns the
+  If a delivery channel is not specified, this operation returns the
   current status of all delivery channels associated with the
   account.
 
@@ -5326,7 +5646,7 @@ defmodule AWS.Config do
   Returns details about the specified delivery channel.
 
   If a
-  delivery channel is not specified, this action returns the details
+  delivery channel is not specified, this operation returns the details
   of all delivery channels associated with the account.
 
   Currently, you can specify only one delivery channel per
@@ -5569,7 +5889,7 @@ defmodule AWS.Config do
   Returns the details of one or more retention configurations.
 
   If
-  the retention configuration name is not specified, this action
+  the retention configuration name is not specified, this operation
   returns the details for all the retention configurations for that
   account.
 
@@ -5588,6 +5908,24 @@ defmodule AWS.Config do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeRetentionConfigurations", input, options)
+  end
+
+  @doc """
+  Removes all resource types specified in the `ResourceTypes` list from the
+  [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) of configuration recorder and excludes these resource types when recording.
+
+  For this operation, the configuration recorder must use a
+  [RecordingStrategy](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html)
+  that is either `INCLUSION_BY_RESOURCE_TYPES` or `EXCLUSION_BY_RESOURCE_TYPES`.
+  """
+  @spec disassociate_resource_types(map(), disassociate_resource_types_request(), list()) ::
+          {:ok, disassociate_resource_types_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disassociate_resource_types_errors()}
+  def disassociate_resource_types(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateResourceTypes", input, options)
   end
 
   @doc """
@@ -5703,6 +6041,8 @@ defmodule AWS.Config do
   @doc """
   Returns configuration item that is aggregated for your specific resource in a
   specific source account and region.
+
+  The API does not return results for deleted resources.
   """
   @spec get_aggregate_resource_config(map(), get_aggregate_resource_config_request(), list()) ::
           {:ok, get_aggregate_resource_config_response(), any()}
@@ -6070,6 +6410,19 @@ defmodule AWS.Config do
   end
 
   @doc """
+  Returns a list of configuration recorders depending on the filters you specify.
+  """
+  @spec list_configuration_recorders(map(), list_configuration_recorders_request(), list()) ::
+          {:ok, list_configuration_recorders_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_configuration_recorders_errors()}
+  def list_configuration_recorders(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListConfigurationRecorders", input, options)
+  end
+
+  @doc """
   Returns a list of conformance pack compliance scores.
 
   A compliance score is the percentage of the number of compliant rule-resource
@@ -6173,12 +6526,19 @@ defmodule AWS.Config do
   Authorizes the aggregator account and region to collect data
   from the source account and region.
 
+  ## Tags are added at creation and cannot be updated with this operation
+
   `PutAggregationAuthorization` is an idempotent API. Subsequent requests won’t
   create a duplicate resource if one was already created. If a following request
   has different `tags` values,
   Config will ignore these differences and treat it as an idempotent request of
   the previous. In this case, `tags` will not be updated, even if they are
   different.
+
+  Use
+  [TagResource](https://docs.aws.amazon.com/config/latest/APIReference/API_TagResource.html) and
+  [UntagResource](https://docs.aws.amazon.com/config/latest/APIReference/API_UntagResource.html)
+  to update tags after creation.
   """
   @spec put_aggregation_authorization(map(), put_aggregation_authorization_request(), list()) ::
           {:ok, put_aggregation_authorization_response(), any()}
@@ -6245,12 +6605,19 @@ defmodule AWS.Config do
   rules, see [Evaluating Resources with Config Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html)
   in the *Config Developer Guide*.
 
+  ## Tags are added at creation and cannot be updated with this operation
+
   `PutConfigRule` is an idempotent API. Subsequent requests won’t create a
   duplicate resource if one was already created. If a following request has
   different `tags` values,
   Config will ignore these differences and treat it as an idempotent request of
   the previous. In this case, `tags` will not be updated, even if they are
   different.
+
+  Use
+  [TagResource](https://docs.aws.amazon.com/config/latest/APIReference/API_TagResource.html) and
+  [UntagResource](https://docs.aws.amazon.com/config/latest/APIReference/API_UntagResource.html)
+  to update tags after creation.
   """
   @spec put_config_rule(map(), put_config_rule_request(), list()) ::
           {:ok, nil, any()}
@@ -6289,12 +6656,19 @@ defmodule AWS.Config do
   To register a delegated administrator, see [Register a Delegated Administrator](https://docs.aws.amazon.com/config/latest/developerguide/set-up-aggregator-cli.html#register-a-delegated-administrator-cli)
   in the *Config developer guide*.
 
+  ## Tags are added at creation and cannot be updated with this operation
+
   `PutConfigurationAggregator` is an idempotent API. Subsequent requests won’t
   create a duplicate resource if one was already created. If a following request
   has different `tags` values,
   Config will ignore these differences and treat it as an idempotent request of
   the previous. In this case, `tags` will not be updated, even if they are
   different.
+
+  Use
+  [TagResource](https://docs.aws.amazon.com/config/latest/APIReference/API_TagResource.html) and
+  [UntagResource](https://docs.aws.amazon.com/config/latest/APIReference/API_UntagResource.html)
+  to update tags after creation.
   """
   @spec put_configuration_aggregator(map(), put_configuration_aggregator_request(), list()) ::
           {:ok, put_configuration_aggregator_response(), any()}
@@ -6307,23 +6681,48 @@ defmodule AWS.Config do
   end
 
   @doc """
-  Creates a new configuration recorder to record configuration changes for
-  specified resource types.
+  Creates or updates the customer managed configuration recorder.
 
-  You can also use this action to change the `roleARN`
-  or the `recordingGroup` of an existing recorder.
+  You can use this operation to create a new customer managed configuration
+  recorder or to update the `roleARN` and the `recordingGroup` for an existing
+  customer managed configuration recorder.
+
+  To start the customer managed configuration recorder and begin recording
+  configuration changes for the resource types you specify,
+  use the
+  [StartConfigurationRecorder](https://docs.aws.amazon.com/config/latest/APIReference/API_StartConfigurationRecorder.html) operation.
+
   For more information, see [
-  ## Managing the Configuration Recorder
+  ## Working with the Configuration Recorder
   ](https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html)
   in the *Config Developer Guide*.
 
-  You can specify only one configuration recorder for each Amazon Web Services
-  Region for each account.
+  ## One customer managed configuration recorder per account per Region
 
-  If the configuration recorder does not have the
-  `recordingGroup` field
-  specified, the default is to record all supported resource
-  types.
+  You can create only one customer managed configuration recorder for each account
+  for each Amazon Web Services Region.
+
+  ## Default is to record all supported resource types, excluding the global IAM
+  resource types
+
+  If you have not specified values for the `recordingGroup` field, the default for
+  the customer managed configuration recorder is to record all supported resource
+  types, excluding the global IAM resource types: `AWS::IAM::Group`,
+  `AWS::IAM::Policy`, `AWS::IAM::Role`, and `AWS::IAM::User`.
+
+  ## Tags are added at creation and cannot be updated
+
+  `PutConfigurationRecorder` is an idempotent API. Subsequent requests won’t
+  create a duplicate resource if one was already created. If a following request
+  has different tags values,
+  Config will ignore these differences and treat it as an idempotent request of
+  the previous. In this case, tags will not be updated, even if they are
+  different.
+
+  Use
+  [TagResource](https://docs.aws.amazon.com/config/latest/APIReference/API_TagResource.html) and
+  [UntagResource](https://docs.aws.amazon.com/config/latest/APIReference/API_UntagResource.html)
+  to update tags after creation.
   """
   @spec put_configuration_recorder(map(), put_configuration_recorder_request(), list()) ::
           {:ok, nil, any()}
@@ -6365,26 +6764,22 @@ defmodule AWS.Config do
   end
 
   @doc """
-  Creates a delivery channel object to deliver configuration
-  information and other compliance information to an Amazon S3 bucket and Amazon
-  SNS topic.
+  Creates or updates a delivery channel to deliver configuration
+  information and other compliance information.
 
-  For more information,
-  see [Notifications that Config Sends to an Amazon SNS topic](https://docs.aws.amazon.com/config/latest/developerguide/notifications-for-AWS-Config.html).
+  You can use this operation to create a new delivery channel or to update the
+  Amazon S3 bucket and the
+  Amazon SNS topic of an existing delivery channel.
 
-  Before you can create a delivery channel, you must create a
-  configuration recorder.
+  For more information, see [
+  ## Working with the Delivery Channel
+  ](https://docs.aws.amazon.com/config/latest/developerguide/manage-delivery-channel.html)
+  in the *Config Developer Guide.*
 
-  You can use this action to change the Amazon S3 bucket or an
-  Amazon SNS topic of the existing delivery channel. To change the
-  Amazon S3 bucket or an Amazon SNS topic, call this action and
-  specify the changed values for the S3 bucket and the SNS topic. If
-  you specify a different value for either the S3 bucket or the SNS
-  topic, this action will keep the existing value for the parameter
-  that is not changed.
+  ## One delivery channel per account per Region
 
-  You can have only one delivery channel per region in your
-  account.
+  You can have only one delivery channel for each account for each Amazon Web
+  Services Region.
   """
   @spec put_delivery_channel(map(), put_delivery_channel_request(), list()) ::
           {:ok, nil, any()}
@@ -6400,7 +6795,7 @@ defmodule AWS.Config do
   Used by an Lambda function to deliver evaluation results to
   Config.
 
-  This action is required in every Lambda function
+  This operation is required in every Lambda function
   that is invoked by an Config rule.
   """
   @spec put_evaluations(map(), put_evaluations_request(), list()) ::
@@ -6652,6 +7047,11 @@ defmodule AWS.Config do
   see [Concepts | Config Rules](https://docs.aws.amazon.com/config/latest/developerguide/config-concepts.html#aws-config-rules)
   in the *Config Developer Guide*.
 
+  ## Exceptions cannot be placed on service-linked remediation actions
+
+  You cannot place an exception on service-linked remediation actions, such as
+  remediation actions put by an organizational conformance pack.
+
   ## Auto remediation can be initiated even for compliant resources
 
   If you enable auto remediation for a specific Config rule using the
@@ -6731,12 +7131,59 @@ defmodule AWS.Config do
   end
 
   @doc """
+  Creates a service-linked configuration recorder that is linked to a specific
+  Amazon Web Services service based on the `ServicePrincipal` you specify.
+
+  The configuration recorder's `name`, `recordingGroup`, `recordingMode`, and
+  `recordingScope` is set by the service that is linked to the configuration
+  recorder.
+
+  For more information, see [
+  ## Working with the Configuration Recorder
+  ](https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html)
+  in the *Config Developer Guide*.
+
+  This API creates a service-linked role `AWSServiceRoleForConfig` in your
+  account. The service-linked role is created only when the role does not exist in
+  your account.
+
+  ## The recording scope determines if you receive configuration items
+
+  The recording scope is set by the service that is linked to the configuration
+  recorder and determines whether you receive configuration items (CIs) in the
+  delivery channel. If the recording scope is internal, you will not receive CIs
+  in the delivery channel.
+
+  ## Tags are added at creation and cannot be updated with this operation
+
+  Use
+  [TagResource](https://docs.aws.amazon.com/config/latest/APIReference/API_TagResource.html) and
+  [UntagResource](https://docs.aws.amazon.com/config/latest/APIReference/API_UntagResource.html)
+  to update tags after creation.
+  """
+  @spec put_service_linked_configuration_recorder(
+          map(),
+          put_service_linked_configuration_recorder_request(),
+          list()
+        ) ::
+          {:ok, put_service_linked_configuration_recorder_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_service_linked_configuration_recorder_errors()}
+  def put_service_linked_configuration_recorder(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutServiceLinkedConfigurationRecorder", input, options)
+  end
+
+  @doc """
   Saves a new query or updates an existing saved query.
 
   The `QueryName` must be unique for a single Amazon Web Services account and a
   single Amazon Web Services Region.
   You can create upto 300 queries in a single Amazon Web Services account and a
   single Amazon Web Services Region.
+
+  ## Tags are added at creation and cannot be updated
 
   `PutStoredQuery` is an idempotent API. Subsequent requests won’t create a
   duplicate resource if one was already created. If a following request has
@@ -6874,11 +7321,15 @@ defmodule AWS.Config do
   end
 
   @doc """
-  Starts recording configurations of the Amazon Web Services resources you have
-  selected to record in your Amazon Web Services account.
+  Starts the customer managed configuration recorder.
 
-  You must have created at least one delivery channel to
-  successfully start the configuration recorder.
+  The customer managed configuration recorder will begin recording configuration
+  changes for the resource types you specify.
+
+  You must have created a delivery channel to
+  successfully start the customer managed configuration recorder. You can use the
+  [PutDeliveryChannel](https://docs.aws.amazon.com/config/latest/APIReference/API_PutDeliveryChannel.html)
+  operation to create a delivery channel.
   """
   @spec start_configuration_recorder(map(), start_configuration_recorder_request(), list()) ::
           {:ok, nil, any()}
@@ -6945,8 +7396,10 @@ defmodule AWS.Config do
   end
 
   @doc """
-  Stops recording configurations of the Amazon Web Services resources you have
-  selected to record in your Amazon Web Services account.
+  Stops the customer managed configuration recorder.
+
+  The customer managed configuration recorder will stop recording configuration
+  changes for the resource types you have specified.
   """
   @spec stop_configuration_recorder(map(), stop_configuration_recorder_request(), list()) ::
           {:ok, nil, any()}
@@ -6959,7 +7412,7 @@ defmodule AWS.Config do
   end
 
   @doc """
-  Associates the specified tags to a resource with the specified resourceArn.
+  Associates the specified tags to a resource with the specified `ResourceArn`.
 
   If existing tags on a resource are not specified in the request parameters, they
   are not changed.

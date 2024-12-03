@@ -787,6 +787,7 @@ defmodule AWS.RDS do
         optional("VpcSecurityGroupIds") => list(String.t()()),
         optional("CACertificateIdentifier") => String.t(),
         optional("DBParameterGroupName") => String.t(),
+        optional("DatabaseInsightsMode") => list(any()),
         optional("KmsKeyId") => String.t(),
         optional("DomainFqdn") => String.t(),
         optional("OptionGroupName") => String.t(),
@@ -1229,6 +1230,7 @@ defmodule AWS.RDS do
         optional("VpcSecurityGroupIds") => list(String.t()()),
         optional("CACertificateIdentifier") => String.t(),
         optional("DBParameterGroupName") => String.t(),
+        optional("DatabaseInsightsMode") => list(any()),
         optional("KmsKeyId") => String.t(),
         optional("OptionGroupName") => String.t(),
         optional("DBName") => String.t(),
@@ -1983,6 +1985,7 @@ defmodule AWS.RDS do
         optional("VpcSecurityGroupIds") => list(String.t()()),
         optional("CACertificateIdentifier") => String.t(),
         optional("DBParameterGroupName") => String.t(),
+        optional("DatabaseInsightsMode") => list(any()),
         optional("KmsKeyId") => String.t(),
         optional("DomainFqdn") => String.t(),
         optional("OptionGroupName") => String.t(),
@@ -2145,6 +2148,7 @@ defmodule AWS.RDS do
         "ReadReplicaSourceDBClusterIdentifier" => String.t(),
         "ActivityStreamKinesisStreamName" => String.t(),
         "PreferredBackupWindow" => String.t(),
+        "DatabaseInsightsMode" => list(any()),
         "PendingModifiedValues" => pending_modified_values(),
         "PerformanceInsightsEnabled" => boolean(),
         "PromotionTier" => integer(),
@@ -4729,6 +4733,7 @@ defmodule AWS.RDS do
         optional("DBSystemId") => String.t(),
         optional("VpcSecurityGroupIds") => list(String.t()()),
         optional("CACertificateIdentifier") => String.t(),
+        optional("DatabaseInsightsMode") => list(any()),
         optional("KmsKeyId") => String.t(),
         optional("OptionGroupName") => String.t(),
         optional("AvailabilityZones") => list(String.t()()),
@@ -5695,6 +5700,7 @@ defmodule AWS.RDS do
         "AwsBackupRecoveryPointArn" => String.t(),
         "ActivityStreamKinesisStreamName" => String.t(),
         "PreferredBackupWindow" => String.t(),
+        "DatabaseInsightsMode" => list(any()),
         "GlobalWriteForwardingStatus" => list(any()),
         "PendingModifiedValues" => cluster_pending_modified_values(),
         "PerformanceInsightsEnabled" => boolean(),
@@ -7362,6 +7368,7 @@ defmodule AWS.RDS do
         optional("CACertificateIdentifier") => String.t(),
         optional("ApplyImmediately") => boolean(),
         optional("RotateMasterUserPassword") => boolean(),
+        optional("DatabaseInsightsMode") => list(any()),
         optional("AwsBackupRecoveryPointArn") => String.t(),
         optional("OptionGroupName") => String.t(),
         optional("PerformanceInsightsRetentionPeriod") => integer(),
@@ -7800,6 +7807,7 @@ defmodule AWS.RDS do
         optional("ApplyImmediately") => boolean(),
         optional("RotateMasterUserPassword") => boolean(),
         optional("DBParameterGroupName") => String.t(),
+        optional("DatabaseInsightsMode") => list(any()),
         optional("AwsBackupRecoveryPointArn") => String.t(),
         optional("DomainFqdn") => String.t(),
         optional("OptionGroupName") => String.t(),
@@ -11169,8 +11177,8 @@ defmodule AWS.RDS do
   in the
   *Amazon Aurora User Guide*.
 
-  This operation applies only to Aurora PostgreSQL Serverless v2 and provisioned
-  DB clusters. To disable the HTTP endpoint for Aurora Serverless v1 DB clusters,
+  This operation applies only to Aurora Serverless v2 and provisioned DB clusters.
+  To disable the HTTP endpoint for Aurora Serverless v1 DB clusters,
   use the `EnableHttpEndpoint` parameter of the `ModifyDBCluster` operation.
   """
   @spec disable_http_endpoint(map(), disable_http_endpoint_request(), list()) ::
@@ -11214,8 +11222,8 @@ defmodule AWS.RDS do
   in the
   *Amazon Aurora User Guide*.
 
-  This operation applies only to Aurora PostgreSQL Serverless v2 and provisioned
-  DB clusters. To enable the HTTP endpoint for Aurora Serverless v1 DB clusters,
+  This operation applies only to Aurora Serverless v2 and provisioned DB clusters.
+  To enable the HTTP endpoint for Aurora Serverless v1 DB clusters,
   use the `EnableHttpEndpoint` parameter of the `ModifyDBCluster` operation.
   """
   @spec enable_http_endpoint(map(), enable_http_endpoint_request(), list()) ::

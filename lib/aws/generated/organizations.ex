@@ -2608,15 +2608,19 @@ defmodule AWS.Organizations do
 
     *
 
-  [BACKUP_POLICY](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html) 
+  [DECLARATIVE_POLICY_EC2](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative.html) 
 
     *
 
-  [TAG_POLICY](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html)
+  [BACKUP_POLICY](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html)
 
     *
 
-  [CHATBOT_POLICY](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_chatbot.html) 
+  [TAG_POLICY](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html) 
+
+    *
+
+  [CHATBOT_POLICY](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_chatbot.html)
 
     *
 
@@ -3257,8 +3261,9 @@ defmodule AWS.Organizations do
   account inherits, plus any policy of that type that is directly attached to the
   account.
 
-  This operation applies only to policy types *other* than service
-  control policies (SCPs).
+  This operation applies only to management policies. It does not apply to
+  authorization policies: service
+  control policies (SCPs) and resource control policies (RCPs).
 
   For more information about policy inheritance, see [Understanding management policy
   inheritance](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inheritance_mgmt.html)

@@ -63,6 +63,7 @@ defmodule AWS.EventBridge do
         optional("AuthParameters") => update_connection_auth_request_parameters(),
         optional("AuthorizationType") => list(any()),
         optional("Description") => String.t(),
+        optional("InvocationConnectivityParameters") => connectivity_resource_parameters(),
         required("Name") => String.t()
       }
       
@@ -343,6 +344,7 @@ defmodule AWS.EventBridge do
       connection_auth_response_parameters() :: %{
         "ApiKeyAuthParameters" => connection_api_key_auth_response_parameters(),
         "BasicAuthParameters" => connection_basic_auth_response_parameters(),
+        "ConnectivityParameters" => describe_connection_connectivity_parameters(),
         "InvocationHttpParameters" => connection_http_parameters(),
         "OAuthParameters" => connection_o_auth_response_parameters()
       }
@@ -543,6 +545,17 @@ defmodule AWS.EventBridge do
 
   ## Example:
       
+      describe_connection_connectivity_parameters() :: %{
+        "ResourceParameters" => describe_connection_resource_parameters()
+      }
+      
+  """
+  @type describe_connection_connectivity_parameters() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_api_destination_response() :: %{}
       
   """
@@ -730,6 +743,7 @@ defmodule AWS.EventBridge do
       update_connection_auth_request_parameters() :: %{
         "ApiKeyAuthParameters" => update_connection_api_key_auth_request_parameters(),
         "BasicAuthParameters" => update_connection_basic_auth_request_parameters(),
+        "ConnectivityParameters" => connectivity_resource_parameters(),
         "InvocationHttpParameters" => connection_http_parameters(),
         "OAuthParameters" => update_connection_o_auth_request_parameters()
       }
@@ -844,6 +858,7 @@ defmodule AWS.EventBridge do
         "ConnectionState" => list(any()),
         "CreationTime" => non_neg_integer(),
         "Description" => String.t(),
+        "InvocationConnectivityParameters" => describe_connection_connectivity_parameters(),
         "LastAuthorizedTime" => non_neg_integer(),
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t(),
@@ -1054,6 +1069,18 @@ defmodule AWS.EventBridge do
       
   """
   @type input_transformer() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_connection_resource_parameters() :: %{
+        "ResourceAssociationArn" => String.t(),
+        "ResourceConfigurationArn" => String.t()
+      }
+      
+  """
+  @type describe_connection_resource_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1539,6 +1566,17 @@ defmodule AWS.EventBridge do
 
   ## Example:
       
+      connectivity_resource_configuration_arn() :: %{
+        "ResourceConfigurationArn" => String.t()
+      }
+      
+  """
+  @type connectivity_resource_configuration_arn() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       capacity_provider_strategy_item() :: %{
         "base" => integer(),
         "capacityProvider" => String.t(),
@@ -1611,6 +1649,17 @@ defmodule AWS.EventBridge do
       
   """
   @type internal_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_denied_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1897,6 +1946,17 @@ defmodule AWS.EventBridge do
 
   ## Example:
       
+      throttling_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       start_replay_request() :: %{
         optional("Description") => String.t(),
         required("Destination") => replay_destination(),
@@ -2030,6 +2090,17 @@ defmodule AWS.EventBridge do
       
   """
   @type aws_vpc_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connectivity_resource_parameters() :: %{
+        "ResourceParameters" => connectivity_resource_configuration_arn()
+      }
+      
+  """
+  @type connectivity_resource_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2257,6 +2328,7 @@ defmodule AWS.EventBridge do
       
       create_connection_request() :: %{
         optional("Description") => String.t(),
+        optional("InvocationConnectivityParameters") => connectivity_resource_parameters(),
         required("AuthParameters") => create_connection_auth_request_parameters(),
         required("AuthorizationType") => list(any()),
         required("Name") => String.t()
@@ -2300,6 +2372,7 @@ defmodule AWS.EventBridge do
       create_connection_auth_request_parameters() :: %{
         "ApiKeyAuthParameters" => create_connection_api_key_auth_request_parameters(),
         "BasicAuthParameters" => create_connection_basic_auth_request_parameters(),
+        "ConnectivityParameters" => connectivity_resource_parameters(),
         "InvocationHttpParameters" => connection_http_parameters(),
         "OAuthParameters" => create_connection_o_auth_request_parameters()
       }
@@ -2476,7 +2549,12 @@ defmodule AWS.EventBridge do
           | invalid_event_pattern_exception()
 
   @type create_connection_errors() ::
-          resource_already_exists_exception() | limit_exceeded_exception() | internal_exception()
+          resource_already_exists_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_exception()
+          | resource_not_found_exception()
 
   @type create_endpoint_errors() ::
           resource_already_exists_exception() | limit_exceeded_exception() | internal_exception()
@@ -2680,7 +2758,9 @@ defmodule AWS.EventBridge do
 
   @type update_connection_errors() ::
           limit_exceeded_exception()
+          | throttling_exception()
           | concurrent_modification_exception()
+          | access_denied_exception()
           | internal_exception()
           | resource_not_found_exception()
 
@@ -2829,6 +2909,9 @@ defmodule AWS.EventBridge do
 
   A connection defines the authorization type and credentials to use
   for authorization with an API destination HTTP endpoint.
+
+  For more information, see [Connections for endpoint targets](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-target-connection.html)
+  in the *Amazon EventBridge User Guide*.
   """
   @spec create_connection(map(), create_connection_request(), list()) ::
           {:ok, create_connection_response(), any()}
@@ -3562,7 +3645,7 @@ defmodule AWS.EventBridge do
   value of
   9,223,372,036,854,775,807.
 
-  PutEvents will only process nested JSON up to 1100 levels deep.
+  PutEvents will only process nested JSON up to 1000 levels deep.
   """
   @spec put_events(map(), put_events_request(), list()) ::
           {:ok, put_events_response(), any()}
@@ -3596,11 +3679,12 @@ defmodule AWS.EventBridge do
 
   @doc """
   Running `PutPermission` permits the specified Amazon Web Services account or
-  Amazon Web Services organization to put events to the specified *event
-  bus*.
+  Amazon Web Services organization
+  to put events to the specified *event bus*.
 
-  Amazon EventBridge (CloudWatch Events) rules in your account are
-  triggered by these events arriving to an event bus in your account.
+  Amazon EventBridge rules in your account are triggered by these events arriving
+  to an event bus in your
+  account.
 
   For another account to send events to your account, that external account must
   have an
@@ -3710,6 +3794,12 @@ defmodule AWS.EventBridge do
   budgeting, which alerts you when charges exceed your specified limit. For more
   information,
   see [Managing Your Costs with Budgets](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html).
+
+  To create a rule that filters for management events from Amazon Web Services
+  services, see
+  [Receiving read-only management events from Amazon Web Services services](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event-cloudtrail.html#eb-service-event-cloudtrail-management)
+  in the
+  *EventBridge User Guide*.
   """
   @spec put_rule(map(), put_rule_request(), list()) ::
           {:ok, put_rule_response(), any()}
@@ -4003,8 +4093,7 @@ defmodule AWS.EventBridge do
   @doc """
   Removes one or more tags from the specified EventBridge resource.
 
-  In Amazon EventBridge
-  (CloudWatch Events), rules and event buses can be tagged.
+  In Amazon EventBridge, rules and event buses can be tagged.
   """
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}

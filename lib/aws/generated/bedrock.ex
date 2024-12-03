@@ -75,6 +75,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       get_evaluation_job_response() :: %{
+        "applicationType" => list(any()),
         "creationTime" => non_neg_integer(),
         "customerEncryptionKeyId" => String.t(),
         "evaluationConfig" => list(),
@@ -332,6 +333,20 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      text_inference_config() :: %{
+        "maxTokens" => integer(),
+        "stopSequences" => list([String.t()]()),
+        "temperature" => float(),
+        "topP" => float()
+      }
+
+  """
+  @type text_inference_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_summary() :: %{
         "arn" => String.t(),
         "createdAt" => non_neg_integer(),
@@ -372,6 +387,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       list_evaluation_jobs_request() :: %{
+        optional("applicationTypeEquals") => list(any()),
         optional("creationTimeAfter") => non_neg_integer(),
         optional("creationTimeBefore") => non_neg_integer(),
         optional("maxResults") => integer(),
@@ -401,8 +417,22 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      external_source() :: %{
+        "byteContent" => byte_content_doc(),
+        "s3Location" => s3_object_doc(),
+        "sourceType" => list(any())
+      }
+
+  """
+  @type external_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       automated_evaluation_config() :: %{
-        "datasetMetricConfigs" => list(evaluation_dataset_metric_config()())
+        "datasetMetricConfigs" => list(evaluation_dataset_metric_config()()),
+        "evaluatorModelConfig" => list()
       }
 
   """
@@ -463,6 +493,17 @@ defmodule AWS.Bedrock do
 
   """
   @type guardrail_content_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_object_doc() :: %{
+        "uri" => String.t()
+      }
+
+  """
+  @type s3_object_doc() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -668,6 +709,19 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      retrieve_and_generate_configuration() :: %{
+        "externalSourcesConfiguration" => external_sources_retrieve_and_generate_configuration(),
+        "knowledgeBaseConfiguration" => knowledge_base_retrieve_and_generate_configuration(),
+        "type" => list(any())
+      }
+
+  """
+  @type retrieve_and_generate_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_model_copy_job_request() :: %{
         optional("clientRequestToken") => String.t(),
         optional("modelKmsKeyId") => String.t(),
@@ -808,6 +862,32 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      bedrock_evaluator_model() :: %{
+        "modelIdentifier" => String.t()
+      }
+
+  """
+  @type bedrock_evaluator_model() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      knowledge_base_retrieve_and_generate_configuration() :: %{
+        "generationConfiguration" => generation_configuration(),
+        "knowledgeBaseId" => String.t(),
+        "modelArn" => String.t(),
+        "orchestrationConfiguration" => orchestration_configuration(),
+        "retrievalConfiguration" => knowledge_base_retrieval_configuration()
+      }
+
+  """
+  @type knowledge_base_retrieve_and_generate_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_foundation_model_request() :: %{}
 
   """
@@ -872,6 +952,29 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      query_transformation_configuration() :: %{
+        "type" => list(any())
+      }
+
+  """
+  @type query_transformation_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retrieve_config() :: %{
+        "knowledgeBaseId" => String.t(),
+        "knowledgeBaseRetrievalConfiguration" => knowledge_base_retrieval_configuration()
+      }
+
+  """
+  @type retrieve_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_model_copy_job_request() :: %{}
 
   """
@@ -922,6 +1025,17 @@ defmodule AWS.Bedrock do
 
   """
   @type get_inference_profile_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      knowledge_base_retrieval_configuration() :: %{
+        "vectorSearchConfiguration" => knowledge_base_vector_search_configuration()
+      }
+
+  """
+  @type knowledge_base_retrieval_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1138,6 +1252,19 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      external_sources_retrieve_and_generate_configuration() :: %{
+        "generationConfiguration" => external_sources_generation_configuration(),
+        "modelArn" => String.t(),
+        "sources" => list(external_source()())
+      }
+
+  """
+  @type external_sources_retrieve_and_generate_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_inference_profile_response() :: %{}
 
   """
@@ -1293,6 +1420,19 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      byte_content_doc() :: %{
+        "contentType" => String.t(),
+        "data" => binary(),
+        "identifier" => String.t()
+      }
+
+  """
+  @type byte_content_doc() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_imported_models_response() :: %{
         "modelSummaries" => list(imported_model_summary()()),
         "nextToken" => String.t()
@@ -1300,6 +1440,20 @@ defmodule AWS.Bedrock do
 
   """
   @type list_imported_models_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      external_sources_generation_configuration() :: %{
+        "additionalModelRequestFields" => map(),
+        "guardrailConfiguration" => guardrail_configuration(),
+        "kbInferenceConfig" => kb_inference_config(),
+        "promptTemplate" => prompt_template()
+      }
+
+  """
+  @type external_sources_generation_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1327,10 +1481,35 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      knowledge_base_vector_search_configuration() :: %{
+        "filter" => list(),
+        "numberOfResults" => [integer()],
+        "overrideSearchType" => list(any())
+      }
+
+  """
+  @type knowledge_base_vector_search_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_model_invocation_logging_configuration_request() :: %{}
 
   """
   @type get_model_invocation_logging_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      filter_attribute() :: %{
+        "key" => String.t(),
+        "value" => any()
+      }
+
+  """
+  @type filter_attribute() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1534,6 +1713,28 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      orchestration_configuration() :: %{
+        "queryTransformationConfiguration" => query_transformation_configuration()
+      }
+
+  """
+  @type orchestration_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      prompt_template() :: %{
+        "textPromptTemplate" => String.t()
+      }
+
+  """
+  @type prompt_template() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       access_denied_exception() :: %{
         "message" => String.t()
       }
@@ -1597,6 +1798,20 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      generation_configuration() :: %{
+        "additionalModelRequestFields" => map(),
+        "guardrailConfiguration" => guardrail_configuration(),
+        "kbInferenceConfig" => kb_inference_config(),
+        "promptTemplate" => prompt_template()
+      }
+
+  """
+  @type generation_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_response() :: %{}
 
   """
@@ -1607,6 +1822,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       create_evaluation_job_request() :: %{
+        optional("applicationType") => list(any()),
         optional("clientRequestToken") => String.t(),
         optional("customerEncryptionKeyId") => String.t(),
         optional("jobDescription") => String.t(),
@@ -1940,6 +2156,18 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      guardrail_configuration() :: %{
+        "guardrailId" => [String.t()],
+        "guardrailVersion" => [String.t()]
+      }
+
+  """
+  @type guardrail_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validator() :: %{
         "s3Uri" => String.t()
       }
@@ -2026,13 +2254,27 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      kb_inference_config() :: %{
+        "textInferenceConfig" => text_inference_config()
+      }
+
+  """
+  @type kb_inference_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       evaluation_summary() :: %{
+        "applicationType" => list(any()),
         "creationTime" => non_neg_integer(),
         "evaluationTaskTypes" => list(list(any())()),
+        "evaluatorModelIdentifiers" => list(String.t()()),
         "jobArn" => String.t(),
         "jobName" => String.t(),
         "jobType" => list(any()),
         "modelIdentifiers" => list(String.t()()),
+        "ragIdentifiers" => list(String.t()()),
         "status" => list(any())
       }
 
@@ -2574,11 +2816,11 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Creates a batch deletion job.
+  Deletes a batch of evaluation jobs.
 
-  A model evaluation job can only be deleted if it has following status `FAILED`,
-  `COMPLETED`, and `STOPPED`. You can request up to 25 model evaluation jobs be
-  deleted in a single request.
+  An evaluation job can only be deleted if it has
+  following status `FAILED`, `COMPLETED`, and `STOPPED`.
+  You can request up to 25 model evaluation jobs be deleted in a single request.
   """
   @spec batch_delete_evaluation_job(map(), batch_delete_evaluation_job_request(), list()) ::
           {:ok, batch_delete_evaluation_job_response(), any()}
@@ -2606,11 +2848,7 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  API operation for creating and managing Amazon Bedrock automatic model
-  evaluation jobs and model evaluation jobs that use human workers.
-
-  To learn more about the requirements for creating a model evaluation job see,
-  [Model evaluation](https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation.html).
+  Creates an evaluation job.
   """
   @spec create_evaluation_job(map(), create_evaluation_job_request(), list()) ::
           {:ok, create_evaluation_job_response(), any()}
@@ -3189,10 +3427,7 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Retrieves the properties associated with a model evaluation job, including the
-  status of the job.
-
-  For more information, see [Model evaluation](https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation.html).
+  Gets information about an evaluation job, such as the status of the job.
   """
   @spec get_evaluation_job(map(), String.t(), list()) ::
           {:ok, get_evaluation_job_response(), any()}
@@ -3533,10 +3768,11 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Lists model evaluation jobs.
+  Lists all existing evaluation jobs.
   """
   @spec list_evaluation_jobs(
           map(),
+          String.t() | nil,
           String.t() | nil,
           String.t() | nil,
           String.t() | nil,
@@ -3552,6 +3788,7 @@ defmodule AWS.Bedrock do
           | {:error, list_evaluation_jobs_errors()}
   def list_evaluation_jobs(
         %Client{} = client,
+        application_type_equals \\ nil,
         creation_time_after \\ nil,
         creation_time_before \\ nil,
         max_results \\ nil,
@@ -3618,6 +3855,13 @@ defmodule AWS.Bedrock do
     query_params =
       if !is_nil(creation_time_after) do
         [{"creationTimeAfter", creation_time_after} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(application_type_equals) do
+        [{"applicationTypeEquals", application_type_equals} | query_params]
       else
         query_params
       end
@@ -4474,7 +4718,7 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Stops an in progress model evaluation job.
+  Stops an evaluation job that is current being created or running.
   """
   @spec stop_evaluation_job(map(), String.t(), stop_evaluation_job_request(), list()) ::
           {:ok, stop_evaluation_job_response(), any()}

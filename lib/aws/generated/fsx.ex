@@ -363,6 +363,7 @@ defmodule AWS.FSx do
         "DiskIopsConfiguration" => disk_iops_configuration(),
         "EndpointIpAddressRange" => String.t(),
         "PreferredSubnetId" => String.t(),
+        "ReadCacheConfiguration" => open_z_f_s_read_cache_configuration(),
         "RootVolumeConfiguration" => open_z_f_s_create_root_volume_configuration(),
         "RouteTableIds" => list(String.t()()),
         "ThroughputCapacity" => integer(),
@@ -1463,11 +1464,11 @@ defmodule AWS.FSx do
         optional("OntapConfiguration") => create_file_system_ontap_configuration(),
         optional("OpenZFSConfiguration") => create_file_system_open_z_f_s_configuration(),
         optional("SecurityGroupIds") => list(String.t()()),
+        optional("StorageCapacity") => integer(),
         optional("StorageType") => list(any()),
         optional("Tags") => list(tag()()),
         optional("WindowsConfiguration") => create_file_system_windows_configuration(),
         required("FileSystemType") => list(any()),
-        required("StorageCapacity") => integer(),
         required("SubnetIds") => list(String.t()())
       }
       
@@ -1589,6 +1590,7 @@ defmodule AWS.FSx do
         "EndpointIpAddress" => String.t(),
         "EndpointIpAddressRange" => String.t(),
         "PreferredSubnetId" => String.t(),
+        "ReadCacheConfiguration" => open_z_f_s_read_cache_configuration(),
         "RootVolumeId" => String.t(),
         "RouteTableIds" => list(String.t()()),
         "ThroughputCapacity" => integer(),
@@ -1948,6 +1950,7 @@ defmodule AWS.FSx do
         "ProgressPercent" => integer(),
         "ResourceARN" => String.t(),
         "ResourceType" => list(any()),
+        "SizeInBytes" => float(),
         "SourceBackupId" => String.t(),
         "SourceBackupRegion" => String.t(),
         "Tags" => list(tag()()),
@@ -2055,6 +2058,18 @@ defmodule AWS.FSx do
       
   """
   @type s3_data_repository_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      open_z_f_s_read_cache_configuration() :: %{
+        "SizeGiB" => integer(),
+        "SizingMode" => list(any())
+      }
+      
+  """
+  @type open_z_f_s_read_cache_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2246,6 +2261,7 @@ defmodule AWS.FSx do
         "CopyTagsToVolumes" => boolean(),
         "DailyAutomaticBackupStartTime" => String.t(),
         "DiskIopsConfiguration" => disk_iops_configuration(),
+        "ReadCacheConfiguration" => open_z_f_s_read_cache_configuration(),
         "RemoveRouteTableIds" => list(String.t()()),
         "ThroughputCapacity" => integer(),
         "WeeklyMaintenanceStartTime" => String.t()
@@ -4809,6 +4825,10 @@ defmodule AWS.FSx do
     *
 
   `DiskIopsConfiguration`
+
+    *
+
+  `ReadCacheConfiguration`
 
     *
 

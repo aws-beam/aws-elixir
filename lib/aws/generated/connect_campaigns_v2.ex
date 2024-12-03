@@ -296,6 +296,19 @@ defmodule AWS.ConnectCampaignsV2 do
 
   ## Example:
 
+      failed_profile_outbound_request() :: %{
+        "clientToken" => String.t(),
+        "failureCode" => String.t(),
+        "id" => String.t()
+      }
+
+  """
+  @type failed_profile_outbound_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_campaign_communication_time_request() :: %{
         required("config") => String.t()
       }
@@ -364,6 +377,18 @@ defmodule AWS.ConnectCampaignsV2 do
 
   ## Example:
 
+      put_profile_outbound_request_batch_response() :: %{
+        "failedRequests" => list(failed_profile_outbound_request()()),
+        "successfulRequests" => list(successful_profile_outbound_request()())
+      }
+
+  """
+  @type put_profile_outbound_request_batch_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invalid_campaign_state_exception() :: %{
         "message" => [String.t()],
         "state" => String.t(),
@@ -372,6 +397,18 @@ defmodule AWS.ConnectCampaignsV2 do
 
   """
   @type invalid_campaign_state_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      successful_profile_outbound_request() :: %{
+        "clientToken" => String.t(),
+        "id" => String.t()
+      }
+
+  """
+  @type successful_profile_outbound_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -477,6 +514,17 @@ defmodule AWS.ConnectCampaignsV2 do
 
   """
   @type get_campaign_state_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_profile_outbound_request_batch_request() :: %{
+        required("profileOutboundRequests") => list(profile_outbound_request()())
+      }
+
+  """
+  @type put_profile_outbound_request_batch_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -645,6 +693,17 @@ defmodule AWS.ConnectCampaignsV2 do
 
   """
   @type agentless_config() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      event_trigger() :: %{
+        "customerProfilesDomainArn" => String.t()
+      }
+
+  """
+  @type event_trigger() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -937,6 +996,19 @@ defmodule AWS.ConnectCampaignsV2 do
 
   ## Example:
 
+      profile_outbound_request() :: %{
+        "clientToken" => String.t(),
+        "expirationTime" => non_neg_integer(),
+        "profileId" => String.t()
+      }
+
+  """
+  @type profile_outbound_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       failed_request() :: %{
         "clientToken" => String.t(),
         "failureCode" => String.t(),
@@ -1218,6 +1290,15 @@ defmodule AWS.ConnectCampaignsV2 do
           | conflict_exception()
 
   @type put_outbound_request_batch_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | invalid_campaign_state_exception()
+
+  @type put_profile_outbound_request_batch_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -1913,6 +1994,42 @@ defmodule AWS.ConnectCampaignsV2 do
           | {:error, put_outbound_request_batch_errors()}
   def put_outbound_request_batch(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/outbound-requests"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Takes in a list of profile outbound requests to be placed as part of an outbound
+  campaign.
+
+  This API is idempotent.
+  """
+  @spec put_profile_outbound_request_batch(
+          map(),
+          String.t(),
+          put_profile_outbound_request_batch_request(),
+          list()
+        ) ::
+          {:ok, put_profile_outbound_request_batch_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_profile_outbound_request_batch_errors()}
+  def put_profile_outbound_request_batch(%Client{} = client, id, input, options \\ []) do
+    url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/profile-outbound-requests"
     headers = []
     custom_headers = []
     query_params = []

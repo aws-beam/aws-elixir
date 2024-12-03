@@ -32,8 +32,8 @@ defmodule AWS.Connect do
   in the *Amazon Connect Administrator
   Guide*.
 
-  You can connect programmatically to an Amazon Web Services service by using an
-  endpoint. For
+  You can use an endpoint to connect programmatically to an Amazon Web Services
+  service. For
   a list of Amazon Connect endpoints, see [Amazon Connect Endpoints](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
 
@@ -2832,6 +2832,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      queue_info_input() :: %{
+        "Id" => String.t()
+      }
+
+  """
+  @type queue_info_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_rules_request() :: %{
         optional("EventSourceName") => list(any()),
         optional("MaxResults") => integer(),
@@ -3930,6 +3941,7 @@ defmodule AWS.Connect do
   ## Example:
 
       stop_contact_recording_request() :: %{
+        optional("ContactRecordingType") => list(any()),
         required("ContactId") => String.t(),
         required("InitialContactId") => String.t(),
         required("InstanceId") => String.t()
@@ -6035,6 +6047,7 @@ defmodule AWS.Connect do
   ## Example:
 
       voice_recording_configuration() :: %{
+        "IvrRecordingTrack" => list(any()),
         "VoiceRecordingTrack" => list(any())
       }
 
@@ -7597,10 +7610,14 @@ defmodule AWS.Connect do
   ## Example:
 
       update_contact_request() :: %{
+        optional("CustomerEndpoint") => endpoint(),
         optional("Description") => String.t(),
         optional("Name") => String.t(),
+        optional("QueueInfo") => queue_info_input(),
         optional("References") => map(),
-        optional("SegmentAttributes") => map()
+        optional("SegmentAttributes") => map(),
+        optional("SystemEndpoint") => endpoint(),
+        optional("UserInfo") => user_info()
       }
 
   """
@@ -7919,6 +7936,7 @@ defmodule AWS.Connect do
   ## Example:
 
       resume_contact_recording_request() :: %{
+        optional("ContactRecordingType") => list(any()),
         required("ContactId") => String.t(),
         required("InitialContactId") => String.t(),
         required("InstanceId") => String.t()
@@ -10268,6 +10286,7 @@ defmodule AWS.Connect do
   ## Example:
 
       suspend_contact_recording_request() :: %{
+        optional("ContactRecordingType") => list(any()),
         required("ContactId") => String.t(),
         required("InitialContactId") => String.t(),
         required("InstanceId") => String.t()
@@ -12085,8 +12104,10 @@ defmodule AWS.Connect do
   @type update_contact_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
+          | access_denied_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
+          | conflict_exception()
           | internal_service_exception()
 
   @type update_contact_attributes_errors() ::
@@ -15680,7 +15701,7 @@ defmodule AWS.Connect do
   traffic distribution group, you must provide a full phone number ARN. If a UUID
   is provided
   in
-  this scenario, you will receive a
+  this scenario, you receive a
   `ResourceNotFoundException`.
   """
   @spec describe_phone_number(map(), String.t(), list()) ::
@@ -16917,8 +16938,8 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Imports a claimed phone number from an external service, such as Amazon
-  Pinpoint, into an
+  Imports a claimed phone number from an external service, such as Amazon Web
+  Services End User Messaging, into an
   Amazon Connect instance.
 
   You can call this API only in the same Amazon Web Services Region
@@ -20013,7 +20034,8 @@ defmodule AWS.Connect do
   an active
   chat contact, a new chat contact is also created before handling chat action.
 
-  Access to this API is currently restricted to Amazon Pinpoint for supporting SMS
+  Access to this API is currently restricted to Amazon Web Services End User
+  Messaging for supporting SMS
   integration.
   """
   @spec send_chat_integration_event(map(), send_chat_integration_event_request(), list()) ::
@@ -20352,7 +20374,7 @@ defmodule AWS.Connect do
   Initiates a new outbound SMS contact to a customer.
 
   Response of this API provides the
-  ContactId of the outbound SMS contact created.
+  `ContactId` of the outbound SMS contact created.
 
   **SourceEndpoint** only supports Endpoints with
   `CONNECT_PHONENUMBER_ARN` as Type and **DestinationEndpoint** only supports
@@ -20360,7 +20382,7 @@ defmodule AWS.Connect do
   Type. **ContactFlowId** initiates the flow to manage the new SMS
   contact created.
 
-  This API can be used to initiate outbound SMS contacts for an agent or it can
+  This API can be used to initiate outbound SMS contacts for an agent, or it can
   also deflect
   an ongoing contact to an outbound SMS contact by using the
   [StartOutboundChatContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartOutboundChatContact.html) Flow Action.

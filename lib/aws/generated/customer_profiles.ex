@@ -110,6 +110,18 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      event_trigger_limits() :: %{
+        "EventExpiration" => float(),
+        "Periods" => list(period()())
+      }
+
+  """
+  @type event_trigger_limits() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_segment_estimate_request() :: %{
         required("SegmentQuery") => segment_group_structure()
       }
@@ -497,6 +509,18 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      event_trigger_condition() :: %{
+        "EventTriggerDimensions" => list(event_trigger_dimension()()),
+        "LogicalOperator" => list(any())
+      }
+
+  """
+  @type event_trigger_condition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       domain_stats() :: %{
         "MeteringProfileCount" => float(),
         "ObjectCount" => float(),
@@ -529,6 +553,17 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type list_account_integrations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_event_trigger_response() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type delete_event_trigger_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -736,6 +771,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       put_integration_request() :: %{
+        optional("EventTriggerNames") => list(String.t()()),
         optional("FlowDefinition") => flow_definition(),
         optional("ObjectTypeName") => String.t(),
         optional("ObjectTypeNames") => map(),
@@ -762,6 +798,18 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type flow_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_event_triggers_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_event_triggers_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -888,6 +936,7 @@ defmodule AWS.CustomerProfiles do
       put_integration_response() :: %{
         "CreatedAt" => non_neg_integer(),
         "DomainName" => String.t(),
+        "EventTriggerNames" => list(String.t()()),
         "IsUnstructured" => boolean(),
         "LastUpdatedAt" => non_neg_integer(),
         "ObjectTypeName" => String.t(),
@@ -973,6 +1022,18 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type trigger_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_event_triggers_response() :: %{
+        "Items" => list(event_trigger_summary_item()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_event_triggers_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1149,6 +1210,7 @@ defmodule AWS.CustomerProfiles do
       get_integration_response() :: %{
         "CreatedAt" => non_neg_integer(),
         "DomainName" => String.t(),
+        "EventTriggerNames" => list(String.t()()),
         "IsUnstructured" => boolean(),
         "LastUpdatedAt" => non_neg_integer(),
         "ObjectTypeName" => String.t(),
@@ -1467,6 +1529,22 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      create_event_trigger_request() :: %{
+        optional("Description") => String.t(),
+        optional("EventTriggerLimits") => event_trigger_limits(),
+        optional("SegmentFilter") => String.t(),
+        optional("Tags") => map(),
+        required("EventTriggerConditions") => list(event_trigger_condition()()),
+        required("ObjectTypeName") => String.t()
+      }
+
+  """
+  @type create_event_trigger_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       profile_dimension() :: %{
         "DimensionType" => list(any()),
         "Values" => list(String.t()())
@@ -1565,6 +1643,25 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type appflow_integration_workflow_metrics() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_event_trigger_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t(),
+        "EventTriggerConditions" => list(event_trigger_condition()()),
+        "EventTriggerLimits" => event_trigger_limits(),
+        "EventTriggerName" => String.t(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "ObjectTypeName" => String.t(),
+        "SegmentFilter" => String.t(),
+        "Tags" => map()
+      }
+
+  """
+  @type get_event_trigger_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1819,6 +1916,17 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      event_trigger_dimension() :: %{
+        "ObjectAttributes" => list(object_attribute()())
+      }
+
+  """
+  @type event_trigger_dimension() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_calculated_attribute_definitions_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
@@ -1880,6 +1988,25 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type get_matches_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_event_trigger_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t(),
+        "EventTriggerConditions" => list(event_trigger_condition()()),
+        "EventTriggerLimits" => event_trigger_limits(),
+        "EventTriggerName" => String.t(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "ObjectTypeName" => String.t(),
+        "SegmentFilter" => String.t(),
+        "Tags" => map()
+      }
+
+  """
+  @type update_event_trigger_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2039,6 +2166,15 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      delete_event_trigger_request() :: %{}
+
+  """
+  @type delete_event_trigger_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       search_profiles_request() :: %{
         optional("AdditionalSearchKeys") => list(additional_search_key()()),
         optional("LogicalOperator") => list(any()),
@@ -2133,6 +2269,39 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_event_trigger_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t(),
+        "EventTriggerConditions" => list(event_trigger_condition()()),
+        "EventTriggerLimits" => event_trigger_limits(),
+        "EventTriggerName" => String.t(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "ObjectTypeName" => String.t(),
+        "SegmentFilter" => String.t(),
+        "Tags" => map()
+      }
+
+  """
+  @type create_event_trigger_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      object_attribute() :: %{
+        "ComparisonOperator" => list(any()),
+        "FieldName" => String.t(),
+        "Source" => String.t(),
+        "Values" => list(String.t()())
+      }
+
+  """
+  @type object_attribute() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2527,6 +2696,22 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      event_trigger_summary_item() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t(),
+        "EventTriggerName" => String.t(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "ObjectTypeName" => String.t(),
+        "Tags" => map()
+      }
+
+  """
+  @type event_trigger_summary_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_event_stream_request() :: %{
         optional("Tags") => map(),
         required("Uri") => String.t()
@@ -2595,12 +2780,41 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      update_event_trigger_request() :: %{
+        optional("Description") => String.t(),
+        optional("EventTriggerConditions") => list(event_trigger_condition()()),
+        optional("EventTriggerLimits") => event_trigger_limits(),
+        optional("ObjectTypeName") => String.t(),
+        optional("SegmentFilter") => String.t()
+      }
+
+  """
+  @type update_event_trigger_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       bad_request_exception() :: %{
         "Message" => String.t()
       }
 
   """
   @type bad_request_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      period() :: %{
+        "MaxInvocationsPerProfile" => integer(),
+        "Unit" => list(any()),
+        "Unlimited" => boolean(),
+        "Value" => integer()
+      }
+
+  """
+  @type period() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2625,6 +2839,15 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type profile_attribute_values_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_event_trigger_request() :: %{}
+
+  """
+  @type get_event_trigger_request() :: %{}
 
   @typedoc """
 
@@ -2839,6 +3062,7 @@ defmodule AWS.CustomerProfiles do
       list_integration_item() :: %{
         "CreatedAt" => non_neg_integer(),
         "DomainName" => String.t(),
+        "EventTriggerNames" => list(String.t()()),
         "IsUnstructured" => boolean(),
         "LastUpdatedAt" => non_neg_integer(),
         "ObjectTypeName" => String.t(),
@@ -3112,6 +3336,13 @@ defmodule AWS.CustomerProfiles do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type create_event_trigger_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type create_integration_workflow_errors() ::
           bad_request_exception()
           | throttling_exception()
@@ -3162,6 +3393,13 @@ defmodule AWS.CustomerProfiles do
           | resource_not_found_exception()
 
   @type delete_event_stream_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type delete_event_trigger_errors() ::
           bad_request_exception()
           | throttling_exception()
           | access_denied_exception()
@@ -3253,6 +3491,13 @@ defmodule AWS.CustomerProfiles do
           | resource_not_found_exception()
 
   @type get_event_stream_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_event_trigger_errors() ::
           bad_request_exception()
           | throttling_exception()
           | access_denied_exception()
@@ -3372,6 +3617,13 @@ defmodule AWS.CustomerProfiles do
           | resource_not_found_exception()
 
   @type list_event_streams_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_event_triggers_errors() ::
           bad_request_exception()
           | throttling_exception()
           | access_denied_exception()
@@ -3499,6 +3751,13 @@ defmodule AWS.CustomerProfiles do
           | resource_not_found_exception()
 
   @type update_domain_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_event_trigger_errors() ::
           bad_request_exception()
           | throttling_exception()
           | access_denied_exception()
@@ -3763,6 +4022,54 @@ defmodule AWS.CustomerProfiles do
       ) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_name)}/event-streams/#{AWS.Util.encode_uri(event_stream_name)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates an event trigger, which specifies the rules when to perform action based
+  on
+  customer's ingested data.
+
+  Each event stream can be associated with only one integration in the same region
+  and AWS
+  account as the event stream.
+  """
+  @spec create_event_trigger(
+          map(),
+          String.t(),
+          String.t(),
+          create_event_trigger_request(),
+          list()
+        ) ::
+          {:ok, create_event_trigger_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_event_trigger_errors()}
+  def create_event_trigger(
+        %Client{} = client,
+        domain_name,
+        event_trigger_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/event-triggers/#{AWS.Util.encode_uri(event_trigger_name)}"
 
     headers = []
     custom_headers = []
@@ -4057,6 +4364,50 @@ defmodule AWS.CustomerProfiles do
       ) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_name)}/event-streams/#{AWS.Util.encode_uri(event_stream_name)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Disable and deletes the Event Trigger.
+
+  You cannot delete an Event Trigger with an active Integration associated.
+  """
+  @spec delete_event_trigger(
+          map(),
+          String.t(),
+          String.t(),
+          delete_event_trigger_request(),
+          list()
+        ) ::
+          {:ok, delete_event_trigger_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_event_trigger_errors()}
+  def delete_event_trigger(
+        %Client{} = client,
+        domain_name,
+        event_trigger_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/event-triggers/#{AWS.Util.encode_uri(event_trigger_name)}"
 
     headers = []
     custom_headers = []
@@ -4471,6 +4822,25 @@ defmodule AWS.CustomerProfiles do
   def get_event_stream(%Client{} = client, domain_name, event_stream_name, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_name)}/event-streams/#{AWS.Util.encode_uri(event_stream_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Get a specific Event Trigger from the domain.
+  """
+  @spec get_event_trigger(map(), String.t(), String.t(), list()) ::
+          {:ok, get_event_trigger_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_event_trigger_errors()}
+  def get_event_trigger(%Client{} = client, domain_name, event_trigger_name, options \\ []) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/event-triggers/#{AWS.Util.encode_uri(event_trigger_name)}"
 
     headers = []
     query_params = []
@@ -5051,6 +5421,43 @@ defmodule AWS.CustomerProfiles do
         options \\ []
       ) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/event-streams"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  List all Event Triggers under a domain.
+  """
+  @spec list_event_triggers(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_event_triggers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_event_triggers_errors()}
+  def list_event_triggers(
+        %Client{} = client,
+        domain_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/event-triggers"
     headers = []
     query_params = []
 
@@ -5882,6 +6289,48 @@ defmodule AWS.CustomerProfiles do
           | {:error, update_domain_errors()}
   def update_domain(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Update the properties of an Event Trigger.
+  """
+  @spec update_event_trigger(
+          map(),
+          String.t(),
+          String.t(),
+          update_event_trigger_request(),
+          list()
+        ) ::
+          {:ok, update_event_trigger_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_event_trigger_errors()}
+  def update_event_trigger(
+        %Client{} = client,
+        domain_name,
+        event_trigger_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/event-triggers/#{AWS.Util.encode_uri(event_trigger_name)}"
+
     headers = []
     custom_headers = []
     query_params = []

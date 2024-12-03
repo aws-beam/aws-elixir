@@ -1111,6 +1111,20 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      athena_table_reference() :: %{
+        "databaseName" => String.t(),
+        "outputLocation" => String.t(),
+        "tableName" => String.t(),
+        "workGroup" => String.t()
+      }
+
+  """
+  @type athena_table_reference() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_analysis_template_output() :: %{
         required("analysisTemplate") => analysis_template()
       }
@@ -2653,6 +2667,22 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      snowflake_table_reference() :: %{
+        "accountIdentifier" => String.t(),
+        "databaseName" => String.t(),
+        "schemaName" => String.t(),
+        "secretArn" => String.t(),
+        "tableName" => String.t(),
+        "tableSchema" => list()
+      }
+
+  """
+  @type snowflake_table_reference() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_schema_analysis_rule_output() :: %{
         required("analysisRule") => analysis_rule()
       }
@@ -3067,6 +3097,18 @@ defmodule AWS.CleanRooms do
 
   """
   @type analysis_template_validation_status_reason() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      snowflake_table_schema_v1() :: %{
+        "columnName" => String.t(),
+        "columnType" => String.t()
+      }
+
+  """
+  @type snowflake_table_schema_v1() :: %{String.t() => any()}
 
   @typedoc """
 

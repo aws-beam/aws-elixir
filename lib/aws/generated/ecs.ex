@@ -4232,7 +4232,7 @@ defmodule AWS.ECS do
 
   The `FARGATE` and `FARGATE_SPOT` capacity providers are reserved and can't
   be deleted. You can disassociate them from a cluster using either
-  [PutCapacityProviderProviders](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutCapacityProviderProviders.html) or by deleting the cluster.
+  [PutClusterCapacityProviders](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutClusterCapacityProviders.html) or by deleting the cluster.
 
   Prior to a capacity provider being deleted, the capacity provider must be
   removed from the capacity
@@ -4481,6 +4481,10 @@ defmodule AWS.ECS do
 
   @doc """
   Describes one or more of your clusters.
+
+  For CLI examples, see
+  [describe-clusters.rst](https://github.com/aws/aws-cli/blob/develop/awscli/examples/ecs/describe-clusters.rst)
+  on GitHub.
   """
   @spec describe_clusters(map(), describe_clusters_request(), list()) ::
           {:ok, describe_clusters_response(), any()}

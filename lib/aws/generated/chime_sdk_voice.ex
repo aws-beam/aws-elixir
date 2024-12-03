@@ -19,6 +19,18 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Example:
 
+      put_voice_connector_external_systems_configuration_request() :: %{
+        optional("ContactCenterSystemTypes") => list(list(any())()),
+        optional("SessionBorderControllerTypes") => list(list(any())())
+      }
+
+  """
+  @type put_voice_connector_external_systems_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       streaming_configuration() :: %{
         "DataRetentionInHours" => integer(),
         "Disabled" => boolean(),
@@ -864,6 +876,17 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Example:
 
+      get_voice_connector_external_systems_configuration_response() :: %{
+        "ExternalSystemsConfiguration" => external_systems_configuration()
+      }
+
+  """
+  @type get_voice_connector_external_systems_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       untag_resource_request() :: %{
         required("ResourceARN") => String.t(),
         required("TagKeys") => list(String.t()())
@@ -918,6 +941,18 @@ defmodule AWS.ChimeSDKVoice do
 
   """
   @type create_phone_number_order_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      external_systems_configuration() :: %{
+        "ContactCenterSystemTypes" => list(list(any())()),
+        "SessionBorderControllerTypes" => list(list(any())())
+      }
+
+  """
+  @type external_systems_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1003,6 +1038,17 @@ defmodule AWS.ChimeSDKVoice do
 
   """
   @type logging_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_voice_connector_external_systems_configuration_response() :: %{
+        "ExternalSystemsConfiguration" => external_systems_configuration()
+      }
+
+  """
+  @type put_voice_connector_external_systems_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1466,6 +1512,7 @@ defmodule AWS.ChimeSDKVoice do
 
       create_voice_connector_request() :: %{
         optional("AwsRegion") => list(any()),
+        optional("IntegrationType") => list(any()),
         optional("Tags") => list(tag()()),
         required("Name") => String.t(),
         required("RequireEncryption") => boolean()
@@ -1619,6 +1666,7 @@ defmodule AWS.ChimeSDKVoice do
       voice_connector() :: %{
         "AwsRegion" => list(any()),
         "CreatedTimestamp" => non_neg_integer(),
+        "IntegrationType" => list(any()),
         "Name" => String.t(),
         "OutboundHostName" => String.t(),
         "RequireEncryption" => boolean(),
@@ -1886,6 +1934,15 @@ defmodule AWS.ChimeSDKVoice do
 
   ## Example:
 
+      get_voice_connector_external_systems_configuration_request() :: %{}
+
+  """
+  @type get_voice_connector_external_systems_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_voice_connector_proxy_request() :: %{}
 
   """
@@ -1911,6 +1968,15 @@ defmodule AWS.ChimeSDKVoice do
 
   """
   @type get_sip_media_application_logging_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_voice_connector_external_systems_configuration_request() :: %{}
+
+  """
+  @type delete_voice_connector_external_systems_configuration_request() :: %{}
 
   @typedoc """
 
@@ -2818,6 +2884,15 @@ defmodule AWS.ChimeSDKVoice do
           | forbidden_exception()
           | service_failure_exception()
 
+  @type delete_voice_connector_external_systems_configuration_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
   @type delete_voice_connector_group_errors() ::
           bad_request_exception()
           | service_unavailable_exception()
@@ -3013,6 +3088,15 @@ defmodule AWS.ChimeSDKVoice do
           | service_failure_exception()
 
   @type get_voice_connector_emergency_calling_configuration_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type get_voice_connector_external_systems_configuration_errors() ::
           bad_request_exception()
           | service_unavailable_exception()
           | not_found_exception()
@@ -3247,6 +3331,16 @@ defmodule AWS.ChimeSDKVoice do
           bad_request_exception()
           | service_unavailable_exception()
           | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | forbidden_exception()
+          | service_failure_exception()
+
+  @type put_voice_connector_external_systems_configuration_errors() ::
+          bad_request_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | conflict_exception()
           | throttled_client_exception()
           | unauthorized_client_exception()
           | forbidden_exception()
@@ -4216,6 +4310,46 @@ defmodule AWS.ChimeSDKVoice do
   end
 
   @doc """
+  Deletes the external systems configuration for a Voice Connector.
+  """
+  @spec delete_voice_connector_external_systems_configuration(
+          map(),
+          String.t(),
+          delete_voice_connector_external_systems_configuration_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_voice_connector_external_systems_configuration_errors()}
+  def delete_voice_connector_external_systems_configuration(
+        %Client{} = client,
+        voice_connector_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/external-systems-configuration"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Deletes an Amazon Chime SDK Voice Connector group.
 
   Any `VoiceConnectorItems`
@@ -4847,6 +4981,30 @@ defmodule AWS.ChimeSDKVoice do
       ) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/emergency-calling-configuration"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets information about an external systems configuration for a Voice
+  Connector.
+  """
+  @spec get_voice_connector_external_systems_configuration(map(), String.t(), list()) ::
+          {:ok, get_voice_connector_external_systems_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_voice_connector_external_systems_configuration_errors()}
+  def get_voice_connector_external_systems_configuration(
+        %Client{} = client,
+        voice_connector_id,
+        options \\ []
+      ) do
+    url_path =
+      "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/external-systems-configuration"
 
     headers = []
     query_params = []
@@ -5668,6 +5826,46 @@ defmodule AWS.ChimeSDKVoice do
       ) do
     url_path =
       "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/emergency-calling-configuration"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Adds an external systems configuration to a Voice Connector.
+  """
+  @spec put_voice_connector_external_systems_configuration(
+          map(),
+          String.t(),
+          put_voice_connector_external_systems_configuration_request(),
+          list()
+        ) ::
+          {:ok, put_voice_connector_external_systems_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_voice_connector_external_systems_configuration_errors()}
+  def put_voice_connector_external_systems_configuration(
+        %Client{} = client,
+        voice_connector_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/external-systems-configuration"
 
     headers = []
     custom_headers = []

@@ -4304,13 +4304,17 @@ defmodule AWS.S3 do
   format
 
   ```
-  https://*bucket_name*.s3express-*az_id*.*region*.amazonaws.com/*key-name*
+  https://*bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com/*key-name*
 
   ```
 
-  . Path-style requests are not supported. For more information, see [Regional and
-  Zonal
-  endpoints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  . Path-style requests are not supported. For more information about endpoints in
+  Availability Zones, see [Regional and Zonal endpoints for directory buckets in
+  Availability
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  in the
+  *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -4350,7 +4354,7 @@ defmodule AWS.S3 do
 
   ```
 
-  *Bucket_name*.s3express-*az_id*.*region*.amazonaws.com
+  *Bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com
   ```
 
   .
@@ -4492,12 +4496,16 @@ defmodule AWS.S3 do
   format
 
   ```
-  https://*bucket_name*.s3express-*az_id*.*region*.amazonaws.com/*key-name*
+  https://*bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com/*key-name*
 
   ```
 
-  . Path-style requests are not supported. For more information, see [Regional and Zonal
-  endpoints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  . Path-style requests are not supported. For more information about endpoints in
+  Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  in the
+  *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -4594,7 +4602,7 @@ defmodule AWS.S3 do
 
   ```
 
-  *Bucket_name*.s3express-*az_id*.*region*.amazonaws.com
+  *Bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com
   ```
 
   .
@@ -4713,12 +4721,16 @@ defmodule AWS.S3 do
   format
 
   ```
-  https://*bucket_name*.s3express-*az_id*.*region*.amazonaws.com/*key-name*
+  https://*bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com/*key-name*
 
   ```
 
-  . Path-style requests are not supported. For more information, see [Regional and Zonal
-  endpoints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  . Path-style requests are not supported. For more information about endpoints in
+  Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  in the
+  *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -4885,7 +4897,7 @@ defmodule AWS.S3 do
 
   ```
 
-  *Bucket_name*.s3express-*az_id*.*region*.amazonaws.com
+  *Bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com
   ```
 
   .
@@ -5035,12 +5047,16 @@ defmodule AWS.S3 do
   requests in the format
 
   ```
-  https://s3express-control.*region_code*.amazonaws.com/*bucket-name*
+  https://s3express-control.*region-code*.amazonaws.com/*bucket-name*
 
   ```
 
   . Virtual-hosted-style requests aren't supported.
-  For more information, see [Regional and Zonal endpoints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  in the
+  *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -5150,7 +5166,7 @@ defmodule AWS.S3 do
   ### HTTP Host header syntax
 
   **Directory buckets ** - The HTTP Host header syntax is
-  `s3express-control.*region*.amazonaws.com`.
+  `s3express-control.*region-code*.amazonaws.com`.
 
   The following operations are related to `CreateBucket`:
 
@@ -5252,12 +5268,16 @@ defmodule AWS.S3 do
   format
 
   ```
-  https://*bucket_name*.s3express-*az_id*.*region*.amazonaws.com/*key-name*
+  https://*bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com/*key-name*
 
   ```
 
-  . Path-style requests are not supported. For more information, see [Regional and Zonal
-  endpoints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  . Path-style requests are not supported. For more information about endpoints in
+  Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  in the
+  *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -5488,7 +5508,7 @@ defmodule AWS.S3 do
 
   ```
 
-  *Bucket_name*.s3express-*az_id*.*region*.amazonaws.com
+  *Bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com
   ```
 
   .
@@ -5651,8 +5671,13 @@ defmodule AWS.S3 do
     
   You must make requests for this API operation to the Zonal endpoint. These
   endpoints support virtual-hosted-style requests in the format
-  `https://*bucket_name*.s3express-*az_id*.*region*.amazonaws.com`. Path-style
-  requests are not supported. For more information, see [Regional and Zonal endpoints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  `https://*bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com`.
+  Path-style requests are not supported. For more information about endpoints in
+  Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  in the
+  *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -5776,7 +5801,7 @@ defmodule AWS.S3 do
 
   ```
 
-  *Bucket_name*.s3express-*az_id*.*region*.amazonaws.com
+  *Bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com
   ```
 
   .
@@ -5880,12 +5905,16 @@ defmodule AWS.S3 do
   requests in the format
 
   ```
-  https://s3express-control.*region_code*.amazonaws.com/*bucket-name*
+  https://s3express-control.*region-code*.amazonaws.com/*bucket-name*
 
   ```
 
   . Virtual-hosted-style requests aren't supported.
-  For more information, see [Regional and Zonal endpoints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  in the
+  *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -5913,7 +5942,7 @@ defmodule AWS.S3 do
   ### HTTP Host header syntax
 
   **Directory buckets ** - The HTTP Host header syntax is
-  `s3express-control.*region*.amazonaws.com`.
+  `s3express-control.*region-code*.amazonaws.com`.
 
   The following operations are related to `DeleteBucket`:
 
@@ -6129,7 +6158,7 @@ defmodule AWS.S3 do
   ### HTTP Host header syntax
 
   **Directory buckets ** - The HTTP Host header syntax is
-  `s3express-control.*region*.amazonaws.com`.
+  `s3express-control.*region-code*.amazonaws.com`.
 
   The following operations are related to `DeleteBucketEncryption`:
 
@@ -6367,12 +6396,16 @@ defmodule AWS.S3 do
   requests in the format
 
   ```
-  https://s3express-control.*region_code*.amazonaws.com/*bucket-name*
+  https://s3express-control.*region-code*.amazonaws.com/*bucket-name*
 
   ```
 
   . Virtual-hosted-style requests aren't supported.
-  For more information, see [Regional and Zonal endpoints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  in the
+  *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -6573,12 +6606,16 @@ defmodule AWS.S3 do
   requests in the format
 
   ```
-  https://s3express-control.*region_code*.amazonaws.com/*bucket-name*
+  https://s3express-control.*region-code*.amazonaws.com/*bucket-name*
 
   ```
 
   . Virtual-hosted-style requests aren't supported.
-  For more information, see [Regional and Zonal endpoints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  in the
+  *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -6631,7 +6668,7 @@ defmodule AWS.S3 do
   ### HTTP Host header syntax
 
   **Directory buckets ** - The HTTP Host header syntax is
-  `s3express-control.*region*.amazonaws.com`.
+  `s3express-control.*region-code*.amazonaws.com`.
 
   The following operations are related to `DeleteBucketPolicy`
 
@@ -6854,47 +6891,80 @@ defmodule AWS.S3 do
   @doc """
   Removes an object from a bucket.
 
-  The behavior depends on the bucket's versioning state.
-  For more information, see [Best practices to consider before deleting an
-  object](https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeletingObjects.html#DeletingObjects-best-practices).
+  The behavior depends on the bucket's versioning state:
 
-  To remove a specific version, you must use the `versionId` query parameter.
-  Using this query parameter permanently deletes the version. If the object
-  deleted is a
-  delete marker, Amazon S3 sets the response header `x-amz-delete-marker` to true.
-  If
-  the object you want to delete is in a bucket where the bucket versioning
-  configuration is
-  MFA delete enabled, you must include the `x-amz-mfa` request header in the
-  DELETE `versionId` request. Requests that include `x-amz-mfa` must
-  use HTTPS. For more information about MFA delete and to see example requests,
-  see [Using MFA delete](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMFADelete.html) and
-  [Sample request](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectDELETE.html#ExampleVersionObjectDelete)
-  in the *Amazon S3 User Guide*.
+    *
+  If bucket versioning is not enabled, the operation permanently deletes the
+  object.
+
+    *
+  If bucket versioning is enabled, the operation inserts a delete marker, which
+  becomes the current version of the object. To permanently delete an object in a
+  versioned bucket, you must include the object’s `versionId` in the request. For
+  more information about versioning-enabled buckets, see [Deleting object versions from a versioning-enabled
+  bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeletingObjectVersions.html).
+
+    *
+  If bucket versioning is suspended, the operation removes the object that has a
+  null `versionId`, if there is one, and inserts a delete marker that becomes the
+  current version of the object. If there isn't an object with a null `versionId`,
+  and all versions of the object have a `versionId`, Amazon S3 does not remove the
+  object and only inserts a delete marker. To permanently delete an object that
+  has a `versionId`, you must include the object’s `versionId` in the request. For
+  more information about versioning-suspended buckets, see [Deleting objects from versioning-suspended
+  buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeletingObjectsfromVersioningSuspendedBuckets.html).
 
     
-  S3 Versioning isn't enabled and supported for directory buckets. For this API
-  operation, only the `null` value of the version ID is supported by directory
-  buckets. You can only specify `null` to the
-  `versionId` query parameter in the request.
+
+  **Directory buckets** - S3 Versioning isn't enabled and supported for directory
+  buckets. For this API operation, only the `null` value of the version ID is
+  supported by directory buckets. You can only specify `null`
+  to the `versionId` query parameter in the request.
 
     
-  For directory buckets, you must make requests for this API operation to the
-  Zonal endpoint. These endpoints support virtual-hosted-style requests in the
-  format
+
+  **Directory buckets** - For directory buckets, you must make requests for this
+  API operation to the Zonal endpoint. These endpoints support
+  virtual-hosted-style requests in the format
 
   ```
-  https://*bucket_name*.s3express-*az_id*.*region*.amazonaws.com/*key-name*
+  https://*bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com/*key-name*
 
   ```
 
-  . Path-style requests are not supported. For more information, see [Regional and Zonal
-  endpoints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  . Path-style requests are not supported. For more information about endpoints in
+  Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  in the
+  *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
-    
-  MFA delete is not supported by directory buckets.
+  To remove a specific version, you must use the `versionId` query parameter.
+  Using this
+  query parameter permanently deletes the version. If the object deleted is a
+  delete marker, Amazon S3
+  sets the response header `x-amz-delete-marker` to true.
+
+  If the object you want to delete is in a bucket where the bucket versioning
+  configuration is MFA Delete enabled, you must include the `x-amz-mfa` request
+  header in the DELETE `versionId` request. Requests that include
+  `x-amz-mfa` must use HTTPS. For more information about MFA Delete, see [Using MFA Delete](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMFADelete.html)
+  in the *Amazon S3
+  User Guide*. To see sample
+  requests that use versioning, see [Sample Request](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectDELETE.html#ExampleVersionObjectDelete).
+
+  **Directory buckets** - MFA delete is not supported by directory buckets.
+
+  You can delete objects by explicitly calling DELETE Object or calling
+  ([PutBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html)) to enable Amazon S3 to remove them for you. If you want to block
+  users or accounts from removing or deleting objects from your bucket, you must
+  deny them
+  the `s3:DeleteObject`, `s3:DeleteObjectVersion`, and
+  `s3:PutLifeCycleConfiguration` actions.
+
+  **Directory buckets** - S3 Lifecycle is not supported by directory buckets.
 
   ## Definitions
 
@@ -6902,41 +6972,42 @@ defmodule AWS.S3 do
 
     
 
-  **General purpose bucket permissions##  - The
-  following permissions are required in your policies when your
+  **General purpose bucket permissions##  - The following permissions are required
+  in your policies when your
   `DeleteObjects` request includes specific headers.
 
       
 
 
   `s3:DeleteObject`
-  ## 
-  - To delete an object from a bucket, you must always have the
+  ##  - To delete an object from a bucket, you must always have the
   `s3:DeleteObject` permission.
-
-  You can also use `PutBucketLifecycle` to delete
-  objects in Amazon S3.
 
       
 
 
   `s3:DeleteObjectVersion`
-  ** - To delete a specific version of an object from a
-  versioning-enabled bucket, you must have the
-  `s3:DeleteObjectVersion` permission.
-
-      
-  If you want to block users or accounts from removing or deleting
-  objects from your bucket, you must deny them the
-  `s3:DeleteObject`, `s3:DeleteObjectVersion`,
-  and `s3:PutLifeCycleConfiguration` permissions.
+  ** - To delete a specific version of an object from a versioning-enabled bucket,
+  you must have the `s3:DeleteObjectVersion` permission.
 
     
 
-  **Directory buckets permissions** -
-  To grant access to this API operation on a directory bucket, we recommend
-  that you use the `CreateSession` API operation for
-  session-based authorization.
+  **Directory bucket permissions** - To grant access to this API operation on a
+  directory bucket, we recommend that you use the [
+  `CreateSession`
+  ](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html) API
+  operation for session-based authorization. Specifically, you grant the
+  `s3express:CreateSession` permission to the directory bucket in a bucket policy
+  or an IAM identity-based policy. Then, you make the `CreateSession` API call on
+  the bucket to obtain a session token. With the session token in your request
+  header, you can make API requests to this operation. After the session token
+  expires, you make another `CreateSession` API call to generate a new session
+  token for use.
+  Amazon Web Services CLI or SDKs create session and refresh the session token
+  automatically to avoid service interruptions when a session expires. For more
+  information about authorization, see [
+  `CreateSession`
+  ](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html).
 
   ### HTTP Host header syntax
 
@@ -6944,7 +7015,7 @@ defmodule AWS.S3 do
 
   ```
 
-  *Bucket_name*.s3express-*az_id*.*region*.amazonaws.com
+  *Bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com
   ```
 
   .
@@ -7116,12 +7187,16 @@ defmodule AWS.S3 do
   format
 
   ```
-  https://*bucket_name*.s3express-*az_id*.*region*.amazonaws.com/*key-name*
+  https://*bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com/*key-name*
 
   ```
 
-  . Path-style requests are not supported. For more information, see [Regional and Zonal
-  endpoints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  . Path-style requests are not supported. For more information about endpoints in
+  Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  in the
+  *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -7219,7 +7294,7 @@ defmodule AWS.S3 do
 
   ```
 
-  *Bucket_name*.s3express-*az_id*.*region*.amazonaws.com
+  *Bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com
   ```
 
   .
@@ -7685,7 +7760,7 @@ defmodule AWS.S3 do
   ### HTTP Host header syntax
 
   **Directory buckets ** - The HTTP Host header syntax is
-  `s3express-control.*region*.amazonaws.com`.
+  `s3express-control.*region-code*.amazonaws.com`.
 
   The following operations are related to `GetBucketEncryption`:
 
@@ -7918,12 +7993,16 @@ defmodule AWS.S3 do
   requests in the format
 
   ```
-  https://s3express-control.*region_code*.amazonaws.com/*bucket-name*
+  https://s3express-control.*region-code*.amazonaws.com/*bucket-name*
 
   ```
 
   . Virtual-hosted-style requests aren't supported.
-  For more information, see [Regional and Zonal endpoints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  in the
+  *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -8283,12 +8362,16 @@ defmodule AWS.S3 do
   requests in the format
 
   ```
-  https://s3express-control.*region_code*.amazonaws.com/*bucket-name*
+  https://s3express-control.*region-code*.amazonaws.com/*bucket-name*
 
   ```
 
   . Virtual-hosted-style requests aren't supported.
-  For more information, see [Regional and Zonal endpoints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  in the
+  *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -8352,7 +8435,7 @@ defmodule AWS.S3 do
   ### HTTP Host header syntax
 
   **Directory buckets ** - The HTTP Host header syntax is
-  `s3express-control.*region*.amazonaws.com`.
+  `s3express-control.*region-code*.amazonaws.com`.
 
   The following action is related to `GetBucketPolicy`:
 
@@ -8720,12 +8803,16 @@ defmodule AWS.S3 do
   virtual-hosted-style requests in the format
 
   ```
-  https://*bucket_name*.s3express-*az_id*.*region*.amazonaws.com/*key-name*
+  https://*bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com/*key-name*
 
   ```
 
-  . Path-style requests are not supported. For more information, see [Regional and Zonal
-  endpoints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  . Path-style requests are not supported. For more information about endpoints in
+  Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  in the
+  *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -8888,7 +8975,7 @@ defmodule AWS.S3 do
 
   ```
 
-  *Bucket_name*.s3express-*az_id*.*region*.amazonaws.com
+  *Bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com
   ```
 
   .
@@ -9268,12 +9355,16 @@ defmodule AWS.S3 do
   format
 
   ```
-  https://*bucket_name*.s3express-*az_id*.*region*.amazonaws.com/*key-name*
+  https://*bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com/*key-name*
 
   ```
 
-  . Path-style requests are not supported. For more information, see [Regional and Zonal
-  endpoints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  . Path-style requests are not supported. For more information about endpoints in
+  Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  in the
+  *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -9446,7 +9537,7 @@ defmodule AWS.S3 do
 
   ```
 
-  *Bucket_name*.s3express-*az_id*.*region*.amazonaws.com
+  *Bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com
   ```
 
   .
@@ -10096,15 +10187,20 @@ defmodule AWS.S3 do
 
   ```
 
-  *Bucket_name*.s3express-*az_id*.*region*.amazonaws.com
+  *Bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com
   ```
 
   .
 
   You must make requests for this API operation to the Zonal endpoint. These
   endpoints support virtual-hosted-style requests in the format
-  `https://*bucket_name*.s3express-*az_id*.*region*.amazonaws.com`. Path-style
-  requests are not supported. For more information, see [Regional and Zonal endpoints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  `https://*bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com`.
+  Path-style requests are not supported. For more information about endpoints in
+  Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  in the
+  *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
   """
@@ -10319,7 +10415,7 @@ defmodule AWS.S3 do
 
   ```
 
-  *Bucket_name*.s3express-*az_id*.*region*.amazonaws.com
+  *Bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com
   ```
 
   .
@@ -10329,12 +10425,16 @@ defmodule AWS.S3 do
   format
 
   ```
-  https://*bucket_name*.s3express-*az_id*.*region*.amazonaws.com/*key-name*
+  https://*bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com/*key-name*
 
   ```
 
-  . Path-style requests are not supported. For more information, see [Regional and Zonal
-  endpoints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  . Path-style requests are not supported. For more information about endpoints in
+  Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  in the
+  *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -10853,12 +10953,16 @@ defmodule AWS.S3 do
   requests in the format
 
   ```
-  https://s3express-control.*region_code*.amazonaws.com/*bucket-name*
+  https://s3express-control.*region-code*.amazonaws.com/*bucket-name*
 
   ```
 
   . Virtual-hosted-style requests aren't supported.
-  For more information, see [Regional and Zonal endpoints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  in the
+  *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -10964,12 +11068,16 @@ defmodule AWS.S3 do
   format
 
   ```
-  https://*bucket_name*.s3express-*az_id*.*region*.amazonaws.com/*key-name*
+  https://*bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com/*key-name*
 
   ```
 
-  . Path-style requests are not supported. For more information, see [Regional and Zonal
-  endpoints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  . Path-style requests are not supported. For more information about endpoints in
+  Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  in the
+  *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -11034,7 +11142,7 @@ defmodule AWS.S3 do
 
   ```
 
-  *Bucket_name*.s3express-*az_id*.*region*.amazonaws.com
+  *Bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com
   ```
 
   .
@@ -11483,13 +11591,17 @@ defmodule AWS.S3 do
   format
 
   ```
-  https://*bucket_name*.s3express-*az_id*.*region*.amazonaws.com/*key-name*
+  https://*bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com/*key-name*
 
   ```
 
-  . Path-style requests are not supported. For more information, see [Regional and
-  Zonal
-  endpoints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  . Path-style requests are not supported. For more information about endpoints in
+  Availability Zones, see [Regional and Zonal endpoints for directory buckets in
+  Availability
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  in the
+  *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -11549,7 +11661,7 @@ defmodule AWS.S3 do
 
   ```
 
-  *Bucket_name*.s3express-*az_id*.*region*.amazonaws.com
+  *Bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com
   ```
 
   .
@@ -11721,12 +11833,16 @@ defmodule AWS.S3 do
   format
 
   ```
-  https://*bucket_name*.s3express-*az_id*.*region*.amazonaws.com/*key-name*
+  https://*bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com/*key-name*
 
   ```
 
-  . Path-style requests are not supported. For more information, see [Regional and Zonal
-  endpoints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  . Path-style requests are not supported. For more information about endpoints in
+  Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  in the
+  *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -11773,7 +11889,7 @@ defmodule AWS.S3 do
 
   ```
 
-  *Bucket_name*.s3express-*az_id*.*region*.amazonaws.com
+  *Bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com
   ```
 
   .
@@ -12492,12 +12608,16 @@ defmodule AWS.S3 do
   requests in the format
 
   ```
-  https://s3express-control.*region_code*.amazonaws.com/*bucket-name*
+  https://s3express-control.*region-code*.amazonaws.com/*bucket-name*
 
   ```
 
   . Virtual-hosted-style requests aren't supported.
-  For more information, see [Regional and Zonal endpoints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  in the
+  *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -12618,7 +12738,7 @@ defmodule AWS.S3 do
   ### HTTP Host header syntax
 
   **Directory buckets ** - The HTTP Host header syntax is
-  `s3express-control.*region*.amazonaws.com`.
+  `s3express-control.*region-code*.amazonaws.com`.
 
   The following operations are related to `PutBucketEncryption`:
 
@@ -12921,6 +13041,14 @@ defmodule AWS.S3 do
   [Managing your storage
   lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html).
 
+  Bucket lifecycle configuration now supports specifying a lifecycle rule using an
+  object key name prefix, one or more object tags, object size, or any combination
+  of these. Accordingly, this section describes the latest API. The previous
+  version of the API supported filtering based only on an object key name prefix,
+  which is supported for backward compatibility.
+  For the related API description, see
+  [PutBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html). 
+
   ## Definitions
 
   ### Rules
@@ -12942,7 +13070,8 @@ defmodule AWS.S3 do
   supported for backward compatibility for general purpose buckets. For the
   related
   API description, see
-  [PutBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html). 
+  [PutBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html).
+
   Lifecyle configurations for directory buckets only support expiring objects and
   cancelling multipart uploads. Expiring of versioned objects,transitions and tag
   filters are not supported.
@@ -12966,8 +13095,7 @@ defmodule AWS.S3 do
   current
   and noncurrent object versions.
 
-  For more information, see [Object Lifecycle
-  Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html)
+  For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html)
   and [Lifecycle Configuration Elements](https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html).
 
     
@@ -13022,12 +13150,16 @@ defmodule AWS.S3 do
   requests in the format
 
   ```
-  https://s3express-control.*region_code*.amazonaws.com/*bucket-name*
+  https://s3express-control.*region-code*.amazonaws.com/*bucket-name*
 
   ```
 
   . Virtual-hosted-style requests aren't supported.
-  For more information, see [Regional and Zonal endpoints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  in the
+  *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -13481,12 +13613,16 @@ defmodule AWS.S3 do
   requests in the format
 
   ```
-  https://s3express-control.*region_code*.amazonaws.com/*bucket-name*
+  https://s3express-control.*region-code*.amazonaws.com/*bucket-name*
 
   ```
 
   . Virtual-hosted-style requests aren't supported.
-  For more information, see [Regional and Zonal endpoints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  in the
+  *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -13550,7 +13686,7 @@ defmodule AWS.S3 do
   ### HTTP Host header syntax
 
   **Directory buckets ** - The HTTP Host header syntax is
-  `s3express-control.*region*.amazonaws.com`.
+  `s3express-control.*region-code*.amazonaws.com`.
 
   The following operations are related to `PutBucketPolicy`:
 
@@ -14154,12 +14290,16 @@ defmodule AWS.S3 do
   format
 
   ```
-  https://*bucket_name*.s3express-*az_id*.*region*.amazonaws.com/*key-name*
+  https://*bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com/*key-name*
 
   ```
 
-  . Path-style requests are not supported. For more information, see [Regional and Zonal
-  endpoints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  . Path-style requests are not supported. For more information about endpoints in
+  Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  in the
+  *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -14277,7 +14417,7 @@ defmodule AWS.S3 do
 
   ```
 
-  *Bucket_name*.s3express-*az_id*.*region*.amazonaws.com
+  *Bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com
   ```
 
   .
@@ -15510,12 +15650,16 @@ defmodule AWS.S3 do
   format
 
   ```
-  https://*bucket_name*.s3express-*az_id*.*region*.amazonaws.com/*key-name*
+  https://*bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com/*key-name*
 
   ```
 
-  . Path-style requests are not supported. For more information, see [Regional and Zonal
-  endpoints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  . Path-style requests are not supported. For more information about endpoints in
+  Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  in the
+  *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -15660,7 +15804,7 @@ defmodule AWS.S3 do
 
   ```
 
-  *Bucket_name*.s3express-*az_id*.*region*.amazonaws.com
+  *Bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com
   ```
 
   .
@@ -15797,12 +15941,16 @@ defmodule AWS.S3 do
   format
 
   ```
-  https://*bucket_name*.s3express-*az_id*.*region*.amazonaws.com/*key-name*
+  https://*bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com/*key-name*
 
   ```
 
-  . Path-style requests are not supported. For more information, see [Regional and Zonal
-  endpoints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  . Path-style requests are not supported. For more information about endpoints in
+  Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  in the
+  *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -15973,7 +16121,7 @@ defmodule AWS.S3 do
 
   ```
 
-  *Bucket_name*.s3express-*az_id*.*region*.amazonaws.com
+  *Bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com
   ```
 
   .

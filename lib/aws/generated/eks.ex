@@ -200,6 +200,19 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      compute_config_response() :: %{
+        "enabled" => boolean(),
+        "nodePools" => list(String.t()()),
+        "nodeRoleArn" => String.t()
+      }
+
+  """
+  @type compute_config_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       compatibility() :: %{
         "clusterVersion" => String.t(),
         "defaultVersion" => boolean(),
@@ -363,6 +376,18 @@ defmodule AWS.EKS do
 
   """
   @type create_fargate_profile_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remote_network_config_request() :: %{
+        "remoteNodeNetworks" => list(remote_node_network()()),
+        "remotePodNetworks" => list(remote_pod_network()())
+      }
+
+  """
+  @type remote_network_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -613,6 +638,17 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      elastic_load_balancing() :: %{
+        "enabled" => boolean()
+      }
+
+  """
+  @type elastic_load_balancing() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       addon_pod_identity_associations() :: %{
         "roleArn" => String.t(),
         "serviceAccount" => String.t()
@@ -746,6 +782,19 @@ defmodule AWS.EKS do
 
   """
   @type fargate_profile_issue() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      compute_config_request() :: %{
+        "enabled" => boolean(),
+        "nodePools" => list(String.t()()),
+        "nodeRoleArn" => String.t()
+      }
+
+  """
+  @type compute_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -899,10 +948,13 @@ defmodule AWS.EKS do
         optional("accessConfig") => create_access_config_request(),
         optional("bootstrapSelfManagedAddons") => boolean(),
         optional("clientRequestToken") => String.t(),
+        optional("computeConfig") => compute_config_request(),
         optional("encryptionConfig") => list(encryption_config()()),
         optional("kubernetesNetworkConfig") => kubernetes_network_config_request(),
         optional("logging") => logging(),
         optional("outpostConfig") => outpost_config_request(),
+        optional("remoteNetworkConfig") => remote_network_config_request(),
+        optional("storageConfig") => storage_config_request(),
         optional("tags") => map(),
         optional("upgradePolicy") => upgrade_policy_request(),
         optional("version") => String.t(),
@@ -1134,6 +1186,7 @@ defmodule AWS.EKS do
         "arn" => String.t(),
         "certificateAuthority" => certificate(),
         "clientRequestToken" => String.t(),
+        "computeConfig" => compute_config_response(),
         "connectorConfig" => connector_config_response(),
         "createdAt" => non_neg_integer(),
         "encryptionConfig" => list(encryption_config()()),
@@ -1146,9 +1199,11 @@ defmodule AWS.EKS do
         "name" => String.t(),
         "outpostConfig" => outpost_config_response(),
         "platformVersion" => String.t(),
+        "remoteNetworkConfig" => remote_network_config_response(),
         "resourcesVpcConfig" => vpc_config_response(),
         "roleArn" => String.t(),
         "status" => list(any()),
+        "storageConfig" => storage_config_response(),
         "tags" => map(),
         "upgradePolicy" => upgrade_policy_response(),
         "version" => String.t(),
@@ -1284,6 +1339,18 @@ defmodule AWS.EKS do
 
   """
   @type create_addon_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remote_network_config_response() :: %{
+        "remoteNodeNetworks" => list(remote_node_network()()),
+        "remotePodNetworks" => list(remote_pod_network()())
+      }
+
+  """
+  @type remote_network_config_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1497,6 +1564,17 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      block_storage() :: %{
+        "enabled" => boolean()
+      }
+
+  """
+  @type block_storage() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       upgrade_policy_request() :: %{
         "supportType" => list(any())
       }
@@ -1568,6 +1646,7 @@ defmodule AWS.EKS do
   ## Example:
 
       kubernetes_network_config_request() :: %{
+        "elasticLoadBalancing" => elastic_load_balancing(),
         "ipFamily" => list(any()),
         "serviceIpv4Cidr" => String.t()
       }
@@ -1768,6 +1847,17 @@ defmodule AWS.EKS do
 
   """
   @type invalid_parameter_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      storage_config_request() :: %{
+        "blockStorage" => block_storage()
+      }
+
+  """
+  @type storage_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2036,6 +2126,17 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      storage_config_response() :: %{
+        "blockStorage" => block_storage()
+      }
+
+  """
+  @type storage_config_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       nodegroup_resources() :: %{
         "autoScalingGroups" => list(auto_scaling_group()()),
         "remoteAccessSecurityGroup" => String.t()
@@ -2075,6 +2176,7 @@ defmodule AWS.EKS do
   ## Example:
 
       kubernetes_network_config_response() :: %{
+        "elasticLoadBalancing" => elastic_load_balancing(),
         "ipFamily" => list(any()),
         "serviceIpv4Cidr" => String.t(),
         "serviceIpv6Cidr" => String.t()
@@ -2155,6 +2257,17 @@ defmodule AWS.EKS do
 
   """
   @type list_pod_identity_associations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remote_node_network() :: %{
+        "cidrs" => list(String.t()())
+      }
+
+  """
+  @type remote_node_network() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2290,14 +2403,28 @@ defmodule AWS.EKS do
       update_cluster_config_request() :: %{
         optional("accessConfig") => update_access_config_request(),
         optional("clientRequestToken") => String.t(),
+        optional("computeConfig") => compute_config_request(),
+        optional("kubernetesNetworkConfig") => kubernetes_network_config_request(),
         optional("logging") => logging(),
         optional("resourcesVpcConfig") => vpc_config_request(),
+        optional("storageConfig") => storage_config_request(),
         optional("upgradePolicy") => upgrade_policy_request(),
         optional("zonalShiftConfig") => zonal_shift_config_request()
       }
 
   """
   @type update_cluster_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remote_pod_network() :: %{
+        "cidrs" => list(String.t()())
+      }
+
+  """
+  @type remote_pod_network() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2557,6 +2684,7 @@ defmodule AWS.EKS do
         "addonVersion" => String.t(),
         "architecture" => list(String.t()()),
         "compatibilities" => list(compatibility()()),
+        "computeTypes" => list(String.t()()),
         "requiresConfiguration" => boolean(),
         "requiresIamPermissions" => boolean()
       }

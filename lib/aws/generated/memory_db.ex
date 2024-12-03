@@ -3,14 +3,14 @@
 
 defmodule AWS.MemoryDB do
   @moduledoc """
-  MemoryDB for Redis is a fully managed, Redis-compatible, in-memory database that
+  MemoryDB is a fully managed, Redis OSS-compatible, in-memory database that
   delivers ultra-fast performance and Multi-AZ durability for modern applications
   built using microservices architectures.
 
   MemoryDB stores the entire database in-memory, enabling low latency and high
-  throughput data access. It is compatible with Redis, a popular open source data
-  store, enabling you to leverage Redis’ flexible and friendly data structures,
-  APIs, and commands.
+  throughput data access. It is compatible with Redis OSS, a popular open source
+  data store, enabling you to leverage Redis OSS’ flexible and friendly data
+  structures, APIs, and commands.
   """
 
   alias AWS.Client
@@ -123,6 +123,17 @@ defmodule AWS.MemoryDB do
 
   ## Example:
       
+      multi_region_cluster_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type multi_region_cluster_not_found_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       failover_shard_response() :: %{
         "Cluster" => cluster()
       }
@@ -170,6 +181,17 @@ defmodule AWS.MemoryDB do
       
   """
   @type availability_zone() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_multi_region_cluster_state_fault() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type invalid_multi_region_cluster_state_fault() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -372,6 +394,18 @@ defmodule AWS.MemoryDB do
 
   ## Example:
       
+      describe_multi_region_clusters_response() :: %{
+        "MultiRegionClusters" => list(multi_region_cluster()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type describe_multi_region_clusters_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       security_group_membership() :: %{
         "SecurityGroupId" => String.t(),
         "Status" => String.t()
@@ -465,6 +499,17 @@ defmodule AWS.MemoryDB do
 
   ## Example:
       
+      list_allowed_multi_region_cluster_updates_request() :: %{
+        required("MultiRegionClusterName") => String.t()
+      }
+      
+  """
+  @type list_allowed_multi_region_cluster_updates_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       acls_update_status() :: %{
         "ACLToApply" => String.t()
       }
@@ -483,6 +528,23 @@ defmodule AWS.MemoryDB do
       
   """
   @type subnet() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_multi_region_cluster_request() :: %{
+        optional("Description") => String.t(),
+        optional("EngineVersion") => String.t(),
+        optional("MultiRegionParameterGroupName") => String.t(),
+        optional("NodeType") => String.t(),
+        optional("ShardConfiguration") => shard_configuration_request(),
+        optional("UpdateStrategy") => list(any()),
+        required("MultiRegionClusterName") => String.t()
+      }
+      
+  """
+  @type update_multi_region_cluster_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -762,6 +824,8 @@ defmodule AWS.MemoryDB do
         "Engine" => String.t(),
         "EngineVersion" => String.t(),
         "MaintenanceWindow" => String.t(),
+        "MultiRegionClusterName" => String.t(),
+        "MultiRegionParameterGroupName" => String.t(),
         "Name" => String.t(),
         "NodeType" => String.t(),
         "NumShards" => integer(),
@@ -815,6 +879,18 @@ defmodule AWS.MemoryDB do
 
   ## Example:
       
+      list_allowed_multi_region_cluster_updates_response() :: %{
+        "ScaleDownNodeTypes" => list(String.t()()),
+        "ScaleUpNodeTypes" => list(String.t()())
+      }
+      
+  """
+  @type list_allowed_multi_region_cluster_updates_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_subnet_group_request() :: %{
         required("SubnetGroupName") => String.t()
       }
@@ -852,6 +928,17 @@ defmodule AWS.MemoryDB do
 
   ## Example:
       
+      delete_multi_region_cluster_request() :: %{
+        required("MultiRegionClusterName") => String.t()
+      }
+      
+  """
+  @type delete_multi_region_cluster_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_cluster_request() :: %{
         optional("AutoMinorVersionUpgrade") => boolean(),
         optional("DataTiering") => boolean(),
@@ -860,6 +947,7 @@ defmodule AWS.MemoryDB do
         optional("EngineVersion") => String.t(),
         optional("KmsKeyId") => String.t(),
         optional("MaintenanceWindow") => String.t(),
+        optional("MultiRegionClusterName") => String.t(),
         optional("NumReplicasPerShard") => integer(),
         optional("NumShards") => integer(),
         optional("ParameterGroupName") => String.t(),
@@ -935,6 +1023,7 @@ defmodule AWS.MemoryDB do
         "EngineVersion" => String.t(),
         "KmsKeyId" => String.t(),
         "MaintenanceWindow" => String.t(),
+        "MultiRegionClusterName" => String.t(),
         "Name" => String.t(),
         "NodeType" => String.t(),
         "NumberOfShards" => integer(),
@@ -1052,6 +1141,25 @@ defmodule AWS.MemoryDB do
 
   ## Example:
       
+      create_multi_region_cluster_request() :: %{
+        optional("Description") => String.t(),
+        optional("Engine") => String.t(),
+        optional("EngineVersion") => String.t(),
+        optional("MultiRegionParameterGroupName") => String.t(),
+        optional("NumShards") => integer(),
+        optional("TLSEnabled") => boolean(),
+        optional("Tags") => list(tag()()),
+        required("MultiRegionClusterNameSuffix") => String.t(),
+        required("NodeType") => String.t()
+      }
+      
+  """
+  @type create_multi_region_cluster_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_subnet_groups_response() :: %{
         "NextToken" => String.t(),
         "SubnetGroups" => list(subnet_group()())
@@ -1070,6 +1178,17 @@ defmodule AWS.MemoryDB do
       
   """
   @type service_update_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_multi_region_cluster_response() :: %{
+        "MultiRegionCluster" => multi_region_cluster()
+      }
+      
+  """
+  @type delete_multi_region_cluster_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1157,6 +1276,17 @@ defmodule AWS.MemoryDB do
       
   """
   @type create_subnet_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_multi_region_cluster_response() :: %{
+        "MultiRegionCluster" => multi_region_cluster()
+      }
+      
+  """
+  @type create_multi_region_cluster_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1416,6 +1546,20 @@ defmodule AWS.MemoryDB do
 
   ## Example:
       
+      describe_multi_region_clusters_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("MultiRegionClusterName") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("ShowClusterDetails") => boolean()
+      }
+      
+  """
+  @type describe_multi_region_clusters_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       duplicate_user_name_fault() :: %{
         "message" => String.t()
       }
@@ -1443,6 +1587,7 @@ defmodule AWS.MemoryDB do
       
       delete_cluster_request() :: %{
         optional("FinalSnapshotName") => String.t(),
+        optional("MultiRegionClusterName") => String.t(),
         required("ClusterName") => String.t()
       }
       
@@ -1544,6 +1689,17 @@ defmodule AWS.MemoryDB do
 
   ## Example:
       
+      update_multi_region_cluster_response() :: %{
+        "MultiRegionCluster" => multi_region_cluster()
+      }
+      
+  """
+  @type update_multi_region_cluster_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       acl_already_exists_fault() :: %{
         "message" => String.t()
       }
@@ -1562,6 +1718,20 @@ defmodule AWS.MemoryDB do
       
   """
   @type describe_reserved_nodes_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      regional_cluster() :: %{
+        "ARN" => String.t(),
+        "ClusterName" => String.t(),
+        "Region" => String.t(),
+        "Status" => String.t()
+      }
+      
+  """
+  @type regional_cluster() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1697,6 +1867,27 @@ defmodule AWS.MemoryDB do
       
   """
   @type service_update() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      multi_region_cluster() :: %{
+        "ARN" => String.t(),
+        "Clusters" => list(regional_cluster()()),
+        "Description" => String.t(),
+        "Engine" => String.t(),
+        "EngineVersion" => String.t(),
+        "MultiRegionClusterName" => String.t(),
+        "MultiRegionParameterGroupName" => String.t(),
+        "NodeType" => String.t(),
+        "NumberOfShards" => integer(),
+        "Status" => String.t(),
+        "TLSEnabled" => boolean()
+      }
+      
+  """
+  @type multi_region_cluster() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1863,6 +2054,17 @@ defmodule AWS.MemoryDB do
       
   """
   @type cluster_already_exists_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      multi_region_cluster_already_exists_fault() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type multi_region_cluster_already_exists_fault() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2055,6 +2257,17 @@ defmodule AWS.MemoryDB do
 
   ## Example:
       
+      multi_region_parameter_group_not_found_fault() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type multi_region_parameter_group_not_found_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_snapshot_response() :: %{
         "Snapshot" => snapshot()
       }
@@ -2136,7 +2349,17 @@ defmodule AWS.MemoryDB do
           | invalid_parameter_combination_exception()
           | acl_not_found_fault()
           | subnet_group_not_found_fault()
+          | invalid_multi_region_cluster_state_fault()
+          | multi_region_cluster_not_found_fault()
           | node_quota_for_customer_exceeded_fault()
+
+  @type create_multi_region_cluster_errors() ::
+          multi_region_parameter_group_not_found_fault()
+          | multi_region_cluster_already_exists_fault()
+          | cluster_quota_for_customer_exceeded_fault()
+          | invalid_parameter_value_exception()
+          | tag_quota_per_resource_exceeded()
+          | invalid_parameter_combination_exception()
 
   @type create_parameter_group_errors() ::
           service_linked_role_not_found_fault()
@@ -2185,6 +2408,11 @@ defmodule AWS.MemoryDB do
           | invalid_parameter_combination_exception()
           | cluster_not_found_fault()
 
+  @type delete_multi_region_cluster_errors() ::
+          invalid_parameter_value_exception()
+          | invalid_multi_region_cluster_state_fault()
+          | multi_region_cluster_not_found_fault()
+
   @type delete_parameter_group_errors() ::
           parameter_group_not_found_fault()
           | service_linked_role_not_found_fault()
@@ -2227,6 +2455,12 @@ defmodule AWS.MemoryDB do
           service_linked_role_not_found_fault()
           | invalid_parameter_value_exception()
           | invalid_parameter_combination_exception()
+
+  @type describe_multi_region_clusters_errors() ::
+          invalid_parameter_value_exception()
+          | invalid_parameter_combination_exception()
+          | cluster_not_found_fault()
+          | multi_region_cluster_not_found_fault()
 
   @type describe_parameter_groups_errors() ::
           parameter_group_not_found_fault()
@@ -2277,6 +2511,11 @@ defmodule AWS.MemoryDB do
           | cluster_not_found_fault()
           | invalid_kms_key_fault()
 
+  @type list_allowed_multi_region_cluster_updates_errors() ::
+          invalid_parameter_value_exception()
+          | invalid_parameter_combination_exception()
+          | multi_region_cluster_not_found_fault()
+
   @type list_allowed_node_type_updates_errors() ::
           service_linked_role_not_found_fault()
           | invalid_parameter_value_exception()
@@ -2284,7 +2523,8 @@ defmodule AWS.MemoryDB do
           | cluster_not_found_fault()
 
   @type list_tags_errors() ::
-          parameter_group_not_found_fault()
+          multi_region_parameter_group_not_found_fault()
+          | parameter_group_not_found_fault()
           | invalid_cluster_state_fault()
           | service_linked_role_not_found_fault()
           | invalid_arn_fault()
@@ -2292,6 +2532,7 @@ defmodule AWS.MemoryDB do
           | subnet_group_not_found_fault()
           | cluster_not_found_fault()
           | user_not_found_fault()
+          | multi_region_cluster_not_found_fault()
           | snapshot_not_found_fault()
 
   @type purchase_reserved_nodes_offering_errors() ::
@@ -2311,27 +2552,33 @@ defmodule AWS.MemoryDB do
           | invalid_parameter_group_state_fault()
 
   @type tag_resource_errors() ::
-          parameter_group_not_found_fault()
+          multi_region_parameter_group_not_found_fault()
+          | parameter_group_not_found_fault()
           | invalid_cluster_state_fault()
           | service_linked_role_not_found_fault()
           | invalid_arn_fault()
+          | invalid_parameter_value_exception()
           | tag_quota_per_resource_exceeded()
           | acl_not_found_fault()
           | subnet_group_not_found_fault()
           | cluster_not_found_fault()
           | user_not_found_fault()
+          | multi_region_cluster_not_found_fault()
           | snapshot_not_found_fault()
 
   @type untag_resource_errors() ::
-          parameter_group_not_found_fault()
+          multi_region_parameter_group_not_found_fault()
+          | parameter_group_not_found_fault()
           | invalid_cluster_state_fault()
           | service_linked_role_not_found_fault()
           | invalid_arn_fault()
+          | invalid_parameter_value_exception()
           | tag_not_found_fault()
           | acl_not_found_fault()
           | subnet_group_not_found_fault()
           | cluster_not_found_fault()
           | user_not_found_fault()
+          | multi_region_cluster_not_found_fault()
           | snapshot_not_found_fault()
 
   @type update_acl_errors() ::
@@ -2360,6 +2607,13 @@ defmodule AWS.MemoryDB do
           | cluster_not_found_fault()
           | invalid_kms_key_fault()
           | node_quota_for_customer_exceeded_fault()
+
+  @type update_multi_region_cluster_errors() ::
+          multi_region_parameter_group_not_found_fault()
+          | invalid_parameter_value_exception()
+          | invalid_parameter_combination_exception()
+          | invalid_multi_region_cluster_state_fault()
+          | multi_region_cluster_not_found_fault()
 
   @type update_parameter_group_errors() ::
           parameter_group_not_found_fault()
@@ -2458,6 +2712,19 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
+  Creates a new multi-Region cluster.
+  """
+  @spec create_multi_region_cluster(map(), create_multi_region_cluster_request(), list()) ::
+          {:ok, create_multi_region_cluster_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_multi_region_cluster_errors()}
+  def create_multi_region_cluster(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateMultiRegionCluster", input, options)
+  end
+
+  @doc """
   Creates a new MemoryDB parameter group.
 
   A parameter group is a collection of parameters and their values that are
@@ -2543,7 +2810,11 @@ defmodule AWS.MemoryDB do
   @doc """
   Deletes a cluster.
 
-  It also deletes all associated nodes and node endpoints
+  It also deletes all associated nodes and node endpoints.
+
+  `CreateSnapshot` permission is required to create a final snapshot.
+  Without this permission, the API call will fail with an `Access Denied`
+  exception.
   """
   @spec delete_cluster(map(), delete_cluster_request(), list()) ::
           {:ok, delete_cluster_response(), any()}
@@ -2553,6 +2824,19 @@ defmodule AWS.MemoryDB do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteCluster", input, options)
+  end
+
+  @doc """
+  Deletes an existing multi-Region cluster.
+  """
+  @spec delete_multi_region_cluster(map(), delete_multi_region_cluster_request(), list()) ::
+          {:ok, delete_multi_region_cluster_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_multi_region_cluster_errors()}
+  def delete_multi_region_cluster(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteMultiRegionCluster", input, options)
   end
 
   @doc """
@@ -2619,7 +2903,7 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
-  Returns a list of ACLs
+  Returns a list of ACLs.
   """
   @spec describe_acls(map(), describe_acls_request(), list()) ::
           {:ok, describe_acls_response(), any()}
@@ -2646,7 +2930,7 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
-  Returns a list of the available engine versions.
+  Returns a list of the available Redis OSS engine versions.
   """
   @spec describe_engine_versions(map(), describe_engine_versions_request(), list()) ::
           {:ok, describe_engine_versions_response(), any()}
@@ -2675,6 +2959,19 @@ defmodule AWS.MemoryDB do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeEvents", input, options)
+  end
+
+  @doc """
+  Returns details about one or more multi-Region clusters.
+  """
+  @spec describe_multi_region_clusters(map(), describe_multi_region_clusters_request(), list()) ::
+          {:ok, describe_multi_region_clusters_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_multi_region_clusters_errors()}
+  def describe_multi_region_clusters(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeMultiRegionClusters", input, options)
   end
 
   @doc """
@@ -2738,7 +3035,7 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
-  Returns details of the service updates
+  Returns details of the service updates.
   """
   @spec describe_service_updates(map(), describe_service_updates_request(), list()) ::
           {:ok, describe_service_updates_response(), any()}
@@ -2817,6 +3114,23 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
+  Lists the allowed updates for a multi-Region cluster.
+  """
+  @spec list_allowed_multi_region_cluster_updates(
+          map(),
+          list_allowed_multi_region_cluster_updates_request(),
+          list()
+        ) ::
+          {:ok, list_allowed_multi_region_cluster_updates_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_allowed_multi_region_cluster_updates_errors()}
+  def list_allowed_multi_region_cluster_updates(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAllowedMultiRegionClusterUpdates", input, options)
+  end
+
+  @doc """
   Lists all available node types that you can scale to from your cluster's current
   node type.
 
@@ -2838,7 +3152,7 @@ defmodule AWS.MemoryDB do
 
   A tag is a key-value pair where the key and value are case-sensitive. You can
   use tags to categorize and track your MemoryDB resources.
-  For more information, see [Tagging your MemoryDB resources](https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html)
+  For more information, see [Tagging your MemoryDB resources](https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html).
   """
   @spec list_tags(map(), list_tags_request(), list()) ::
           {:ok, list_tags_response(), any()}
@@ -2917,7 +3231,7 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
-  Use this operation to remove tags on a resource
+  Use this operation to remove tags on a resource.
   """
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
@@ -2956,6 +3270,19 @@ defmodule AWS.MemoryDB do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateCluster", input, options)
+  end
+
+  @doc """
+  Updates the configuration of an existing multi-Region cluster.
+  """
+  @spec update_multi_region_cluster(map(), update_multi_region_cluster_request(), list()) ::
+          {:ok, update_multi_region_cluster_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_multi_region_cluster_errors()}
+  def update_multi_region_cluster(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateMultiRegionCluster", input, options)
   end
 
   @doc """

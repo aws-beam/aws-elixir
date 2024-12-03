@@ -98,12 +98,34 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      media_extraction_configuration() :: %{
+        "imageExtractionConfiguration" => image_extraction_configuration()
+      }
+
+  """
+  @type media_extraction_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       encryption_configuration() :: %{
         "kmsKeyId" => String.t()
       }
 
   """
   @type encryption_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_too_large_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type media_too_large_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -257,6 +279,7 @@ defmodule AWS.QBusiness do
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
         optional("documentEnrichmentConfiguration") => document_enrichment_configuration(),
+        optional("mediaExtractionConfiguration") => media_extraction_configuration(),
         optional("roleArn") => String.t(),
         optional("syncSchedule") => String.t(),
         optional("tags") => list(tag()()),
@@ -298,6 +321,18 @@ defmodule AWS.QBusiness do
 
   """
   @type text_output_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conversation_source() :: %{
+        "attachmentId" => String.t(),
+        "conversationId" => String.t()
+      }
+
+  """
+  @type conversation_source() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -565,6 +600,26 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      attachment() :: %{
+        "attachmentId" => String.t(),
+        "conversationId" => String.t(),
+        "copyFrom" => list(),
+        "createdAt" => non_neg_integer(),
+        "error" => error_detail(),
+        "fileSize" => integer(),
+        "fileType" => String.t(),
+        "md5chksum" => String.t(),
+        "name" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type attachment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_web_experiences_response() :: %{
         "nextToken" => String.t(),
         "webExperiences" => list(web_experience()())
@@ -752,6 +807,17 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      image_extraction_configuration() :: %{
+        "imageExtractionStatus" => list(any())
+      }
+
+  """
+  @type image_extraction_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       chat_sync_output() :: %{
         "actionReview" => action_review(),
         "authChallengeRequest" => auth_challenge_request(),
@@ -856,6 +922,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       create_web_experience_request() :: %{
+        optional("browserExtensionConfiguration") => browser_extension_configuration(),
         optional("clientToken") => String.t(),
         optional("identityProviderConfiguration") => list(),
         optional("origins") => list(String.t()()),
@@ -981,6 +1048,7 @@ defmodule AWS.QBusiness do
       get_web_experience_response() :: %{
         "applicationId" => String.t(),
         "authenticationConfiguration" => list(),
+        "browserExtensionConfiguration" => browser_extension_configuration(),
         "createdAt" => non_neg_integer(),
         "defaultEndpoint" => String.t(),
         "error" => error_detail(),
@@ -1157,6 +1225,7 @@ defmodule AWS.QBusiness do
 
       update_web_experience_request() :: %{
         optional("authenticationConfiguration") => list(),
+        optional("browserExtensionConfiguration") => browser_extension_configuration(),
         optional("identityProviderConfiguration") => list(),
         optional("origins") => list(String.t()()),
         optional("roleArn") => String.t(),
@@ -1268,6 +1337,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       attachment_input() :: %{
+        "copyFrom" => list(),
         "data" => binary(),
         "name" => String.t()
       }
@@ -1341,6 +1411,8 @@ defmodule AWS.QBusiness do
       text_segment() :: %{
         "beginOffset" => integer(),
         "endOffset" => integer(),
+        "mediaId" => String.t(),
+        "mediaMimeType" => String.t(),
         "snippetExcerpt" => snippet_excerpt()
       }
 
@@ -1501,6 +1573,20 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      list_attachments_request() :: %{
+        optional("conversationId") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("userId") => String.t()
+      }
+
+  """
+  @type list_attachments_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_user_request() :: %{}
 
   """
@@ -1567,6 +1653,18 @@ defmodule AWS.QBusiness do
 
   """
   @type delete_user_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_media_response() :: %{
+        "mediaBytes" => binary(),
+        "mediaMimeType" => String.t()
+      }
+
+  """
+  @type get_media_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1931,6 +2029,15 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      get_media_request() :: %{}
+
+  """
+  @type get_media_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_conversations_response() :: %{
         "conversations" => list(conversation()()),
         "nextToken" => String.t()
@@ -2033,6 +2140,7 @@ defmodule AWS.QBusiness do
         optional("description") => String.t(),
         optional("displayName") => String.t(),
         optional("documentEnrichmentConfiguration") => document_enrichment_configuration(),
+        optional("mediaExtractionConfiguration") => media_extraction_configuration(),
         optional("roleArn") => String.t(),
         optional("syncSchedule") => String.t(),
         optional("vpcConfiguration") => data_source_vpc_configuration()
@@ -2143,6 +2251,17 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      browser_extension_configuration() :: %{
+        "enabledBrowserExtensions" => list(String.t()())
+      }
+
+  """
+  @type browser_extension_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_group_request() :: %{
         optional("dataSourceId") => String.t()
       }
@@ -2244,6 +2363,17 @@ defmodule AWS.QBusiness do
 
   """
   @type principal_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      external_resource_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type external_resource_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2439,6 +2569,8 @@ defmodule AWS.QBusiness do
   ## Example:
 
       attachment_output() :: %{
+        "attachmentId" => String.t(),
+        "conversationId" => String.t(),
         "error" => error_detail(),
         "name" => String.t(),
         "status" => list(any())
@@ -2497,6 +2629,7 @@ defmodule AWS.QBusiness do
         "documentEnrichmentConfiguration" => document_enrichment_configuration(),
         "error" => error_detail(),
         "indexId" => String.t(),
+        "mediaExtractionConfiguration" => media_extraction_configuration(),
         "roleArn" => String.t(),
         "status" => list(any()),
         "syncSchedule" => String.t(),
@@ -2570,11 +2703,24 @@ defmodule AWS.QBusiness do
         "contentType" => list(any()),
         "documentEnrichmentConfiguration" => document_enrichment_configuration(),
         "id" => String.t(),
+        "mediaExtractionConfiguration" => media_extraction_configuration(),
         "title" => String.t()
       }
 
   """
   @type document() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_attachments_response() :: %{
+        "attachments" => list(attachment()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_attachments_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2750,7 +2896,8 @@ defmodule AWS.QBusiness do
           | conflict_exception()
 
   @type chat_errors() ::
-          throttling_exception()
+          external_resource_exception()
+          | throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
@@ -2759,7 +2906,8 @@ defmodule AWS.QBusiness do
           | license_not_found_exception()
 
   @type chat_sync_errors() ::
-          throttling_exception()
+          external_resource_exception()
+          | throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
@@ -2945,6 +3093,15 @@ defmodule AWS.QBusiness do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_media_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | license_not_found_exception()
+          | media_too_large_exception()
+
   @type get_plugin_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2980,6 +3137,14 @@ defmodule AWS.QBusiness do
           | access_denied_exception()
           | internal_server_exception()
 
+  @type list_attachments_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | license_not_found_exception()
+
   @type list_conversations_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2994,6 +3159,7 @@ defmodule AWS.QBusiness do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | conflict_exception()
 
   @type list_data_sources_errors() ::
           throttling_exception()
@@ -3091,6 +3257,7 @@ defmodule AWS.QBusiness do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | conflict_exception()
 
   @type tag_resource_errors() ::
           throttling_exception()
@@ -3359,13 +3526,16 @@ defmodule AWS.QBusiness do
   You must use the Amazon Q Business console to assign
   subscription tiers to users.
 
-  A Amazon Q Apps service linked role will be created if it's absent in the
-  Amazon Web Services account when the QAppsConfiguration is enabled in the
-  request.
-  For more information, see
-  [
-  Using service-linked roles for Q Apps
-  ](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles-qapps.html)
+  An Amazon Q Apps service linked role will be created if it's absent in the
+  Amazon Web Services account when `QAppsConfiguration` is enabled in
+  the request. For more information, see [ Using service-linked roles for Q
+  Apps](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles-qapps.html).
+
+  When you create an application, Amazon Q Business may securely transmit data for
+  processing from your selected Amazon Web Services region, but within your
+  geography.
+  For more information, see [Cross region inference in Amazon Q
+  Business](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cross-region-inference.html).
   """
   @spec create_application(map(), create_application_request(), list()) ::
           {:ok, create_application_response(), any()}
@@ -4075,6 +4245,40 @@ defmodule AWS.QBusiness do
   end
 
   @doc """
+  Returns the image bytes corresponding to a media object.
+
+  If you have implemented your own application with the Chat and ChatSync APIs,
+  and
+  have enabled content extraction from visual data in Amazon Q Business, you use
+  the GetMedia API operation to download
+  the images so you can show them in your UI with responses.
+
+  For more information, see [Extracting semantic meaning from images and visuals](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/extracting-meaning-from-images.html).
+  """
+  @spec get_media(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
+          {:ok, get_media_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_media_errors()}
+  def get_media(
+        %Client{} = client,
+        application_id,
+        conversation_id,
+        media_id,
+        message_id,
+        options \\ []
+      ) do
+    url_path =
+      "/applications/#{AWS.Util.encode_uri(application_id)}/conversations/#{AWS.Util.encode_uri(conversation_id)}/messages/#{AWS.Util.encode_uri(message_id)}/media/#{AWS.Util.encode_uri(media_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets information about an existing Amazon Q Business plugin.
   """
   @spec get_plugin(map(), String.t(), String.t(), list()) ::
@@ -4155,6 +4359,11 @@ defmodule AWS.QBusiness do
 
   @doc """
   Lists Amazon Q Business applications.
+
+  Amazon Q Business applications may securely transmit data for processing across
+  Amazon Web Services Regions within your geography. For more information, see
+  [Cross region inference in Amazon Q
+  Business](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cross-region-inference.html).
   """
   @spec list_applications(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_applications_response(), any()}
@@ -4175,6 +4384,69 @@ defmodule AWS.QBusiness do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets a list of attachments associated with an Amazon Q Business web experience
+  or a list of attachements associated with a specific Amazon Q Business
+  conversation.
+  """
+  @spec list_attachments(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_attachments_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_attachments_errors()}
+  def list_attachments(
+        %Client{} = client,
+        application_id,
+        conversation_id \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        user_id \\ nil,
+        options \\ []
+      ) do
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/attachments"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(user_id) do
+        [{"userId", user_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(conversation_id) do
+        [{"conversationId", conversation_id} | query_params]
       else
         query_params
       end
@@ -4951,12 +5223,15 @@ defmodule AWS.QBusiness do
   @doc """
   Updates an existing Amazon Q Business application.
 
-  A Amazon Q Apps service-linked role will be created if it's absent in the Amazon
-  Web Services account
-  when the QAppsConfiguration is enabled in the request.
-  For more information, see [
-  Using service-linked roles for Q Apps
-  ](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles-qapps.html)
+  Amazon Q Business applications may securely transmit data for processing across
+  Amazon Web Services Regions within your geography. For more information, see
+  [Cross region inference in Amazon Q
+  Business](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cross-region-inference.html).
+
+  An Amazon Q Apps service-linked role will be created if it's absent in the
+  Amazon Web Services account when `QAppsConfiguration` is enabled in
+  the request. For more information, see [Using service-linked roles for Q
+  Apps](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles-qapps.html).
   """
   @spec update_application(map(), String.t(), update_application_request(), list()) ::
           {:ok, update_application_response(), any()}

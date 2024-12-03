@@ -79,6 +79,15 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      get_a_i_guardrail_request() :: %{}
+
+  """
+  @type get_a_i_guardrail_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       update_knowledge_base_template_uri_request() :: %{
         required("templateUri") => String.t()
       }
@@ -230,6 +239,15 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      delete_a_i_guardrail_version_response() :: %{}
+
+  """
+  @type delete_a_i_guardrail_version_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       remove_assistant_a_i_agent_request() :: %{
         required("aiAgentType") => String.t()
       }
@@ -330,6 +348,20 @@ defmodule AWS.QConnect do
 
   """
   @type highlight() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_topic_config() :: %{
+        "definition" => String.t(),
+        "examples" => list(String.t()()),
+        "name" => String.t(),
+        "type" => String.t()
+      }
+
+  """
+  @type guardrail_topic_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -448,6 +480,30 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      list_messages_response() :: %{
+        "messages" => list(message_output()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_messages_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_contextual_grounding_filter_config() :: %{
+        "threshold" => float(),
+        "type" => String.t()
+      }
+
+  """
+  @type guardrail_contextual_grounding_filter_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_condition() :: %{
         "key" => String.t(),
         "value" => String.t()
@@ -455,6 +511,22 @@ defmodule AWS.QConnect do
 
   """
   @type tag_condition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_next_message_response() :: %{
+        "conversationSessionData" => list(runtime_session_data()()),
+        "conversationState" => conversation_state(),
+        "nextMessageToken" => String.t(),
+        "requestMessageId" => String.t(),
+        "response" => message_output(),
+        "type" => String.t()
+      }
+
+  """
+  @type get_next_message_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -474,6 +546,18 @@ defmodule AWS.QConnect do
 
   """
   @type content_association_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_a_i_guardrail_versions_response() :: %{
+        "aiGuardrailVersionSummaries" => list(a_i_guardrail_version_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_a_i_guardrail_versions_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -592,6 +676,18 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      conversation_state() :: %{
+        "reason" => String.t(),
+        "status" => String.t()
+      }
+
+  """
+  @type conversation_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_content_summary_response() :: %{
         optional("contentSummary") => content_summary()
       }
@@ -699,6 +795,26 @@ defmodule AWS.QConnect do
 
   """
   @type request_timeout_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_a_i_guardrail_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("contentPolicyConfig") => a_i_guardrail_content_policy_config(),
+        optional("contextualGroundingPolicyConfig") => a_i_guardrail_contextual_grounding_policy_config(),
+        optional("description") => String.t(),
+        optional("sensitiveInformationPolicyConfig") => a_i_guardrail_sensitive_information_policy_config(),
+        optional("topicPolicyConfig") => a_i_guardrail_topic_policy_config(),
+        optional("wordPolicyConfig") => a_i_guardrail_word_policy_config(),
+        required("blockedInputMessaging") => String.t(),
+        required("blockedOutputsMessaging") => String.t(),
+        required("visibilityStatus") => String.t()
+      }
+
+  """
+  @type update_a_i_guardrail_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -841,6 +957,24 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      delete_a_i_guardrail_response() :: %{}
+
+  """
+  @type delete_a_i_guardrail_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_a_i_guardrail_request() :: %{}
+
+  """
+  @type delete_a_i_guardrail_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       create_a_i_agent_version_response() :: %{
         "aiAgent" => a_i_agent_data(),
         "versionNumber" => float()
@@ -972,6 +1106,18 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      get_a_i_guardrail_response() :: %{
+        "aiGuardrail" => a_i_guardrail_data(),
+        "versionNumber" => float()
+      }
+
+  """
+  @type get_a_i_guardrail_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_a_i_agents_response() :: %{
         "aiAgentSummaries" => list(a_i_agent_summary()()),
         "nextToken" => String.t()
@@ -1044,6 +1190,17 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      guardrail_managed_words_config() :: %{
+        "type" => String.t()
+      }
+
+  """
+  @type guardrail_managed_words_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_message_template_response() :: %{}
 
   """
@@ -1089,6 +1246,20 @@ defmodule AWS.QConnect do
 
   """
   @type list_a_iprompt_versions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      self_service_a_i_agent_configuration() :: %{
+        "associationConfigurations" => list(association_configuration()()),
+        "selfServiceAIGuardrailId" => String.t(),
+        "selfServiceAnswerGenerationAIPromptId" => String.t(),
+        "selfServicePreProcessingAIPromptId" => String.t()
+      }
+
+  """
+  @type self_service_a_i_agent_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1226,6 +1397,15 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      delete_a_i_guardrail_version_request() :: %{}
+
+  """
+  @type delete_a_i_guardrail_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       a_iprompt_data() :: %{
         "aiPromptArn" => String.t(),
         "aiPromptId" => String.t(),
@@ -1247,6 +1427,17 @@ defmodule AWS.QConnect do
 
   """
   @type a_iprompt_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_a_i_guardrail_response() :: %{
+        "aiGuardrail" => a_i_guardrail_data()
+      }
+
+  """
+  @type update_a_i_guardrail_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1295,6 +1486,17 @@ defmodule AWS.QConnect do
 
   """
   @type create_knowledge_base_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_input() :: %{
+        "value" => list()
+      }
+
+  """
+  @type message_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1490,6 +1692,19 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      guardrail_content_filter_config() :: %{
+        "inputStrength" => String.t(),
+        "outputStrength" => String.t(),
+        "type" => String.t()
+      }
+
+  """
+  @type guardrail_content_filter_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       document_text() :: %{
         "highlights" => list(highlight()()),
         "text" => String.t()
@@ -1541,6 +1756,33 @@ defmodule AWS.QConnect do
 
   """
   @type deactivate_message_template_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      a_i_guardrail_data() :: %{
+        "aiGuardrailArn" => String.t(),
+        "aiGuardrailId" => String.t(),
+        "assistantArn" => String.t(),
+        "assistantId" => String.t(),
+        "blockedInputMessaging" => String.t(),
+        "blockedOutputsMessaging" => String.t(),
+        "contentPolicyConfig" => a_i_guardrail_content_policy_config(),
+        "contextualGroundingPolicyConfig" => a_i_guardrail_contextual_grounding_policy_config(),
+        "description" => String.t(),
+        "modifiedTime" => [non_neg_integer()],
+        "name" => String.t(),
+        "sensitiveInformationPolicyConfig" => a_i_guardrail_sensitive_information_policy_config(),
+        "status" => String.t(),
+        "tags" => map(),
+        "topicPolicyConfig" => a_i_guardrail_topic_policy_config(),
+        "visibilityStatus" => String.t(),
+        "wordPolicyConfig" => a_i_guardrail_word_policy_config()
+      }
+
+  """
+  @type a_i_guardrail_data() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1614,6 +1856,17 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      text_message() :: %{
+        "value" => String.t()
+      }
+
+  """
+  @type text_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       seed_url() :: %{
         "url" => String.t()
       }
@@ -1642,6 +1895,29 @@ defmodule AWS.QConnect do
 
   """
   @type create_message_template_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_a_i_guardrail_version_response() :: %{
+        "aiGuardrail" => a_i_guardrail_data(),
+        "versionNumber" => float()
+      }
+
+  """
+  @type create_a_i_guardrail_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_a_i_guardrail_response() :: %{
+        "aiGuardrail" => a_i_guardrail_data()
+      }
+
+  """
+  @type create_a_i_guardrail_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1683,6 +1959,17 @@ defmodule AWS.QConnect do
 
   """
   @type assistant_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conversation_context() :: %{
+        "selfServiceConversationHistory" => list(self_service_conversation_history()())
+      }
+
+  """
+  @type conversation_context() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1810,6 +2097,20 @@ defmodule AWS.QConnect do
 
   """
   @type sms_message_template_content_body() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_output() :: %{
+        "messageId" => String.t(),
+        "participant" => String.t(),
+        "timestamp" => [non_neg_integer()],
+        "value" => list()
+      }
+
+  """
+  @type message_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2042,6 +2343,26 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      a_i_guardrail_summary() :: %{
+        "aiGuardrailArn" => String.t(),
+        "aiGuardrailId" => String.t(),
+        "assistantArn" => String.t(),
+        "assistantId" => String.t(),
+        "description" => String.t(),
+        "modifiedTime" => [non_neg_integer()],
+        "name" => String.t(),
+        "status" => String.t(),
+        "tags" => map(),
+        "visibilityStatus" => String.t()
+      }
+
+  """
+  @type a_i_guardrail_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_knowledge_base_request() :: %{}
 
   """
@@ -2078,6 +2399,17 @@ defmodule AWS.QConnect do
 
   """
   @type assistant_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      a_i_guardrail_topic_policy_config() :: %{
+        "topicsConfig" => list(guardrail_topic_config()())
+      }
+
+  """
+  @type a_i_guardrail_topic_policy_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2162,6 +2494,17 @@ defmodule AWS.QConnect do
 
   """
   @type server_side_encryption_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_word_config() :: %{
+        "text" => String.t()
+      }
+
+  """
+  @type guardrail_word_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2286,6 +2629,18 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      create_a_i_guardrail_version_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("modifiedTime") => [non_neg_integer()]
+      }
+
+  """
+  @type create_a_i_guardrail_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_message_template_request() :: %{}
 
   """
@@ -2341,6 +2696,18 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      a_i_guardrail_word_policy_config() :: %{
+        "managedWordListsConfig" => list(guardrail_managed_words_config()()),
+        "wordsConfig" => list(guardrail_word_config()())
+      }
+
+  """
+  @type a_i_guardrail_word_policy_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       remove_knowledge_base_template_uri_request() :: %{}
 
   """
@@ -2379,6 +2746,44 @@ defmodule AWS.QConnect do
 
   """
   @type get_a_iprompt_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_a_i_guardrail_versions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_a_i_guardrail_versions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      a_i_guardrail_version_summary() :: %{
+        "aiGuardrailSummary" => a_i_guardrail_summary(),
+        "versionNumber" => float()
+      }
+
+  """
+  @type a_i_guardrail_version_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_regex_config() :: %{
+        "action" => String.t(),
+        "description" => String.t(),
+        "name" => String.t(),
+        "pattern" => String.t()
+      }
+
+  """
+  @type guardrail_regex_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2428,6 +2833,17 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      a_i_guardrail_contextual_grounding_policy_config() :: %{
+        "filtersConfig" => list(guardrail_contextual_grounding_filter_config()())
+      }
+
+  """
+  @type a_i_guardrail_contextual_grounding_policy_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       notify_recommendations_received_error() :: %{
         "message" => String.t(),
         "recommendationId" => String.t()
@@ -2452,6 +2868,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       manual_search_a_i_agent_configuration() :: %{
+        "answerGenerationAIGuardrailId" => String.t(),
         "answerGenerationAIPromptId" => String.t(),
         "associationConfigurations" => list(association_configuration()())
       }
@@ -2498,6 +2915,18 @@ defmodule AWS.QConnect do
 
   """
   @type get_quick_response_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      a_i_guardrail_sensitive_information_policy_config() :: %{
+        "piiEntitiesConfig" => list(guardrail_pii_entity_config()()),
+        "regexesConfig" => list(guardrail_regex_config()())
+      }
+
+  """
+  @type a_i_guardrail_sensitive_information_policy_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2693,6 +3122,18 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      list_a_i_guardrails_response() :: %{
+        "aiGuardrailSummaries" => list(a_i_guardrail_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_a_i_guardrails_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_content_request() :: %{}
 
   """
@@ -2765,6 +3206,18 @@ defmodule AWS.QConnect do
 
   """
   @type content_reference() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_pii_entity_config() :: %{
+        "action" => String.t(),
+        "type" => String.t()
+      }
+
+  """
+  @type guardrail_pii_entity_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2864,6 +3317,19 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      self_service_conversation_history() :: %{
+        "botResponse" => String.t(),
+        "inputTranscript" => String.t(),
+        "turnNumber" => [integer()]
+      }
+
+  """
+  @type self_service_conversation_history() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       knowledge_base_association_configuration_data() :: %{
         "contentTagFilter" => list(),
         "maxResults" => integer(),
@@ -2883,6 +3349,17 @@ defmodule AWS.QConnect do
 
   """
   @type hierarchical_chunking_level_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      a_i_guardrail_content_policy_config() :: %{
+        "filtersConfig" => list(guardrail_content_filter_config()())
+      }
+
+  """
+  @type a_i_guardrail_content_policy_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2952,6 +3429,20 @@ defmodule AWS.QConnect do
 
   """
   @type notify_recommendations_received_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_message_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("conversationContext") => conversation_context(),
+        required("message") => message_input(),
+        required("type") => String.t()
+      }
+
+  """
+  @type send_message_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3065,6 +3556,17 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      get_next_message_request() :: %{
+        required("nextMessageToken") => String.t()
+      }
+
+  """
+  @type get_next_message_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       render_message_template_response() :: %{
         "attachments" => list(message_template_attachment()()),
         "attributesNotInterpolated" => list(String.t()()),
@@ -3085,6 +3587,18 @@ defmodule AWS.QConnect do
 
   """
   @type email_message_template_content_body() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_a_i_guardrails_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_a_i_guardrails_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3264,6 +3778,18 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      send_message_response() :: %{
+        "nextMessageToken" => String.t(),
+        "requestMessageId" => String.t()
+      }
+
+  """
+  @type send_message_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_assistants_response() :: %{
         optional("nextToken") => String.t(),
         required("assistantSummaries") => list(assistant_summary()())
@@ -3376,7 +3902,30 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      create_a_i_guardrail_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("contentPolicyConfig") => a_i_guardrail_content_policy_config(),
+        optional("contextualGroundingPolicyConfig") => a_i_guardrail_contextual_grounding_policy_config(),
+        optional("description") => String.t(),
+        optional("sensitiveInformationPolicyConfig") => a_i_guardrail_sensitive_information_policy_config(),
+        optional("tags") => map(),
+        optional("topicPolicyConfig") => a_i_guardrail_topic_policy_config(),
+        optional("wordPolicyConfig") => a_i_guardrail_word_policy_config(),
+        required("blockedInputMessaging") => String.t(),
+        required("blockedOutputsMessaging") => String.t(),
+        required("name") => String.t(),
+        required("visibilityStatus") => String.t()
+      }
+
+  """
+  @type create_a_i_guardrail_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       answer_recommendation_a_i_agent_configuration() :: %{
+        "answerGenerationAIGuardrailId" => String.t(),
         "answerGenerationAIPromptId" => String.t(),
         "associationConfigurations" => list(association_configuration()()),
         "intentLabelingGenerationAIPromptId" => String.t(),
@@ -3580,6 +4129,18 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      list_messages_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_messages_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_a_iprompt_version_response() :: %{
         "aiPrompt" => a_iprompt_data(),
         "versionNumber" => float()
@@ -3617,6 +4178,22 @@ defmodule AWS.QConnect do
           | conflict_exception()
 
   @type create_a_i_agent_version_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_a_i_guardrail_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_a_i_guardrail_version_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -3731,6 +4308,20 @@ defmodule AWS.QConnect do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type delete_a_i_guardrail_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_a_i_guardrail_version_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type delete_a_iprompt_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3791,6 +4382,12 @@ defmodule AWS.QConnect do
           | access_denied_exception()
           | resource_not_found_exception()
 
+  @type get_a_i_guardrail_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
   @type get_a_iprompt_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3824,6 +4421,9 @@ defmodule AWS.QConnect do
           | access_denied_exception()
           | resource_not_found_exception()
 
+  @type get_next_message_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
+
   @type get_quick_response_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
 
@@ -3840,6 +4440,18 @@ defmodule AWS.QConnect do
           | resource_not_found_exception()
 
   @type list_a_i_agents_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type list_a_i_guardrail_versions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type list_a_i_guardrails_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -3883,6 +4495,9 @@ defmodule AWS.QConnect do
           | validation_exception()
           | access_denied_exception()
           | resource_not_found_exception()
+
+  @type list_messages_errors() ::
+          validation_exception() | access_denied_exception() | resource_not_found_exception()
 
   @type list_quick_responses_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
@@ -3934,6 +4549,14 @@ defmodule AWS.QConnect do
   @type search_sessions_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
 
+  @type send_message_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | request_timeout_exception()
+
   @type start_content_upload_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
 
@@ -3949,6 +4572,13 @@ defmodule AWS.QConnect do
   @type untag_resource_errors() :: resource_not_found_exception()
 
   @type update_a_i_agent_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_a_i_guardrail_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -4118,6 +4748,76 @@ defmodule AWS.QConnect do
       ) do
     url_path =
       "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiagents/#{AWS.Util.encode_uri(ai_agent_id)}/versions"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates an Amazon Q in Connect AI Guardrail.
+  """
+  @spec create_a_i_guardrail(map(), String.t(), create_a_i_guardrail_request(), list()) ::
+          {:ok, create_a_i_guardrail_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_a_i_guardrail_errors()}
+  def create_a_i_guardrail(%Client{} = client, assistant_id, input, options \\ []) do
+    url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiguardrails"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates an Amazon Q in Connect AI Guardrail version.
+  """
+  @spec create_a_i_guardrail_version(
+          map(),
+          String.t(),
+          String.t(),
+          create_a_i_guardrail_version_request(),
+          list()
+        ) ::
+          {:ok, create_a_i_guardrail_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_a_i_guardrail_version_errors()}
+  def create_a_i_guardrail_version(
+        %Client{} = client,
+        ai_guardrail_id,
+        assistant_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiguardrails/#{AWS.Util.encode_uri(ai_guardrail_id)}/versions"
 
     headers = []
     custom_headers = []
@@ -4757,6 +5457,92 @@ defmodule AWS.QConnect do
   end
 
   @doc """
+  Deletes an Amazon Q in Connect AI Guardrail.
+  """
+  @spec delete_a_i_guardrail(
+          map(),
+          String.t(),
+          String.t(),
+          delete_a_i_guardrail_request(),
+          list()
+        ) ::
+          {:ok, delete_a_i_guardrail_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_a_i_guardrail_errors()}
+  def delete_a_i_guardrail(
+        %Client{} = client,
+        ai_guardrail_id,
+        assistant_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiguardrails/#{AWS.Util.encode_uri(ai_guardrail_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Delete and Amazon Q in Connect AI Guardrail version.
+  """
+  @spec delete_a_i_guardrail_version(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          delete_a_i_guardrail_version_request(),
+          list()
+        ) ::
+          {:ok, delete_a_i_guardrail_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_a_i_guardrail_version_errors()}
+  def delete_a_i_guardrail_version(
+        %Client{} = client,
+        ai_guardrail_id,
+        assistant_id,
+        version_number,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiguardrails/#{AWS.Util.encode_uri(ai_guardrail_id)}/versions/#{AWS.Util.encode_uri(version_number)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Deletes an Amazon Q in Connect AI Prompt.
   """
   @spec delete_a_iprompt(map(), String.t(), String.t(), delete_a_iprompt_request(), list()) ::
@@ -5216,6 +6002,25 @@ defmodule AWS.QConnect do
   end
 
   @doc """
+  Gets the Amazon Q in Connect AI Guardrail.
+  """
+  @spec get_a_i_guardrail(map(), String.t(), String.t(), list()) ::
+          {:ok, get_a_i_guardrail_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_a_i_guardrail_errors()}
+  def get_a_i_guardrail(%Client{} = client, ai_guardrail_id, assistant_id, options \\ []) do
+    url_path =
+      "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiguardrails/#{AWS.Util.encode_uri(ai_guardrail_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets and Amazon Q in Connect AI Prompt.
   """
   @spec get_a_iprompt(map(), String.t(), String.t(), list()) ::
@@ -5387,8 +6192,8 @@ defmodule AWS.QConnect do
   contain an optional qualifier, for example,
   `<message-template-id>:<qualifier>`, which is either an actual
   version number or an Amazon Q Connect managed qualifier `$ACTIVE_VERSION` |
-  `$LATEST`. If it is
-  not supplied, then `$LATEST` is assumed implicitly.
+  `$LATEST`. If it is not supplied, then `$LATEST` is assumed
+  implicitly.
   """
   @spec get_message_template(map(), String.t(), String.t(), list()) ::
           {:ok, get_message_template_response(), any()}
@@ -5405,6 +6210,38 @@ defmodule AWS.QConnect do
 
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves next message on an Amazon Q in Connect session.
+  """
+  @spec get_next_message(map(), String.t(), String.t(), String.t(), list()) ::
+          {:ok, get_next_message_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_next_message_errors()}
+  def get_next_message(
+        %Client{} = client,
+        assistant_id,
+        session_id,
+        next_message_token,
+        options \\ []
+      ) do
+    url_path =
+      "/assistants/#{AWS.Util.encode_uri(assistant_id)}/sessions/#{AWS.Util.encode_uri(session_id)}/messages/next"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_message_token) do
+        [{"nextMessageToken", next_message_token} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -5601,6 +6438,90 @@ defmodule AWS.QConnect do
       else
         query_params
       end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists AI Guardrail versions.
+  """
+  @spec list_a_i_guardrail_versions(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_a_i_guardrail_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_a_i_guardrail_versions_errors()}
+  def list_a_i_guardrail_versions(
+        %Client{} = client,
+        ai_guardrail_id,
+        assistant_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiguardrails/#{AWS.Util.encode_uri(ai_guardrail_id)}/versions"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the AI Guardrails available on the Amazon Q in Connect assistant.
+  """
+  @spec list_a_i_guardrails(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_a_i_guardrails_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_a_i_guardrails_errors()}
+  def list_a_i_guardrails(
+        %Client{} = client,
+        assistant_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiguardrails"
+    headers = []
+    query_params = []
 
     query_params =
       if !is_nil(next_token) do
@@ -6025,6 +6946,46 @@ defmodule AWS.QConnect do
         options \\ []
       ) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/messageTemplates"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists messages on an Amazon Q in Connect session.
+  """
+  @spec list_messages(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_messages_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_messages_errors()}
+  def list_messages(
+        %Client{} = client,
+        assistant_id,
+        session_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/assistants/#{AWS.Util.encode_uri(assistant_id)}/sessions/#{AWS.Util.encode_uri(session_id)}/messages"
+
     headers = []
     query_params = []
 
@@ -6492,6 +7453,36 @@ defmodule AWS.QConnect do
   end
 
   @doc """
+  Submits a message to the Amazon Q in Connect session.
+  """
+  @spec send_message(map(), String.t(), String.t(), send_message_request(), list()) ::
+          {:ok, send_message_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, send_message_errors()}
+  def send_message(%Client{} = client, assistant_id, session_id, input, options \\ []) do
+    url_path =
+      "/assistants/#{AWS.Util.encode_uri(assistant_id)}/sessions/#{AWS.Util.encode_uri(session_id)}/message"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Get a URL to upload content to a knowledge base.
 
   To upload content, first make a PUT
@@ -6643,6 +7634,48 @@ defmodule AWS.QConnect do
   def update_a_i_agent(%Client{} = client, ai_agent_id, assistant_id, input, options \\ []) do
     url_path =
       "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiagents/#{AWS.Util.encode_uri(ai_agent_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an AI Guardrail.
+  """
+  @spec update_a_i_guardrail(
+          map(),
+          String.t(),
+          String.t(),
+          update_a_i_guardrail_request(),
+          list()
+        ) ::
+          {:ok, update_a_i_guardrail_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_a_i_guardrail_errors()}
+  def update_a_i_guardrail(
+        %Client{} = client,
+        ai_guardrail_id,
+        assistant_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiguardrails/#{AWS.Util.encode_uri(ai_guardrail_id)}"
 
     headers = []
     custom_headers = []

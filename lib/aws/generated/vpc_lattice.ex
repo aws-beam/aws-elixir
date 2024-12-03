@@ -36,6 +36,7 @@ defmodule AWS.VPCLattice do
 
       create_access_log_subscription_request() :: %{
         optional("clientToken") => String.t(),
+        optional("serviceNetworkLogType") => String.t(),
         optional("tags") => map(),
         required("destinationArn") => String.t(),
         required("resourceIdentifier") => String.t()
@@ -104,6 +105,41 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
+      get_resource_configuration_request() :: %{}
+
+  """
+  @type get_resource_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_configuration_response() :: %{
+        "allowAssociationToShareableServiceNetwork" => boolean(),
+        "amazonManaged" => boolean(),
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "customDomainName" => String.t(),
+        "failureReason" => [String.t()],
+        "id" => String.t(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t(),
+        "portRanges" => list(String.t()()),
+        "protocol" => String.t(),
+        "resourceConfigurationDefinition" => list(),
+        "resourceConfigurationGroupId" => String.t(),
+        "resourceGatewayId" => String.t(),
+        "status" => String.t(),
+        "type" => String.t()
+      }
+
+  """
+  @type get_resource_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_rule_request() :: %{
         optional("clientToken") => String.t(),
         optional("tags") => map(),
@@ -130,6 +166,15 @@ defmodule AWS.VPCLattice do
 
   """
   @type create_target_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_service_network_resource_association_request() :: %{}
+
+  """
+  @type get_service_network_resource_association_request() :: %{}
 
   @typedoc """
 
@@ -178,10 +223,33 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
+      create_service_network_resource_association_response() :: %{
+        "arn" => String.t(),
+        "createdBy" => String.t(),
+        "id" => String.t(),
+        "status" => String.t()
+      }
+
+  """
+  @type create_service_network_resource_association_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_resource_policy_response() :: %{}
 
   """
   @type delete_resource_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_gateway_request() :: %{}
+
+  """
+  @type delete_resource_gateway_request() :: %{}
 
   @typedoc """
 
@@ -216,10 +284,39 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
+      delete_resource_configuration_response() :: %{}
+
+  """
+  @type delete_resource_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_service_network_request() :: %{}
 
   """
   @type delete_service_network_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_gateway_response() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "id" => String.t(),
+        "ipAddressType" => String.t(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t(),
+        "securityGroupIds" => list(String.t()()),
+        "status" => String.t(),
+        "subnetIds" => list(String.t()()),
+        "vpcId" => String.t()
+      }
+
+  """
+  @type get_resource_gateway_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -261,6 +358,7 @@ defmodule AWS.VPCLattice do
       create_service_network_request() :: %{
         optional("authType") => String.t(),
         optional("clientToken") => String.t(),
+        optional("sharingConfig") => sharing_config(),
         optional("tags") => map(),
         required("name") => String.t()
       }
@@ -295,6 +393,17 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
+      arn_resource() :: %{
+        "arn" => String.t()
+      }
+
+  """
+  @type arn_resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       untag_resource_response() :: %{}
 
   """
@@ -312,7 +421,8 @@ defmodule AWS.VPCLattice do
         optional("lastUpdatedAt") => non_neg_integer(),
         optional("name") => String.t(),
         optional("numberOfAssociatedServices") => [float()],
-        optional("numberOfAssociatedVPCs") => [float()]
+        optional("numberOfAssociatedVPCs") => [float()],
+        optional("sharingConfig") => sharing_config()
       }
 
   """
@@ -331,6 +441,42 @@ defmodule AWS.VPCLattice do
 
   """
   @type update_service_network_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_resource_configuration_response() :: %{
+        "allowAssociationToShareableServiceNetwork" => boolean(),
+        "arn" => String.t(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "portRanges" => list(String.t()()),
+        "protocol" => String.t(),
+        "resourceConfigurationDefinition" => list(),
+        "resourceConfigurationGroupId" => String.t(),
+        "resourceGatewayId" => String.t(),
+        "status" => String.t(),
+        "type" => String.t()
+      }
+
+  """
+  @type update_resource_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_endpoint_association_response() :: %{
+        "arn" => String.t(),
+        "id" => String.t(),
+        "resourceConfigurationArn" => String.t(),
+        "resourceConfigurationId" => String.t(),
+        "vpcEndpointId" => String.t()
+      }
+
+  """
+  @type delete_resource_endpoint_association_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -356,11 +502,24 @@ defmodule AWS.VPCLattice do
         optional("arn") => String.t(),
         optional("authType") => String.t(),
         optional("id") => String.t(),
-        optional("name") => String.t()
+        optional("name") => String.t(),
+        optional("sharingConfig") => sharing_config()
       }
 
   """
   @type create_service_network_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_service_network_vpc_endpoint_associations_response() :: %{
+        "items" => list(service_network_endpoint_association()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_service_network_vpc_endpoint_associations_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -387,6 +546,17 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
+      ip_resource() :: %{
+        "ipAddress" => String.t()
+      }
+
+  """
+  @type ip_resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_service_network_request() :: %{}
 
   """
@@ -402,12 +572,30 @@ defmodule AWS.VPCLattice do
         "id" => String.t(),
         "lastUpdatedAt" => non_neg_integer(),
         "name" => String.t(),
+        "numberOfAssociatedResourceConfigurations" => [float()],
         "numberOfAssociatedServices" => [float()],
         "numberOfAssociatedVPCs" => [float()]
       }
 
   """
   @type service_network_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_resource_gateway_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("ipAddressType") => String.t(),
+        optional("securityGroupIds") => list(String.t()()),
+        optional("tags") => map(),
+        required("name") => String.t(),
+        required("subnetIds") => list(String.t()()),
+        required("vpcIdentifier") => String.t()
+      }
+
+  """
+  @type create_resource_gateway_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -502,6 +690,7 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       create_access_log_subscription_response() :: %{
+        optional("serviceNetworkLogType") => String.t(),
         required("arn") => String.t(),
         required("destinationArn") => String.t(),
         required("id") => String.t(),
@@ -574,6 +763,24 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
+      update_resource_gateway_response() :: %{
+        "arn" => String.t(),
+        "id" => String.t(),
+        "ipAddressType" => String.t(),
+        "name" => String.t(),
+        "securityGroupIds" => list(String.t()()),
+        "status" => String.t(),
+        "subnetIds" => list(String.t()()),
+        "vpcId" => String.t()
+      }
+
+  """
+  @type update_resource_gateway_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_listener_response() :: %{
         optional("arn") => String.t(),
         optional("createdAt") => non_neg_integer(),
@@ -603,6 +810,24 @@ defmodule AWS.VPCLattice do
 
   """
   @type get_auth_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_resource_gateway_response() :: %{
+        "arn" => String.t(),
+        "id" => String.t(),
+        "ipAddressType" => String.t(),
+        "name" => String.t(),
+        "securityGroupIds" => list(String.t()()),
+        "status" => String.t(),
+        "subnetIds" => list(String.t()()),
+        "vpcIdentifier" => String.t()
+      }
+
+  """
+  @type create_resource_gateway_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -665,6 +890,26 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
+      resource_configuration_summary() :: %{
+        "amazonManaged" => boolean(),
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "id" => String.t(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t(),
+        "resourceConfigurationGroupId" => String.t(),
+        "resourceGatewayId" => String.t(),
+        "status" => String.t(),
+        "type" => String.t()
+      }
+
+  """
+  @type resource_configuration_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       service_network_vpc_association_summary() :: %{
         "arn" => String.t(),
         "createdAt" => non_neg_integer(),
@@ -685,6 +930,15 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
+      get_resource_gateway_request() :: %{}
+
+  """
+  @type get_resource_gateway_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       target() :: %{
         "id" => [String.t()],
         "port" => integer()
@@ -697,6 +951,23 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
+      service_network_endpoint_association() :: %{
+        "createdAt" => non_neg_integer(),
+        "id" => [String.t()],
+        "serviceNetworkArn" => String.t(),
+        "state" => [String.t()],
+        "vpcEndpointId" => [String.t()],
+        "vpcEndpointOwnerId" => [String.t()],
+        "vpcId" => [String.t()]
+      }
+
+  """
+  @type service_network_endpoint_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_service_networks_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
@@ -704,6 +975,15 @@ defmodule AWS.VPCLattice do
 
   """
   @type list_service_networks_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_service_network_resource_association_request() :: %{}
+
+  """
+  @type delete_service_network_resource_association_request() :: %{}
 
   @typedoc """
 
@@ -752,6 +1032,42 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
+      list_resource_endpoint_associations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("resourceEndpointAssociationIdentifier") => String.t(),
+        optional("vpcEndpointId") => String.t(),
+        optional("vpcEndpointOwner") => String.t(),
+        required("resourceConfigurationIdentifier") => String.t()
+      }
+
+  """
+  @type list_resource_endpoint_associations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_gateway_summary() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "id" => String.t(),
+        "ipAddressType" => String.t(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t(),
+        "securityGroupIds" => list(String.t()()),
+        "status" => String.t(),
+        "subnetIds" => list(String.t()()),
+        "vpcIdentifier" => String.t()
+      }
+
+  """
+  @type resource_gateway_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_listeners_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
@@ -759,6 +1075,18 @@ defmodule AWS.VPCLattice do
 
   """
   @type list_listeners_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dns_resource() :: %{
+        "domainName" => String.t(),
+        "ipAddressType" => String.t()
+      }
+
+  """
+  @type dns_resource() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -851,6 +1179,18 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
+      list_resource_gateways_response() :: %{
+        "items" => list(resource_gateway_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_resource_gateways_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_service_network_vpc_association_request() :: %{}
 
   """
@@ -871,6 +1211,15 @@ defmodule AWS.VPCLattice do
 
   """
   @type create_service_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_configuration_request() :: %{}
+
+  """
+  @type delete_resource_configuration_request() :: %{}
 
   @typedoc """
 
@@ -1003,6 +1352,18 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
+      list_service_network_resource_associations_response() :: %{
+        "items" => list(service_network_resource_association_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_service_network_resource_associations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_auth_policy_request() :: %{
         required("policy") => String.t()
       }
@@ -1096,6 +1457,18 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
+      list_resource_configurations_response() :: %{
+        "items" => list(resource_configuration_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_resource_configurations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_target_group_request() :: %{}
 
   """
@@ -1134,12 +1507,40 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
+      list_resource_configurations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("resourceConfigurationGroupIdentifier") => String.t(),
+        optional("resourceGatewayIdentifier") => String.t()
+      }
+
+  """
+  @type list_resource_configurations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       register_targets_request() :: %{
         required("targets") => list(target()())
       }
 
   """
   @type register_targets_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_service_network_resource_association_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("tags") => map(),
+        required("resourceConfigurationIdentifier") => String.t(),
+        required("serviceNetworkIdentifier") => String.t()
+      }
+
+  """
+  @type create_service_network_resource_association_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1176,7 +1577,8 @@ defmodule AWS.VPCLattice do
         "id" => String.t(),
         "lastUpdatedAt" => non_neg_integer(),
         "resourceArn" => String.t(),
-        "resourceId" => String.t()
+        "resourceId" => String.t(),
+        "serviceNetworkLogType" => String.t()
       }
 
   """
@@ -1274,6 +1676,17 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
+      update_resource_gateway_request() :: %{
+        optional("securityGroupIds") => list(String.t()())
+      }
+
+  """
+  @type update_resource_gateway_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_target_groups_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
@@ -1309,6 +1722,18 @@ defmodule AWS.VPCLattice do
 
   """
   @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resource_endpoint_associations_response() :: %{
+        "items" => list(resource_endpoint_association_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_resource_endpoint_associations_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1365,6 +1790,19 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
+      delete_service_network_resource_association_response() :: %{
+        "arn" => String.t(),
+        "id" => String.t(),
+        "status" => String.t()
+      }
+
+  """
+  @type delete_service_network_resource_association_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       throttling_exception() :: %{
         "message" => [String.t()],
         "quotaCode" => [String.t()],
@@ -1399,6 +1837,45 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
+      create_resource_configuration_request() :: %{
+        optional("allowAssociationToShareableServiceNetwork") => boolean(),
+        optional("clientToken") => String.t(),
+        optional("portRanges") => list(String.t()()),
+        optional("protocol") => String.t(),
+        optional("resourceConfigurationDefinition") => list(),
+        optional("resourceConfigurationGroupIdentifier") => String.t(),
+        optional("resourceGatewayIdentifier") => String.t(),
+        optional("tags") => map(),
+        required("name") => String.t(),
+        required("type") => String.t()
+      }
+
+  """
+  @type create_resource_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_endpoint_association_summary() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
+        "id" => String.t(),
+        "resourceConfigurationArn" => String.t(),
+        "resourceConfigurationId" => String.t(),
+        "resourceConfigurationName" => String.t(),
+        "vpcEndpointId" => String.t(),
+        "vpcEndpointOwner" => String.t()
+      }
+
+  """
+  @type resource_endpoint_association_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_service_network_vpc_associations_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
@@ -1408,6 +1885,15 @@ defmodule AWS.VPCLattice do
 
   """
   @type list_service_network_vpc_associations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_endpoint_association_request() :: %{}
+
+  """
+  @type delete_resource_endpoint_association_request() :: %{}
 
   @typedoc """
 
@@ -1429,6 +1915,32 @@ defmodule AWS.VPCLattice do
 
   """
   @type put_resource_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resource_gateways_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_resource_gateways_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_gateway_response() :: %{
+        "arn" => String.t(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "status" => String.t()
+      }
+
+  """
+  @type delete_resource_gateway_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1466,6 +1978,33 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
+      get_service_network_resource_association_response() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
+        "dnsEntry" => dns_entry(),
+        "failureCode" => [String.t()],
+        "failureReason" => [String.t()],
+        "id" => String.t(),
+        "isManagedAssociation" => boolean(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "privateDnsEntry" => dns_entry(),
+        "resourceConfigurationArn" => String.t(),
+        "resourceConfigurationId" => String.t(),
+        "resourceConfigurationName" => String.t(),
+        "serviceNetworkArn" => String.t(),
+        "serviceNetworkId" => String.t(),
+        "serviceNetworkName" => String.t(),
+        "status" => String.t()
+      }
+
+  """
+  @type get_service_network_resource_association_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       register_targets_response() :: %{
         optional("successful") => list(target()()),
         optional("unsuccessful") => list(target_failure()())
@@ -1473,6 +2012,31 @@ defmodule AWS.VPCLattice do
 
   """
   @type register_targets_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_network_resource_association_summary() :: %{
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
+        "dnsEntry" => dns_entry(),
+        "failureCode" => [String.t()],
+        "id" => String.t(),
+        "isManagedAssociation" => boolean(),
+        "privateDnsEntry" => dns_entry(),
+        "resourceConfigurationArn" => String.t(),
+        "resourceConfigurationId" => String.t(),
+        "resourceConfigurationName" => String.t(),
+        "serviceNetworkArn" => String.t(),
+        "serviceNetworkId" => String.t(),
+        "serviceNetworkName" => String.t(),
+        "status" => String.t()
+      }
+
+  """
+  @type service_network_resource_association_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1499,6 +2063,20 @@ defmodule AWS.VPCLattice do
 
   """
   @type dns_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_service_network_resource_associations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("resourceConfigurationIdentifier") => String.t(),
+        optional("serviceNetworkIdentifier") => String.t()
+      }
+
+  """
+  @type list_service_network_resource_associations_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1540,6 +2118,19 @@ defmodule AWS.VPCLattice do
 
   """
   @type update_service_network_vpc_association_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_service_network_vpc_endpoint_associations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("serviceNetworkIdentifier") => String.t()
+      }
+
+  """
+  @type list_service_network_vpc_endpoint_associations_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1637,7 +2228,21 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
+      update_resource_configuration_request() :: %{
+        optional("allowAssociationToShareableServiceNetwork") => boolean(),
+        optional("portRanges") => list(String.t()()),
+        optional("resourceConfigurationDefinition") => list()
+      }
+
+  """
+  @type update_resource_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_access_log_subscription_response() :: %{
+        optional("serviceNetworkLogType") => String.t(),
         required("arn") => String.t(),
         required("createdAt") => non_neg_integer(),
         required("destinationArn") => String.t(),
@@ -1733,6 +2338,17 @@ defmodule AWS.VPCLattice do
 
   ## Example:
 
+      sharing_config() :: %{
+        "enabled" => boolean()
+      }
+
+  """
+  @type sharing_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_service_network_service_associations_response() :: %{
         optional("nextToken") => String.t(),
         required("items") => list(service_network_service_association_summary()())
@@ -1789,6 +2405,29 @@ defmodule AWS.VPCLattice do
   """
   @type get_service_network_vpc_association_request() :: %{}
 
+  @typedoc """
+
+  ## Example:
+
+      create_resource_configuration_response() :: %{
+        "allowAssociationToShareableServiceNetwork" => boolean(),
+        "arn" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "failureReason" => [String.t()],
+        "id" => String.t(),
+        "name" => String.t(),
+        "portRanges" => list(String.t()()),
+        "protocol" => String.t(),
+        "resourceConfigurationDefinition" => list(),
+        "resourceConfigurationGroupId" => String.t(),
+        "resourceGatewayId" => String.t(),
+        "status" => String.t(),
+        "type" => String.t()
+      }
+
+  """
+  @type create_resource_configuration_response() :: %{String.t() => any()}
+
   @type batch_update_rule_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1806,6 +2445,24 @@ defmodule AWS.VPCLattice do
           | conflict_exception()
 
   @type create_listener_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_resource_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_resource_gateway_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -1833,6 +2490,15 @@ defmodule AWS.VPCLattice do
           | conflict_exception()
 
   @type create_service_network_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_service_network_resource_association_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -1890,6 +2556,29 @@ defmodule AWS.VPCLattice do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type delete_resource_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_resource_endpoint_association_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type delete_resource_gateway_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type delete_resource_policy_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1914,6 +2603,14 @@ defmodule AWS.VPCLattice do
           | conflict_exception()
 
   @type delete_service_network_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_service_network_resource_association_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -1973,6 +2670,20 @@ defmodule AWS.VPCLattice do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_resource_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_resource_gateway_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_resource_policy_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1995,6 +2706,13 @@ defmodule AWS.VPCLattice do
           | resource_not_found_exception()
 
   @type get_service_network_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_service_network_resource_association_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -2035,12 +2753,36 @@ defmodule AWS.VPCLattice do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type list_resource_configurations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_resource_endpoint_associations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_resource_gateways_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type list_rules_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type list_service_network_resource_associations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
 
   @type list_service_network_service_associations_errors() ::
           throttling_exception()
@@ -2049,6 +2791,12 @@ defmodule AWS.VPCLattice do
           | internal_server_exception()
 
   @type list_service_network_vpc_associations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_service_network_vpc_endpoint_associations_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -2134,14 +2882,31 @@ defmodule AWS.VPCLattice do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type update_resource_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type update_resource_gateway_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type update_rule_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -2150,6 +2915,7 @@ defmodule AWS.VPCLattice do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -2174,6 +2940,7 @@ defmodule AWS.VPCLattice do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -2315,6 +3082,65 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
+  Creates a resource configuration.
+
+  A resource configuration defines a specific resource. You
+  can associate a resource configuration with a service network or a VPC endpoint.
+  """
+  @spec create_resource_configuration(map(), create_resource_configuration_request(), list()) ::
+          {:ok, create_resource_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_resource_configuration_errors()}
+  def create_resource_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/resourceconfigurations"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a resource gateway.
+  """
+  @spec create_resource_gateway(map(), create_resource_gateway_request(), list()) ::
+          {:ok, create_resource_gateway_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_resource_gateway_errors()}
+  def create_resource_gateway(%Client{} = client, input, options \\ []) do
+    url_path = "/resourcegateways"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Creates a listener rule.
 
   Each listener has a default rule for checking connection requests,
@@ -2430,9 +3256,47 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Associates a service with a service network.
+  Associates the specified service network with the specified resource
+  configuration.
 
-  For more information, see [Manage service associations](https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-network-associations.html#service-network-service-associations)
+  This allows the resource configuration to receive connections through the
+  service network,
+  including through a service network VPC endpoint.
+  """
+  @spec create_service_network_resource_association(
+          map(),
+          create_service_network_resource_association_request(),
+          list()
+        ) ::
+          {:ok, create_service_network_resource_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_service_network_resource_association_errors()}
+  def create_service_network_resource_association(%Client{} = client, input, options \\ []) do
+    url_path = "/servicenetworkresourceassociations"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Associates the specified service with the specified service network.
+
+  For more information, see
+  [Manage service associations](https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-network-associations.html#service-network-service-associations)
   in the *Amazon VPC Lattice User Guide*.
 
   You can't use this operation if the service and service network are already
@@ -2613,9 +3477,10 @@ defmodule AWS.VPCLattice do
 
   If an auth is set to `AWS_IAM` and the auth
   policy is deleted, all requests are denied. If you are trying to remove the auth
-  policy completely, you must set the auth type to `NONE`. If auth is enabled on
-  the
-  resource, but no auth policy is set, all requests are denied.
+  policy
+  completely, you must set the auth type to `NONE`. If auth is enabled on the
+  resource,
+  but no auth policy is set, all requests are denied.
   """
   @spec delete_auth_policy(map(), String.t(), delete_auth_policy_request(), list()) ::
           {:ok, delete_auth_policy_response(), any()}
@@ -2675,6 +3540,117 @@ defmodule AWS.VPCLattice do
       input,
       options,
       204
+    )
+  end
+
+  @doc """
+  Deletes the specified resource configuration.
+  """
+  @spec delete_resource_configuration(
+          map(),
+          String.t(),
+          delete_resource_configuration_request(),
+          list()
+        ) ::
+          {:ok, delete_resource_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_resource_configuration_errors()}
+  def delete_resource_configuration(
+        %Client{} = client,
+        resource_configuration_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path = "/resourceconfigurations/#{AWS.Util.encode_uri(resource_configuration_identifier)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Disassociates the resource configuration from the resource VPC endpoint.
+  """
+  @spec delete_resource_endpoint_association(
+          map(),
+          String.t(),
+          delete_resource_endpoint_association_request(),
+          list()
+        ) ::
+          {:ok, delete_resource_endpoint_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_resource_endpoint_association_errors()}
+  def delete_resource_endpoint_association(
+        %Client{} = client,
+        resource_endpoint_association_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/resourceendpointassociations/#{AWS.Util.encode_uri(resource_endpoint_association_identifier)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes the specified resource gateway.
+  """
+  @spec delete_resource_gateway(map(), String.t(), delete_resource_gateway_request(), list()) ::
+          {:ok, delete_resource_gateway_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_resource_gateway_errors()}
+  def delete_resource_gateway(
+        %Client{} = client,
+        resource_gateway_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path = "/resourcegateways/#{AWS.Util.encode_uri(resource_gateway_identifier)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 
@@ -2828,8 +3804,47 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Deletes the association between a specified service and the specific service
-  network.
+  Deletes the association between a service network and a resource configuration.
+  """
+  @spec delete_service_network_resource_association(
+          map(),
+          String.t(),
+          delete_service_network_resource_association_request(),
+          list()
+        ) ::
+          {:ok, delete_service_network_resource_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_service_network_resource_association_errors()}
+  def delete_service_network_resource_association(
+        %Client{} = client,
+        service_network_resource_association_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/servicenetworkresourceassociations/#{AWS.Util.encode_uri(service_network_resource_association_identifier)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes the association between a service and a service network.
 
   This
   operation fails if an association is still in progress.
@@ -3034,7 +4049,45 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Retrieves information about the resource policy.
+  Retrieves information about the specified resource configuration.
+  """
+  @spec get_resource_configuration(map(), String.t(), list()) ::
+          {:ok, get_resource_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_resource_configuration_errors()}
+  def get_resource_configuration(
+        %Client{} = client,
+        resource_configuration_identifier,
+        options \\ []
+      ) do
+    url_path = "/resourceconfigurations/#{AWS.Util.encode_uri(resource_configuration_identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves information about the specified resource gateway.
+  """
+  @spec get_resource_gateway(map(), String.t(), list()) ::
+          {:ok, get_resource_gateway_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_resource_gateway_errors()}
+  def get_resource_gateway(%Client{} = client, resource_gateway_identifier, options \\ []) do
+    url_path = "/resourcegateways/#{AWS.Util.encode_uri(resource_gateway_identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves information about the specified resource policy.
 
   The resource policy is an IAM policy
   created on behalf of the resource owner when they share a resource.
@@ -3054,7 +4107,7 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Retrieves information about listener rules.
+  Retrieves information about the specified listener rules.
 
   You can also retrieve information about the
   default listener rule. For more information, see [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules)
@@ -3119,8 +4172,31 @@ defmodule AWS.VPCLattice do
 
   @doc """
   Retrieves information about the specified association between a service network
-  and a
-  service.
+  and a resource configuration.
+  """
+  @spec get_service_network_resource_association(map(), String.t(), list()) ::
+          {:ok, get_service_network_resource_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_service_network_resource_association_errors()}
+  def get_service_network_resource_association(
+        %Client{} = client,
+        service_network_resource_association_identifier,
+        options \\ []
+      ) do
+    url_path =
+      "/servicenetworkresourceassociations/#{AWS.Util.encode_uri(service_network_resource_association_identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves information about the specified association between a service network
+  and a service.
   """
   @spec get_service_network_service_association(map(), String.t(), list()) ::
           {:ok, get_service_network_service_association_response(), any()}
@@ -3143,7 +4219,8 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Retrieves information about the association between a service network and a VPC.
+  Retrieves information about the specified association between a service network
+  and a VPC.
   """
   @spec get_service_network_vpc_association(map(), String.t(), list()) ::
           {:ok, get_service_network_vpc_association_response(), any()}
@@ -3183,7 +4260,7 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Lists all access log subscriptions for the specified service network or service.
+  Lists the access log subscriptions for the specified service network or service.
   """
   @spec list_access_log_subscriptions(
           map(),
@@ -3270,7 +4347,185 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Lists the rules for the listener.
+  Lists the resource configurations owned by or shared with this account.
+  """
+  @spec list_resource_configurations(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_resource_configurations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_resource_configurations_errors()}
+  def list_resource_configurations(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        resource_configuration_group_identifier \\ nil,
+        resource_gateway_identifier \\ nil,
+        options \\ []
+      ) do
+    url_path = "/resourceconfigurations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(resource_gateway_identifier) do
+        [{"resourceGatewayIdentifier", resource_gateway_identifier} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resource_configuration_group_identifier) do
+        [
+          {"resourceConfigurationGroupIdentifier", resource_configuration_group_identifier}
+          | query_params
+        ]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the associations for the specified VPC endpoint.
+  """
+  @spec list_resource_endpoint_associations(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_resource_endpoint_associations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_resource_endpoint_associations_errors()}
+  def list_resource_endpoint_associations(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        resource_configuration_identifier,
+        resource_endpoint_association_identifier \\ nil,
+        vpc_endpoint_id \\ nil,
+        vpc_endpoint_owner \\ nil,
+        options \\ []
+      ) do
+    url_path = "/resourceendpointassociations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(vpc_endpoint_owner) do
+        [{"vpcEndpointOwner", vpc_endpoint_owner} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(vpc_endpoint_id) do
+        [{"vpcEndpointId", vpc_endpoint_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resource_endpoint_association_identifier) do
+        [
+          {"resourceEndpointAssociationIdentifier", resource_endpoint_association_identifier}
+          | query_params
+        ]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resource_configuration_identifier) do
+        [{"resourceConfigurationIdentifier", resource_configuration_identifier} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the resource gateways that you own or that were shared with you.
+  """
+  @spec list_resource_gateways(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_resource_gateways_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_resource_gateways_errors()}
+  def list_resource_gateways(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/resourcegateways"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the rules for the specified listener.
   """
   @spec list_rules(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_rules_response(), any()}
@@ -3310,22 +4565,79 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Lists the associations between the service network and the service.
+  Lists the associations between a service network and a resource configuration.
+  """
+  @spec list_service_network_resource_associations(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_service_network_resource_associations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_service_network_resource_associations_errors()}
+  def list_service_network_resource_associations(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        resource_configuration_identifier \\ nil,
+        service_network_identifier \\ nil,
+        options \\ []
+      ) do
+    url_path = "/servicenetworkresourceassociations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(service_network_identifier) do
+        [{"serviceNetworkIdentifier", service_network_identifier} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resource_configuration_identifier) do
+        [{"resourceConfigurationIdentifier", resource_configuration_identifier} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the associations between a service network and a service.
 
   You can filter the list
   either by service or service network. You must provide either the service
   network identifier or
   the service identifier.
 
-  Every association in Amazon VPC Lattice is given a unique Amazon Resource Name
-  (ARN), such as when a
+  Every association in Amazon VPC Lattice has a unique Amazon Resource Name (ARN),
+  such as when a
   service network is associated with a VPC or when a service is associated with a
   service network.
-  If the association is for a resource that is shared with another account, the
+  If the association is for a resource is shared with another account, the
   association
-  includes the local account ID as the prefix in the ARN for each account the
-  resource is shared
-  with.
+  includes the local account ID as the prefix in the ARN.
   """
   @spec list_service_network_service_associations(
           map(),
@@ -3384,12 +4696,11 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Lists the service network and VPC associations.
+  Lists the associations between a service network and a VPC.
 
   You can filter the list either by VPC or
-  service network. You must provide either the service network identifier or the
-  VPC
-  identifier.
+  service network. You must provide either the ID of the service network
+  identifier or the ID of the VPC.
   """
   @spec list_service_network_vpc_associations(
           map(),
@@ -3448,11 +4759,60 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Lists the service networks owned by the caller account or shared with the caller
-  account.
+  Lists the associations between a service network and a VPC endpoint.
+  """
+  @spec list_service_network_vpc_endpoint_associations(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t(),
+          list()
+        ) ::
+          {:ok, list_service_network_vpc_endpoint_associations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_service_network_vpc_endpoint_associations_errors()}
+  def list_service_network_vpc_endpoint_associations(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        service_network_identifier,
+        options \\ []
+      ) do
+    url_path = "/servicenetworkvpcendpointassociations"
+    headers = []
+    query_params = []
 
-  Also includes the account ID in the ARN to show which account owns the service
-  network.
+    query_params =
+      if !is_nil(service_network_identifier) do
+        [{"serviceNetworkIdentifier", service_network_identifier} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the service networks owned by or shared with this account.
+
+  The account ID in the ARN
+  shows which account owns the service network.
   """
   @spec list_service_networks(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_service_networks_response(), any()}
@@ -3643,7 +5003,8 @@ defmodule AWS.VPCLattice do
   blank lines.
 
   For more information, see [Auth policies](https://docs.aws.amazon.com/vpc-lattice/latest/ug/auth-policies.html)
-  in the *Amazon VPC Lattice User Guide*.
+  in the *Amazon VPC
+  Lattice User Guide*.
   """
   @spec put_auth_policy(map(), String.t(), put_auth_policy_request(), list()) ::
           {:ok, put_auth_policy_response(), any()}
@@ -3872,7 +5233,78 @@ defmodule AWS.VPCLattice do
   end
 
   @doc """
-  Updates a rule for the listener.
+  Updates the specified resource configuration.
+  """
+  @spec update_resource_configuration(
+          map(),
+          String.t(),
+          update_resource_configuration_request(),
+          list()
+        ) ::
+          {:ok, update_resource_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_resource_configuration_errors()}
+  def update_resource_configuration(
+        %Client{} = client,
+        resource_configuration_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path = "/resourceconfigurations/#{AWS.Util.encode_uri(resource_configuration_identifier)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the specified resource gateway.
+  """
+  @spec update_resource_gateway(map(), String.t(), update_resource_gateway_request(), list()) ::
+          {:ok, update_resource_gateway_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_resource_gateway_errors()}
+  def update_resource_gateway(
+        %Client{} = client,
+        resource_gateway_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path = "/resourcegateways/#{AWS.Util.encode_uri(resource_gateway_identifier)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a specified rule for the listener.
 
   You can't modify a default listener rule. To modify a
   default listener rule, use `UpdateListener`.
@@ -3971,11 +5403,12 @@ defmodule AWS.VPCLattice do
   Updates the service network and VPC association.
 
   If you add a security group to the service
-  network and VPC association, the association must continue to always have at
-  least one security
+  network and VPC association, the association must continue to have at least one
+  security
   group. You can add or edit security groups at any time. However, to remove all
   security groups,
-  you must first delete the association and recreate it without security groups.
+  you must first delete the association and then recreate it without security
+  groups.
   """
   @spec update_service_network_vpc_association(
           map(),

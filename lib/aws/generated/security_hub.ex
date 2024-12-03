@@ -1202,6 +1202,21 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      sequence() :: %{
+        "Actors" => list(actor()()),
+        "Endpoints" => list(network_endpoint()()),
+        "SequenceIndicators" => list(indicator()()),
+        "Signals" => list(signal()()),
+        "Uid" => String.t()
+      }
+
+  """
+  @type sequence() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       remediation() :: %{
         "Recommendation" => recommendation()
       }
@@ -1893,6 +1908,18 @@ defmodule AWS.SecurityHub do
 
   """
   @type automation_rules_finding_filters() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_autonomous_system() :: %{
+        "Name" => String.t(),
+        "Number" => integer()
+      }
+
+  """
+  @type network_autonomous_system() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2597,6 +2624,20 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_ec2_instance_network_interfaces_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_geo_location() :: %{
+        "City" => String.t(),
+        "Country" => String.t(),
+        "Lat" => float(),
+        "Lon" => float()
+      }
+
+  """
+  @type network_geo_location() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3716,6 +3757,18 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      user_account() :: %{
+        "Name" => String.t(),
+        "Uid" => String.t()
+      }
+
+  """
+  @type user_account() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       ip_organization_details() :: %{
         "Asn" => integer(),
         "AsnOrg" => String.t(),
@@ -3842,6 +3895,17 @@ defmodule AWS.SecurityHub do
 
   """
   @type severity() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_connection() :: %{
+        "Direction" => list(any())
+      }
+
+  """
+  @type network_connection() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5520,6 +5584,31 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      signal() :: %{
+        "ActorIds" => list(String.t()()),
+        "Count" => integer(),
+        "CreatedAt" => float(),
+        "EndpointIds" => list(String.t()()),
+        "FirstSeenAt" => float(),
+        "Id" => String.t(),
+        "LastSeenAt" => float(),
+        "Name" => String.t(),
+        "ProductArn" => String.t(),
+        "ResourceIds" => list(String.t()()),
+        "Severity" => float(),
+        "SignalIndicators" => list(indicator()()),
+        "Title" => String.t(),
+        "Type" => String.t(),
+        "UpdatedAt" => float()
+      }
+
+  """
+  @type signal() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       account_details() :: %{
         "AccountId" => String.t(),
         "Email" => String.t()
@@ -6200,6 +6289,23 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      network_endpoint() :: %{
+        "AutonomousSystem" => network_autonomous_system(),
+        "Connection" => network_connection(),
+        "Domain" => String.t(),
+        "Id" => String.t(),
+        "Ip" => String.t(),
+        "Location" => network_geo_location(),
+        "Port" => integer()
+      }
+
+  """
+  @type network_endpoint() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       aws_cloud_trail_trail_details() :: %{
         "CloudWatchLogsLogGroupArn" => String.t(),
         "CloudWatchLogsRoleArn" => String.t(),
@@ -6577,6 +6683,17 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      detection() :: %{
+        "Sequence" => sequence()
+      }
+
+  """
+  @type detection() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       aws_elb_app_cookie_stickiness_policy() :: %{
         "CookieName" => String.t(),
         "PolicyName" => String.t()
@@ -6733,6 +6850,21 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_waf_rate_based_rule_match_predicate() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      actor_user() :: %{
+        "Account" => user_account(),
+        "CredentialUid" => String.t(),
+        "Name" => String.t(),
+        "Type" => String.t(),
+        "Uid" => String.t()
+      }
+
+  """
+  @type actor_user() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -9398,6 +9530,19 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      actor() :: %{
+        "Id" => String.t(),
+        "Session" => actor_session(),
+        "User" => actor_user()
+      }
+
+  """
+  @type actor() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       aws_athena_work_group_configuration_result_configuration_details() :: %{
         "EncryptionConfiguration" => aws_athena_work_group_configuration_result_configuration_encryption_configuration_details()
       }
@@ -10238,6 +10383,7 @@ defmodule AWS.SecurityHub do
         "AwsAccountId" => String.t(),
         "Resources" => list(resource()()),
         "Id" => String.t(),
+        "Detection" => detection(),
         "ProductArn" => String.t(),
         "SchemaVersion" => String.t(),
         "SourceUrl" => String.t(),
@@ -10351,6 +10497,20 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_app_sync_graph_ql_api_lambda_authorizer_config_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      actor_session() :: %{
+        "CreatedTime" => float(),
+        "Issuer" => String.t(),
+        "MfaStatus" => list(any()),
+        "Uid" => String.t()
+      }
+
+  """
+  @type actor_session() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -11999,6 +12159,20 @@ defmodule AWS.SecurityHub do
 
   """
   @type resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      indicator() :: %{
+        "Key" => String.t(),
+        "Title" => String.t(),
+        "Type" => String.t(),
+        "Values" => list(String.t()())
+      }
+
+  """
+  @type indicator() :: %{String.t() => any()}
 
   @typedoc """
 

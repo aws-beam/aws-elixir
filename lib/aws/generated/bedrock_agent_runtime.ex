@@ -73,6 +73,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      metadata_attribute_schema() :: %{
+        "description" => [String.t()],
+        "key" => [String.t()],
+        "type" => list(any())
+      }
+
+  """
+  @type metadata_attribute_schema() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_content_policy_assessment() :: %{
         "filters" => list(guardrail_content_filter()())
       }
@@ -308,6 +321,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      rerank_text_document() :: %{
+        "text" => [String.t()]
+      }
+
+  """
+  @type rerank_text_document() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       metadata() :: %{
         "usage" => usage()
       }
@@ -425,6 +449,7 @@ defmodule AWS.BedrockAgentRuntime do
 
       retrieval_result_location() :: %{
         "confluenceLocation" => retrieval_result_confluence_location(),
+        "customDocumentLocation" => retrieval_result_custom_document_location(),
         "s3Location" => retrieval_result_s3_location(),
         "salesforceLocation" => retrieval_result_salesforce_location(),
         "sharePointLocation" => retrieval_result_share_point_location(),
@@ -458,6 +483,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type retrieve_and_generate_session_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bedrock_reranking_configuration() :: %{
+        "modelConfiguration" => bedrock_reranking_model_configuration(),
+        "numberOfResults" => [integer()]
+      }
+
+  """
+  @type bedrock_reranking_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -501,6 +538,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      bedrock_reranking_model_configuration() :: %{
+        "additionalModelRequestFields" => map(),
+        "modelArn" => String.t()
+      }
+
+  """
+  @type bedrock_reranking_model_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invoke_flow_response() :: %{
         "responseStream" => list()
       }
@@ -519,6 +568,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type usage() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rerank_query() :: %{
+        "textQuery" => rerank_text_document(),
+        "type" => list(any())
+      }
+
+  """
+  @type rerank_query() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -758,6 +819,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      field_for_reranking() :: %{
+        "fieldName" => [String.t()]
+      }
+
+  """
+  @type field_for_reranking() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       knowledge_base_retrieval_configuration() :: %{
         "vectorSearchConfiguration" => knowledge_base_vector_search_configuration()
       }
@@ -866,6 +938,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type invoke_inline_agent_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retrieve_and_generate_output_event() :: %{
+        "text" => [String.t()]
+      }
+
+  """
+  @type retrieve_and_generate_output_event() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1000,6 +1083,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      vector_search_reranking_configuration() :: %{
+        "bedrockRerankingConfiguration" => vector_search_bedrock_reranking_configuration(),
+        "type" => list(any())
+      }
+
+  """
+  @type vector_search_reranking_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       byte_content_doc() :: %{
         "contentType" => String.t(),
         "data" => binary(),
@@ -1043,12 +1138,27 @@ defmodule AWS.BedrockAgentRuntime do
 
       knowledge_base_vector_search_configuration() :: %{
         "filter" => list(),
+        "implicitFilterConfiguration" => implicit_filter_configuration(),
         "numberOfResults" => [integer()],
-        "overrideSearchType" => list(any())
+        "overrideSearchType" => list(any()),
+        "rerankingConfiguration" => vector_search_reranking_configuration()
       }
 
   """
   @type knowledge_base_vector_search_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rerank_result() :: %{
+        "document" => rerank_document(),
+        "index" => [integer()],
+        "relevanceScore" => [float()]
+      }
+
+  """
+  @type rerank_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1116,6 +1226,31 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      implicit_filter_configuration() :: %{
+        "metadataAttributes" => list(metadata_attribute_schema()()),
+        "modelArn" => String.t()
+      }
+
+  """
+  @type implicit_filter_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vector_search_bedrock_reranking_configuration() :: %{
+        "metadataConfiguration" => metadata_configuration_for_reranking(),
+        "modelConfiguration" => vector_search_bedrock_reranking_model_configuration(),
+        "numberOfRerankedResults" => [integer()]
+      }
+
+  """
+  @type vector_search_bedrock_reranking_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       s3_identifier() :: %{
         "s3BucketName" => String.t(),
         "s3ObjectKey" => String.t()
@@ -1123,6 +1258,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type s3_identifier() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reranking_configuration() :: %{
+        "bedrockRerankingConfiguration" => bedrock_reranking_configuration(),
+        "type" => list(any())
+      }
+
+  """
+  @type reranking_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1161,6 +1308,20 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type guardrail_assessment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retrieve_and_generate_stream_request() :: %{
+        optional("retrieveAndGenerateConfiguration") => retrieve_and_generate_configuration(),
+        optional("sessionConfiguration") => retrieve_and_generate_session_configuration(),
+        optional("sessionId") => String.t(),
+        required("input") => retrieve_and_generate_input()
+      }
+
+  """
+  @type retrieve_and_generate_stream_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1368,6 +1529,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      retrieval_result_custom_document_location() :: %{
+        "id" => [String.t()]
+      }
+
+  """
+  @type retrieval_result_custom_document_location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       memory_session_summary() :: %{
         "memoryId" => String.t(),
         "sessionExpiryTime" => non_neg_integer(),
@@ -1378,6 +1550,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type memory_session_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metadata_configuration_for_reranking() :: %{
+        "selectionMode" => list(any()),
+        "selectiveModeConfiguration" => list()
+      }
+
+  """
+  @type metadata_configuration_for_reranking() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1428,12 +1612,47 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      rerank_source() :: %{
+        "inlineDocumentSource" => rerank_document(),
+        "type" => list(any())
+      }
+
+  """
+  @type rerank_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       retrieve_and_generate_output() :: %{
         "text" => [String.t()]
       }
 
   """
   @type retrieve_and_generate_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vector_search_bedrock_reranking_model_configuration() :: %{
+        "additionalModelRequestFields" => map(),
+        "modelArn" => String.t()
+      }
+
+  """
+  @type vector_search_bedrock_reranking_model_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      citation_event() :: %{
+        "citation" => citation()
+      }
+
+  """
+  @type citation_event() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1491,6 +1710,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type raw_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rerank_response() :: %{
+        "nextToken" => String.t(),
+        "results" => list(rerank_result()())
+      }
+
+  """
+  @type rerank_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1591,6 +1822,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       retrieve_request() :: %{
+        optional("guardrailConfiguration") => guardrail_configuration(),
         optional("nextToken") => String.t(),
         optional("retrievalConfiguration") => knowledge_base_retrieval_configuration(),
         required("retrievalQuery") => knowledge_base_query()
@@ -1598,6 +1830,20 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type retrieve_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rerank_request() :: %{
+        optional("nextToken") => String.t(),
+        required("queries") => list(rerank_query()()),
+        required("rerankingConfiguration") => reranking_configuration(),
+        required("sources") => list(rerank_source()())
+      }
+
+  """
+  @type rerank_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1614,6 +1860,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type invoke_agent_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retrieve_and_generate_stream_response() :: %{
+        "sessionId" => String.t(),
+        "stream" => list()
+      }
+
+  """
+  @type retrieve_and_generate_stream_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1747,6 +2005,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       retrieve_response() :: %{
+        "guardrailAction" => list(any()),
         "nextToken" => String.t(),
         "retrievalResults" => list(knowledge_base_retrieval_result()())
       }
@@ -1845,6 +2104,30 @@ defmodule AWS.BedrockAgentRuntime do
   """
   @type prompt_configuration() :: %{String.t() => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      rerank_document() :: %{
+        "jsonDocument" => [any()],
+        "textDocument" => rerank_text_document(),
+        "type" => list(any())
+      }
+
+  """
+  @type rerank_document() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_event() :: %{
+        "action" => list(any())
+      }
+
+  """
+  @type guardrail_event() :: %{String.t() => any()}
+
   @type delete_agent_memory_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1908,6 +2191,17 @@ defmodule AWS.BedrockAgentRuntime do
           | dependency_failed_exception()
           | bad_gateway_exception()
 
+  @type rerank_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | dependency_failed_exception()
+          | bad_gateway_exception()
+
   @type retrieve_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1920,6 +2214,17 @@ defmodule AWS.BedrockAgentRuntime do
           | bad_gateway_exception()
 
   @type retrieve_and_generate_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | dependency_failed_exception()
+          | bad_gateway_exception()
+
+  @type retrieve_and_generate_stream_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -2266,6 +2571,37 @@ defmodule AWS.BedrockAgentRuntime do
   end
 
   @doc """
+  Reranks the relevance of sources based on queries.
+
+  For more information, see [Improve the relevance of query responses with a reranker
+  model](https://docs.aws.amazon.com/bedrock/latest/userguide/rerank.html).
+  """
+  @spec rerank(map(), rerank_request(), list()) ::
+          {:ok, rerank_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, rerank_errors()}
+  def rerank(%Client{} = client, input, options \\ []) do
+    url_path = "/rerank"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Queries a knowledge base and retrieves information from it.
   """
   @spec retrieve(map(), String.t(), retrieve_request(), list()) ::
@@ -2308,6 +2644,45 @@ defmodule AWS.BedrockAgentRuntime do
     headers = []
     custom_headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Queries a knowledge base and generates responses based on the retrieved results,
+  with output in streaming format.
+
+  The CLI doesn't support streaming operations in Amazon Bedrock, including
+  `InvokeModelWithResponseStream`.
+  """
+  @spec retrieve_and_generate_stream(map(), retrieve_and_generate_stream_request(), list()) ::
+          {:ok, retrieve_and_generate_stream_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, retrieve_and_generate_stream_errors()}
+  def retrieve_and_generate_stream(%Client{} = client, input, options \\ []) do
+    url_path = "/retrieveAndGenerateStream"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"x-amzn-bedrock-knowledge-base-session-id", "sessionId"}]
+      )
 
     meta = metadata()
 

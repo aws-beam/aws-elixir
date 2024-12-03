@@ -66,6 +66,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      verified_access_instance_open_vpn_client_configuration() :: %{
+        "Config" => String.t(),
+        "Routes" => list(verified_access_instance_open_vpn_client_configuration_route()())
+      }
+      
+  """
+  @type verified_access_instance_open_vpn_client_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_transit_gateway_peering_attachments_result() :: %{
         "NextToken" => String.t(),
         "TransitGatewayPeeringAttachments" => list(transit_gateway_peering_attachment()())
@@ -587,6 +599,18 @@ defmodule AWS.EC2 do
       
   """
   @type describe_transit_gateway_attachments_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      verified_access_endpoint_port_range() :: %{
+        "FromPort" => integer(),
+        "ToPort" => integer()
+      }
+      
+  """
+  @type verified_access_endpoint_port_range() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2112,6 +2136,21 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      attribute_summary() :: %{
+        "AttributeName" => String.t(),
+        "MostFrequentValue" => String.t(),
+        "NumberOfMatchedAccounts" => integer(),
+        "NumberOfUnmatchedAccounts" => integer(),
+        "RegionalSummaries" => list(regional_summary()())
+      }
+      
+  """
+  @type attribute_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       associate_transit_gateway_multicast_domain_result() :: %{
         "Associations" => transit_gateway_multicast_domain_associations()
       }
@@ -2418,6 +2457,18 @@ defmodule AWS.EC2 do
       
   """
   @type unsuccessful_item_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_verified_access_endpoint_port_range() :: %{
+        "FromPort" => integer(),
+        "ToPort" => integer()
+      }
+      
+  """
+  @type create_verified_access_endpoint_port_range() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2858,6 +2909,17 @@ defmodule AWS.EC2 do
       
   """
   @type register_instance_event_notification_attributes_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_verified_access_endpoint_cidr_options() :: %{
+        "PortRanges" => list(modify_verified_access_endpoint_port_range()())
+      }
+      
+  """
+  @type modify_verified_access_endpoint_cidr_options() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5088,6 +5150,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      verified_access_endpoint_target() :: %{
+        "VerifiedAccessEndpointId" => String.t(),
+        "VerifiedAccessEndpointTargetDns" => String.t(),
+        "VerifiedAccessEndpointTargetIpAddress" => String.t()
+      }
+      
+  """
+  @type verified_access_endpoint_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       managed_prefix_list() :: %{
         "AddressFamily" => String.t(),
         "MaxEntries" => integer(),
@@ -5813,6 +5888,23 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      verified_access_endpoint_rds_options() :: %{
+        "Port" => integer(),
+        "Protocol" => list(any()),
+        "RdsDbClusterArn" => String.t(),
+        "RdsDbInstanceArn" => String.t(),
+        "RdsDbProxyArn" => String.t(),
+        "RdsEndpoint" => String.t(),
+        "SubnetIds" => list(String.t()())
+      }
+      
+  """
+  @type verified_access_endpoint_rds_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_spot_fleet_instances_response() :: %{
         "ActiveInstances" => list(active_instance()()),
         "NextToken" => String.t(),
@@ -6351,12 +6443,51 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      replace_image_criteria_in_allowed_images_settings_result() :: %{
+        "ReturnValue" => boolean()
+      }
+      
+  """
+  @type replace_image_criteria_in_allowed_images_settings_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      verified_access_instance_open_vpn_client_configuration_route() :: %{
+        "Cidr" => String.t()
+      }
+      
+  """
+  @type verified_access_instance_open_vpn_client_configuration_route() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_network_insights_path_result() :: %{
         "NetworkInsightsPathId" => String.t()
       }
       
   """
   @type delete_network_insights_path_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      native_application_oidc_options() :: %{
+        "AuthorizationEndpoint" => String.t(),
+        "ClientId" => String.t(),
+        "Issuer" => String.t(),
+        "PublicSigningKeyEndpoint" => String.t(),
+        "Scope" => String.t(),
+        "TokenEndpoint" => String.t(),
+        "UserInfoEndpoint" => String.t()
+      }
+      
+  """
+  @type native_application_oidc_options() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6995,6 +7126,17 @@ defmodule AWS.EC2 do
       
   """
   @type describe_identity_id_format_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image_criterion() :: %{
+        "ImageProviders" => list(String.t()())
+      }
+      
+  """
+  @type image_criterion() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -7876,6 +8018,24 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      create_verified_access_native_application_oidc_options() :: %{
+        "AuthorizationEndpoint" => String.t(),
+        "ClientId" => String.t(),
+        "ClientSecret" => String.t(),
+        "Issuer" => String.t(),
+        "PublicSigningKeyEndpoint" => String.t(),
+        "Scope" => String.t(),
+        "TokenEndpoint" => String.t(),
+        "UserInfoEndpoint" => String.t()
+      }
+      
+  """
+  @type create_verified_access_native_application_oidc_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       modify_capacity_reservation_result() :: %{
         "Return" => boolean()
       }
@@ -8015,6 +8175,7 @@ defmodule AWS.EC2 do
       verified_access_endpoint() :: %{
         "ApplicationDomain" => String.t(),
         "AttachmentType" => list(any()),
+        "CidrOptions" => verified_access_endpoint_cidr_options(),
         "CreationTime" => String.t(),
         "DeletionTime" => String.t(),
         "Description" => String.t(),
@@ -8025,6 +8186,7 @@ defmodule AWS.EC2 do
         "LastUpdatedTime" => String.t(),
         "LoadBalancerOptions" => verified_access_endpoint_load_balancer_options(),
         "NetworkInterfaceOptions" => verified_access_endpoint_eni_options(),
+        "RdsOptions" => verified_access_endpoint_rds_options(),
         "SecurityGroupIds" => list(String.t()()),
         "SseSpecification" => verified_access_sse_specification_response(),
         "Status" => verified_access_endpoint_status(),
@@ -8213,6 +8375,7 @@ defmodule AWS.EC2 do
       create_verified_access_endpoint_eni_options() :: %{
         "NetworkInterfaceId" => String.t(),
         "Port" => integer(),
+        "PortRanges" => list(create_verified_access_endpoint_port_range()()),
         "Protocol" => list(any())
       }
       
@@ -8769,6 +8932,7 @@ defmodule AWS.EC2 do
       
       modify_verified_access_endpoint_load_balancer_options() :: %{
         "Port" => integer(),
+        "PortRanges" => list(modify_verified_access_endpoint_port_range()()),
         "Protocol" => list(any()),
         "SubnetIds" => list(String.t()())
       }
@@ -9088,6 +9252,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       modify_verified_access_instance_request() :: %{
+        optional("CidrEndpointsCustomSubDomain") => String.t(),
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
         optional("DryRun") => boolean(),
@@ -9710,6 +9875,7 @@ defmodule AWS.EC2 do
       
       modify_verified_access_endpoint_eni_options() :: %{
         "Port" => integer(),
+        "PortRanges" => list(modify_verified_access_endpoint_port_range()()),
         "Protocol" => list(any())
       }
       
@@ -9768,6 +9934,21 @@ defmodule AWS.EC2 do
       
   """
   @type search_transit_gateway_multicast_groups_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_declarative_policies_report_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("S3Prefix") => String.t(),
+        optional("TagSpecifications") => list(tag_specification()()),
+        required("S3Bucket") => String.t(),
+        required("TargetId") => String.t()
+      }
+      
+  """
+  @type start_declarative_policies_report_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -9946,11 +10127,13 @@ defmodule AWS.EC2 do
   ## Example:
       
       modify_verified_access_endpoint_request() :: %{
+        optional("CidrOptions") => modify_verified_access_endpoint_cidr_options(),
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
         optional("DryRun") => boolean(),
         optional("LoadBalancerOptions") => modify_verified_access_endpoint_load_balancer_options(),
         optional("NetworkInterfaceOptions") => modify_verified_access_endpoint_eni_options(),
+        optional("RdsOptions") => modify_verified_access_endpoint_rds_options(),
         optional("VerifiedAccessGroupId") => String.t(),
         required("VerifiedAccessEndpointId") => String.t()
       }
@@ -10050,6 +10233,7 @@ defmodule AWS.EC2 do
       verified_access_endpoint_eni_options() :: %{
         "NetworkInterfaceId" => String.t(),
         "Port" => integer(),
+        "PortRanges" => list(verified_access_endpoint_port_range()()),
         "Protocol" => list(any())
       }
       
@@ -10875,6 +11059,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      start_declarative_policies_report_result() :: %{
+        "ReportId" => String.t()
+      }
+      
+  """
+  @type start_declarative_policies_report_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_capacity_reservation_request() :: %{
         optional("AvailabilityZone") => String.t(),
         optional("AvailabilityZoneId") => String.t(),
@@ -11130,6 +11325,17 @@ defmodule AWS.EC2 do
       
   """
   @type id_format() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_allowed_images_settings_result() :: %{
+        "AllowedImagesSettingsState" => list(any())
+      }
+      
+  """
+  @type enable_allowed_images_settings_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -11887,6 +12093,20 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      verified_access_endpoint_cidr_options() :: %{
+        "Cidr" => String.t(),
+        "PortRanges" => list(verified_access_endpoint_port_range()()),
+        "Protocol" => list(any()),
+        "SubnetIds" => list(String.t()())
+      }
+      
+  """
+  @type verified_access_endpoint_cidr_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       hibernation_options_request() :: %{
         "Configured" => boolean()
       }
@@ -11998,6 +12218,7 @@ defmodule AWS.EC2 do
         "DeviceOptions" => device_options(),
         "DeviceTrustProviderType" => list(any()),
         "LastUpdatedTime" => String.t(),
+        "NativeApplicationOidcOptions" => native_application_oidc_options(),
         "OidcOptions" => oidc_options(),
         "PolicyReferenceName" => String.t(),
         "SseSpecification" => verified_access_sse_specification_response(),
@@ -12471,6 +12692,28 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      vpc_endpoint_association() :: %{
+        "AssociatedResourceAccessibility" => String.t(),
+        "AssociatedResourceArn" => String.t(),
+        "DnsEntry" => dns_entry(),
+        "FailureCode" => String.t(),
+        "FailureReason" => String.t(),
+        "Id" => String.t(),
+        "PrivateDnsEntry" => dns_entry(),
+        "ResourceConfigurationGroupArn" => String.t(),
+        "ServiceNetworkArn" => String.t(),
+        "ServiceNetworkName" => String.t(),
+        "Tags" => list(tag()()),
+        "VpcEndpointId" => String.t()
+      }
+      
+  """
+  @type vpc_endpoint_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       modify_default_credit_specification_result() :: %{
         "InstanceFamilyCreditSpecification" => instance_family_credit_specification()
       }
@@ -12513,6 +12756,28 @@ defmodule AWS.EC2 do
       
   """
   @type reject_capacity_reservation_billing_ownership_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      verified_access_instance_user_trust_provider_client_configuration() :: %{
+        "AuthorizationEndpoint" => String.t(),
+        "ClientId" => String.t(),
+        "ClientSecret" => String.t(),
+        "Issuer" => String.t(),
+        "PkceEnabled" => boolean(),
+        "PublicSigningKeyEndpoint" => String.t(),
+        "Scopes" => String.t(),
+        "TokenEndpoint" => String.t(),
+        "Type" => list(any()),
+        "UserInfoEndpoint" => String.t()
+      }
+      
+  """
+  @type verified_access_instance_user_trust_provider_client_configuration() :: %{
+          String.t() => any()
+        }
 
   @typedoc """
 
@@ -14382,16 +14647,21 @@ defmodule AWS.EC2 do
         "CreationTimestamp" => non_neg_integer(),
         "DnsEntries" => list(dns_entry()()),
         "DnsOptions" => dns_options(),
+        "FailureReason" => String.t(),
         "Groups" => list(security_group_identifier()()),
         "IpAddressType" => list(any()),
+        "Ipv4Prefixes" => list(subnet_ip_prefixes()()),
+        "Ipv6Prefixes" => list(subnet_ip_prefixes()()),
         "LastError" => last_error(),
         "NetworkInterfaceIds" => list(String.t()()),
         "OwnerId" => String.t(),
         "PolicyDocument" => String.t(),
         "PrivateDnsEnabled" => boolean(),
         "RequesterManaged" => boolean(),
+        "ResourceConfigurationArn" => String.t(),
         "RouteTableIds" => list(String.t()()),
         "ServiceName" => String.t(),
+        "ServiceNetworkArn" => String.t(),
         "ServiceRegion" => String.t(),
         "State" => list(any()),
         "SubnetIds" => list(String.t()()),
@@ -14506,6 +14776,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       get_snapshot_block_public_access_state_result() :: %{
+        "ManagedBy" => list(any()),
         "State" => list(any())
       }
       
@@ -14914,6 +15185,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      enable_allowed_images_settings_request() :: %{
+        optional("DryRun") => boolean(),
+        required("AllowedImagesSettingsState") => list(any())
+      }
+      
+  """
+  @type enable_allowed_images_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       analysis_component() :: %{
         "Arn" => String.t(),
         "Id" => String.t(),
@@ -15232,6 +15515,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      get_verified_access_endpoint_targets_result() :: %{
+        "NextToken" => String.t(),
+        "VerifiedAccessEndpointTargets" => list(verified_access_endpoint_target()())
+      }
+      
+  """
+  @type get_verified_access_endpoint_targets_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       launch_template_private_dns_name_options_request() :: %{
         "EnableResourceNameDnsAAAARecord" => boolean(),
         "EnableResourceNameDnsARecord" => boolean(),
@@ -15388,6 +15683,7 @@ defmodule AWS.EC2 do
       image_metadata() :: %{
         "CreationDate" => String.t(),
         "DeprecationTime" => String.t(),
+        "ImageAllowed" => boolean(),
         "ImageId" => String.t(),
         "ImageOwnerAlias" => String.t(),
         "IsPublic" => boolean(),
@@ -16083,6 +16379,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      disable_allowed_images_settings_request() :: %{
+        optional("DryRun") => boolean()
+      }
+      
+  """
+  @type disable_allowed_images_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       network_bandwidth_gbps_request() :: %{
         "Max" => float(),
         "Min" => float()
@@ -16155,6 +16462,7 @@ defmodule AWS.EC2 do
         optional("Description") => String.t(),
         optional("DeviceOptions") => modify_verified_access_trust_provider_device_options(),
         optional("DryRun") => boolean(),
+        optional("NativeApplicationOidcOptions") => modify_verified_access_native_application_oidc_options(),
         optional("OidcOptions") => modify_verified_access_trust_provider_oidc_options(),
         optional("SseSpecification") => verified_access_sse_specification_request(),
         required("VerifiedAccessTrustProviderId") => String.t()
@@ -16697,6 +17005,18 @@ defmodule AWS.EC2 do
       
   """
   @type copy_snapshot_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_verified_access_endpoint_port_range() :: %{
+        "FromPort" => integer(),
+        "ToPort" => integer()
+      }
+      
+  """
+  @type modify_verified_access_endpoint_port_range() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -17326,6 +17646,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      verified_access_instance_custom_sub_domain() :: %{
+        "Nameservers" => list(String.t()()),
+        "SubDomain" => String.t()
+      }
+      
+  """
+  @type verified_access_instance_custom_sub_domain() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       device_options() :: %{
         "PublicSigningKeyUrl" => String.t(),
         "TenantId" => String.t()
@@ -17405,14 +17737,16 @@ defmodule AWS.EC2 do
         optional("IpAddressType") => list(any()),
         optional("PolicyDocument") => String.t(),
         optional("PrivateDnsEnabled") => boolean(),
+        optional("ResourceConfigurationArn") => String.t(),
         optional("RouteTableIds") => list(String.t()()),
         optional("SecurityGroupIds") => list(String.t()()),
+        optional("ServiceName") => String.t(),
+        optional("ServiceNetworkArn") => String.t(),
         optional("ServiceRegion") => String.t(),
         optional("SubnetConfigurations") => list(subnet_configuration()()),
         optional("SubnetIds") => list(String.t()()),
         optional("TagSpecifications") => list(tag_specification()()),
         optional("VpcEndpointType") => list(any()),
-        required("ServiceName") => String.t(),
         required("VpcId") => String.t()
       }
       
@@ -17503,6 +17837,18 @@ defmodule AWS.EC2 do
       
   """
   @type export_image_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_vpc_endpoint_associations_result() :: %{
+        "NextToken" => String.t(),
+        "VpcEndpointAssociations" => list(vpc_endpoint_association()())
+      }
+      
+  """
+  @type describe_vpc_endpoint_associations_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -17625,6 +17971,17 @@ defmodule AWS.EC2 do
       
   """
   @type delete_verified_access_trust_provider_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_declarative_policies_report_result() :: %{
+        "Return" => boolean()
+      }
+      
+  """
+  @type cancel_declarative_policies_report_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -18500,6 +18857,7 @@ defmodule AWS.EC2 do
         "ProductCodes" => list(product_code()()),
         "Tags" => list(tag()()),
         "CreationDate" => String.t(),
+        "ImageAllowed" => boolean(),
         "OwnerId" => String.t(),
         "ImageId" => String.t(),
         "BlockDeviceMappings" => list(block_device_mapping()()),
@@ -19553,6 +19911,20 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_declarative_policies_reports_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("ReportIds") => list(String.t()())
+      }
+      
+  """
+  @type describe_declarative_policies_reports_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_launch_template_versions_request() :: %{
         optional("DryRun") => boolean(),
         optional("LaunchTemplateId") => String.t(),
@@ -19877,6 +20249,20 @@ defmodule AWS.EC2 do
   @type describe_local_gateway_route_table_virtual_interface_group_associations_request() :: %{
           String.t() => any()
         }
+
+  @typedoc """
+
+  ## Example:
+      
+      create_verified_access_endpoint_cidr_options() :: %{
+        "Cidr" => String.t(),
+        "PortRanges" => list(create_verified_access_endpoint_port_range()()),
+        "Protocol" => list(any()),
+        "SubnetIds" => list(String.t()())
+      }
+      
+  """
+  @type create_verified_access_endpoint_cidr_options() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -20461,6 +20847,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      get_allowed_images_settings_result() :: %{
+        "ImageCriteria" => list(image_criterion()()),
+        "ManagedBy" => list(any()),
+        "State" => String.t()
+      }
+      
+  """
+  @type get_allowed_images_settings_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_reserved_instances_listing_request() :: %{
         required("ClientToken") => String.t(),
         required("InstanceCount") => integer(),
@@ -20491,6 +20890,18 @@ defmodule AWS.EC2 do
       
   """
   @type copy_snapshot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_declarative_policies_reports_result() :: %{
+        "NextToken" => String.t(),
+        "Reports" => list(declarative_policies_report()())
+      }
+      
+  """
+  @type describe_declarative_policies_reports_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -20668,19 +21079,21 @@ defmodule AWS.EC2 do
   ## Example:
       
       create_verified_access_endpoint_request() :: %{
+        optional("ApplicationDomain") => String.t(),
+        optional("CidrOptions") => create_verified_access_endpoint_cidr_options(),
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
+        optional("DomainCertificateArn") => String.t(),
         optional("DryRun") => boolean(),
+        optional("EndpointDomainPrefix") => String.t(),
         optional("LoadBalancerOptions") => create_verified_access_endpoint_load_balancer_options(),
         optional("NetworkInterfaceOptions") => create_verified_access_endpoint_eni_options(),
         optional("PolicyDocument") => String.t(),
+        optional("RdsOptions") => create_verified_access_endpoint_rds_options(),
         optional("SecurityGroupIds") => list(String.t()()),
         optional("SseSpecification") => verified_access_sse_specification_request(),
         optional("TagSpecifications") => list(tag_specification()()),
-        required("ApplicationDomain") => String.t(),
         required("AttachmentType") => list(any()),
-        required("DomainCertificateArn") => String.t(),
-        required("EndpointDomainPrefix") => String.t(),
         required("EndpointType") => list(any()),
         required("VerifiedAccessGroupId") => String.t()
       }
@@ -20858,8 +21271,10 @@ defmodule AWS.EC2 do
       vpc_block_public_access_options() :: %{
         "AwsAccountId" => String.t(),
         "AwsRegion" => String.t(),
+        "ExclusionsAllowed" => list(any()),
         "InternetGatewayBlockMode" => list(any()),
         "LastUpdateTimestamp" => non_neg_integer(),
+        "ManagedBy" => list(any()),
         "Reason" => String.t(),
         "State" => list(any())
       }
@@ -20971,6 +21386,7 @@ defmodule AWS.EC2 do
       verified_access_endpoint_load_balancer_options() :: %{
         "LoadBalancerArn" => String.t(),
         "Port" => integer(),
+        "PortRanges" => list(verified_access_endpoint_port_range()()),
         "Protocol" => list(any()),
         "SubnetIds" => list(String.t()())
       }
@@ -21153,6 +21569,18 @@ defmodule AWS.EC2 do
       
   """
   @type deregister_transit_gateway_multicast_group_members_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_verified_access_instance_client_configuration_request() :: %{
+        optional("DryRun") => boolean(),
+        required("VerifiedAccessInstanceId") => String.t()
+      }
+      
+  """
+  @type export_verified_access_instance_client_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -21617,6 +22045,24 @@ defmodule AWS.EC2 do
       
   """
   @type get_capacity_reservation_usage_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      declarative_policies_report() :: %{
+        "EndTime" => non_neg_integer(),
+        "ReportId" => String.t(),
+        "S3Bucket" => String.t(),
+        "S3Prefix" => String.t(),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "Tags" => list(tag()()),
+        "TargetId" => String.t()
+      }
+      
+  """
+  @type declarative_policies_report() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -23058,6 +23504,24 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      modify_verified_access_native_application_oidc_options() :: %{
+        "AuthorizationEndpoint" => String.t(),
+        "ClientId" => String.t(),
+        "ClientSecret" => String.t(),
+        "Issuer" => String.t(),
+        "PublicSigningKeyEndpoint" => String.t(),
+        "Scope" => String.t(),
+        "TokenEndpoint" => String.t(),
+        "UserInfoEndpoint" => String.t()
+      }
+      
+  """
+  @type modify_verified_access_native_application_oidc_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       import_snapshot_task() :: %{
         "Description" => String.t(),
         "ImportTaskId" => String.t(),
@@ -23154,6 +23618,20 @@ defmodule AWS.EC2 do
       
   """
   @type delete_launch_template_versions_response_error_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_verified_access_endpoint_targets_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("VerifiedAccessEndpointId") => String.t()
+      }
+      
+  """
+  @type get_verified_access_endpoint_targets_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -23471,6 +23949,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      disable_allowed_images_settings_result() :: %{
+        "AllowedImagesSettingsState" => list(any())
+      }
+      
+  """
+  @type disable_allowed_images_settings_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       modify_vpc_endpoint_result() :: %{
         "Return" => boolean()
       }
@@ -23727,6 +24216,17 @@ defmodule AWS.EC2 do
       
   """
   @type release_hosts_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_allowed_images_settings_request() :: %{
+        optional("DryRun") => boolean()
+      }
+      
+  """
+  @type get_allowed_images_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -24180,6 +24680,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      regional_summary() :: %{
+        "NumberOfMatchedAccounts" => integer(),
+        "NumberOfUnmatchedAccounts" => integer(),
+        "RegionName" => String.t()
+      }
+      
+  """
+  @type regional_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       revoke_security_group_ingress_result() :: %{
         "Return" => boolean(),
         "RevokedSecurityGroupRules" => list(revoked_security_group_rule()()),
@@ -24326,6 +24839,7 @@ defmodule AWS.EC2 do
       create_verified_access_endpoint_load_balancer_options() :: %{
         "LoadBalancerArn" => String.t(),
         "Port" => integer(),
+        "PortRanges" => list(create_verified_access_endpoint_port_range()()),
         "Protocol" => list(any()),
         "SubnetIds" => list(String.t()())
       }
@@ -24743,6 +25257,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      get_declarative_policies_report_summary_request() :: %{
+        optional("DryRun") => boolean(),
+        required("ReportId") => String.t()
+      }
+      
+  """
+  @type get_declarative_policies_report_summary_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_public_ipv4_pool_request() :: %{
         optional("DryRun") => boolean(),
         optional("NetworkBorderGroup") => String.t(),
@@ -24814,6 +25340,18 @@ defmodule AWS.EC2 do
       
   """
   @type destination_options_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_declarative_policies_report_request() :: %{
+        optional("DryRun") => boolean(),
+        required("ReportId") => String.t()
+      }
+      
+  """
+  @type cancel_declarative_policies_report_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -24958,6 +25496,7 @@ defmodule AWS.EC2 do
         optional("DeviceOptions") => create_verified_access_trust_provider_device_options(),
         optional("DeviceTrustProviderType") => list(any()),
         optional("DryRun") => boolean(),
+        optional("NativeApplicationOidcOptions") => create_verified_access_native_application_oidc_options(),
         optional("OidcOptions") => create_verified_access_trust_provider_oidc_options(),
         optional("SseSpecification") => verified_access_sse_specification_request(),
         optional("TagSpecifications") => list(tag_specification()()),
@@ -25112,6 +25651,25 @@ defmodule AWS.EC2 do
       
   """
   @type add_ipam_operating_region() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_declarative_policies_report_summary_result() :: %{
+        "AttributeSummaries" => list(attribute_summary()()),
+        "EndTime" => non_neg_integer(),
+        "NumberOfAccounts" => integer(),
+        "NumberOfFailedAccounts" => integer(),
+        "ReportId" => String.t(),
+        "S3Bucket" => String.t(),
+        "S3Prefix" => String.t(),
+        "StartTime" => non_neg_integer(),
+        "TargetId" => String.t()
+      }
+      
+  """
+  @type get_declarative_policies_report_summary_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -25433,6 +25991,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      image_criterion_request() :: %{
+        "ImageProviders" => list(String.t()())
+      }
+      
+  """
+  @type image_criterion_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_instance_metadata_defaults_result() :: %{
         "AccountLevel" => instance_metadata_defaults_response()
       }
@@ -25445,7 +26014,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       get_image_block_public_access_state_result() :: %{
-        "ImageBlockPublicAccessState" => String.t()
+        "ImageBlockPublicAccessState" => String.t(),
+        "ManagedBy" => list(any())
       }
       
   """
@@ -25709,6 +26279,22 @@ defmodule AWS.EC2 do
       
   """
   @type describe_instance_types_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_verified_access_instance_client_configuration_result() :: %{
+        "DeviceTrustProviders" => list(list(any())()),
+        "OpenVpnConfigurations" => list(verified_access_instance_open_vpn_client_configuration()()),
+        "Region" => String.t(),
+        "UserTrustProvider" => verified_access_instance_user_trust_provider_client_configuration(),
+        "VerifiedAccessInstanceId" => String.t(),
+        "Version" => String.t()
+      }
+      
+  """
+  @type export_verified_access_instance_client_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -26157,6 +26743,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      replace_image_criteria_in_allowed_images_settings_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("ImageCriteria") => list(image_criterion_request()())
+      }
+      
+  """
+  @type replace_image_criteria_in_allowed_images_settings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_network_insights_paths_result() :: %{
         "NetworkInsightsPaths" => list(network_insights_path()()),
         "NextToken" => String.t()
@@ -26190,7 +26788,9 @@ defmodule AWS.EC2 do
         "HttpEndpoint" => list(any()),
         "HttpPutResponseHopLimit" => integer(),
         "HttpTokens" => list(any()),
-        "InstanceMetadataTags" => list(any())
+        "InstanceMetadataTags" => list(any()),
+        "ManagedBy" => list(any()),
+        "ManagedExceptionMessage" => String.t()
       }
       
   """
@@ -26612,6 +27212,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       get_serial_console_access_status_result() :: %{
+        "ManagedBy" => list(any()),
         "SerialConsoleAccessEnabled" => boolean()
       }
       
@@ -26641,6 +27242,18 @@ defmodule AWS.EC2 do
       
   """
   @type client_connect_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      subnet_ip_prefixes() :: %{
+        "IpPrefixes" => list(String.t()()),
+        "SubnetId" => String.t()
+      }
+      
+  """
+  @type subnet_ip_prefixes() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -27062,6 +27675,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       verified_access_instance() :: %{
+        "CidrEndpointsCustomSubDomain" => verified_access_instance_custom_sub_domain(),
         "CreationTime" => String.t(),
         "Description" => String.t(),
         "FipsEnabled" => boolean(),
@@ -27334,6 +27948,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       create_verified_access_instance_request() :: %{
+        optional("CidrEndpointsCustomSubDomain") => String.t(),
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
         optional("DryRun") => boolean(),
@@ -27440,6 +28055,38 @@ defmodule AWS.EC2 do
       
   """
   @type operator_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_vpc_endpoint_associations_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("VpcEndpointIds") => list(String.t()())
+      }
+      
+  """
+  @type describe_vpc_endpoint_associations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_verified_access_endpoint_rds_options() :: %{
+        "Port" => integer(),
+        "Protocol" => list(any()),
+        "RdsDbClusterArn" => String.t(),
+        "RdsDbInstanceArn" => String.t(),
+        "RdsDbProxyArn" => String.t(),
+        "RdsEndpoint" => String.t(),
+        "SubnetIds" => list(String.t()())
+      }
+      
+  """
+  @type create_verified_access_endpoint_rds_options() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -27824,6 +28471,19 @@ defmodule AWS.EC2 do
       
   """
   @type private_dns_name_options_on_launch() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_verified_access_endpoint_rds_options() :: %{
+        "Port" => integer(),
+        "RdsEndpoint" => String.t(),
+        "SubnetIds" => list(String.t()())
+      }
+      
+  """
+  @type modify_verified_access_endpoint_rds_options() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -29053,6 +29713,30 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "CancelConversionTask", input, options)
+  end
+
+  @doc """
+  Cancels the generation of an account status report.
+
+  You can only cancel a report while it has the `running` status. Reports
+  with other statuses (`complete`, `cancelled`, or
+  `error`) can't be canceled.
+
+  For more information, see [Generating the account status report for declarative policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative_status-report.html)
+  in the
+  *Amazon Web Services Organizations User Guide*.
+  """
+  @spec cancel_declarative_policies_report(
+          map(),
+          cancel_declarative_policies_report_request(),
+          list()
+        ) ::
+          {:ok, cancel_declarative_policies_report_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def cancel_declarative_policies_report(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelDeclarativePoliciesReport", input, options)
   end
 
   @doc """
@@ -33404,6 +34088,36 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Describes the metadata of an account status report, including the status of the
+  report.
+
+  To view the full report, download it from the Amazon S3 bucket where it was
+  saved.
+  Reports are accessible only when they have the `complete` status. Reports
+  with other statuses (`running`, `cancelled`, or
+  `error`) are not available in the S3 bucket. For more information about
+  downloading objects from an S3 bucket, see [Downloading objects](https://docs.aws.amazon.com/AmazonS3/latest/userguide/download-objects.html)
+  in
+  the *Amazon Simple Storage Service User Guide*.
+
+  For more information, see [Generating the account status report for declarative policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative_status-report.html)
+  in the
+  *Amazon Web Services Organizations User Guide*.
+  """
+  @spec describe_declarative_policies_reports(
+          map(),
+          describe_declarative_policies_reports_request(),
+          list()
+        ) ::
+          {:ok, describe_declarative_policies_reports_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def describe_declarative_policies_reports(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDeclarativePoliciesReports", input, options)
+  end
+
+  @doc """
   Describes your DHCP option sets.
 
   The default is to describe all your DHCP option sets.
@@ -33808,6 +34522,14 @@ defmodule AWS.EC2 do
   the AMI ID
   cannot be found.
 
+  When Allowed AMIs is set to `enabled`, only allowed images are returned in the
+  results, with the `imageAllowed` field set to `true` for each image. In
+  `audit-mode`, the `imageAllowed` field is set to `true` for
+  images that meet the account's Allowed AMIs criteria, and `false` for images
+  that
+  don't meet the criteria. For more information, see
+  `EnableAllowedImagesSettings`.
+
   We strongly recommend using only paginated requests. Unpaginated requests are
   susceptible to throttling and timeouts.
 
@@ -33987,7 +34709,9 @@ defmodule AWS.EC2 do
   @doc """
   Describes the AMI that was used to launch an instance, even if the AMI is
   deprecated,
-  deregistered, or made private (no longer public or shared with your account).
+  deregistered, made private (no longer public or shared with your account), or
+  not
+  allowed.
 
   If you specify instance IDs, the output includes information for only the
   specified
@@ -36044,6 +36768,24 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Describes the VPC resources, VPC endpoint services, Amazon Lattice services, or
+  service networks
+  associated with the VPC endpoint.
+  """
+  @spec describe_vpc_endpoint_associations(
+          map(),
+          describe_vpc_endpoint_associations_request(),
+          list()
+        ) ::
+          {:ok, describe_vpc_endpoint_associations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def describe_vpc_endpoint_associations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeVpcEndpointAssociations", input, options)
+  end
+
+  @doc """
   Describes the connection notifications for VPC endpoints and VPC endpoint
   services.
   """
@@ -36365,6 +37107,37 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "DisableAddressTransfer", input, options)
+  end
+
+  @doc """
+  Disables Allowed AMIs for your account in the specified Amazon Web Services
+  Region.
+
+  When set to
+  `disabled`, the image criteria in your Allowed AMIs settings do not apply, and
+  no
+  restrictions are placed on AMI discoverability or usage. Users in your account
+  can launch
+  instances using any public AMI or AMI shared with your account.
+
+  The Allowed AMIs feature does not restrict the AMIs owned by your account.
+  Regardless of
+  the criteria you set, the AMIs created by your account will always be
+  discoverable and
+  usable by users in your account.
+
+  For more information, see [Control the discovery and use of AMIs in Amazon EC2 with Allowed
+  AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html)
+  in
+  *Amazon EC2 User Guide*.
+  """
+  @spec disable_allowed_images_settings(map(), disable_allowed_images_settings_request(), list()) ::
+          {:ok, disable_allowed_images_settings_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def disable_allowed_images_settings(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisableAllowedImagesSettings", input, options)
   end
 
   @doc """
@@ -37090,6 +37863,54 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Enables Allowed AMIs for your account in the specified Amazon Web Services
+  Region.
+
+  Two values are
+  accepted:
+
+    *
+
+  `enabled`: The image criteria in your Allowed AMIs settings are applied. As
+  a result, only AMIs matching these criteria are discoverable and can be used by
+  your
+  account to launch instances.
+
+    *
+
+  `audit-mode`: The image criteria in your Allowed AMIs settings are not
+  applied. No restrictions are placed on AMI discoverability or usage. Users in
+  your account
+  can launch instances using any public AMI or AMI shared with your account.
+
+  The purpose of `audit-mode` is to indicate which AMIs will be affected when
+  Allowed AMIs is `enabled`. In `audit-mode`, each AMI displays either
+  `"ImageAllowed": true` or `"ImageAllowed": false` to indicate
+  whether the AMI will be discoverable and available to users in the account when
+  Allowed
+  AMIs is enabled.
+
+  The Allowed AMIs feature does not restrict the AMIs owned by your account.
+  Regardless of
+  the criteria you set, the AMIs created by your account will always be
+  discoverable and
+  usable by users in your account.
+
+  For more information, see [Control the discovery and use of AMIs in Amazon EC2 with Allowed
+  AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html)
+  in
+  *Amazon EC2 User Guide*.
+  """
+  @spec enable_allowed_images_settings(map(), enable_allowed_images_settings_request(), list()) ::
+          {:ok, enable_allowed_images_settings_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def enable_allowed_images_settings(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnableAllowedImagesSettings", input, options)
+  end
+
+  @doc """
   Enables Infrastructure Performance subscriptions.
   """
   @spec enable_aws_network_performance_metric_subscription(
@@ -37596,6 +38417,57 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Exports the client configuration for a Verified Access instance.
+  """
+  @spec export_verified_access_instance_client_configuration(
+          map(),
+          export_verified_access_instance_client_configuration_request(),
+          list()
+        ) ::
+          {:ok, export_verified_access_instance_client_configuration_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def export_verified_access_instance_client_configuration(
+        %Client{} = client,
+        input,
+        options \\ []
+      ) do
+    meta = metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "ExportVerifiedAccessInstanceClientConfiguration",
+      input,
+      options
+    )
+  end
+
+  @doc """
+  Gets the current state of the Allowed AMIs setting and the list of Allowed AMIs
+  criteria
+  at the account level in the specified Region.
+
+  The Allowed AMIs feature does not restrict the AMIs owned by your account.
+  Regardless of
+  the criteria you set, the AMIs created by your account will always be
+  discoverable and
+  usable by users in your account.
+
+  For more information, see [Control the discovery and use of AMIs in Amazon EC2 with Allowed
+  AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html)
+  in
+  *Amazon EC2 User Guide*.
+  """
+  @spec get_allowed_images_settings(map(), get_allowed_images_settings_request(), list()) ::
+          {:ok, get_allowed_images_settings_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def get_allowed_images_settings(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAllowedImagesSettings", input, options)
+  end
+
+  @doc """
   Returns the IAM roles that are associated with the specified ACM (ACM)
   certificate.
 
@@ -37716,6 +38588,35 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "GetConsoleScreenshot", input, options)
+  end
+
+  @doc """
+  Retrieves a summary of the account status report.
+
+  To view the full report, download it from the Amazon S3 bucket where it was
+  saved.
+  Reports are accessible only when they have the `complete` status. Reports
+  with other statuses (`running`, `cancelled`, or
+  `error`) are not available in the S3 bucket. For more information about
+  downloading objects from an S3 bucket, see [Downloading objects](https://docs.aws.amazon.com/AmazonS3/latest/userguide/download-objects.html)
+  in
+  the *Amazon Simple Storage Service User Guide*.
+
+  For more information, see [Generating the account status report for declarative policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative_status-report.html)
+  in the
+  *Amazon Web Services Organizations User Guide*.
+  """
+  @spec get_declarative_policies_report_summary(
+          map(),
+          get_declarative_policies_report_summary_request(),
+          list()
+        ) ::
+          {:ok, get_declarative_policies_report_summary_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def get_declarative_policies_report_summary(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDeclarativePoliciesReportSummary", input, options)
   end
 
   @doc """
@@ -38474,6 +39375,22 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "GetVerifiedAccessEndpointPolicy", input, options)
+  end
+
+  @doc """
+  Gets the targets for the specified network CIDR endpoint for Verified Access.
+  """
+  @spec get_verified_access_endpoint_targets(
+          map(),
+          get_verified_access_endpoint_targets_request(),
+          list()
+        ) ::
+          {:ok, get_verified_access_endpoint_targets_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def get_verified_access_endpoint_targets(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetVerifiedAccessEndpointTargets", input, options)
   end
 
   @doc """
@@ -41115,6 +42032,39 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Sets or replaces the criteria for Allowed AMIs.
+
+  The Allowed AMIs feature does not restrict the AMIs owned by your account.
+  Regardless of
+  the criteria you set, the AMIs created by your account will always be
+  discoverable and
+  usable by users in your account.
+
+  For more information, see [Control the discovery and use of AMIs in Amazon EC2 with Allowed
+  AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html)
+  in
+  *Amazon EC2 User Guide*.
+  """
+  @spec replace_image_criteria_in_allowed_images_settings(
+          map(),
+          replace_image_criteria_in_allowed_images_settings_request(),
+          list()
+        ) ::
+          {:ok, replace_image_criteria_in_allowed_images_settings_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def replace_image_criteria_in_allowed_images_settings(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "ReplaceImageCriteriaInAllowedImagesSettings",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Changes which network ACL a subnet is associated with.
 
   By default when you create a
@@ -41787,6 +42737,76 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "SendDiagnosticInterrupt", input, options)
+  end
+
+  @doc """
+  Generates an account status report.
+
+  The report is generated asynchronously, and can
+  take several hours to complete.
+
+  The report provides the current status of all attributes supported by
+  declarative
+  policies for the accounts within the specified scope. The scope is determined by
+  the
+  specified `TargetId`, which can represent an individual account, or all the
+  accounts that fall under the specified organizational unit (OU) or root (the
+  entire
+  Amazon Web Services Organization).
+
+  The report is saved to your specified S3 bucket, using the following path
+  structure
+  (with the *italicized placeholders* representing your specific
+  values):
+
+  `s3://*amzn-s3-demo-bucket*/*your-optional-s3-prefix*/ec2_*targetId*_*reportId*_*yyyyMMdd*T*hhmm*Z.csv`
+
+  ## Prerequisites for generating a report
+
+    *
+  The `StartDeclarativePoliciesReport` API can only be called by the
+  management account or delegated administrators for the organization.
+
+    *
+  An S3 bucket must be available before generating the report (you can create a
+  new one or use an existing one), and it must have an appropriate bucket policy.
+  For a sample S3 policy, see *Sample Amazon S3 policy* under
+  .
+
+    *
+  Trusted access must be enabled for the service for which the declarative
+  policy will enforce a baseline configuration. If you use the Amazon Web Services
+  Organizations
+  console, this is done automatically when you enable declarative policies. The
+  API uses the following service principal to identify the EC2 service:
+  `ec2.amazonaws.com`. For more information on how to enable
+  trusted access with the Amazon Web Services CLI and Amazon Web Services SDKs,
+  see [Using Organizations with other Amazon Web Services
+  services](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html)
+  in the
+  *Amazon Web Services Organizations User Guide*.
+
+    *
+  Only one report per organization can be generated at a time. Attempting to
+  generate a report while another is in progress will result in an error.
+
+  For more information, including the required IAM permissions to run this API,
+  see
+  [Generating the account status report for declarative policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative_status-report.html)
+  in the
+  *Amazon Web Services Organizations User Guide*.
+  """
+  @spec start_declarative_policies_report(
+          map(),
+          start_declarative_policies_report_request(),
+          list()
+        ) ::
+          {:ok, start_declarative_policies_report_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def start_declarative_policies_report(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartDeclarativePoliciesReport", input, options)
   end
 
   @doc """

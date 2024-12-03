@@ -35,6 +35,18 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      delete_knowledge_base_documents_request() :: %{
+        optional("clientToken") => String.t(),
+        required("documentIdentifiers") => list(document_identifier()())
+      }
+
+  """
+  @type delete_knowledge_base_documents_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       knowledge_base_configuration() :: %{
         "type" => list(any()),
         "vectorKnowledgeBaseConfiguration" => vector_knowledge_base_configuration()
@@ -430,6 +442,18 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      ingest_knowledge_base_documents_request() :: %{
+        optional("clientToken") => String.t(),
+        required("documents") => list(knowledge_base_document()())
+      }
+
+  """
+  @type ingest_knowledge_base_documents_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       web_source_configuration() :: %{
         "urlConfiguration" => url_configuration()
       }
@@ -702,6 +726,17 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      get_knowledge_base_documents_request() :: %{
+        required("documentIdentifiers") => list(document_identifier()())
+      }
+
+  """
+  @type get_knowledge_base_documents_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       flow_node() :: %{
         "configuration" => list(),
         "inputs" => list(flow_node_input()()),
@@ -712,6 +747,41 @@ defmodule AWS.BedrockAgent do
 
   """
   @type flow_node() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_knowledge_base_documents_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_knowledge_base_documents_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      text_content_doc() :: %{
+        "data" => String.t()
+      }
+
+  """
+  @type text_content_doc() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metadata_attribute() :: %{
+        "key" => String.t(),
+        "value" => metadata_attribute_value()
+      }
+
+  """
+  @type metadata_attribute() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1057,6 +1127,19 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      document_identifier() :: %{
+        "custom" => custom_document_identifier(),
+        "dataSourceType" => list(any()),
+        "s3" => s3_location()
+      }
+
+  """
+  @type document_identifier() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       malformed_node_input_expression_flow_validation_details() :: %{
         "cause" => String.t(),
         "input" => String.t(),
@@ -1076,6 +1159,17 @@ defmodule AWS.BedrockAgent do
 
   """
   @type share_point_crawler_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ingest_knowledge_base_documents_response() :: %{
+        "documentDetails" => list(knowledge_base_document_detail()())
+      }
+
+  """
+  @type ingest_knowledge_base_documents_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1634,6 +1728,18 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      knowledge_base_document() :: %{
+        "content" => document_content(),
+        "metadata" => document_metadata()
+      }
+
+  """
+  @type knowledge_base_document() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       flow_node_output() :: %{
         "name" => String.t(),
         "type" => list(any())
@@ -1809,6 +1915,17 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      s3_content() :: %{
+        "s3Location" => s3_location()
+      }
+
+  """
+  @type s3_content() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       input_flow_node_configuration() :: %{}
 
   """
@@ -1824,6 +1941,18 @@ defmodule AWS.BedrockAgent do
 
   """
   @type intermediate_storage() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_knowledge_base_documents_response() :: %{
+        "documentDetails" => list(knowledge_base_document_detail()()),
+        "nextToken" => [String.t()]
+      }
+
+  """
+  @type list_knowledge_base_documents_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1959,6 +2088,22 @@ defmodule AWS.BedrockAgent do
 
   """
   @type confluence_data_source_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      knowledge_base_document_detail() :: %{
+        "dataSourceId" => String.t(),
+        "identifier" => document_identifier(),
+        "knowledgeBaseId" => String.t(),
+        "status" => list(any()),
+        "statusReason" => [String.t()],
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type knowledge_base_document_detail() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2120,6 +2265,18 @@ defmodule AWS.BedrockAgent do
 
   """
   @type create_flow_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      byte_content_doc() :: %{
+        "data" => binary(),
+        "mimeType" => [String.t()]
+      }
+
+  """
+  @type byte_content_doc() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2294,6 +2451,17 @@ defmodule AWS.BedrockAgent do
 
   """
   @type get_prompt_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_document_identifier() :: %{
+        "id" => [String.t()]
+      }
+
+  """
+  @type custom_document_identifier() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2513,6 +2681,18 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      custom_s3_location() :: %{
+        "bucketOwnerAccountId" => String.t(),
+        "uri" => String.t()
+      }
+
+  """
+  @type custom_s3_location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       crawl_filter_configuration() :: %{
         "patternObjectFilter" => pattern_object_filter_configuration(),
         "type" => list(any())
@@ -2544,6 +2724,19 @@ defmodule AWS.BedrockAgent do
 
   """
   @type ingestion_job_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      document_content() :: %{
+        "custom" => custom_content(),
+        "dataSourceType" => list(any()),
+        "s3" => s3_content()
+      }
+
+  """
+  @type document_content() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2715,6 +2908,21 @@ defmodule AWS.BedrockAgent do
 
   """
   @type create_agent_alias_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metadata_attribute_value() :: %{
+        "booleanValue" => [boolean()],
+        "numberValue" => float(),
+        "stringListValue" => list(String.t()()),
+        "stringValue" => String.t(),
+        "type" => list(any())
+      }
+
+  """
+  @type metadata_attribute_value() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2935,6 +3143,19 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      document_metadata() :: %{
+        "inlineAttributes" => list(metadata_attribute()()),
+        "s3Location" => custom_s3_location(),
+        "type" => list(any())
+      }
+
+  """
+  @type document_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       output_flow_node_configuration() :: %{}
 
   """
@@ -3143,6 +3364,17 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      get_knowledge_base_documents_response() :: %{
+        "documentDetails" => list(knowledge_base_document_detail()())
+      }
+
+  """
+  @type get_knowledge_base_documents_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       incompatible_connection_data_type_flow_validation_details() :: %{
         "connection" => String.t()
       }
@@ -3237,6 +3469,19 @@ defmodule AWS.BedrockAgent do
 
   """
   @type get_agent_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      inline_content() :: %{
+        "byteContent" => byte_content_doc(),
+        "textContent" => text_content_doc(),
+        "type" => list(any())
+      }
+
+  """
+  @type inline_content() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3504,10 +3749,35 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      custom_content() :: %{
+        "customDocumentIdentifier" => custom_document_identifier(),
+        "inlineContent" => inline_content(),
+        "s3Location" => custom_s3_location(),
+        "sourceType" => list(any())
+      }
+
+  """
+  @type custom_content() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_agent_alias_request() :: %{}
 
   """
   @type get_agent_alias_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_knowledge_base_documents_response() :: %{
+        "documentDetails" => list(knowledge_base_document_detail()())
+      }
+
+  """
+  @type delete_knowledge_base_documents_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3794,6 +4064,14 @@ defmodule AWS.BedrockAgent do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type delete_knowledge_base_documents_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
   @type delete_prompt_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3887,11 +4165,27 @@ defmodule AWS.BedrockAgent do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_knowledge_base_documents_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
   @type get_prompt_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type ingest_knowledge_base_documents_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
 
   @type list_agent_action_groups_errors() ::
@@ -3960,6 +4254,14 @@ defmodule AWS.BedrockAgent do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_knowledge_base_documents_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
 
   @type list_knowledge_bases_errors() ::
@@ -4331,7 +4633,10 @@ defmodule AWS.BedrockAgent do
   end
 
   @doc """
-  Creates a data source connector for a knowledge base.
+  Connects a knowledge base to a data source.
+
+  You specify the configuration for the specific data source service in the
+  `dataSourceConfiguration` field.
 
   You can't change the `chunkingConfiguration` after you create the data source
   connector.
@@ -4919,6 +5224,52 @@ defmodule AWS.BedrockAgent do
   end
 
   @doc """
+  Deletes documents from a data source and syncs the changes to the knowledge base
+  that is connected to it.
+
+  For more information, see [Ingest documents into a knowledge base in real-time](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-real-time-ingestion.html)
+  in the Amazon Bedrock User Guide.
+  """
+  @spec delete_knowledge_base_documents(
+          map(),
+          String.t(),
+          String.t(),
+          delete_knowledge_base_documents_request(),
+          list()
+        ) ::
+          {:ok, delete_knowledge_base_documents_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_knowledge_base_documents_errors()}
+  def delete_knowledge_base_documents(
+        %Client{} = client,
+        data_source_id,
+        knowledge_base_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/datasources/#{AWS.Util.encode_uri(data_source_id)}/documents/deleteDocuments"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Deletes a prompt or a version of it, depending on whether you include the
   `promptVersion` field or not.
 
@@ -5234,6 +5585,52 @@ defmodule AWS.BedrockAgent do
   end
 
   @doc """
+  Retrieves specific documents from a data source that is connected to a knowledge
+  base.
+
+  For more information, see [Ingest documents into a knowledge base in real-time](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-real-time-ingestion.html)
+  in the Amazon Bedrock User Guide.
+  """
+  @spec get_knowledge_base_documents(
+          map(),
+          String.t(),
+          String.t(),
+          get_knowledge_base_documents_request(),
+          list()
+        ) ::
+          {:ok, get_knowledge_base_documents_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_knowledge_base_documents_errors()}
+  def get_knowledge_base_documents(
+        %Client{} = client,
+        data_source_id,
+        knowledge_base_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/datasources/#{AWS.Util.encode_uri(data_source_id)}/documents/getDocuments"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves information about the working draft (`DRAFT` version) of a prompt or a
   version of it, depending on whether you include the `promptVersion` field or
   not.
@@ -5261,6 +5658,54 @@ defmodule AWS.BedrockAgent do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Ingests documents directly into the knowledge base that is connected to the data
+  source.
+
+  The `dataSourceType` specified in the content for each document must match the
+  type of the data source that you specify in the header. For more information,
+  see [Ingest documents into a knowledge base in real-time](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-real-time-ingestion.html)
+  in the Amazon Bedrock User Guide.
+  """
+  @spec ingest_knowledge_base_documents(
+          map(),
+          String.t(),
+          String.t(),
+          ingest_knowledge_base_documents_request(),
+          list()
+        ) ::
+          {:ok, ingest_knowledge_base_documents_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, ingest_knowledge_base_documents_errors()}
+  def ingest_knowledge_base_documents(
+        %Client{} = client,
+        data_source_id,
+        knowledge_base_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/datasources/#{AWS.Util.encode_uri(data_source_id)}/documents"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -5582,6 +6027,52 @@ defmodule AWS.BedrockAgent do
       ) do
     url_path =
       "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/datasources/#{AWS.Util.encode_uri(data_source_id)}/ingestionjobs/"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves all the documents contained in a data source that is connected to a
+  knowledge base.
+
+  For more information, see [Ingest documents into a knowledge base in real-time](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-real-time-ingestion.html)
+  in the Amazon Bedrock User Guide.
+  """
+  @spec list_knowledge_base_documents(
+          map(),
+          String.t(),
+          String.t(),
+          list_knowledge_base_documents_request(),
+          list()
+        ) ::
+          {:ok, list_knowledge_base_documents_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_knowledge_base_documents_errors()}
+  def list_knowledge_base_documents(
+        %Client{} = client,
+        data_source_id,
+        knowledge_base_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/datasources/#{AWS.Util.encode_uri(data_source_id)}/documents"
 
     headers = []
     custom_headers = []

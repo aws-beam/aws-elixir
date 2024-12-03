@@ -1639,6 +1639,7 @@ defmodule AWS.Imagebuilder do
         "owner" => String.t(),
         "parameters" => list(component_parameter_detail()()),
         "platform" => list(any()),
+        "productCodes" => list(product_code_list_item()()),
         "publisher" => String.t(),
         "state" => component_state(),
         "supportedOsVersions" => list(String.t()()),
@@ -1777,6 +1778,19 @@ defmodule AWS.Imagebuilder do
 
   """
   @type lifecycle_execution_resource_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_marketplace_resource_response() :: %{
+        "data" => String.t(),
+        "resourceArn" => String.t(),
+        "url" => String.t()
+      }
+
+  """
+  @type get_marketplace_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2084,6 +2098,8 @@ defmodule AWS.Imagebuilder do
         "name" => String.t(),
         "owner" => String.t(),
         "platform" => list(any()),
+        "productCodes" => list(product_code_list_item()()),
+        "status" => list(any()),
         "supportedOsVersions" => list(String.t()()),
         "type" => list(any()),
         "version" => String.t()
@@ -2568,6 +2584,19 @@ defmodule AWS.Imagebuilder do
 
   ## Example:
 
+      get_marketplace_resource_request() :: %{
+        optional("resourceLocation") => String.t(),
+        required("resourceArn") => String.t(),
+        required("resourceType") => list(any())
+      }
+
+  """
+  @type get_marketplace_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_workflow_step_executions_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
@@ -2683,6 +2712,18 @@ defmodule AWS.Imagebuilder do
 
   """
   @type get_image_pipeline_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      product_code_list_item() :: %{
+        "productCodeId" => String.t(),
+        "productCodeType" => list(any())
+      }
+
+  """
+  @type product_code_list_item() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3932,6 +3973,14 @@ defmodule AWS.Imagebuilder do
           | forbidden_exception()
 
   @type get_lifecycle_policy_errors() ::
+          service_unavailable_exception()
+          | service_exception()
+          | invalid_request_exception()
+          | client_exception()
+          | call_rate_limit_exceeded_exception()
+          | forbidden_exception()
+
+  @type get_marketplace_resource_errors() ::
           service_unavailable_exception()
           | service_exception()
           | invalid_request_exception()
@@ -5311,6 +5360,39 @@ defmodule AWS.Imagebuilder do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Verify the subscription and perform resource dependency checks on the requested
+  Amazon Web Services Marketplace resource.
+
+  For Amazon Web Services Marketplace components, the response contains fields to
+  download the
+  components and their artifacts.
+  """
+  @spec get_marketplace_resource(map(), get_marketplace_resource_request(), list()) ::
+          {:ok, get_marketplace_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_marketplace_resource_errors()}
+  def get_marketplace_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/GetMarketplaceResource"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

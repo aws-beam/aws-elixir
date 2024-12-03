@@ -302,6 +302,22 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      direct_query_data_source() :: %{
+        "DataSourceArn" => String.t(),
+        "DataSourceName" => String.t(),
+        "DataSourceType" => list(),
+        "Description" => String.t(),
+        "OpenSearchArns" => list(String.t()()),
+        "TagList" => list(tag()())
+      }
+
+  """
+  @type direct_query_data_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       package_details() :: %{
         "AllowListedUserList" => list(String.t()()),
         "AvailablePackageConfiguration" => package_configuration(),
@@ -478,6 +494,17 @@ defmodule AWS.OpenSearch do
 
   """
   @type snapshot_options_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_direct_query_data_source() :: %{
+        "RoleArn" => String.t()
+      }
+
+  """
+  @type cloud_watch_direct_query_data_source() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -730,6 +757,18 @@ defmodule AWS.OpenSearch do
 
   """
   @type storage_type_limit() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_direct_query_data_sources_response() :: %{
+        "DirectQueryDataSources" => list(direct_query_data_source()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_direct_query_data_sources_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1226,6 +1265,21 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      get_direct_query_data_source_response() :: %{
+        "DataSourceArn" => String.t(),
+        "DataSourceName" => String.t(),
+        "DataSourceType" => list(),
+        "Description" => String.t(),
+        "OpenSearchArns" => list(String.t()())
+      }
+
+  """
+  @type get_direct_query_data_source_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       conflict_exception() :: %{
         "message" => String.t()
       }
@@ -1254,6 +1308,17 @@ defmodule AWS.OpenSearch do
 
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      security_lake_direct_query_data_source() :: %{
+        "RoleArn" => String.t()
+      }
+
+  """
+  @type security_lake_direct_query_data_source() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1701,6 +1766,17 @@ defmodule AWS.OpenSearch do
 
   """
   @type encryption_at_rest_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_direct_query_data_sources_request() :: %{
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_direct_query_data_sources_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2933,6 +3009,15 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      delete_direct_query_data_source_request() :: %{}
+
+  """
+  @type delete_direct_query_data_source_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       application_summary() :: %{
         "arn" => String.t(),
         "createdAt" => non_neg_integer(),
@@ -3076,6 +3161,21 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      add_direct_query_data_source_request() :: %{
+        optional("Description") => String.t(),
+        optional("TagList") => list(tag()()),
+        required("DataSourceName") => String.t(),
+        required("DataSourceType") => list(),
+        required("OpenSearchArns") => list(String.t()())
+      }
+
+  """
+  @type add_direct_query_data_source_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       domain_endpoint_options_status() :: %{
         "Options" => domain_endpoint_options(),
         "Status" => option_status()
@@ -3096,6 +3196,19 @@ defmodule AWS.OpenSearch do
 
   """
   @type describe_inbound_connections_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_direct_query_data_source_request() :: %{
+        optional("Description") => String.t(),
+        required("DataSourceType") => list(),
+        required("OpenSearchArns") => list(String.t()())
+      }
+
+  """
+  @type update_direct_query_data_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3180,6 +3293,15 @@ defmodule AWS.OpenSearch do
 
   """
   @type package_version_history() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_direct_query_data_source_request() :: %{}
+
+  """
+  @type get_direct_query_data_source_request() :: %{}
 
   @typedoc """
 
@@ -3353,6 +3475,17 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      add_direct_query_data_source_response() :: %{
+        "DataSourceArn" => String.t()
+      }
+
+  """
+  @type add_direct_query_data_source_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_vpc_endpoint_access_response() :: %{
         "AuthorizedPrincipalList" => list(authorized_principal()()),
         "NextToken" => String.t()
@@ -3436,6 +3569,17 @@ defmodule AWS.OpenSearch do
 
   """
   @type domain_endpoint_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_direct_query_data_source_response() :: %{
+        "DataSourceArn" => String.t()
+      }
+
+  """
+  @type update_direct_query_data_source_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3608,6 +3752,14 @@ defmodule AWS.OpenSearch do
           | resource_not_found_exception()
           | disabled_operation_exception()
 
+  @type add_direct_query_data_source_errors() ::
+          limit_exceeded_exception()
+          | base_exception()
+          | validation_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | disabled_operation_exception()
+
   @type add_tags_errors() ::
           limit_exceeded_exception()
           | base_exception()
@@ -3705,6 +3857,13 @@ defmodule AWS.OpenSearch do
           | validation_exception()
           | internal_exception()
           | dependency_failure_exception()
+          | resource_not_found_exception()
+          | disabled_operation_exception()
+
+  @type delete_direct_query_data_source_errors() ::
+          base_exception()
+          | validation_exception()
+          | internal_exception()
           | resource_not_found_exception()
           | disabled_operation_exception()
 
@@ -3861,6 +4020,13 @@ defmodule AWS.OpenSearch do
           | resource_not_found_exception()
           | disabled_operation_exception()
 
+  @type get_direct_query_data_source_errors() ::
+          base_exception()
+          | validation_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | disabled_operation_exception()
+
   @type get_domain_maintenance_status_errors() ::
           base_exception()
           | validation_exception()
@@ -3902,6 +4068,13 @@ defmodule AWS.OpenSearch do
           | validation_exception()
           | internal_exception()
           | dependency_failure_exception()
+          | resource_not_found_exception()
+          | disabled_operation_exception()
+
+  @type list_direct_query_data_sources_errors() ::
+          base_exception()
+          | validation_exception()
+          | internal_exception()
           | resource_not_found_exception()
           | disabled_operation_exception()
 
@@ -4015,6 +4188,13 @@ defmodule AWS.OpenSearch do
           | validation_exception()
           | internal_exception()
           | dependency_failure_exception()
+          | resource_not_found_exception()
+          | disabled_operation_exception()
+
+  @type update_direct_query_data_source_errors() ::
+          base_exception()
+          | validation_exception()
+          | internal_exception()
           | resource_not_found_exception()
           | disabled_operation_exception()
 
@@ -4149,12 +4329,43 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Attaches tags to an existing Amazon OpenSearch Service domain.
 
-  Tags are a set of
-  case-sensitive key-value pairs. A domain can have up to 10 tags. For more
-  information, see
-  [Tagging Amazon OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html).
+  Adds a new data source in Amazon OpenSearch Service
+  so that you can perform direct queries on external data.
+  """
+  @spec add_direct_query_data_source(map(), add_direct_query_data_source_request(), list()) ::
+          {:ok, add_direct_query_data_source_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, add_direct_query_data_source_errors()}
+  def add_direct_query_data_source(%Client{} = client, input, options \\ []) do
+    url_path = "/2021-01-01/opensearch/directQueryDataSource"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Attaches tags to an existing Amazon OpenSearch Service domain, data source, or
+  application.
+
+  Tags are a set of case-sensitive key-value pairs. A domain, data source, or
+  application can
+  have up to 10 tags. For more information, see [Tagging Amazon OpenSearch Service
+  resources](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html).
   """
   @spec add_tags(map(), add_tags_request(), list()) ::
           {:ok, nil, any()}
@@ -4540,6 +4751,43 @@ defmodule AWS.OpenSearch do
   def delete_data_source(%Client{} = client, domain_name, name, input, options \\ []) do
     url_path =
       "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/dataSource/#{AWS.Util.encode_uri(name)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+
+  Deletes a previously configured direct query data
+  source from Amazon OpenSearch Service.
+  """
+  @spec delete_direct_query_data_source(
+          map(),
+          String.t(),
+          delete_direct_query_data_source_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_direct_query_data_source_errors()}
+  def delete_direct_query_data_source(%Client{} = client, data_source_name, input, options \\ []) do
+    url_path =
+      "/2021-01-01/opensearch/directQueryDataSource/#{AWS.Util.encode_uri(data_source_name)}"
 
     headers = []
     custom_headers = []
@@ -5314,6 +5562,27 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
+
+  Returns detailed configuration information for
+  a specific direct query data source in Amazon OpenSearch Service.
+  """
+  @spec get_direct_query_data_source(map(), String.t(), list()) ::
+          {:ok, get_direct_query_data_source_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_direct_query_data_source_errors()}
+  def get_direct_query_data_source(%Client{} = client, data_source_name, options \\ []) do
+    url_path =
+      "/2021-01-01/opensearch/directQueryDataSource/#{AWS.Util.encode_uri(data_source_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   The status of the maintenance action.
   """
   @spec get_domain_maintenance_status(map(), String.t(), String.t(), list()) ::
@@ -5503,6 +5772,32 @@ defmodule AWS.OpenSearch do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/dataSource"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+
+  Lists an inventory of all the direct query data sources that you
+  have configured within Amazon OpenSearch Service.
+  """
+  @spec list_direct_query_data_sources(map(), String.t() | nil, list()) ::
+          {:ok, list_direct_query_data_sources_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_direct_query_data_sources_errors()}
+  def list_direct_query_data_sources(%Client{} = client, next_token \\ nil, options \\ []) do
+    url_path = "/2021-01-01/opensearch/directQueryDataSource"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nexttoken", next_token} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -5797,10 +6092,12 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Returns all resource tags for an Amazon OpenSearch Service domain.
+  Returns all resource tags for an Amazon OpenSearch Service domain, data source,
+  or
+  application.
 
-  For more information, see
-  [Tagging Amazon OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html).
+  For more information, see [Tagging Amazon OpenSearch Service
+  resources](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html).
   """
   @spec list_tags(map(), String.t(), list()) ::
           {:ok, list_tags_response(), any()}
@@ -6006,10 +6303,11 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Removes the specified set of tags from an Amazon OpenSearch Service domain.
+  Removes the specified set of tags from an Amazon OpenSearch Service domain, data
+  source, or
+  application.
 
-  For more
-  information, see [ Tagging Amazon OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-awsresorcetagging).
+  For more information, see [ Tagging Amazon OpenSearch Service resources](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-awsresorcetagging).
   """
   @spec remove_tags(map(), remove_tags_request(), list()) ::
           {:ok, nil, any()}
@@ -6180,6 +6478,43 @@ defmodule AWS.OpenSearch do
   def update_data_source(%Client{} = client, domain_name, name, input, options \\ []) do
     url_path =
       "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/dataSource/#{AWS.Util.encode_uri(name)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+
+  Updates the configuration or properties of an existing
+  direct query data source in Amazon OpenSearch Service.
+  """
+  @spec update_direct_query_data_source(
+          map(),
+          String.t(),
+          update_direct_query_data_source_request(),
+          list()
+        ) ::
+          {:ok, update_direct_query_data_source_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_direct_query_data_source_errors()}
+  def update_direct_query_data_source(%Client{} = client, data_source_name, input, options \\ []) do
+    url_path =
+      "/2021-01-01/opensearch/directQueryDataSource/#{AWS.Util.encode_uri(data_source_name)}"
 
     headers = []
     custom_headers = []

@@ -194,6 +194,21 @@ defmodule AWS.Transfer do
 
   ## Example:
       
+      described_web_app_customization() :: %{
+        "Arn" => String.t(),
+        "FaviconFile" => binary(),
+        "LogoFile" => binary(),
+        "Title" => String.t(),
+        "WebAppId" => String.t()
+      }
+      
+  """
+  @type described_web_app_customization() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_server_request() :: %{
         required("ServerId") => String.t()
       }
@@ -347,6 +362,20 @@ defmodule AWS.Transfer do
 
   ## Example:
       
+      update_web_app_customization_request() :: %{
+        optional("FaviconFile") => binary(),
+        optional("LogoFile") => binary(),
+        optional("Title") => String.t(),
+        required("WebAppId") => String.t()
+      }
+      
+  """
+  @type update_web_app_customization_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       identity_provider_details() :: %{
         "DirectoryId" => String.t(),
         "Function" => String.t(),
@@ -468,6 +497,17 @@ defmodule AWS.Transfer do
 
   ## Example:
       
+      describe_web_app_customization_request() :: %{
+        required("WebAppId") => String.t()
+      }
+      
+  """
+  @type describe_web_app_customization_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_access_response() :: %{
         "ExternalId" => String.t(),
         "ServerId" => String.t()
@@ -559,6 +599,17 @@ defmodule AWS.Transfer do
       
   """
   @type connector_file_transfer_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_web_app_response() :: %{
+        "WebAppId" => String.t()
+      }
+      
+  """
+  @type create_web_app_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -751,6 +802,17 @@ defmodule AWS.Transfer do
 
   ## Example:
       
+      describe_web_app_customization_response() :: %{
+        "WebAppCustomization" => described_web_app_customization()
+      }
+      
+  """
+  @type describe_web_app_customization_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       described_security_policy() :: %{
         "Fips" => boolean(),
         "Protocols" => list(list(any())()),
@@ -765,6 +827,20 @@ defmodule AWS.Transfer do
       
   """
   @type described_security_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_web_app_request() :: %{
+        optional("AccessEndpoint") => String.t(),
+        optional("Tags") => list(tag()()),
+        optional("WebAppUnits") => list(),
+        required("IdentityProviderDetails") => list()
+      }
+      
+  """
+  @type create_web_app_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1149,6 +1225,17 @@ defmodule AWS.Transfer do
 
   ## Example:
       
+      describe_web_app_response() :: %{
+        "WebApp" => described_web_app()
+      }
+      
+  """
+  @type describe_web_app_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_access_request() :: %{
         optional("HomeDirectory") => String.t(),
         optional("HomeDirectoryMappings") => list(home_directory_map_entry()()),
@@ -1236,6 +1323,20 @@ defmodule AWS.Transfer do
 
   ## Example:
       
+      listed_web_app() :: %{
+        "AccessEndpoint" => String.t(),
+        "Arn" => String.t(),
+        "WebAppEndpoint" => String.t(),
+        "WebAppId" => String.t()
+      }
+      
+  """
+  @type listed_web_app() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       service_unavailable_exception() :: %{
         "Message" => String.t()
       }
@@ -1272,12 +1373,58 @@ defmodule AWS.Transfer do
 
   ## Example:
       
+      describe_web_app_request() :: %{
+        required("WebAppId") => String.t()
+      }
+      
+  """
+  @type describe_web_app_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_agreement_response() :: %{
         "AgreementId" => String.t()
       }
       
   """
   @type create_agreement_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_web_app_customization_request() :: %{
+        required("WebAppId") => String.t()
+      }
+      
+  """
+  @type delete_web_app_customization_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      described_identity_center_config() :: %{
+        "ApplicationArn" => String.t(),
+        "InstanceArn" => String.t(),
+        "Role" => String.t()
+      }
+      
+  """
+  @type described_identity_center_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_web_app_identity_center_config() :: %{
+        "Role" => String.t()
+      }
+      
+  """
+  @type update_web_app_identity_center_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1404,6 +1551,17 @@ defmodule AWS.Transfer do
 
   ## Example:
       
+      delete_web_app_request() :: %{
+        required("WebAppId") => String.t()
+      }
+      
+  """
+  @type delete_web_app_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       file_location() :: %{
         "EfsFileLocation" => efs_file_location(),
         "S3FileLocation" => s3_file_location()
@@ -1493,6 +1651,20 @@ defmodule AWS.Transfer do
 
   ## Example:
       
+      update_web_app_request() :: %{
+        optional("AccessEndpoint") => String.t(),
+        optional("IdentityProviderDetails") => list(),
+        optional("WebAppUnits") => list(),
+        required("WebAppId") => String.t()
+      }
+      
+  """
+  @type update_web_app_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       import_ssh_public_key_request() :: %{
         required("ServerId") => String.t(),
         required("SshPublicKeyBody") => String.t(),
@@ -1516,6 +1688,18 @@ defmodule AWS.Transfer do
       
   """
   @type decrypt_step_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      identity_center_config() :: %{
+        "InstanceArn" => String.t(),
+        "Role" => String.t()
+      }
+      
+  """
+  @type identity_center_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1630,6 +1814,18 @@ defmodule AWS.Transfer do
       
   """
   @type update_agreement_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_web_apps_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type list_web_apps_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1865,6 +2061,18 @@ defmodule AWS.Transfer do
 
   ## Example:
       
+      list_web_apps_response() :: %{
+        "NextToken" => String.t(),
+        "WebApps" => list(listed_web_app()())
+      }
+      
+  """
+  @type list_web_apps_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_connector_response() :: %{
         "ConnectorId" => String.t()
       }
@@ -2079,6 +2287,23 @@ defmodule AWS.Transfer do
 
   ## Example:
       
+      described_web_app() :: %{
+        "AccessEndpoint" => String.t(),
+        "Arn" => String.t(),
+        "DescribedIdentityProviderDetails" => list(),
+        "Tags" => list(tag()()),
+        "WebAppEndpoint" => String.t(),
+        "WebAppId" => String.t(),
+        "WebAppUnits" => list()
+      }
+      
+  """
+  @type described_web_app() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       s3_tag() :: %{
         "Key" => String.t(),
         "Value" => String.t()
@@ -2186,6 +2411,17 @@ defmodule AWS.Transfer do
       
   """
   @type describe_profile_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_web_app_response() :: %{
+        "WebAppId" => String.t()
+      }
+      
+  """
+  @type update_web_app_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2300,6 +2536,17 @@ defmodule AWS.Transfer do
   """
   @type create_user_request() :: %{String.t() => any()}
 
+  @typedoc """
+
+  ## Example:
+      
+      update_web_app_customization_response() :: %{
+        "WebAppId" => String.t()
+      }
+      
+  """
+  @type update_web_app_customization_response() :: %{String.t() => any()}
+
   @type create_access_errors() ::
           internal_service_error()
           | resource_exists_exception()
@@ -2343,6 +2590,13 @@ defmodule AWS.Transfer do
           internal_service_error()
           | resource_exists_exception()
           | service_unavailable_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
+  @type create_web_app_errors() ::
+          throttling_exception()
+          | internal_service_error()
+          | access_denied_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
 
@@ -2411,6 +2665,21 @@ defmodule AWS.Transfer do
           | invalid_request_exception()
           | resource_not_found_exception()
 
+  @type delete_web_app_errors() ::
+          throttling_exception()
+          | internal_service_error()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
+  @type delete_web_app_customization_errors() ::
+          throttling_exception()
+          | internal_service_error()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type delete_workflow_errors() ::
           internal_service_error()
           | access_denied_exception()
@@ -2475,6 +2744,20 @@ defmodule AWS.Transfer do
   @type describe_user_errors() ::
           internal_service_error()
           | service_unavailable_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
+  @type describe_web_app_errors() ::
+          throttling_exception()
+          | internal_service_error()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
+  @type describe_web_app_customization_errors() ::
+          throttling_exception()
+          | internal_service_error()
+          | access_denied_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
 
@@ -2585,6 +2868,12 @@ defmodule AWS.Transfer do
           | invalid_next_token_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
+
+  @type list_web_apps_errors() ::
+          throttling_exception()
+          | internal_service_error()
+          | invalid_next_token_exception()
+          | invalid_request_exception()
 
   @type list_workflows_errors() ::
           internal_service_error()
@@ -2713,6 +3002,22 @@ defmodule AWS.Transfer do
           | service_unavailable_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
+
+  @type update_web_app_errors() ::
+          throttling_exception()
+          | internal_service_error()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_web_app_customization_errors() ::
+          throttling_exception()
+          | internal_service_error()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   def metadata do
     %{
@@ -2853,6 +3158,20 @@ defmodule AWS.Transfer do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateUser", input, options)
+  end
+
+  @doc """
+  Creates a web app based on specified parameters, and returns the ID for the new
+  web app.
+  """
+  @spec create_web_app(map(), create_web_app_request(), list()) ::
+          {:ok, create_web_app_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_web_app_errors()}
+  def create_web_app(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateWebApp", input, options)
   end
 
   @doc """
@@ -2998,6 +3317,33 @@ defmodule AWS.Transfer do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteUser", input, options)
+  end
+
+  @doc """
+  Deletes the specified web app.
+  """
+  @spec delete_web_app(map(), delete_web_app_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_web_app_errors()}
+  def delete_web_app(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteWebApp", input, options)
+  end
+
+  @doc """
+  Deletes the `WebAppCustomization` object that corresponds to the web app ID
+  specified.
+  """
+  @spec delete_web_app_customization(map(), delete_web_app_customization_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_web_app_customization_errors()}
+  def delete_web_app_customization(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteWebAppCustomization", input, options)
   end
 
   @doc """
@@ -3175,6 +3521,32 @@ defmodule AWS.Transfer do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeUser", input, options)
+  end
+
+  @doc """
+  Describes the web app that's identified by `WebAppId`.
+  """
+  @spec describe_web_app(map(), describe_web_app_request(), list()) ::
+          {:ok, describe_web_app_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_web_app_errors()}
+  def describe_web_app(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeWebApp", input, options)
+  end
+
+  @doc """
+  Describes the web app customization object that's identified by `WebAppId`.
+  """
+  @spec describe_web_app_customization(map(), describe_web_app_customization_request(), list()) ::
+          {:ok, describe_web_app_customization_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_web_app_customization_errors()}
+  def describe_web_app_customization(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeWebAppCustomization", input, options)
   end
 
   @doc """
@@ -3440,6 +3812,20 @@ defmodule AWS.Transfer do
     meta = metadata()
 
     Request.request_post(client, meta, "ListUsers", input, options)
+  end
+
+  @doc """
+  Lists all web apps associated with your Amazon Web Services account for your
+  current region.
+  """
+  @spec list_web_apps(map(), list_web_apps_request(), list()) ::
+          {:ok, list_web_apps_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_web_apps_errors()}
+  def list_web_apps(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListWebApps", input, options)
   end
 
   @doc """
@@ -3904,5 +4290,36 @@ defmodule AWS.Transfer do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateUser", input, options)
+  end
+
+  @doc """
+  Assigns new properties to a web app.
+
+  You can modify the access point, identity provider details, and the web app
+  units.
+  """
+  @spec update_web_app(map(), update_web_app_request(), list()) ::
+          {:ok, update_web_app_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_web_app_errors()}
+  def update_web_app(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateWebApp", input, options)
+  end
+
+  @doc """
+  Assigns new customization properties to a web app.
+
+  You can modify the icon file, logo file, and title.
+  """
+  @spec update_web_app_customization(map(), update_web_app_customization_request(), list()) ::
+          {:ok, update_web_app_customization_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_web_app_customization_errors()}
+  def update_web_app_customization(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateWebAppCustomization", input, options)
   end
 end

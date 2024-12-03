@@ -153,6 +153,15 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      delete_integration_response() :: %{}
+      
+  """
+  @type delete_integration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       tag_resource_request() :: %{
         required("resourceArn") => String.t(),
         required("tags") => map()
@@ -255,6 +264,18 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      open_search_data_source() :: %{
+        "dataSourceName" => String.t(),
+        "status" => open_search_resource_status()
+      }
+      
+  """
+  @type open_search_data_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_index_policy_response() :: %{}
       
   """
@@ -319,7 +340,8 @@ defmodule AWS.CloudWatchLogs do
       describe_query_definitions_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        optional("queryDefinitionNamePrefix") => String.t()
+        optional("queryDefinitionNamePrefix") => String.t(),
+        optional("queryLanguage") => list(any())
       }
       
   """
@@ -364,6 +386,21 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      open_search_resource_config() :: %{
+        "applicationArn" => String.t(),
+        "dashboardViewerPrincipals" => list(String.t()()),
+        "dataSourceRoleArn" => String.t(),
+        "kmsKeyArn" => String.t(),
+        "retentionDays" => integer()
+      }
+      
+  """
+  @type open_search_resource_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       put_destination_request() :: %{
         optional("tags") => map(),
         required("destinationName") => String.t(),
@@ -380,6 +417,7 @@ defmodule AWS.CloudWatchLogs do
       
       get_query_results_response() :: %{
         "encryptionKey" => String.t(),
+        "queryLanguage" => list(any()),
         "results" => list(list(result_field()())()),
         "statistics" => query_statistics(),
         "status" => list(any())
@@ -396,6 +434,7 @@ defmodule AWS.CloudWatchLogs do
         optional("logGroupName") => String.t(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
+        optional("queryLanguage") => list(any()),
         optional("status") => list(any())
       }
       
@@ -626,6 +665,18 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      open_search_encryption_policy() :: %{
+        "policyName" => String.t(),
+        "status" => open_search_resource_status()
+      }
+      
+  """
+  @type open_search_encryption_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       put_delivery_destination_request() :: %{
         optional("outputFormat") => list(any()),
         optional("tags") => map(),
@@ -731,6 +782,19 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      put_integration_request() :: %{
+        required("integrationName") => String.t(),
+        required("integrationType") => list(any()),
+        required("resourceConfig") => list()
+      }
+      
+  """
+  @type put_integration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_delivery_response() :: %{
         "delivery" => delivery()
       }
@@ -807,6 +871,7 @@ defmodule AWS.CloudWatchLogs do
         optional("logGroupIdentifiers") => list(String.t()()),
         optional("logGroupName") => String.t(),
         optional("logGroupNames") => list(String.t()()),
+        optional("queryLanguage") => list(any()),
         required("endTime") => float(),
         required("queryString") => String.t(),
         required("startTime") => float()
@@ -908,6 +973,19 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      integration_summary() :: %{
+        "integrationName" => String.t(),
+        "integrationStatus" => list(any()),
+        "integrationType" => list(any())
+      }
+      
+  """
+  @type integration_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       field_index() :: %{
         "fieldIndexName" => String.t(),
         "firstEventTime" => float(),
@@ -998,6 +1076,18 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      put_integration_response() :: %{
+        "integrationName" => String.t(),
+        "integrationStatus" => list(any())
+      }
+      
+  """
+  @type put_integration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_destinations_response() :: %{
         "destinations" => list(destination()()),
         "nextToken" => String.t()
@@ -1072,6 +1162,19 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      list_integrations_request() :: %{
+        optional("integrationNamePrefix") => String.t(),
+        optional("integrationStatus") => list(any()),
+        optional("integrationType") => list(any())
+      }
+      
+  """
+  @type list_integrations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_query_definitions_response() :: %{
         "nextToken" => String.t(),
         "queryDefinitions" => list(query_definition()())
@@ -1117,6 +1220,20 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type put_destination_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_integration_response() :: %{
+        "integrationDetails" => list(),
+        "integrationName" => String.t(),
+        "integrationStatus" => list(any()),
+        "integrationType" => list(any())
+      }
+      
+  """
+  @type get_integration_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1228,6 +1345,18 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      delete_integration_request() :: %{
+        optional("force") => boolean(),
+        required("integrationName") => String.t()
+      }
+      
+  """
+  @type delete_integration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_index_policies_request() :: %{
         optional("nextToken") => String.t(),
         required("logGroupIdentifiers") => list(String.t()())
@@ -1295,6 +1424,19 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type describe_export_tasks_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      open_search_collection() :: %{
+        "collectionArn" => String.t(),
+        "collectionEndpoint" => String.t(),
+        "status" => open_search_resource_status()
+      }
+      
+  """
+  @type open_search_collection() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1448,6 +1590,18 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      open_search_data_access_policy() :: %{
+        "policyName" => String.t(),
+        "status" => open_search_resource_status()
+      }
+      
+  """
+  @type open_search_data_access_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_export_task_response() :: %{
         "taskId" => String.t()
       }
@@ -1558,6 +1712,18 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      open_search_workspace() :: %{
+        "status" => open_search_resource_status(),
+        "workspaceId" => String.t()
+      }
+      
+  """
+  @type open_search_workspace() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       stop_query_response() :: %{
         "success" => boolean()
       }
@@ -1618,6 +1784,18 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      open_search_network_policy() :: %{
+        "policyName" => String.t(),
+        "status" => open_search_resource_status()
+      }
+      
+  """
+  @type open_search_network_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       put_transformer_request() :: %{
         required("logGroupIdentifier") => String.t(),
         required("transformerConfig") => list(processor()())
@@ -1669,6 +1847,17 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type put_metric_filter_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_integration_request() :: %{
+        required("integrationName") => String.t()
+      }
+      
+  """
+  @type get_integration_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1870,6 +2059,18 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      open_search_lifecycle_policy() :: %{
+        "policyName" => String.t(),
+        "status" => open_search_resource_status()
+      }
+      
+  """
+  @type open_search_lifecycle_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delivery_destination() :: %{
         "arn" => String.t(),
         "deliveryDestinationConfiguration" => delivery_destination_configuration(),
@@ -1984,6 +2185,7 @@ defmodule AWS.CloudWatchLogs do
         optional("clientToken") => String.t(),
         optional("logGroupNames") => list(String.t()()),
         optional("queryDefinitionId") => String.t(),
+        optional("queryLanguage") => list(any()),
         required("name") => String.t(),
         required("queryString") => String.t()
       }
@@ -2233,6 +2435,24 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type invalid_parameter_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      open_search_integration_details() :: %{
+        "accessPolicy" => open_search_data_access_policy(),
+        "application" => open_search_application(),
+        "collection" => open_search_collection(),
+        "dataSource" => open_search_data_source(),
+        "encryptionPolicy" => open_search_encryption_policy(),
+        "lifecyclePolicy" => open_search_lifecycle_policy(),
+        "networkPolicy" => open_search_network_policy(),
+        "workspace" => open_search_workspace()
+      }
+      
+  """
+  @type open_search_integration_details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2635,6 +2855,18 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      open_search_resource_status() :: %{
+        "status" => list(any()),
+        "statusMessage" => String.t()
+      }
+      
+  """
+  @type open_search_resource_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delivery_source() :: %{
         "arn" => String.t(),
         "logType" => String.t(),
@@ -2821,11 +3053,26 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      open_search_application() :: %{
+        "applicationArn" => String.t(),
+        "applicationEndpoint" => String.t(),
+        "applicationId" => String.t(),
+        "status" => open_search_resource_status()
+      }
+      
+  """
+  @type open_search_application() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       query_definition() :: %{
         "lastModified" => float(),
         "logGroupNames" => list(String.t()()),
         "name" => String.t(),
         "queryDefinitionId" => String.t(),
+        "queryLanguage" => list(any()),
         "queryString" => String.t()
       }
       
@@ -2936,6 +3183,7 @@ defmodule AWS.CloudWatchLogs do
         "createTime" => float(),
         "logGroupName" => String.t(),
         "queryId" => String.t(),
+        "queryLanguage" => list(any()),
         "queryString" => String.t(),
         "status" => list(any())
       }
@@ -3072,6 +3320,17 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      list_integrations_response() :: %{
+        "integrationSummaries" => list(integration_summary()())
+      }
+      
+  """
+  @type list_integrations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       put_query_definition_response() :: %{
         "queryDefinitionId" => String.t()
       }
@@ -3182,6 +3441,12 @@ defmodule AWS.CloudWatchLogs do
           | service_unavailable_exception()
           | resource_not_found_exception()
           | operation_aborted_exception()
+
+  @type delete_integration_errors() ::
+          validation_exception()
+          | invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
 
   @type delete_log_anomaly_detector_errors() ::
           invalid_parameter_exception()
@@ -3358,6 +3623,11 @@ defmodule AWS.CloudWatchLogs do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
 
+  @type get_integration_errors() ::
+          invalid_parameter_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
   @type get_log_anomaly_detector_errors() ::
           invalid_parameter_exception()
           | service_unavailable_exception()
@@ -3397,6 +3667,9 @@ defmodule AWS.CloudWatchLogs do
           | service_unavailable_exception()
           | resource_not_found_exception()
           | operation_aborted_exception()
+
+  @type list_integrations_errors() ::
+          invalid_parameter_exception() | service_unavailable_exception()
 
   @type list_log_anomaly_detectors_errors() ::
           invalid_parameter_exception()
@@ -3469,6 +3742,12 @@ defmodule AWS.CloudWatchLogs do
           | service_unavailable_exception()
           | resource_not_found_exception()
           | operation_aborted_exception()
+
+  @type put_integration_errors() ::
+          limit_exceeded_exception()
+          | validation_exception()
+          | invalid_parameter_exception()
+          | service_unavailable_exception()
 
   @type put_log_events_errors() ::
           unrecognized_client_exception()
@@ -4115,6 +4394,27 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+  Deletes the integration between CloudWatch Logs and OpenSearch Service.
+
+  If your integration has active vended logs dashboards,
+  you must specify `true` for the `force` parameter, otherwise the operation will
+  fail. If you delete the integration by
+  setting `force` to `true`,
+  all your vended logs dashboards powered by OpenSearch Service will be deleted
+  and the data that was on them
+  will no longer be accessible.
+  """
+  @spec delete_integration(map(), delete_integration_request(), list()) ::
+          {:ok, delete_integration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_integration_errors()}
+  def delete_integration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteIntegration", input, options)
+  end
+
+  @doc """
   Deletes the specified CloudWatch Logs anomaly detector.
   """
   @spec delete_log_anomaly_detector(map(), delete_log_anomaly_detector_request(), list()) ::
@@ -4757,6 +5057,20 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+  Returns information about one integration between CloudWatch Logs and OpenSearch
+  Service.
+  """
+  @spec get_integration(map(), get_integration_request(), list()) ::
+          {:ok, get_integration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_integration_errors()}
+  def get_integration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetIntegration", input, options)
+  end
+
+  @doc """
   Retrieves information about the log anomaly detector that you specify.
   """
   @spec get_log_anomaly_detector(map(), get_log_anomaly_detector_request(), list()) ::
@@ -4923,6 +5237,24 @@ defmodule AWS.CloudWatchLogs do
     meta = metadata()
 
     Request.request_post(client, meta, "ListAnomalies", input, options)
+  end
+
+  @doc """
+  Returns a list of integrations between CloudWatch Logs and other services in
+  this account.
+
+  Currently, only one
+  integration can be created in an account, and this integration must be with
+  OpenSearch Service.
+  """
+  @spec list_integrations(map(), list_integrations_request(), list()) ::
+          {:ok, list_integrations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_integrations_errors()}
+  def list_integrations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListIntegrations", input, options)
   end
 
   @doc """
@@ -5550,6 +5882,32 @@ defmodule AWS.CloudWatchLogs do
     meta = metadata()
 
     Request.request_post(client, meta, "PutIndexPolicy", input, options)
+  end
+
+  @doc """
+  Creates an integration between CloudWatch Logs and another service in this
+  account.
+
+  Currently, only integrations with
+  OpenSearch Service are supported, and currently you can have only one
+  integration in your account.
+
+  Integrating with OpenSearch Service makes it possible for you to create curated
+  vended logs dashboards, powered
+  by OpenSearch Service analytics. For more information, see
+  [Vended log dashboards powered by Amazon OpenSearch Service](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-OpenSearch-Dashboards.html).
+
+  You can use this operation only to create a new integration. You can't modify an
+  existing integration.
+  """
+  @spec put_integration(map(), put_integration_request(), list()) ::
+          {:ok, put_integration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_integration_errors()}
+  def put_integration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutIntegration", input, options)
   end
 
   @doc """

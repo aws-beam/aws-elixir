@@ -74,6 +74,20 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      action_summary() :: %{
+        "actionIdentifier" => String.t(),
+        "description" => String.t(),
+        "displayName" => String.t(),
+        "instructionExample" => String.t()
+      }
+
+  """
+  @type action_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       applied_attachments_configuration() :: %{
         "attachmentsControlMode" => list(any())
       }
@@ -93,6 +107,18 @@ defmodule AWS.QBusiness do
 
   """
   @type put_feedback_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_data_accessor_request() :: %{
+        optional("displayName") => String.t(),
+        required("actionConfigurations") => list(action_configuration()())
+      }
+
+  """
+  @type update_data_accessor_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -172,6 +198,18 @@ defmodule AWS.QBusiness do
 
   """
   @type data_source_vpc_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_accessors_response() :: %{
+        "dataAccessors" => list(data_accessor()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_data_accessors_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -312,6 +350,37 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      get_data_accessor_response() :: %{
+        "actionConfigurations" => list(action_configuration()()),
+        "applicationId" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "dataAccessorArn" => String.t(),
+        "dataAccessorId" => String.t(),
+        "displayName" => String.t(),
+        "idcApplicationArn" => String.t(),
+        "principal" => String.t(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_data_accessor_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      idc_auth_configuration() :: %{
+        "idcApplicationArn" => String.t(),
+        "roleArn" => String.t()
+      }
+
+  """
+  @type idc_auth_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       text_output_event() :: %{
         "conversationId" => String.t(),
         "systemMessage" => String.t(),
@@ -368,12 +437,28 @@ defmodule AWS.QBusiness do
   ## Example:
 
       o_auth2_client_credential_configuration() :: %{
+        "authorizationUrl" => String.t(),
         "roleArn" => String.t(),
-        "secretArn" => String.t()
+        "secretArn" => String.t(),
+        "tokenUrl" => String.t()
       }
 
   """
   @type o_auth2_client_credential_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      customization_configuration() :: %{
+        "customCSSUrl" => String.t(),
+        "faviconUrl" => String.t(),
+        "fontUrl" => String.t(),
+        "logoUrl" => String.t()
+      }
+
+  """
+  @type customization_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -422,6 +507,27 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      get_policy_request() :: %{}
+
+  """
+  @type get_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_plugin_type_metadata_response() :: %{
+        "items" => list(plugin_type_metadata_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_plugin_type_metadata_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       failed_attachment_event() :: %{
         "attachment" => attachment_output(),
         "conversationId" => String.t(),
@@ -444,6 +550,19 @@ defmodule AWS.QBusiness do
 
   """
   @type principal_user() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_accessor_response() :: %{
+        "dataAccessorArn" => String.t(),
+        "dataAccessorId" => String.t(),
+        "idcApplicationArn" => String.t()
+      }
+
+  """
+  @type create_data_accessor_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -506,6 +625,21 @@ defmodule AWS.QBusiness do
 
   """
   @type data_source_sync_job_metrics() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_accessor_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("tags") => list(tag()()),
+        required("actionConfigurations") => list(action_configuration()()),
+        required("displayName") => String.t(),
+        required("principal") => String.t()
+      }
+
+  """
+  @type create_data_accessor_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -632,6 +766,18 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      list_plugin_actions_response() :: %{
+        "items" => list(action_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_plugin_actions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       action_review() :: %{
         "payload" => map(),
         "payloadFieldNameSeparator" => String.t(),
@@ -699,6 +845,15 @@ defmodule AWS.QBusiness do
 
   """
   @type text_input_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_accessor_request() :: %{}
+
+  """
+  @type delete_data_accessor_request() :: %{}
 
   @typedoc """
 
@@ -775,6 +930,15 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      update_data_accessor_response() :: %{}
+
+  """
+  @type update_data_accessor_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       create_plugin_request() :: %{
         optional("clientToken") => String.t(),
         optional("customPluginConfiguration") => custom_plugin_configuration(),
@@ -813,6 +977,31 @@ defmodule AWS.QBusiness do
 
   """
   @type image_extraction_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      plugin_type_metadata_summary() :: %{
+        "category" => list(any()),
+        "description" => String.t(),
+        "type" => list(any())
+      }
+
+  """
+  @type plugin_type_metadata_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_plugin_type_actions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_plugin_type_actions_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -924,6 +1113,7 @@ defmodule AWS.QBusiness do
       create_web_experience_request() :: %{
         optional("browserExtensionConfiguration") => browser_extension_configuration(),
         optional("clientToken") => String.t(),
+        optional("customizationConfiguration") => customization_configuration(),
         optional("identityProviderConfiguration") => list(),
         optional("origins") => list(String.t()()),
         optional("roleArn") => String.t(),
@@ -1050,6 +1240,7 @@ defmodule AWS.QBusiness do
         "authenticationConfiguration" => list(),
         "browserExtensionConfiguration" => browser_extension_configuration(),
         "createdAt" => non_neg_integer(),
+        "customizationConfiguration" => customization_configuration(),
         "defaultEndpoint" => String.t(),
         "error" => error_detail(),
         "identityProviderConfiguration" => list(),
@@ -1226,6 +1417,7 @@ defmodule AWS.QBusiness do
       update_web_experience_request() :: %{
         optional("authenticationConfiguration") => list(),
         optional("browserExtensionConfiguration") => browser_extension_configuration(),
+        optional("customizationConfiguration") => customization_configuration(),
         optional("identityProviderConfiguration") => list(),
         optional("origins") => list(String.t()()),
         optional("roleArn") => String.t(),
@@ -1247,6 +1439,7 @@ defmodule AWS.QBusiness do
         "createdAt" => non_neg_integer(),
         "displayName" => String.t(),
         "identityType" => list(any()),
+        "quickSightConfiguration" => quick_sight_configuration(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer()
       }
@@ -1265,6 +1458,15 @@ defmodule AWS.QBusiness do
 
   """
   @type number_attribute_boosting_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_permission_response() :: %{}
+
+  """
+  @type disassociate_permission_response() :: %{}
 
   @typedoc """
 
@@ -1396,6 +1598,7 @@ defmodule AWS.QBusiness do
         optional("identityType") => list(any()),
         optional("personalizationConfiguration") => personalization_configuration(),
         optional("qAppsConfiguration") => q_apps_configuration(),
+        optional("quickSightConfiguration") => quick_sight_configuration(),
         optional("roleArn") => String.t(),
         optional("tags") => list(tag()()),
         required("displayName") => String.t()
@@ -1631,6 +1834,15 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      get_data_accessor_request() :: %{}
+
+  """
+  @type get_data_accessor_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_plugin_response() :: %{}
 
   """
@@ -1644,6 +1856,17 @@ defmodule AWS.QBusiness do
 
   """
   @type delete_application_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      score_attributes() :: %{
+        "scoreConfidence" => list(any())
+      }
+
+  """
+  @type score_attributes() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1670,6 +1893,17 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      get_policy_response() :: %{
+        "policy" => String.t()
+      }
+
+  """
+  @type get_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       blocked_phrases_configuration_update() :: %{
         "blockedPhrasesToCreateOrUpdate" => list(String.t()()),
         "blockedPhrasesToDelete" => list(String.t()()),
@@ -1678,6 +1912,30 @@ defmodule AWS.QBusiness do
 
   """
   @type blocked_phrases_configuration_update() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_plugin_type_actions_response() :: %{
+        "items" => list(action_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_plugin_type_actions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_plugin_actions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_plugin_actions_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1757,6 +2015,27 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      disassociate_permission_request() :: %{}
+
+  """
+  @type disassociate_permission_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      search_relevant_content_response() :: %{
+        "nextToken" => String.t(),
+        "relevantContent" => list(relevant_content()())
+      }
+
+  """
+  @type search_relevant_content_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_data_source_response() :: %{
         "dataSourceArn" => String.t(),
         "dataSourceId" => String.t()
@@ -1779,6 +2058,18 @@ defmodule AWS.QBusiness do
 
   """
   @type document_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_plugin_type_metadata_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_plugin_type_metadata_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1809,6 +2100,7 @@ defmodule AWS.QBusiness do
         "identityType" => list(any()),
         "personalizationConfiguration" => personalization_configuration(),
         "qAppsConfiguration" => q_apps_configuration(),
+        "quickSightConfiguration" => quick_sight_configuration(),
         "roleArn" => String.t(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer()
@@ -1955,6 +2247,22 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      relevant_content() :: %{
+        "content" => String.t(),
+        "documentAttributes" => list(document_attribute()()),
+        "documentId" => String.t(),
+        "documentTitle" => String.t(),
+        "documentUri" => String.t(),
+        "scoreAttributes" => score_attributes()
+      }
+
+  """
+  @type relevant_content() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_group_response() :: %{}
 
   """
@@ -2038,6 +2346,23 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      search_relevant_content_request() :: %{
+        optional("attributeFilter") => attribute_filter(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("userGroups") => list(String.t()()),
+        optional("userId") => String.t(),
+        required("contentSource") => list(),
+        required("queryText") => String.t()
+      }
+
+  """
+  @type search_relevant_content_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_conversations_response() :: %{
         "conversations" => list(conversation()()),
         "nextToken" => String.t()
@@ -2045,6 +2370,15 @@ defmodule AWS.QBusiness do
 
   """
   @type list_conversations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_accessor_response() :: %{}
+
+  """
+  @type delete_data_accessor_response() :: %{}
 
   @typedoc """
 
@@ -2111,6 +2445,18 @@ defmodule AWS.QBusiness do
 
   """
   @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_accessors_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_data_accessors_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2226,6 +2572,17 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      quick_sight_configuration() :: %{
+        "clientNamespace" => String.t()
+      }
+
+  """
+  @type quick_sight_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       document_enrichment_configuration() :: %{
         "inlineConfigurations" => list(inline_document_enrichment_configuration()()),
         "postExtractionHookConfiguration" => hook_configuration(),
@@ -2268,6 +2625,19 @@ defmodule AWS.QBusiness do
 
   """
   @type delete_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_permission_request() :: %{
+        required("actions") => list(String.t()()),
+        required("principal") => String.t(),
+        required("statementId") => String.t()
+      }
+
+  """
+  @type associate_permission_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2374,6 +2744,18 @@ defmodule AWS.QBusiness do
 
   """
   @type external_resource_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      action_configuration() :: %{
+        "action" => String.t(),
+        "filterConfiguration" => action_filter_configuration()
+      }
+
+  """
+  @type action_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2559,6 +2941,23 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      data_accessor() :: %{
+        "createdAt" => non_neg_integer(),
+        "dataAccessorArn" => String.t(),
+        "dataAccessorId" => String.t(),
+        "displayName" => String.t(),
+        "idcApplicationArn" => String.t(),
+        "principal" => String.t(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type data_accessor() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_index_response() :: %{}
 
   """
@@ -2666,6 +3065,17 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      action_filter_configuration() :: %{
+        "documentAttributeFilter" => attribute_filter()
+      }
+
+  """
+  @type action_filter_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_index_request() :: %{}
 
   """
@@ -2691,6 +3101,17 @@ defmodule AWS.QBusiness do
 
   """
   @type create_user_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      retriever_content_source() :: %{
+        "retrieverId" => String.t()
+      }
+
+  """
+  @type retriever_content_source() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2791,6 +3212,17 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      associate_permission_response() :: %{
+        "statement" => String.t()
+      }
+
+  """
+  @type associate_permission_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_messages_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
@@ -2878,6 +3310,15 @@ defmodule AWS.QBusiness do
   """
   @type message() :: %{String.t() => any()}
 
+  @type associate_permission_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type batch_delete_document_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2916,6 +3357,15 @@ defmodule AWS.QBusiness do
           | license_not_found_exception()
 
   @type create_application_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_data_accessor_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -3001,6 +3451,14 @@ defmodule AWS.QBusiness do
           | resource_not_found_exception()
           | license_not_found_exception()
 
+  @type delete_data_accessor_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type delete_data_source_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3057,6 +3515,14 @@ defmodule AWS.QBusiness do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type disassociate_permission_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type get_application_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3065,6 +3531,13 @@ defmodule AWS.QBusiness do
           | resource_not_found_exception()
 
   @type get_chat_controls_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_data_accessor_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -3103,6 +3576,13 @@ defmodule AWS.QBusiness do
           | media_too_large_exception()
 
   @type get_plugin_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_policy_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -3153,6 +3633,13 @@ defmodule AWS.QBusiness do
           | resource_not_found_exception()
           | license_not_found_exception()
 
+  @type list_data_accessors_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type list_data_source_sync_jobs_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3198,6 +3685,25 @@ defmodule AWS.QBusiness do
           | resource_not_found_exception()
           | license_not_found_exception()
 
+  @type list_plugin_actions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_plugin_type_actions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_plugin_type_metadata_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type list_plugins_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3241,6 +3747,14 @@ defmodule AWS.QBusiness do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type search_relevant_content_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | license_not_found_exception()
 
   @type start_data_source_sync_job_errors() ::
           throttling_exception()
@@ -3288,6 +3802,14 @@ defmodule AWS.QBusiness do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_data_accessor_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -3356,6 +3878,40 @@ defmodule AWS.QBusiness do
       signing_name: "qbusiness",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Adds or updates a permission policy for a Q Business application, allowing
+  cross-account access for an ISV.
+
+  This operation creates a new policy statement for the specified Q Business
+  application.
+  The policy statement defines the IAM actions that the ISV is allowed to perform
+  on the Q Business application's resources.
+  """
+  @spec associate_permission(map(), String.t(), associate_permission_request(), list()) ::
+          {:ok, associate_permission_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, associate_permission_errors()}
+  def associate_permission(%Client{} = client, application_id, input, options \\ []) do
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/policy"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -3543,6 +4099,45 @@ defmodule AWS.QBusiness do
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
     url_path = "/applications"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a new data accessor for an ISV to access data from a Q Business
+  application.
+
+  The data accessor is an entity that represents the ISV's access to the Q
+  Business application's data.
+  It includes the IAM role ARN for the ISV, a friendly name, and a set of action
+  configurations that define the
+  specific actions the ISV is allowed to perform and any associated data filters.
+  When the data accessor is created,
+  an AWS IAM Identity Center application is also created to manage the ISV's
+  identity and authentication for
+  accessing the Q Business application.
+  """
+  @spec create_data_accessor(map(), String.t(), create_data_accessor_request(), list()) ::
+          {:ok, create_data_accessor_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_data_accessor_errors()}
+  def create_data_accessor(%Client{} = client, application_id, input, options \\ []) do
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/dataaccessors"
     headers = []
     custom_headers = []
     query_params = []
@@ -3852,6 +4447,52 @@ defmodule AWS.QBusiness do
   end
 
   @doc """
+  Deletes a specified data accessor.
+
+  This operation permanently removes the data accessor
+  and its associated AWS IAM Identity Center application. Any access granted to
+  the ISV through this data accessor will be revoked
+  """
+  @spec delete_data_accessor(
+          map(),
+          String.t(),
+          String.t(),
+          delete_data_accessor_request(),
+          list()
+        ) ::
+          {:ok, delete_data_accessor_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_data_accessor_errors()}
+  def delete_data_accessor(
+        %Client{} = client,
+        application_id,
+        data_accessor_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/applications/#{AWS.Util.encode_uri(application_id)}/dataaccessors/#{AWS.Util.encode_uri(data_accessor_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes an Amazon Q Business data source connector.
 
   While the data source is being
@@ -4112,6 +4753,53 @@ defmodule AWS.QBusiness do
   end
 
   @doc """
+  Removes a permission policy from a Q Business application, revoking the
+  cross-account access that was
+  previously granted to an ISV.
+
+  This operation deletes the specified policy statement from the application's
+  permission policy.
+  """
+  @spec disassociate_permission(
+          map(),
+          String.t(),
+          String.t(),
+          disassociate_permission_request(),
+          list()
+        ) ::
+          {:ok, disassociate_permission_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disassociate_permission_errors()}
+  def disassociate_permission(
+        %Client{} = client,
+        application_id,
+        statement_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/applications/#{AWS.Util.encode_uri(application_id)}/policy/#{AWS.Util.encode_uri(statement_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Gets information about an existing Amazon Q Business application.
   """
   @spec get_application(map(), String.t(), list()) ::
@@ -4167,6 +4855,33 @@ defmodule AWS.QBusiness do
       else
         query_params
       end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves information about a specified data accessor.
+
+  This operation returns details about the
+  data accessor, including its display name, unique identifier, Amazon Resource
+  Name (ARN), the associated
+  Q Business application and AWS IAM Identity Center application, the IAM role for
+  the ISV, the
+  action configurations, and the timestamps for when the data accessor was created
+  and last updated.
+  """
+  @spec get_data_accessor(map(), String.t(), String.t(), list()) ::
+          {:ok, get_data_accessor_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_data_accessor_errors()}
+  def get_data_accessor(%Client{} = client, application_id, data_accessor_id, options \\ []) do
+    url_path =
+      "/applications/#{AWS.Util.encode_uri(application_id)}/dataaccessors/#{AWS.Util.encode_uri(data_accessor_id)}"
+
+    headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -4289,6 +5004,27 @@ defmodule AWS.QBusiness do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/plugins/#{AWS.Util.encode_uri(plugin_id)}"
 
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the current permission policy for a Q Business application.
+
+  The policy is
+  returned as a JSON-formatted string and defines the IAM actions that are allowed
+  or denied for the application's resources.
+  """
+  @spec get_policy(map(), String.t(), list()) ::
+          {:ok, get_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_policy_errors()}
+  def get_policy(%Client{} = client, application_id, options \\ []) do
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/policy"
     headers = []
     query_params = []
 
@@ -4488,6 +5224,48 @@ defmodule AWS.QBusiness do
       else
         query_params
       end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the data accessors for a Q Business application.
+
+  This operation returns a paginated
+  list of data accessor summaries, including the friendly name, unique identifier,
+  ARN,
+  associated IAM role, and creation/update timestamps for each data accessor.
+  """
+  @spec list_data_accessors(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_data_accessors_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_data_accessors_errors()}
+  def list_data_accessors(
+        %Client{} = client,
+        application_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/dataaccessors"
+    headers = []
+    query_params = []
 
     query_params =
       if !is_nil(next_token) do
@@ -4847,6 +5625,128 @@ defmodule AWS.QBusiness do
   end
 
   @doc """
+  Lists configured Amazon Q Business actions for a specific plugin in an Amazon Q
+  Business application.
+  """
+  @spec list_plugin_actions(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_plugin_actions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_plugin_actions_errors()}
+  def list_plugin_actions(
+        %Client{} = client,
+        application_id,
+        plugin_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/applications/#{AWS.Util.encode_uri(application_id)}/plugins/#{AWS.Util.encode_uri(plugin_id)}/actions"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists configured Amazon Q Business actions for any plugin type—both
+  built-in and custom.
+  """
+  @spec list_plugin_type_actions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_plugin_type_actions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_plugin_type_actions_errors()}
+  def list_plugin_type_actions(
+        %Client{} = client,
+        plugin_type,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/pluginTypes/#{AWS.Util.encode_uri(plugin_type)}/actions"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists metadata for all Amazon Q Business plugin types.
+  """
+  @spec list_plugin_type_metadata(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_plugin_type_metadata_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_plugin_type_metadata_errors()}
+  def list_plugin_type_metadata(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/pluginTypeMetadata"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists configured Amazon Q Business plugins.
   """
   @spec list_plugins(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
@@ -5053,6 +5953,50 @@ defmodule AWS.QBusiness do
       client,
       meta,
       :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Searches for relevant content in a Q Business application based on a query.
+
+  This operation takes a
+  search query text, the Q Business application identifier, and optional filters
+  (such as user ID, user groups, content source, and maximum results) as input. It
+  returns a list of
+  relevant content items, where each item includes the content text, the unique
+  document identifier,
+  the document title, the document URI, any relevant document attributes, and
+  score attributes
+  indicating the confidence level of the relevance.
+  """
+  @spec search_relevant_content(map(), String.t(), search_relevant_content_request(), list()) ::
+          {:ok, search_relevant_content_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, search_relevant_content_errors()}
+  def search_relevant_content(%Client{} = client, application_id, input, options \\ []) do
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/relevant-content"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"userGroups", "userGroups"},
+        {"userId", "userId"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -5283,6 +6227,54 @@ defmodule AWS.QBusiness do
       client,
       meta,
       :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an existing data accessor.
+
+  This operation allows modifying the action configurations
+  (the allowed actions and associated filters) and the display name of the data
+  accessor.
+  It does not allow changing the IAM role associated with the data accessor or
+  other core properties of the data accessor.
+  """
+  @spec update_data_accessor(
+          map(),
+          String.t(),
+          String.t(),
+          update_data_accessor_request(),
+          list()
+        ) ::
+          {:ok, update_data_accessor_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_data_accessor_errors()}
+  def update_data_accessor(
+        %Client{} = client,
+        application_id,
+        data_accessor_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/applications/#{AWS.Util.encode_uri(application_id)}/dataaccessors/#{AWS.Util.encode_uri(data_accessor_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
       url_path,
       query_params,
       custom_headers ++ headers,

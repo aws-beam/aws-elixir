@@ -528,6 +528,7 @@ defmodule AWS.LakeFormation do
 
       principal_resource_permissions() :: %{
         "AdditionalDetails" => details_map(),
+        "Condition" => condition(),
         "LastUpdated" => non_neg_integer(),
         "LastUpdatedBy" => String.t(),
         "Permissions" => list(list(any())()),
@@ -1089,10 +1090,12 @@ defmodule AWS.LakeFormation do
 
   ## Example:
 
-      catalog_resource() :: %{}
+      catalog_resource() :: %{
+        "Id" => String.t()
+      }
 
   """
-  @type catalog_resource() :: %{}
+  @type catalog_resource() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1132,6 +1135,7 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       lake_formation_opt_ins_info() :: %{
+        "Condition" => condition(),
         "LastModified" => non_neg_integer(),
         "LastUpdatedBy" => String.t(),
         "Principal" => data_lake_principal(),
@@ -1363,6 +1367,17 @@ defmodule AWS.LakeFormation do
 
   """
   @type get_query_state_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      condition() :: %{
+        "Expression" => String.t()
+      }
+
+  """
+  @type condition() :: %{String.t() => any()}
 
   @typedoc """
 

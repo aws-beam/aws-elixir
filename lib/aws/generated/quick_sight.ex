@@ -1284,6 +1284,19 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      q_a_result() :: %{
+        "DashboardVisual" => dashboard_visual_result(),
+        "GeneratedAnswer" => generated_answer_result(),
+        "ResultType" => list(any())
+      }
+
+  """
+  @type q_a_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       negative_format() :: %{
         "Prefix" => String.t(),
         "Suffix" => String.t()
@@ -1985,6 +1998,20 @@ defmodule AWS.QuickSight do
 
   """
   @type table_field_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      predict_q_a_results_request() :: %{
+        optional("IncludeGeneratedAnswer") => list(any()),
+        optional("IncludeQuickSightQIndex") => list(any()),
+        optional("MaxTopicsToConsider") => integer(),
+        required("QueryText") => String.t()
+      }
+
+  """
+  @type predict_q_a_results_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4014,6 +4041,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      update_application_with_token_exchange_grant_request() :: %{
+        required("Namespace") => String.t()
+      }
+
+  """
+  @type update_application_with_token_exchange_grant_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_ingestion_response() :: %{
         "Arn" => String.t(),
         "IngestionId" => String.t(),
@@ -4487,6 +4525,18 @@ defmodule AWS.QuickSight do
 
   """
   @type template_version_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_application_with_token_exchange_grant_response() :: %{
+        "RequestId" => String.t(),
+        "Status" => integer()
+      }
+
+  """
+  @type update_application_with_token_exchange_grant_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5561,6 +5611,17 @@ defmodule AWS.QuickSight do
 
   """
   @type axis_linear_scale() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_quick_sight_q_search_configuration_request() :: %{
+        required("QSearchStatus") => list(any())
+      }
+
+  """
+  @type update_quick_sight_q_search_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -8146,6 +8207,18 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      update_default_q_business_application_request() :: %{
+        optional("Namespace") => String.t(),
+        required("ApplicationId") => String.t()
+      }
+
+  """
+  @type update_default_q_business_application_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_refresh_schedules_request() :: %{}
 
   """
@@ -8890,6 +8963,24 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      generated_answer_result() :: %{
+        "AnswerId" => String.t(),
+        "AnswerStatus" => list(any()),
+        "QuestionId" => String.t(),
+        "QuestionText" => String.t(),
+        "QuestionUrl" => String.t(),
+        "Restatement" => String.t(),
+        "TopicId" => String.t(),
+        "TopicName" => String.t()
+      }
+
+  """
+  @type generated_answer_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       asset_bundle_import_job_refresh_schedule_override_parameters() :: %{
         "DataSetId" => String.t(),
         "ScheduleId" => String.t(),
@@ -8909,6 +9000,17 @@ defmodule AWS.QuickSight do
 
   """
   @type update_brand_assignment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_default_q_business_application_request() :: %{
+        optional("Namespace") => String.t()
+      }
+
+  """
+  @type delete_default_q_business_application_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -9033,6 +9135,19 @@ defmodule AWS.QuickSight do
 
   """
   @type asset_bundle_export_job_refresh_schedule_override_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      generate_embed_url_for_registered_user_with_identity_request() :: %{
+        optional("AllowedDomains") => list(String.t()()),
+        optional("SessionLifetimeInMinutes") => float(),
+        required("ExperienceConfiguration") => registered_user_embedding_experience_configuration()
+      }
+
+  """
+  @type generate_embed_url_for_registered_user_with_identity_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -9667,6 +9782,24 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      dashboard_visual_result() :: %{
+        "DashboardId" => String.t(),
+        "DashboardName" => String.t(),
+        "DashboardUrl" => String.t(),
+        "SheetId" => String.t(),
+        "SheetName" => String.t(),
+        "VisualId" => String.t(),
+        "VisualSubtitle" => String.t(),
+        "VisualTitle" => String.t()
+      }
+
+  """
+  @type dashboard_visual_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       data_set_identifier_declaration() :: %{
         "DataSetArn" => String.t(),
         "Identifier" => String.t()
@@ -10060,6 +10193,18 @@ defmodule AWS.QuickSight do
 
   """
   @type update_vpc_connection_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_default_q_business_application_response() :: %{
+        "RequestId" => String.t(),
+        "Status" => integer()
+      }
+
+  """
+  @type update_default_q_business_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -10965,6 +11110,18 @@ defmodule AWS.QuickSight do
 
   """
   @type filter_cross_sheet_control() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_default_q_business_application_response() :: %{
+        "RequestId" => String.t(),
+        "Status" => integer()
+      }
+
+  """
+  @type delete_default_q_business_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -13302,6 +13459,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      describe_default_q_business_application_request() :: %{
+        optional("Namespace") => String.t()
+      }
+
+  """
+  @type describe_default_q_business_application_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cancel_ingestion_response() :: %{
         "Arn" => String.t(),
         "IngestionId" => String.t(),
@@ -14209,6 +14377,19 @@ defmodule AWS.QuickSight do
 
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_default_q_business_application_response() :: %{
+        "ApplicationId" => String.t(),
+        "RequestId" => String.t(),
+        "Status" => integer()
+      }
+
+  """
+  @type describe_default_q_business_application_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -16080,6 +16261,19 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      generate_embed_url_for_registered_user_with_identity_response() :: %{
+        "EmbedUrl" => String.t(),
+        "RequestId" => String.t(),
+        "Status" => integer()
+      }
+
+  """
+  @type generate_embed_url_for_registered_user_with_identity_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       insight_visual() :: %{
         "Actions" => list(visual_custom_action()()),
         "DataSetIdentifier" => String.t(),
@@ -16631,6 +16825,15 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      describe_quick_sight_q_search_configuration_request() :: %{}
+
+  """
+  @type describe_quick_sight_q_search_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       describe_template_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer(),
@@ -17020,6 +17223,20 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      predict_q_a_results_response() :: %{
+        "AdditionalResults" => list(q_a_result()()),
+        "PrimaryResult" => q_a_result(),
+        "RequestId" => String.t(),
+        "Status" => integer()
+      }
+
+  """
+  @type predict_q_a_results_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_folder_resolved_permissions_request() :: %{
         optional("MaxResults") => integer(),
         optional("Namespace") => String.t(),
@@ -17100,6 +17317,19 @@ defmodule AWS.QuickSight do
 
   """
   @type custom_values_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_quick_sight_q_search_configuration_response() :: %{
+        "QSearchStatus" => list(any()),
+        "RequestId" => String.t(),
+        "Status" => integer()
+      }
+
+  """
+  @type describe_quick_sight_q_search_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -17199,6 +17429,19 @@ defmodule AWS.QuickSight do
 
   """
   @type default_text_area_control_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_quick_sight_q_search_configuration_response() :: %{
+        "QSearchStatus" => list(any()),
+        "RequestId" => String.t(),
+        "Status" => integer()
+      }
+
+  """
+  @type update_quick_sight_q_search_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -17651,6 +17894,13 @@ defmodule AWS.QuickSight do
           | resource_not_found_exception()
           | internal_failure_exception()
 
+  @type delete_default_q_business_application_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | internal_failure_exception()
+
   @type delete_folder_errors() ::
           precondition_not_met_exception()
           | throttling_exception()
@@ -18004,6 +18254,13 @@ defmodule AWS.QuickSight do
           | resource_not_found_exception()
           | internal_failure_exception()
 
+  @type describe_default_q_business_application_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
   @type describe_folder_errors() ::
           throttling_exception()
           | access_denied_exception()
@@ -18086,6 +18343,14 @@ defmodule AWS.QuickSight do
           | internal_failure_exception()
 
   @type describe_q_personalization_configuration_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | internal_failure_exception()
+
+  @type describe_quick_sight_q_search_configuration_errors() ::
           throttling_exception()
           | access_denied_exception()
           | invalid_parameter_value_exception()
@@ -18228,6 +18493,17 @@ defmodule AWS.QuickSight do
           | internal_failure_exception()
 
   @type generate_embed_url_for_registered_user_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | session_lifetime_in_minutes_invalid_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | unsupported_user_edition_exception()
+          | unsupported_pricing_plan_exception()
+          | quick_sight_user_not_found_exception()
+          | internal_failure_exception()
+
+  @type generate_embed_url_for_registered_user_with_identity_errors() ::
           throttling_exception()
           | access_denied_exception()
           | session_lifetime_in_minutes_invalid_exception()
@@ -18543,6 +18819,12 @@ defmodule AWS.QuickSight do
           | unsupported_user_edition_exception()
           | internal_failure_exception()
 
+  @type predict_q_a_results_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+
   @type put_data_set_refresh_properties_errors() ::
           precondition_not_met_exception()
           | limit_exceeded_exception()
@@ -18722,6 +19004,15 @@ defmodule AWS.QuickSight do
           | unsupported_user_edition_exception()
           | internal_failure_exception()
 
+  @type update_application_with_token_exchange_grant_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
   @type update_brand_errors() ::
           throttling_exception()
           | access_denied_exception()
@@ -18834,6 +19125,14 @@ defmodule AWS.QuickSight do
           | conflict_exception()
           | internal_failure_exception()
 
+  @type update_default_q_business_application_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | internal_failure_exception()
+
   @type update_folder_errors() ::
           throttling_exception()
           | access_denied_exception()
@@ -18907,6 +19206,14 @@ defmodule AWS.QuickSight do
           | resource_not_found_exception()
           | conflict_exception()
           | resource_unavailable_exception()
+          | internal_failure_exception()
+
+  @type update_quick_sight_q_search_configuration_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
           | internal_failure_exception()
 
   @type update_refresh_schedule_errors() ::
@@ -20585,6 +20892,49 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Deletes a linked Amazon Q Business application from an Amazon QuickSight account
+  """
+  @spec delete_default_q_business_application(
+          map(),
+          String.t(),
+          delete_default_q_business_application_request(),
+          list()
+        ) ::
+          {:ok, delete_default_q_business_application_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_default_q_business_application_errors()}
+  def delete_default_q_business_application(
+        %Client{} = client,
+        aws_account_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/default-qbusiness-application"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"Namespace", "namespace"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes an empty folder.
   """
   @spec delete_folder(map(), String.t(), String.t(), delete_folder_request(), list()) ::
@@ -22104,6 +22454,36 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Describes a Amazon Q Business application that is linked to an Amazon QuickSight
+  account.
+  """
+  @spec describe_default_q_business_application(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, describe_default_q_business_application_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_default_q_business_application_errors()}
+  def describe_default_q_business_application(
+        %Client{} = client,
+        aws_account_id,
+        namespace \\ nil,
+        options \\ []
+      ) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/default-qbusiness-application"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(namespace) do
+        [{"namespace", namespace} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Describes a folder.
   """
   @spec describe_folder(map(), String.t(), String.t(), list()) ::
@@ -22411,6 +22791,29 @@ defmodule AWS.QuickSight do
           | {:error, describe_q_personalization_configuration_errors()}
   def describe_q_personalization_configuration(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/q-personalization-configuration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Describes the state of a Amazon QuickSight Q Search configuration.
+  """
+  @spec describe_quick_sight_q_search_configuration(map(), String.t(), list()) ::
+          {:ok, describe_quick_sight_q_search_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_quick_sight_q_search_configuration_errors()}
+  def describe_quick_sight_q_search_configuration(
+        %Client{} = client,
+        aws_account_id,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/quicksight-q-search-configuration"
+
     headers = []
     query_params = []
 
@@ -22965,6 +23368,60 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/embed-url/registered-user"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Generates an embed URL that you can use to embed an Amazon QuickSight experience
+  in your website.
+
+  This action can be used for any type of user that is registered in an Amazon
+  QuickSight account that uses IAM Identity Center for authentication. This API
+  requires [identity-enhanced IAM Role sessions](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-overview.html#types-identity-enhanced-iam-role-sessions)
+  for the authenticated user that the API call is being made for.
+
+  This API uses [trusted identity propagation](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation.html)
+  to ensure that an end user is authenticated and receives the embed URL that is
+  specific to that user. The IAM Identity Center application that the user has
+  logged into needs to have [trusted Identity Propagation enabled for Amazon QuickSight](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-using-customermanagedapps-specify-trusted-apps.html)
+  with the scope value set to `quicksight:read`. Before you use this action, make
+  sure that you have configured the relevant Amazon QuickSight resource and
+  permissions.
+  """
+  @spec generate_embed_url_for_registered_user_with_identity(
+          map(),
+          String.t(),
+          generate_embed_url_for_registered_user_with_identity_request(),
+          list()
+        ) ::
+          {:ok, generate_embed_url_for_registered_user_with_identity_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, generate_embed_url_for_registered_user_with_identity_errors()}
+  def generate_embed_url_for_registered_user_with_identity(
+        %Client{} = client,
+        aws_account_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/embed-url/registered-user-with-identity"
+
     headers = []
     custom_headers = []
     query_params = []
@@ -24606,6 +25063,34 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Predicts existing visuals or generates new visuals to answer a given query.
+  """
+  @spec predict_q_a_results(map(), String.t(), predict_q_a_results_request(), list()) ::
+          {:ok, predict_q_a_results_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, predict_q_a_results_errors()}
+  def predict_q_a_results(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/qa/predict"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates or updates the dataset refresh properties for the dataset.
   """
   @spec put_data_set_refresh_properties(
@@ -25447,6 +25932,54 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Updates an Amazon QuickSight application with a token exchange grant.
+
+  This operation only supports Amazon QuickSight applications that are registered
+  with IAM Identity Center.
+  """
+  @spec update_application_with_token_exchange_grant(
+          map(),
+          String.t(),
+          update_application_with_token_exchange_grant_request(),
+          list()
+        ) ::
+          {:ok, update_application_with_token_exchange_grant_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_application_with_token_exchange_grant_errors()}
+  def update_application_with_token_exchange_grant(
+        %Client{} = client,
+        aws_account_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/application-with-token-exchange-grant"
+
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"Namespace", "namespace"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates a brand.
   """
   @spec update_brand(map(), String.t(), String.t(), update_brand_request(), list()) ::
@@ -25948,6 +26481,50 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Updates a Amazon Q Business application that is linked to a Amazon QuickSight
+  account.
+  """
+  @spec update_default_q_business_application(
+          map(),
+          String.t(),
+          update_default_q_business_application_request(),
+          list()
+        ) ::
+          {:ok, update_default_q_business_application_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_default_q_business_application_errors()}
+  def update_default_q_business_application(
+        %Client{} = client,
+        aws_account_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/default-qbusiness-application"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"Namespace", "namespace"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates the name of a folder.
   """
   @spec update_folder(map(), String.t(), String.t(), update_folder_request(), list()) ::
@@ -26278,6 +26855,46 @@ defmodule AWS.QuickSight do
         options \\ []
       ) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/q-personalization-configuration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the state of a Amazon QuickSight Q Search configuration.
+  """
+  @spec update_quick_sight_q_search_configuration(
+          map(),
+          String.t(),
+          update_quick_sight_q_search_configuration_request(),
+          list()
+        ) ::
+          {:ok, update_quick_sight_q_search_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_quick_sight_q_search_configuration_errors()}
+  def update_quick_sight_q_search_configuration(
+        %Client{} = client,
+        aws_account_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/quicksight-q-search-configuration"
+
     headers = []
     custom_headers = []
     query_params = []

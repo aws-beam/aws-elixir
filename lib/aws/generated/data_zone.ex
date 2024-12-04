@@ -51,6 +51,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      list_project_profiles_output() :: %{
+        "items" => list(project_profile_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_project_profiles_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       metadata_form_enforcement_detail() :: %{
         "requiredMetadataForms" => list(metadata_form_reference()())
       }
@@ -80,6 +92,7 @@ defmodule AWS.DataZone do
         "lastUpdatedAt" => non_neg_integer(),
         "name" => [String.t()],
         "rootDomainUnitId" => String.t(),
+        "serviceRole" => String.t(),
         "singleSignOn" => single_sign_on()
       }
 
@@ -356,6 +369,22 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      redshift_properties_input() :: %{
+        "credentials" => list(),
+        "databaseName" => [String.t()],
+        "host" => [String.t()],
+        "lineageSync" => redshift_lineage_sync_configuration_input(),
+        "port" => [integer()],
+        "storage" => list()
+      }
+
+  """
+  @type redshift_properties_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_data_source_runs_input() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
@@ -452,6 +481,15 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      get_project_profile_input() :: %{}
+
+  """
+  @type get_project_profile_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       update_subscription_target_output() :: %{
         "applicableAssetTypes" => list(String.t()()),
         "authorizedPrincipals" => list(String.t()()),
@@ -460,7 +498,7 @@ defmodule AWS.DataZone do
         "domainId" => String.t(),
         "environmentId" => String.t(),
         "id" => String.t(),
-        "manageAccessRole" => [String.t()],
+        "manageAccessRole" => String.t(),
         "name" => String.t(),
         "projectId" => String.t(),
         "provider" => [String.t()],
@@ -488,6 +526,15 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      delete_connection_input() :: %{}
+
+  """
+  @type delete_connection_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       update_group_profile_output() :: %{
         "domainId" => String.t(),
         "groupName" => String.t(),
@@ -497,6 +544,18 @@ defmodule AWS.DataZone do
 
   """
   @type update_group_profile_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_job_runs_output() :: %{
+        "items" => list(job_run_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_job_runs_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -594,6 +653,25 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      redshift_properties_output() :: %{
+        "credentials" => list(),
+        "databaseName" => [String.t()],
+        "isProvisionedSecret" => [boolean()],
+        "jdbcIamUrl" => [String.t()],
+        "jdbcUrl" => [String.t()],
+        "lineageSync" => redshift_lineage_sync_configuration_output(),
+        "redshiftTempDir" => [String.t()],
+        "status" => list(any()),
+        "storage" => list()
+      }
+
+  """
+  @type redshift_properties_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       asset_listing_details() :: %{
         "listingId" => String.t(),
         "listingStatus" => list(any())
@@ -610,6 +688,30 @@ defmodule AWS.DataZone do
 
   """
   @type all_users_grant_filter() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      environment_configuration_parameters_details() :: %{
+        "parameterOverrides" => list(environment_configuration_parameter()()),
+        "resolvedParameters" => list(environment_configuration_parameter()()),
+        "ssmPath" => String.t()
+      }
+
+  """
+  @type environment_configuration_parameters_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lineage_sync_schedule() :: %{
+        "schedule" => [String.t()]
+      }
+
+  """
+  @type lineage_sync_schedule() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -664,6 +766,7 @@ defmodule AWS.DataZone do
 
       update_project_input() :: %{
         optional("description") => String.t(),
+        optional("environmentDeploymentDetails") => environment_deployment_details(),
         optional("glossaryTerms") => list(String.t()()),
         optional("name") => String.t()
       }
@@ -736,6 +839,34 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      glue_connection() :: %{
+        "athenaProperties" => map(),
+        "authenticationConfiguration" => authentication_configuration(),
+        "compatibleComputeEnvironments" => list(list(any())()),
+        "connectionProperties" => map(),
+        "connectionSchemaVersion" => [integer()],
+        "connectionType" => list(any()),
+        "creationTime" => [non_neg_integer()],
+        "description" => [String.t()],
+        "lastConnectionValidationTime" => [non_neg_integer()],
+        "lastUpdatedBy" => [String.t()],
+        "lastUpdatedTime" => [non_neg_integer()],
+        "matchCriteria" => list([String.t()]()),
+        "name" => [String.t()],
+        "physicalConnectionRequirements" => physical_connection_requirements(),
+        "pythonProperties" => map(),
+        "sparkProperties" => map(),
+        "status" => list(any()),
+        "statusReason" => [String.t()]
+      }
+
+  """
+  @type glue_connection() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_asset_type_policy_grant_detail() :: %{
         "includeChildDomainUnits" => [boolean()]
       }
@@ -775,6 +906,42 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      authentication_configuration_input() :: %{
+        "authenticationType" => list(any()),
+        "basicAuthenticationCredentials" => basic_authentication_credentials(),
+        "customAuthenticationCredentials" => map(),
+        "kmsKeyArn" => [String.t()],
+        "oAuth2Properties" => o_auth2_properties(),
+        "secretArn" => [String.t()]
+      }
+
+  """
+  @type authentication_configuration_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_project_profile_output() :: %{
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => String.t(),
+        "description" => String.t(),
+        "domainId" => String.t(),
+        "domainUnitId" => String.t(),
+        "environmentConfigurations" => list(environment_configuration()()),
+        "id" => String.t(),
+        "lastUpdatedAt" => [non_neg_integer()],
+        "name" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type update_project_profile_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_listing_change_set_output() :: %{
         "listingId" => String.t(),
         "listingRevision" => String.t(),
@@ -803,10 +970,12 @@ defmodule AWS.DataZone do
   ## Example:
 
       create_environment_input() :: %{
+        optional("deploymentOrder") => [integer()],
         optional("description") => [String.t()],
         optional("environmentAccountIdentifier") => [String.t()],
         optional("environmentAccountRegion") => [String.t()],
         optional("environmentBlueprintIdentifier") => [String.t()],
+        optional("environmentConfigurationId") => [String.t()],
         optional("glossaryTerms") => list(String.t()()),
         optional("userParameters") => list(environment_parameter()()),
         required("environmentProfileIdentifier") => String.t(),
@@ -816,6 +985,18 @@ defmodule AWS.DataZone do
 
   """
   @type create_environment_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      authorization_code_properties() :: %{
+        "authorizationCode" => [String.t()],
+        "redirectUri" => [String.t()]
+      }
+
+  """
+  @type authorization_code_properties() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -864,6 +1045,22 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      list_lineage_events_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("processingStatus") => list(any()),
+        optional("sortOrder") => list(any()),
+        optional("timestampAfter") => [non_neg_integer()],
+        optional("timestampBefore") => [non_neg_integer()]
+      }
+
+  """
+  @type list_lineage_events_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_time_series_data_points_output() :: %{
         "items" => list(time_series_data_point_summary_form_output()()),
         "nextToken" => String.t()
@@ -897,6 +1094,7 @@ defmodule AWS.DataZone do
         "arn" => [String.t()],
         "createdAt" => non_neg_integer(),
         "description" => String.t(),
+        "domainVersion" => list(any()),
         "id" => String.t(),
         "lastUpdatedAt" => non_neg_integer(),
         "managedAccountId" => [String.t()],
@@ -946,7 +1144,7 @@ defmodule AWS.DataZone do
         "domainId" => String.t(),
         "environmentId" => String.t(),
         "id" => String.t(),
-        "manageAccessRole" => [String.t()],
+        "manageAccessRole" => String.t(),
         "name" => String.t(),
         "projectId" => String.t(),
         "provider" => [String.t()],
@@ -958,6 +1156,27 @@ defmodule AWS.DataZone do
 
   """
   @type create_subscription_target_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_run_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => [String.t()],
+        "domainId" => String.t(),
+        "endTime" => [non_neg_integer()],
+        "error" => job_run_error(),
+        "jobId" => [String.t()],
+        "jobType" => list(any()),
+        "runId" => [String.t()],
+        "runMode" => list(any()),
+        "startTime" => [non_neg_integer()],
+        "status" => list(any())
+      }
+
+  """
+  @type job_run_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1017,12 +1236,13 @@ defmodule AWS.DataZone do
         optional("assetFormsInput") => list(form_input()()),
         optional("clientToken") => [String.t()],
         optional("configuration") => list(),
+        optional("connectionIdentifier") => [String.t()],
         optional("description") => String.t(),
         optional("enableSetting") => list(any()),
+        optional("environmentIdentifier") => [String.t()],
         optional("publishOnImport") => [boolean()],
         optional("recommendation") => recommendation_configuration(),
         optional("schedule") => schedule_configuration(),
-        required("environmentIdentifier") => [String.t()],
         required("name") => String.t(),
         required("projectIdentifier") => [String.t()],
         required("type") => String.t()
@@ -1045,6 +1265,26 @@ defmodule AWS.DataZone do
 
   """
   @type create_form_type_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_project_profile_output() :: %{
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => String.t(),
+        "description" => String.t(),
+        "domainId" => String.t(),
+        "domainUnitId" => String.t(),
+        "environmentConfigurations" => list(environment_configuration()()),
+        "id" => String.t(),
+        "lastUpdatedAt" => [non_neg_integer()],
+        "name" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type get_project_profile_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1102,6 +1342,7 @@ defmodule AWS.DataZone do
         "dataSourceRunId" => String.t(),
         "database" => String.t(),
         "errorMessage" => data_source_error_message(),
+        "lineageSummary" => lineage_info(),
         "projectId" => String.t(),
         "technicalDescription" => String.t(),
         "technicalName" => String.t(),
@@ -1196,6 +1437,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      environment_configuration_user_parameter() :: %{
+        "environmentConfigurationName" => String.t(),
+        "environmentParameters" => list(environment_parameter()())
+      }
+
+  """
+  @type environment_configuration_user_parameter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       less_than_expression() :: %{
         "columnName" => [String.t()],
         "value" => [String.t()]
@@ -1276,6 +1529,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      list_connections_output() :: %{
+        "items" => list(connection_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_connections_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       user_details() :: %{
         "userId" => [String.t()]
       }
@@ -1315,6 +1580,33 @@ defmodule AWS.DataZone do
 
   """
   @type get_data_product_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_connection_input() :: %{
+        optional("awsLocation") => aws_location(),
+        optional("description") => String.t(),
+        optional("props") => list()
+      }
+
+  """
+  @type update_connection_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_job_runs_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("sortOrder") => list(any()),
+        optional("status") => list(any())
+      }
+
+  """
+  @type list_job_runs_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1453,12 +1745,15 @@ defmodule AWS.DataZone do
         "description" => String.t(),
         "domainId" => String.t(),
         "domainUnitId" => String.t(),
+        "environmentDeploymentDetails" => environment_deployment_details(),
         "failureReasons" => list(project_deletion_error()()),
         "glossaryTerms" => list(String.t()()),
         "id" => String.t(),
         "lastUpdatedAt" => [non_neg_integer()],
         "name" => String.t(),
-        "projectStatus" => list(any())
+        "projectProfileId" => String.t(),
+        "projectStatus" => list(any()),
+        "userParameters" => list(environment_configuration_user_parameter()())
       }
 
   """
@@ -1485,7 +1780,7 @@ defmodule AWS.DataZone do
         "domainId" => String.t(),
         "environmentId" => String.t(),
         "id" => String.t(),
-        "manageAccessRole" => [String.t()],
+        "manageAccessRole" => String.t(),
         "name" => String.t(),
         "projectId" => String.t(),
         "provider" => [String.t()],
@@ -1547,6 +1842,26 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      create_connection_output() :: %{
+        "connectionId" => String.t(),
+        "description" => String.t(),
+        "domainId" => String.t(),
+        "domainUnitId" => String.t(),
+        "environmentId" => String.t(),
+        "name" => String.t(),
+        "physicalEndpoints" => list(physical_endpoint()()),
+        "projectId" => String.t(),
+        "props" => list(),
+        "type" => list(any())
+      }
+
+  """
+  @type create_connection_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       override_project_owners_policy_grant_detail() :: %{
         "includeChildDomainUnits" => [boolean()]
       }
@@ -1592,6 +1907,15 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      get_lineage_event_input() :: %{}
+
+  """
+  @type get_lineage_event_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       domain_unit_filter_for_project() :: %{
         "domainUnit" => String.t(),
         "includeChildDomainUnits" => [boolean()]
@@ -1625,6 +1949,18 @@ defmodule AWS.DataZone do
 
   """
   @type post_time_series_data_points_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      glue_properties_output() :: %{
+        "errorMessage" => [String.t()],
+        "status" => list(any())
+      }
+
+  """
+  @type glue_properties_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1669,9 +2005,36 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      athena_properties_output() :: %{
+        "workgroupName" => [String.t()]
+      }
+
+  """
+  @type athena_properties_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_project_profile_input() :: %{
+        optional("description") => String.t(),
+        optional("domainUnitIdentifier") => String.t(),
+        optional("environmentConfigurations") => list(environment_configuration()()),
+        optional("name") => String.t(),
+        optional("status") => list(any())
+      }
+
+  """
+  @type update_project_profile_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_data_source_output() :: %{
         "assetFormsOutput" => list(form_output()()),
         "configuration" => list(),
+        "connectionId" => [String.t()],
         "createdAt" => non_neg_integer(),
         "description" => String.t(),
         "domainId" => String.t(),
@@ -1896,11 +2259,24 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      authentication_configuration_patch() :: %{
+        "basicAuthenticationCredentials" => basic_authentication_credentials(),
+        "secretArn" => [String.t()]
+      }
+
+  """
+  @type authentication_configuration_patch() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       environment_blueprint_configuration_item() :: %{
         "createdAt" => [non_neg_integer()],
         "domainId" => String.t(),
         "enabledRegions" => list(String.t()()),
         "environmentBlueprintId" => String.t(),
+        "environmentRolePermissionBoundary" => String.t(),
         "manageAccessRoleArn" => String.t(),
         "provisioningConfigurations" => list(list()()),
         "provisioningRoleArn" => String.t(),
@@ -1967,6 +2343,28 @@ defmodule AWS.DataZone do
 
   """
   @type create_rule_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_job_run_output() :: %{
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => [String.t()],
+        "details" => list(),
+        "domainId" => String.t(),
+        "endTime" => [non_neg_integer()],
+        "error" => job_run_error(),
+        "id" => [String.t()],
+        "jobId" => [String.t()],
+        "jobType" => list(any()),
+        "runMode" => list(any()),
+        "startTime" => [non_neg_integer()],
+        "status" => list(any())
+      }
+
+  """
+  @type get_job_run_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2077,7 +2475,9 @@ defmodule AWS.DataZone do
       create_domain_input() :: %{
         optional("clientToken") => [String.t()],
         optional("description") => [String.t()],
+        optional("domainVersion") => list(any()),
         optional("kmsKeyIdentifier") => String.t(),
+        optional("serviceRole") => String.t(),
         optional("singleSignOn") => single_sign_on(),
         optional("tags") => map(),
         required("domainExecutionRole") => String.t(),
@@ -2091,10 +2491,35 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      iam_properties_output() :: %{
+        "environmentId" => [String.t()],
+        "glueLineageSyncEnabled" => [boolean()]
+      }
+
+  """
+  @type iam_properties_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_subscription_target_input() :: %{}
 
   """
   @type delete_subscription_target_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      hyper_pod_properties_output() :: %{
+        "clusterArn" => [String.t()],
+        "clusterName" => [String.t()],
+        "orchestrator" => list(any())
+      }
+
+  """
+  @type hyper_pod_properties_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2180,6 +2605,56 @@ defmodule AWS.DataZone do
 
   """
   @type get_rule_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_run_error() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type job_run_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lineage_event_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
+        "domainId" => String.t(),
+        "eventSummary" => list(),
+        "eventTime" => [non_neg_integer()],
+        "id" => String.t(),
+        "processingStatus" => list(any())
+      }
+
+  """
+  @type lineage_event_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      glue_connection_input() :: %{
+        "athenaProperties" => map(),
+        "authenticationConfiguration" => authentication_configuration_input(),
+        "connectionProperties" => map(),
+        "connectionType" => list(any()),
+        "description" => [String.t()],
+        "matchCriteria" => [String.t()],
+        "name" => [String.t()],
+        "physicalConnectionRequirements" => physical_connection_requirements(),
+        "pythonProperties" => map(),
+        "sparkProperties" => map(),
+        "validateCredentials" => [boolean()],
+        "validateForComputeEnvironments" => list(list(any())())
+      }
+
+  """
+  @type glue_connection_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2290,6 +2765,7 @@ defmodule AWS.DataZone do
         "domainId" => String.t(),
         "enabledRegions" => list(String.t()()),
         "environmentBlueprintId" => String.t(),
+        "environmentRolePermissionBoundary" => String.t(),
         "manageAccessRoleArn" => String.t(),
         "provisioningConfigurations" => list(list()()),
         "provisioningRoleArn" => String.t(),
@@ -2307,9 +2783,9 @@ defmodule AWS.DataZone do
       create_subscription_grant_input() :: %{
         optional("assetTargetNames") => list(asset_target_name_map()()),
         optional("clientToken") => [String.t()],
+        optional("subscriptionTargetIdentifier") => String.t(),
         required("environmentIdentifier") => String.t(),
-        required("grantedEntity") => list(),
-        required("subscriptionTargetIdentifier") => String.t()
+        required("grantedEntity") => list()
       }
 
   """
@@ -2450,6 +2926,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      o_auth2_client_application() :: %{
+        "aWSManagedClientApplicationReference" => [String.t()],
+        "userManagedClientApplicationClientId" => [String.t()]
+      }
+
+  """
+  @type o_auth2_client_application() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_user_profile_input() :: %{
         optional("clientToken") => [String.t()],
         optional("userType") => list(any()),
@@ -2467,6 +2955,19 @@ defmodule AWS.DataZone do
 
   """
   @type delete_environment_blueprint_configuration_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      lineage_info() :: %{
+        "errorMessage" => String.t(),
+        "eventId" => [String.t()],
+        "eventStatus" => list(any())
+      }
+
+  """
+  @type lineage_info() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2540,7 +3041,7 @@ defmodule AWS.DataZone do
         optional("provider") => [String.t()],
         required("applicableAssetTypes") => list(String.t()()),
         required("authorizedPrincipals") => list(String.t()()),
-        required("manageAccessRole") => [String.t()],
+        required("manageAccessRole") => String.t(),
         required("name") => String.t(),
         required("subscriptionTargetConfig") => list(subscription_target_form()()),
         required("type") => [String.t()]
@@ -2862,6 +3363,7 @@ defmodule AWS.DataZone do
       create_data_source_output() :: %{
         "assetFormsOutput" => list(form_output()()),
         "configuration" => list(),
+        "connectionId" => [String.t()],
         "createdAt" => non_neg_integer(),
         "description" => String.t(),
         "domainId" => String.t(),
@@ -2884,6 +3386,17 @@ defmodule AWS.DataZone do
 
   """
   @type create_data_source_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      spark_glue_args() :: %{
+        "connection" => [String.t()]
+      }
+
+  """
+  @type spark_glue_args() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2957,6 +3470,7 @@ defmodule AWS.DataZone do
       delete_data_source_output() :: %{
         "assetFormsOutput" => list(form_output()()),
         "configuration" => list(),
+        "connectionId" => [String.t()],
         "createdAt" => non_neg_integer(),
         "description" => String.t(),
         "domainId" => String.t(),
@@ -2980,6 +3494,39 @@ defmodule AWS.DataZone do
 
   """
   @type delete_data_source_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connection_input() :: %{
+        optional("withSecret") => [boolean()]
+      }
+
+  """
+  @type get_connection_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connection_output() :: %{
+        "connectionCredentials" => connection_credentials(),
+        "connectionId" => String.t(),
+        "description" => String.t(),
+        "domainId" => String.t(),
+        "domainUnitId" => String.t(),
+        "environmentId" => String.t(),
+        "environmentUserRole" => [String.t()],
+        "name" => String.t(),
+        "physicalEndpoints" => list(physical_endpoint()()),
+        "projectId" => String.t(),
+        "props" => list(),
+        "type" => list(any())
+      }
+
+  """
+  @type get_connection_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3032,6 +3579,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       list_data_sources_input() :: %{
+        optional("connectionIdentifier") => [String.t()],
         optional("environmentIdentifier") => [String.t()],
         optional("maxResults") => integer(),
         optional("name") => String.t(),
@@ -3043,6 +3591,29 @@ defmodule AWS.DataZone do
 
   """
   @type list_data_sources_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_lineage_events_output() :: %{
+        "items" => list(lineage_event_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_lineage_events_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      iam_properties_input() :: %{
+        "glueLineageSyncEnabled" => [boolean()]
+      }
+
+  """
+  @type iam_properties_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3116,6 +3687,17 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      data_source_run_lineage_summary() :: %{
+        "importStatus" => list(any())
+      }
+
+  """
+  @type data_source_run_lineage_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       reject_subscription_request_output() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
@@ -3135,6 +3717,17 @@ defmodule AWS.DataZone do
 
   """
   @type reject_subscription_request_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hyper_pod_properties_input() :: %{
+        "clusterName" => [String.t()]
+      }
+
+  """
+  @type hyper_pod_properties_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3171,12 +3764,14 @@ defmodule AWS.DataZone do
         "createdAt" => non_neg_integer(),
         "description" => [String.t()],
         "domainExecutionRole" => String.t(),
+        "domainVersion" => list(any()),
         "id" => String.t(),
         "kmsKeyIdentifier" => String.t(),
         "lastUpdatedAt" => non_neg_integer(),
         "name" => [String.t()],
         "portalUrl" => [String.t()],
         "rootDomainUnitId" => String.t(),
+        "serviceRole" => String.t(),
         "singleSignOn" => single_sign_on(),
         "status" => list(any()),
         "tags" => map()
@@ -3309,6 +3904,17 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      glue_properties_patch() :: %{
+        "glueConnectionInput" => glue_connection_patch()
+      }
+
+  """
+  @type glue_properties_patch() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_subscription_grant_status_output() :: %{
         "assets" => list(subscribed_asset()()),
         "createdAt" => non_neg_integer(),
@@ -3357,6 +3963,17 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      sage_maker_run_configuration_input() :: %{
+        "trackingAssets" => map()
+      }
+
+  """
+  @type sage_maker_run_configuration_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_asset_filter_input() :: %{}
 
   """
@@ -3366,10 +3983,13 @@ defmodule AWS.DataZone do
 
   ## Example:
 
-      post_lineage_event_output() :: %{}
+      post_lineage_event_output() :: %{
+        "domainId" => String.t(),
+        "id" => String.t()
+      }
 
   """
-  @type post_lineage_event_output() :: %{}
+  @type post_lineage_event_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3457,14 +4077,40 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      glue_o_auth2_credentials() :: %{
+        "accessToken" => [String.t()],
+        "jwtToken" => [String.t()],
+        "refreshToken" => [String.t()],
+        "userManagedClientApplicationClientSecret" => [String.t()]
+      }
+
+  """
+  @type glue_o_auth2_credentials() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       glue_run_configuration_input() :: %{
         "autoImportDataQualityResult" => [boolean()],
+        "catalogName" => [String.t()],
         "dataAccessRole" => [String.t()],
         "relationalFilterConfigurations" => list(relational_filter_configuration()())
       }
 
   """
   @type glue_run_configuration_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      athena_properties_input() :: %{
+        "workgroupName" => [String.t()]
+      }
+
+  """
+  @type athena_properties_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3548,6 +4194,24 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      spark_glue_properties_input() :: %{
+        "additionalArgs" => spark_glue_args(),
+        "glueConnectionName" => [String.t()],
+        "glueVersion" => [String.t()],
+        "idleTimeout" => [integer()],
+        "javaVirtualEnv" => [String.t()],
+        "numberOfWorkers" => [integer()],
+        "pythonVirtualEnv" => [String.t()],
+        "workerType" => [String.t()]
+      }
+
+  """
+  @type spark_glue_properties_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_subscription_grant_output() :: %{
         "assets" => list(subscribed_asset()()),
         "createdAt" => non_neg_integer(),
@@ -3584,6 +4248,17 @@ defmodule AWS.DataZone do
 
   """
   @type delete_glossary_term_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      athena_properties_patch() :: %{
+        "workgroupName" => [String.t()]
+      }
+
+  """
+  @type athena_properties_patch() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3778,6 +4453,17 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      glue_properties_input() :: %{
+        "glueConnectionInput" => glue_connection_input()
+      }
+
+  """
+  @type glue_properties_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_asset_filters_input() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
@@ -3786,6 +4472,15 @@ defmodule AWS.DataZone do
 
   """
   @type list_asset_filters_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_job_run_input() :: %{}
+
+  """
+  @type get_job_run_input() :: %{}
 
   @typedoc """
 
@@ -3911,7 +4606,7 @@ defmodule AWS.DataZone do
         "domainId" => String.t(),
         "environmentId" => String.t(),
         "id" => String.t(),
-        "manageAccessRole" => [String.t()],
+        "manageAccessRole" => String.t(),
         "name" => String.t(),
         "projectId" => String.t(),
         "provider" => [String.t()],
@@ -3990,6 +4685,20 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      connection_credentials() :: %{
+        "accessKeyId" => [String.t()],
+        "expiration" => [non_neg_integer()],
+        "secretAccessKey" => [String.t()],
+        "sessionToken" => [String.t()]
+      }
+
+  """
+  @type connection_credentials() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_domain_unit_output() :: %{
         "ancestorDomainUnitIds" => list(String.t()()),
         "createdAt" => non_neg_integer(),
@@ -4044,6 +4753,19 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      glue_connection_patch() :: %{
+        "authenticationConfiguration" => authentication_configuration_patch(),
+        "connectionProperties" => map(),
+        "description" => [String.t()]
+      }
+
+  """
+  @type glue_connection_patch() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_environment_profiles_input() :: %{
         optional("awsAccountId") => String.t(),
         optional("awsAccountRegion") => String.t(),
@@ -4064,6 +4786,7 @@ defmodule AWS.DataZone do
       update_data_source_output() :: %{
         "assetFormsOutput" => list(form_output()()),
         "configuration" => list(),
+        "connectionId" => [String.t()],
         "createdAt" => non_neg_integer(),
         "description" => String.t(),
         "domainId" => String.t(),
@@ -4097,6 +4820,8 @@ defmodule AWS.DataZone do
         optional("description") => String.t(),
         optional("domainUnitId") => String.t(),
         optional("glossaryTerms") => list(String.t()()),
+        optional("projectProfileId") => String.t(),
+        optional("userParameters") => list(environment_configuration_user_parameter()()),
         required("name") => String.t()
       }
 
@@ -4300,6 +5025,7 @@ defmodule AWS.DataZone do
         "domainId" => String.t(),
         "enabledRegions" => list(String.t()()),
         "environmentBlueprintId" => String.t(),
+        "environmentRolePermissionBoundary" => String.t(),
         "manageAccessRoleArn" => String.t(),
         "provisioningConfigurations" => list(list()()),
         "provisioningRoleArn" => String.t(),
@@ -4318,11 +5044,13 @@ defmodule AWS.DataZone do
         "arn" => [String.t()],
         "description" => [String.t()],
         "domainExecutionRole" => String.t(),
+        "domainVersion" => list(any()),
         "id" => String.t(),
         "kmsKeyIdentifier" => String.t(),
         "name" => [String.t()],
         "portalUrl" => [String.t()],
         "rootDomainUnitId" => String.t(),
+        "serviceRole" => String.t(),
         "singleSignOn" => single_sign_on(),
         "status" => list(any()),
         "tags" => map()
@@ -4402,6 +5130,22 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      redshift_properties_patch() :: %{
+        "credentials" => list(),
+        "databaseName" => [String.t()],
+        "host" => [String.t()],
+        "lineageSync" => redshift_lineage_sync_configuration_input(),
+        "port" => [integer()],
+        "storage" => list()
+      }
+
+  """
+  @type redshift_properties_patch() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       accepted_asset_scope() :: %{
         "assetId" => String.t(),
         "filterIds" => list(String.t()())
@@ -4409,6 +5153,19 @@ defmodule AWS.DataZone do
 
   """
   @type accepted_asset_scope() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      redshift_lineage_sync_configuration_output() :: %{
+        "enabled" => [boolean()],
+        "lineageJobId" => [String.t()],
+        "schedule" => lineage_sync_schedule()
+      }
+
+  """
+  @type redshift_lineage_sync_configuration_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4478,6 +5235,20 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      physical_connection_requirements() :: %{
+        "availabilityZone" => [String.t()],
+        "securityGroupIdList" => list([String.t()]()),
+        "subnetId" => String.t(),
+        "subnetIdList" => list(String.t()())
+      }
+
+  """
+  @type physical_connection_requirements() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       remove_policy_grant_output() :: %{}
 
   """
@@ -4497,11 +5268,13 @@ defmodule AWS.DataZone do
   ## Example:
 
       data_source_summary() :: %{
+        "connectionId" => [String.t()],
         "createdAt" => non_neg_integer(),
         "dataSourceId" => String.t(),
+        "description" => String.t(),
         "domainId" => String.t(),
         "enableSetting" => list(any()),
-        "environmentId" => String.t(),
+        "environmentId" => [String.t()],
         "lastRunAssetCount" => [integer()],
         "lastRunAt" => non_neg_integer(),
         "lastRunErrorMessage" => data_source_error_message(),
@@ -4587,6 +5360,27 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      spark_emr_properties_output() :: %{
+        "computeArn" => [String.t()],
+        "credentials" => username_password(),
+        "credentialsExpiration" => [non_neg_integer()],
+        "governanceType" => list(any()),
+        "instanceProfileArn" => [String.t()],
+        "javaVirtualEnv" => [String.t()],
+        "livyEndpoint" => [String.t()],
+        "logUri" => [String.t()],
+        "pythonVirtualEnv" => [String.t()],
+        "runtimeRole" => [String.t()],
+        "trustedCertificatesS3Uri" => [String.t()]
+      }
+
+  """
+  @type spark_emr_properties_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_asset_output() :: %{}
 
   """
@@ -4600,6 +5394,15 @@ defmodule AWS.DataZone do
 
   """
   @type get_iam_portal_login_url_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_project_profile_input() :: %{}
+
+  """
+  @type delete_project_profile_input() :: %{}
 
   @typedoc """
 
@@ -4644,12 +5447,15 @@ defmodule AWS.DataZone do
         "description" => String.t(),
         "domainId" => String.t(),
         "domainUnitId" => String.t(),
+        "environmentDeploymentDetails" => environment_deployment_details(),
         "failureReasons" => list(project_deletion_error()()),
         "glossaryTerms" => list(String.t()()),
         "id" => String.t(),
         "lastUpdatedAt" => [non_neg_integer()],
         "name" => String.t(),
-        "projectStatus" => list(any())
+        "projectProfileId" => String.t(),
+        "projectStatus" => list(any()),
+        "userParameters" => list(environment_configuration_user_parameter()())
       }
 
   """
@@ -4782,6 +5588,7 @@ defmodule AWS.DataZone do
         "dataSourceId" => String.t(),
         "errorMessage" => data_source_error_message(),
         "id" => String.t(),
+        "lineageSummary" => data_source_run_lineage_summary(),
         "projectId" => String.t(),
         "runStatisticsForAssets" => run_statistics_for_assets(),
         "startedAt" => non_neg_integer(),
@@ -4793,6 +5600,18 @@ defmodule AWS.DataZone do
 
   """
   @type data_source_run_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      username_password() :: %{
+        "password" => String.t(),
+        "username" => String.t()
+      }
+
+  """
+  @type username_password() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4959,6 +5778,25 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      connection_summary() :: %{
+        "connectionId" => String.t(),
+        "domainId" => String.t(),
+        "domainUnitId" => String.t(),
+        "environmentId" => String.t(),
+        "name" => String.t(),
+        "physicalEndpoints" => list(physical_endpoint()()),
+        "projectId" => String.t(),
+        "props" => list(),
+        "type" => list(any())
+      }
+
+  """
+  @type connection_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       self_grant_status_detail() :: %{
         "databaseName" => [String.t()],
         "failureCause" => [String.t()],
@@ -4981,6 +5819,17 @@ defmodule AWS.DataZone do
 
   """
   @type remove_policy_grant_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_connection_output() :: %{
+        "status" => [String.t()]
+      }
+
+  """
+  @type delete_connection_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5139,6 +5988,24 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      spark_glue_properties_output() :: %{
+        "additionalArgs" => spark_glue_args(),
+        "glueConnectionName" => [String.t()],
+        "glueVersion" => [String.t()],
+        "idleTimeout" => [integer()],
+        "javaVirtualEnv" => [String.t()],
+        "numberOfWorkers" => [integer()],
+        "pythonVirtualEnv" => [String.t()],
+        "workerType" => [String.t()]
+      }
+
+  """
+  @type spark_glue_properties_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_domain_units_for_parent_output() :: %{
         "items" => list(domain_unit_summary()()),
         "nextToken" => String.t()
@@ -5192,6 +6059,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      environment_deployment_details() :: %{
+        "environmentFailureReasons" => map(),
+        "overallDeploymentStatus" => list(any())
+      }
+
+  """
+  @type environment_deployment_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_glossary_input() :: %{}
 
   """
@@ -5218,16 +6097,34 @@ defmodule AWS.DataZone do
         "description" => String.t(),
         "domainId" => String.t(),
         "domainUnitId" => String.t(),
+        "environmentDeploymentDetails" => environment_deployment_details(),
         "failureReasons" => list(project_deletion_error()()),
         "glossaryTerms" => list(String.t()()),
         "id" => String.t(),
         "lastUpdatedAt" => [non_neg_integer()],
         "name" => String.t(),
-        "projectStatus" => list(any())
+        "projectProfileId" => String.t(),
+        "projectStatus" => list(any()),
+        "userParameters" => list(environment_configuration_user_parameter()())
       }
 
   """
   @type get_project_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_project_profiles_input() :: %{
+        optional("maxResults") => integer(),
+        optional("name") => String.t(),
+        optional("nextToken") => String.t(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any())
+      }
+
+  """
+  @type list_project_profiles_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5330,6 +6227,7 @@ defmodule AWS.DataZone do
         "domainId" => String.t(),
         "errorMessage" => data_source_error_message(),
         "id" => String.t(),
+        "lineageSummary" => data_source_run_lineage_summary(),
         "projectId" => String.t(),
         "runStatisticsForAssets" => run_statistics_for_assets(),
         "startedAt" => non_neg_integer(),
@@ -5341,6 +6239,55 @@ defmodule AWS.DataZone do
 
   """
   @type get_data_source_run_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_lineage_event_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
+        "domainId" => String.t(),
+        "event" => binary(),
+        "eventTime" => [non_neg_integer()],
+        "id" => String.t(),
+        "processingStatus" => list(any())
+      }
+
+  """
+  @type get_lineage_event_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      spark_emr_properties_patch() :: %{
+        "computeArn" => [String.t()],
+        "instanceProfileArn" => [String.t()],
+        "javaVirtualEnv" => [String.t()],
+        "logUri" => [String.t()],
+        "pythonVirtualEnv" => [String.t()],
+        "runtimeRole" => [String.t()],
+        "trustedCertificatesS3Uri" => [String.t()]
+      }
+
+  """
+  @type spark_emr_properties_patch() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      open_lineage_run_event_summary() :: %{
+        "eventType" => list(any()),
+        "inputs" => list(name_identifier()()),
+        "job" => name_identifier(),
+        "outputs" => list(name_identifier()()),
+        "runId" => [String.t()]
+      }
+
+  """
+  @type open_lineage_run_event_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5392,6 +6339,17 @@ defmodule AWS.DataZone do
 
   """
   @type list_metadata_generation_runs_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lineage_run_details() :: %{
+        "sqlQueryRunDetails" => lineage_sql_query_run_details()
+      }
+
+  """
+  @type lineage_run_details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5469,6 +6427,21 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      create_project_profile_input() :: %{
+        optional("description") => String.t(),
+        optional("domainUnitIdentifier") => String.t(),
+        optional("environmentConfigurations") => list(environment_configuration()()),
+        optional("status") => list(any()),
+        required("name") => String.t()
+      }
+
+  """
+  @type create_project_profile_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_project_memberships_input() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
@@ -5478,6 +6451,25 @@ defmodule AWS.DataZone do
 
   """
   @type list_project_memberships_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      environment_configuration() :: %{
+        "awsAccount" => list(),
+        "awsRegion" => list(),
+        "configurationParameters" => environment_configuration_parameters_details(),
+        "deploymentMode" => list(any()),
+        "deploymentOrder" => integer(),
+        "description" => String.t(),
+        "environmentBlueprintId" => String.t(),
+        "id" => String.t(),
+        "name" => String.t()
+      }
+
+  """
+  @type environment_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5534,9 +6526,38 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      name_identifier() :: %{
+        "name" => [String.t()],
+        "namespace" => [String.t()]
+      }
+
+  """
+  @type name_identifier() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      o_auth2_properties() :: %{
+        "authorizationCodeProperties" => authorization_code_properties(),
+        "oAuth2ClientApplication" => o_auth2_client_application(),
+        "oAuth2Credentials" => glue_o_auth2_credentials(),
+        "oAuth2GrantType" => list(any()),
+        "tokenUrl" => [String.t()],
+        "tokenUrlParametersMap" => map()
+      }
+
+  """
+  @type o_auth2_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       glue_run_configuration_output() :: %{
         "accountId" => [String.t()],
         "autoImportDataQualityResult" => [boolean()],
+        "catalogName" => [String.t()],
         "dataAccessRole" => [String.t()],
         "region" => [String.t()],
         "relationalFilterConfigurations" => list(relational_filter_configuration()())
@@ -5555,6 +6576,23 @@ defmodule AWS.DataZone do
 
   """
   @type subscribed_project_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      physical_endpoint() :: %{
+        "awsLocation" => aws_location(),
+        "glueConnection" => glue_connection(),
+        "glueConnectionName" => [String.t()],
+        "host" => [String.t()],
+        "port" => [integer()],
+        "protocol" => list(any()),
+        "stage" => [String.t()]
+      }
+
+  """
+  @type physical_endpoint() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5660,6 +6698,38 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      spark_emr_properties_input() :: %{
+        "computeArn" => [String.t()],
+        "instanceProfileArn" => [String.t()],
+        "javaVirtualEnv" => [String.t()],
+        "logUri" => [String.t()],
+        "pythonVirtualEnv" => [String.t()],
+        "runtimeRole" => [String.t()],
+        "trustedCertificatesS3Uri" => [String.t()]
+      }
+
+  """
+  @type spark_emr_properties_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lineage_sql_query_run_details() :: %{
+        "errorMessages" => list([String.t()]()),
+        "numQueriesFailed" => [integer()],
+        "queryEndTime" => [non_neg_integer()],
+        "queryStartTime" => [non_neg_integer()],
+        "totalQueriesProcessed" => [integer()]
+      }
+
+  """
+  @type lineage_sql_query_run_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       asset_scope() :: %{
         "assetId" => String.t(),
         "errorMessage" => [String.t()],
@@ -5669,6 +6739,24 @@ defmodule AWS.DataZone do
 
   """
   @type asset_scope() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_connections_input() :: %{
+        optional("environmentIdentifier") => String.t(),
+        optional("maxResults") => integer(),
+        optional("name") => String.t(),
+        optional("nextToken") => String.t(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any()),
+        optional("type") => list(any()),
+        required("projectIdentifier") => String.t()
+      }
+
+  """
+  @type list_connections_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5774,6 +6862,33 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      aws_location() :: %{
+        "accessRole" => [String.t()],
+        "awsAccountId" => String.t(),
+        "awsRegion" => String.t(),
+        "iamConnectionId" => String.t()
+      }
+
+  """
+  @type aws_location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      authentication_configuration() :: %{
+        "authenticationType" => list(any()),
+        "oAuth2Properties" => o_auth2_properties(),
+        "secretArn" => [String.t()]
+      }
+
+  """
+  @type authentication_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_domain_unit_output() :: %{}
 
   """
@@ -5783,10 +6898,51 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      create_project_from_project_profile_policy_grant_detail() :: %{
+        "includeChildDomainUnits" => [boolean()],
+        "projectProfiles" => list([String.t()]())
+      }
+
+  """
+  @type create_project_from_project_profile_policy_grant_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_listing_input() :: %{}
 
   """
   @type delete_listing_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      sage_maker_run_configuration_output() :: %{
+        "accountId" => [String.t()],
+        "region" => [String.t()],
+        "trackingAssets" => map()
+      }
+
+  """
+  @type sage_maker_run_configuration_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_connection_input() :: %{
+        optional("awsLocation") => aws_location(),
+        optional("clientToken") => [String.t()],
+        optional("description") => String.t(),
+        optional("props") => list(),
+        required("environmentIdentifier") => String.t(),
+        required("name") => String.t()
+      }
+
+  """
+  @type create_connection_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5835,6 +6991,26 @@ defmodule AWS.DataZone do
 
   """
   @type greater_than_expression() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_project_profile_output() :: %{
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => String.t(),
+        "description" => String.t(),
+        "domainId" => String.t(),
+        "domainUnitId" => String.t(),
+        "environmentConfigurations" => list(environment_configuration()()),
+        "id" => String.t(),
+        "lastUpdatedAt" => [non_neg_integer()],
+        "name" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_project_profile_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5937,6 +7113,18 @@ defmodule AWS.DataZone do
 
   """
   @type glue_self_grant_status_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      redshift_lineage_sync_configuration_input() :: %{
+        "enabled" => [boolean()],
+        "schedule" => lineage_sync_schedule()
+      }
+
+  """
+  @type redshift_lineage_sync_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6055,6 +7243,17 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      iam_properties_patch() :: %{
+        "glueLineageSyncEnabled" => [boolean()]
+      }
+
+  """
+  @type iam_properties_patch() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_environment_credentials_output() :: %{
         "accessKeyId" => [String.t()],
         "expiration" => [non_neg_integer()],
@@ -6075,6 +7274,25 @@ defmodule AWS.DataZone do
 
   """
   @type get_time_series_data_point_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      project_profile_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => String.t(),
+        "description" => String.t(),
+        "domainId" => String.t(),
+        "domainUnitId" => String.t(),
+        "id" => String.t(),
+        "lastUpdatedAt" => [non_neg_integer()],
+        "name" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type project_profile_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6211,6 +7429,35 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      delete_project_profile_output() :: %{}
+
+  """
+  @type delete_project_profile_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_connection_output() :: %{
+        "connectionId" => String.t(),
+        "description" => String.t(),
+        "domainId" => String.t(),
+        "domainUnitId" => String.t(),
+        "environmentId" => String.t(),
+        "name" => String.t(),
+        "physicalEndpoints" => list(physical_endpoint()()),
+        "projectId" => String.t(),
+        "props" => list(),
+        "type" => list(any())
+      }
+
+  """
+  @type update_connection_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       search_group_profiles_output() :: %{
         "items" => list(group_profile_summary()()),
         "nextToken" => String.t()
@@ -6238,7 +7485,7 @@ defmodule AWS.DataZone do
       update_subscription_target_input() :: %{
         optional("applicableAssetTypes") => list(String.t()()),
         optional("authorizedPrincipals") => list(String.t()()),
-        optional("manageAccessRole") => [String.t()],
+        optional("manageAccessRole") => String.t(),
         optional("name") => String.t(),
         optional("provider") => [String.t()],
         optional("subscriptionTargetConfig") => list(subscription_target_form()())
@@ -6268,6 +7515,7 @@ defmodule AWS.DataZone do
         optional("description") => [String.t()],
         optional("domainExecutionRole") => String.t(),
         optional("name") => [String.t()],
+        optional("serviceRole") => String.t(),
         optional("singleSignOn") => single_sign_on()
       }
 
@@ -6350,6 +7598,31 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      basic_authentication_credentials() :: %{
+        "password" => [String.t()],
+        "userName" => [String.t()]
+      }
+
+  """
+  @type basic_authentication_credentials() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      environment_configuration_parameter() :: %{
+        "isEditable" => [boolean()],
+        "name" => String.t(),
+        "value" => [String.t()]
+      }
+
+  """
+  @type environment_configuration_parameter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       configurable_action_parameter() :: %{
         "key" => [String.t()],
         "value" => [String.t()]
@@ -6393,6 +7666,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       put_environment_blueprint_configuration_input() :: %{
+        optional("environmentRolePermissionBoundary") => String.t(),
         optional("manageAccessRoleArn") => String.t(),
         optional("provisioningConfigurations") => list(list()()),
         optional("provisioningRoleArn") => String.t(),
@@ -6515,6 +7789,15 @@ defmodule AWS.DataZone do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_connection_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
           | conflict_exception()
 
   @type create_data_product_errors() ::
@@ -6640,6 +7923,15 @@ defmodule AWS.DataZone do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type create_project_profile_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type create_rule_errors() ::
           throttling_exception()
           | validation_exception()
@@ -6702,6 +7994,13 @@ defmodule AWS.DataZone do
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type delete_connection_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type delete_data_product_errors() ::
           throttling_exception()
@@ -6808,6 +8107,13 @@ defmodule AWS.DataZone do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
 
+  @type delete_project_profile_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type delete_rule_errors() ::
           throttling_exception()
           | validation_exception()
@@ -6870,6 +8176,13 @@ defmodule AWS.DataZone do
           | resource_not_found_exception()
 
   @type get_asset_type_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_connection_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -6992,6 +8305,20 @@ defmodule AWS.DataZone do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type get_job_run_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_lineage_event_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_lineage_node_errors() ::
           throttling_exception()
           | validation_exception()
@@ -7014,6 +8341,13 @@ defmodule AWS.DataZone do
           | resource_not_found_exception()
 
   @type get_project_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_project_profile_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -7081,6 +8415,12 @@ defmodule AWS.DataZone do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type list_connections_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
 
   @type list_data_product_revisions_errors() ::
           throttling_exception()
@@ -7168,6 +8508,19 @@ defmodule AWS.DataZone do
           | access_denied_exception()
           | internal_server_exception()
 
+  @type list_job_runs_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_lineage_events_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type list_lineage_node_history_errors() ::
           throttling_exception()
           | validation_exception()
@@ -7200,6 +8553,12 @@ defmodule AWS.DataZone do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type list_project_profiles_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
 
   @type list_projects_errors() ::
           throttling_exception()
@@ -7375,6 +8734,15 @@ defmodule AWS.DataZone do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type update_connection_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type update_data_source_errors() ::
           throttling_exception()
           | validation_exception()
@@ -7449,6 +8817,15 @@ defmodule AWS.DataZone do
           | resource_not_found_exception()
 
   @type update_project_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_project_profile_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -7912,6 +9289,38 @@ defmodule AWS.DataZone do
           | {:error, create_asset_type_errors()}
   def create_asset_type(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/asset-types"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a new connection.
+
+  In Amazon DataZone, a connection enables you to connect your
+  resources (domains, projects, and environments) to external resources and
+  services.
+  """
+  @spec create_connection(map(), String.t(), create_connection_input(), list()) ::
+          {:ok, create_connection_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_connection_errors()}
+  def create_connection(%Client{} = client, domain_identifier, input, options \\ []) do
+    url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/connections"
     headers = []
     custom_headers = []
     query_params = []
@@ -8398,6 +9807,34 @@ defmodule AWS.DataZone do
   end
 
   @doc """
+  Creates a project profile.
+  """
+  @spec create_project_profile(map(), String.t(), create_project_profile_input(), list()) ::
+          {:ok, create_project_profile_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_project_profile_errors()}
+  def create_project_profile(%Client{} = client, domain_identifier, input, options \\ []) do
+    url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/project-profiles"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Creates a rule in Amazon DataZone.
 
   A rule is a formal agreement that enforces specific
@@ -8670,6 +10107,40 @@ defmodule AWS.DataZone do
       input,
       options,
       204
+    )
+  end
+
+  @doc """
+  Deletes and connection.
+
+  In Amazon DataZone, a connection enables you to connect your
+  resources (domains, projects, and environments) to external resources and
+  services.
+  """
+  @spec delete_connection(map(), String.t(), String.t(), delete_connection_input(), list()) ::
+          {:ok, delete_connection_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_connection_errors()}
+  def delete_connection(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/connections/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 
@@ -9173,6 +10644,48 @@ defmodule AWS.DataZone do
   end
 
   @doc """
+  Deletes a project profile.
+  """
+  @spec delete_project_profile(
+          map(),
+          String.t(),
+          String.t(),
+          delete_project_profile_input(),
+          list()
+        ) ::
+          {:ok, delete_project_profile_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_project_profile_errors()}
+  def delete_project_profile(
+        %Client{} = client,
+        domain_identifier,
+        identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/project-profiles/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Deletes a rule in Amazon DataZone.
 
   A rule is a formal agreement that enforces specific
@@ -9511,6 +11024,42 @@ defmodule AWS.DataZone do
     query_params =
       if !is_nil(revision) do
         [{"revision", revision} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets a connection.
+
+  In Amazon DataZone, a connection enables you to connect your
+  resources (domains, projects, and environments) to external resources and
+  services.
+  """
+  @spec get_connection(map(), String.t(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_connection_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_connection_errors()}
+  def get_connection(
+        %Client{} = client,
+        domain_identifier,
+        identifier,
+        with_secret \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/connections/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(with_secret) do
+        [{"withSecret", with_secret} | query_params]
       else
         query_params
       end
@@ -9874,6 +11423,58 @@ defmodule AWS.DataZone do
   end
 
   @doc """
+  The details of the job run.
+  """
+  @spec get_job_run(map(), String.t(), String.t(), list()) ::
+          {:ok, get_job_run_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_job_run_errors()}
+  def get_job_run(%Client{} = client, domain_identifier, identifier, options \\ []) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/jobRuns/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Describes the lineage event.
+  """
+  @spec get_lineage_event(map(), String.t(), String.t(), list()) ::
+          {:ok, get_lineage_event_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_lineage_event_errors()}
+  def get_lineage_event(%Client{} = client, domain_identifier, identifier, options \\ []) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/lineage/events/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"Created-At", "createdAt"},
+          {"Created-By", "createdBy"},
+          {"Domain-Id", "domainId"},
+          {"Event-Time", "eventTime"},
+          {"Id", "id"},
+          {"Processing-Status", "processingStatus"}
+        ]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets the data lineage node.
   """
   @spec get_lineage_node(map(), String.t(), String.t(), String.t() | nil, list()) ::
@@ -9974,6 +11575,25 @@ defmodule AWS.DataZone do
   def get_project(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/projects/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  The details of the project profile.
+  """
+  @spec get_project_profile(map(), String.t(), String.t(), list()) ::
+          {:ok, get_project_profile_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_project_profile_errors()}
+  def get_project_profile(%Client{} = client, domain_identifier, identifier, options \\ []) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/project-profiles/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
     query_params = []
@@ -10287,6 +11907,107 @@ defmodule AWS.DataZone do
   end
 
   @doc """
+  Lists connections.
+
+  In Amazon DataZone, a connection enables you to connect your
+  resources (domains, projects, and environments) to external resources and
+  services.
+  """
+  @spec list_connections(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_connections_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_connections_errors()}
+  def list_connections(
+        %Client{} = client,
+        domain_identifier,
+        environment_identifier \\ nil,
+        max_results \\ nil,
+        name \\ nil,
+        next_token \\ nil,
+        project_identifier,
+        sort_by \\ nil,
+        sort_order \\ nil,
+        type \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/connections"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(type) do
+        [{"type", type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort_order) do
+        [{"sortOrder", sort_order} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort_by) do
+        [{"sortBy", sort_by} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(project_identifier) do
+        [{"projectIdentifier", project_identifier} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(name) do
+        [{"name", name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(environment_identifier) do
+        [{"environmentIdentifier", environment_identifier} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists data product revisions.
   """
   @spec list_data_product_revisions(
@@ -10455,6 +12176,7 @@ defmodule AWS.DataZone do
           String.t() | nil,
           String.t() | nil,
           String.t() | nil,
+          String.t() | nil,
           String.t(),
           String.t() | nil,
           String.t() | nil,
@@ -10466,6 +12188,7 @@ defmodule AWS.DataZone do
   def list_data_sources(
         %Client{} = client,
         domain_identifier,
+        connection_identifier \\ nil,
         environment_identifier \\ nil,
         max_results \\ nil,
         name \\ nil,
@@ -10524,6 +12247,13 @@ defmodule AWS.DataZone do
     query_params =
       if !is_nil(environment_identifier) do
         [{"environmentIdentifier", environment_identifier} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(connection_identifier) do
+        [{"connectionIdentifier", connection_identifier} | query_params]
       else
         query_params
       end
@@ -11035,6 +12765,150 @@ defmodule AWS.DataZone do
   end
 
   @doc """
+  Lists job runs.
+  """
+  @spec list_job_runs(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_job_runs_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_job_runs_errors()}
+  def list_job_runs(
+        %Client{} = client,
+        domain_identifier,
+        job_identifier,
+        max_results \\ nil,
+        next_token \\ nil,
+        sort_order \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/jobs/#{AWS.Util.encode_uri(job_identifier)}/runs"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort_order) do
+        [{"sortOrder", sort_order} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists lineage events.
+  """
+  @spec list_lineage_events(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_lineage_events_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_lineage_events_errors()}
+  def list_lineage_events(
+        %Client{} = client,
+        domain_identifier,
+        max_results \\ nil,
+        next_token \\ nil,
+        processing_status \\ nil,
+        sort_order \\ nil,
+        timestamp_after \\ nil,
+        timestamp_before \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/lineage/events"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(timestamp_before) do
+        [{"timestampBefore", timestamp_before} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(timestamp_after) do
+        [{"timestampAfter", timestamp_after} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort_order) do
+        [{"sortOrder", sort_order} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(processing_status) do
+        [{"processingStatus", processing_status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists the history of the specified data lineage node.
   """
   @spec list_lineage_node_history(
@@ -11373,6 +13247,76 @@ defmodule AWS.DataZone do
     query_params =
       if !is_nil(next_token) do
         [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists project profiles.
+  """
+  @spec list_project_profiles(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_project_profiles_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_project_profiles_errors()}
+  def list_project_profiles(
+        %Client{} = client,
+        domain_identifier,
+        max_results \\ nil,
+        name \\ nil,
+        next_token \\ nil,
+        sort_by \\ nil,
+        sort_order \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/project-profiles"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(sort_order) do
+        [{"sortOrder", sort_order} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort_by) do
+        [{"sortBy", sort_by} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(name) do
+        [{"name", name} | query_params]
       else
         query_params
       end
@@ -12051,14 +13995,15 @@ defmodule AWS.DataZone do
           | {:error, post_lineage_event_errors()}
   def post_lineage_event(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/lineage/events"
-    headers = []
-    custom_headers = []
 
-    {query_params, input} =
+    {headers, input} =
       [
-        {"clientToken", "clientToken"}
+        {"clientToken", "Client-Token"}
       ]
       |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -12680,6 +14625,40 @@ defmodule AWS.DataZone do
   end
 
   @doc """
+  Updates a connection.
+
+  In Amazon DataZone, a connection enables you to connect your
+  resources (domains, projects, and environments) to external resources and
+  services.
+  """
+  @spec update_connection(map(), String.t(), String.t(), update_connection_input(), list()) ::
+          {:ok, update_connection_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_connection_errors()}
+  def update_connection(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/connections/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates the specified data source in Amazon DataZone.
   """
   @spec update_data_source(map(), String.t(), String.t(), update_data_source_input(), list()) ::
@@ -13000,6 +14979,48 @@ defmodule AWS.DataZone do
   def update_project(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
     url_path =
       "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/projects/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a project profile.
+  """
+  @spec update_project_profile(
+          map(),
+          String.t(),
+          String.t(),
+          update_project_profile_input(),
+          list()
+        ) ::
+          {:ok, update_project_profile_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_project_profile_errors()}
+  def update_project_profile(
+        %Client{} = client,
+        domain_identifier,
+        identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/project-profiles/#{AWS.Util.encode_uri(identifier)}"
 
     headers = []
     custom_headers = []

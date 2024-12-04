@@ -4,30 +4,28 @@
 defmodule AWS.QApps do
   @moduledoc """
   The Amazon Q Apps feature capability within Amazon Q Business allows web
-  experience
-  users to create lightweight, purpose-built AI apps to fulfill specific tasks
-  from
-  within their web experience.
+  experience users to create
+  lightweight, purpose-built AI apps to fulfill specific tasks from within their
+  web experience.
 
-  For example, users can create a Q App that exclusively
-  generates marketing-related content to improve your marketing team's
-  productivity or a
-  Q App for writing customer emails and creating promotional content using a
-  certain
-  style of voice, tone, and branding. For more information on the capabilities,
-  see
-  [Amazon Q Apps capabilities](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/deploy-experience-iam-role.html#q-apps-actions)
-  in the *Amazon Q Business User Guide*.
+  For example, users can create a Q App that exclusively generates
+  marketing-related content to
+  improve your marketing team's productivity or a Q App for writing customer
+  emails and
+  creating promotional content using a certain style of voice, tone, and branding.
+  For more
+  information on the capabilities, see [Amazon Q Apps capabilities](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/deploy-experience-iam-role.html#q-apps-actions)
+  in the *Amazon Q Business User
+  Guide*.
 
-  For an overview of the Amazon Q App APIs, see [Overview of Amazon Q Apps API
-  operations](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_Operations_QApps.html).
+  For an overview of the Amazon Q App APIs, see [Overview of Amazon Q Apps API operations](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_Operations_QApps.html).
 
-  For information about the IAM access control permissions you need to
-  use the Amazon Q Apps API, see [
+  For information about the IAM access control permissions you need to use
+  the Amazon Q Apps API, see [
   IAM role for the Amazon Q Business web experience including Amazon Q
   Apps](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/deploy-experience-iam-role.html)
-  in the
-  *Amazon Q Business User Guide*.
+  in
+  the *Amazon Q Business User Guide*.
   """
 
   alias AWS.Client
@@ -459,6 +457,7 @@ defmodule AWS.QApps do
   ## Example:
 
       q_plugin_card() :: %{
+        "actionIdentifier" => String.t(),
         "dependencies" => list([String.t()]()),
         "id" => String.t(),
         "pluginId" => [String.t()],
@@ -737,6 +736,7 @@ defmodule AWS.QApps do
   ## Example:
 
       q_plugin_card_input() :: %{
+        "actionIdentifier" => String.t(),
         "id" => String.t(),
         "pluginId" => String.t(),
         "prompt" => String.t(),
@@ -1731,8 +1731,8 @@ defmodule AWS.QApps do
   end
 
   @doc """
-  Associates a rating or review for a library item with the user submitting
-  the request.
+  Associates a rating or review for a library item with the user submitting the
+  request.
 
   This increments the rating count for the specified library item.
   """
@@ -1772,9 +1772,9 @@ defmodule AWS.QApps do
   and a
   specific Q App.
 
-  This is useful to mark the Q App as a *favorite* for
-  the user if the user doesn't own the Amazon Q App so they can still run it and
-  see it in their
+  This is useful to mark the Q App as a *favorite* for the
+  user if the user doesn't own the Amazon Q App so they can still run it and see
+  it in their
   inventory of Q Apps.
   """
   @spec associate_q_app_with_user(map(), associate_q_app_with_user_input(), list()) ::
@@ -1811,8 +1811,9 @@ defmodule AWS.QApps do
   @doc """
   Creates Categories for the Amazon Q Business application environment instance.
 
-  Web experience users use Categories to tag and filter library items. For more
-  information, see [Custom labels for Amazon Q Apps](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qapps-custom-labels.html).
+  Web experience users use
+  Categories to tag and filter library items. For more information, see [Custom labels for Amazon Q
+  Apps](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qapps-custom-labels.html).
   """
   @spec batch_create_category(map(), batch_create_category_input(), list()) ::
           {:ok, nil, any()}
@@ -1848,8 +1849,9 @@ defmodule AWS.QApps do
   @doc """
   Deletes Categories for the Amazon Q Business application environment instance.
 
-  Web experience users use Categories to tag and filter library items. For more
-  information, see [Custom labels for Amazon Q Apps](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qapps-custom-labels.html).
+  Web experience users use
+  Categories to tag and filter library items. For more information, see [Custom labels for Amazon Q
+  Apps](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qapps-custom-labels.html).
   """
   @spec batch_delete_category(map(), batch_delete_category_input(), list()) ::
           {:ok, nil, any()}
@@ -1885,8 +1887,9 @@ defmodule AWS.QApps do
   @doc """
   Updates Categories for the Amazon Q Business application environment instance.
 
-  Web experience users use Categories to tag and filter library items. For more
-  information, see [Custom labels for Amazon Q Apps](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qapps-custom-labels.html).
+  Web experience users use
+  Categories to tag and filter library items. For more information, see [Custom labels for Amazon Q
+  Apps](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qapps-custom-labels.html).
   """
   @spec batch_update_category(map(), batch_update_category_input(), list()) ::
           {:ok, nil, any()}
@@ -1921,7 +1924,8 @@ defmodule AWS.QApps do
 
   @doc """
   Creates a new library item for an Amazon Q App, allowing it to be discovered and
-  used by other allowed users.
+  used by
+  other allowed users.
   """
   @spec create_library_item(map(), create_library_item_input(), list()) ::
           {:ok, create_library_item_output(), any()}
@@ -1957,10 +1961,11 @@ defmodule AWS.QApps do
   @doc """
   Creates a presigned URL for an S3 POST operation to upload a file.
 
-  You can use this URL to set a default file for a `FileUploadCard`
-  in a Q App definition or to provide a file for a single Q App run.
-  The `scope` parameter determines how the file will be used,
-  either at the app definition level or the app session level.
+  You can use this URL to
+  set a default file for a `FileUploadCard` in a Q App definition or to provide a
+  file for a single Q App run. The `scope` parameter determines how the file will
+  be
+  used, either at the app definition level or the app session level.
   """
   @spec create_presigned_url(map(), create_presigned_url_input(), list()) ::
           {:ok, create_presigned_url_output(), any()}
@@ -1998,8 +2003,8 @@ defmodule AWS.QApps do
 
   The Q App definition specifies
   the cards and flow of the Q App. This operation also calculates the dependencies
-  between the cards
-  by inspecting the references in the prompts.
+  between the
+  cards by inspecting the references in the prompts.
   """
   @spec create_q_app(map(), create_q_app_input(), list()) ::
           {:ok, create_q_app_output(), any()}
@@ -2033,8 +2038,9 @@ defmodule AWS.QApps do
   end
 
   @doc """
-  Deletes a library item for an Amazon Q App, removing it from the library
-  so it can no longer be discovered or used by other users.
+  Deletes a library item for an Amazon Q App, removing it from the library so it
+  can no longer
+  be discovered or used by other users.
   """
   @spec delete_library_item(map(), delete_library_item_input(), list()) ::
           {:ok, nil, any()}
@@ -2070,8 +2076,8 @@ defmodule AWS.QApps do
   @doc """
   Deletes an Amazon Q App owned by the user.
 
-  If the Q App was previously published to the library, it is also removed from
-  the library.
+  If the Q App was previously published to the
+  library, it is also removed from the library.
   """
   @spec delete_q_app(map(), delete_q_app_input(), list()) ::
           {:ok, nil, any()}
@@ -2172,8 +2178,7 @@ defmodule AWS.QApps do
   end
 
   @doc """
-  Disassociates a Q App from a user removing the user's access to run the
-  Q App.
+  Disassociates a Q App from a user removing the user's access to run the Q App.
   """
   @spec disassociate_q_app_from_user(map(), disassociate_q_app_from_user_input(), list()) ::
           {:ok, nil, any()}
@@ -2289,7 +2294,8 @@ defmodule AWS.QApps do
 
   @doc """
   Retrieves the full details of an Q App, including its definition specifying the
-  cards and flow.
+  cards and
+  flow.
   """
   @spec get_q_app(map(), String.t(), String.t() | nil, String.t(), list()) ::
           {:ok, get_q_app_output(), any()}
@@ -2393,13 +2399,13 @@ defmodule AWS.QApps do
   end
 
   @doc """
-  Uploads a file that can then be used either as a default in a
-  `FileUploadCard` from Q App definition or as a file that
-  is used inside a single Q App run.
+  Uploads a file that can then be used either as a default in a `FileUploadCard`
+  from Q App definition or as a file that is used inside a single Q App run.
 
-  The purpose of the document is
-  determined by a scope parameter that indicates whether it is at the
-  app definition level or at the app session level.
+  The purpose of
+  the document is determined by a scope parameter that indicates whether it is at
+  the app
+  definition level or at the app session level.
   """
   @spec import_document(map(), import_document_input(), list()) ::
           {:ok, import_document_output(), any()}
@@ -2435,7 +2441,8 @@ defmodule AWS.QApps do
   @doc """
   Lists the categories of a Amazon Q Business application environment instance.
 
-  For more information, see [Custom labels for Amazon Q Apps](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qapps-custom-labels.html).
+  For more information, see
+  [Custom labels for Amazon Q Apps](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qapps-custom-labels.html).
   """
   @spec list_categories(map(), String.t(), list()) ::
           {:ok, list_categories_output(), any()}
@@ -2461,7 +2468,8 @@ defmodule AWS.QApps do
 
   @doc """
   Lists the library items for Amazon Q Apps that are published and available for
-  users in your Amazon Web Services account.
+  users in your
+  Amazon Web Services account.
   """
   @spec list_library_items(
           map(),
@@ -2553,11 +2561,12 @@ defmodule AWS.QApps do
   end
 
   @doc """
-  Lists the Amazon Q Apps owned by or associated with the user either because
-  they created it or because they used it from the library in the past.
+  Lists the Amazon Q Apps owned by or associated with the user either because they
+  created it
+  or because they used it from the library in the past.
 
-  The user
-  identity is extracted from the credentials used to invoke this operation..
+  The user identity is extracted from the
+  credentials used to invoke this operation..
   """
   @spec list_q_apps(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
           {:ok, list_q_apps_output(), any()}
@@ -2613,12 +2622,11 @@ defmodule AWS.QApps do
   end
 
   @doc """
-  Generates an Amazon Q App definition based on either a conversation or
-  a problem statement provided as input.The resulting app definition
-  can be used to call `CreateQApp`.
+  Generates an Amazon Q App definition based on either a conversation or a problem
+  statement
+  provided as input.The resulting app definition can be used to call `CreateQApp`.
 
-  This API doesn't create
-  Amazon Q Apps directly.
+  This API doesn't create Amazon Q Apps directly.
   """
   @spec predict_q_app(map(), predict_q_app_input(), list()) ::
           {:ok, predict_q_app_output(), any()}
@@ -2652,11 +2660,12 @@ defmodule AWS.QApps do
   end
 
   @doc """
-  Starts a new session for an Amazon Q App, allowing inputs to be provided
-  and the app to be run.
+  Starts a new session for an Amazon Q App, allowing inputs to be provided and the
+  app to be
+  run.
 
-  Each Q App session will be condensed into a single conversation
-  in the web experience.
+  Each Q App session will be condensed into a single conversation in the web
+  experience.
   """
   @spec start_q_app_session(map(), start_q_app_session_input(), list()) ::
           {:ok, start_q_app_session_output(), any()}
@@ -2690,11 +2699,12 @@ defmodule AWS.QApps do
   end
 
   @doc """
-  Stops an active session for an Amazon Q App.This deletes all data
-  related to the session and makes it invalid for future uses.
+  Stops an active session for an Amazon Q App.This deletes all data related to the
+  session and
+  makes it invalid for future uses.
 
-  The
-  results of the session will be persisted as part of the conversation.
+  The results of the session will be persisted as part of the
+  conversation.
   """
   @spec stop_q_app_session(map(), stop_q_app_session_input(), list()) ::
           {:ok, nil, any()}
@@ -2858,7 +2868,8 @@ defmodule AWS.QApps do
 
   @doc """
   Updates an existing Amazon Q App, allowing modifications to its title,
-  description, and definition.
+  description, and
+  definition.
   """
   @spec update_q_app(map(), update_q_app_input(), list()) ::
           {:ok, update_q_app_output(), any()}
@@ -2929,11 +2940,12 @@ defmodule AWS.QApps do
   @doc """
   Updates the session for a given Q App `sessionId`.
 
-  This is only
-  valid when at least one card of the session is in the `WAITING` state.
-  Data for each `WAITING` card can be provided as input. If inputs
-  are not provided, the call will be accepted but session will not move forward.
-  Inputs for cards that are not in the `WAITING` status will be ignored.
+  This is only valid when at
+  least one card of the session is in the `WAITING` state. Data for each
+  `WAITING` card can be provided as input. If inputs are not provided, the call
+  will be accepted but session will not move forward. Inputs for cards that are
+  not in the
+  `WAITING` status will be ignored.
   """
   @spec update_q_app_session(map(), update_q_app_session_input(), list()) ::
           {:ok, update_q_app_session_output(), any()}
@@ -2967,7 +2979,8 @@ defmodule AWS.QApps do
   end
 
   @doc """
-  Updates the configuration metadata of a session for a given Q App `sessionId`.
+  Updates the configuration metadata of a session for a given Q App
+  `sessionId`.
   """
   @spec update_q_app_session_metadata(map(), update_q_app_session_metadata_input(), list()) ::
           {:ok, update_q_app_session_metadata_output(), any()}

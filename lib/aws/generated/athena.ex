@@ -72,6 +72,9 @@ defmodule AWS.Athena do
       
       data_catalog_summary() :: %{
         "CatalogName" => String.t(),
+        "ConnectionType" => list(any()),
+        "Error" => String.t(),
+        "Status" => list(any()),
         "Type" => list(any())
       }
       
@@ -83,6 +86,7 @@ defmodule AWS.Athena do
   ## Example:
       
       delete_data_catalog_input() :: %{
+        optional("DeleteCatalogOnly") => boolean(),
         required("Name") => String.t()
       }
       
@@ -825,9 +829,12 @@ defmodule AWS.Athena do
   ## Example:
       
       data_catalog() :: %{
+        "ConnectionType" => list(any()),
         "Description" => String.t(),
+        "Error" => String.t(),
         "Name" => String.t(),
         "Parameters" => map(),
+        "Status" => list(any()),
         "Type" => list(any())
       }
       
@@ -1354,10 +1361,12 @@ defmodule AWS.Athena do
 
   ## Example:
       
-      delete_data_catalog_output() :: %{}
+      delete_data_catalog_output() :: %{
+        "DataCatalog" => data_catalog()
+      }
       
   """
-  @type delete_data_catalog_output() :: %{}
+  @type delete_data_catalog_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1518,10 +1527,12 @@ defmodule AWS.Athena do
 
   ## Example:
       
-      create_data_catalog_output() :: %{}
+      create_data_catalog_output() :: %{
+        "DataCatalog" => data_catalog()
+      }
       
   """
-  @type create_data_catalog_output() :: %{}
+  @type create_data_catalog_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2928,6 +2939,23 @@ defmodule AWS.Athena do
 
   Catalogs
   created are visible to all users of the same Amazon Web Services account.
+
+  This API operation creates the following resources.
+
+    *
+  CFN Stack Name with a maximum length of 128 characters and prefix
+  `athenafederatedcatalog-CATALOG_NAME_SANITIZED` with length 23
+  characters.
+
+    *
+  Lambda Function Name with a maximum length of 64 characters and prefix
+  `athenafederatedcatalog_CATALOG_NAME_SANITIZED` with length 23
+  characters.
+
+    *
+  Glue Connection Name with a maximum length of 255 characters and a prefix
+  `athenafederatedcatalog_CATALOG_NAME_SANITIZED` with length 23
+  characters.
   """
   @spec create_data_catalog(map(), create_data_catalog_input(), list()) ::
           {:ok, create_data_catalog_output(), any()}

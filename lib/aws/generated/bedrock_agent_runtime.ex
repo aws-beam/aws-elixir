@@ -16,6 +16,8 @@ defmodule AWS.BedrockAgentRuntime do
       function_invocation_input() :: %{
         "actionGroup" => [String.t()],
         "actionInvocationType" => list(any()),
+        "agentId" => [String.t()],
+        "collaboratorName" => String.t(),
         "function" => [String.t()],
         "parameters" => list(function_parameter()())
       }
@@ -62,6 +64,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      return_control_results() :: %{
+        "invocationId" => [String.t()],
+        "returnControlInvocationResults" => list(list()())
+      }
+
+  """
+  @type return_control_results() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       api_request_body() :: %{
         "content" => map()
       }
@@ -81,6 +95,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type metadata_attribute_schema() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_collaborator_input_payload() :: %{
+        "returnControlResults" => return_control_results(),
+        "text" => String.t(),
+        "type" => list(any())
+      }
+
+  """
+  @type agent_collaborator_input_payload() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -349,6 +376,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type knowledge_base_query() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conversation_history() :: %{
+        "messages" => list(message()())
+      }
+
+  """
+  @type conversation_history() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -632,6 +670,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      agent_collaborator_output_payload() :: %{
+        "returnControlPayload" => return_control_payload(),
+        "text" => String.t(),
+        "type" => list(any())
+      }
+
+  """
+  @type agent_collaborator_output_payload() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       content_body() :: %{
         "body" => [String.t()]
       }
@@ -660,6 +711,7 @@ defmodule AWS.BedrockAgentRuntime do
 
       observation() :: %{
         "actionGroupInvocationOutput" => action_group_invocation_output(),
+        "agentCollaboratorInvocationOutput" => agent_collaborator_invocation_output(),
         "codeInterpreterInvocationOutput" => code_interpreter_invocation_output(),
         "finalResponse" => final_response(),
         "knowledgeBaseLookupOutput" => knowledge_base_lookup_output(),
@@ -723,6 +775,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      agent_collaborator_invocation_input() :: %{
+        "agentCollaboratorAliasArn" => String.t(),
+        "agentCollaboratorName" => [String.t()],
+        "input" => agent_collaborator_input_payload()
+      }
+
+  """
+  @type agent_collaborator_invocation_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       knowledge_base() :: %{
         "description" => String.t(),
         "knowledgeBaseId" => String.t(),
@@ -750,6 +815,7 @@ defmodule AWS.BedrockAgentRuntime do
 
       function_result() :: %{
         "actionGroup" => [String.t()],
+        "agentId" => [String.t()],
         "confirmationState" => list(any()),
         "function" => [String.t()],
         "responseBody" => map(),
@@ -888,6 +954,32 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      agent_collaborator_invocation_output() :: %{
+        "agentCollaboratorAliasArn" => String.t(),
+        "agentCollaboratorName" => [String.t()],
+        "output" => agent_collaborator_output_payload()
+      }
+
+  """
+  @type agent_collaborator_invocation_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      routing_classifier_model_invocation_output() :: %{
+        "metadata" => metadata(),
+        "rawResponse" => raw_response(),
+        "traceId" => String.t()
+      }
+
+  """
+  @type routing_classifier_model_invocation_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       text_response_part() :: %{
         "span" => span(),
         "text" => [String.t()]
@@ -915,6 +1007,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       session_state() :: %{
+        "conversationHistory" => conversation_history(),
         "files" => list(input_file()()),
         "invocationId" => [String.t()],
         "knowledgeBaseConfigurations" => list(knowledge_base_configuration()()),
@@ -997,7 +1090,9 @@ defmodule AWS.BedrockAgentRuntime do
       api_invocation_input() :: %{
         "actionGroup" => [String.t()],
         "actionInvocationType" => list(any()),
+        "agentId" => [String.t()],
         "apiPath" => String.t(),
+        "collaboratorName" => String.t(),
         "httpMethod" => [String.t()],
         "parameters" => list(api_parameter()()),
         "requestBody" => api_request_body()
@@ -1068,6 +1163,7 @@ defmodule AWS.BedrockAgentRuntime do
 
       api_result() :: %{
         "actionGroup" => [String.t()],
+        "agentId" => [String.t()],
         "apiPath" => String.t(),
         "confirmationState" => list(any()),
         "httpMethod" => [String.t()],
@@ -1328,6 +1424,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       model_invocation_input() :: %{
+        "foundationModel" => String.t(),
         "inferenceConfiguration" => inference_configuration(),
         "overrideLambda" => String.t(),
         "parserMode" => list(any()),
@@ -1371,6 +1468,8 @@ defmodule AWS.BedrockAgentRuntime do
         "agentAliasId" => String.t(),
         "agentId" => String.t(),
         "agentVersion" => String.t(),
+        "callerChain" => list(list()()),
+        "collaboratorName" => String.t(),
         "sessionId" => String.t(),
         "trace" => list()
       }
@@ -1855,6 +1954,7 @@ defmodule AWS.BedrockAgentRuntime do
         optional("inputText") => String.t(),
         optional("memoryId") => String.t(),
         optional("sessionState") => session_state(),
+        optional("sourceArn") => String.t(),
         optional("streamingConfigurations") => streaming_configurations()
       }
 
@@ -1879,6 +1979,7 @@ defmodule AWS.BedrockAgentRuntime do
 
       invocation_input() :: %{
         "actionGroupInvocationInput" => action_group_invocation_input(),
+        "agentCollaboratorInvocationInput" => agent_collaborator_invocation_input(),
         "codeInterpreterInvocationInput" => code_interpreter_invocation_input(),
         "invocationType" => list(any()),
         "knowledgeBaseLookupInput" => knowledge_base_lookup_input(),
@@ -2116,6 +2217,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type rerank_document() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message() :: %{
+        "content" => list(list()()),
+        "role" => list(any())
+      }
+
+  """
+  @type message() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2401,7 +2514,12 @@ defmodule AWS.BedrockAgentRuntime do
     url_path =
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentAliases/#{AWS.Util.encode_uri(agent_alias_id)}/sessions/#{AWS.Util.encode_uri(session_id)}/text"
 
-    headers = []
+    {headers, input} =
+      [
+        {"sourceArn", "x-amz-source-arn"}
+      ]
+      |> Request.build_params(input)
+
     custom_headers = []
     query_params = []
 

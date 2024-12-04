@@ -94,6 +94,15 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      disassociate_agent_collaborator_response() :: %{}
+
+  """
+  @type disassociate_agent_collaborator_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       ingestion_job_statistics() :: %{
         "numberOfDocumentsDeleted" => [float()],
         "numberOfDocumentsFailed" => [float()],
@@ -572,6 +581,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       create_agent_request() :: %{
+        optional("agentCollaboration") => list(any()),
         optional("agentResourceRoleArn") => String.t(),
         optional("clientToken") => String.t(),
         optional("customOrchestration") => custom_orchestration(),
@@ -782,6 +792,25 @@ defmodule AWS.BedrockAgent do
 
   """
   @type metadata_attribute() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_collaborator_summary() :: %{
+        "agentDescriptor" => agent_descriptor(),
+        "agentId" => String.t(),
+        "agentVersion" => String.t(),
+        "collaborationInstruction" => String.t(),
+        "collaboratorId" => String.t(),
+        "collaboratorName" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "relayConversationHistory" => list(any())
+      }
+
+  """
+  @type agent_collaborator_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1283,6 +1312,20 @@ defmodule AWS.BedrockAgent do
 
   """
   @type ingestion_job() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_agent_collaborator_request() :: %{
+        optional("relayConversationHistory") => list(any()),
+        required("agentDescriptor") => agent_descriptor(),
+        required("collaborationInstruction") => String.t(),
+        required("collaboratorName") => String.t()
+      }
+
+  """
+  @type update_agent_collaborator_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2125,6 +2168,7 @@ defmodule AWS.BedrockAgent do
 
       agent() :: %{
         "agentArn" => String.t(),
+        "agentCollaboration" => list(any()),
         "agentId" => String.t(),
         "agentName" => String.t(),
         "agentResourceRoleArn" => String.t(),
@@ -2312,6 +2356,21 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      associate_agent_collaborator_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("relayConversationHistory") => list(any()),
+        required("agentDescriptor") => agent_descriptor(),
+        required("collaborationInstruction") => String.t(),
+        required("collaboratorName") => String.t()
+      }
+
+  """
+  @type associate_agent_collaborator_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_agent_response() :: %{
         "agentId" => String.t(),
         "agentStatus" => list(any())
@@ -2489,6 +2548,7 @@ defmodule AWS.BedrockAgent do
 
       agent_version() :: %{
         "agentArn" => String.t(),
+        "agentCollaboration" => list(any()),
         "agentId" => String.t(),
         "agentName" => String.t(),
         "agentResourceRoleArn" => String.t(),
@@ -2515,6 +2575,26 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      agent_collaborator() :: %{
+        "agentDescriptor" => agent_descriptor(),
+        "agentId" => String.t(),
+        "agentVersion" => String.t(),
+        "clientToken" => String.t(),
+        "collaborationInstruction" => String.t(),
+        "collaboratorId" => String.t(),
+        "collaboratorName" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "relayConversationHistory" => list(any())
+      }
+
+  """
+  @type agent_collaborator() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       agent_alias_routing_configuration_list_item() :: %{
         "agentVersion" => String.t(),
         "provisionedThroughput" => String.t()
@@ -2522,6 +2602,17 @@ defmodule AWS.BedrockAgent do
 
   """
   @type agent_alias_routing_configuration_list_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_agent_collaborator_response() :: %{
+        "agentCollaborator" => agent_collaborator()
+      }
+
+  """
+  @type update_agent_collaborator_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2610,6 +2701,27 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      disassociate_agent_collaborator_request() :: %{}
+
+  """
+  @type disassociate_agent_collaborator_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_agent_collaborators_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_agent_collaborators_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       share_point_source_configuration() :: %{
         "authType" => list(any()),
         "credentialsSecretArn" => String.t(),
@@ -2664,6 +2776,15 @@ defmodule AWS.BedrockAgent do
 
   """
   @type create_agent_action_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_agent_collaborator_request() :: %{}
+
+  """
+  @type get_agent_collaborator_request() :: %{}
 
   @typedoc """
 
@@ -2782,6 +2903,17 @@ defmodule AWS.BedrockAgent do
 
   """
   @type data_source_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_descriptor() :: %{
+        "aliasArn" => String.t()
+      }
+
+  """
+  @type agent_descriptor() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2947,6 +3079,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       update_agent_request() :: %{
+        optional("agentCollaboration") => list(any()),
         optional("customOrchestration") => custom_orchestration(),
         optional("customerEncryptionKeyArn") => String.t(),
         optional("description") => String.t(),
@@ -3010,6 +3143,18 @@ defmodule AWS.BedrockAgent do
 
   """
   @type chat_prompt_template_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_agent_collaborators_response() :: %{
+        "agentCollaboratorSummaries" => list(agent_collaborator_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_agent_collaborators_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3559,6 +3704,17 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      get_agent_collaborator_response() :: %{
+        "agentCollaborator" => agent_collaborator()
+      }
+
+  """
+  @type get_agent_collaborator_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_agent_knowledge_bases_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
@@ -3818,6 +3974,17 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      associate_agent_collaborator_response() :: %{
+        "agentCollaborator" => agent_collaborator()
+      }
+
+  """
+  @type associate_agent_collaborator_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       s3_data_source_configuration() :: %{
         "bucketArn" => String.t(),
         "bucketOwnerAccountId" => String.t(),
@@ -3858,6 +4025,7 @@ defmodule AWS.BedrockAgent do
 
       prompt_configuration() :: %{
         "basePromptTemplate" => String.t(),
+        "foundationModel" => String.t(),
         "inferenceConfiguration" => inference_configuration(),
         "parserMode" => list(any()),
         "promptCreationMode" => list(any()),
@@ -3897,6 +4065,15 @@ defmodule AWS.BedrockAgent do
 
   """
   @type prompt_variant() :: %{String.t() => any()}
+
+  @type associate_agent_collaborator_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type associate_agent_knowledge_base_errors() ::
           throttling_exception()
@@ -4080,6 +4257,14 @@ defmodule AWS.BedrockAgent do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type disassociate_agent_collaborator_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type disassociate_agent_knowledge_base_errors() ::
           throttling_exception()
           | validation_exception()
@@ -4103,6 +4288,13 @@ defmodule AWS.BedrockAgent do
           | resource_not_found_exception()
 
   @type get_agent_alias_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_agent_collaborator_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -4196,6 +4388,13 @@ defmodule AWS.BedrockAgent do
           | resource_not_found_exception()
 
   @type list_agent_aliases_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_agent_collaborators_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -4361,6 +4560,15 @@ defmodule AWS.BedrockAgent do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type update_agent_collaborator_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type update_agent_knowledge_base_errors() ::
           throttling_exception()
           | validation_exception()
@@ -4432,6 +4640,48 @@ defmodule AWS.BedrockAgent do
       signing_name: "bedrock",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Makes an agent a collaborator for another agent.
+  """
+  @spec associate_agent_collaborator(
+          map(),
+          String.t(),
+          String.t(),
+          associate_agent_collaborator_request(),
+          list()
+        ) ::
+          {:ok, associate_agent_collaborator_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, associate_agent_collaborator_errors()}
+  def associate_agent_collaborator(
+        %Client{} = client,
+        agent_id,
+        agent_version,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/agents/#{AWS.Util.encode_uri(agent_id)}/agentversions/#{AWS.Util.encode_uri(agent_version)}/agentcollaborators/"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -5308,6 +5558,50 @@ defmodule AWS.BedrockAgent do
   end
 
   @doc """
+  Disassociates an agent collaborator.
+  """
+  @spec disassociate_agent_collaborator(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          disassociate_agent_collaborator_request(),
+          list()
+        ) ::
+          {:ok, disassociate_agent_collaborator_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disassociate_agent_collaborator_errors()}
+  def disassociate_agent_collaborator(
+        %Client{} = client,
+        agent_id,
+        agent_version,
+        collaborator_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/agents/#{AWS.Util.encode_uri(agent_id)}/agentversions/#{AWS.Util.encode_uri(agent_version)}/agentcollaborators/#{AWS.Util.encode_uri(collaborator_id)}/"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Disassociates a knowledge base from an agent.
   """
   @spec disassociate_agent_knowledge_base(
@@ -5403,6 +5697,31 @@ defmodule AWS.BedrockAgent do
   def get_agent_alias(%Client{} = client, agent_alias_id, agent_id, options \\ []) do
     url_path =
       "/agents/#{AWS.Util.encode_uri(agent_id)}/agentaliases/#{AWS.Util.encode_uri(agent_alias_id)}/"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves information about an agent's collaborator.
+  """
+  @spec get_agent_collaborator(map(), String.t(), String.t(), String.t(), list()) ::
+          {:ok, get_agent_collaborator_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_agent_collaborator_errors()}
+  def get_agent_collaborator(
+        %Client{} = client,
+        agent_id,
+        agent_version,
+        collaborator_id,
+        options \\ []
+      ) do
+    url_path =
+      "/agents/#{AWS.Util.encode_uri(agent_id)}/agentversions/#{AWS.Util.encode_uri(agent_version)}/agentcollaborators/#{AWS.Util.encode_uri(collaborator_id)}/"
 
     headers = []
     query_params = []
@@ -5753,6 +6072,42 @@ defmodule AWS.BedrockAgent do
           | {:error, list_agent_aliases_errors()}
   def list_agent_aliases(%Client{} = client, agent_id, input, options \\ []) do
     url_path = "/agents/#{AWS.Util.encode_uri(agent_id)}/agentaliases/"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieve a list of an agent's collaborators.
+  """
+  @spec list_agent_collaborators(
+          map(),
+          String.t(),
+          String.t(),
+          list_agent_collaborators_request(),
+          list()
+        ) ::
+          {:ok, list_agent_collaborators_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_agent_collaborators_errors()}
+  def list_agent_collaborators(%Client{} = client, agent_id, agent_version, input, options \\ []) do
+    url_path =
+      "/agents/#{AWS.Util.encode_uri(agent_id)}/agentversions/#{AWS.Util.encode_uri(agent_version)}/agentcollaborators/"
+
     headers = []
     custom_headers = []
     query_params = []
@@ -6497,6 +6852,50 @@ defmodule AWS.BedrockAgent do
       input,
       options,
       202
+    )
+  end
+
+  @doc """
+  Updates an agent's collaborator.
+  """
+  @spec update_agent_collaborator(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          update_agent_collaborator_request(),
+          list()
+        ) ::
+          {:ok, update_agent_collaborator_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_agent_collaborator_errors()}
+  def update_agent_collaborator(
+        %Client{} = client,
+        agent_id,
+        agent_version,
+        collaborator_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/agents/#{AWS.Util.encode_uri(agent_id)}/agentversions/#{AWS.Util.encode_uri(agent_version)}/agentcollaborators/#{AWS.Util.encode_uri(collaborator_id)}/"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 

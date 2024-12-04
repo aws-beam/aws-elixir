@@ -517,7 +517,8 @@ defmodule AWS.SocialMessaging do
       linked_whats_app_business_account_id_meta_data() :: %{
         "accountName" => String.t(),
         "registrationStatus" => list(any()),
-        "unregisteredWhatsAppPhoneNumbers" => list(whats_app_phone_number_detail()())
+        "unregisteredWhatsAppPhoneNumbers" => list(whats_app_phone_number_detail()()),
+        "wabaId" => String.t()
       }
 
   """
@@ -562,7 +563,8 @@ defmodule AWS.SocialMessaging do
   ## Example:
 
       whats_app_business_account_event_destination() :: %{
-        "eventDestinationArn" => String.t()
+        "eventDestinationArn" => String.t(),
+        "roleArn" => String.t()
       }
 
   """

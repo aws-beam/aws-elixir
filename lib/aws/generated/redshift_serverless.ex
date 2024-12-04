@@ -17,8 +17,7 @@ defmodule AWS.RedshiftServerless do
   focus on using your data to acquire new insights for your business and
   customers.
 
-  To learn more about Amazon Redshift Serverless,
-  see [What is Amazon Redshift Serverless](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-whatis.html).
+  To learn more about Amazon Redshift Serverless, see [What is Amazon Redshift Serverless?](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-whatis.html).
   """
 
   alias AWS.Client
@@ -240,6 +239,18 @@ defmodule AWS.RedshiftServerless do
       
   """
   @type ipv6_cidr_block_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_managed_workgroups_response() :: %{
+        "managedWorkgroups" => list(managed_workgroup_list_item()()),
+        "nextToken" => String.t()
+      }
+      
+  """
+  @type list_managed_workgroups_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -839,6 +850,19 @@ defmodule AWS.RedshiftServerless do
 
   ## Example:
       
+      list_managed_workgroups_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t(),
+        optional("sourceArn") => String.t()
+      }
+      
+  """
+  @type list_managed_workgroups_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       snapshot_copy_configuration() :: %{
         "destinationKmsKeyId" => String.t(),
         "destinationRegion" => [String.t()],
@@ -1279,6 +1303,21 @@ defmodule AWS.RedshiftServerless do
       
   """
   @type list_custom_domain_associations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      managed_workgroup_list_item() :: %{
+        "creationDate" => [non_neg_integer()],
+        "managedWorkgroupId" => [String.t()],
+        "managedWorkgroupName" => String.t(),
+        "sourceArn" => String.t(),
+        "status" => list(any())
+      }
+      
+  """
+  @type managed_workgroup_list_item() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2051,6 +2090,9 @@ defmodule AWS.RedshiftServerless do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type list_managed_workgroups_errors() ::
+          access_denied_exception() | internal_server_exception()
+
   @type list_namespaces_errors() :: validation_exception() | internal_server_exception()
 
   @type list_recovery_points_errors() :: validation_exception() | internal_server_exception()
@@ -2337,6 +2379,27 @@ defmodule AWS.RedshiftServerless do
 
   @doc """
   Creates an workgroup in Amazon Redshift Serverless.
+
+  VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets
+  that
+  you own in a Region from reaching or being reached from the internet through
+  internet
+  gateways and egress-only internet gateways. If a workgroup is in an account with
+  VPC BPA
+  turned on, the following capabilities are blocked:
+
+    *
+  Creating a public access workgroup
+
+    *
+  Modifying a private workgroup to public
+
+    *
+  Adding a subnet with VPC BPA turned on to the workgroup when the workgroup is
+  public
+
+  For more information about VPC BPA, see [Block public access to VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html)
+  in the *Amazon VPC User Guide*.
   """
   @spec create_workgroup(map(), create_workgroup_request(), list()) ::
           {:ok, create_workgroup_response(), any()}
@@ -2655,6 +2718,20 @@ defmodule AWS.RedshiftServerless do
     meta = metadata()
 
     Request.request_post(client, meta, "ListEndpointAccess", input, options)
+  end
+
+  @doc """
+  Returns information about a list of specified managed workgroups in your
+  account.
+  """
+  @spec list_managed_workgroups(map(), list_managed_workgroups_request(), list()) ::
+          {:ok, list_managed_workgroups_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_managed_workgroups_errors()}
+  def list_managed_workgroups(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListManagedWorkgroups", input, options)
   end
 
   @doc """
@@ -2998,6 +3075,27 @@ defmodule AWS.RedshiftServerless do
   You can't update multiple parameters in one request. For example,
   you can update `baseCapacity` or `port` in a single request, but you can't
   update both in the same request.
+
+  VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets
+  that
+  you own in a Region from reaching or being reached from the internet through
+  internet
+  gateways and egress-only internet gateways. If a workgroup is in an account with
+  VPC BPA
+  turned on, the following capabilities are blocked:
+
+    *
+  Creating a public access workgroup
+
+    *
+  Modifying a private workgroup to public
+
+    *
+  Adding a subnet with VPC BPA turned on to the workgroup when the workgroup is
+  public
+
+  For more information about VPC BPA, see [Block public access to VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html)
+  in the *Amazon VPC User Guide*.
   """
   @spec update_workgroup(map(), update_workgroup_request(), list()) ::
           {:ok, update_workgroup_response(), any()}

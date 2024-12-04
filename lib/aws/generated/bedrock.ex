@@ -599,6 +599,19 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      invocation_logs_config() :: %{
+        "invocationLogSource" => list(),
+        "requestMetadataFilters" => list(),
+        "usePromptResponse" => boolean()
+      }
+
+  """
+  @type invocation_logs_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_inference_profiles_response() :: %{
         "inferenceProfileSummaries" => list(inference_profile_summary()()),
         "nextToken" => String.t()
@@ -638,7 +651,8 @@ defmodule AWS.Bedrock do
         "embeddingDataDeliveryEnabled" => [boolean()],
         "imageDataDeliveryEnabled" => [boolean()],
         "s3Config" => s3_config(),
-        "textDataDeliveryEnabled" => [boolean()]
+        "textDataDeliveryEnabled" => [boolean()],
+        "videoDataDeliveryEnabled" => [boolean()]
       }
 
   """
@@ -1125,6 +1139,7 @@ defmodule AWS.Bedrock do
       get_custom_model_response() :: %{
         "baseModelArn" => String.t(),
         "creationTime" => non_neg_integer(),
+        "customizationConfig" => list(),
         "customizationType" => list(any()),
         "hyperParameters" => map(),
         "jobArn" => String.t(),
@@ -1235,6 +1250,18 @@ defmodule AWS.Bedrock do
 
   """
   @type create_provisioned_model_throughput_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      teacher_model_config() :: %{
+        "maxResponseLengthForInference" => [integer()],
+        "teacherModelIdentifier" => String.t()
+      }
+
+  """
+  @type teacher_model_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1592,6 +1619,17 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      distillation_config() :: %{
+        "teacherModelConfig" => teacher_model_config()
+      }
+
+  """
+  @type distillation_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       internal_server_exception() :: %{
         "message" => String.t()
       }
@@ -1778,13 +1816,14 @@ defmodule AWS.Bedrock do
         optional("clientRequestToken") => String.t(),
         optional("customModelKmsKeyId") => String.t(),
         optional("customModelTags") => list(tag()()),
+        optional("customizationConfig") => list(),
         optional("customizationType") => list(any()),
+        optional("hyperParameters") => map(),
         optional("jobTags") => list(tag()()),
         optional("validationDataConfig") => validation_data_config(),
         optional("vpcConfig") => vpc_config(),
         required("baseModelIdentifier") => String.t(),
         required("customModelName") => String.t(),
-        required("hyperParameters") => map(),
         required("jobName") => String.t(),
         required("outputDataConfig") => output_data_config(),
         required("roleArn") => String.t(),
@@ -1990,6 +2029,7 @@ defmodule AWS.Bedrock do
         "baseModelArn" => String.t(),
         "clientRequestToken" => String.t(),
         "creationTime" => non_neg_integer(),
+        "customizationConfig" => list(),
         "customizationType" => list(any()),
         "endTime" => non_neg_integer(),
         "failureMessage" => String.t(),
@@ -2254,6 +2294,18 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      request_metadata_base_filters() :: %{
+        "equals" => map(),
+        "notEquals" => map()
+      }
+
+  """
+  @type request_metadata_base_filters() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       kb_inference_config() :: %{
         "textInferenceConfig" => text_inference_config()
       }
@@ -2286,6 +2338,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       training_data_config() :: %{
+        "invocationLogsConfig" => invocation_logs_config(),
         "s3Uri" => String.t()
       }
 
@@ -2915,7 +2968,7 @@ defmodule AWS.Bedrock do
   the user if a user input or model response is in violation of the policies
   defined in the guardrail.
 
-  For more information, see [Guardrails for Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html)
+  For more information, see [Amazon Bedrock Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html)
   in
   the *Amazon Bedrock User Guide*.
   """
@@ -3597,7 +3650,7 @@ defmodule AWS.Bedrock do
   @doc """
   Gets details about a batch inference job.
 
-  For more information, see [View details about a batch inference job](https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-manage.html#batch-inference-view)
+  For more information, see [Monitor batch inference jobs](https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-monitor)
   """
   @spec get_model_invocation_job(map(), String.t(), list()) ::
           {:ok, get_model_invocation_job_response(), any()}
@@ -4453,7 +4506,7 @@ defmodule AWS.Bedrock do
   @doc """
   Lists all batch inference jobs in the account.
 
-  For more information, see [View details about a batch inference job](https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-manage.html#batch-inference-view).
+  For more information, see [View details about a batch inference job](https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-view.html).
   """
   @spec list_model_invocation_jobs(
           map(),
@@ -4785,7 +4838,7 @@ defmodule AWS.Bedrock do
   Stops a batch inference job.
 
   You're only charged for tokens that were already processed. For more
-  information, see [Stop a batch inference job](https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-manage.html#batch-inference-stop).
+  information, see [Stop a batch inference job](https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-stop.html).
   """
   @spec stop_model_invocation_job(map(), String.t(), stop_model_invocation_job_request(), list()) ::
           {:ok, stop_model_invocation_job_response(), any()}

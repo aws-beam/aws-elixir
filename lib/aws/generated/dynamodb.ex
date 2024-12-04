@@ -55,6 +55,7 @@ defmodule AWS.DynamoDB do
         "LatestStreamArn" => String.t(),
         "LatestStreamLabel" => String.t(),
         "LocalSecondaryIndexes" => list(local_secondary_index_description()()),
+        "MultiRegionConsistency" => list(any()),
         "OnDemandThroughput" => on_demand_throughput(),
         "ProvisionedThroughput" => provisioned_throughput_description(),
         "Replicas" => list(replica_description()()),
@@ -716,6 +717,17 @@ defmodule AWS.DynamoDB do
       
   """
   @type table_creation_parameters() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      replicated_write_conflict_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type replicated_write_conflict_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3086,6 +3098,7 @@ defmodule AWS.DynamoDB do
         optional("BillingMode") => list(any()),
         optional("DeletionProtectionEnabled") => boolean(),
         optional("GlobalSecondaryIndexUpdates") => list(global_secondary_index_update()()),
+        optional("MultiRegionConsistency") => list(any()),
         optional("OnDemandThroughput") => on_demand_throughput(),
         optional("ProvisionedThroughput") => provisioned_throughput(),
         optional("ReplicaUpdates") => list(replication_group_update()()),
@@ -3421,6 +3434,7 @@ defmodule AWS.DynamoDB do
           | transaction_conflict_exception()
           | resource_not_found_exception()
           | provisioned_throughput_exceeded_exception()
+          | replicated_write_conflict_exception()
           | invalid_endpoint_exception()
           | item_collection_size_limit_exceeded_exception()
 
@@ -3557,6 +3571,7 @@ defmodule AWS.DynamoDB do
           | transaction_conflict_exception()
           | resource_not_found_exception()
           | provisioned_throughput_exceeded_exception()
+          | replicated_write_conflict_exception()
           | invalid_endpoint_exception()
           | item_collection_size_limit_exceeded_exception()
 
@@ -3666,6 +3681,7 @@ defmodule AWS.DynamoDB do
           | transaction_conflict_exception()
           | resource_not_found_exception()
           | provisioned_throughput_exceeded_exception()
+          | replicated_write_conflict_exception()
           | invalid_endpoint_exception()
           | item_collection_size_limit_exceeded_exception()
 

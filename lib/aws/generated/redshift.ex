@@ -1755,6 +1755,29 @@ defmodule AWS.Redshift do
 
   ## Example:
       
+      serverless_identifier() :: %{
+        "NamespaceIdentifier" => String.t(),
+        "WorkgroupIdentifier" => String.t()
+      }
+      
+  """
+  @type serverless_identifier() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deregister_namespace_output_message() :: %{
+        "Status" => list(any())
+      }
+      
+  """
+  @type deregister_namespace_output_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       authorize_endpoint_access_message() :: %{
         optional("ClusterIdentifier") => String.t(),
         optional("VpcIds") => list(String.t()()),
@@ -2082,6 +2105,18 @@ defmodule AWS.Redshift do
       
   """
   @type delete_hsm_configuration_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      register_namespace_input_message() :: %{
+        required("ConsumerIdentifiers") => list(String.t()()),
+        required("NamespaceIdentifier") => list()
+      }
+      
+  """
+  @type register_namespace_input_message() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3070,6 +3105,7 @@ defmodule AWS.Redshift do
         optional("AllowPubliclyAccessibleConsumers") => boolean(),
         optional("DataShareArn") => String.t(),
         optional("DataShareAssociations") => list(data_share_association()()),
+        optional("DataShareType") => list(any()),
         optional("ManagedBy") => String.t(),
         optional("ProducerArn") => String.t()
       }
@@ -3171,6 +3207,18 @@ defmodule AWS.Redshift do
       
   """
   @type create_hsm_client_certificate_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deregister_namespace_input_message() :: %{
+        required("ConsumerIdentifiers") => list(String.t()()),
+        required("NamespaceIdentifier") => list()
+      }
+      
+  """
+  @type deregister_namespace_input_message() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4652,6 +4700,17 @@ defmodule AWS.Redshift do
 
   ## Example:
       
+      provisioned_identifier() :: %{
+        "ClusterIdentifier" => String.t()
+      }
+      
+  """
+  @type provisioned_identifier() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       snapshot_schedule_not_found_fault() :: %{
         "message" => String.t()
       }
@@ -5674,6 +5733,17 @@ defmodule AWS.Redshift do
 
   ## Example:
       
+      register_namespace_output_message() :: %{
+        "Status" => list(any())
+      }
+      
+  """
+  @type register_namespace_output_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       authorized_token_issuer() :: %{
         "AuthorizedAudiencesList" => list(String.t()()),
         "TrustedTokenIssuerArn" => String.t()
@@ -6300,6 +6370,9 @@ defmodule AWS.Redshift do
   @type delete_usage_limit_errors() ::
           unsupported_operation_fault() | usage_limit_not_found_fault()
 
+  @type deregister_namespace_errors() ::
+          invalid_cluster_state_fault() | invalid_namespace_fault() | cluster_not_found_fault()
+
   @type describe_authentication_profiles_errors() ::
           authentication_profile_not_found_fault()
           | invalid_authentication_profile_request_fault()
@@ -6634,6 +6707,9 @@ defmodule AWS.Redshift do
           | resource_not_found_fault()
 
   @type reboot_cluster_errors() :: invalid_cluster_state_fault() | cluster_not_found_fault()
+
+  @type register_namespace_errors() ::
+          invalid_cluster_state_fault() | invalid_namespace_fault() | cluster_not_found_fault()
 
   @type reject_data_share_errors() :: invalid_data_share_fault()
 
@@ -6993,6 +7069,31 @@ defmodule AWS.Redshift do
   For more information about managing clusters, go to
   [Amazon Redshift Clusters](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html)
   in the *Amazon Redshift Cluster Management Guide*.
+
+  VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets
+  that
+  you own in a Region from reaching or being reached from the internet through
+  internet
+  gateways and egress-only internet gateways. If a subnet group for a
+  provisioned cluster is in an account with VPC BPA turned on, the following
+  capabilities
+  are blocked:
+
+    *
+  Creating a public cluster
+
+    *
+  Restoring a public cluster
+
+    *
+  Modifying a private cluster to be public
+
+    *
+  Adding a subnet with VPC BPA turned on to the subnet group when there's at
+  least one public cluster within the group
+
+  For more information about VPC BPA, see [Block public access to VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html)
+  in the *Amazon VPC User Guide*.
   """
   @spec create_cluster(map(), create_cluster_message(), list()) ::
           {:ok, create_cluster_result(), any()}
@@ -7663,6 +7764,20 @@ defmodule AWS.Redshift do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteUsageLimit", input, options)
+  end
+
+  @doc """
+  Deregisters a cluster or serverless namespace from the Amazon Web Services Glue
+  Data Catalog.
+  """
+  @spec deregister_namespace(map(), deregister_namespace_input_message(), list()) ::
+          {:ok, deregister_namespace_output_message(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, deregister_namespace_errors()}
+  def deregister_namespace(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeregisterNamespace", input, options)
   end
 
   @doc """
@@ -8846,6 +8961,31 @@ defmodule AWS.Redshift do
   For more information about managing clusters, go to
   [Amazon Redshift Clusters](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html)
   in the *Amazon Redshift Cluster Management Guide*.
+
+  VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets
+  that
+  you own in a Region from reaching or being reached from the internet through
+  internet
+  gateways and egress-only internet gateways. If a subnet group for a
+  provisioned cluster is in an account with VPC BPA turned on, the following
+  capabilities
+  are blocked:
+
+    *
+  Creating a public cluster
+
+    *
+  Restoring a public cluster
+
+    *
+  Modifying a private cluster to be public
+
+    *
+  Adding a subnet with VPC BPA turned on to the subnet group when there's at
+  least one public cluster within the group
+
+  For more information about VPC BPA, see [Block public access to VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html)
+  in the *Amazon VPC User Guide*.
   """
   @spec modify_cluster(map(), modify_cluster_message(), list()) ::
           {:ok, modify_cluster_result(), any()}
@@ -8961,6 +9101,31 @@ defmodule AWS.Redshift do
 
   The
   operation replaces the existing list of subnets with the new list of subnets.
+
+  VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets
+  that
+  you own in a Region from reaching or being reached from the internet through
+  internet
+  gateways and egress-only internet gateways. If a subnet group for a
+  provisioned cluster is in an account with VPC BPA turned on, the following
+  capabilities
+  are blocked:
+
+    *
+  Creating a public cluster
+
+    *
+  Restoring a public cluster
+
+    *
+  Modifying a private cluster to be public
+
+    *
+  Adding a subnet with VPC BPA turned on to the subnet group when there's at
+  least one public cluster within the group
+
+  For more information about VPC BPA, see [Block public access to VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html)
+  in the *Amazon VPC User Guide*.
   """
   @spec modify_cluster_subnet_group(map(), modify_cluster_subnet_group_message(), list()) ::
           {:ok, modify_cluster_subnet_group_result(), any()}
@@ -9189,6 +9354,20 @@ defmodule AWS.Redshift do
   end
 
   @doc """
+  Registers a cluster or serverless namespace to the Amazon Web Services Glue Data
+  Catalog.
+  """
+  @spec register_namespace(map(), register_namespace_input_message(), list()) ::
+          {:ok, register_namespace_output_message(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, register_namespace_errors()}
+  def register_namespace(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "RegisterNamespace", input, options)
+  end
+
+  @doc """
   From a datashare consumer account, rejects the specified datashare.
   """
   @spec reject_data_share(map(), reject_data_share_message(), list()) ::
@@ -9283,6 +9462,31 @@ defmodule AWS.Redshift do
   If you restore a cluster into a VPC, you must provide a cluster subnet group
   where
   you want the cluster restored.
+
+  VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets
+  that
+  you own in a Region from reaching or being reached from the internet through
+  internet
+  gateways and egress-only internet gateways. If a subnet group for a
+  provisioned cluster is in an account with VPC BPA turned on, the following
+  capabilities
+  are blocked:
+
+    *
+  Creating a public cluster
+
+    *
+  Restoring a public cluster
+
+    *
+  Modifying a private cluster to be public
+
+    *
+  Adding a subnet with VPC BPA turned on to the subnet group when there's at
+  least one public cluster within the group
+
+  For more information about VPC BPA, see [Block public access to VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html)
+  in the *Amazon VPC User Guide*.
 
   For more information about working with snapshots, go to
   [Amazon Redshift Snapshots](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html)

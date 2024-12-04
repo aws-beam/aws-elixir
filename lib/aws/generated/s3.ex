@@ -799,6 +799,20 @@ defmodule AWS.S3 do
 
   ## Example:
 
+      create_bucket_metadata_table_configuration_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t(),
+        optional("ExpectedBucketOwner") => String.t(),
+        required("MetadataTableConfiguration") => metadata_table_configuration()
+      }
+
+  """
+  @type create_bucket_metadata_table_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       analytics_export_destination() :: %{
         "S3BucketDestination" => analytics_s3_bucket_destination()
       }
@@ -1012,6 +1026,19 @@ defmodule AWS.S3 do
 
   """
   @type grantee() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_metadata_table_configuration_result() :: %{
+        "Error" => error_details(),
+        "MetadataTableConfigurationResult" => metadata_table_configuration_result(),
+        "Status" => String.t()
+      }
+
+  """
+  @type get_bucket_metadata_table_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1329,6 +1356,18 @@ defmodule AWS.S3 do
 
   ## Example:
 
+      s3_tables_destination() :: %{
+        "TableBucketArn" => String.t(),
+        "TableName" => String.t()
+      }
+
+  """
+  @type s3_tables_destination() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       select_parameters() :: %{
         "Expression" => String.t(),
         "ExpressionType" => list(any()),
@@ -1465,6 +1504,20 @@ defmodule AWS.S3 do
 
   """
   @type invalid_write_offset() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_tables_destination_result() :: %{
+        "TableArn" => String.t(),
+        "TableBucketArn" => String.t(),
+        "TableName" => String.t(),
+        "TableNamespace" => String.t()
+      }
+
+  """
+  @type s3_tables_destination_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1668,6 +1721,17 @@ defmodule AWS.S3 do
 
   ## Example:
 
+      metadata_table_configuration() :: %{
+        "S3TablesDestination" => s3_tables_destination()
+      }
+
+  """
+  @type metadata_table_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_bucket_replication_request() :: %{
         optional("ExpectedBucketOwner") => String.t()
       }
@@ -1738,6 +1802,17 @@ defmodule AWS.S3 do
 
   """
   @type intelligent_tiering_and_operator() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metadata_table_configuration_result() :: %{
+        "S3TablesDestinationResult" => s3_tables_destination_result()
+      }
+
+  """
+  @type metadata_table_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2300,6 +2375,18 @@ defmodule AWS.S3 do
 
   ## Example:
 
+      error_details() :: %{
+        "ErrorCode" => String.t(),
+        "ErrorMessage" => String.t()
+      }
+
+  """
+  @type error_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       access_control_translation() :: %{
         "Owner" => list(any())
       }
@@ -2553,6 +2640,17 @@ defmodule AWS.S3 do
 
   ## Example:
 
+      get_bucket_metadata_table_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t()
+      }
+
+  """
+  @type get_bucket_metadata_table_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       server_side_encryption_configuration() :: %{
         "Rules" => list(server_side_encryption_rule()())
       }
@@ -2736,6 +2834,17 @@ defmodule AWS.S3 do
 
   """
   @type no_such_bucket() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_bucket_metadata_table_configuration_request() :: %{
+        optional("ExpectedBucketOwner") => String.t()
+      }
+
+  """
+  @type delete_bucket_metadata_table_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3713,6 +3822,17 @@ defmodule AWS.S3 do
 
   """
   @type get_public_access_block_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bucket_metadata_table_configuration_output() :: %{
+        "GetBucketMetadataTableConfigurationResult" => get_bucket_metadata_table_configuration_result()
+      }
+
+  """
+  @type get_bucket_metadata_table_configuration_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5224,6 +5344,102 @@ defmodule AWS.S3 do
   end
 
   @doc """
+  Creates a metadata table configuration for a general purpose bucket.
+
+  For more
+  information, see [Accelerating data discovery with S3
+  Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html)
+  in the *Amazon S3 User Guide*.
+
+  ## Definitions
+
+  ### Permissions
+
+  To use this operation, you must have the following permissions. For more
+  information, see [Setting up permissions for configuring metadata
+  tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html)
+  in the
+  *Amazon S3 User Guide*.
+
+  If you also want to integrate your table bucket with Amazon Web Services
+  analytics services so that you
+  can query your metadata table, you need additional permissions. For more
+  information, see
+  [
+  Integrating Amazon S3 Tables with Amazon Web Services analytics
+  services](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-integrating-aws.html)
+  in the
+  *Amazon S3 User Guide*.
+
+    
+
+  `s3:CreateBucketMetadataTableConfiguration`
+
+    
+
+  `s3tables:CreateNamespace`
+
+    
+
+  `s3tables:GetTable`
+
+    
+
+  `s3tables:CreateTable`
+
+    
+
+  `s3tables:PutTablePolicy`
+
+  The following operations are related to
+  `CreateBucketMetadataTableConfiguration`:
+
+    *
+
+  [DeleteBucketMetadataTableConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetadataTableConfiguration.html) 
+
+    *
+
+  [GetBucketMetadataTableConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketMetadataTableConfiguration.html)
+  """
+  @spec create_bucket_metadata_table_configuration(
+          map(),
+          String.t(),
+          create_bucket_metadata_table_configuration_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+  def create_bucket_metadata_table_configuration(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?metadataTable"
+
+    {headers, input} =
+      [
+        {"ChecksumAlgorithm", "x-amz-sdk-checksum-algorithm"},
+        {"ContentMD5", "Content-MD5"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   This action initiates a multipart upload and returns an upload ID.
 
   This upload ID is
@@ -6435,6 +6651,72 @@ defmodule AWS.S3 do
           | {:error, {:unexpected_response, any()}}
   def delete_bucket_lifecycle(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?lifecycle"
+
+    {headers, input} =
+      [
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+
+  Deletes a metadata table configuration from a general purpose bucket.
+
+  For more
+  information, see [Accelerating data discovery with S3
+  Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html)
+  in the *Amazon S3 User Guide*.
+
+  ## Definitions
+
+  ### Permissions
+
+  To use this operation, you must have the
+  `s3:DeleteBucketMetadataTableConfiguration` permission. For more
+  information, see [Setting up permissions for configuring metadata
+  tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html)
+  in the
+  *Amazon S3 User Guide*.
+
+  The following operations are related to
+  `DeleteBucketMetadataTableConfiguration`:
+
+    *
+
+  [CreateBucketMetadataTableConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataTableConfiguration.html) 
+
+    *
+
+  [GetBucketMetadataTableConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketMetadataTableConfiguration.html)
+  """
+  @spec delete_bucket_metadata_table_configuration(
+          map(),
+          String.t(),
+          delete_bucket_metadata_table_configuration_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+  def delete_bucket_metadata_table_configuration(%Client{} = client, bucket, input, options \\ []) do
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?metadataTable"
 
     {headers, input} =
       [
@@ -8154,6 +8436,62 @@ defmodule AWS.S3 do
           | {:error, {:unexpected_response, any()}}
   def get_bucket_logging(%Client{} = client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?logging"
+    headers = []
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+
+  Retrieves the metadata table configuration for a general purpose bucket.
+
+  For more
+  information, see [Accelerating data discovery with S3
+  Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html)
+  in the *Amazon S3 User Guide*.
+
+  ## Definitions
+
+  ### Permissions
+
+  To use this operation, you must have the
+  `s3:GetBucketMetadataTableConfiguration` permission. For more
+  information, see [Setting up permissions for configuring metadata
+  tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html)
+  in the
+  *Amazon S3 User Guide*.
+
+  The following operations are related to `GetBucketMetadataTableConfiguration`:
+
+    *
+
+  [CreateBucketMetadataTableConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataTableConfiguration.html) 
+
+    *
+
+  [DeleteBucketMetadataTableConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetadataTableConfiguration.html)
+  """
+  @spec get_bucket_metadata_table_configuration(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_bucket_metadata_table_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def get_bucket_metadata_table_configuration(
+        %Client{} = client,
+        bucket,
+        expected_bucket_owner \\ nil,
+        options \\ []
+      ) do
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?metadataTable"
     headers = []
 
     headers =

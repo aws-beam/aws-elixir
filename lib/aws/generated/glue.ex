@@ -27,6 +27,17 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      get_catalog_request() :: %{
+        required("CatalogId") => String.t()
+      }
+      
+  """
+  @type get_catalog_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_ml_transform_response() :: %{
         "TransformId" => String.t()
       }
@@ -44,6 +55,15 @@ defmodule AWS.Glue do
       
   """
   @type start_crawler_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_catalog_response() :: %{}
+      
+  """
+  @type delete_catalog_response() :: %{}
 
   @typedoc """
 
@@ -101,6 +121,7 @@ defmodule AWS.Glue do
   ## Example:
       
       get_connection_request() :: %{
+        optional("ApplyOverrideForComputeEnvironment") => list(any()),
         optional("CatalogId") => String.t(),
         optional("HidePassword") => boolean(),
         required("Name") => String.t()
@@ -151,6 +172,20 @@ defmodule AWS.Glue do
       
   """
   @type get_custom_entity_type_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_integration_table_properties_request() :: %{
+        optional("SourceTableConfig") => source_table_config(),
+        optional("TargetTableConfig") => target_table_config(),
+        required("ResourceArn") => String.t(),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type create_integration_table_properties_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -211,6 +246,30 @@ defmodule AWS.Glue do
       
   """
   @type s3_catalog_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_catalog_request() :: %{
+        required("CatalogId") => String.t(),
+        required("CatalogInput") => catalog_input()
+      }
+      
+  """
+  @type update_catalog_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_integration_table_properties_request() :: %{
+        required("ResourceArn") => String.t(),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type get_integration_table_properties_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -391,6 +450,21 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      list_entities_request() :: %{
+        optional("CatalogId") => String.t(),
+        optional("ConnectionName") => String.t(),
+        optional("DataStoreApiVersion") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("ParentEntityName") => String.t()
+      }
+      
+  """
+  @type list_entities_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       recipe_reference() :: %{
         "RecipeArn" => String.t(),
         "RecipeVersion" => String.t()
@@ -398,6 +472,20 @@ defmodule AWS.Glue do
       
   """
   @type recipe_reference() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      target_processing_properties() :: %{
+        "ConnectionName" => String.t(),
+        "EventBusArn" => String.t(),
+        "KmsArn" => String.t(),
+        "RoleArn" => String.t()
+      }
+      
+  """
+  @type target_processing_properties() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -434,6 +522,28 @@ defmodule AWS.Glue do
       
   """
   @type job_bookmarks_encryption() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_integration_response() :: %{
+        "AdditionalEncryptionContext" => map(),
+        "CreateTime" => non_neg_integer(),
+        "DataFilter" => String.t(),
+        "Description" => String.t(),
+        "Errors" => list(integration_error()()),
+        "IntegrationArn" => String.t(),
+        "IntegrationName" => String.t(),
+        "KmsKeyId" => String.t(),
+        "SourceArn" => String.t(),
+        "Status" => list(any()),
+        "Tags" => list(tag()()),
+        "TargetArn" => String.t()
+      }
+      
+  """
+  @type delete_integration_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -541,6 +651,28 @@ defmodule AWS.Glue do
       
   """
   @type list_blueprints_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_integration_response() :: %{
+        "AdditionalEncryptionContext" => map(),
+        "CreateTime" => non_neg_integer(),
+        "DataFilter" => String.t(),
+        "Description" => String.t(),
+        "Errors" => list(integration_error()()),
+        "IntegrationArn" => String.t(),
+        "IntegrationName" => String.t(),
+        "KmsKeyId" => String.t(),
+        "SourceArn" => String.t(),
+        "Status" => list(any()),
+        "Tags" => list(tag()()),
+        "TargetArn" => String.t()
+      }
+      
+  """
+  @type create_integration_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -967,6 +1099,40 @@ defmodule AWS.Glue do
       
   """
   @type get_session_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_lake_access_properties_output() :: %{
+        "CatalogType" => String.t(),
+        "DataLakeAccess" => boolean(),
+        "DataTransferRole" => String.t(),
+        "KmsKey" => String.t(),
+        "ManagedWorkgroupName" => String.t(),
+        "ManagedWorkgroupStatus" => String.t(),
+        "RedshiftDatabaseName" => String.t(),
+        "StatusMessage" => String.t()
+      }
+      
+  """
+  @type data_lake_access_properties_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      inbound_integration() :: %{
+        "CreateTime" => non_neg_integer(),
+        "Errors" => list(integration_error()()),
+        "IntegrationArn" => String.t(),
+        "SourceArn" => String.t(),
+        "Status" => list(any()),
+        "TargetArn" => String.t()
+      }
+      
+  """
+  @type inbound_integration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1425,6 +1591,28 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      integration() :: %{
+        "AdditionalEncryptionContext" => map(),
+        "CreateTime" => non_neg_integer(),
+        "DataFilter" => String.t(),
+        "Description" => String.t(),
+        "Errors" => list(integration_error()()),
+        "IntegrationArn" => String.t(),
+        "IntegrationName" => String.t(),
+        "KmsKeyId" => String.t(),
+        "SourceArn" => String.t(),
+        "Status" => list(any()),
+        "Tags" => list(tag()()),
+        "TargetArn" => String.t()
+      }
+      
+  """
+  @type integration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       import_catalog_to_glue_request() :: %{
         optional("CatalogId") => String.t()
       }
@@ -1514,6 +1702,28 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      modify_integration_response() :: %{
+        "AdditionalEncryptionContext" => map(),
+        "CreateTime" => non_neg_integer(),
+        "DataFilter" => String.t(),
+        "Description" => String.t(),
+        "Errors" => list(integration_error()()),
+        "IntegrationArn" => String.t(),
+        "IntegrationName" => String.t(),
+        "KmsKeyId" => String.t(),
+        "SourceArn" => String.t(),
+        "Status" => list(any()),
+        "Tags" => list(tag()()),
+        "TargetArn" => String.t()
+      }
+      
+  """
+  @type modify_integration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       job_run() :: %{
         "AllocatedCapacity" => integer(),
         "Arguments" => map(),
@@ -1557,6 +1767,22 @@ defmodule AWS.Glue do
       
   """
   @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      entity() :: %{
+        "Category" => String.t(),
+        "CustomProperties" => map(),
+        "Description" => String.t(),
+        "EntityName" => String.t(),
+        "IsParentEntity" => boolean(),
+        "Label" => String.t()
+      }
+      
+  """
+  @type entity() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1732,6 +1958,9 @@ defmodule AWS.Glue do
       
       authentication_configuration_input() :: %{
         "AuthenticationType" => list(any()),
+        "BasicAuthenticationCredentials" => basic_authentication_credentials(),
+        "CustomAuthenticationCredentials" => map(),
+        "KmsKeyArn" => String.t(),
         "OAuth2Properties" => o_auth2_properties_input(),
         "SecretArn" => String.t()
       }
@@ -1944,6 +2173,18 @@ defmodule AWS.Glue do
       
   """
   @type data_catalog_encryption_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      integration_filter() :: %{
+        "Name" => String.t(),
+        "Values" => list(String.t()())
+      }
+      
+  """
+  @type integration_filter() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2248,6 +2489,18 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      describe_inbound_integrations_response() :: %{
+        "InboundIntegrations" => list(inbound_integration()()),
+        "Marker" => String.t()
+      }
+      
+  """
+  @type describe_inbound_integrations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_blueprint_response() :: %{
         "Name" => String.t()
       }
@@ -2300,6 +2553,18 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      federated_catalog() :: %{
+        "ConnectionName" => String.t(),
+        "Identifier" => String.t()
+      }
+      
+  """
+  @type federated_catalog() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       dynamic_transform() :: %{
         "FunctionName" => String.t(),
         "Inputs" => list(String.t()()),
@@ -2313,6 +2578,18 @@ defmodule AWS.Glue do
       
   """
   @type dynamic_transform() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      integration_error() :: %{
+        "ErrorCode" => String.t(),
+        "ErrorMessage" => String.t()
+      }
+      
+  """
+  @type integration_error() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2456,6 +2733,15 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      update_catalog_response() :: %{}
+      
+  """
+  @type update_catalog_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_ml_transform_response() :: %{
         "TransformId" => String.t()
       }
@@ -2513,6 +2799,18 @@ defmodule AWS.Glue do
       
   """
   @type put_data_quality_profile_annotation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_entity_records_response() :: %{
+        "NextToken" => String.t(),
+        "Records" => list(any()())
+      }
+      
+  """
+  @type get_entity_records_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2577,6 +2875,26 @@ defmodule AWS.Glue do
       
   """
   @type get_database_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_entity_records_request() :: %{
+        optional("CatalogId") => String.t(),
+        optional("ConnectionName") => String.t(),
+        optional("ConnectionOptions") => map(),
+        optional("DataStoreApiVersion") => String.t(),
+        optional("FilterPredicate") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("OrderBy") => [String.t()],
+        optional("SelectedFields") => list(String.t()()),
+        required("EntityName") => String.t(),
+        required("Limit") => float()
+      }
+      
+  """
+  @type get_entity_records_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2649,6 +2967,18 @@ defmodule AWS.Glue do
       
   """
   @type create_ml_transform_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_connection_types_response() :: %{
+        "ConnectionTypes" => list(connection_type_brief()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type list_connection_types_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2979,6 +3309,20 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      update_integration_table_properties_request() :: %{
+        optional("SourceTableConfig") => source_table_config(),
+        optional("TargetTableConfig") => target_table_config(),
+        required("ResourceArn") => String.t(),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type update_integration_table_properties_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_data_quality_model_result_response() :: %{
         "CompletedOn" => non_neg_integer(),
         "Model" => list(statistic_model_result()())
@@ -3011,6 +3355,21 @@ defmodule AWS.Glue do
       
   """
   @type list_jobs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      auth_configuration() :: %{
+        "AuthenticationType" => property(),
+        "BasicAuthenticationProperties" => map(),
+        "CustomAuthenticationProperties" => map(),
+        "OAuth2Properties" => map(),
+        "SecretArn" => property()
+      }
+      
+  """
+  @type auth_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3298,6 +3657,18 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      describe_entity_response() :: %{
+        "Fields" => list(field()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type describe_entity_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       code_gen_edge() :: %{
         "Source" => String.t(),
         "Target" => String.t(),
@@ -3335,6 +3706,20 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      modify_integration_request() :: %{
+        optional("DataFilter") => String.t(),
+        optional("Description") => String.t(),
+        optional("IntegrationName") => String.t(),
+        required("IntegrationIdentifier") => String.t()
+      }
+      
+  """
+  @type modify_integration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       untag_resource_request() :: %{
         required("ResourceArn") => String.t(),
         required("TagsToRemove") => list(String.t()())
@@ -3342,6 +3727,17 @@ defmodule AWS.Glue do
       
   """
   @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      target_resource_not_found() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type target_resource_not_found() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3396,6 +3792,19 @@ defmodule AWS.Glue do
       
   """
   @type invalid_state_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      target_table_config() :: %{
+        "PartitionSpec" => list(integration_partition()()),
+        "TargetTableName" => String.t(),
+        "UnnestSpec" => list(any())
+      }
+      
+  """
+  @type target_table_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3538,6 +3947,19 @@ defmodule AWS.Glue do
       
   """
   @type stop_column_statistics_task_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connection_type_brief() :: %{
+        "Capabilities" => capabilities(),
+        "ConnectionType" => list(any()),
+        "Description" => String.t()
+      }
+      
+  """
+  @type connection_type_brief() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3689,6 +4111,17 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      get_integration_resource_property_request() :: %{
+        required("ResourceArn") => String.t()
+      }
+      
+  """
+  @type get_integration_resource_property_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       segment() :: %{
         "SegmentNumber" => integer(),
         "TotalSegments" => integer()
@@ -3833,6 +4266,20 @@ defmodule AWS.Glue do
       
   """
   @type list_data_quality_statistic_annotations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_catalogs_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("ParentCatalogId") => String.t(),
+        optional("Recursive") => boolean()
+      }
+      
+  """
+  @type get_catalogs_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3994,6 +4441,15 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      create_integration_table_properties_response() :: %{}
+      
+  """
+  @type create_integration_table_properties_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       stop_crawler_request() :: %{
         required("Name") => String.t()
       }
@@ -4142,6 +4598,17 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      integration_conflict_operation_fault() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type integration_conflict_operation_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_session_request() :: %{
         optional("Connections") => connections_list(),
         optional("DefaultArguments") => map(),
@@ -4162,6 +4629,15 @@ defmodule AWS.Glue do
       
   """
   @type create_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_integration_table_properties_response() :: %{}
+      
+  """
+  @type update_integration_table_properties_response() :: %{}
 
   @typedoc """
 
@@ -4315,6 +4791,20 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      execution_attempt() :: %{
+        "ColumnStatisticsTaskRunId" => String.t(),
+        "ErrorMessage" => String.t(),
+        "ExecutionTimestamp" => non_neg_integer(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type execution_attempt() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_user_defined_function_request() :: %{
         optional("CatalogId") => String.t(),
         required("DatabaseName") => String.t(),
@@ -4336,6 +4826,18 @@ defmodule AWS.Glue do
       
   """
   @type upsert_redshift_target_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      allowed_value() :: %{
+        "Description" => String.t(),
+        "Value" => String.t()
+      }
+      
+  """
+  @type allowed_value() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4449,6 +4951,17 @@ defmodule AWS.Glue do
       
   """
   @type get_column_statistics_for_table_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_catalog_request() :: %{
+        required("CatalogId") => String.t()
+      }
+      
+  """
+  @type delete_catalog_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4609,6 +5122,17 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      integration_quota_exceeded_fault() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type integration_quota_exceeded_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       configuration_object() :: %{
         "AllowedValues" => list(String.t()()),
         "DefaultValue" => String.t(),
@@ -4684,6 +5208,17 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      resource_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_column_statistics_task_runs_response() :: %{
         "ColumnStatisticsTaskRunIds" => list(String.t()()),
         "NextToken" => String.t()
@@ -4704,6 +5239,17 @@ defmodule AWS.Glue do
       
   """
   @type get_triggers_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_integration_request() :: %{
+        required("IntegrationIdentifier") => String.t()
+      }
+      
+  """
+  @type delete_integration_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4995,6 +5541,27 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      describe_connection_type_response() :: %{
+        "AthenaConnectionProperties" => map(),
+        "AuthenticationConfiguration" => auth_configuration(),
+        "Capabilities" => capabilities(),
+        "ComputeEnvironmentConfigurations" => map(),
+        "ConnectionOptions" => map(),
+        "ConnectionProperties" => map(),
+        "ConnectionType" => String.t(),
+        "Description" => String.t(),
+        "PhysicalConnectionRequirements" => map(),
+        "PythonConnectionProperties" => map(),
+        "SparkConnectionProperties" => map()
+      }
+      
+  """
+  @type describe_connection_type_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       dynamo_db_target() :: %{
         "Path" => String.t(),
         "scanAll" => boolean(),
@@ -5021,6 +5588,18 @@ defmodule AWS.Glue do
       
   """
   @type s3_delta_direct_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "key" => String.t(),
+        "value" => String.t()
+      }
+      
+  """
+  @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5250,7 +5829,9 @@ defmodule AWS.Glue do
       connection() :: %{
         "AthenaProperties" => map(),
         "AuthenticationConfiguration" => authentication_configuration(),
+        "CompatibleComputeEnvironments" => list(list(any())()),
         "ConnectionProperties" => map(),
+        "ConnectionSchemaVersion" => integer(),
         "ConnectionType" => list(any()),
         "CreationTime" => non_neg_integer(),
         "Description" => String.t(),
@@ -5260,6 +5841,8 @@ defmodule AWS.Glue do
         "MatchCriteria" => list(String.t()()),
         "Name" => String.t(),
         "PhysicalConnectionRequirements" => physical_connection_requirements(),
+        "PythonProperties" => map(),
+        "SparkProperties" => map(),
         "Status" => list(any()),
         "StatusReason" => String.t()
       }
@@ -5295,6 +5878,7 @@ defmodule AWS.Glue do
   ## Example:
       
       get_connections_filter() :: %{
+        "ConnectionSchemaVersion" => integer(),
         "ConnectionType" => list(any()),
         "MatchCriteria" => list(String.t()())
       }
@@ -5391,6 +5975,19 @@ defmodule AWS.Glue do
       
   """
   @type workflow_graph() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_integration_resource_property_response() :: %{
+        "ResourceArn" => String.t(),
+        "SourceProcessingProperties" => source_processing_properties(),
+        "TargetProcessingProperties" => target_processing_properties()
+      }
+      
+  """
+  @type get_integration_resource_property_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5895,6 +6492,34 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      field() :: %{
+        "CustomProperties" => map(),
+        "Description" => String.t(),
+        "FieldName" => String.t(),
+        "FieldType" => list(any()),
+        "IsCreateable" => boolean(),
+        "IsDefaultOnCreate" => boolean(),
+        "IsFilterable" => boolean(),
+        "IsNullable" => boolean(),
+        "IsPartitionable" => boolean(),
+        "IsPrimaryKey" => boolean(),
+        "IsRetrievable" => boolean(),
+        "IsUpdateable" => boolean(),
+        "IsUpsertable" => boolean(),
+        "Label" => String.t(),
+        "NativeDataType" => [String.t()],
+        "ParentField" => [String.t()],
+        "SupportedFilterOperators" => list(list(any())()),
+        "SupportedValues" => list([String.t()]())
+      }
+      
+  """
+  @type field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       illegal_workflow_state_exception() :: %{
         "Message" => String.t()
       }
@@ -6153,6 +6778,18 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      delete_integration_table_properties_request() :: %{
+        required("ResourceArn") => String.t(),
+        required("TableName") => String.t()
+      }
+      
+  """
+  @type delete_integration_table_properties_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       storage_descriptor() :: %{
         "AdditionalLocations" => list(String.t()()),
         "BucketColumns" => list(String.t()()),
@@ -6188,6 +6825,32 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      get_integration_table_properties_response() :: %{
+        "ResourceArn" => String.t(),
+        "SourceTableConfig" => source_table_config(),
+        "TableName" => String.t(),
+        "TargetTableConfig" => target_table_config()
+      }
+      
+  """
+  @type get_integration_table_properties_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      integration_partition() :: %{
+        "FieldName" => String.t(),
+        "FunctionSpec" => String.t()
+      }
+      
+  """
+  @type integration_partition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       error_details() :: %{
         "ErrorCode" => String.t(),
         "ErrorMessage" => String.t()
@@ -6195,6 +6858,17 @@ defmodule AWS.Glue do
       
   """
   @type error_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      target_redshift_catalog() :: %{
+        "CatalogArn" => String.t()
+      }
+      
+  """
+  @type target_redshift_catalog() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6346,6 +7020,37 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      catalog_input() :: %{
+        "CatalogProperties" => catalog_properties(),
+        "CreateDatabaseDefaultPermissions" => list(principal_permissions()()),
+        "CreateTableDefaultPermissions" => list(principal_permissions()()),
+        "Description" => String.t(),
+        "FederatedCatalog" => federated_catalog(),
+        "Parameters" => map(),
+        "TargetRedshiftCatalog" => target_redshift_catalog()
+      }
+      
+  """
+  @type catalog_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      source_table_config() :: %{
+        "Fields" => list(String.t()()),
+        "FilterPredicate" => String.t(),
+        "PrimaryKey" => list(String.t()()),
+        "RecordUpdateField" => String.t()
+      }
+      
+  """
+  @type source_table_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_dev_endpoint_request() :: %{
         required("EndpointName") => String.t()
       }
@@ -6374,6 +7079,20 @@ defmodule AWS.Glue do
       
   """
   @type get_crawler_metrics_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_lake_access_properties() :: %{
+        "CatalogType" => String.t(),
+        "DataLakeAccess" => boolean(),
+        "DataTransferRole" => String.t(),
+        "KmsKey" => String.t()
+      }
+      
+  """
+  @type data_lake_access_properties() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6506,6 +7225,25 @@ defmodule AWS.Glue do
       
   """
   @type start_workflow_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      compute_environment_configuration() :: %{
+        "ComputeEnvironment" => list(any()),
+        "ConnectionOptionNameOverrides" => map(),
+        "ConnectionOptions" => map(),
+        "ConnectionPropertiesRequiredOverrides" => list([String.t()]()),
+        "ConnectionPropertyNameOverrides" => map(),
+        "Description" => String.t(),
+        "Name" => String.t(),
+        "PhysicalConnectionPropertiesRequired" => boolean(),
+        "SupportedAuthenticationTypes" => list(list(any())())
+      }
+      
+  """
+  @type compute_environment_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6799,6 +7537,17 @@ defmodule AWS.Glue do
       
   """
   @type session() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_catalog_response() :: %{
+        "Catalog" => catalog()
+      }
+      
+  """
+  @type get_catalog_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -7140,6 +7889,17 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      integration_not_found_fault() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type integration_not_found_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_ml_transforms_response() :: %{
         "NextToken" => String.t(),
         "TransformIds" => list(String.t()())
@@ -7276,6 +8036,17 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      source_processing_properties() :: %{
+        "RoleArn" => String.t()
+      }
+      
+  """
+  @type source_processing_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_job_response() :: %{
         "JobName" => String.t()
       }
@@ -7296,7 +8067,10 @@ defmodule AWS.Glue do
         "MatchCriteria" => list(String.t()()),
         "Name" => String.t(),
         "PhysicalConnectionRequirements" => physical_connection_requirements(),
-        "ValidateCredentials" => boolean()
+        "PythonProperties" => map(),
+        "SparkProperties" => map(),
+        "ValidateCredentials" => boolean(),
+        "ValidateForComputeEnvironments" => list(list(any())())
       }
       
   """
@@ -7356,6 +8130,24 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      create_integration_request() :: %{
+        optional("AdditionalEncryptionContext") => map(),
+        optional("DataFilter") => String.t(),
+        optional("Description") => String.t(),
+        optional("KmsKeyId") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("IntegrationName") => String.t(),
+        required("SourceArn") => String.t(),
+        required("TargetArn") => String.t()
+      }
+      
+  """
+  @type create_integration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       register_schema_version_input() :: %{
         required("SchemaDefinition") => String.t(),
         required("SchemaId") => schema_id()
@@ -7384,6 +8176,17 @@ defmodule AWS.Glue do
       
   """
   @type update_ml_transform_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -7524,6 +8327,17 @@ defmodule AWS.Glue do
       
   """
   @type timestamp_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kms_key_not_accessible_fault() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type kms_key_not_accessible_fault() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -7674,6 +8488,20 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      o_auth2_credentials() :: %{
+        "AccessToken" => String.t(),
+        "JwtToken" => String.t(),
+        "RefreshToken" => String.t(),
+        "UserManagedClientApplicationClientSecret" => String.t()
+      }
+      
+  """
+  @type o_auth2_credentials() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       s3_source_additional_options() :: %{
         "BoundedFiles" => float(),
         "BoundedSize" => float()
@@ -7706,6 +8534,33 @@ defmodule AWS.Glue do
       
   """
   @type table_version() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      catalog_properties() :: %{
+        "CustomProperties" => map(),
+        "DataLakeAccessProperties" => data_lake_access_properties()
+      }
+      
+  """
+  @type catalog_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_entity_request() :: %{
+        optional("CatalogId") => String.t(),
+        optional("DataStoreApiVersion") => String.t(),
+        optional("NextToken") => String.t(),
+        required("ConnectionName") => String.t(),
+        required("EntityName") => String.t()
+      }
+      
+  """
+  @type describe_entity_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -7868,6 +8723,19 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      update_integration_resource_property_response() :: %{
+        "ResourceArn" => String.t(),
+        "SourceProcessingProperties" => source_processing_properties(),
+        "TargetProcessingProperties" => target_processing_properties()
+      }
+      
+  """
+  @type update_integration_resource_property_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_registries_response() :: %{
         "NextToken" => String.t(),
         "Registries" => list(registry_list_item()())
@@ -7932,6 +8800,19 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      create_integration_resource_property_request() :: %{
+        optional("SourceProcessingProperties") => source_processing_properties(),
+        optional("TargetProcessingProperties") => target_processing_properties(),
+        required("ResourceArn") => String.t()
+      }
+      
+  """
+  @type create_integration_resource_property_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_source_control_from_job_request() :: %{
         optional("AuthStrategy") => list(any()),
         optional("AuthToken") => String.t(),
@@ -7963,6 +8844,28 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      catalog() :: %{
+        "CatalogId" => String.t(),
+        "CatalogProperties" => catalog_properties_output(),
+        "CreateDatabaseDefaultPermissions" => list(principal_permissions()()),
+        "CreateTableDefaultPermissions" => list(principal_permissions()()),
+        "CreateTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "FederatedCatalog" => federated_catalog(),
+        "Name" => String.t(),
+        "Parameters" => map(),
+        "ResourceArn" => String.t(),
+        "TargetRedshiftCatalog" => target_redshift_catalog(),
+        "UpdateTime" => non_neg_integer()
+      }
+      
+  """
+  @type catalog() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_database_request() :: %{
         optional("CatalogId") => String.t(),
         required("Name") => String.t()
@@ -7970,6 +8873,17 @@ defmodule AWS.Glue do
       
   """
   @type get_database_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_integration_state_fault() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type invalid_integration_state_fault() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -8434,12 +9348,38 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      describe_integrations_request() :: %{
+        optional("Filters") => list(integration_filter()()),
+        optional("IntegrationIdentifier") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer()
+      }
+      
+  """
+  @type describe_integrations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       batch_update_partition_response() :: %{
         "Errors" => list(batch_update_partition_failure_entry()())
       }
       
   """
   @type batch_update_partition_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_integrations_response() :: %{
+        "Integrations" => list(integration()()),
+        "Marker" => String.t()
+      }
+      
+  """
+  @type describe_integrations_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -8635,6 +9575,18 @@ defmodule AWS.Glue do
       
   """
   @type d_q_stop_job_on_failure_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_catalogs_response() :: %{
+        "CatalogList" => list(catalog()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type get_catalogs_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -8866,6 +9818,34 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      property() :: %{
+        "AllowedValues" => list(allowed_value()()),
+        "DataOperationScopes" => list(list(any())()),
+        "DefaultValue" => [String.t()],
+        "Description" => String.t(),
+        "Name" => String.t(),
+        "PropertyTypes" => list(list(any())()),
+        "Required" => boolean()
+      }
+      
+  """
+  @type property() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_connection_type_request() :: %{
+        required("ConnectionType") => String.t()
+      }
+      
+  """
+  @type describe_connection_type_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_usage_profile_request() :: %{
         required("Name") => String.t()
       }
@@ -8923,6 +9903,15 @@ defmodule AWS.Glue do
       
   """
   @type iceberg_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_integration_table_properties_response() :: %{}
+      
+  """
+  @type delete_integration_table_properties_response() :: %{}
 
   @typedoc """
 
@@ -9182,6 +10171,18 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      list_connection_types_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type list_connection_types_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       option() :: %{
         "Description" => String.t(),
         "Label" => String.t(),
@@ -9294,6 +10295,20 @@ defmodule AWS.Glue do
       
   """
   @type search_tables_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_inbound_integrations_request() :: %{
+        optional("IntegrationArn") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer(),
+        optional("TargetArn") => String.t()
+      }
+      
+  """
+  @type describe_inbound_integrations_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -9436,6 +10451,18 @@ defmodule AWS.Glue do
       
   """
   @type put_resource_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      catalog_properties_output() :: %{
+        "CustomProperties" => map(),
+        "DataLakeAccessProperties" => data_lake_access_properties_output()
+      }
+      
+  """
+  @type catalog_properties_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -9954,6 +10981,7 @@ defmodule AWS.Glue do
       o_auth2_properties_input() :: %{
         "AuthorizationCodeProperties" => authorization_code_properties(),
         "OAuth2ClientApplication" => o_auth2_client_application(),
+        "OAuth2Credentials" => o_auth2_credentials(),
         "OAuth2GrantType" => list(any()),
         "TokenUrl" => String.t(),
         "TokenUrlParametersMap" => map()
@@ -10155,12 +11183,37 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      create_catalog_request() :: %{
+        optional("Tags") => map(),
+        required("CatalogInput") => catalog_input(),
+        required("Name") => String.t()
+      }
+      
+  """
+  @type create_catalog_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       operation_not_supported_exception() :: %{
         "Message" => String.t()
       }
       
   """
   @type operation_not_supported_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_entities_response() :: %{
+        "Entities" => list(entity()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type list_entities_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -10424,6 +11477,19 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      update_integration_resource_property_request() :: %{
+        optional("SourceProcessingProperties") => source_processing_properties(),
+        optional("TargetProcessingProperties") => target_processing_properties(),
+        required("ResourceArn") => String.t()
+      }
+      
+  """
+  @type update_integration_resource_property_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_job_response() :: %{
         "JobName" => String.t()
       }
@@ -10552,6 +11618,19 @@ defmodule AWS.Glue do
       
   """
   @type job_command() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_integration_resource_property_response() :: %{
+        "ResourceArn" => String.t(),
+        "SourceProcessingProperties" => source_processing_properties(),
+        "TargetProcessingProperties" => target_processing_properties()
+      }
+      
+  """
+  @type create_integration_resource_property_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -10847,10 +11926,13 @@ defmodule AWS.Glue do
         "CatalogID" => String.t(),
         "ColumnNameList" => list(String.t()()),
         "DatabaseName" => String.t(),
+        "LastExecutionAttempt" => execution_attempt(),
         "Role" => String.t(),
         "SampleSize" => float(),
         "Schedule" => schedule(),
+        "ScheduleType" => list(any()),
         "SecurityConfiguration" => String.t(),
+        "SettingSource" => list(any()),
         "TableName" => String.t()
       }
       
@@ -10882,6 +11964,15 @@ defmodule AWS.Glue do
       
   """
   @type create_connection_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_catalog_response() :: %{}
+      
+  """
+  @type create_catalog_response() :: %{}
 
   @typedoc """
 
@@ -11131,6 +12222,19 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      capabilities() :: %{
+        "SupportedAuthenticationTypes" => list(list(any())()),
+        "SupportedComputeEnvironments" => list(list(any())()),
+        "SupportedDataOperations" => list(list(any())())
+      }
+      
+  """
+  @type capabilities() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_registry_input() :: %{
         optional("Description") => String.t(),
         optional("Tags") => map(),
@@ -11145,6 +12249,7 @@ defmodule AWS.Glue do
   ## Example:
       
       test_connection_request() :: %{
+        optional("CatalogId") => String.t(),
         optional("ConnectionName") => String.t(),
         optional("TestConnectionInput") => test_connection_input()
       }
@@ -11333,6 +12438,18 @@ defmodule AWS.Glue do
       
   """
   @type string_column_statistics_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      basic_authentication_credentials() :: %{
+        "Password" => String.t(),
+        "Username" => String.t()
+      }
+      
+  """
+  @type basic_authentication_credentials() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -11549,6 +12666,19 @@ defmodule AWS.Glue do
           | already_exists_exception()
           | operation_timeout_exception()
 
+  @type create_catalog_errors() ::
+          glue_encryption_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
+          | federated_resource_already_exists_exception()
+          | federation_source_exception()
+          | invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | already_exists_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
   @type create_classifier_errors() ::
           invalid_input_exception() | already_exists_exception() | operation_timeout_exception()
 
@@ -11592,8 +12722,10 @@ defmodule AWS.Glue do
 
   @type create_database_errors() ::
           glue_encryption_exception()
+          | federation_source_retryable_exception()
           | concurrent_modification_exception()
           | federated_resource_already_exists_exception()
+          | federation_source_exception()
           | invalid_input_exception()
           | resource_number_limit_exceeded_exception()
           | internal_service_exception()
@@ -11609,6 +12741,39 @@ defmodule AWS.Glue do
           | internal_service_exception()
           | already_exists_exception()
           | operation_timeout_exception()
+
+  @type create_integration_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | kms_key_not_accessible_fault()
+          | internal_server_exception()
+          | invalid_input_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | integration_quota_exceeded_fault()
+          | integration_conflict_operation_fault()
+          | resource_number_limit_exceeded_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+
+  @type create_integration_resource_property_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | invalid_input_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+
+  @type create_integration_table_properties_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | invalid_input_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
 
   @type create_job_errors() ::
           concurrent_modification_exception()
@@ -11686,7 +12851,9 @@ defmodule AWS.Glue do
   @type create_table_errors() ::
           resource_not_ready_exception()
           | glue_encryption_exception()
+          | federation_source_retryable_exception()
           | concurrent_modification_exception()
+          | federation_source_exception()
           | invalid_input_exception()
           | resource_number_limit_exceeded_exception()
           | internal_service_exception()
@@ -11741,6 +12908,16 @@ defmodule AWS.Glue do
   @type delete_blueprint_errors() ::
           invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
 
+  @type delete_catalog_errors() ::
+          glue_encryption_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
+          | federation_source_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
   @type delete_classifier_errors() :: operation_timeout_exception() | entity_not_found_exception()
 
   @type delete_column_statistics_for_partition_errors() ::
@@ -11782,7 +12959,9 @@ defmodule AWS.Glue do
           | entity_not_found_exception()
 
   @type delete_database_errors() ::
-          concurrent_modification_exception()
+          federation_source_retryable_exception()
+          | concurrent_modification_exception()
+          | federation_source_exception()
           | invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
@@ -11792,6 +12971,28 @@ defmodule AWS.Glue do
           invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type delete_integration_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | invalid_integration_state_fault()
+          | internal_server_exception()
+          | integration_not_found_fault()
+          | invalid_input_exception()
+          | conflict_exception()
+          | integration_conflict_operation_fault()
+          | invalid_state_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+
+  @type delete_integration_table_properties_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | invalid_input_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
           | entity_not_found_exception()
 
   @type delete_job_errors() ::
@@ -11858,7 +13059,9 @@ defmodule AWS.Glue do
 
   @type delete_table_errors() ::
           resource_not_ready_exception()
+          | federation_source_retryable_exception()
           | concurrent_modification_exception()
+          | federation_source_exception()
           | invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
@@ -11901,6 +13104,41 @@ defmodule AWS.Glue do
           | internal_service_exception()
           | operation_timeout_exception()
 
+  @type describe_connection_type_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+
+  @type describe_entity_errors() ::
+          glue_encryption_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | federation_source_exception()
+          | invalid_input_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type describe_inbound_integrations_errors() ::
+          operation_not_supported_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | integration_not_found_fault()
+          | invalid_input_exception()
+          | target_resource_not_found()
+          | internal_service_exception()
+          | entity_not_found_exception()
+
+  @type describe_integrations_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | integration_not_found_fault()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+
   @type get_blueprint_errors() ::
           invalid_input_exception()
           | internal_service_exception()
@@ -11918,8 +13156,28 @@ defmodule AWS.Glue do
           | operation_timeout_exception()
           | entity_not_found_exception()
 
+  @type get_catalog_errors() ::
+          glue_encryption_exception()
+          | federation_source_retryable_exception()
+          | access_denied_exception()
+          | federation_source_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
   @type get_catalog_import_status_errors() ::
           internal_service_exception() | operation_timeout_exception()
+
+  @type get_catalogs_errors() ::
+          glue_encryption_exception()
+          | federation_source_retryable_exception()
+          | access_denied_exception()
+          | federation_source_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
 
   @type get_classifier_errors() :: operation_timeout_exception() | entity_not_found_exception()
 
@@ -12013,6 +13271,7 @@ defmodule AWS.Glue do
 
   @type get_database_errors() ::
           glue_encryption_exception()
+          | federation_source_retryable_exception()
           | federation_source_exception()
           | invalid_input_exception()
           | internal_service_exception()
@@ -12021,9 +13280,12 @@ defmodule AWS.Glue do
 
   @type get_databases_errors() ::
           glue_encryption_exception()
+          | federation_source_retryable_exception()
+          | federation_source_exception()
           | invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
+          | entity_not_found_exception()
 
   @type get_dataflow_graph_errors() ::
           invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
@@ -12038,6 +13300,33 @@ defmodule AWS.Glue do
           invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_entity_records_errors() ::
+          glue_encryption_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | federation_source_exception()
+          | invalid_input_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type get_integration_resource_property_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | invalid_input_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+
+  @type get_integration_table_properties_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | invalid_input_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
           | entity_not_found_exception()
 
   @type get_job_errors() ::
@@ -12341,6 +13630,8 @@ defmodule AWS.Glue do
 
   @type list_column_statistics_task_runs_errors() :: operation_timeout_exception()
 
+  @type list_connection_types_errors() :: access_denied_exception() | internal_service_exception()
+
   @type list_crawlers_errors() :: operation_timeout_exception()
 
   @type list_crawls_errors() ::
@@ -12373,6 +13664,15 @@ defmodule AWS.Glue do
   @type list_dev_endpoints_errors() ::
           invalid_input_exception()
           | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type list_entities_errors() ::
+          glue_encryption_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | federation_source_exception()
+          | invalid_input_exception()
           | operation_timeout_exception()
           | entity_not_found_exception()
 
@@ -12439,6 +13739,19 @@ defmodule AWS.Glue do
 
   @type list_workflows_errors() ::
           invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
+
+  @type modify_integration_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | invalid_integration_state_fault()
+          | internal_server_exception()
+          | integration_not_found_fault()
+          | invalid_input_exception()
+          | conflict_exception()
+          | integration_conflict_operation_fault()
+          | invalid_state_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
 
   @type put_data_catalog_encryption_settings_errors() ::
           invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
@@ -12683,6 +13996,16 @@ defmodule AWS.Glue do
           | operation_timeout_exception()
           | entity_not_found_exception()
 
+  @type update_catalog_errors() ::
+          glue_encryption_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
+          | federation_source_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | operation_timeout_exception()
+          | entity_not_found_exception()
+
   @type update_classifier_errors() ::
           invalid_input_exception()
           | version_mismatch_exception()
@@ -12741,9 +14064,12 @@ defmodule AWS.Glue do
 
   @type update_database_errors() ::
           glue_encryption_exception()
+          | federation_source_retryable_exception()
           | concurrent_modification_exception()
+          | federation_source_exception()
           | invalid_input_exception()
           | internal_service_exception()
+          | already_exists_exception()
           | operation_timeout_exception()
           | entity_not_found_exception()
 
@@ -12752,6 +14078,24 @@ defmodule AWS.Glue do
           | invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
+          | entity_not_found_exception()
+
+  @type update_integration_resource_property_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | invalid_input_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+
+  @type update_integration_table_properties_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | invalid_input_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
           | entity_not_found_exception()
 
   @type update_job_errors() ::
@@ -12810,10 +14154,13 @@ defmodule AWS.Glue do
   @type update_table_errors() ::
           resource_not_ready_exception()
           | glue_encryption_exception()
+          | federation_source_retryable_exception()
           | concurrent_modification_exception()
+          | federation_source_exception()
           | invalid_input_exception()
           | resource_number_limit_exceeded_exception()
           | internal_service_exception()
+          | already_exists_exception()
           | operation_timeout_exception()
           | entity_not_found_exception()
 
@@ -13241,6 +14588,19 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Creates a new catalog in the Glue Data Catalog.
+  """
+  @spec create_catalog(map(), create_catalog_request(), list()) ::
+          {:ok, create_catalog_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_catalog_errors()}
+  def create_catalog(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateCatalog", input, options)
+  end
+
+  @doc """
   Creates a classifier in the user's account.
 
   This can be a `GrokClassifier`, an
@@ -13366,6 +14726,68 @@ defmodule AWS.Glue do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateDevEndpoint", input, options)
+  end
+
+  @doc """
+  Creates a Zero-ETL integration in the caller's account between two resources
+  with Amazon Resource Names (ARNs): the `SourceArn` and `TargetArn`.
+  """
+  @spec create_integration(map(), create_integration_request(), list()) ::
+          {:ok, create_integration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_integration_errors()}
+  def create_integration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateIntegration", input, options)
+  end
+
+  @doc """
+  This API can be used for setting up the `ResourceProperty` of the Glue
+  connection (for the source) or Glue database ARN (for the target).
+
+  These properties can include the role to access the connection or database. To
+  set both source and target properties the same API needs to be invoked with the
+  Glue connection ARN as `ResourceArn` with `SourceProcessingProperties` and the
+  Glue database ARN as `ResourceArn` with `TargetProcessingProperties`
+  respectively.
+  """
+  @spec create_integration_resource_property(
+          map(),
+          create_integration_resource_property_request(),
+          list()
+        ) ::
+          {:ok, create_integration_resource_property_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_integration_resource_property_errors()}
+  def create_integration_resource_property(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateIntegrationResourceProperty", input, options)
+  end
+
+  @doc """
+  This API is used to provide optional override properties for the the tables that
+  need to be replicated.
+
+  These properties can include properties for filtering and partitioning for the
+  source and target tables. To set both source and target properties the same API
+  need to be invoked with the Glue connection ARN as `ResourceArn` with
+  `SourceTableConfig`, and the Glue database ARN as `ResourceArn` with
+  `TargetTableConfig` respectively.
+  """
+  @spec create_integration_table_properties(
+          map(),
+          create_integration_table_properties_request(),
+          list()
+        ) ::
+          {:ok, create_integration_table_properties_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_integration_table_properties_errors()}
+  def create_integration_table_properties(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateIntegrationTableProperties", input, options)
   end
 
   @doc """
@@ -13613,6 +15035,31 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Removes the specified catalog from the Glue Data Catalog.
+
+  After completing this operation, you no longer have access to the databases,
+  tables (and all table versions and partitions that might belong to the tables)
+  and the user-defined functions in the deleted catalog. Glue deletes these
+  "orphaned" resources asynchronously in a timely manner, at the discretion of the
+  service.
+
+  To ensure the immediate deletion of all related resources before calling the
+  `DeleteCatalog` operation, use `DeleteTableVersion` (or
+  `BatchDeleteTableVersion`), `DeletePartition` (or `BatchDeletePartition`),
+  `DeleteTable` (or `BatchDeleteTable`), `DeleteUserDefinedFunction` and
+  `DeleteDatabase` to delete any resources that belong to the catalog.
+  """
+  @spec delete_catalog(map(), delete_catalog_request(), list()) ::
+          {:ok, delete_catalog_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_catalog_errors()}
+  def delete_catalog(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCatalog", input, options)
+  end
+
+  @doc """
   Removes a classifier from the Data Catalog.
   """
   @spec delete_classifier(map(), delete_classifier_request(), list()) ::
@@ -13775,6 +15222,37 @@ defmodule AWS.Glue do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteDevEndpoint", input, options)
+  end
+
+  @doc """
+  Deletes the specified Zero-ETL integration.
+  """
+  @spec delete_integration(map(), delete_integration_request(), list()) ::
+          {:ok, delete_integration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_integration_errors()}
+  def delete_integration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteIntegration", input, options)
+  end
+
+  @doc """
+  Deletes the table properties that have been created for the tables that need to
+  be replicated.
+  """
+  @spec delete_integration_table_properties(
+          map(),
+          delete_integration_table_properties_request(),
+          list()
+        ) ::
+          {:ok, delete_integration_table_properties_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_integration_table_properties_errors()}
+  def delete_integration_table_properties(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteIntegrationTableProperties", input, options)
   end
 
   @doc """
@@ -14057,6 +15535,62 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  The `DescribeConnectionType` API provides full details of the supported options
+  for a given connection type in Glue.
+  """
+  @spec describe_connection_type(map(), describe_connection_type_request(), list()) ::
+          {:ok, describe_connection_type_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_connection_type_errors()}
+  def describe_connection_type(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeConnectionType", input, options)
+  end
+
+  @doc """
+  Provides details regarding the entity used with the connection type, with a
+  description of the data model for each field in the selected entity.
+
+  The response includes all the fields which make up the entity.
+  """
+  @spec describe_entity(map(), describe_entity_request(), list()) ::
+          {:ok, describe_entity_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_entity_errors()}
+  def describe_entity(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeEntity", input, options)
+  end
+
+  @doc """
+  Returns a list of inbound integrations for the specified integration.
+  """
+  @spec describe_inbound_integrations(map(), describe_inbound_integrations_request(), list()) ::
+          {:ok, describe_inbound_integrations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_inbound_integrations_errors()}
+  def describe_inbound_integrations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeInboundIntegrations", input, options)
+  end
+
+  @doc """
+  The API is used to retrieve a list of integrations.
+  """
+  @spec describe_integrations(map(), describe_integrations_request(), list()) ::
+          {:ok, describe_integrations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_integrations_errors()}
+  def describe_integrations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeIntegrations", input, options)
+  end
+
+  @doc """
   Retrieves the details of a blueprint.
   """
   @spec get_blueprint(map(), get_blueprint_request(), list()) ::
@@ -14096,6 +15630,21 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  The name of the Catalog to retrieve.
+
+  This should be all lowercase.
+  """
+  @spec get_catalog(map(), get_catalog_request(), list()) ::
+          {:ok, get_catalog_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_catalog_errors()}
+  def get_catalog(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCatalog", input, options)
+  end
+
+  @doc """
   Retrieves the status of a migration operation.
   """
   @spec get_catalog_import_status(map(), get_catalog_import_status_request(), list()) ::
@@ -14106,6 +15655,22 @@ defmodule AWS.Glue do
     meta = metadata()
 
     Request.request_post(client, meta, "GetCatalogImportStatus", input, options)
+  end
+
+  @doc """
+  Retrieves all catalogs defined in a catalog in the Glue Data Catalog.
+
+  For a Redshift-federated catalog use case, this operation returns the list of
+  catalogs mapped to Redshift databases in the Redshift namespace catalog.
+  """
+  @spec get_catalogs(map(), get_catalogs_request(), list()) ::
+          {:ok, get_catalogs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_catalogs_errors()}
+  def get_catalogs(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCatalogs", input, options)
   end
 
   @doc """
@@ -14471,6 +16036,66 @@ defmodule AWS.Glue do
     meta = metadata()
 
     Request.request_post(client, meta, "GetDevEndpoints", input, options)
+  end
+
+  @doc """
+  This API is used to query preview data from a given connection type or from a
+  native Amazon S3 based Glue Data Catalog.
+
+  Returns records as an array of JSON blobs. Each record is formatted using
+  Jackson JsonNode based on the field type defined by the `DescribeEntity` API.
+
+  Spark connectors generate schemas according to the same data type mapping as in
+  the `DescribeEntity` API. Spark connectors convert data to the appropriate data
+  types matching the schema when returning rows.
+  """
+  @spec get_entity_records(map(), get_entity_records_request(), list()) ::
+          {:ok, get_entity_records_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_entity_records_errors()}
+  def get_entity_records(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetEntityRecords", input, options)
+  end
+
+  @doc """
+  This API is used for fetching the `ResourceProperty` of the Glue connection (for
+  the source) or Glue database ARN (for the target)
+  """
+  @spec get_integration_resource_property(
+          map(),
+          get_integration_resource_property_request(),
+          list()
+        ) ::
+          {:ok, get_integration_resource_property_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_integration_resource_property_errors()}
+  def get_integration_resource_property(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetIntegrationResourceProperty", input, options)
+  end
+
+  @doc """
+  This API is used to retrieve optional override properties for the tables that
+  need to be replicated.
+
+  These properties can include properties for filtering and partition for source
+  and target tables.
+  """
+  @spec get_integration_table_properties(
+          map(),
+          get_integration_table_properties_request(),
+          list()
+        ) ::
+          {:ok, get_integration_table_properties_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_integration_table_properties_errors()}
+  def get_integration_table_properties(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetIntegrationTableProperties", input, options)
   end
 
   @doc """
@@ -15174,6 +16799,25 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  The `ListConnectionTypes` API provides a discovery mechanism to learn available
+  connection types in Glue.
+
+  The response contains a list of connection types with high-level details of what
+  is supported for each connection type. The connection types listed are the set
+  of supported options for the `ConnectionType` value in the `CreateConnection`
+  API.
+  """
+  @spec list_connection_types(map(), list_connection_types_request(), list()) ::
+          {:ok, list_connection_types_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_connection_types_errors()}
+  def list_connection_types(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListConnectionTypes", input, options)
+  end
+
+  @doc """
   Retrieves the names of all crawler resources in this Amazon Web Services
   account, or the
   resources with the specified tag.
@@ -15356,6 +17000,19 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Returns the available entities supported by the connection type.
+  """
+  @spec list_entities(map(), list_entities_request(), list()) ::
+          {:ok, list_entities_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_entities_errors()}
+  def list_entities(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListEntities", input, options)
+  end
+
+  @doc """
   Retrieves the names of all job resources in this Amazon Web Services account, or
   the resources with the specified tag.
 
@@ -15535,6 +17192,19 @@ defmodule AWS.Glue do
     meta = metadata()
 
     Request.request_post(client, meta, "ListWorkflows", input, options)
+  end
+
+  @doc """
+  Modifies a Zero-ETL integration in the caller's account.
+  """
+  @spec modify_integration(map(), modify_integration_request(), list()) ::
+          {:ok, modify_integration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, modify_integration_errors()}
+  def modify_integration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyIntegration", input, options)
   end
 
   @doc """
@@ -16210,6 +17880,19 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Updates an existing catalog's properties in the Glue Data Catalog.
+  """
+  @spec update_catalog(map(), update_catalog_request(), list()) ::
+          {:ok, update_catalog_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_catalog_errors()}
+  def update_catalog(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateCatalog", input, options)
+  end
+
+  @doc """
   Modifies an existing classifier (a `GrokClassifier`,
   an `XMLClassifier`, a `JsonClassifier`, or a `CsvClassifier`, depending on
   which field is present).
@@ -16361,6 +18044,55 @@ defmodule AWS.Glue do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateDevEndpoint", input, options)
+  end
+
+  @doc """
+  This API can be used for updating the `ResourceProperty` of the Glue connection
+  (for the source) or Glue database ARN (for the target).
+
+  These properties can include the role to access the connection or database.
+  Since the same resource can be used across multiple integrations, updating
+  resource properties will impact all the integrations using it.
+  """
+  @spec update_integration_resource_property(
+          map(),
+          update_integration_resource_property_request(),
+          list()
+        ) ::
+          {:ok, update_integration_resource_property_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_integration_resource_property_errors()}
+  def update_integration_resource_property(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateIntegrationResourceProperty", input, options)
+  end
+
+  @doc """
+  This API is used to provide optional override properties for the tables that
+  need to be replicated.
+
+  These properties can include properties for filtering and partitioning for the
+  source and target tables. To set both source and target properties the same API
+  need to be invoked with the Glue connection ARN as `ResourceArn` with
+  `SourceTableConfig`, and the Glue database ARN as `ResourceArn` with
+  `TargetTableConfig` respectively.
+
+  The override will be reflected across all the integrations using same
+  `ResourceArn` and source table.
+  """
+  @spec update_integration_table_properties(
+          map(),
+          update_integration_table_properties_request(),
+          list()
+        ) ::
+          {:ok, update_integration_table_properties_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_integration_table_properties_errors()}
+  def update_integration_table_properties(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateIntegrationTableProperties", input, options)
   end
 
   @doc """

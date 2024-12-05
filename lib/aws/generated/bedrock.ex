@@ -54,6 +54,22 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      marketplace_model_endpoint_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "endpointArn" => String.t(),
+        "modelSourceIdentifier" => String.t(),
+        "status" => list(any()),
+        "statusMessage" => [String.t()],
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type marketplace_model_endpoint_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_provisioned_model_throughput_response() :: %{}
 
   """
@@ -113,6 +129,18 @@ defmodule AWS.Bedrock do
 
   """
   @type foundation_model_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_marketplace_model_endpoints_response() :: %{
+        "marketplaceModelEndpoints" => list(marketplace_model_endpoint_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_marketplace_model_endpoints_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -234,6 +262,21 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      sage_maker_endpoint() :: %{
+        "executionRole" => String.t(),
+        "initialInstanceCount" => integer(),
+        "instanceType" => String.t(),
+        "kmsEncryptionKey" => String.t(),
+        "vpc" => vpc_config()
+      }
+
+  """
+  @type sage_maker_endpoint() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_guardrail_response() :: %{
         "blockedInputMessaging" => String.t(),
         "blockedOutputsMessaging" => String.t(),
@@ -342,6 +385,19 @@ defmodule AWS.Bedrock do
 
   """
   @type text_inference_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_marketplace_model_endpoints_request() :: %{
+        optional("maxResults") => integer(),
+        optional("modelSourceEquals") => String.t(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_marketplace_model_endpoints_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -498,12 +554,32 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      routing_criteria() :: %{
+        "responseQualityDifference" => [float()]
+      }
+
+  """
+  @type routing_criteria() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       s3_object_doc() :: %{
         "uri" => String.t()
       }
 
   """
   @type s3_object_doc() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_marketplace_model_endpoint_request() :: %{}
+
+  """
+  @type get_marketplace_model_endpoint_request() :: %{}
 
   @typedoc """
 
@@ -599,6 +675,25 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      marketplace_model_endpoint() :: %{
+        "createdAt" => non_neg_integer(),
+        "endpointArn" => String.t(),
+        "endpointConfig" => list(),
+        "endpointStatus" => [String.t()],
+        "endpointStatusMessage" => [String.t()],
+        "modelSourceIdentifier" => String.t(),
+        "status" => list(any()),
+        "statusMessage" => [String.t()],
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type marketplace_model_endpoint() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invocation_logs_config() :: %{
         "invocationLogSource" => list(),
         "requestMetadataFilters" => list(),
@@ -607,6 +702,15 @@ defmodule AWS.Bedrock do
 
   """
   @type invocation_logs_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_prompt_router_request() :: %{}
+
+  """
+  @type get_prompt_router_request() :: %{}
 
   @typedoc """
 
@@ -746,6 +850,26 @@ defmodule AWS.Bedrock do
 
   """
   @type create_model_copy_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      prompt_router_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t(),
+        "fallbackModel" => prompt_router_target_model(),
+        "models" => list(prompt_router_target_model()()),
+        "promptRouterArn" => String.t(),
+        "promptRouterName" => String.t(),
+        "routingCriteria" => routing_criteria(),
+        "status" => list(any()),
+        "type" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type prompt_router_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -911,6 +1035,15 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      deregister_marketplace_model_endpoint_response() :: %{}
+
+  """
+  @type deregister_marketplace_model_endpoint_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       imported_model_summary() :: %{
         "creationTime" => non_neg_integer(),
         "instructSupported" => boolean(),
@@ -999,7 +1132,9 @@ defmodule AWS.Bedrock do
   ## Example:
 
       guardrail_content_filter_config() :: %{
+        "inputModalities" => list(list(any())()),
         "inputStrength" => list(any()),
+        "outputModalities" => list(list(any())()),
         "outputStrength" => list(any()),
         "type" => list(any())
       }
@@ -1055,6 +1190,22 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      create_marketplace_model_endpoint_request() :: %{
+        optional("acceptEula") => boolean(),
+        optional("clientRequestToken") => String.t(),
+        optional("tags") => list(tag()()),
+        required("endpointConfig") => list(),
+        required("endpointName") => String.t(),
+        required("modelSourceIdentifier") => String.t()
+      }
+
+  """
+  @type create_marketplace_model_endpoint_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_provisioned_model_throughput_request() :: %{}
 
   """
@@ -1078,7 +1229,9 @@ defmodule AWS.Bedrock do
   ## Example:
 
       guardrail_content_filter() :: %{
+        "inputModalities" => list(list(any())()),
         "inputStrength" => list(any()),
+        "outputModalities" => list(list(any())()),
         "outputStrength" => list(any()),
         "type" => list(any())
       }
@@ -1313,6 +1466,37 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      get_prompt_router_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t(),
+        "fallbackModel" => prompt_router_target_model(),
+        "models" => list(prompt_router_target_model()()),
+        "promptRouterArn" => String.t(),
+        "promptRouterName" => String.t(),
+        "routingCriteria" => routing_criteria(),
+        "status" => list(any()),
+        "type" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_prompt_router_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_marketplace_model_endpoint_response() :: %{
+        "marketplaceModelEndpoint" => marketplace_model_endpoint()
+      }
+
+  """
+  @type update_marketplace_model_endpoint_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_pii_entity() :: %{
         "action" => list(any()),
         "type" => list(any())
@@ -1472,6 +1656,17 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      service_unavailable_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type service_unavailable_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       external_sources_generation_configuration() :: %{
         "additionalModelRequestFields" => map(),
         "guardrailConfiguration" => guardrail_configuration(),
@@ -1542,6 +1737,15 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      delete_marketplace_model_endpoint_response() :: %{}
+
+  """
+  @type delete_marketplace_model_endpoint_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_imported_model_response() :: %{}
 
   """
@@ -1594,6 +1798,17 @@ defmodule AWS.Bedrock do
 
   """
   @type foundation_model_lifecycle() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_marketplace_model_endpoint_response() :: %{
+        "marketplaceModelEndpoint" => marketplace_model_endpoint()
+      }
+
+  """
+  @type create_marketplace_model_endpoint_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1689,6 +1904,18 @@ defmodule AWS.Bedrock do
 
   """
   @type stop_model_invocation_job_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_prompt_routers_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_prompt_routers_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1875,6 +2102,17 @@ defmodule AWS.Bedrock do
 
   """
   @type create_evaluation_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_marketplace_model_endpoint_response() :: %{
+        "marketplaceModelEndpoint" => marketplace_model_endpoint()
+      }
+
+  """
+  @type get_marketplace_model_endpoint_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2078,6 +2316,18 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      update_marketplace_model_endpoint_request() :: %{
+        optional("clientRequestToken") => String.t(),
+        required("endpointConfig") => list()
+      }
+
+  """
+  @type update_marketplace_model_endpoint_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_custom_models_response() :: %{
         "modelSummaries" => list(custom_model_summary()()),
         "nextToken" => String.t()
@@ -2085,6 +2335,18 @@ defmodule AWS.Bedrock do
 
   """
   @type list_custom_models_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_prompt_routers_response() :: %{
+        "nextToken" => String.t(),
+        "promptRouterSummaries" => list(prompt_router_summary()())
+      }
+
+  """
+  @type list_prompt_routers_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2174,6 +2436,17 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      prompt_router_target_model() :: %{
+        "modelArn" => String.t()
+      }
+
+  """
+  @type prompt_router_target_model() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_guardrails_request() :: %{
         optional("guardrailIdentifier") => String.t(),
         optional("maxResults") => integer(),
@@ -2214,6 +2487,17 @@ defmodule AWS.Bedrock do
 
   """
   @type validator() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_marketplace_model_endpoint_request() :: %{
+        required("modelSourceIdentifier") => String.t()
+      }
+
+  """
+  @type register_marketplace_model_endpoint_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2294,6 +2578,15 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      deregister_marketplace_model_endpoint_request() :: %{}
+
+  """
+  @type deregister_marketplace_model_endpoint_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       request_metadata_base_filters() :: %{
         "equals" => map(),
         "notEquals" => map()
@@ -2301,6 +2594,17 @@ defmodule AWS.Bedrock do
 
   """
   @type request_metadata_base_filters() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_marketplace_model_endpoint_response() :: %{
+        "marketplaceModelEndpoint" => marketplace_model_endpoint()
+      }
+
+  """
+  @type register_marketplace_model_endpoint_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2459,6 +2763,15 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      delete_marketplace_model_endpoint_request() :: %{}
+
+  """
+  @type delete_marketplace_model_endpoint_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_model_invocation_job_response() :: %{
         "clientRequestToken" => String.t(),
         "endTime" => non_neg_integer(),
@@ -2549,6 +2862,15 @@ defmodule AWS.Bedrock do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type create_marketplace_model_endpoint_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type create_model_copy_job_errors() ::
           too_many_tags_exception()
           | access_denied_exception()
@@ -2625,6 +2947,13 @@ defmodule AWS.Bedrock do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type delete_marketplace_model_endpoint_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type delete_model_invocation_logging_configuration_errors() ::
           throttling_exception() | access_denied_exception() | internal_server_exception()
 
@@ -2635,6 +2964,14 @@ defmodule AWS.Bedrock do
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type deregister_marketplace_model_endpoint_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
 
   @type get_custom_model_errors() ::
           throttling_exception()
@@ -2678,6 +3015,13 @@ defmodule AWS.Bedrock do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_marketplace_model_endpoint_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_model_copy_job_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2708,6 +3052,13 @@ defmodule AWS.Bedrock do
 
   @type get_model_invocation_logging_configuration_errors() ::
           throttling_exception() | access_denied_exception() | internal_server_exception()
+
+  @type get_prompt_router_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type get_provisioned_model_throughput_errors() ::
           throttling_exception()
@@ -2753,6 +3104,13 @@ defmodule AWS.Bedrock do
           | access_denied_exception()
           | internal_server_exception()
 
+  @type list_marketplace_model_endpoints_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type list_model_copy_jobs_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2778,6 +3136,12 @@ defmodule AWS.Bedrock do
           | access_denied_exception()
           | internal_server_exception()
 
+  @type list_prompt_routers_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type list_provisioned_model_throughputs_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2796,6 +3160,14 @@ defmodule AWS.Bedrock do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+
+  @type register_marketplace_model_endpoint_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
 
   @type stop_evaluation_job_errors() ::
           throttling_exception()
@@ -2837,6 +3209,15 @@ defmodule AWS.Bedrock do
           | resource_not_found_exception()
 
   @type update_guardrail_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_marketplace_model_endpoint_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -3063,6 +3444,41 @@ defmodule AWS.Bedrock do
       input,
       options,
       201
+    )
+  end
+
+  @doc """
+  Creates an endpoint for a model from Amazon Bedrock Marketplace.
+
+  The endpoint is hosted by
+  Amazon SageMaker.
+  """
+  @spec create_marketplace_model_endpoint(
+          map(),
+          create_marketplace_model_endpoint_request(),
+          list()
+        ) ::
+          {:ok, create_marketplace_model_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_marketplace_model_endpoint_errors()}
+  def create_marketplace_model_endpoint(%Client{} = client, input, options \\ []) do
+    url_path = "/marketplace-model/endpoints"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 
@@ -3387,6 +3803,39 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Deletes an endpoint for a model from Amazon Bedrock Marketplace.
+  """
+  @spec delete_marketplace_model_endpoint(
+          map(),
+          String.t(),
+          delete_marketplace_model_endpoint_request(),
+          list()
+        ) ::
+          {:ok, delete_marketplace_model_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_marketplace_model_endpoint_errors()}
+  def delete_marketplace_model_endpoint(%Client{} = client, endpoint_arn, input, options \\ []) do
+    url_path = "/marketplace-model/endpoints/#{AWS.Util.encode_uri(endpoint_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Delete the invocation logging.
   """
   @spec delete_model_invocation_logging_configuration(
@@ -3441,6 +3890,49 @@ defmodule AWS.Bedrock do
         options \\ []
       ) do
     url_path = "/provisioned-model-throughput/#{AWS.Util.encode_uri(provisioned_model_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deregisters an endpoint for a model from Amazon Bedrock Marketplace.
+
+  This operation removes the
+  endpoint's association with Amazon Bedrock but does not delete the underlying
+  Amazon SageMaker
+  endpoint.
+  """
+  @spec deregister_marketplace_model_endpoint(
+          map(),
+          String.t(),
+          deregister_marketplace_model_endpoint_request(),
+          list()
+        ) ::
+          {:ok, deregister_marketplace_model_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, deregister_marketplace_model_endpoint_errors()}
+  def deregister_marketplace_model_endpoint(
+        %Client{} = client,
+        endpoint_arn,
+        input,
+        options \\ []
+      ) do
+    url_path = "/marketplace-model/endpoints/#{AWS.Util.encode_uri(endpoint_arn)}/registration"
     headers = []
     custom_headers = []
     query_params = []
@@ -3584,6 +4076,24 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Retrieves details about a specific endpoint for a model from Amazon Bedrock
+  Marketplace.
+  """
+  @spec get_marketplace_model_endpoint(map(), String.t(), list()) ::
+          {:ok, get_marketplace_model_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_marketplace_model_endpoint_errors()}
+  def get_marketplace_model_endpoint(%Client{} = client, endpoint_arn, options \\ []) do
+    url_path = "/marketplace-model/endpoints/#{AWS.Util.encode_uri(endpoint_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves information about a model copy job.
 
   For more information, see [Copy models to be used in other regions](https://docs.aws.amazon.com/bedrock/latest/userguide/copy-model.html)
@@ -3675,6 +4185,23 @@ defmodule AWS.Bedrock do
           | {:error, get_model_invocation_logging_configuration_errors()}
   def get_model_invocation_logging_configuration(%Client{} = client, options \\ []) do
     url_path = "/logging/modelinvocations"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves details about a prompt router.
+  """
+  @spec get_prompt_router(map(), String.t(), list()) ::
+          {:ok, get_prompt_router_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_prompt_router_errors()}
+  def get_prompt_router(%Client{} = client, prompt_router_arn, options \\ []) do
+    url_path = "/prompt-routers/#{AWS.Util.encode_uri(prompt_router_arn)}"
     headers = []
     query_params = []
 
@@ -4186,6 +4713,58 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Lists the endpoints for models from Amazon Bedrock Marketplace in your Amazon
+  Web Services
+  account.
+  """
+  @spec list_marketplace_model_endpoints(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_marketplace_model_endpoints_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_marketplace_model_endpoints_errors()}
+  def list_marketplace_model_endpoints(
+        %Client{} = client,
+        max_results \\ nil,
+        model_source_equals \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/marketplace-model/endpoints"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(model_source_equals) do
+        [{"modelSourceIdentifier", model_source_equals} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns a list of model copy jobs that you have submitted.
 
   You can filter the jobs to return based on
@@ -4601,6 +5180,42 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Retrieves a list of prompt routers.
+  """
+  @spec list_prompt_routers(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_prompt_routers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_prompt_routers_errors()}
+  def list_prompt_routers(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/prompt-routers"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists the Provisioned Throughputs in the account.
 
   For more information, see [Provisioned Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html)
@@ -4761,6 +5376,48 @@ defmodule AWS.Bedrock do
       client,
       meta,
       :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Registers an existing Amazon SageMaker endpoint with Amazon Bedrock Marketplace,
+  allowing it to be used with
+  Amazon Bedrock APIs.
+  """
+  @spec register_marketplace_model_endpoint(
+          map(),
+          String.t(),
+          register_marketplace_model_endpoint_request(),
+          list()
+        ) ::
+          {:ok, register_marketplace_model_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, register_marketplace_model_endpoint_errors()}
+  def register_marketplace_model_endpoint(
+        %Client{} = client,
+        endpoint_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/marketplace-model/endpoints/#{AWS.Util.encode_uri(endpoint_identifier)}/registration"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -4993,6 +5650,41 @@ defmodule AWS.Bedrock do
       input,
       options,
       202
+    )
+  end
+
+  @doc """
+  Updates the configuration of an existing endpoint for a model from Amazon
+  Bedrock
+  Marketplace.
+  """
+  @spec update_marketplace_model_endpoint(
+          map(),
+          String.t(),
+          update_marketplace_model_endpoint_request(),
+          list()
+        ) ::
+          {:ok, update_marketplace_model_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_marketplace_model_endpoint_errors()}
+  def update_marketplace_model_endpoint(%Client{} = client, endpoint_arn, input, options \\ []) do
+    url_path = "/marketplace-model/endpoints/#{AWS.Util.encode_uri(endpoint_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 

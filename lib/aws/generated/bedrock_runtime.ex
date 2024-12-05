@@ -256,6 +256,18 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      guardrail_converse_image_block() :: %{
+        "format" => list(any()),
+        "source" => list()
+      }
+
+  """
+  @type guardrail_converse_image_block() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       async_invoke_s3_output_data_config() :: %{
         "bucketOwner" => String.t(),
         "kmsKeyId" => String.t(),
@@ -288,6 +300,29 @@ defmodule AWS.BedrockRuntime do
 
   """
   @type content_block_start_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      prompt_router_trace() :: %{
+        "invokedModelId" => String.t()
+      }
+
+  """
+  @type prompt_router_trace() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_image_coverage() :: %{
+        "guarded" => integer(),
+        "total" => integer()
+      }
+
+  """
+  @type guardrail_image_coverage() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -373,6 +408,7 @@ defmodule AWS.BedrockRuntime do
   ## Example:
 
       guardrail_coverage() :: %{
+        "images" => guardrail_image_coverage(),
         "textCharacters" => guardrail_text_characters_coverage()
       }
 
@@ -525,7 +561,8 @@ defmodule AWS.BedrockRuntime do
   ## Example:
 
       converse_trace() :: %{
-        "guardrail" => guardrail_trace_assessment()
+        "guardrail" => guardrail_trace_assessment(),
+        "promptRouter" => prompt_router_trace()
       }
 
   """
@@ -557,6 +594,18 @@ defmodule AWS.BedrockRuntime do
 
   """
   @type tool_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_image_block() :: %{
+        "format" => list(any()),
+        "source" => list()
+      }
+
+  """
+  @type guardrail_image_block() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -968,7 +1017,8 @@ defmodule AWS.BedrockRuntime do
   ## Example:
 
       converse_stream_trace() :: %{
-        "guardrail" => guardrail_trace_assessment()
+        "guardrail" => guardrail_trace_assessment(),
+        "promptRouter" => prompt_router_trace()
       }
 
   """

@@ -701,6 +701,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      training_plan_filter() :: %{
+        "Name" => list(any()),
+        "Value" => String.t()
+      }
+      
+  """
+  @type training_plan_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_user_profiles_response() :: %{
         "NextToken" => String.t(),
         "UserProfiles" => list(user_profile_details()())
@@ -995,6 +1007,18 @@ defmodule AWS.SageMaker do
       
   """
   @type model_card_export_artifacts() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_partner_apps_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type list_partner_apps_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1472,6 +1496,33 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      create_training_plan_response() :: %{
+        "TrainingPlanArn" => String.t()
+      }
+      
+  """
+  @type create_training_plan_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_training_plan_offerings_request() :: %{
+        optional("DurationHours") => float(),
+        optional("EndTimeBefore") => non_neg_integer(),
+        optional("StartTimeAfter") => non_neg_integer(),
+        required("InstanceCount") => integer(),
+        required("InstanceType") => list(any()),
+        required("TargetResources") => list(list(any())())
+      }
+      
+  """
+  @type search_training_plan_offerings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       s3_storage_config() :: %{
         "KmsKeyId" => String.t(),
         "ResolvedOutputS3Uri" => String.t(),
@@ -1596,6 +1647,18 @@ defmodule AWS.SageMaker do
       
   """
   @type blue_green_update_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      compute_quota_target() :: %{
+        "FairShareWeight" => integer(),
+        "TeamName" => String.t()
+      }
+      
+  """
+  @type compute_quota_target() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1789,6 +1852,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      create_partner_app_presigned_url_response() :: %{
+        "Url" => String.t()
+      }
+      
+  """
+  @type create_partner_app_presigned_url_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       start_mlflow_tracking_server_request() :: %{
         required("TrackingServerName") => String.t()
       }
@@ -1806,6 +1880,18 @@ defmodule AWS.SageMaker do
       
   """
   @type get_search_suggestions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_partner_apps_response() :: %{
+        "NextToken" => String.t(),
+        "Summaries" => list(partner_app_summary()())
+      }
+      
+  """
+  @type list_partner_apps_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1946,6 +2032,18 @@ defmodule AWS.SageMaker do
       
   """
   @type describe_cluster_node_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_cluster_scheduler_configs_response() :: %{
+        "ClusterSchedulerConfigSummaries" => list(cluster_scheduler_config_summary()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type list_cluster_scheduler_configs_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2282,6 +2380,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      partner_app_maintenance_config() :: %{
+        "MaintenanceWindowStart" => String.t()
+      }
+      
+  """
+  @type partner_app_maintenance_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_inference_component_input() :: %{
         required("InferenceComponentName") => String.t()
       }
@@ -2349,6 +2458,18 @@ defmodule AWS.SageMaker do
       
   """
   @type delete_mlflow_tracking_server_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      priority_class() :: %{
+        "Name" => String.t(),
+        "Weight" => integer()
+      }
+      
+  """
+  @type priority_class() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2974,6 +3095,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      f_sx_lustre_file_system() :: %{
+        "FileSystemId" => String.t()
+      }
+      
+  """
+  @type f_sx_lustre_file_system() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       monitoring_alert_summary() :: %{
         "Actions" => monitoring_alert_actions(),
         "AlertStatus" => list(any()),
@@ -3239,6 +3371,17 @@ defmodule AWS.SageMaker do
       
   """
   @type update_endpoint_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_training_plan_offerings_response() :: %{
+        "TrainingPlanOfferings" => list(training_plan_offering()())
+      }
+      
+  """
+  @type search_training_plan_offerings_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3681,6 +3824,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      create_compute_quota_response() :: %{
+        "ComputeQuotaArn" => String.t(),
+        "ComputeQuotaId" => String.t()
+      }
+      
+  """
+  @type create_compute_quota_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_inference_components_input() :: %{
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
@@ -3731,6 +3886,31 @@ defmodule AWS.SageMaker do
       
   """
   @type create_endpoint_config_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_training_plan_response() :: %{
+        "AvailableInstanceCount" => integer(),
+        "CurrencyCode" => String.t(),
+        "DurationHours" => float(),
+        "DurationMinutes" => float(),
+        "EndTime" => non_neg_integer(),
+        "InUseInstanceCount" => integer(),
+        "ReservedCapacitySummaries" => list(reserved_capacity_summary()()),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t(),
+        "TargetResources" => list(list(any())()),
+        "TotalInstanceCount" => integer(),
+        "TrainingPlanArn" => String.t(),
+        "TrainingPlanName" => String.t(),
+        "UpfrontFee" => String.t()
+      }
+      
+  """
+  @type describe_training_plan_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3836,6 +4016,25 @@ defmodule AWS.SageMaker do
       
   """
   @type labeling_job_stopping_conditions() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_compute_quotas_request() :: %{
+        optional("ClusterArn") => String.t(),
+        optional("CreatedAfter") => non_neg_integer(),
+        optional("CreatedBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("Status") => list(any())
+      }
+      
+  """
+  @type list_compute_quotas_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3959,6 +4158,18 @@ defmodule AWS.SageMaker do
       
   """
   @type list_resource_catalogs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_compute_quota_response() :: %{
+        "ComputeQuotaArn" => String.t(),
+        "ComputeQuotaVersion" => integer()
+      }
+      
+  """
+  @type update_compute_quota_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4138,6 +4349,7 @@ defmodule AWS.SageMaker do
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
         optional("StatusEquals") => list(any()),
+        optional("TrainingPlanArnEquals") => String.t(),
         optional("WarmPoolStatusEquals") => list(any())
       }
       
@@ -4331,6 +4543,18 @@ defmodule AWS.SageMaker do
       
   """
   @type delete_inference_experiment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      error_info() :: %{
+        "Code" => String.t(),
+        "Reason" => String.t()
+      }
+      
+  """
+  @type error_info() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4799,6 +5023,23 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      list_training_plans_request() :: %{
+        optional("Filters") => list(training_plan_filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("StartTimeAfter") => non_neg_integer(),
+        optional("StartTimeBefore") => non_neg_integer()
+      }
+      
+  """
+  @type list_training_plans_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       model_metrics() :: %{
         "Bias" => bias(),
         "Explainability" => explainability(),
@@ -5239,6 +5480,17 @@ defmodule AWS.SageMaker do
       
   """
   @type customized_metric_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_compute_quota_request() :: %{
+        required("ComputeQuotaId") => String.t()
+      }
+      
+  """
+  @type delete_compute_quota_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5801,7 +6053,8 @@ defmodule AWS.SageMaker do
         "ClusterArn" => String.t(),
         "ClusterName" => String.t(),
         "ClusterStatus" => list(any()),
-        "CreationTime" => non_neg_integer()
+        "CreationTime" => non_neg_integer(),
+        "TrainingPlanArns" => list(String.t()())
       }
       
   """
@@ -6658,6 +6911,25 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      training_plan_offering() :: %{
+        "CurrencyCode" => String.t(),
+        "DurationHours" => float(),
+        "DurationMinutes" => float(),
+        "RequestedEndTimeBefore" => non_neg_integer(),
+        "RequestedStartTimeAfter" => non_neg_integer(),
+        "ReservedCapacityOfferings" => list(reserved_capacity_offering()()),
+        "TargetResources" => list(list(any())()),
+        "TrainingPlanOfferingId" => String.t(),
+        "UpfrontFee" => String.t()
+      }
+      
+  """
+  @type training_plan_offering() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_workteam_response() :: %{
         "Success" => boolean()
       }
@@ -7162,6 +7434,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      delete_partner_app_response() :: %{
+        "Arn" => String.t()
+      }
+      
+  """
+  @type delete_partner_app_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_auto_ml_jobs_request() :: %{
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
@@ -7517,6 +7800,17 @@ defmodule AWS.SageMaker do
       
   """
   @type source_algorithm() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_cluster_scheduler_config_request() :: %{
+        required("ClusterSchedulerConfigId") => String.t()
+      }
+      
+  """
+  @type delete_cluster_scheduler_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -9374,6 +9668,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      update_partner_app_response() :: %{
+        "Arn" => String.t()
+      }
+      
+  """
+  @type update_partner_app_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_hub_content_versions_request() :: %{
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
@@ -9496,6 +9801,30 @@ defmodule AWS.SageMaker do
       
   """
   @type list_actions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_cluster_scheduler_config_response() :: %{
+        "ClusterSchedulerConfigArn" => String.t(),
+        "ClusterSchedulerConfigId" => String.t()
+      }
+      
+  """
+  @type create_cluster_scheduler_config_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      partner_app_config() :: %{
+        "AdminUsers" => list(String.t()()),
+        "Arguments" => map()
+      }
+      
+  """
+  @type partner_app_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -9894,6 +10223,19 @@ defmodule AWS.SageMaker do
       
   """
   @type filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      compute_quota_config() :: %{
+        "ComputeQuotaResources" => list(compute_quota_resource_config()()),
+        "PreemptTeamTasks" => list(any()),
+        "ResourceSharingConfig" => resource_sharing_config()
+      }
+      
+  """
+  @type compute_quota_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -10487,7 +10829,8 @@ defmodule AWS.SageMaker do
         optional("NameContains") => String.t(),
         optional("NextToken") => String.t(),
         optional("SortBy") => list(any()),
-        optional("SortOrder") => list(any())
+        optional("SortOrder") => list(any()),
+        optional("TrainingPlanArn") => String.t()
       }
       
   """
@@ -10761,6 +11104,7 @@ defmodule AWS.SageMaker do
         "TrainingJobArn" => String.t(),
         "TrainingJobName" => String.t(),
         "TrainingJobStatus" => list(any()),
+        "TrainingPlanArn" => String.t(),
         "WarmPoolStatus" => warm_pool_status()
       }
       
@@ -11082,6 +11426,30 @@ defmodule AWS.SageMaker do
       
   """
   @type list_pipeline_executions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_sharing_config() :: %{
+        "BorrowLimit" => integer(),
+        "Strategy" => list(any())
+      }
+      
+  """
+  @type resource_sharing_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_compute_quotas_response() :: %{
+        "ComputeQuotaSummaries" => list(compute_quota_summary()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type list_compute_quotas_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -11445,6 +11813,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      describe_partner_app_request() :: %{
+        required("Arn") => String.t()
+      }
+      
+  """
+  @type describe_partner_app_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_auto_ml_job_v2_response() :: %{
         "AutoMLComputeConfig" => auto_ml_compute_config(),
         "AutoMLJobArn" => String.t(),
@@ -11570,6 +11949,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      compute_quota_resource_config() :: %{
+        "Count" => integer(),
+        "InstanceType" => list(any())
+      }
+      
+  """
+  @type compute_quota_resource_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       label_counters() :: %{
         "FailedNonRetryableError" => integer(),
         "HumanLabeled" => integer(),
@@ -11684,6 +12075,7 @@ defmodule AWS.SageMaker do
         "InstanceGroups" => list(instance_group()()),
         "InstanceType" => list(any()),
         "KeepAlivePeriodInSeconds" => integer(),
+        "TrainingPlanArn" => String.t(),
         "VolumeKmsKeyId" => String.t(),
         "VolumeSizeInGB" => integer()
       }
@@ -11905,6 +12297,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      update_cluster_scheduler_config_response() :: %{
+        "ClusterSchedulerConfigArn" => String.t(),
+        "ClusterSchedulerConfigVersion" => integer()
+      }
+      
+  """
+  @type update_cluster_scheduler_config_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_compilation_job_request() :: %{
         required("CompilationJobName") => String.t()
       }
@@ -11926,6 +12330,23 @@ defmodule AWS.SageMaker do
       
   """
   @type data_capture_config_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_compute_quota_request() :: %{
+        optional("ActivationState") => list(any()),
+        optional("Description") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("ClusterArn") => String.t(),
+        required("ComputeQuotaConfig") => compute_quota_config(),
+        required("ComputeQuotaTarget") => compute_quota_target(),
+        required("Name") => String.t()
+      }
+      
+  """
+  @type create_compute_quota_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -11990,6 +12411,26 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      create_partner_app_request() :: %{
+        optional("ApplicationConfig") => partner_app_config(),
+        optional("ClientToken") => String.t(),
+        optional("EnableIamSessionBasedIdentity") => boolean(),
+        optional("MaintenanceConfig") => partner_app_maintenance_config(),
+        optional("Tags") => list(tag()()),
+        required("AuthType") => list(any()),
+        required("ExecutionRoleArn") => String.t(),
+        required("Name") => String.t(),
+        required("Tier") => String.t(),
+        required("Type") => list(any())
+      }
+      
+  """
+  @type create_partner_app_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       model_compilation_config() :: %{
         "Image" => String.t(),
         "OverrideEnvironment" => map()
@@ -12012,6 +12453,18 @@ defmodule AWS.SageMaker do
       
   """
   @type update_feature_metadata_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_training_plans_response() :: %{
+        "NextToken" => String.t(),
+        "TrainingPlanSummaries" => list(training_plan_summary()())
+      }
+      
+  """
+  @type list_training_plans_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -12103,6 +12556,19 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      create_training_plan_request() :: %{
+        optional("Tags") => list(tag()()),
+        required("TrainingPlanName") => String.t(),
+        required("TrainingPlanOfferingId") => String.t()
+      }
+      
+  """
+  @type create_training_plan_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_candidates_for_auto_ml_job_response() :: %{
         "Candidates" => list(auto_ml_candidate()()),
         "NextToken" => String.t()
@@ -12170,6 +12636,18 @@ defmodule AWS.SageMaker do
       
   """
   @type action_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      f_sx_lustre_file_system_config() :: %{
+        "FileSystemId" => String.t(),
+        "FileSystemPath" => String.t()
+      }
+      
+  """
+  @type f_sx_lustre_file_system_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -12269,6 +12747,17 @@ defmodule AWS.SageMaker do
       
   """
   @type update_feature_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_training_plan_request() :: %{
+        required("TrainingPlanName") => String.t()
+      }
+      
+  """
+  @type describe_training_plan_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -12634,6 +13123,19 @@ defmodule AWS.SageMaker do
       
   """
   @type delete_trial_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_partner_app_presigned_url_request() :: %{
+        optional("ExpiresInSeconds") => integer(),
+        optional("SessionExpirationDurationInSeconds") => integer(),
+        required("Arn") => String.t()
+      }
+      
+  """
+  @type create_partner_app_presigned_url_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -13033,6 +13535,27 @@ defmodule AWS.SageMaker do
       
   """
   @type list_lineage_groups_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      compute_quota_summary() :: %{
+        "ActivationState" => list(any()),
+        "ClusterArn" => String.t(),
+        "ComputeQuotaArn" => String.t(),
+        "ComputeQuotaConfig" => compute_quota_config(),
+        "ComputeQuotaId" => String.t(),
+        "ComputeQuotaTarget" => compute_quota_target(),
+        "ComputeQuotaVersion" => integer(),
+        "CreationTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type compute_quota_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -13950,6 +14473,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      create_partner_app_response() :: %{
+        "Arn" => String.t()
+      }
+      
+  """
+  @type create_partner_app_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       stop_mlflow_tracking_server_response() :: %{
         "TrackingServerArn" => String.t()
       }
@@ -14116,6 +14650,18 @@ defmodule AWS.SageMaker do
       
   """
   @type endpoint_performance() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_cluster_scheduler_config_request() :: %{
+        optional("ClusterSchedulerConfigVersion") => integer(),
+        required("ClusterSchedulerConfigId") => String.t()
+      }
+      
+  """
+  @type describe_cluster_scheduler_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -14303,7 +14849,8 @@ defmodule AWS.SageMaker do
         "LifeCycleConfig" => cluster_life_cycle_config(),
         "OnStartDeepHealthChecks" => list(list(any())()),
         "OverrideVpcConfig" => vpc_config(),
-        "ThreadsPerCore" => integer()
+        "ThreadsPerCore" => integer(),
+        "TrainingPlanArn" => String.t()
       }
       
   """
@@ -14596,6 +15143,18 @@ defmodule AWS.SageMaker do
       
   """
   @type list_monitoring_alerts_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_compute_quota_request() :: %{
+        optional("ComputeQuotaVersion") => integer(),
+        required("ComputeQuotaId") => String.t()
+      }
+      
+  """
+  @type describe_compute_quota_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -15029,6 +15588,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      scheduler_config() :: %{
+        "FairShare" => list(any()),
+        "PriorityClasses" => list(priority_class()())
+      }
+      
+  """
+  @type scheduler_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       domain_details() :: %{
         "CreationTime" => non_neg_integer(),
         "DomainArn" => String.t(),
@@ -15216,6 +15787,31 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      describe_compute_quota_response() :: %{
+        "ActivationState" => list(any()),
+        "ClusterArn" => String.t(),
+        "ComputeQuotaArn" => String.t(),
+        "ComputeQuotaConfig" => compute_quota_config(),
+        "ComputeQuotaId" => String.t(),
+        "ComputeQuotaTarget" => compute_quota_target(),
+        "ComputeQuotaVersion" => integer(),
+        "CreatedBy" => user_context(),
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "FailureReason" => String.t(),
+        "LastModifiedBy" => user_context(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type describe_compute_quota_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       transform_input() :: %{
         "CompressionType" => list(any()),
         "ContentType" => String.t(),
@@ -15262,6 +15858,20 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      update_cluster_scheduler_config_request() :: %{
+        optional("Description") => String.t(),
+        optional("SchedulerConfig") => scheduler_config(),
+        required("ClusterSchedulerConfigId") => String.t(),
+        required("TargetVersion") => integer()
+      }
+      
+  """
+  @type update_cluster_scheduler_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_workteam_response() :: %{
         "Workteam" => workteam()
       }
@@ -15282,6 +15892,25 @@ defmodule AWS.SageMaker do
       
   """
   @type desired_weight_and_capacity() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reserved_capacity_summary() :: %{
+        "AvailabilityZone" => String.t(),
+        "DurationHours" => float(),
+        "DurationMinutes" => float(),
+        "EndTime" => non_neg_integer(),
+        "InstanceType" => list(any()),
+        "ReservedCapacityArn" => String.t(),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "TotalInstanceCount" => integer()
+      }
+      
+  """
+  @type reserved_capacity_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -15320,6 +15949,29 @@ defmodule AWS.SageMaker do
       
   """
   @type final_hyper_parameter_tuning_job_objective_metric() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_cluster_scheduler_config_response() :: %{
+        "ClusterArn" => String.t(),
+        "ClusterSchedulerConfigArn" => String.t(),
+        "ClusterSchedulerConfigId" => String.t(),
+        "ClusterSchedulerConfigVersion" => integer(),
+        "CreatedBy" => user_context(),
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t(),
+        "FailureReason" => String.t(),
+        "LastModifiedBy" => user_context(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "SchedulerConfig" => scheduler_config(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type describe_cluster_scheduler_config_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -15745,6 +16397,25 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      list_cluster_scheduler_configs_request() :: %{
+        optional("ClusterArn") => String.t(),
+        optional("CreatedAfter") => non_neg_integer(),
+        optional("CreatedBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NameContains") => String.t(),
+        optional("NextToken") => String.t(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("Status") => list(any())
+      }
+      
+  """
+  @type list_cluster_scheduler_configs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       model_data_source() :: %{
         "S3DataSource" => s3_model_data_source()
       }
@@ -15792,6 +16463,21 @@ defmodule AWS.SageMaker do
       
   """
   @type list_flow_definitions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      partner_app_summary() :: %{
+        "Arn" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "Status" => list(any()),
+        "Type" => list(any())
+      }
+      
+  """
+  @type partner_app_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -15859,6 +16545,24 @@ defmodule AWS.SageMaker do
       
   """
   @type cluster_instance_placement() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cluster_scheduler_config_summary() :: %{
+        "ClusterArn" => String.t(),
+        "ClusterSchedulerConfigArn" => String.t(),
+        "ClusterSchedulerConfigId" => String.t(),
+        "ClusterSchedulerConfigVersion" => integer(),
+        "CreationTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type cluster_scheduler_config_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -16033,6 +16737,21 @@ defmodule AWS.SageMaker do
       
   """
   @type model_dashboard_endpoint() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_cluster_scheduler_config_request() :: %{
+        optional("Description") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("ClusterArn") => String.t(),
+        required("Name") => String.t(),
+        required("SchedulerConfig") => scheduler_config()
+      }
+      
+  """
+  @type create_cluster_scheduler_config_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -16459,6 +17178,30 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      describe_partner_app_response() :: %{
+        "ApplicationConfig" => partner_app_config(),
+        "Arn" => String.t(),
+        "AuthType" => list(any()),
+        "BaseUrl" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "EnableIamSessionBasedIdentity" => boolean(),
+        "Error" => error_info(),
+        "ExecutionRoleArn" => String.t(),
+        "MaintenanceConfig" => partner_app_maintenance_config(),
+        "Name" => String.t(),
+        "Status" => list(any()),
+        "Tier" => String.t(),
+        "Type" => list(any()),
+        "Version" => String.t()
+      }
+      
+  """
+  @type describe_partner_app_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_trials_request() :: %{
         optional("CreatedAfter") => non_neg_integer(),
         optional("CreatedBefore") => non_neg_integer(),
@@ -16486,8 +17229,11 @@ defmodule AWS.SageMaker do
         "LifeCycleConfig" => cluster_life_cycle_config(),
         "OnStartDeepHealthChecks" => list(list(any())()),
         "OverrideVpcConfig" => vpc_config(),
+        "Status" => list(any()),
         "TargetCount" => integer(),
-        "ThreadsPerCore" => integer()
+        "ThreadsPerCore" => integer(),
+        "TrainingPlanArn" => String.t(),
+        "TrainingPlanStatus" => String.t()
       }
       
   """
@@ -16654,6 +17400,23 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      update_partner_app_request() :: %{
+        optional("ApplicationConfig") => partner_app_config(),
+        optional("ClientToken") => String.t(),
+        optional("EnableIamSessionBasedIdentity") => boolean(),
+        optional("MaintenanceConfig") => partner_app_maintenance_config(),
+        optional("Tags") => list(tag()()),
+        optional("Tier") => String.t(),
+        required("Arn") => String.t()
+      }
+      
+  """
+  @type update_partner_app_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_subscribed_workteams_response() :: %{
         "NextToken" => String.t(),
         "SubscribedWorkteams" => list(subscribed_workteam()())
@@ -16661,6 +17424,23 @@ defmodule AWS.SageMaker do
       
   """
   @type list_subscribed_workteams_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reserved_capacity_offering() :: %{
+        "AvailabilityZone" => String.t(),
+        "DurationHours" => float(),
+        "DurationMinutes" => float(),
+        "EndTime" => non_neg_integer(),
+        "InstanceCount" => integer(),
+        "InstanceType" => list(any()),
+        "StartTime" => non_neg_integer()
+      }
+      
+  """
+  @type reserved_capacity_offering() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -16691,6 +17471,31 @@ defmodule AWS.SageMaker do
       
   """
   @type optimization_job_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      training_plan_summary() :: %{
+        "AvailableInstanceCount" => integer(),
+        "CurrencyCode" => String.t(),
+        "DurationHours" => float(),
+        "DurationMinutes" => float(),
+        "EndTime" => non_neg_integer(),
+        "InUseInstanceCount" => integer(),
+        "ReservedCapacitySummaries" => list(reserved_capacity_summary()()),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t(),
+        "TargetResources" => list(list(any())()),
+        "TotalInstanceCount" => integer(),
+        "TrainingPlanArn" => String.t(),
+        "TrainingPlanName" => String.t(),
+        "UpfrontFee" => String.t()
+      }
+      
+  """
+  @type training_plan_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -16753,6 +17558,22 @@ defmodule AWS.SageMaker do
       
   """
   @type human_loop_activation_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_compute_quota_request() :: %{
+        optional("ActivationState") => list(any()),
+        optional("ComputeQuotaConfig") => compute_quota_config(),
+        optional("ComputeQuotaTarget") => compute_quota_target(),
+        optional("Description") => String.t(),
+        required("ComputeQuotaId") => String.t(),
+        required("TargetVersion") => integer()
+      }
+      
+  """
+  @type update_compute_quota_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -16959,6 +17780,18 @@ defmodule AWS.SageMaker do
       
   """
   @type retention_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_partner_app_request() :: %{
+        optional("ClientToken") => String.t(),
+        required("Arn") => String.t()
+      }
+      
+  """
+  @type delete_partner_app_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -17215,7 +18048,12 @@ defmodule AWS.SageMaker do
 
   @type create_cluster_errors() :: resource_limit_exceeded() | resource_in_use()
 
+  @type create_cluster_scheduler_config_errors() ::
+          resource_limit_exceeded() | conflict_exception()
+
   @type create_compilation_job_errors() :: resource_limit_exceeded() | resource_in_use()
+
+  @type create_compute_quota_errors() :: resource_limit_exceeded() | conflict_exception()
 
   @type create_context_errors() :: resource_limit_exceeded()
 
@@ -17295,6 +18133,10 @@ defmodule AWS.SageMaker do
 
   @type create_optimization_job_errors() :: resource_limit_exceeded() | resource_in_use()
 
+  @type create_partner_app_errors() :: resource_limit_exceeded() | conflict_exception()
+
+  @type create_partner_app_presigned_url_errors() :: resource_not_found()
+
   @type create_pipeline_errors() ::
           resource_limit_exceeded() | conflict_exception() | resource_not_found()
 
@@ -17312,6 +18154,9 @@ defmodule AWS.SageMaker do
   @type create_studio_lifecycle_config_errors() :: resource_in_use()
 
   @type create_training_job_errors() ::
+          resource_limit_exceeded() | resource_in_use() | resource_not_found()
+
+  @type create_training_plan_errors() ::
           resource_limit_exceeded() | resource_in_use() | resource_not_found()
 
   @type create_transform_job_errors() ::
@@ -17339,7 +18184,11 @@ defmodule AWS.SageMaker do
 
   @type delete_cluster_errors() :: conflict_exception() | resource_not_found()
 
+  @type delete_cluster_scheduler_config_errors() :: resource_not_found()
+
   @type delete_compilation_job_errors() :: resource_not_found()
+
+  @type delete_compute_quota_errors() :: resource_not_found()
 
   @type delete_context_errors() :: resource_not_found()
 
@@ -17391,6 +18240,8 @@ defmodule AWS.SageMaker do
 
   @type delete_optimization_job_errors() :: resource_not_found()
 
+  @type delete_partner_app_errors() :: conflict_exception() | resource_not_found()
+
   @type delete_pipeline_errors() :: conflict_exception() | resource_not_found()
 
   @type delete_project_errors() :: conflict_exception()
@@ -17423,7 +18274,11 @@ defmodule AWS.SageMaker do
 
   @type describe_cluster_node_errors() :: resource_not_found()
 
+  @type describe_cluster_scheduler_config_errors() :: resource_not_found()
+
   @type describe_compilation_job_errors() :: resource_not_found()
+
+  @type describe_compute_quota_errors() :: resource_not_found()
 
   @type describe_context_errors() :: resource_not_found()
 
@@ -17483,6 +18338,8 @@ defmodule AWS.SageMaker do
 
   @type describe_optimization_job_errors() :: resource_not_found()
 
+  @type describe_partner_app_errors() :: resource_not_found()
+
   @type describe_pipeline_errors() :: resource_not_found()
 
   @type describe_pipeline_definition_for_execution_errors() :: resource_not_found()
@@ -17496,6 +18353,8 @@ defmodule AWS.SageMaker do
   @type describe_studio_lifecycle_config_errors() :: resource_not_found()
 
   @type describe_training_job_errors() :: resource_not_found()
+
+  @type describe_training_plan_errors() :: resource_not_found()
 
   @type describe_transform_job_errors() :: resource_not_found()
 
@@ -17569,6 +18428,8 @@ defmodule AWS.SageMaker do
   @type retry_pipeline_execution_errors() ::
           resource_limit_exceeded() | conflict_exception() | resource_not_found()
 
+  @type search_training_plan_offerings_errors() :: resource_limit_exceeded()
+
   @type send_pipeline_execution_step_failure_errors() ::
           resource_limit_exceeded() | conflict_exception() | resource_not_found()
 
@@ -17621,9 +18482,15 @@ defmodule AWS.SageMaker do
   @type update_cluster_errors() ::
           resource_limit_exceeded() | conflict_exception() | resource_not_found()
 
+  @type update_cluster_scheduler_config_errors() ::
+          resource_limit_exceeded() | conflict_exception() | resource_not_found()
+
   @type update_cluster_software_errors() :: conflict_exception() | resource_not_found()
 
   @type update_code_repository_errors() :: conflict_exception()
+
+  @type update_compute_quota_errors() ::
+          resource_limit_exceeded() | conflict_exception() | resource_not_found()
 
   @type update_context_errors() :: conflict_exception() | resource_not_found()
 
@@ -17669,6 +18536,8 @@ defmodule AWS.SageMaker do
   @type update_notebook_instance_errors() :: resource_limit_exceeded()
 
   @type update_notebook_instance_lifecycle_config_errors() :: resource_limit_exceeded()
+
+  @type update_partner_app_errors() :: conflict_exception() | resource_not_found()
 
   @type update_pipeline_errors() :: conflict_exception() | resource_not_found()
 
@@ -18069,6 +18938,24 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Create cluster policy configuration.
+
+  This policy is used for task prioritization and
+  fair-share allocation of idle compute. This helps prioritize critical workloads
+  and distributes
+  idle compute across entities.
+  """
+  @spec create_cluster_scheduler_config(map(), create_cluster_scheduler_config_request(), list()) ::
+          {:ok, create_cluster_scheduler_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_cluster_scheduler_config_errors()}
+  def create_cluster_scheduler_config(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateClusterSchedulerConfig", input, options)
+  end
+
+  @doc """
   Creates a Git repository as a resource in your SageMaker account.
 
   You can
@@ -18144,6 +19031,24 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateCompilationJob", input, options)
+  end
+
+  @doc """
+  Create compute allocation definition.
+
+  This defines how compute is allocated, shared, and
+  borrowed for specified entities. Specifically, how to lend and borrow idle
+  compute and
+  assign a fair-share weight to the specified entities.
+  """
+  @spec create_compute_quota(map(), create_compute_quota_request(), list()) ::
+          {:ok, create_compute_quota_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_compute_quota_errors()}
+  def create_compute_quota(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateComputeQuota", input, options)
   end
 
   @doc """
@@ -19154,6 +20059,36 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Creates an Amazon SageMaker Partner AI App.
+  """
+  @spec create_partner_app(map(), create_partner_app_request(), list()) ::
+          {:ok, create_partner_app_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_partner_app_errors()}
+  def create_partner_app(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreatePartnerApp", input, options)
+  end
+
+  @doc """
+  Creates a presigned URL to access an Amazon SageMaker Partner AI App.
+  """
+  @spec create_partner_app_presigned_url(
+          map(),
+          create_partner_app_presigned_url_request(),
+          list()
+        ) ::
+          {:ok, create_partner_app_presigned_url_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_partner_app_presigned_url_errors()}
+  def create_partner_app_presigned_url(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreatePartnerAppPresignedUrl", input, options)
+  end
+
+  @doc """
   Creates a pipeline using a JSON pipeline definition.
   """
   @spec create_pipeline(map(), create_pipeline_request(), list()) ::
@@ -19421,6 +20356,91 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateTrainingJob", input, options)
+  end
+
+  @doc """
+  Creates a new training plan in SageMaker to reserve compute capacity.
+
+  Amazon SageMaker Training Plan is a capability within SageMaker that allows
+  customers to reserve and manage GPU
+  capacity for large-scale AI model training. It provides a way to secure
+  predictable access
+  to computational resources within specific timelines and budgets, without the
+  need to
+  manage underlying infrastructure.
+
+  ## How it works
+
+  Plans can be created for specific resources such as SageMaker Training Jobs or
+  SageMaker HyperPod
+  clusters, automatically provisioning resources, setting up infrastructure,
+  executing
+  workloads, and handling infrastructure failures.
+
+  ## Plan creation workflow
+
+    *
+  Users search for available plan offerings based on their requirements (e.g.,
+  instance type, count, start time, duration) using the
+
+  ```
+
+  [SearchTrainingPlanOfferings](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SearchTrainingPlanOfferings.html)   ```
+
+  API operation.
+
+    *
+  They create a plan that best matches their needs using the ID of the plan
+  offering
+  they want to use.
+
+    *
+  After successful upfront payment, the plan's status becomes
+  `Scheduled`.
+
+    *
+  The plan can be used to:
+
+      *
+  Queue training jobs.
+
+      *
+  Allocate to an instance group of a SageMaker HyperPod cluster.
+
+    *
+  When the plan start date arrives, it becomes `Active`. Based on
+  available reserved capacity:
+
+      *
+  Training jobs are launched.
+
+      *
+  Instance groups are provisioned.
+
+  ## Plan composition
+
+  A plan can consist of one or more Reserved Capacities, each defined by a
+  specific
+  instance type, quantity, Availability Zone, duration, and start and end times.
+  For more
+  information about Reserved Capacity, see
+
+  ```
+
+  [ReservedCapacitySummary](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ReservedCapacitySummary.html)
+
+  ```
+
+  .
+  """
+  @spec create_training_plan(map(), create_training_plan_request(), list()) ::
+          {:ok, create_training_plan_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_training_plan_errors()}
+  def create_training_plan(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateTrainingPlan", input, options)
   end
 
   @doc """
@@ -19726,6 +20746,19 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Deletes the cluster policy of the cluster.
+  """
+  @spec delete_cluster_scheduler_config(map(), delete_cluster_scheduler_config_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_cluster_scheduler_config_errors()}
+  def delete_cluster_scheduler_config(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteClusterSchedulerConfig", input, options)
+  end
+
+  @doc """
   Deletes the specified Git repository from your account.
   """
   @spec delete_code_repository(map(), delete_code_repository_input(), list()) ::
@@ -19760,6 +20793,19 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteCompilationJob", input, options)
+  end
+
+  @doc """
+  Deletes the compute allocation from the cluster.
+  """
+  @spec delete_compute_quota(map(), delete_compute_quota_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_compute_quota_errors()}
+  def delete_compute_quota(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteComputeQuota", input, options)
   end
 
   @doc """
@@ -20323,6 +21369,19 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Deletes a SageMaker Partner AI App.
+  """
+  @spec delete_partner_app(map(), delete_partner_app_request(), list()) ::
+          {:ok, delete_partner_app_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_partner_app_errors()}
+  def delete_partner_app(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeletePartnerApp", input, options)
+  end
+
+  @doc """
   Deletes a pipeline if there are no running instances of the pipeline.
 
   To delete a
@@ -20644,6 +21703,27 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Description of the cluster policy.
+
+  This policy is used for task prioritization and
+  fair-share allocation. This helps prioritize critical workloads and distributes
+  idle compute across entities.
+  """
+  @spec describe_cluster_scheduler_config(
+          map(),
+          describe_cluster_scheduler_config_request(),
+          list()
+        ) ::
+          {:ok, describe_cluster_scheduler_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_cluster_scheduler_config_errors()}
+  def describe_cluster_scheduler_config(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeClusterSchedulerConfig", input, options)
+  end
+
+  @doc """
   Gets details about the specified Git repository.
   """
   @spec describe_code_repository(map(), describe_code_repository_input(), list()) ::
@@ -20671,6 +21751,19 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeCompilationJob", input, options)
+  end
+
+  @doc """
+  Description of the compute allocation definition.
+  """
+  @spec describe_compute_quota(map(), describe_compute_quota_request(), list()) ::
+          {:ok, describe_compute_quota_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_compute_quota_errors()}
+  def describe_compute_quota(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeComputeQuota", input, options)
   end
 
   @doc """
@@ -21207,6 +22300,19 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Gets information about a SageMaker Partner AI App.
+  """
+  @spec describe_partner_app(map(), describe_partner_app_request(), list()) ::
+          {:ok, describe_partner_app_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_partner_app_errors()}
+  def describe_partner_app(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribePartnerApp", input, options)
+  end
+
+  @doc """
   Describes the details of a pipeline.
   """
   @spec describe_pipeline(map(), describe_pipeline_request(), list()) ::
@@ -21338,6 +22444,19 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeTrainingJob", input, options)
+  end
+
+  @doc """
+  Retrieves detailed information about a specific training plan.
+  """
+  @spec describe_training_plan(map(), describe_training_plan_request(), list()) ::
+          {:ok, describe_training_plan_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_training_plan_errors()}
+  def describe_training_plan(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeTrainingPlan", input, options)
   end
 
   @doc """
@@ -21746,6 +22865,18 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  List the cluster policy configurations.
+  """
+  @spec list_cluster_scheduler_configs(map(), list_cluster_scheduler_configs_request(), list()) ::
+          {:ok, list_cluster_scheduler_configs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def list_cluster_scheduler_configs(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListClusterSchedulerConfigs", input, options)
+  end
+
+  @doc """
   Retrieves the list of SageMaker HyperPod clusters.
   """
   @spec list_clusters(map(), list_clusters_request(), list()) ::
@@ -21784,6 +22915,18 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "ListCompilationJobs", input, options)
+  end
+
+  @doc """
+  List the resource allocation definitions.
+  """
+  @spec list_compute_quotas(map(), list_compute_quotas_request(), list()) ::
+          {:ok, list_compute_quotas_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def list_compute_quotas(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListComputeQuotas", input, options)
   end
 
   @doc """
@@ -22380,6 +23523,18 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Lists all of the SageMaker Partner AI Apps in an account.
+  """
+  @spec list_partner_apps(map(), list_partner_apps_request(), list()) ::
+          {:ok, list_partner_apps_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def list_partner_apps(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListPartnerApps", input, options)
+  end
+
+  @doc """
   Gets a list of `PipeLineExecutionStep` objects.
   """
   @spec list_pipeline_execution_steps(map(), list_pipeline_execution_steps_request(), list()) ::
@@ -22604,6 +23759,18 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Retrieves a list of training plans for the current account.
+  """
+  @spec list_training_plans(map(), list_training_plans_request(), list()) ::
+          {:ok, list_training_plans_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def list_training_plans(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTrainingPlans", input, options)
+  end
+
+  @doc """
   Lists transform jobs.
   """
   @spec list_transform_jobs(map(), list_transform_jobs_request(), list()) ::
@@ -22810,6 +23977,39 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "Search", input, options)
+  end
+
+  @doc """
+  Searches for available training plan offerings based on specified criteria.
+
+    *
+  Users search for available plan offerings based on their requirements (e.g.,
+  instance type, count, start time, duration).
+
+    *
+  And then, they create a plan that best matches their needs using the ID of the
+  plan offering they want to use.
+
+  For more information about how to reserve GPU capacity for your SageMaker
+  training jobs or
+  SageMaker HyperPod clusters using Amazon SageMaker Training Plan , see
+
+  ```
+
+  [CreateTrainingPlan](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html)
+
+  ```
+
+  .
+  """
+  @spec search_training_plan_offerings(map(), search_training_plan_offerings_request(), list()) ::
+          {:ok, search_training_plan_offerings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, search_training_plan_offerings_errors()}
+  def search_training_plan_offerings(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "SearchTrainingPlanOfferings", input, options)
   end
 
   @doc """
@@ -23287,6 +24487,19 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Update the cluster policy configuration.
+  """
+  @spec update_cluster_scheduler_config(map(), update_cluster_scheduler_config_request(), list()) ::
+          {:ok, update_cluster_scheduler_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_cluster_scheduler_config_errors()}
+  def update_cluster_scheduler_config(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateClusterSchedulerConfig", input, options)
+  end
+
+  @doc """
   Updates the platform software of a SageMaker HyperPod cluster for security
   patching.
 
@@ -23319,6 +24532,19 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateCodeRepository", input, options)
+  end
+
+  @doc """
+  Update the compute allocation definition.
+  """
+  @spec update_compute_quota(map(), update_compute_quota_request(), list()) ::
+          {:ok, update_compute_quota_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_compute_quota_errors()}
+  def update_compute_quota(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateComputeQuota", input, options)
   end
 
   @doc """
@@ -23690,6 +24916,19 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateNotebookInstanceLifecycleConfig", input, options)
+  end
+
+  @doc """
+  Updates all of the SageMaker Partner AI Apps in an account.
+  """
+  @spec update_partner_app(map(), update_partner_app_request(), list()) ::
+          {:ok, update_partner_app_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_partner_app_errors()}
+  def update_partner_app(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdatePartnerApp", input, options)
   end
 
   @doc """

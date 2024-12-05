@@ -48,6 +48,8 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       knowledge_base_configuration() :: %{
+        "kendraKnowledgeBaseConfiguration" => kendra_knowledge_base_configuration(),
+        "sqlKnowledgeBaseConfiguration" => sql_knowledge_base_configuration(),
         "type" => list(any()),
         "vectorKnowledgeBaseConfiguration" => vector_knowledge_base_configuration()
       }
@@ -128,6 +130,18 @@ defmodule AWS.BedrockAgent do
 
   """
   @type update_flow_alias_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      redshift_serverless_auth_configuration() :: %{
+        "type" => list(any()),
+        "usernamePasswordSecretArn" => String.t()
+      }
+
+  """
+  @type redshift_serverless_auth_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -249,6 +263,18 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      query_generation_context() :: %{
+        "curatedQueries" => list(curated_query()()),
+        "tables" => list(query_generation_table()())
+      }
+
+  """
+  @type query_generation_context() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       unreachable_node_flow_validation_details() :: %{
         "node" => String.t()
       }
@@ -364,6 +390,19 @@ defmodule AWS.BedrockAgent do
 
   """
   @type storage_flow_node_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      redshift_query_engine_storage_configuration() :: %{
+        "awsDataCatalogConfiguration" => redshift_query_engine_aws_data_catalog_storage_configuration(),
+        "redshiftConfiguration" => redshift_query_engine_redshift_storage_configuration(),
+        "type" => list(any())
+      }
+
+  """
+  @type redshift_query_engine_storage_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -762,6 +801,19 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      query_generation_column() :: %{
+        "description" => String.t(),
+        "inclusion" => list(any()),
+        "name" => String.t()
+      }
+
+  """
+  @type query_generation_column() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_knowledge_base_documents_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
@@ -792,6 +844,18 @@ defmodule AWS.BedrockAgent do
 
   """
   @type metadata_attribute() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      curated_query() :: %{
+        "naturalLanguage" => String.t(),
+        "sql" => String.t()
+      }
+
+  """
+  @type curated_query() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -838,10 +902,10 @@ defmodule AWS.BedrockAgent do
 
       update_knowledge_base_request() :: %{
         optional("description") => String.t(),
+        optional("storageConfiguration") => storage_configuration(),
         required("knowledgeBaseConfiguration") => knowledge_base_configuration(),
         required("name") => String.t(),
-        required("roleArn") => String.t(),
-        required("storageConfiguration") => storage_configuration()
+        required("roleArn") => String.t()
       }
 
   """
@@ -1107,6 +1171,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       parsing_configuration() :: %{
+        "bedrockDataAutomationConfiguration" => bedrock_data_automation_configuration(),
         "bedrockFoundationModelConfiguration" => bedrock_foundation_model_configuration(),
         "parsingStrategy" => list(any())
       }
@@ -1219,6 +1284,19 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      redshift_provisioned_auth_configuration() :: %{
+        "databaseUser" => [String.t()],
+        "type" => list(any()),
+        "usernamePasswordSecretArn" => String.t()
+      }
+
+  """
+  @type redshift_provisioned_auth_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       knowledge_base_flow_node_configuration() :: %{
         "guardrailConfiguration" => guardrail_configuration(),
         "knowledgeBaseId" => String.t(),
@@ -1245,6 +1323,19 @@ defmodule AWS.BedrockAgent do
 
   """
   @type create_flow_alias_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      redshift_query_engine_configuration() :: %{
+        "provisionedConfiguration" => redshift_provisioned_configuration(),
+        "serverlessConfiguration" => redshift_serverless_configuration(),
+        "type" => list(any())
+      }
+
+  """
+  @type redshift_query_engine_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1342,6 +1433,17 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      kendra_knowledge_base_configuration() :: %{
+        "kendraIndexArn" => String.t()
+      }
+
+  """
+  @type kendra_knowledge_base_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       hierarchical_chunking_configuration() :: %{
         "levelConfigurations" => list(hierarchical_chunking_level_configuration()()),
         "overlapTokens" => [integer()]
@@ -1395,6 +1497,18 @@ defmodule AWS.BedrockAgent do
 
   """
   @type get_agent_action_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      redshift_provisioned_configuration() :: %{
+        "authConfiguration" => redshift_provisioned_auth_configuration(),
+        "clusterIdentifier" => String.t()
+      }
+
+  """
+  @type redshift_provisioned_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1552,11 +1666,11 @@ defmodule AWS.BedrockAgent do
       create_knowledge_base_request() :: %{
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
+        optional("storageConfiguration") => storage_configuration(),
         optional("tags") => map(),
         required("knowledgeBaseConfiguration") => knowledge_base_configuration(),
         required("name") => String.t(),
-        required("roleArn") => String.t(),
-        required("storageConfiguration") => storage_configuration()
+        required("roleArn") => String.t()
       }
 
   """
@@ -2015,6 +2129,7 @@ defmodule AWS.BedrockAgent do
 
       bedrock_foundation_model_configuration() :: %{
         "modelArn" => String.t(),
+        "parsingModality" => list(any()),
         "parsingPrompt" => parsing_prompt()
       }
 
@@ -2919,6 +3034,18 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      sql_knowledge_base_configuration() :: %{
+        "redshiftConfiguration" => redshift_configuration(),
+        "type" => list(any())
+      }
+
+  """
+  @type sql_knowledge_base_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_prompt_request() :: %{
         optional("customerEncryptionKeyArn") => String.t(),
         optional("defaultVariant") => String.t(),
@@ -3401,6 +3528,18 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      redshift_serverless_configuration() :: %{
+        "authConfiguration" => redshift_serverless_auth_configuration(),
+        "workgroupArn" => String.t()
+      }
+
+  """
+  @type redshift_serverless_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       agent_knowledge_base() :: %{
         "agentId" => String.t(),
         "agentVersion" => String.t(),
@@ -3450,6 +3589,17 @@ defmodule AWS.BedrockAgent do
 
   """
   @type agent_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bedrock_data_automation_configuration() :: %{
+        "parsingModality" => list(any())
+      }
+
+  """
+  @type bedrock_data_automation_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3575,6 +3725,18 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      supplemental_data_storage_location() :: %{
+        "s3Location" => s3_location(),
+        "type" => list(any())
+      }
+
+  """
+  @type supplemental_data_storage_location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_configuration() :: %{
         "guardrailIdentifier" => String.t(),
         "guardrailVersion" => String.t()
@@ -3695,6 +3857,17 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      redshift_query_engine_redshift_storage_configuration() :: %{
+        "databaseName" => String.t()
+      }
+
+  """
+  @type redshift_query_engine_redshift_storage_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_flow_request() :: %{}
 
   """
@@ -3794,6 +3967,19 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      redshift_configuration() :: %{
+        "queryEngineConfiguration" => redshift_query_engine_configuration(),
+        "queryGenerationConfiguration" => query_generation_configuration(),
+        "storageConfigurations" => list(redshift_query_engine_storage_configuration()())
+      }
+
+  """
+  @type redshift_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       associate_agent_knowledge_base_response() :: %{
         "agentKnowledgeBase" => agent_knowledge_base()
       }
@@ -3843,7 +4029,8 @@ defmodule AWS.BedrockAgent do
 
       vector_knowledge_base_configuration() :: %{
         "embeddingModelArn" => String.t(),
-        "embeddingModelConfiguration" => embedding_model_configuration()
+        "embeddingModelConfiguration" => embedding_model_configuration(),
+        "supplementalDataStorageConfiguration" => supplemental_data_storage_configuration()
       }
 
   """
@@ -3859,6 +4046,17 @@ defmodule AWS.BedrockAgent do
 
   """
   @type get_data_source_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      redshift_query_engine_aws_data_catalog_storage_configuration() :: %{
+        "tableNames" => list(String.t()())
+      }
+
+  """
+  @type redshift_query_engine_aws_data_catalog_storage_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3883,6 +4081,20 @@ defmodule AWS.BedrockAgent do
 
   """
   @type delete_agent_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      query_generation_table() :: %{
+        "columns" => list(query_generation_column()()),
+        "description" => String.t(),
+        "inclusion" => list(any()),
+        "name" => String.t()
+      }
+
+  """
+  @type query_generation_table() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4040,6 +4252,17 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      supplemental_data_storage_configuration() :: %{
+        "storageLocations" => list(supplemental_data_storage_location()())
+      }
+
+  """
+  @type supplemental_data_storage_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       message() :: %{
         "content" => list(list()()),
         "role" => list(any())
@@ -4065,6 +4288,18 @@ defmodule AWS.BedrockAgent do
 
   """
   @type prompt_variant() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      query_generation_configuration() :: %{
+        "executionTimeoutSeconds" => integer(),
+        "generationContext" => query_generation_context()
+      }
+
+  """
+  @type query_generation_configuration() :: %{String.t() => any()}
 
   @type associate_agent_collaborator_errors() ::
           throttling_exception()

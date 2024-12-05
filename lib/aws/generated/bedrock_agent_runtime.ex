@@ -488,9 +488,11 @@ defmodule AWS.BedrockAgentRuntime do
       retrieval_result_location() :: %{
         "confluenceLocation" => retrieval_result_confluence_location(),
         "customDocumentLocation" => retrieval_result_custom_document_location(),
+        "kendraDocumentLocation" => retrieval_result_kendra_document_location(),
         "s3Location" => retrieval_result_s3_location(),
         "salesforceLocation" => retrieval_result_salesforce_location(),
         "sharePointLocation" => retrieval_result_share_point_location(),
+        "sqlLocation" => retrieval_result_sql_location(),
         "type" => list(any()),
         "webLocation" => retrieval_result_web_location()
       }
@@ -515,6 +517,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      retrieval_result_sql_location() :: %{
+        "query" => [String.t()]
+      }
+
+  """
+  @type retrieval_result_sql_location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       retrieve_and_generate_session_configuration() :: %{
         "kmsKeyArn" => String.t()
       }
@@ -533,6 +546,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type bedrock_reranking_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      generate_query_response() :: %{
+        "queries" => list(generated_query()())
+      }
+
+  """
+  @type generate_query_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -624,7 +648,10 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       retrieval_result_content() :: %{
-        "text" => [String.t()]
+        "byteContent" => [String.t()],
+        "row" => list(retrieval_result_content_column()()),
+        "text" => [String.t()],
+        "type" => list(any())
       }
 
   """
@@ -683,12 +710,37 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      retrieval_result_content_column() :: %{
+        "columnName" => [String.t()],
+        "columnValue" => [String.t()],
+        "type" => list(any())
+      }
+
+  """
+  @type retrieval_result_content_column() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       content_body() :: %{
         "body" => [String.t()]
       }
 
   """
   @type content_body() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      transformation_configuration() :: %{
+        "mode" => list(any()),
+        "textToSqlConfiguration" => text_to_sql_configuration()
+      }
+
+  """
+  @type transformation_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -796,6 +848,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type knowledge_base() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      text_to_sql_configuration() :: %{
+        "knowledgeBaseConfiguration" => text_to_sql_knowledge_base_configuration(),
+        "type" => list(any())
+      }
+
+  """
+  @type text_to_sql_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1056,6 +1120,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type pre_processing_model_invocation_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      generate_query_request() :: %{
+        required("queryGenerationInput") => query_generation_input(),
+        required("transformationConfiguration") => transformation_configuration()
+      }
+
+  """
+  @type generate_query_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1423,6 +1499,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      text_to_sql_knowledge_base_configuration() :: %{
+        "knowledgeBaseArn" => String.t()
+      }
+
+  """
+  @type text_to_sql_knowledge_base_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       model_invocation_input() :: %{
         "foundationModel" => String.t(),
         "inferenceConfiguration" => inference_configuration(),
@@ -1677,6 +1764,30 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      generated_query() :: %{
+        "sql" => [String.t()],
+        "type" => list(any())
+      }
+
+  """
+  @type generated_query() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      query_generation_input() :: %{
+        "text" => [String.t()],
+        "type" => list(any())
+      }
+
+  """
+  @type query_generation_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_agent_memory_response() :: %{
         "memoryContents" => list(list()()),
         "nextToken" => String.t()
@@ -1880,6 +1991,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type knowledge_base_lookup_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retrieval_result_kendra_document_location() :: %{
+        "uri" => [String.t()]
+      }
+
+  """
+  @type retrieval_result_kendra_document_location() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2252,6 +2374,17 @@ defmodule AWS.BedrockAgentRuntime do
           | dependency_failed_exception()
           | bad_gateway_exception()
 
+  @type generate_query_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | dependency_failed_exception()
+          | bad_gateway_exception()
+
   @type get_agent_memory_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2396,6 +2529,37 @@ defmodule AWS.BedrockAgentRuntime do
       input,
       options,
       202
+    )
+  end
+
+  @doc """
+  Generates an SQL query from a natural language query.
+
+  For more information, see [Generate a query for structured data](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-generate-query.html)
+  in the Amazon Bedrock User Guide.
+  """
+  @spec generate_query(map(), generate_query_request(), list()) ::
+          {:ok, generate_query_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, generate_query_errors()}
+  def generate_query(%Client{} = client, input, options \\ []) do
+    url_path = "/generateQuery"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 

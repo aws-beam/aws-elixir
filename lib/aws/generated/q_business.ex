@@ -2350,8 +2350,6 @@ defmodule AWS.QBusiness do
         optional("attributeFilter") => attribute_filter(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        optional("userGroups") => list(String.t()()),
-        optional("userId") => String.t(),
         required("contentSource") => list(),
         required("queryText") => String.t()
       }
@@ -5967,8 +5965,7 @@ defmodule AWS.QBusiness do
 
   This operation takes a
   search query text, the Q Business application identifier, and optional filters
-  (such as user ID, user groups, content source, and maximum results) as input. It
-  returns a list of
+  (such as content source and maximum results) as input. It returns a list of
   relevant content items, where each item includes the content text, the unique
   document identifier,
   the document title, the document URI, any relevant document attributes, and
@@ -5983,13 +5980,7 @@ defmodule AWS.QBusiness do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/relevant-content"
     headers = []
     custom_headers = []
-
-    {query_params, input} =
-      [
-        {"userGroups", "userGroups"},
-        {"userId", "userId"}
-      ]
-      |> Request.build_params(input)
+    query_params = []
 
     meta = metadata()
 

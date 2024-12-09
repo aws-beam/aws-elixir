@@ -1,5 +1,8 @@
 # Change Log
 
+## [v1.0.4] - 2024-12-09
+- Fix support for custom metadata
+
 ## [v1.0.3] - 2024-11-22
 - Add support for custom metadata
 
@@ -48,7 +51,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 
-- Update the AWS generated modules to reflect v1.44.90 of Go SDK. 
+- Update the AWS generated modules to reflect v1.44.90 of Go SDK.
   This may cause breaking changes.
 
 ## [v0.12.0] - 2022-07-18
@@ -59,14 +62,14 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 
-- Update the AWS generated modules to reflect v1.44.60 of Go SDK. 
+- Update the AWS generated modules to reflect v1.44.60 of Go SDK.
   This may cause breaking changes.
 
 ## [v0.11.0] - 2022-05-24
 
 ### Changed
 
-- Update the AWS generated modules to reflect v1.44.21 of Go SDK. 
+- Update the AWS generated modules to reflect v1.44.21 of Go SDK.
   This may cause breaking changes.
 - Change `aws_signature` requirement to `~> 0.3` in order to support newer versions.
 
@@ -154,7 +157,7 @@ the majority of AWS services.
 - Update structure of error response from `{:error, {exception, reason}}` to `{:error, {:unexpected_response, response}}`.
   - You can obtained the previous `exception` and `reason` in this version by decoding the `response.body`, where `exception` is mapped to `response.body["__type"]` and `reason` is mapped to `response.body["message"]`.
 - Update module naming for certain AWS services. E.g.:
-  - `AWS.Cognito` is renamed to `AWS.CognitoIdentity`  
+  - `AWS.Cognito` is renamed to `AWS.CognitoIdentity`
   - `AWS.Cognito.IdentityProvider` is renamed to `AWS.CognitoIdentityProvider`
 
 ### Changed

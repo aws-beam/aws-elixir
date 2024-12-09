@@ -1,7 +1,7 @@
 defmodule AWS.Mixfile do
   use Mix.Project
 
-  @version "1.0.3"
+  @version "1.0.4"
   @repo_url "https://github.com/aws-beam/aws-elixir"
 
   def project do

@@ -1433,8 +1433,8 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       update_user_pool_domain_request() :: %{
+        optional("CustomDomainConfig") => custom_domain_config_type(),
         optional("ManagedLoginVersion") => integer(),
-        required("CustomDomainConfig") => custom_domain_config_type(),
         required("Domain") => String.t(),
         required("UserPoolId") => String.t()
       }

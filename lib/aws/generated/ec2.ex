@@ -695,6 +695,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      instance_network_performance_options_request() :: %{
+        "BandwidthWeighting" => list(any())
+      }
+      
+  """
+  @type instance_network_performance_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       modify_id_format_request() :: %{
         required("Resource") => String.t(),
         required("UseLongIds") => boolean()
@@ -4090,6 +4101,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      launch_template_network_performance_options_request() :: %{
+        "BandwidthWeighting" => list(any())
+      }
+      
+  """
+  @type launch_template_network_performance_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       ipam_external_resource_verification_token() :: %{
         "IpamArn" => String.t(),
         "IpamExternalResourceVerificationTokenArn" => String.t(),
@@ -5376,6 +5398,19 @@ defmodule AWS.EC2 do
       
   """
   @type modify_instance_metadata_options_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_instance_network_performance_request() :: %{
+        optional("DryRun") => boolean(),
+        required("BandwidthWeighting") => list(any()),
+        required("InstanceId") => String.t()
+      }
+      
+  """
+  @type modify_instance_network_performance_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -7757,6 +7792,7 @@ defmodule AWS.EC2 do
         optional("UserData") => String.t(),
         optional("DisableApiTermination") => boolean(),
         optional("CpuOptions") => cpu_options_request(),
+        optional("NetworkPerformanceOptions") => instance_network_performance_options_request(),
         optional("DryRun") => boolean(),
         optional("SecurityGroups") => list(String.t()()),
         optional("Placement") => placement(),
@@ -9137,6 +9173,18 @@ defmodule AWS.EC2 do
       
   """
   @type associate_capacity_reservation_billing_owner_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_instance_network_performance_result() :: %{
+        "BandwidthWeighting" => list(any()),
+        "InstanceId" => String.t()
+      }
+      
+  """
+  @type modify_instance_network_performance_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -11449,6 +11497,17 @@ defmodule AWS.EC2 do
       
   """
   @type disassociate_transit_gateway_route_table_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      launch_template_network_performance_options() :: %{
+        "BandwidthWeighting" => list(any())
+      }
+      
+  """
+  @type launch_template_network_performance_options() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -14722,38 +14781,39 @@ defmodule AWS.EC2 do
   ## Example:
       
       response_launch_template_data() :: %{
-        "BlockDeviceMappings" => list(launch_template_block_device_mapping()()),
-        "CapacityReservationSpecification" => launch_template_capacity_reservation_specification_response(),
-        "CpuOptions" => launch_template_cpu_options(),
-        "CreditSpecification" => credit_specification(),
-        "DisableApiStop" => boolean(),
-        "DisableApiTermination" => boolean(),
-        "EbsOptimized" => boolean(),
+        "LicenseSpecifications" => list(launch_template_license_configuration()()),
         "ElasticGpuSpecifications" => list(elastic_gpu_specification_response()()),
-        "ElasticInferenceAccelerators" => list(launch_template_elastic_inference_accelerator_response()()),
-        "EnclaveOptions" => launch_template_enclave_options(),
-        "HibernationOptions" => launch_template_hibernation_options(),
-        "IamInstanceProfile" => launch_template_iam_instance_profile_specification(),
-        "ImageId" => String.t(),
         "InstanceInitiatedShutdownBehavior" => list(any()),
-        "InstanceMarketOptions" => launch_template_instance_market_options(),
+        "DisableApiStop" => boolean(),
+        "RamDiskId" => String.t(),
+        "ImageId" => String.t(),
+        "BlockDeviceMappings" => list(launch_template_block_device_mapping()()),
+        "NetworkInterfaces" => list(launch_template_instance_network_interface_specification()()),
+        "Monitoring" => launch_templates_monitoring(),
+        "NetworkPerformanceOptions" => launch_template_network_performance_options(),
+        "PrivateDnsNameOptions" => launch_template_private_dns_name_options(),
         "InstanceRequirements" => instance_requirements(),
+        "CreditSpecification" => credit_specification(),
+        "CapacityReservationSpecification" => launch_template_capacity_reservation_specification_response(),
+        "SecurityGroupIds" => list(String.t()()),
         "InstanceType" => list(any()),
         "KernelId" => String.t(),
-        "KeyName" => String.t(),
-        "LicenseSpecifications" => list(launch_template_license_configuration()()),
-        "MaintenanceOptions" => launch_template_instance_maintenance_options(),
-        "MetadataOptions" => launch_template_instance_metadata_options(),
-        "Monitoring" => launch_templates_monitoring(),
-        "NetworkInterfaces" => list(launch_template_instance_network_interface_specification()()),
-        "Operator" => operator_response(),
         "Placement" => launch_template_placement(),
-        "PrivateDnsNameOptions" => launch_template_private_dns_name_options(),
-        "RamDiskId" => String.t(),
-        "SecurityGroupIds" => list(String.t()()),
-        "SecurityGroups" => list(String.t()()),
+        "ElasticInferenceAccelerators" => list(launch_template_elastic_inference_accelerator_response()()),
+        "DisableApiTermination" => boolean(),
+        "EnclaveOptions" => launch_template_enclave_options(),
+        "CpuOptions" => launch_template_cpu_options(),
+        "IamInstanceProfile" => launch_template_iam_instance_profile_specification(),
+        "HibernationOptions" => launch_template_hibernation_options(),
+        "InstanceMarketOptions" => launch_template_instance_market_options(),
         "TagSpecifications" => list(launch_template_tag_specification()()),
-        "UserData" => String.t()
+        "MetadataOptions" => launch_template_instance_metadata_options(),
+        "UserData" => String.t(),
+        "EbsOptimized" => boolean(),
+        "KeyName" => String.t(),
+        "Operator" => operator_response(),
+        "SecurityGroups" => list(String.t()()),
+        "MaintenanceOptions" => launch_template_instance_maintenance_options()
       }
       
   """
@@ -16597,6 +16657,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       network_info() :: %{
+        "BandwidthWeightings" => list(list(any())()),
         "DefaultNetworkCardIndex" => integer(),
         "EfaInfo" => efa_info(),
         "EfaSupported" => boolean(),
@@ -18282,38 +18343,39 @@ defmodule AWS.EC2 do
   ## Example:
       
       request_launch_template_data() :: %{
-        "BlockDeviceMappings" => list(launch_template_block_device_mapping_request()()),
-        "CapacityReservationSpecification" => launch_template_capacity_reservation_specification_request(),
-        "CpuOptions" => launch_template_cpu_options_request(),
-        "CreditSpecification" => credit_specification_request(),
-        "DisableApiStop" => boolean(),
-        "DisableApiTermination" => boolean(),
-        "EbsOptimized" => boolean(),
+        "LicenseSpecifications" => list(launch_template_license_configuration_request()()),
         "ElasticGpuSpecifications" => list(elastic_gpu_specification()()),
-        "ElasticInferenceAccelerators" => list(launch_template_elastic_inference_accelerator()()),
-        "EnclaveOptions" => launch_template_enclave_options_request(),
-        "HibernationOptions" => launch_template_hibernation_options_request(),
-        "IamInstanceProfile" => launch_template_iam_instance_profile_specification_request(),
-        "ImageId" => String.t(),
         "InstanceInitiatedShutdownBehavior" => list(any()),
-        "InstanceMarketOptions" => launch_template_instance_market_options_request(),
+        "DisableApiStop" => boolean(),
+        "RamDiskId" => String.t(),
+        "ImageId" => String.t(),
+        "BlockDeviceMappings" => list(launch_template_block_device_mapping_request()()),
+        "NetworkInterfaces" => list(launch_template_instance_network_interface_specification_request()()),
+        "Monitoring" => launch_templates_monitoring_request(),
+        "NetworkPerformanceOptions" => launch_template_network_performance_options_request(),
+        "PrivateDnsNameOptions" => launch_template_private_dns_name_options_request(),
         "InstanceRequirements" => instance_requirements_request(),
+        "CreditSpecification" => credit_specification_request(),
+        "CapacityReservationSpecification" => launch_template_capacity_reservation_specification_request(),
+        "SecurityGroupIds" => list(String.t()()),
         "InstanceType" => list(any()),
         "KernelId" => String.t(),
-        "KeyName" => String.t(),
-        "LicenseSpecifications" => list(launch_template_license_configuration_request()()),
-        "MaintenanceOptions" => launch_template_instance_maintenance_options_request(),
-        "MetadataOptions" => launch_template_instance_metadata_options_request(),
-        "Monitoring" => launch_templates_monitoring_request(),
-        "NetworkInterfaces" => list(launch_template_instance_network_interface_specification_request()()),
-        "Operator" => operator_request(),
         "Placement" => launch_template_placement_request(),
-        "PrivateDnsNameOptions" => launch_template_private_dns_name_options_request(),
-        "RamDiskId" => String.t(),
-        "SecurityGroupIds" => list(String.t()()),
-        "SecurityGroups" => list(String.t()()),
+        "ElasticInferenceAccelerators" => list(launch_template_elastic_inference_accelerator()()),
+        "DisableApiTermination" => boolean(),
+        "EnclaveOptions" => launch_template_enclave_options_request(),
+        "CpuOptions" => launch_template_cpu_options_request(),
+        "IamInstanceProfile" => launch_template_iam_instance_profile_specification_request(),
+        "HibernationOptions" => launch_template_hibernation_options_request(),
+        "InstanceMarketOptions" => launch_template_instance_market_options_request(),
         "TagSpecifications" => list(launch_template_tag_specification_request()()),
-        "UserData" => String.t()
+        "MetadataOptions" => launch_template_instance_metadata_options_request(),
+        "UserData" => String.t(),
+        "EbsOptimized" => boolean(),
+        "KeyName" => String.t(),
+        "Operator" => operator_request(),
+        "SecurityGroups" => list(String.t()()),
+        "MaintenanceOptions" => launch_template_instance_maintenance_options_request()
       }
       
   """
@@ -19439,6 +19501,7 @@ defmodule AWS.EC2 do
         "StateTransitionReason" => String.t(),
         "Monitoring" => monitoring(),
         "SpotInstanceRequestId" => String.t(),
+        "NetworkPerformanceOptions" => instance_network_performance_options(),
         "VpcId" => String.t(),
         "RamdiskId" => String.t(),
         "PrivateDnsNameOptions" => private_dns_name_options_response(),
@@ -21113,6 +21176,17 @@ defmodule AWS.EC2 do
       
   """
   @type deprovision_public_ipv4_pool_cidr_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_network_performance_options() :: %{
+        "BandwidthWeighting" => list(any())
+      }
+      
+  """
+  @type instance_network_performance_options() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -34841,7 +34915,7 @@ defmodule AWS.EC2 do
 
   `p3dn.24xlarge` | `p4d.24xlarge` |
   `p4de.24xlarge` | `p5.48xlarge` |
-  `p5e.48xlarge`
+  `p5e.48xlarge` | `p5en.48xlarge`
 
       *
 
@@ -40307,6 +40381,23 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "ModifyInstanceMetadataOptions", input, options)
+  end
+
+  @doc """
+  Change the configuration of the network performance options for an existing
+  instance.
+  """
+  @spec modify_instance_network_performance_options(
+          map(),
+          modify_instance_network_performance_request(),
+          list()
+        ) ::
+          {:ok, modify_instance_network_performance_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def modify_instance_network_performance_options(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyInstanceNetworkPerformanceOptions", input, options)
   end
 
   @doc """

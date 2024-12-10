@@ -3770,6 +3770,7 @@ defmodule AWS.MediaLive do
         "FramerateDenominator" => integer(),
         "FlickerAq" => list(any()),
         "TimecodeInsertion" => list(any()),
+        "Deblocking" => list(any()),
         "TilePadding" => list(any()),
         "ParNumerator" => integer(),
         "GopClosedCadence" => integer(),

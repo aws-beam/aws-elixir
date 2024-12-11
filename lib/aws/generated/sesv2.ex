@@ -84,6 +84,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       dkim_signing_attributes() :: %{
+        "DomainSigningAttributesOrigin" => list(any()),
         "DomainSigningPrivateKey" => String.t(),
         "DomainSigningSelector" => String.t(),
         "NextSigningKeyLength" => list(any())

@@ -33,8 +33,8 @@ defmodule AWS.Connect do
   Guide*.
 
   You can use an endpoint to connect programmatically to an Amazon Web Services
-  service. For
-  a list of Amazon Connect endpoints, see [Amazon Connect Endpoints](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+  service. For a
+  list of Amazon Connect endpoints, see [Amazon Connect Endpoints](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
 
   alias AWS.Client
@@ -1504,6 +1504,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      create_push_notification_registration_response() :: %{
+        "RegistrationId" => String.t()
+      }
+
+  """
+  @type create_push_notification_registration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_hours_of_operation_request() :: %{
         optional("Description") => String.t(),
         optional("Tags") => map(),
@@ -2309,6 +2320,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      contact_configuration() :: %{
+        "ContactId" => String.t(),
+        "IncludeRawMessage" => boolean(),
+        "ParticipantRole" => list(any())
+      }
+
+  """
+  @type contact_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_user_hierarchy_group_request() :: %{}
 
   """
@@ -2891,6 +2915,15 @@ defmodule AWS.Connect do
 
   """
   @type queue_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_push_notification_registration_response() :: %{}
+
+  """
+  @type delete_push_notification_registration_response() :: %{}
 
   @typedoc """
 
@@ -5005,6 +5038,21 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      create_push_notification_registration_request() :: %{
+        optional("ClientToken") => String.t(),
+        required("ContactConfiguration") => contact_configuration(),
+        required("DeviceToken") => String.t(),
+        required("DeviceType") => list(any()),
+        required("PinpointAppArn") => String.t()
+      }
+
+  """
+  @type create_push_notification_registration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_contact_streaming_response() :: %{
         "StreamingId" => String.t()
       }
@@ -6687,6 +6735,17 @@ defmodule AWS.Connect do
 
   """
   @type create_agent_status_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_push_notification_registration_request() :: %{
+        required("ContactId") => String.t()
+      }
+
+  """
+  @type delete_push_notification_registration_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -10735,6 +10794,14 @@ defmodule AWS.Connect do
           | invalid_request_exception()
           | internal_service_exception()
 
+  @type create_push_notification_registration_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type create_queue_errors() ::
           duplicate_resource_exception()
           | limit_exceeded_exception()
@@ -10936,6 +11003,13 @@ defmodule AWS.Connect do
           throttling_exception()
           | invalid_parameter_exception()
           | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type delete_push_notification_registration_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
           | resource_not_found_exception()
           | internal_service_exception()
 
@@ -13862,6 +13936,46 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Creates registration for a device token and a chat contact to receive real-time
+  push
+  notifications.
+
+  For more information about push notifications, see [Set up push notifications in Amazon Connect for mobile
+  chat](https://docs.aws.amazon.com/connect/latest/adminguide/set-up-push-notifications-for-mobile-chat.html)
+  in the *Amazon Connect
+  Administrator Guide*.
+  """
+  @spec create_push_notification_registration(
+          map(),
+          String.t(),
+          create_push_notification_registration_request(),
+          list()
+        ) ::
+          {:ok, create_push_notification_registration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_push_notification_registration_errors()}
+  def create_push_notification_registration(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/push-notification/#{AWS.Util.encode_uri(instance_id)}/registrations"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
   Creates a new queue for the specified Amazon Connect instance.
@@ -14829,6 +14943,53 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Deletes registration for a device token and a chat contact.
+  """
+  @spec delete_push_notification_registration(
+          map(),
+          String.t(),
+          String.t(),
+          delete_push_notification_registration_request(),
+          list()
+        ) ::
+          {:ok, delete_push_notification_registration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_push_notification_registration_errors()}
+  def delete_push_notification_registration(
+        %Client{} = client,
+        instance_id,
+        registration_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/push-notification/#{AWS.Util.encode_uri(instance_id)}/registrations/#{AWS.Util.encode_uri(registration_id)}"
+
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"ContactId", "contactId"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes a queue.
 
   It isn't possible to delete a queue by using the Amazon Connect admin website.
@@ -15701,8 +15862,7 @@ defmodule AWS.Connect do
   traffic distribution group, you must provide a full phone number ARN. If a UUID
   is provided
   in
-  this scenario, you receive a
-  `ResourceNotFoundException`.
+  this scenario, you receive a `ResourceNotFoundException`.
   """
   @spec describe_phone_number(map(), String.t(), list()) ::
           {:ok, describe_phone_number_response(), any()}
@@ -16939,11 +17099,11 @@ defmodule AWS.Connect do
 
   @doc """
   Imports a claimed phone number from an external service, such as Amazon Web
-  Services End User Messaging, into an
-  Amazon Connect instance.
+  Services End User
+  Messaging, into an Amazon Connect instance.
 
-  You can call this API only in the same Amazon Web Services Region
-  where the Amazon Connect instance was created.
+  You can call this API only in the same Amazon Web Services Region where the
+  Amazon Connect instance was created.
 
   Call the
   [DescribePhoneNumber](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html)
@@ -20035,8 +20195,8 @@ defmodule AWS.Connect do
   chat contact, a new chat contact is also created before handling chat action.
 
   Access to this API is currently restricted to Amazon Web Services End User
-  Messaging for supporting SMS
-  integration.
+  Messaging for
+  supporting SMS integration.
   """
   @spec send_chat_integration_event(map(), send_chat_integration_event_request(), list()) ::
           {:ok, send_chat_integration_event_response(), any()}

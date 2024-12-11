@@ -830,8 +830,9 @@ defmodule AWS.IVSRealTime do
   ## Example:
 
       auto_participant_recording_configuration() :: %{
-        "mediaTypes" => list(String.t()()),
-        "storageConfigurationArn" => String.t()
+        "mediaTypes" => list(list(any())()),
+        "storageConfigurationArn" => String.t(),
+        "thumbnailConfiguration" => participant_thumbnail_configuration()
       }
 
   """
@@ -855,7 +856,8 @@ defmodule AWS.IVSRealTime do
       s3_destination_configuration() :: %{
         "encoderConfigurationArns" => list(String.t()()),
         "recordingConfiguration" => recording_configuration(),
-        "storageConfigurationArn" => String.t()
+        "storageConfigurationArn" => String.t(),
+        "thumbnailConfigurations" => list(composition_thumbnail_configuration()())
       }
 
   """
@@ -900,6 +902,19 @@ defmodule AWS.IVSRealTime do
 
   """
   @type list_stage_sessions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      participant_thumbnail_configuration() :: %{
+        "recordingMode" => list(any()),
+        "storage" => list(list(any())()),
+        "targetIntervalSeconds" => integer()
+      }
+
+  """
+  @type participant_thumbnail_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1220,6 +1235,18 @@ defmodule AWS.IVSRealTime do
 
   """
   @type get_ingest_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      composition_thumbnail_configuration() :: %{
+        "storage" => list(list(any())()),
+        "targetIntervalSeconds" => integer()
+      }
+
+  """
+  @type composition_thumbnail_configuration() :: %{String.t() => any()}
 
   @typedoc """
 

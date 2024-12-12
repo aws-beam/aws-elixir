@@ -60,6 +60,20 @@ defmodule AWS.MigrationHub do
 
   ## Example:
       
+      list_source_resources_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("MigrationTaskName") => String.t(),
+        required("ProgressUpdateStream") => String.t()
+      }
+      
+  """
+  @type list_source_resources_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       notify_application_state_request() :: %{
         optional("DryRun") => boolean(),
         optional("UpdateDateTime") => non_neg_integer(),
@@ -160,6 +174,18 @@ defmodule AWS.MigrationHub do
 
   ## Example:
       
+      list_source_resources_result() :: %{
+        "NextToken" => String.t(),
+        "SourceResourceList" => list(source_resource()())
+      }
+      
+  """
+  @type list_source_resources_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       associate_discovered_resource_request() :: %{
         optional("DryRun") => boolean(),
         required("DiscoveredResource") => discovered_resource(),
@@ -229,6 +255,19 @@ defmodule AWS.MigrationHub do
 
   ## Example:
       
+      source_resource() :: %{
+        "Description" => String.t(),
+        "Name" => String.t(),
+        "StatusDetail" => String.t()
+      }
+      
+  """
+  @type source_resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       resource_not_found_exception() :: %{
         "Message" => String.t()
       }
@@ -260,6 +299,20 @@ defmodule AWS.MigrationHub do
       
   """
   @type created_artifact() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_source_resource_request() :: %{
+        optional("DryRun") => boolean(),
+        required("MigrationTaskName") => String.t(),
+        required("ProgressUpdateStream") => String.t(),
+        required("SourceResource") => source_resource()
+      }
+      
+  """
+  @type associate_source_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -373,6 +426,18 @@ defmodule AWS.MigrationHub do
 
   ## Example:
       
+      list_migration_task_updates_result() :: %{
+        "MigrationTaskUpdateList" => list(migration_task_update()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type list_migration_task_updates_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       notify_migration_task_state_request() :: %{
         optional("DryRun") => boolean(),
         required("MigrationTaskName") => String.t(),
@@ -403,6 +468,20 @@ defmodule AWS.MigrationHub do
 
   ## Example:
       
+      disassociate_source_resource_request() :: %{
+        optional("DryRun") => boolean(),
+        required("MigrationTaskName") => String.t(),
+        required("ProgressUpdateStream") => String.t(),
+        required("SourceResourceName") => String.t()
+      }
+      
+  """
+  @type disassociate_source_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_created_artifacts_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -424,6 +503,20 @@ defmodule AWS.MigrationHub do
       
   """
   @type discovered_resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_migration_task_updates_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("MigrationTaskName") => String.t(),
+        required("ProgressUpdateStream") => String.t()
+      }
+      
+  """
+  @type list_migration_task_updates_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -493,6 +586,15 @@ defmodule AWS.MigrationHub do
       
   """
   @type policy_error_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_source_resource_result() :: %{}
+      
+  """
+  @type associate_source_resource_result() :: %{}
 
   @typedoc """
 
@@ -596,6 +698,19 @@ defmodule AWS.MigrationHub do
 
   ## Example:
       
+      migration_task_update() :: %{
+        "MigrationTaskState" => task(),
+        "UpdateDateTime" => non_neg_integer(),
+        "UpdateType" => list(any())
+      }
+      
+  """
+  @type migration_task_update() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       application_state() :: %{
         "ApplicationId" => String.t(),
         "ApplicationStatus" => list(any()),
@@ -604,6 +719,15 @@ defmodule AWS.MigrationHub do
       
   """
   @type application_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_source_resource_result() :: %{}
+      
+  """
+  @type disassociate_source_resource_result() :: %{}
 
   @typedoc """
 
@@ -647,6 +771,16 @@ defmodule AWS.MigrationHub do
           home_region_not_set_exception()
           | throttling_exception()
           | policy_error_exception()
+          | access_denied_exception()
+          | internal_server_error()
+          | service_unavailable_exception()
+          | invalid_input_exception()
+          | resource_not_found_exception()
+          | dry_run_operation()
+          | unauthorized_operation()
+
+  @type associate_source_resource_errors() ::
+          throttling_exception()
           | access_denied_exception()
           | internal_server_error()
           | service_unavailable_exception()
@@ -717,6 +851,16 @@ defmodule AWS.MigrationHub do
           | dry_run_operation()
           | unauthorized_operation()
 
+  @type disassociate_source_resource_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | internal_server_error()
+          | service_unavailable_exception()
+          | invalid_input_exception()
+          | resource_not_found_exception()
+          | dry_run_operation()
+          | unauthorized_operation()
+
   @type import_migration_task_errors() ::
           home_region_not_set_exception()
           | throttling_exception()
@@ -754,6 +898,14 @@ defmodule AWS.MigrationHub do
           | invalid_input_exception()
           | resource_not_found_exception()
 
+  @type list_migration_task_updates_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | internal_server_error()
+          | service_unavailable_exception()
+          | invalid_input_exception()
+          | resource_not_found_exception()
+
   @type list_migration_tasks_errors() ::
           home_region_not_set_exception()
           | throttling_exception()
@@ -771,6 +923,14 @@ defmodule AWS.MigrationHub do
           | internal_server_error()
           | service_unavailable_exception()
           | invalid_input_exception()
+
+  @type list_source_resources_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | internal_server_error()
+          | service_unavailable_exception()
+          | invalid_input_exception()
+          | resource_not_found_exception()
 
   @type notify_application_state_errors() ::
           home_region_not_set_exception()
@@ -866,6 +1026,22 @@ defmodule AWS.MigrationHub do
     meta = metadata()
 
     Request.request_post(client, meta, "AssociateDiscoveredResource", input, options)
+  end
+
+  @doc """
+  Associates a source resource with a migration task.
+
+  For example, the source resource can
+  be a source server, an application, or a migration wave.
+  """
+  @spec associate_source_resource(map(), associate_source_resource_request(), list()) ::
+          {:ok, associate_source_resource_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, associate_source_resource_errors()}
+  def associate_source_resource(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateSourceResource", input, options)
   end
 
   @doc """
@@ -1013,6 +1189,19 @@ defmodule AWS.MigrationHub do
   end
 
   @doc """
+  Removes the association between a source resource and a migration task.
+  """
+  @spec disassociate_source_resource(map(), disassociate_source_resource_request(), list()) ::
+          {:ok, disassociate_source_resource_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disassociate_source_resource_errors()}
+  def disassociate_source_resource(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateSourceResource", input, options)
+  end
+
+  @doc """
   Registers a new migration task which represents a server, database, etc., being
   migrated
   to AWS by a migration tool.
@@ -1089,6 +1278,21 @@ defmodule AWS.MigrationHub do
   end
 
   @doc """
+  This is a paginated API that returns all the migration-task states for the
+  specified
+  `MigrationTaskName` and `ProgressUpdateStream`.
+  """
+  @spec list_migration_task_updates(map(), list_migration_task_updates_request(), list()) ::
+          {:ok, list_migration_task_updates_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_migration_task_updates_errors()}
+  def list_migration_task_updates(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListMigrationTaskUpdates", input, options)
+  end
+
+  @doc """
   Lists all, or filtered by resource name, migration tasks associated with the
   user
   account making this call.
@@ -1126,6 +1330,20 @@ defmodule AWS.MigrationHub do
     meta = metadata()
 
     Request.request_post(client, meta, "ListProgressUpdateStreams", input, options)
+  end
+
+  @doc """
+  Lists all the source resource that are associated with the specified
+  `MigrationTaskName` and `ProgressUpdateStream`.
+  """
+  @spec list_source_resources(map(), list_source_resources_request(), list()) ::
+          {:ok, list_source_resources_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_source_resources_errors()}
+  def list_source_resources(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListSourceResources", input, options)
   end
 
   @doc """

@@ -25,7 +25,7 @@ defmodule AWS.Artifact do
   ## Example:
 
       account_settings() :: %{
-        "notificationSubscriptionStatus" => String.t()
+        "notificationSubscriptionStatus" => list(any())
       }
 
   """
@@ -43,6 +43,29 @@ defmodule AWS.Artifact do
 
   """
   @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      customer_agreement_summary() :: %{
+        "acceptanceTerms" => list(String.t()()),
+        "agreementArn" => String.t(),
+        "arn" => String.t(),
+        "awsAccountId" => String.t(),
+        "description" => String.t(),
+        "effectiveEnd" => non_neg_integer(),
+        "effectiveStart" => non_neg_integer(),
+        "id" => String.t(),
+        "name" => String.t(),
+        "organizationArn" => String.t(),
+        "state" => list(any()),
+        "terminateTerms" => list(String.t()()),
+        "type" => list(any())
+      }
+
+  """
+  @type customer_agreement_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -151,6 +174,30 @@ defmodule AWS.Artifact do
 
   ## Example:
 
+      list_customer_agreements_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_customer_agreements_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_customer_agreements_response() :: %{
+        "customerAgreements" => list(customer_agreement_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_customer_agreements_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_reports_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
@@ -176,7 +223,7 @@ defmodule AWS.Artifact do
   ## Example:
 
       put_account_settings_request() :: %{
-        optional("notificationSubscriptionStatus") => String.t()
+        optional("notificationSubscriptionStatus") => list(any())
       }
 
   """
@@ -198,7 +245,7 @@ defmodule AWS.Artifact do
   ## Example:
 
       report_detail() :: %{
-        "acceptanceType" => String.t(),
+        "acceptanceType" => list(any()),
         "arn" => String.t(),
         "category" => String.t(),
         "companyName" => String.t(),
@@ -213,10 +260,10 @@ defmodule AWS.Artifact do
         "productName" => String.t(),
         "sequenceNumber" => float(),
         "series" => String.t(),
-        "state" => String.t(),
+        "state" => list(any()),
         "statusMessage" => String.t(),
         "termArn" => String.t(),
-        "uploadState" => String.t(),
+        "uploadState" => list(any()),
         "version" => float()
       }
 
@@ -228,7 +275,7 @@ defmodule AWS.Artifact do
   ## Example:
 
       report_summary() :: %{
-        "acceptanceType" => String.t(),
+        "acceptanceType" => list(any()),
         "arn" => String.t(),
         "category" => String.t(),
         "companyName" => String.t(),
@@ -239,9 +286,9 @@ defmodule AWS.Artifact do
         "periodStart" => non_neg_integer(),
         "productName" => String.t(),
         "series" => String.t(),
-        "state" => String.t(),
+        "state" => list(any()),
         "statusMessage" => String.t(),
-        "uploadState" => String.t(),
+        "uploadState" => list(any()),
         "version" => float()
       }
 
@@ -348,6 +395,12 @@ defmodule AWS.Artifact do
           | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
+          | access_denied_exception()
+
+  @type list_customer_agreements_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
           | access_denied_exception()
 
   @type list_reports_errors() ::
@@ -491,6 +544,42 @@ defmodule AWS.Artifact do
     query_params =
       if !is_nil(report_id) do
         [{"reportId", report_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  List active customer-agreements applicable to calling identity.
+  """
+  @spec list_customer_agreements(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_customer_agreements_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_customer_agreements_errors()}
+  def list_customer_agreements(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/customer-agreement/list"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end

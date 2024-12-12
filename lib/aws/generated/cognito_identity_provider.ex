@@ -90,6 +90,10 @@ defmodule AWS.CognitoIdentityProvider do
   [Amazon Web Services SDK for Ruby
   V3](https://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/CognitoIdentityProvider/Client.html)
 
+    *
+
+  [Amazon Web Services SDK for Kotlin](https://sdk.amazonaws.com/kotlin/api/latest/cognitoidentityprovider/aws.sdk.kotlin.services.cognitoidentityprovider/-cognito-identity-provider-client/index.html)
+
   To get started with an Amazon Web Services SDK, see [Tools to Build on Amazon Web Services](http://aws.amazon.com/developer/tools/). For example actions and
   scenarios, see [Code examples for Amazon Cognito Identity Provider using Amazon Web Services
   SDKs](https://docs.aws.amazon.com/cognito/latest/developerguide/service_code_examples_cognito-identity-provider.html).
@@ -5620,6 +5624,15 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Adds additional user attributes to the user pool schema.
 
+  Custom attributes can be
+  mutable or immutable and have a `custom:` or `dev:` prefix. For
+  more information, see [Custom attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-custom-attributes).
+
+  You can also create custom attributes in the [Schema parameter](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html#CognitoUserPools-CreateUserPool-request-Schema)
+  of `CreateUserPool` and
+  `UpdateUserPool`. You can't delete custom attributes after you
+  create them.
+
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
   this operation, you must use IAM credentials to authorize requests, and you must
@@ -5678,7 +5691,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  This IAM-authenticated API operation confirms user sign-up as an administrator.
+  Confirms user sign-up as an administrator.
 
   Unlike
   [ConfirmSignUp](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmSignUp.html), your IAM credentials authorize user account confirmation.
@@ -5706,6 +5719,10 @@ defmodule AWS.CognitoIdentityProvider do
     
 
   [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
+
+  To configure your user pool to require administrative confirmation of users, set
+  `AllowAdminCreateUserOnly` to `true` in a
+  `CreateUserPool` or `UpdateUserPool` request.
   """
   @spec admin_confirm_sign_up(map(), admin_confirm_sign_up_request(), list()) ::
           {:ok, admin_confirm_sign_up_response(), any()}
@@ -5793,9 +5810,7 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Deletes a user as an administrator.
-
-  Works on any user.
+  Deletes a user profile in your user pool.
 
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
@@ -5823,10 +5838,12 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Deletes the user attributes in a user pool as an administrator.
+  Deletes attribute values from a user.
 
-  Works on any
-  user.
+  This operation doesn't affect tokens for
+  existing user sessions. The next ID token that the user receives will no longer
+  have
+  this attribute.
 
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
@@ -5923,11 +5940,11 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Deactivates a user and revokes all access tokens for the user.
+  Deactivates a user profile and revokes all access tokens for the user.
 
-  A deactivated user
-  can't sign in, but still appears in the responses to `GetUser` and
-  `ListUsers` API requests.
+  A deactivated
+  user can't sign in, but still appears in the responses to `ListUsers`
+  API requests.
 
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
@@ -5955,9 +5972,8 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Enables the specified user as an administrator.
-
-  Works on any user.
+  Activate sign-in for a user profile that previously had sign-in access
+  disabled.
 
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
@@ -5985,7 +6001,13 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Forgets the device, as an administrator.
+  Forgets, or deletes, a remembered device from a user's profile.
+
+  After you forget
+  the device, the user can no longer complete device authentication with that
+  device and
+  when applicable, must submit MFA codes again. For more information, see [Working with
+  devices](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html).
 
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
@@ -6013,7 +6035,10 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Gets the device, as an administrator.
+  Given the device key, returns details for a user' device.
+
+  For more information,
+  see [Working with devices](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html).
 
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
@@ -6041,12 +6066,11 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Gets the specified user by user name in a user pool as an administrator.
+  Given the username, returns details about a user profile in a user pool.
 
-  Works on any
-  user. This operation contributes to your monthly active user (MAU) count for the
-  purpose
-  of billing.
+  This
+  operation contributes to your monthly active user (MAU) count for the purpose of
+  billing. You can specify alias attributes in the `Username` parameter.
 
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
@@ -6074,7 +6098,15 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Initiates the authentication flow, as an administrator.
+  Starts sign-in for applications with a server-side component, for example a
+  traditional web application.
+
+  This operation specifies the authentication flow that
+  you'd like to begin. The authentication flow that you specify must be supported
+  in
+  your app client configuration. For more information about authentication flows,
+  see
+  [Authentication flows](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow-methods.html).
 
   This action might generate an SMS text message. Starting June 1, 2021, US
   telecom carriers
@@ -6178,6 +6210,14 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Lists a user's registered devices.
 
+  Remembered devices are used in authentication
+  services where you offer a "Remember me" option for users who you want to permit
+  to sign
+  in without MFA from a trusted device. Users can bypass MFA while your
+  application
+  performs device SRP authentication on the back end. For more information, see
+  [Working with devices](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html).
+
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
   this operation, you must use IAM credentials to authorize requests, and you must
@@ -6206,6 +6246,11 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Lists the groups that a user belongs to.
 
+  User pool groups are identifiers that you can
+  reference from the contents of ID and access tokens, and set preferred IAM roles
+  for
+  identity-pool authentication. For more information, see [Adding groups to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-user-groups.html).
+
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
   this operation, you must use IAM credentials to authorize requests, and you must
@@ -6232,9 +6277,11 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  A history of user activity and any risks detected as part of Amazon Cognito
-  advanced
-  security.
+  Requests a history of user activity and any risks detected as part of Amazon
+  Cognito threat
+  protection.
+
+  For more information, see [Viewing user event history](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-event-user-history).
 
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
@@ -6262,7 +6309,13 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Removes the specified user from the specified group.
+  Given a username and a group name.
+
+  removes them from the group. User pool groups are
+  identifiers that you can reference from the contents of ID and access tokens,
+  and set
+  preferred IAM roles for identity-pool authentication. For more information, see
+  [Adding groups to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-user-groups.html).
 
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
@@ -6290,10 +6343,28 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Resets the specified user's password in a user pool as an administrator.
+  Resets the specified user's password in a user pool.
 
-  Works on any
-  user.
+  This operation doesn't
+  change the user's password, but sends a password-reset code. This operation is
+  the
+  administrative authentication API equivalent to
+  [ForgotPassword](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ForgotPassword.html).   This operation deactivates a user's password, requiring them to change it. If a
+  user
+  tries to sign in after the API request, Amazon Cognito responds with a
+  `PasswordResetRequiredException` error. Your app must then complete the
+  forgot-password flow by prompting the user for their code and a new password,
+  then
+  submitting those values in a
+  [ConfirmForgotPassword](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.html)
+  request. In addition, if the user
+  pool has phone verification selected and a verified phone number exists for the
+  user, or
+  if email verification is selected and a verified email exists for the user,
+  calling this
+  API will also result in sending a message to the end user with the code to
+  change their
+  password.
 
   To use this API operation, your user pool must have self-service account
   recovery
@@ -6326,20 +6397,6 @@ defmodule AWS.CognitoIdentityProvider do
   pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html)
   in the *Amazon Cognito
   Developer Guide*.
-
-  Deactivates a user's password, requiring them to change it. If a user tries to
-  sign in
-  after the API is called, Amazon Cognito responds with a
-  `PasswordResetRequiredException` error. Your app must then perform the
-  actions that reset your user's password: the forgot-password flow. In addition,
-  if the
-  user pool has phone verification selected and a verified phone number exists for
-  the
-  user, or if email verification is selected and a verified email exists for the
-  user,
-  calling this API will also result in sending a message to the end user with the
-  code to
-  change their password.
 
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
@@ -6444,6 +6501,12 @@ defmodule AWS.CognitoIdentityProvider do
   set, a
   challenge to choose an MFA option will be returned during sign-in.
 
+  This operation doesn't reset an existing TOTP MFA for a user. To register a new
+  TOTP factor for a user, make an
+  [AssociateSoftwareToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssociateSoftwareToken.html) request. For more information,
+  see [TOTP software token
+  MFA](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-mfa-totp.html).
+
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
   this operation, you must use IAM credentials to authorize requests, and you must
@@ -6470,23 +6533,31 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Sets the specified user's password in a user pool as an administrator.
+  Sets the specified user's password in a user pool.
 
-  Works on any
-  user.
+  This operation administratively
+  sets a temporary or permanent password for a user. With this operation, you can
+  bypass
+  self-service password changes and permit immediate sign-in with the password
+  that you
+  set. To do this, set `Permanent` to `true`.
 
-  The password can be temporary or permanent. If it is temporary, the user status
-  enters
-  the `FORCE_CHANGE_PASSWORD` state. When the user next tries to sign in, the
-  InitiateAuth/AdminInitiateAuth response will contain the
-  `NEW_PASSWORD_REQUIRED` challenge. If the user doesn't sign in before it
-  expires, the user won't be able to sign in, and an administrator must reset
-  their
-  password.
+  You can also set a new temporary password in this request, send it to a user,
+  and
+  require them to choose a new password on their next sign-in. To do this, set
+  `Permanent` to `false`.
 
-  Once the user has set a new password, or the password is permanent, the user
-  status is
-  set to `Confirmed`.
+  If the password is temporary, the user's `Status` becomes
+  `FORCE_CHANGE_PASSWORD`. When the user next tries to sign in, the
+  `InitiateAuth` or `AdminInitiateAuth` response includes the
+  `NEW_PASSWORD_REQUIRED` challenge. If the user doesn't sign in
+  before the temporary password expires, they can no longer sign in and you must
+  repeat
+  this operation to set a temporary or permanent password for them.
+
+  After the user sets a new password, or if you set a permanent password, their
+  status
+  becomes `Confirmed`.
 
   `AdminSetUserPassword` can set a password for the user profile that Amazon
   Cognito
@@ -6569,7 +6640,15 @@ defmodule AWS.CognitoIdentityProvider do
 
   This feedback is used for improving the risk evaluation decision for the user
   pool as
-  part of Amazon Cognito advanced security.
+  part of Amazon Cognito threat protection. To train the threat-protection model
+  to recognize
+  trusted and untrusted sign-in characteristics, configure threat protection in
+  audit-only
+  mode and provide a mechanism for users or administrators to submit feedback.
+  Your
+  feedback can tell Amazon Cognito that a risk rating was assigned at a level you
+  don't agree
+  with.
 
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
@@ -6601,7 +6680,17 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Updates the device status as an administrator.
+  Updates the status of a user's device so that it is marked as remembered or not
+  remembered for the purpose of device authentication.
+
+  Device authentication is a
+  "remember me" mechanism that silently completes sign-in from trusted devices
+  with a
+  device key instead of a user-provided MFA code. This operation changes the
+  status of a
+  device without deleting it, so you can enable it again later. For more
+  information about
+  device authentication, see [Working with devices](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html).
 
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
@@ -6657,17 +6746,17 @@ defmodule AWS.CognitoIdentityProvider do
   in the *Amazon Cognito
   Developer Guide*.
 
-  Updates the specified user's attributes, including developer attributes, as an
-  administrator. Works on any user. To delete an attribute from your user, submit
-  the
-  attribute in your API request with a blank value.
+  Updates the specified user's attributes. To delete an attribute from your user,
+  submit the attribute in your API request with a blank value.
 
   For custom attributes, you must prepend the `custom:` prefix to the
   attribute name.
 
-  In addition to updating user attributes, this API can also be used to mark phone
-  and
-  email as verified.
+  This operation can set a user's email address or phone number as verified and
+  permit immediate sign-in in user pools that require verification of these
+  attributes. To
+  do this, set the `email_verified` or `phone_number_verified`
+  attribute to `true`.
 
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
@@ -6724,7 +6813,13 @@ defmodule AWS.CognitoIdentityProvider do
   Amazon Cognito no longer accepts a signed-out user's refresh tokens in refresh
   requests.
 
-  Other requests might be valid until your user's token expires.
+  Other requests might be valid until your user's token expires. This operation
+  doesn't clear the [managed
+  login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html)
+  session cookie. To clear the session for
+  a user who signed in with managed login or the classic hosted UI, direct their
+  browser
+  session to the [logout endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html).
 
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
@@ -6735,8 +6830,7 @@ defmodule AWS.CognitoIdentityProvider do
 
     
 
-  [Signing Amazon Web Services API
-  Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+  [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
 
     
 
@@ -6788,6 +6882,9 @@ defmodule AWS.CognitoIdentityProvider do
   grant IAM permissions in policies. For more information about authorization
   models in
   Amazon Cognito, see [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
+
+  Authorize this action with a signed-in user's access token. It must include the
+  scope `aws.cognito.signin.user.admin`.
   """
   @spec associate_software_token(map(), associate_software_token_request(), list()) ::
           {:ok, associate_software_token_response(), any()}
@@ -6846,10 +6943,13 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Confirms tracking of the device.
+  Confirms a device that a user wants to remember.
 
-  This API call is the call that begins device
-  tracking. For more information about device authentication, see [Working with user devices in your user
+  A remembered device is a "Remember me
+  on this device" option for user pools that perform authentication with the
+  device key of
+  a trusted device in the back end, instead of a user-provided MFA code. For more
+  information about device authentication, see [Working with user devices in your user
   pool](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html).
 
   Authorize this action with a signed-in user's access token. It must include the
@@ -6874,7 +6974,9 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Allows a user to enter a confirmation code to reset a forgotten password.
+  This public API operation accepts a confirmation code that Amazon Cognito sent
+  to a user and
+  accepts a new password for that user.
 
   Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in
   requests for this API operation. For
@@ -6895,9 +6997,9 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  This public API operation provides a code that Amazon Cognito sent to your user
-  when they
-  signed up in your user pool via the
+  This public API operation submits a code that Amazon Cognito sent to your user
+  when they signed
+  up in your user pool via the
   [SignUp](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignUp.html) API operation.
 
   After your user enters their code, they confirm ownership of the email
@@ -6940,6 +7042,9 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Creates a new group in the specified user pool.
 
+  For more information about user pool
+  groups see [Adding groups to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-user-groups.html).
+
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
   this operation, you must use IAM credentials to authorize requests, and you must
@@ -6969,6 +7074,10 @@ defmodule AWS.CognitoIdentityProvider do
   Adds a configuration and trust relationship between a third-party identity
   provider
   (IdP) and a user pool.
+
+  Amazon Cognito accepts sign-in with third-party identity providers through
+  managed login and OIDC relying-party libraries. For more information, see
+  [Third-party IdP sign-in](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html).
 
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
@@ -7006,7 +7115,10 @@ defmodule AWS.CognitoIdentityProvider do
   Provides values for UI customization in a `Settings` JSON object and image
   files in an `Assets` array. To send the JSON object `Document`
   type parameter in `Settings`, you might need to update to the most recent
-  version of your Amazon Web Services SDK.
+  version of your Amazon Web Services SDK. To create a new style with default
+  settings, set
+  `UseCognitoProvidedValues` to `true` and don't provide
+  values for any other options.
 
   This operation has a 2-megabyte request-size limit and include the CSS settings
   and
@@ -7018,7 +7130,11 @@ defmodule AWS.CognitoIdentityProvider do
   separate it
   into multiple requests, each with a size smaller than the limit.
 
-  For more information, see [API and SDK operations for managed login branding](https://docs.aws.amazon.com/cognito/latest/developerguide/managed-login-brandingdesigner.html#branding-designer-api)
+  As a best practice, modify the output of
+  [DescribeManagedLoginBrandingByClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeManagedLoginBrandingByClient.html) into the request parameters for this
+  operation. To get all settings, set `ReturnMergedResources` to
+  `true`. For more information, see [API and SDK operations for managed login
+  branding](https://docs.aws.amazon.com/cognito/latest/developerguide/managed-login-brandingdesigner.html#branding-designer-api).
 
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
@@ -7048,6 +7164,11 @@ defmodule AWS.CognitoIdentityProvider do
   @doc """
   Creates a new OAuth2.0 resource server and defines custom scopes within it.
 
+  Resource
+  servers are associated with custom scopes and machine-to-machine (M2M)
+  authorization.
+  For more information, see [Access control with resource servers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html).
+
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
   this operation, you must use IAM credentials to authorize requests, and you must
@@ -7075,6 +7196,14 @@ defmodule AWS.CognitoIdentityProvider do
 
   @doc """
   Creates a user import job.
+
+  You can import users into user pools from a comma-separated
+  values (CSV) file without adding Amazon Cognito MAU costs to your Amazon Web
+  Services bill. To generate a
+  template for your import, see
+  [GetCSVHeader](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetCSVHeader.html). To learn more about CSV import, see
+  [Importing users from a CSV
+  file](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-using-import-tool.html).
 
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
@@ -7130,44 +7259,14 @@ defmodule AWS.CognitoIdentityProvider do
   in the *Amazon Cognito
   Developer Guide*.
 
-  Creates a new Amazon Cognito user pool and sets the password policy for the
-  pool.
+  Creates a new Amazon Cognito user pool. This operation sets basic and advanced
+  configuration
+  options. You can create a user pool in the Amazon Cognito console to your
+  preferences and use the
+  output of
+  [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) to generate requests from that
+  baseline.
 
-  If you don't provide a value for an attribute, Amazon Cognito sets it to its
-  default value.
-
-  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
-  requests for this API operation. For
-  this operation, you must use IAM credentials to authorize requests, and you must
-  grant yourself the corresponding IAM permission in a policy.
-
-  ## Learn more
-
-    
-
-  [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
-
-    
-
-  [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
-  """
-  @spec create_user_pool(map(), create_user_pool_request(), list()) ::
-          {:ok, create_user_pool_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, create_user_pool_errors()}
-  def create_user_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
-
-    Request.request_post(client, meta, "CreateUserPool", input, options)
-  end
-
-  @doc """
-  Creates the user pool client.
-
-  When you create a new user pool client, token revocation is automatically
-  activated.
-  For more information about revoking tokens, see
-  [RevokeToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html). 
   If you don't provide a value for an attribute, Amazon Cognito sets it to its
   default value.
 
@@ -7187,6 +7286,48 @@ defmodule AWS.CognitoIdentityProvider do
 
   [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
+  @spec create_user_pool(map(), create_user_pool_request(), list()) ::
+          {:ok, create_user_pool_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_user_pool_errors()}
+  def create_user_pool(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateUserPool", input, options)
+  end
+
+  @doc """
+  Creates an app client in a user pool.
+
+  This operation sets basic and advanced
+  configuration options. You can create an app client in the Amazon Cognito
+  console to your
+  preferences and use the output of
+  [DescribeUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.html) to generate requests from that
+  baseline.
+
+  New app clients activate token revocation by default. For more information about
+  revoking tokens, see
+  [RevokeToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html).
+
+  If you don't provide a value for an attribute, Amazon Cognito sets it to its
+  default value.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For
+  this operation, you must use IAM credentials to authorize requests, and you must
+  grant yourself the corresponding IAM permission in a policy.
+
+  ## Learn more
+
+    
+
+  [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+    
+
+  [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
+  """
   @spec create_user_pool_client(map(), create_user_pool_client_request(), list()) ::
           {:ok, create_user_pool_client_response(), any()}
           | {:error, {:unexpected_response, any()}}
@@ -7198,10 +7339,26 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Creates a new domain for a user pool.
+  A user pool domain hosts managed login, an authorization server and web server
+  for
+  authentication in your application.
 
-  The domain hosts user pool domain services like
-  managed login, the hosted UI (classic), and the user pool authorization server.
+  This operation creates a new user pool prefix or
+  custom domain and sets the managed login branding version. Set the branding
+  version to
+  `1` for hosted UI (classic) or `2` for managed login. When you
+  choose a custom domain, you must provide an SSL certificate in the US East (N.
+  Virginia)
+  Amazon Web Services Region in your request.
+
+  Your prefix domain might take up to one minute to take effect. Your custom
+  domain is
+  online within five minutes, but it can take up to one hour to distribute your
+  SSL
+  certificate.
+
+  For more information about adding a custom domain to your user pool, see
+  [Configuring a user pool domain](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html).
 
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
@@ -7229,9 +7386,29 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Deletes a group.
+  Deletes a group from the specified user pool.
 
-  Calling this action requires developer credentials.
+  When you delete a group, that group no
+  longer contributes to users' `cognito:preferred_group` or
+  `cognito:groups` claims, and no longer influence access-control decision
+  that are based on group membership. For more information about user pool groups,
+  see
+  [Adding groups to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-user-groups.html).
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For
+  this operation, you must use IAM credentials to authorize requests, and you must
+  grant yourself the corresponding IAM permission in a policy.
+
+  ## Learn more
+
+    
+
+  [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+    
+
+  [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   @spec delete_group(map(), delete_group_request(), list()) ::
           {:ok, nil, any()}
@@ -7244,7 +7421,27 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Deletes an IdP for a user pool.
+  Deletes a user pool identity provider (IdP).
+
+  After you delete an IdP, users can no
+  longer sign in to your user pool through that IdP. For more information about
+  user pool
+  IdPs, see [Third-party IdP sign-in](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html).
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For
+  this operation, you must use IAM credentials to authorize requests, and you must
+  grant yourself the corresponding IAM permission in a policy.
+
+  ## Learn more
+
+    
+
+  [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+    
+
+  [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   @spec delete_identity_provider(map(), delete_identity_provider_request(), list()) ::
           {:ok, nil, any()}
@@ -7260,7 +7457,10 @@ defmodule AWS.CognitoIdentityProvider do
   Deletes a managed login branding style.
 
   When you delete a style, you delete the
-  branding association for an app client and restore it to default settings.
+  branding association for an app client. When an app client doesn't have a style
+  assigned, your managed login pages for that app client are nonfunctional until
+  you
+  create a new style or switch the domain branding version.
 
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
@@ -7289,6 +7489,27 @@ defmodule AWS.CognitoIdentityProvider do
 
   @doc """
   Deletes a resource server.
+
+  After you delete a resource server, users can no longer
+  generate access tokens with scopes that are associate with that resource server.
+
+  Resource servers are associated with custom scopes and machine-to-machine (M2M)
+  authorization. For more information, see [Access control with resource servers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html).
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For
+  this operation, you must use IAM credentials to authorize requests, and you must
+  grant yourself the corresponding IAM permission in a policy.
+
+  ## Learn more
+
+    
+
+  [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+    
+
+  [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   @spec delete_resource_server(map(), delete_resource_server_request(), list()) ::
           {:ok, nil, any()}
@@ -7301,7 +7522,10 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Allows a user to delete their own user profile.
+  Self-deletes a user profile.
+
+  A deleted user profile can no longer be used to sign in
+  and can't be restored.
 
   Authorize this action with a signed-in user's access token. It must include the
   scope `aws.cognito.signin.user.admin`.
@@ -7325,7 +7549,11 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Deletes the attributes for a user.
+  Self-deletes attributes for a user.
+
+  For example, your application can submit a request
+  to this operation when a user wants to remove their `birthdate` attribute
+  value.
 
   Authorize this action with a signed-in user's access token. It must include the
   scope `aws.cognito.signin.user.admin`.
@@ -7349,7 +7577,10 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Deletes the specified Amazon Cognito user pool.
+  Deletes a user pool.
+
+  After you delete a user pool, users can no longer sign in to any
+  associated applications.
   """
   @spec delete_user_pool(map(), delete_user_pool_request(), list()) ::
           {:ok, nil, any()}
@@ -7362,7 +7593,10 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Allows the developer to delete the user pool client.
+  Deletes a user pool app client.
+
+  After you delete an app client, users can no longer
+  sign in to the associated application.
   """
   @spec delete_user_pool_client(map(), delete_user_pool_client_request(), list()) ::
           {:ok, nil, any()}
@@ -7375,7 +7609,12 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Deletes a domain for a user pool.
+  Given a user pool ID and domain identifier, deletes a user pool domain.
+
+  After you
+  delete a user pool domain, your managed login pages and authorization server are
+  no
+  longer available.
   """
   @spec delete_user_pool_domain(map(), delete_user_pool_domain_request(), list()) ::
           {:ok, delete_user_pool_domain_response(), any()}
@@ -7388,11 +7627,20 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Deletes a registered passkey, or webauthN, device for the currently signed-in
+  Deletes a registered passkey, or webauthN, authenticator for the currently
+  signed-in
   user.
 
   Authorize this action with a signed-in user's access token. It must include the
   scope `aws.cognito.signin.user.admin`.
+
+  Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in
+  requests for this API operation. For
+  this operation, you can't use IAM credentials to authorize requests, and you
+  can't
+  grant IAM permissions in policies. For more information about authorization
+  models in
+  Amazon Cognito, see [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
   """
   @spec delete_web_authn_credential(map(), delete_web_authn_credential_request(), list()) ::
           {:ok, delete_web_authn_credential_response(), any()}
@@ -7405,7 +7653,8 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Gets information about a specific IdP.
+  Given a user pool ID and identity provider (IdP) name, returns details about the
+  IdP.
   """
   @spec describe_identity_provider(map(), describe_identity_provider_request(), list()) ::
           {:ok, describe_identity_provider_response(), any()}
@@ -7418,9 +7667,9 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  When given the ID of a managed login branding style, returns detailed
-  information
-  about the style.
+  Given the ID of a managed login branding style, returns detailed information
+  about the
+  style.
   """
   @spec describe_managed_login_branding(map(), describe_managed_login_branding_request(), list()) ::
           {:ok, describe_managed_login_branding_response(), any()}
@@ -7433,9 +7682,9 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  When given the ID of a user pool app client, returns detailed information about
-  the
-  style assigned to the app client.
+  Given the ID of a user pool app client, returns detailed information about the
+  style
+  assigned to the app client.
   """
   @spec describe_managed_login_branding_by_client(
           map(),
@@ -7453,6 +7702,8 @@ defmodule AWS.CognitoIdentityProvider do
 
   @doc """
   Describes a resource server.
+
+  For more information about resource servers, see [Access control with resource servers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html).
   """
   @spec describe_resource_server(map(), describe_resource_server_request(), list()) ::
           {:ok, describe_resource_server_response(), any()}
@@ -7465,7 +7716,14 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Describes the risk configuration.
+  Given an app client or user pool ID where threat protection is configured,
+  describes
+  the risk configuration.
+
+  This operation returns details about adaptive authentication,
+  compromised credentials, and IP-address allow- and denylists. For more
+  information about
+  threat protection, see [Threat protection](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-threat-protection.html).
   """
   @spec describe_risk_configuration(map(), describe_risk_configuration_request(), list()) ::
           {:ok, describe_risk_configuration_response(), any()}
@@ -7478,7 +7736,9 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Describes the user import job.
+  Describes a user import job.
+
+  For more information about user CSV import, see [Importing users from a CSV file](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-using-import-tool.html).
   """
   @spec describe_user_import_job(map(), describe_user_import_job_request(), list()) ::
           {:ok, describe_user_import_job_response(), any()}
@@ -7491,7 +7751,11 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Returns the configuration information and metadata of the specified user pool.
+  Given a user pool ID, returns configuration information.
+
+  This operation is useful when
+  you want to inspect an existing user pool and programmatically replicate the
+  configuration to another user pool.
 
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
@@ -7519,8 +7783,13 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Client method for returning the configuration information and metadata of the
-  specified user pool app client.
+  Given an app client ID, returns configuration information.
+
+  This operation is useful
+  when you want to inspect an existing app client and programmatically replicate
+  the
+  configuration to another app client. For more information about app clients, see
+  [App clients](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html).
 
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
@@ -7548,7 +7817,23 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Gets information about a domain.
+  Given a user pool domain name, returns information about the domain
+  configuration.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For
+  this operation, you must use IAM credentials to authorize requests, and you must
+  grant yourself the corresponding IAM permission in a policy.
+
+  ## Learn more
+
+    
+
+  [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+    
+
+  [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
   """
   @spec describe_user_pool_domain(map(), describe_user_pool_domain_request(), list()) ::
           {:ok, describe_user_pool_domain_response(), any()}
@@ -7932,7 +8217,13 @@ defmodule AWS.CognitoIdentityProvider do
   Amazon Cognito no longer accepts a signed-out user's refresh tokens in refresh
   requests.
 
-  Other requests might be valid until your user's token expires.
+  Other requests might be valid until your user's token expires. This operation
+  doesn't clear the [managed
+  login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html)
+  session cookie. To clear the session for
+  a user who signed in with managed login or the classic hosted UI, direct their
+  browser
+  session to the [logout endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html).
 
   Authorize this action with a signed-in user's access token. It must include the
   scope `aws.cognito.signin.user.admin`.
@@ -7943,8 +8234,7 @@ defmodule AWS.CognitoIdentityProvider do
   can't
   grant IAM permissions in policies. For more information about authorization
   models in
-  Amazon Cognito, see [Using the Amazon Cognito user pools API and user pool
-  endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
+  Amazon Cognito, see [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
   """
   @spec global_sign_out(map(), global_sign_out_request(), list()) ::
           {:ok, global_sign_out_response(), any()}
@@ -8514,6 +8804,12 @@ defmodule AWS.CognitoIdentityProvider do
   deactivate
   MFA for users and turn on Adaptive Authentication for the user pool.
 
+  This operation doesn't reset an existing TOTP MFA for a user. To register a new
+  TOTP factor for a user, make an
+  [AssociateSoftwareToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssociateSoftwareToken.html) request. For more information,
+  see [TOTP software token
+  MFA](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-mfa-totp.html).
+
   Authorize this action with a signed-in user's access token. It must include the
   scope `aws.cognito.signin.user.admin`.
 
@@ -8904,7 +9200,11 @@ defmodule AWS.CognitoIdentityProvider do
   separate it
   into multiple requests, each with a size smaller than the limit.
 
-  For more information, see [API and SDK operations for managed login branding](https://docs.aws.amazon.com/cognito/latest/developerguide/managed-login-brandingdesigner.html#branding-designer-api).
+  As a best practice, modify the output of
+  [DescribeManagedLoginBrandingByClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeManagedLoginBrandingByClient.html) into the request parameters for this
+  operation. To get all settings, set `ReturnMergedResources` to
+  `true`. For more information, see [API and SDK operations for managed login
+  branding](https://docs.aws.amazon.com/cognito/latest/developerguide/managed-login-brandingdesigner.html#branding-designer-api)
 
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For
@@ -9124,44 +9424,37 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
-  Updates the Secure Sockets Layer (SSL) certificate for the custom domain for
-  your user
-  pool.
+  A user pool domain hosts managed login, an authorization server and web server
+  for
+  authentication in your application.
 
-  You can use this operation to provide the Amazon Resource Name (ARN) of a new
-  certificate to Amazon Cognito. You can't use it to change the domain for a user
-  pool.
+  This operation updates the branding version for user
+  pool domains between `1` for hosted UI (classic) and `2` for
+  managed login. It also updates the SSL certificate for user pool custom domains.
 
-  A custom domain is used to host the Amazon Cognito hosted UI, which provides
-  sign-up and
-  sign-in pages for your application. When you set up a custom domain, you provide
+  Changes to the domain branding version take up to one minute to take effect for
   a
-  certificate that you manage with Certificate Manager (ACM). When necessary, you
-  can use this
-  operation to change the certificate that you applied to your custom domain.
+  prefix domain and up to five minutes for a custom domain.
 
-  Usually, this is unnecessary following routine certificate renewal with ACM.
-  When
-  you renew your existing certificate in ACM, the ARN for your certificate remains
-  the
-  same, and your custom domain uses the new certificate automatically.
+  This operation doesn't change the name of your user pool domain. To change your
+  domain, delete it with `DeleteUserPoolDomain` and create a new domain with
+  `CreateUserPoolDomain`.
 
-  However, if you replace your existing certificate with a new one, ACM gives the
-  new
-  certificate a new ARN. To apply the new certificate to your custom domain, you
-  must
-  provide this ARN to Amazon Cognito.
+  You can pass the ARN of a new Certificate Manager certificate in this request.
+  Typically, ACM
+  certificates automatically renew and you user pool can continue to use the same
+  ARN. But
+  if you generate a new certificate for your custom domain name, replace the
+  original
+  configuration with the new ARN in this request.
 
-  When you add your new certificate in ACM, you must choose US East (N. Virginia)
-  as
-  the Amazon Web Services Region.
+  ACM certificates for custom domains must be in the US East (N. Virginia)
+  Amazon Web Services Region. After you submit your request, Amazon Cognito
+  requires up to 1 hour to distribute
+  your new certificate to your custom domain.
 
-  After you submit your request, Amazon Cognito requires up to 1 hour to
-  distribute your new
-  certificate to your custom domain.
-
-  For more information about adding a custom domain to your user pool, see [Using Your Own Domain for the Hosted
-  UI](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html).
+  For more information about adding a custom domain to your user pool, see
+  [Configuring a user pool domain](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html).
 
   Amazon Cognito evaluates Identity and Access Management (IAM) policies in
   requests for this API operation. For

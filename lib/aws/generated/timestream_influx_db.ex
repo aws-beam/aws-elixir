@@ -5,8 +5,8 @@ defmodule AWS.TimestreamInfluxDB do
   @moduledoc """
   Amazon Timestream for InfluxDB is a managed time-series database engine that
   makes it easy for application developers and DevOps teams to run InfluxDB
-  databases on AWS for near real-time time-series applications using open-source
-  APIs.
+  databases on Amazon Web Services for near real-time time-series applications
+  using open-source APIs.
 
   With Amazon Timestream for InfluxDB, it is easy to set up, operate, and scale
   time-series workloads that can answer queries with single-digit millisecond
@@ -57,6 +57,7 @@ defmodule AWS.TimestreamInfluxDB do
         "influxAuthParametersSecretArn" => [String.t()],
         "logDeliveryConfiguration" => log_delivery_configuration(),
         "name" => String.t(),
+        "networkType" => list(any()),
         "port" => integer(),
         "publiclyAccessible" => [boolean()],
         "secondaryAvailabilityZone" => [String.t()],
@@ -165,6 +166,7 @@ defmodule AWS.TimestreamInfluxDB do
         "influxAuthParametersSecretArn" => [String.t()],
         "logDeliveryConfiguration" => log_delivery_configuration(),
         "name" => String.t(),
+        "networkType" => list(any()),
         "port" => integer(),
         "publiclyAccessible" => [boolean()],
         "secondaryAvailabilityZone" => [String.t()],
@@ -215,6 +217,7 @@ defmodule AWS.TimestreamInfluxDB do
         "endpoint" => [String.t()],
         "id" => String.t(),
         "name" => String.t(),
+        "networkType" => list(any()),
         "port" => integer(),
         "status" => list(any())
       }
@@ -326,6 +329,7 @@ defmodule AWS.TimestreamInfluxDB do
         "influxAuthParametersSecretArn" => [String.t()],
         "logDeliveryConfiguration" => log_delivery_configuration(),
         "name" => String.t(),
+        "networkType" => list(any()),
         "port" => integer(),
         "publiclyAccessible" => [boolean()],
         "secondaryAvailabilityZone" => [String.t()],
@@ -414,6 +418,7 @@ defmodule AWS.TimestreamInfluxDB do
         "influxAuthParametersSecretArn" => [String.t()],
         "logDeliveryConfiguration" => log_delivery_configuration(),
         "name" => String.t(),
+        "networkType" => list(any()),
         "port" => integer(),
         "publiclyAccessible" => [boolean()],
         "secondaryAvailabilityZone" => [String.t()],
@@ -520,6 +525,7 @@ defmodule AWS.TimestreamInfluxDB do
         optional("dbStorageType") => list(any()),
         optional("deploymentType") => list(any()),
         optional("logDeliveryConfiguration") => log_delivery_configuration(),
+        optional("networkType") => list(any()),
         optional("organization") => String.t(),
         optional("port") => integer(),
         optional("publiclyAccessible") => [boolean()],
@@ -592,7 +598,8 @@ defmodule AWS.TimestreamInfluxDB do
 
   @type list_tags_for_resource_errors() :: resource_not_found_exception()
 
-  @type tag_resource_errors() :: resource_not_found_exception()
+  @type tag_resource_errors() ::
+          service_quota_exceeded_exception() | resource_not_found_exception()
 
   @type untag_resource_errors() :: resource_not_found_exception()
 

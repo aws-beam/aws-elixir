@@ -745,6 +745,7 @@ defmodule AWS.EMRServerless do
   ## Example:
 
       get_dashboard_for_job_run_request() :: %{
+        optional("accessSystemProfileLogs") => [boolean()],
         optional("attempt") => integer()
       }
 
@@ -1098,7 +1099,14 @@ defmodule AWS.EMRServerless do
   UI
   after that hour elapses, you must invoke the API again to generate a new URL.
   """
-  @spec get_dashboard_for_job_run(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_dashboard_for_job_run(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
           {:ok, get_dashboard_for_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, get_dashboard_for_job_run_errors()}
@@ -1106,6 +1114,7 @@ defmodule AWS.EMRServerless do
         %Client{} = client,
         application_id,
         job_run_id,
+        access_system_profile_logs \\ nil,
         attempt \\ nil,
         options \\ []
       ) do
@@ -1118,6 +1127,13 @@ defmodule AWS.EMRServerless do
     query_params =
       if !is_nil(attempt) do
         [{"attempt", attempt} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(access_system_profile_logs) do
+        [{"accessSystemProfileLogs", access_system_profile_logs} | query_params]
       else
         query_params
       end

@@ -31,6 +31,15 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      delete_multi_region_endpoint_request() :: %{}
+
+  """
+  @type delete_multi_region_endpoint_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       put_configuration_set_tracking_options_response() :: %{}
 
   """
@@ -583,10 +592,33 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      route_details() :: %{
+        "Region" => String.t()
+      }
+
+  """
+  @type route_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_email_identity_policy_response() :: %{}
 
   """
   @type delete_email_identity_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_multi_region_endpoints_request() :: %{
+        optional("NextToken") => String.t(),
+        optional("PageSize") => integer()
+      }
+
+  """
+  @type list_multi_region_endpoints_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -816,6 +848,18 @@ defmodule AWS.SESv2 do
 
   """
   @type delete_configuration_set_event_destination_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_multi_region_endpoints_response() :: %{
+        "MultiRegionEndpoints" => list(multi_region_endpoint()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_multi_region_endpoints_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1542,6 +1586,22 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      multi_region_endpoint() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "EndpointId" => String.t(),
+        "EndpointName" => String.t(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "Regions" => list(String.t()()),
+        "Status" => list(any())
+      }
+
+  """
+  @type multi_region_endpoint() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_configuration_set_vdm_options_response() :: %{}
 
   """
@@ -1575,6 +1635,17 @@ defmodule AWS.SESv2 do
 
   """
   @type recommendation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      details() :: %{
+        "RoutesDetails" => list(route_details()())
+      }
+
+  """
+  @type details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1676,6 +1747,33 @@ defmodule AWS.SESv2 do
 
   """
   @type send_custom_verification_email_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      route() :: %{
+        "Region" => String.t()
+      }
+
+  """
+  @type route() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_multi_region_endpoint_response() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "EndpointId" => String.t(),
+        "EndpointName" => String.t(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "Routes" => list(route()()),
+        "Status" => list(any())
+      }
+
+  """
+  @type get_multi_region_endpoint_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1874,6 +1972,17 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      delete_multi_region_endpoint_response() :: %{
+        "Status" => list(any())
+      }
+
+  """
+  @type delete_multi_region_endpoint_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       raw_message() :: %{
         "Data" => binary()
       }
@@ -1988,6 +2097,19 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      create_multi_region_endpoint_request() :: %{
+        optional("Tags") => list(tag()()),
+        required("Details") => details(),
+        required("EndpointName") => String.t()
+      }
+
+  """
+  @type create_multi_region_endpoint_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       contact() :: %{
         "EmailAddress" => String.t(),
         "LastUpdatedTimestamp" => non_neg_integer(),
@@ -2057,6 +2179,7 @@ defmodule AWS.SESv2 do
       send_bulk_email_request() :: %{
         optional("ConfigurationSetName") => String.t(),
         optional("DefaultEmailTags") => list(message_tag()()),
+        optional("EndpointId") => String.t(),
         optional("FeedbackForwardingEmailAddress") => String.t(),
         optional("FeedbackForwardingEmailAddressIdentityArn") => String.t(),
         optional("FromEmailAddress") => String.t(),
@@ -2468,6 +2591,18 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      create_multi_region_endpoint_response() :: %{
+        "EndpointId" => String.t(),
+        "Status" => list(any())
+      }
+
+  """
+  @type create_multi_region_endpoint_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       sending_options() :: %{
         "SendingEnabled" => boolean()
       }
@@ -2575,6 +2710,15 @@ defmodule AWS.SESv2 do
 
   """
   @type destination() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_multi_region_endpoint_request() :: %{}
+
+  """
+  @type get_multi_region_endpoint_request() :: %{}
 
   @typedoc """
 
@@ -2944,6 +3088,7 @@ defmodule AWS.SESv2 do
         optional("ConfigurationSetName") => String.t(),
         optional("Destination") => destination(),
         optional("EmailTags") => list(message_tag()()),
+        optional("EndpointId") => String.t(),
         optional("FeedbackForwardingEmailAddress") => String.t(),
         optional("FeedbackForwardingEmailAddressIdentityArn") => String.t(),
         optional("FromEmailAddress") => String.t(),
@@ -3523,6 +3668,12 @@ defmodule AWS.SESv2 do
   @type create_import_job_errors() ::
           bad_request_exception() | limit_exceeded_exception() | too_many_requests_exception()
 
+  @type create_multi_region_endpoint_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
+          | already_exists_exception()
+
   @type delete_configuration_set_errors() ::
           bad_request_exception()
           | concurrent_modification_exception()
@@ -3561,6 +3712,12 @@ defmodule AWS.SESv2 do
 
   @type delete_email_template_errors() ::
           bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type delete_multi_region_endpoint_errors() ::
+          bad_request_exception()
+          | concurrent_modification_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
 
   @type delete_suppressed_destination_errors() ::
           bad_request_exception() | not_found_exception() | too_many_requests_exception()
@@ -3624,6 +3781,9 @@ defmodule AWS.SESv2 do
   @type get_message_insights_errors() ::
           bad_request_exception() | not_found_exception() | too_many_requests_exception()
 
+  @type get_multi_region_endpoint_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
   @type get_suppressed_destination_errors() ::
           bad_request_exception() | not_found_exception() | too_many_requests_exception()
 
@@ -3654,6 +3814,9 @@ defmodule AWS.SESv2 do
   @type list_export_jobs_errors() :: bad_request_exception() | too_many_requests_exception()
 
   @type list_import_jobs_errors() :: bad_request_exception() | too_many_requests_exception()
+
+  @type list_multi_region_endpoints_errors() ::
+          bad_request_exception() | too_many_requests_exception()
 
   @type list_recommendations_errors() ::
           bad_request_exception() | not_found_exception() | too_many_requests_exception()
@@ -4358,6 +4521,42 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
+  Creates a multi-region endpoint (global-endpoint).
+
+  The primary region is going to be the AWS-Region where the operation is
+  executed.
+  The secondary region has to be provided in request's parameters.
+  From the data flow standpoint there is no difference between primary
+  and secondary regions - sending traffic will be split equally between the two.
+  The primary region is the region where the resource has been created and where
+  it can be managed.
+  """
+  @spec create_multi_region_endpoint(map(), create_multi_region_endpoint_request(), list()) ::
+          {:ok, create_multi_region_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_multi_region_endpoint_errors()}
+  def create_multi_region_endpoint(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/email/multi-region-endpoints"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Delete an existing configuration set.
 
   *Configuration sets* are groups of rules that you can apply to the
@@ -4673,6 +4872,43 @@ defmodule AWS.SESv2 do
           | {:error, delete_email_template_errors()}
   def delete_email_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v2/email/templates/#{AWS.Util.encode_uri(template_name)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a multi-region endpoint (global-endpoint).
+
+  Only multi-region endpoints (global-endpoints) whose primary region is the
+  AWS-Region
+  where operation is executed can be deleted.
+  """
+  @spec delete_multi_region_endpoint(
+          map(),
+          String.t(),
+          delete_multi_region_endpoint_request(),
+          list()
+        ) ::
+          {:ok, delete_multi_region_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_multi_region_endpoint_errors()}
+  def delete_multi_region_endpoint(%Client{} = client, endpoint_name, input, options \\ []) do
+    url_path = "/v2/email/multi-region-endpoints/#{AWS.Util.encode_uri(endpoint_name)}"
     headers = []
     custom_headers = []
     query_params = []
@@ -5217,6 +5453,27 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
+  Displays the multi-region endpoint (global-endpoint) configuration.
+
+  Only multi-region endpoints (global-endpoints) whose primary region is the
+  AWS-Region
+  where operation is executed can be displayed.
+  """
+  @spec get_multi_region_endpoint(map(), String.t(), list()) ::
+          {:ok, get_multi_region_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_multi_region_endpoint_errors()}
+  def get_multi_region_endpoint(%Client{} = client, endpoint_name, options \\ []) do
+    url_path = "/v2/email/multi-region-endpoints/#{AWS.Util.encode_uri(endpoint_name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves information about a specific email address that's on the suppression
   list
   for your account.
@@ -5668,6 +5925,46 @@ defmodule AWS.SESv2 do
       options,
       200
     )
+  end
+
+  @doc """
+  List the multi-region endpoints (global-endpoints).
+
+  Only multi-region endpoints (global-endpoints) whose primary region is the
+  AWS-Region
+  where operation is executed will be listed.
+  """
+  @spec list_multi_region_endpoints(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_multi_region_endpoints_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_multi_region_endpoints_errors()}
+  def list_multi_region_endpoints(
+        %Client{} = client,
+        next_token \\ nil,
+        page_size \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v2/email/multi-region-endpoints"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(page_size) do
+        [{"PageSize", page_size} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """

@@ -155,7 +155,8 @@ defmodule AWS.DatabaseMigration do
         "NoHexPrefix" => boolean(),
         "PartitionIncludeSchemaTable" => boolean(),
         "ServiceAccessRoleArn" => String.t(),
-        "StreamArn" => String.t()
+        "StreamArn" => String.t(),
+        "UseLargeIntegerValue" => boolean()
       }
       
   """
@@ -994,6 +995,7 @@ defmodule AWS.DatabaseMigration do
         "EngineVersion" => String.t(),
         "FreeUntil" => non_neg_integer(),
         "InstanceCreateTime" => non_neg_integer(),
+        "KerberosAuthenticationSettings" => kerberos_authentication_settings(),
         "KmsKeyId" => String.t(),
         "MultiAZ" => boolean(),
         "NetworkType" => String.t(),
@@ -2546,6 +2548,19 @@ defmodule AWS.DatabaseMigration do
 
   ## Example:
       
+      kerberos_authentication_settings() :: %{
+        "KeyCacheSecretIamArn" => String.t(),
+        "KeyCacheSecretId" => String.t(),
+        "Krb5FileContents" => String.t()
+      }
+      
+  """
+  @type kerberos_authentication_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       move_replication_task_response() :: %{
         "ReplicationTask" => replication_task()
       }
@@ -3165,6 +3180,7 @@ defmodule AWS.DatabaseMigration do
         optional("AvailabilityZone") => String.t(),
         optional("DnsNameServers") => String.t(),
         optional("EngineVersion") => String.t(),
+        optional("KerberosAuthenticationSettings") => kerberos_authentication_settings(),
         optional("KmsKeyId") => String.t(),
         optional("MultiAZ") => boolean(),
         optional("NetworkType") => String.t(),
@@ -3521,6 +3537,7 @@ defmodule AWS.DatabaseMigration do
         "SecretsManagerOracleAsmSecretId" => String.t(),
         "SpatialDataOptionToGeoJsonFunctionName" => String.t(),
         "SecretsManagerAccessRoleArn" => String.t(),
+        "AuthenticationMethod" => list(any()),
         "ArchivedLogsOnly" => boolean(),
         "ReadTableSpaceName" => boolean(),
         "ArchivedLogDestId" => integer(),
@@ -3610,7 +3627,8 @@ defmodule AWS.DatabaseMigration do
         "SslClientKeyArn" => String.t(),
         "SslClientKeyPassword" => String.t(),
         "SslEndpointIdentificationAlgorithm" => list(any()),
-        "Topic" => String.t()
+        "Topic" => String.t(),
+        "UseLargeIntegerValue" => boolean()
       }
       
   """
@@ -4304,6 +4322,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       microsoft_s_q_l_server_settings() :: %{
+        "AuthenticationMethod" => list(any()),
         "BcpPacketSize" => integer(),
         "ControlTablesFileGroup" => String.t(),
         "DatabaseName" => String.t(),
@@ -4408,6 +4427,7 @@ defmodule AWS.DatabaseMigration do
         "DatabaseMode" => list(any()),
         "DatabaseName" => String.t(),
         "DdlArtifactsSchema" => String.t(),
+        "DisableUnicodeSourceFilter" => boolean(),
         "ExecuteTimeout" => integer(),
         "FailTasksOnLobTruncation" => boolean(),
         "HeartbeatEnable" => boolean(),
@@ -4561,6 +4581,7 @@ defmodule AWS.DatabaseMigration do
         optional("ApplyImmediately") => boolean(),
         optional("AutoMinorVersionUpgrade") => boolean(),
         optional("EngineVersion") => String.t(),
+        optional("KerberosAuthenticationSettings") => kerberos_authentication_settings(),
         optional("MultiAZ") => boolean(),
         optional("NetworkType") => String.t(),
         optional("PreferredMaintenanceWindow") => String.t(),
@@ -5081,7 +5102,7 @@ defmodule AWS.DatabaseMigration do
   @type delete_endpoint_errors() :: invalid_resource_state_fault() | resource_not_found_fault()
 
   @type delete_event_subscription_errors() ::
-          invalid_resource_state_fault() | resource_not_found_fault()
+          access_denied_fault() | invalid_resource_state_fault() | resource_not_found_fault()
 
   @type delete_fleet_advisor_collector_errors() ::
           collector_not_found_fault() | access_denied_fault() | invalid_resource_state_fault()
@@ -5108,7 +5129,7 @@ defmodule AWS.DatabaseMigration do
           invalid_resource_state_fault() | resource_not_found_fault()
 
   @type delete_replication_subnet_group_errors() ::
-          invalid_resource_state_fault() | resource_not_found_fault()
+          access_denied_fault() | invalid_resource_state_fault() | resource_not_found_fault()
 
   @type delete_replication_task_errors() ::
           invalid_resource_state_fault() | resource_not_found_fault()
@@ -5197,7 +5218,7 @@ defmodule AWS.DatabaseMigration do
   @type describe_schemas_errors() :: invalid_resource_state_fault() | resource_not_found_fault()
 
   @type describe_table_statistics_errors() ::
-          invalid_resource_state_fault() | resource_not_found_fault()
+          access_denied_fault() | invalid_resource_state_fault() | resource_not_found_fault()
 
   @type export_metadata_model_assessment_errors() :: resource_not_found_fault()
 
@@ -5237,6 +5258,7 @@ defmodule AWS.DatabaseMigration do
           | kms_not_found_fault()
           | kms_access_denied_fault()
           | kms_invalid_state_fault()
+          | access_denied_fault()
           | resource_not_found_fault()
 
   @type modify_instance_profile_errors() ::

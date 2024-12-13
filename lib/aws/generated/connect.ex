@@ -223,6 +223,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      get_effective_hours_of_operations_request() :: %{
+        required("FromDate") => String.t(),
+        required("ToDate") => String.t()
+      }
+
+  """
+  @type get_effective_hours_of_operations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       view_input_content() :: %{
         "Actions" => list(String.t()()),
         "Template" => String.t()
@@ -719,6 +731,15 @@ defmodule AWS.Connect do
 
   """
   @type prompt_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_hours_of_operation_override_request() :: %{}
+
+  """
+  @type delete_hours_of_operation_override_request() :: %{}
 
   @typedoc """
 
@@ -1641,6 +1662,20 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      hours_of_operation_override_search_criteria() :: %{
+        "AndConditions" => list(hours_of_operation_override_search_criteria()()),
+        "DateCondition" => date_condition(),
+        "OrConditions" => list(hours_of_operation_override_search_criteria()()),
+        "StringCondition" => string_condition()
+      }
+
+  """
+  @type hours_of_operation_override_search_criteria() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_associated_contacts_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -1834,6 +1869,19 @@ defmodule AWS.Connect do
 
   """
   @type routing_profile_queue_config_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      date_condition() :: %{
+        "ComparisonType" => list(any()),
+        "FieldName" => String.t(),
+        "Value" => String.t()
+      }
+
+  """
+  @type date_condition() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2094,6 +2142,8 @@ defmodule AWS.Connect do
       contact_flow_module_search_criteria() :: %{
         "AndConditions" => list(contact_flow_module_search_criteria()()),
         "OrConditions" => list(contact_flow_module_search_criteria()()),
+        "StateCondition" => list(any()),
+        "StatusCondition" => list(any()),
         "StringCondition" => string_condition()
       }
 
@@ -2308,6 +2358,15 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      describe_hours_of_operation_override_request() :: %{}
+
+  """
+  @type describe_hours_of_operation_override_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       update_phone_number_response() :: %{
         "PhoneNumberArn" => String.t(),
         "PhoneNumberId" => String.t()
@@ -2453,6 +2512,20 @@ defmodule AWS.Connect do
 
   """
   @type update_contact_flow_module_metadata_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_hours_of_operation_overrides_response() :: %{
+        "HoursOfOperationOverrideList" => list(hours_of_operation_override()()),
+        "LastModifiedRegion" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_hours_of_operation_overrides_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2615,6 +2688,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      override_time_slice() :: %{
+        "Hours" => integer(),
+        "Minutes" => integer()
+      }
+
+  """
+  @type override_time_slice() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       user_proficiency_disassociate() :: %{
         "AttributeName" => String.t(),
         "AttributeValue" => String.t()
@@ -2764,6 +2849,21 @@ defmodule AWS.Connect do
 
   """
   @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_hours_of_operation_override_request() :: %{
+        optional("Config") => list(hours_of_operation_override_config()()),
+        optional("Description") => String.t(),
+        optional("EffectiveFrom") => String.t(),
+        optional("EffectiveTill") => String.t(),
+        optional("Name") => String.t()
+      }
+
+  """
+  @type update_hours_of_operation_override_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2949,6 +3049,18 @@ defmodule AWS.Connect do
 
   """
   @type available_number_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_effective_hours_of_operations_response() :: %{
+        "EffectiveHoursOfOperationList" => list(effective_hours_of_operations()()),
+        "TimeZone" => String.t()
+      }
+
+  """
+  @type get_effective_hours_of_operations_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5454,6 +5566,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      effective_hours_of_operations() :: %{
+        "Date" => String.t(),
+        "OperationalHours" => list(operational_hour()())
+      }
+
+  """
+  @type effective_hours_of_operations() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_view_response() :: %{
         "View" => view()
       }
@@ -6068,6 +6192,21 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      search_hours_of_operation_overrides_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("SearchCriteria") => hours_of_operation_override_search_criteria(),
+        optional("SearchFilter") => hours_of_operation_search_filter(),
+        required("InstanceId") => String.t()
+      }
+
+  """
+  @type search_hours_of_operation_overrides_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       routing_profile_summary() :: %{
         "Arn" => String.t(),
         "Id" => String.t(),
@@ -6454,6 +6593,24 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      hours_of_operation_override() :: %{
+        "Config" => list(hours_of_operation_override_config()()),
+        "Description" => String.t(),
+        "EffectiveFrom" => String.t(),
+        "EffectiveTill" => String.t(),
+        "HoursOfOperationArn" => String.t(),
+        "HoursOfOperationId" => String.t(),
+        "HoursOfOperationOverrideId" => String.t(),
+        "Name" => String.t()
+      }
+
+  """
+  @type hours_of_operation_override() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       rule_summary() :: %{
         "ActionSummaries" => list(action_summary()()),
         "CreatedTime" => non_neg_integer(),
@@ -6502,6 +6659,17 @@ defmodule AWS.Connect do
 
   """
   @type contact_flow_module_search_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_hours_of_operation_override_response() :: %{
+        "HoursOfOperationOverride" => hours_of_operation_override()
+      }
+
+  """
+  @type describe_hours_of_operation_override_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -7171,6 +7339,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      search_hours_of_operation_overrides_response() :: %{
+        "ApproximateTotalCount" => float(),
+        "HoursOfOperationOverrides" => list(hours_of_operation_override()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type search_hours_of_operation_overrides_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_contact_flow_module_response() :: %{
         "Arn" => String.t(),
         "Id" => String.t()
@@ -7238,6 +7419,17 @@ defmodule AWS.Connect do
 
   """
   @type list_rules_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_hours_of_operation_override_response() :: %{
+        "HoursOfOperationOverrideId" => String.t()
+      }
+
+  """
+  @type create_hours_of_operation_override_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -8183,6 +8375,21 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      create_hours_of_operation_override_request() :: %{
+        optional("Description") => String.t(),
+        required("Config") => list(hours_of_operation_override_config()()),
+        required("EffectiveFrom") => String.t(),
+        required("EffectiveTill") => String.t(),
+        required("Name") => String.t()
+      }
+
+  """
+  @type create_hours_of_operation_override_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_email_address_response() :: %{
         "EmailAddressArn" => String.t(),
         "EmailAddressId" => String.t()
@@ -8822,6 +9029,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      list_hours_of_operation_overrides_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_hours_of_operation_overrides_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_queue_status_request() :: %{
         required("Status") => list(any())
       }
@@ -8852,6 +9071,18 @@ defmodule AWS.Connect do
 
   """
   @type associate_flow_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      operational_hour() :: %{
+        "End" => override_time_slice(),
+        "Start" => override_time_slice()
+      }
+
+  """
+  @type operational_hour() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -10489,6 +10720,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      hours_of_operation_override_config() :: %{
+        "Day" => list(any()),
+        "EndTime" => override_time_slice(),
+        "StartTime" => override_time_slice()
+      }
+
+  """
+  @type hours_of_operation_override_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_associate_analytics_data_set_response() :: %{
         "Created" => list(analytics_data_association_result()()),
         "Errors" => list(error_result()())
@@ -10748,6 +10992,15 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type create_hours_of_operation_override_errors() ::
+          duplicate_resource_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
+          | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type create_instance_errors() ::
           throttling_exception()
           | service_quota_exceeded_exception()
@@ -10980,6 +11233,13 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type delete_hours_of_operation_override_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type delete_instance_errors() ::
           invalid_request_exception()
           | resource_not_found_exception()
@@ -11171,6 +11431,13 @@ defmodule AWS.Connect do
           | internal_service_exception()
 
   @type describe_hours_of_operation_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type describe_hours_of_operation_override_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
           | invalid_request_exception()
@@ -11421,6 +11688,13 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type get_effective_hours_of_operations_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type get_federation_token_errors() ::
           duplicate_resource_exception()
           | invalid_parameter_exception()
@@ -11579,6 +11853,13 @@ defmodule AWS.Connect do
           throttling_exception()
           | invalid_parameter_exception()
           | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type list_hours_of_operation_overrides_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
@@ -11900,6 +12181,13 @@ defmodule AWS.Connect do
           throttling_exception()
           | invalid_parameter_exception()
           | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type search_hours_of_operation_overrides_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
@@ -12275,6 +12563,15 @@ defmodule AWS.Connect do
           duplicate_resource_exception()
           | throttling_exception()
           | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
+  @type update_hours_of_operation_override_errors() ::
+          duplicate_resource_exception()
+          | throttling_exception()
+          | invalid_parameter_exception()
+          | conditional_operation_failed_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
           | internal_service_exception()
@@ -13706,6 +14003,49 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Creates an hours of operation override in an Amazon Connect hours of operation
+  resource
+  """
+  @spec create_hours_of_operation_override(
+          map(),
+          String.t(),
+          String.t(),
+          create_hours_of_operation_override_request(),
+          list()
+        ) ::
+          {:ok, create_hours_of_operation_override_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_hours_of_operation_override_errors()}
+  def create_hours_of_operation_override(
+        %Client{} = client,
+        hours_of_operation_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/hours-of-operations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(hours_of_operation_id)}/overrides"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
   Initiates an Amazon Connect instance with all the supported channels enabled. It
@@ -13976,8 +14316,6 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  This API is in preview release for Amazon Connect and is subject to change.
-
   Creates a new queue for the specified Amazon Connect instance.
 
     
@@ -14772,6 +15110,51 @@ defmodule AWS.Connect do
       ) do
     url_path =
       "/hours-of-operations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(hours_of_operation_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes an hours of operation override in an Amazon Connect hours of operation
+  resource
+  """
+  @spec delete_hours_of_operation_override(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          delete_hours_of_operation_override_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_hours_of_operation_override_errors()}
+  def delete_hours_of_operation_override(
+        %Client{} = client,
+        hours_of_operation_id,
+        hours_of_operation_override_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/hours-of-operations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(hours_of_operation_id)}/overrides/#{AWS.Util.encode_uri(hours_of_operation_override_id)}"
 
     headers = []
     custom_headers = []
@@ -15753,6 +16136,31 @@ defmodule AWS.Connect do
       ) do
     url_path =
       "/hours-of-operations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(hours_of_operation_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Describes the hours of operation override.
+  """
+  @spec describe_hours_of_operation_override(map(), String.t(), String.t(), String.t(), list()) ::
+          {:ok, describe_hours_of_operation_override_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_hours_of_operation_override_errors()}
+  def describe_hours_of_operation_override(
+        %Client{} = client,
+        hours_of_operation_id,
+        hours_of_operation_override_id,
+        instance_id,
+        options \\ []
+      ) do
+    url_path =
+      "/hours-of-operations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(hours_of_operation_id)}/overrides/#{AWS.Util.encode_uri(hours_of_operation_override_id)}"
 
     headers = []
     query_params = []
@@ -16880,6 +17288,53 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Get the hours of operations with the effective override applied.
+  """
+  @spec get_effective_hours_of_operations(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          list()
+        ) ::
+          {:ok, get_effective_hours_of_operations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_effective_hours_of_operations_errors()}
+  def get_effective_hours_of_operations(
+        %Client{} = client,
+        hours_of_operation_id,
+        instance_id,
+        from_date,
+        to_date,
+        options \\ []
+      ) do
+    url_path =
+      "/effective-hours-of-operations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(hours_of_operation_id)}"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(to_date) do
+        [{"toDate", to_date} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(from_date) do
+        [{"fromDate", from_date} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Supports SAML sign-in for Amazon Connect.
 
   Retrieves a token for federation. The token is
@@ -17852,6 +18307,53 @@ defmodule AWS.Connect do
       else
         query_params
       end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  List the hours of operation overrides.
+  """
+  @spec list_hours_of_operation_overrides(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_hours_of_operation_overrides_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_hours_of_operation_overrides_errors()}
+  def list_hours_of_operation_overrides(
+        %Client{} = client,
+        hours_of_operation_id,
+        instance_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/hours-of-operations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(hours_of_operation_id)}/overrides"
+
+    headers = []
+    query_params = []
 
     query_params =
       if !is_nil(next_token) do
@@ -19822,6 +20324,38 @@ defmodule AWS.Connect do
           | {:error, search_email_addresses_errors()}
   def search_email_addresses(%Client{} = client, input, options \\ []) do
     url_path = "/search-email-addresses"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Searches the hours of operation overrides.
+  """
+  @spec search_hours_of_operation_overrides(
+          map(),
+          search_hours_of_operation_overrides_request(),
+          list()
+        ) ::
+          {:ok, search_hours_of_operation_overrides_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, search_hours_of_operation_overrides_errors()}
+  def search_hours_of_operation_overrides(%Client{} = client, input, options \\ []) do
+    url_path = "/search-hours-of-operation-overrides"
     headers = []
     custom_headers = []
     query_params = []
@@ -21888,6 +22422,50 @@ defmodule AWS.Connect do
       ) do
     url_path =
       "/hours-of-operations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(hours_of_operation_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Update the hours of operation override.
+  """
+  @spec update_hours_of_operation_override(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          update_hours_of_operation_override_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_hours_of_operation_override_errors()}
+  def update_hours_of_operation_override(
+        %Client{} = client,
+        hours_of_operation_id,
+        hours_of_operation_override_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/hours-of-operations/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(hours_of_operation_id)}/overrides/#{AWS.Util.encode_uri(hours_of_operation_override_id)}"
 
     headers = []
     custom_headers = []

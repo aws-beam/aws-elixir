@@ -565,6 +565,7 @@ defmodule AWS.Glue do
       
       encryption_configuration() :: %{
         "CloudWatchEncryption" => cloud_watch_encryption(),
+        "DataQualityEncryption" => data_quality_encryption(),
         "JobBookmarksEncryption" => job_bookmarks_encryption(),
         "S3Encryption" => list(s3_encryption()())
       }
@@ -7402,6 +7403,18 @@ defmodule AWS.Glue do
       
   """
   @type mongo_db_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_quality_encryption() :: %{
+        "DataQualityEncryptionMode" => list(any()),
+        "KmsKeyArn" => String.t()
+      }
+      
+  """
+  @type data_quality_encryption() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -14971,6 +14984,10 @@ defmodule AWS.Glue do
 
   @doc """
   Creates a new trigger.
+
+  Job arguments may be logged. Do not pass plaintext secrets as arguments.
+  Retrieve secrets from a Glue Connection, Amazon Web Services Secrets Manager or
+  other secret management mechanism if you intend to keep them within the Job.
   """
   @spec create_trigger(map(), create_trigger_request(), list()) ::
           {:ok, create_trigger_response(), any()}
@@ -16141,7 +16158,7 @@ defmodule AWS.Glue do
   @doc """
   Retrieves the metadata for a given job run.
 
-  Job run history is accessible for 90 days for your workflow and job run.
+  Job run history is accessible for 365 days for your workflow and job run.
   """
   @spec get_job_run(map(), get_job_run_request(), list()) ::
           {:ok, get_job_run_response(), any()}
@@ -16155,6 +16172,9 @@ defmodule AWS.Glue do
 
   @doc """
   Retrieves metadata for all runs of a given job definition.
+
+  `GetJobRuns` returns the job runs in chronological order, with the newest jobs
+  returned first.
   """
   @spec get_job_runs(map(), get_job_runs_request(), list()) ::
           {:ok, get_job_runs_response(), any()}
@@ -18248,6 +18268,10 @@ defmodule AWS.Glue do
 
   @doc """
   Updates a trigger definition.
+
+  Job arguments may be logged. Do not pass plaintext secrets as arguments.
+  Retrieve secrets from a Glue Connection, Amazon Web Services Secrets Manager or
+  other secret management mechanism if you intend to keep them within the Job.
   """
   @spec update_trigger(map(), update_trigger_request(), list()) ::
           {:ok, update_trigger_response(), any()}

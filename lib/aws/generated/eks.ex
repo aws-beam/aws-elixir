@@ -245,6 +245,7 @@ defmodule AWS.EKS do
         optional("instanceTypes") => list(String.t()()),
         optional("labels") => map(),
         optional("launchTemplate") => launch_template_specification(),
+        optional("nodeRepairConfig") => node_repair_config(),
         optional("releaseVersion") => String.t(),
         optional("remoteAccess") => remote_access_config(),
         optional("scalingConfig") => nodegroup_scaling_config(),
@@ -312,6 +313,7 @@ defmodule AWS.EKS do
       update_nodegroup_config_request() :: %{
         optional("clientRequestToken") => String.t(),
         optional("labels") => update_labels_payload(),
+        optional("nodeRepairConfig") => node_repair_config(),
         optional("scalingConfig") => nodegroup_scaling_config(),
         optional("taints") => update_taints_payload(),
         optional("updateConfig") => nodegroup_update_config()
@@ -555,6 +557,7 @@ defmodule AWS.EKS do
         "labels" => map(),
         "launchTemplate" => launch_template_specification(),
         "modifiedAt" => non_neg_integer(),
+        "nodeRepairConfig" => node_repair_config(),
         "nodeRole" => String.t(),
         "nodegroupArn" => String.t(),
         "nodegroupName" => String.t(),
@@ -1550,6 +1553,17 @@ defmodule AWS.EKS do
 
   """
   @type list_fargate_profiles_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      node_repair_config() :: %{
+        "enabled" => boolean()
+      }
+
+  """
+  @type node_repair_config() :: %{String.t() => any()}
 
   @typedoc """
 

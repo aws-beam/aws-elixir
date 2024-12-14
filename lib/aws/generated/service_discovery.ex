@@ -136,6 +136,17 @@ defmodule AWS.ServiceDiscovery do
 
   ## Example:
       
+      get_service_attributes_response() :: %{
+        "ServiceAttributes" => service_attributes()
+      }
+      
+  """
+  @type get_service_attributes_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       private_dns_namespace_properties() :: %{
         "DnsProperties" => private_dns_properties_mutable()
       }
@@ -476,6 +487,17 @@ defmodule AWS.ServiceDiscovery do
 
   ## Example:
       
+      get_service_attributes_request() :: %{
+        required("ServiceId") => String.t()
+      }
+      
+  """
+  @type get_service_attributes_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_instance_request() :: %{
         required("InstanceId") => String.t(),
         required("ServiceId") => String.t()
@@ -751,6 +773,18 @@ defmodule AWS.ServiceDiscovery do
 
   ## Example:
       
+      delete_service_attributes_request() :: %{
+        required("Attributes") => list(String.t()()),
+        required("ServiceId") => String.t()
+      }
+      
+  """
+  @type delete_service_attributes_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       discover_instances_revision_request() :: %{
         required("NamespaceName") => String.t(),
         required("ServiceName") => String.t()
@@ -909,6 +943,17 @@ defmodule AWS.ServiceDiscovery do
 
   ## Example:
       
+      service_attributes_limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type service_attributes_limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       namespace_already_exists() :: %{
         "CreatorRequestId" => String.t(),
         "Message" => String.t(),
@@ -965,6 +1010,15 @@ defmodule AWS.ServiceDiscovery do
       
   """
   @type instance() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_service_attributes_response() :: %{}
+      
+  """
+  @type delete_service_attributes_response() :: %{}
 
   @typedoc """
 
@@ -1048,6 +1102,18 @@ defmodule AWS.ServiceDiscovery do
 
   ## Example:
       
+      service_attributes() :: %{
+        "Attributes" => map(),
+        "ServiceArn" => String.t()
+      }
+      
+  """
+  @type service_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       instance_summary() :: %{
         "Attributes" => map(),
         "Id" => String.t()
@@ -1113,6 +1179,15 @@ defmodule AWS.ServiceDiscovery do
       
   """
   @type update_private_dns_namespace_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_service_attributes_response() :: %{}
+      
+  """
+  @type update_service_attributes_response() :: %{}
 
   @typedoc """
 
@@ -1263,6 +1338,18 @@ defmodule AWS.ServiceDiscovery do
 
   ## Example:
       
+      update_service_attributes_request() :: %{
+        required("Attributes") => map(),
+        required("ServiceId") => String.t()
+      }
+      
+  """
+  @type update_service_attributes_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_namespace_request() :: %{
         required("Id") => String.t()
       }
@@ -1303,6 +1390,8 @@ defmodule AWS.ServiceDiscovery do
 
   @type delete_service_errors() :: service_not_found() | resource_in_use() | invalid_input()
 
+  @type delete_service_attributes_errors() :: service_not_found() | invalid_input()
+
   @type deregister_instance_errors() ::
           instance_not_found()
           | service_not_found()
@@ -1326,6 +1415,8 @@ defmodule AWS.ServiceDiscovery do
   @type get_operation_errors() :: operation_not_found() | invalid_input()
 
   @type get_service_errors() :: service_not_found() | invalid_input()
+
+  @type get_service_attributes_errors() :: service_not_found() | invalid_input()
 
   @type list_instances_errors() :: service_not_found() | invalid_input()
 
@@ -1362,6 +1453,9 @@ defmodule AWS.ServiceDiscovery do
           namespace_not_found() | duplicate_request() | resource_in_use() | invalid_input()
 
   @type update_service_errors() :: service_not_found() | duplicate_request() | invalid_input()
+
+  @type update_service_attributes_errors() ::
+          service_attributes_limit_exceeded_exception() | service_not_found() | invalid_input()
 
   def metadata do
     %{
@@ -1526,7 +1620,7 @@ defmodule AWS.ServiceDiscovery do
   end
 
   @doc """
-  Deletes a specified service.
+  Deletes a specified service and all associated service attributes.
 
   If the service still contains one or more registered instances, the request
   fails.
@@ -1539,6 +1633,19 @@ defmodule AWS.ServiceDiscovery do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteService", input, options)
+  end
+
+  @doc """
+  Deletes specific attributes associated with a service.
+  """
+  @spec delete_service_attributes(map(), delete_service_attributes_request(), list()) ::
+          {:ok, delete_service_attributes_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_service_attributes_errors()}
+  def delete_service_attributes(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteServiceAttributes", input, options)
   end
 
   @doc """
@@ -1663,6 +1770,19 @@ defmodule AWS.ServiceDiscovery do
     meta = metadata()
 
     Request.request_post(client, meta, "GetService", input, options)
+  end
+
+  @doc """
+  Returns the attributes associated with a specified service.
+  """
+  @spec get_service_attributes(map(), get_service_attributes_request(), list()) ::
+          {:ok, get_service_attributes_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_service_attributes_errors()}
+  def get_service_attributes(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetServiceAttributes", input, options)
   end
 
   @doc """
@@ -1923,5 +2043,18 @@ defmodule AWS.ServiceDiscovery do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateService", input, options)
+  end
+
+  @doc """
+  Submits a request to update a specified service to add service-level attributes.
+  """
+  @spec update_service_attributes(map(), update_service_attributes_request(), list()) ::
+          {:ok, update_service_attributes_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_service_attributes_errors()}
+  def update_service_attributes(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateServiceAttributes", input, options)
   end
 end

@@ -9178,6 +9178,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      delete_security_group_result() :: %{
+        "GroupId" => String.t(),
+        "Return" => boolean()
+      }
+      
+  """
+  @type delete_security_group_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       modify_instance_network_performance_result() :: %{
         "BandwidthWeighting" => list(any()),
         "InstanceId" => String.t()
@@ -32894,7 +32906,7 @@ defmodule AWS.EC2 do
   `DependencyViolation`.
   """
   @spec delete_security_group(map(), delete_security_group_request(), list()) ::
-          {:ok, nil, any()}
+          {:ok, delete_security_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
   def delete_security_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -42860,9 +42872,9 @@ defmodule AWS.EC2 do
 
     *
   An S3 bucket must be available before generating the report (you can create a
-  new one or use an existing one), and it must have an appropriate bucket policy.
-  For a sample S3 policy, see *Sample Amazon S3 policy* under
-  .
+  new one or use an existing one), it must be in the same Region where the report
+  generation request is made, and it must have an appropriate bucket policy. For a
+  sample S3 policy, see *Sample Amazon S3 policy* under .
 
     *
   Trusted access must be enabled for the service for which the declarative

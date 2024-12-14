@@ -185,6 +185,17 @@ defmodule AWS.CloudHSMV2 do
 
   ## Example:
       
+      cloud_hsm_resource_limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type cloud_hsm_resource_limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       modify_cluster_response() :: %{
         "Cluster" => cluster()
       }
@@ -224,6 +235,7 @@ defmodule AWS.CloudHSMV2 do
       create_cluster_request() :: %{
         optional("BackupRetentionPolicy") => backup_retention_policy(),
         optional("Mode") => list(any()),
+        optional("NetworkType") => list(any()),
         optional("SourceBackupId") => String.t(),
         optional("TagList") => list(tag()()),
         required("HsmType") => String.t(),
@@ -273,6 +285,7 @@ defmodule AWS.CloudHSMV2 do
         "HsmType" => String.t(),
         "Hsms" => list(hsm()()),
         "Mode" => list(any()),
+        "NetworkType" => list(any()),
         "PreCoPassword" => String.t(),
         "SecurityGroup" => String.t(),
         "SourceBackupId" => String.t(),
@@ -447,6 +460,7 @@ defmodule AWS.CloudHSMV2 do
         "ClusterId" => String.t(),
         "EniId" => String.t(),
         "EniIp" => String.t(),
+        "EniIpV6" => String.t(),
         "HsmId" => String.t(),
         "State" => list(any()),
         "StateMessage" => String.t(),
@@ -744,6 +758,7 @@ defmodule AWS.CloudHSMV2 do
           | cloud_hsm_service_exception()
           | cloud_hsm_invalid_request_exception()
           | cloud_hsm_internal_failure_exception()
+          | cloud_hsm_resource_limit_exceeded_exception()
           | cloud_hsm_access_denied_exception()
           | cloud_hsm_resource_not_found_exception()
 

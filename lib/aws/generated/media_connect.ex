@@ -1118,6 +1118,7 @@ defmodule AWS.MediaConnect do
 
       add_bridge_network_source_request() :: %{
         "MulticastIp" => String.t(),
+        "MulticastSourceSettings" => multicast_source_settings(),
         "Name" => String.t(),
         "NetworkName" => String.t(),
         "Port" => integer(),
@@ -1135,6 +1136,17 @@ defmodule AWS.MediaConnect do
 
   """
   @type describe_flow_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      multicast_source_settings() :: %{
+        "MulticastSourceIp" => String.t()
+      }
+
+  """
+  @type multicast_source_settings() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1435,6 +1447,7 @@ defmodule AWS.MediaConnect do
 
       bridge_network_source() :: %{
         "MulticastIp" => String.t(),
+        "MulticastSourceSettings" => multicast_source_settings(),
         "Name" => String.t(),
         "NetworkName" => String.t(),
         "Port" => integer(),
@@ -1647,6 +1660,7 @@ defmodule AWS.MediaConnect do
 
       update_bridge_network_source_request() :: %{
         "MulticastIp" => String.t(),
+        "MulticastSourceSettings" => multicast_source_settings(),
         "NetworkName" => String.t(),
         "Port" => integer(),
         "Protocol" => list(any())

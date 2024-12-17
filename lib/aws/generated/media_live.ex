@@ -5498,7 +5498,11 @@ defmodule AWS.MediaLive do
 
       cmaf_ingest_group_settings() :: %{
         "Destination" => output_location_ref(),
+        "KlvBehavior" => list(any()),
+        "KlvNameModifier" => String.t(),
         "NielsenId3Behavior" => list(any()),
+        "NielsenId3NameModifier" => String.t(),
+        "Scte35NameModifier" => String.t(),
         "Scte35Type" => list(any()),
         "SegmentLength" => integer(),
         "SegmentLengthUnits" => list(any()),
@@ -7184,7 +7188,9 @@ defmodule AWS.MediaLive do
   ## Example:
 
       media_package_output_destination_settings() :: %{
-        "ChannelId" => String.t()
+        "ChannelGroup" => String.t(),
+        "ChannelId" => String.t(),
+        "ChannelName" => String.t()
       }
 
   """

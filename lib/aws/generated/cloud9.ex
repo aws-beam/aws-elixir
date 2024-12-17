@@ -11,6 +11,10 @@ defmodule AWS.Cloud9 do
 
   For more information about Cloud9, see the [Cloud9 User Guide](https://docs.aws.amazon.com/cloud9/latest/user-guide).
 
+  Cloud9 is no longer available to new customers. Existing customers of
+  Cloud9 can continue to use the service as normal.
+  [Learn more"](http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
+
   Cloud9 supports these operations:
 
     *
@@ -669,6 +673,10 @@ defmodule AWS.Cloud9 do
   Creates an Cloud9 development environment, launches an Amazon Elastic Compute
   Cloud (Amazon EC2) instance, and
   then connects from the instance to the environment.
+
+  Cloud9 is no longer available to new customers. Existing customers of
+  Cloud9 can continue to use the service as normal.
+  [Learn more"](http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
   """
   @spec create_environment_ec2(map(), create_environment_ec2_request(), list()) ::
           {:ok, create_environment_ec2_result(), any()}
@@ -682,6 +690,10 @@ defmodule AWS.Cloud9 do
 
   @doc """
   Adds an environment member to an Cloud9 development environment.
+
+  Cloud9 is no longer available to new customers. Existing customers of
+  Cloud9 can continue to use the service as normal.
+  [Learn more"](http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
   """
   @spec create_environment_membership(map(), create_environment_membership_request(), list()) ::
           {:ok, create_environment_membership_result(), any()}
@@ -698,6 +710,10 @@ defmodule AWS.Cloud9 do
 
   If an Amazon EC2 instance is connected to the
   environment, also terminates the instance.
+
+  Cloud9 is no longer available to new customers. Existing customers of
+  Cloud9 can continue to use the service as normal.
+  [Learn more"](http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
   """
   @spec delete_environment(map(), delete_environment_request(), list()) ::
           {:ok, delete_environment_result(), any()}
@@ -711,6 +727,10 @@ defmodule AWS.Cloud9 do
 
   @doc """
   Deletes an environment member from a development environment.
+
+  Cloud9 is no longer available to new customers. Existing customers of
+  Cloud9 can continue to use the service as normal.
+  [Learn more"](http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
   """
   @spec delete_environment_membership(map(), delete_environment_membership_request(), list()) ::
           {:ok, delete_environment_membership_result(), any()}
@@ -725,6 +745,10 @@ defmodule AWS.Cloud9 do
   @doc """
   Gets information about environment members for an Cloud9 development
   environment.
+
+  Cloud9 is no longer available to new customers. Existing customers of
+  Cloud9 can continue to use the service as normal.
+  [Learn more"](http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
   """
   @spec describe_environment_memberships(
           map(),
@@ -742,6 +766,10 @@ defmodule AWS.Cloud9 do
 
   @doc """
   Gets status information for an Cloud9 development environment.
+
+  Cloud9 is no longer available to new customers. Existing customers of
+  Cloud9 can continue to use the service as normal.
+  [Learn more"](http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
   """
   @spec describe_environment_status(map(), describe_environment_status_request(), list()) ::
           {:ok, describe_environment_status_result(), any()}
@@ -755,6 +783,10 @@ defmodule AWS.Cloud9 do
 
   @doc """
   Gets information about Cloud9 development environments.
+
+  Cloud9 is no longer available to new customers. Existing customers of
+  Cloud9 can continue to use the service as normal.
+  [Learn more"](http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
   """
   @spec describe_environments(map(), describe_environments_request(), list()) ::
           {:ok, describe_environments_result(), any()}
@@ -768,6 +800,14 @@ defmodule AWS.Cloud9 do
 
   @doc """
   Gets a list of Cloud9 development environment identifiers.
+
+  Cloud9 is no longer available to new customers. Existing customers of
+  Cloud9 can continue to use the service as normal.
+  [Learn more"](http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
+
+  Cloud9 is no longer available to new customers. Existing customers of
+  Cloud9 can continue to use the service as normal.
+  [Learn more"](http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
   """
   @spec list_environments(map(), list_environments_request(), list()) ::
           {:ok, list_environments_result(), any()}
@@ -781,6 +821,10 @@ defmodule AWS.Cloud9 do
 
   @doc """
   Gets a list of the tags associated with an Cloud9 development environment.
+
+  Cloud9 is no longer available to new customers. Existing customers of
+  Cloud9 can continue to use the service as normal.
+  [Learn more"](http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
   """
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -794,6 +838,10 @@ defmodule AWS.Cloud9 do
 
   @doc """
   Adds tags to an Cloud9 development environment.
+
+  Cloud9 is no longer available to new customers. Existing customers of
+  Cloud9 can continue to use the service as normal.
+  [Learn more"](http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
 
   Tags that you add to an Cloud9 environment by using this method will NOT be
   automatically propagated to underlying resources.
@@ -810,6 +858,10 @@ defmodule AWS.Cloud9 do
 
   @doc """
   Removes tags from an Cloud9 development environment.
+
+  Cloud9 is no longer available to new customers. Existing customers of
+  Cloud9 can continue to use the service as normal.
+  [Learn more"](http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
   """
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
@@ -823,6 +875,10 @@ defmodule AWS.Cloud9 do
 
   @doc """
   Changes the settings of an existing Cloud9 development environment.
+
+  Cloud9 is no longer available to new customers. Existing customers of
+  Cloud9 can continue to use the service as normal.
+  [Learn more"](http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
   """
   @spec update_environment(map(), update_environment_request(), list()) ::
           {:ok, update_environment_result(), any()}
@@ -837,6 +893,10 @@ defmodule AWS.Cloud9 do
   @doc """
   Changes the settings of an existing environment member for an Cloud9 development
   environment.
+
+  Cloud9 is no longer available to new customers. Existing customers of
+  Cloud9 can continue to use the service as normal.
+  [Learn more"](http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
   """
   @spec update_environment_membership(map(), update_environment_membership_request(), list()) ::
           {:ok, update_environment_membership_result(), any()}

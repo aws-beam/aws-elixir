@@ -236,6 +236,7 @@ defmodule AWS.GreengrassV2 do
       list_core_devices_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
+        optional("runtime") => String.t(),
         optional("status") => list(any()),
         optional("thingGroupArn") => String.t()
       }
@@ -285,6 +286,7 @@ defmodule AWS.GreengrassV2 do
         "coreVersion" => String.t(),
         "lastStatusUpdateTimestamp" => non_neg_integer(),
         "platform" => String.t(),
+        "runtime" => String.t(),
         "status" => list(any()),
         "tags" => map()
       }
@@ -388,8 +390,11 @@ defmodule AWS.GreengrassV2 do
   ## Example:
 
       core_device() :: %{
+        "architecture" => String.t(),
         "coreDeviceThingName" => String.t(),
         "lastStatusUpdateTimestamp" => non_neg_integer(),
+        "platform" => String.t(),
+        "runtime" => String.t(),
         "status" => list(any())
       }
 
@@ -2335,8 +2340,16 @@ defmodule AWS.GreengrassV2 do
   When the core device receives a deployment from the Amazon Web Services Cloud
 
     
-  When the status of any component on the core device becomes
-  `BROKEN`
+  For Greengrass nucleus 2.12.2 and earlier, the core device sends status updates
+  when the
+  status of any component on the core device becomes `ERRORED` or
+  `BROKEN`.
+
+    
+  For Greengrass nucleus 2.12.3 and later, the core device sends status updates
+  when the
+  status of any component on the core device becomes `ERRORED`,
+  `BROKEN`, `RUNNING`, or `FINISHED`.
 
     
   At a [regular interval that you can configure](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html#greengrass-nucleus-component-configuration-fss),
@@ -2353,6 +2366,7 @@ defmodule AWS.GreengrassV2 do
           String.t() | nil,
           String.t() | nil,
           String.t() | nil,
+          String.t() | nil,
           list()
         ) ::
           {:ok, list_core_devices_response(), any()}
@@ -2362,6 +2376,7 @@ defmodule AWS.GreengrassV2 do
         %Client{} = client,
         max_results \\ nil,
         next_token \\ nil,
+        runtime \\ nil,
         status \\ nil,
         thing_group_arn \\ nil,
         options \\ []
@@ -2380,6 +2395,13 @@ defmodule AWS.GreengrassV2 do
     query_params =
       if !is_nil(status) do
         [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(runtime) do
+        [{"runtime", runtime} | query_params]
       else
         query_params
       end

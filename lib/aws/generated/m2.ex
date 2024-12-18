@@ -284,6 +284,7 @@ defmodule AWS.M2 do
         "environmentId" => String.t(),
         "instanceType" => String.t(),
         "name" => String.t(),
+        "networkType" => String.t(),
         "status" => String.t()
       }
 
@@ -405,6 +406,7 @@ defmodule AWS.M2 do
         optional("highAvailabilityConfig") => high_availability_config(),
         optional("kmsKeyId") => [String.t()],
         optional("loadBalancerArn") => [String.t()],
+        optional("networkType") => String.t(),
         optional("pendingMaintenance") => pending_maintenance(),
         optional("preferredMaintenanceWindow") => String.t(),
         optional("publiclyAccessible") => boolean(),
@@ -1266,6 +1268,7 @@ defmodule AWS.M2 do
         optional("engineVersion") => String.t(),
         optional("highAvailabilityConfig") => high_availability_config(),
         optional("kmsKeyId") => [String.t()],
+        optional("networkType") => String.t(),
         optional("preferredMaintenanceWindow") => String.t(),
         optional("publiclyAccessible") => boolean(),
         optional("securityGroupIds") => list(String.t()()),

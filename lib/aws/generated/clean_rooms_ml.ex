@@ -2013,6 +2013,7 @@ defmodule AWS.CleanRoomsML do
       audience_generation_job_data_source() :: %{
         "dataSource" => s3_config_map(),
         "roleArn" => String.t(),
+        "sqlComputeConfiguration" => list(),
         "sqlParameters" => protected_query_s_q_l_parameters()
       }
 

@@ -2034,6 +2034,7 @@ defmodule AWS.ECS do
         "containerDefinitions" => list(container_definition()()),
         "cpu" => String.t(),
         "deregisteredAt" => non_neg_integer(),
+        "enableFaultInjection" => boolean(),
         "ephemeralStorage" => ephemeral_storage(),
         "executionRoleArn" => String.t(),
         "family" => String.t(),
@@ -2493,6 +2494,7 @@ defmodule AWS.ECS do
       
       register_task_definition_request() :: %{
         optional("cpu") => String.t(),
+        optional("enableFaultInjection") => boolean(),
         optional("ephemeralStorage") => ephemeral_storage(),
         optional("executionRoleArn") => String.t(),
         optional("inferenceAccelerators") => list(inference_accelerator()()),

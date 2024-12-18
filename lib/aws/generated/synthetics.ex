@@ -469,6 +469,7 @@ defmodule AWS.Synthetics do
   ## Example:
 
       vpc_config_output() :: %{
+        "Ipv6AllowedForDualStack" => boolean(),
         "SecurityGroupIds" => list(String.t()()),
         "SubnetIds" => list(String.t()()),
         "VpcId" => String.t()
@@ -702,6 +703,7 @@ defmodule AWS.Synthetics do
   ## Example:
 
       vpc_config_input() :: %{
+        "Ipv6AllowedForDualStack" => boolean(),
         "SecurityGroupIds" => list(String.t()()),
         "SubnetIds" => list(String.t()())
       }

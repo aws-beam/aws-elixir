@@ -83,7 +83,9 @@ defmodule AWS.Batch do
   ## Example:
 
       eks_metadata() :: %{
-        "labels" => map()
+        "annotations" => map(),
+        "labels" => map(),
+        "namespace" => String.t()
       }
 
   """
@@ -990,6 +992,7 @@ defmodule AWS.Batch do
         "emptyDir" => eks_empty_dir(),
         "hostPath" => eks_host_path(),
         "name" => String.t(),
+        "persistentVolumeClaim" => eks_persistent_volume_claim(),
         "secret" => eks_secret()
       }
 
@@ -1432,6 +1435,18 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      eks_persistent_volume_claim() :: %{
+        "claimName" => String.t(),
+        "readOnly" => boolean()
+      }
+
+  """
+  @type eks_persistent_volume_claim() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_jobs_response() :: %{
         "jobs" => list(job_detail()())
       }
@@ -1565,7 +1580,8 @@ defmodule AWS.Batch do
       eks_container_volume_mount() :: %{
         "mountPath" => String.t(),
         "name" => String.t(),
-        "readOnly" => boolean()
+        "readOnly" => boolean(),
+        "subPath" => String.t()
       }
 
   """
@@ -2261,11 +2277,10 @@ defmodule AWS.Batch do
 
     
   Set the update to latest image version (`updateToLatestImageVersion`)
-  parameter to
-  `true`.
-  The `updateToLatestImageVersion` parameter is used when you update a compute
-  environment. This parameter is ignored when you create a compute
-  environment.
+  parameter to `true`. The `updateToLatestImageVersion` parameter
+  is used when you update a compute environment. This parameter is ignored when
+  you create
+  a compute environment.
 
     
   Don't specify an AMI ID in `imageId`, `imageIdOverride` (in

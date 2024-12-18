@@ -78,6 +78,23 @@ defmodule AWS.Backup do
 
   ## Example:
 
+      list_indexed_recovery_points_input() :: %{
+        optional("CreatedAfter") => non_neg_integer(),
+        optional("CreatedBefore") => non_neg_integer(),
+        optional("IndexStatus") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("ResourceType") => String.t(),
+        optional("SourceResourceArn") => String.t()
+      }
+
+  """
+  @type list_indexed_recovery_points_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_backup_plan_output() :: %{
         "BackupPlanArn" => String.t(),
         "BackupPlanId" => String.t(),
@@ -194,6 +211,7 @@ defmodule AWS.Backup do
         optional("BackupOptions") => map(),
         optional("CompleteWindowMinutes") => float(),
         optional("IdempotencyToken") => String.t(),
+        optional("Index") => list(any()),
         optional("Lifecycle") => lifecycle(),
         optional("RecoveryPointTags") => map(),
         optional("StartWindowMinutes") => float(),
@@ -354,6 +372,8 @@ defmodule AWS.Backup do
         "CreationDate" => non_neg_integer(),
         "EncryptionKeyArn" => String.t(),
         "IamRoleArn" => String.t(),
+        "IndexStatus" => list(any()),
+        "IndexStatusMessage" => String.t(),
         "IsEncrypted" => boolean(),
         "IsParent" => boolean(),
         "LastRestoreTime" => non_neg_integer(),
@@ -782,6 +802,20 @@ defmodule AWS.Backup do
 
   ## Example:
 
+      update_recovery_point_index_settings_output() :: %{
+        "BackupVaultName" => String.t(),
+        "Index" => list(any()),
+        "IndexStatus" => list(any()),
+        "RecoveryPointArn" => String.t()
+      }
+
+  """
+  @type update_recovery_point_index_settings_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_backup_vault_output() :: %{
         "BackupVaultArn" => String.t(),
         "BackupVaultName" => String.t(),
@@ -930,6 +964,18 @@ defmodule AWS.Backup do
 
   ## Example:
 
+      update_recovery_point_index_settings_input() :: %{
+        optional("IamRoleArn") => String.t(),
+        required("Index") => list(any())
+      }
+
+  """
+  @type update_recovery_point_index_settings_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       export_backup_plan_template_output() :: %{
         "BackupPlanTemplateJson" => String.t()
       }
@@ -999,6 +1045,15 @@ defmodule AWS.Backup do
 
   """
   @type list_legal_holds_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recovery_point_index_details_input() :: %{}
+
+  """
+  @type get_recovery_point_index_details_input() :: %{}
 
   @typedoc """
 
@@ -1679,6 +1734,18 @@ defmodule AWS.Backup do
 
   ## Example:
 
+      list_indexed_recovery_points_output() :: %{
+        "IndexedRecoveryPoints" => list(indexed_recovery_point()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_indexed_recovery_points_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       report_delivery_channel() :: %{
         "Formats" => list(String.t()()),
         "S3BucketName" => String.t(),
@@ -1786,6 +1853,25 @@ defmodule AWS.Backup do
 
   ## Example:
 
+      indexed_recovery_point() :: %{
+        "BackupCreationDate" => non_neg_integer(),
+        "BackupVaultArn" => String.t(),
+        "IamRoleArn" => String.t(),
+        "IndexCreationDate" => non_neg_integer(),
+        "IndexStatus" => list(any()),
+        "IndexStatusMessage" => String.t(),
+        "RecoveryPointArn" => String.t(),
+        "ResourceType" => String.t(),
+        "SourceResourceArn" => String.t()
+      }
+
+  """
+  @type indexed_recovery_point() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_restore_jobs_input() :: %{
         optional("ByAccountId") => String.t(),
         optional("ByCompleteAfter") => non_neg_integer(),
@@ -1835,6 +1921,8 @@ defmodule AWS.Backup do
         "BackupVaultName" => String.t(),
         "CreationDate" => non_neg_integer(),
         "EncryptionKeyArn" => String.t(),
+        "IndexStatus" => list(any()),
+        "IndexStatusMessage" => String.t(),
         "IsParent" => boolean(),
         "ParentRecoveryPointArn" => String.t(),
         "RecoveryPointArn" => String.t(),
@@ -1846,6 +1934,25 @@ defmodule AWS.Backup do
 
   """
   @type recovery_point_by_resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recovery_point_index_details_output() :: %{
+        "BackupVaultArn" => String.t(),
+        "IndexCompletionDate" => non_neg_integer(),
+        "IndexCreationDate" => non_neg_integer(),
+        "IndexDeletionDate" => non_neg_integer(),
+        "IndexStatus" => list(any()),
+        "IndexStatusMessage" => String.t(),
+        "RecoveryPointArn" => String.t(),
+        "SourceResourceArn" => String.t(),
+        "TotalItemsIndexed" => float()
+      }
+
+  """
+  @type get_recovery_point_index_details_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2004,6 +2111,7 @@ defmodule AWS.Backup do
         "CompletionWindowMinutes" => float(),
         "CopyActions" => list(copy_action()()),
         "EnableContinuousBackup" => boolean(),
+        "IndexActions" => list(index_action()()),
         "Lifecycle" => lifecycle(),
         "RecoveryPointTags" => map(),
         "RuleId" => String.t(),
@@ -2406,6 +2514,7 @@ defmodule AWS.Backup do
         "CompletionWindowMinutes" => float(),
         "CopyActions" => list(copy_action()()),
         "EnableContinuousBackup" => boolean(),
+        "IndexActions" => list(index_action()()),
         "Lifecycle" => lifecycle(),
         "RecoveryPointTags" => map(),
         "RuleName" => String.t(),
@@ -2758,6 +2867,8 @@ defmodule AWS.Backup do
         "CreationDate" => non_neg_integer(),
         "EncryptionKeyArn" => String.t(),
         "IamRoleArn" => String.t(),
+        "IndexStatus" => list(any()),
+        "IndexStatusMessage" => String.t(),
         "IsEncrypted" => boolean(),
         "IsParent" => boolean(),
         "LastRestoreTime" => non_neg_integer(),
@@ -2889,6 +3000,17 @@ defmodule AWS.Backup do
 
   """
   @type delete_backup_vault_lock_configuration_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      index_action() :: %{
+        "ResourceTypes" => list(String.t()())
+      }
+
+  """
+  @type index_action() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3306,6 +3428,12 @@ defmodule AWS.Backup do
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
+  @type get_recovery_point_index_details_errors() ::
+          service_unavailable_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | missing_parameter_value_exception()
+
   @type get_recovery_point_restore_metadata_errors() ::
           service_unavailable_exception()
           | invalid_parameter_value_exception()
@@ -3376,6 +3504,11 @@ defmodule AWS.Backup do
 
   @type list_frameworks_errors() ::
           service_unavailable_exception() | invalid_parameter_value_exception()
+
+  @type list_indexed_recovery_points_errors() ::
+          service_unavailable_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
 
   @type list_legal_holds_errors() ::
           service_unavailable_exception() | invalid_parameter_value_exception()
@@ -3536,6 +3669,13 @@ defmodule AWS.Backup do
           service_unavailable_exception()
           | invalid_parameter_value_exception()
           | invalid_request_exception()
+          | missing_parameter_value_exception()
+
+  @type update_recovery_point_index_settings_errors() ::
+          service_unavailable_exception()
+          | invalid_parameter_value_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
           | missing_parameter_value_exception()
 
   @type update_recovery_point_lifecycle_errors() ::
@@ -4907,6 +5047,31 @@ defmodule AWS.Backup do
   end
 
   @doc """
+  This operation returns the metadata and details specific to
+  the backup index associated with the specified recovery point.
+  """
+  @spec get_recovery_point_index_details(map(), String.t(), String.t(), list()) ::
+          {:ok, get_recovery_point_index_details_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_recovery_point_index_details_errors()}
+  def get_recovery_point_index_details(
+        %Client{} = client,
+        backup_vault_name,
+        recovery_point_arn,
+        options \\ []
+      ) do
+    url_path =
+      "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/recovery-points/#{AWS.Util.encode_uri(recovery_point_arn)}/index"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns a set of metadata key-value pairs that were used to create the backup.
   """
   @spec get_recovery_point_restore_metadata(
@@ -5796,6 +5961,97 @@ defmodule AWS.Backup do
     query_params =
       if !is_nil(max_results) do
         [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  This operation returns a list of recovery points that have an
+  associated index, belonging to the specified account.
+
+  Optional parameters you can include are: MaxResults;
+  NextToken; SourceResourceArns; CreatedBefore; CreatedAfter;
+  and ResourceType.
+  """
+  @spec list_indexed_recovery_points(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_indexed_recovery_points_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_indexed_recovery_points_errors()}
+  def list_indexed_recovery_points(
+        %Client{} = client,
+        created_after \\ nil,
+        created_before \\ nil,
+        index_status \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        resource_type \\ nil,
+        source_resource_arn \\ nil,
+        options \\ []
+      ) do
+    url_path = "/indexes/recovery-point"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(source_resource_arn) do
+        [{"sourceResourceArn", source_resource_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resource_type) do
+        [{"resourceType", resource_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(index_status) do
+        [{"indexStatus", index_status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(created_before) do
+        [{"createdBefore", created_before} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(created_after) do
+        [{"createdAfter", created_after} | query_params]
       else
         query_params
       end
@@ -7115,6 +7371,50 @@ defmodule AWS.Backup do
       client,
       meta,
       :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  This operation updates the settings of a recovery point index.
+
+  Required: BackupVaultName, RecoveryPointArn, and IAMRoleArn
+  """
+  @spec update_recovery_point_index_settings(
+          map(),
+          String.t(),
+          String.t(),
+          update_recovery_point_index_settings_input(),
+          list()
+        ) ::
+          {:ok, update_recovery_point_index_settings_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_recovery_point_index_settings_errors()}
+  def update_recovery_point_index_settings(
+        %Client{} = client,
+        backup_vault_name,
+        recovery_point_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/recovery-points/#{AWS.Util.encode_uri(recovery_point_arn)}/index"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,

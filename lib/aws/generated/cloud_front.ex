@@ -2868,6 +2868,8 @@ defmodule AWS.CloudFront do
   ## Example:
 
       vpc_origin_config() :: %{
+        "OriginKeepaliveTimeout" => integer(),
+        "OriginReadTimeout" => integer(),
         "VpcOriginId" => String.t()
       }
 

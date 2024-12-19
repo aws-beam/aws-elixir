@@ -1870,6 +1870,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      unique_key() :: %{
+        "ColumnNames" => list(String.t()())
+      }
+
+  """
+  @type unique_key() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       gauge_chart_configuration() :: %{
         "ColorConfiguration" => gauge_chart_color_configuration(),
         "DataLabels" => data_label_options(),
@@ -2385,6 +2396,7 @@ defmodule AWS.QuickSight do
         "LogicalTableMap" => map(),
         "Name" => String.t(),
         "OutputColumns" => list(output_column()()),
+        "PerformanceConfiguration" => performance_configuration(),
         "PhysicalTableMap" => map(),
         "RowLevelPermissionDataSet" => row_level_permission_data_set(),
         "RowLevelPermissionTagConfiguration" => row_level_permission_tag_configuration()
@@ -6939,6 +6951,7 @@ defmodule AWS.QuickSight do
         optional("FieldFolders") => map(),
         optional("FolderArns") => list(String.t()()),
         optional("LogicalTableMap") => map(),
+        optional("PerformanceConfiguration") => performance_configuration(),
         optional("Permissions") => list(resource_permission()()),
         optional("RowLevelPermissionDataSet") => row_level_permission_data_set(),
         optional("RowLevelPermissionTagConfiguration") => row_level_permission_tag_configuration(),
@@ -16910,6 +16923,7 @@ defmodule AWS.QuickSight do
         optional("DatasetParameters") => list(dataset_parameter()()),
         optional("FieldFolders") => map(),
         optional("LogicalTableMap") => map(),
+        optional("PerformanceConfiguration") => performance_configuration(),
         optional("RowLevelPermissionDataSet") => row_level_permission_data_set(),
         optional("RowLevelPermissionTagConfiguration") => row_level_permission_tag_configuration(),
         required("ImportMode") => list(any()),
@@ -17257,6 +17271,17 @@ defmodule AWS.QuickSight do
 
   """
   @type update_public_sharing_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      performance_configuration() :: %{
+        "UniqueKeys" => list(unique_key()())
+      }
+
+  """
+  @type performance_configuration() :: %{String.t() => any()}
 
   @typedoc """
 

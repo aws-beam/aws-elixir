@@ -430,6 +430,18 @@ defmodule AWS.Resiliencehub do
 
   ## Example:
 
+      alarm() :: %{
+        "alarmArn" => String.t(),
+        "source" => String.t()
+      }
+
+  """
+  @type alarm() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       config_recommendation() :: %{
         "appComponentName" => String.t(),
         "compliance" => map(),
@@ -679,6 +691,7 @@ defmodule AWS.Resiliencehub do
   ## Example:
 
       update_recommendation_status_request_entry() :: %{
+        "appComponentId" => String.t(),
         "entryId" => String.t(),
         "excludeReason" => list(any()),
         "excluded" => boolean(),
@@ -811,8 +824,10 @@ defmodule AWS.Resiliencehub do
 
       recommendation_item() :: %{
         "alreadyImplemented" => boolean(),
+        "discoveredAlarm" => alarm(),
         "excludeReason" => list(any()),
         "excluded" => boolean(),
+        "latestDiscoveredExperiment" => experiment(),
         "resourceId" => String.t(),
         "targetAccountId" => String.t(),
         "targetRegion" => String.t()
@@ -1176,6 +1191,7 @@ defmodule AWS.Resiliencehub do
   ## Example:
 
       batch_update_recommendation_status_successful_entry() :: %{
+        "appComponentId" => String.t(),
         "entryId" => String.t(),
         "excludeReason" => list(any()),
         "excluded" => boolean(),
@@ -1935,6 +1951,7 @@ defmodule AWS.Resiliencehub do
   ## Example:
 
       test_recommendation() :: %{
+        "appComponentId" => String.t(),
         "appComponentName" => String.t(),
         "dependsOnAlarms" => list(String.t()()),
         "description" => String.t(),
@@ -2212,6 +2229,18 @@ defmodule AWS.Resiliencehub do
 
   """
   @type physical_resource_id() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      experiment() :: %{
+        "experimentArn" => String.t(),
+        "experimentTemplateId" => String.t()
+      }
+
+  """
+  @type experiment() :: %{String.t() => any()}
 
   @typedoc """
 

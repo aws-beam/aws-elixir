@@ -188,6 +188,19 @@ defmodule AWS.DataSync do
 
   ## Example:
       
+      update_location_fsx_ontap_request() :: %{
+        optional("Protocol") => fsx_update_protocol(),
+        optional("Subdirectory") => String.t(),
+        required("LocationArn") => String.t()
+      }
+      
+  """
+  @type update_location_fsx_ontap_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_location_fsx_lustre_response() :: %{
         "LocationArn" => String.t()
       }
@@ -217,6 +230,18 @@ defmodule AWS.DataSync do
       
   """
   @type nfs_mount_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      fsx_update_protocol() :: %{
+        "NFS" => fsx_protocol_nfs(),
+        "SMB" => fsx_update_protocol_smb()
+      }
+      
+  """
+  @type fsx_update_protocol() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -856,6 +881,15 @@ defmodule AWS.DataSync do
 
   ## Example:
       
+      update_location_fsx_lustre_response() :: %{}
+      
+  """
+  @type update_location_fsx_lustre_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_storage_system_resource_metrics_request() :: %{
         optional("EndTime") => non_neg_integer(),
         optional("MaxResults") => integer(),
@@ -975,10 +1009,33 @@ defmodule AWS.DataSync do
 
   ## Example:
       
+      update_location_efs_response() :: %{}
+      
+  """
+  @type update_location_efs_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       update_agent_response() :: %{}
       
   """
   @type update_agent_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      fsx_update_protocol_smb() :: %{
+        "Domain" => String.t(),
+        "MountOptions" => smb_mount_options(),
+        "Password" => String.t(),
+        "User" => String.t()
+      }
+      
+  """
+  @type fsx_update_protocol_smb() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1211,6 +1268,15 @@ defmodule AWS.DataSync do
       
   """
   @type task_execution_list_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_location_fsx_open_zfs_response() :: %{}
+      
+  """
+  @type update_location_fsx_open_zfs_response() :: %{}
 
   @typedoc """
 
@@ -1521,6 +1587,15 @@ defmodule AWS.DataSync do
 
   ## Example:
       
+      update_location_s3_response() :: %{}
+      
+  """
+  @type update_location_s3_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       create_location_fsx_windows_response() :: %{
         "LocationArn" => String.t()
       }
@@ -1634,6 +1709,18 @@ defmodule AWS.DataSync do
 
   ## Example:
       
+      update_location_fsx_lustre_request() :: %{
+        optional("Subdirectory") => String.t(),
+        required("LocationArn") => String.t()
+      }
+      
+  """
+  @type update_location_fsx_lustre_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       report_destination_s3() :: %{
         "BucketAccessRoleArn" => String.t(),
         "S3BucketArn" => String.t(),
@@ -1669,6 +1756,21 @@ defmodule AWS.DataSync do
       
   """
   @type describe_storage_system_resources_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_location_efs_request() :: %{
+        optional("AccessPointArn") => String.t(),
+        optional("FileSystemAccessRoleArn") => String.t(),
+        optional("InTransitEncryption") => list(any()),
+        optional("Subdirectory") => String.t(),
+        required("LocationArn") => String.t()
+      }
+      
+  """
+  @type update_location_efs_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1887,12 +1989,50 @@ defmodule AWS.DataSync do
 
   ## Example:
       
+      update_location_fsx_ontap_response() :: %{}
+      
+  """
+  @type update_location_fsx_ontap_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       create_task_response() :: %{
         "TaskArn" => String.t()
       }
       
   """
   @type create_task_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_location_s3_request() :: %{
+        optional("S3Config") => s3_config(),
+        optional("S3StorageClass") => list(any()),
+        optional("Subdirectory") => String.t(),
+        required("LocationArn") => String.t()
+      }
+      
+  """
+  @type update_location_s3_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_location_fsx_windows_request() :: %{
+        optional("Domain") => String.t(),
+        optional("Password") => String.t(),
+        optional("Subdirectory") => String.t(),
+        optional("User") => String.t(),
+        required("LocationArn") => String.t()
+      }
+      
+  """
+  @type update_location_fsx_windows_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2126,6 +2266,15 @@ defmodule AWS.DataSync do
 
   ## Example:
       
+      update_location_fsx_windows_response() :: %{}
+      
+  """
+  @type update_location_fsx_windows_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_location_azure_blob_response() :: %{
         "AccessTier" => list(any()),
         "AgentArns" => list(String.t()()),
@@ -2162,6 +2311,19 @@ defmodule AWS.DataSync do
       
   """
   @type task_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_location_fsx_open_zfs_request() :: %{
+        optional("Protocol") => fsx_protocol(),
+        optional("Subdirectory") => String.t(),
+        required("LocationArn") => String.t()
+      }
+      
+  """
+  @type update_location_fsx_open_zfs_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2469,12 +2631,25 @@ defmodule AWS.DataSync do
 
   @type update_location_azure_blob_errors() :: internal_exception() | invalid_request_exception()
 
+  @type update_location_efs_errors() :: internal_exception() | invalid_request_exception()
+
+  @type update_location_fsx_lustre_errors() :: internal_exception() | invalid_request_exception()
+
+  @type update_location_fsx_ontap_errors() :: internal_exception() | invalid_request_exception()
+
+  @type update_location_fsx_open_zfs_errors() ::
+          internal_exception() | invalid_request_exception()
+
+  @type update_location_fsx_windows_errors() :: internal_exception() | invalid_request_exception()
+
   @type update_location_hdfs_errors() :: internal_exception() | invalid_request_exception()
 
   @type update_location_nfs_errors() :: internal_exception() | invalid_request_exception()
 
   @type update_location_object_storage_errors() ::
           internal_exception() | invalid_request_exception()
+
+  @type update_location_s3_errors() :: internal_exception() | invalid_request_exception()
 
   @type update_location_smb_errors() :: internal_exception() | invalid_request_exception()
 
@@ -2716,10 +2891,6 @@ defmodule AWS.DataSync do
   Before you begin, make sure that you understand how DataSync
   [accesses NFS file
   servers](https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#accessing-nfs).
-
-  If you're copying data to or from an Snowcone device, you can also use
-  `CreateLocationNfs` to create your transfer location. For more information, see
-  [Configuring transfers with Snowcone](https://docs.aws.amazon.com/datasync/latest/userguide/nfs-on-snowcone.html).
   """
   @spec create_location_nfs(map(), create_location_nfs_request(), list()) ::
           {:ok, create_location_nfs_response(), any()}
@@ -3430,8 +3601,10 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Modifies some configurations of the Microsoft Azure Blob Storage transfer
-  location that you're using with DataSync.
+  Modifies the following configurations of the Microsoft Azure Blob Storage
+  transfer location that you're using with DataSync.
+
+  For more information, see [Configuring DataSync transfers with Azure Blob Storage](https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html).
   """
   @spec update_location_azure_blob(map(), update_location_azure_blob_request(), list()) ::
           {:ok, update_location_azure_blob_response(), any()}
@@ -3444,9 +3617,94 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Updates some parameters of a previously created location for a Hadoop
-  Distributed File
-  System cluster.
+  Modifies the following configuration parameters of the Amazon EFS transfer
+  location that you're using with DataSync.
+
+  For more information, see [Configuring DataSync transfers with Amazon EFS](https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html).
+  """
+  @spec update_location_efs(map(), update_location_efs_request(), list()) ::
+          {:ok, update_location_efs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_location_efs_errors()}
+  def update_location_efs(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateLocationEfs", input, options)
+  end
+
+  @doc """
+  Modifies the following configuration parameters of the Amazon FSx for Lustre
+  transfer location that you're using with DataSync.
+
+  For more information, see [Configuring DataSync transfers with FSx for Lustre](https://docs.aws.amazon.com/datasync/latest/userguide/create-lustre-location.html).
+  """
+  @spec update_location_fsx_lustre(map(), update_location_fsx_lustre_request(), list()) ::
+          {:ok, update_location_fsx_lustre_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_location_fsx_lustre_errors()}
+  def update_location_fsx_lustre(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateLocationFsxLustre", input, options)
+  end
+
+  @doc """
+  Modifies the following configuration parameters of the Amazon FSx for NetApp
+  ONTAP transfer location that you're using with DataSync.
+
+  For more information, see [Configuring DataSync transfers with FSx for ONTAP](https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html).
+  """
+  @spec update_location_fsx_ontap(map(), update_location_fsx_ontap_request(), list()) ::
+          {:ok, update_location_fsx_ontap_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_location_fsx_ontap_errors()}
+  def update_location_fsx_ontap(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateLocationFsxOntap", input, options)
+  end
+
+  @doc """
+  Modifies the following configuration parameters of the Amazon FSx for OpenZFS
+  transfer location that you're using with DataSync.
+
+  For more information, see [Configuring DataSync transfers with FSx for OpenZFS](https://docs.aws.amazon.com/datasync/latest/userguide/create-openzfs-location.html).
+
+  Request parameters related to `SMB` aren't supported with the
+  `UpdateLocationFsxOpenZfs` operation.
+  """
+  @spec update_location_fsx_open_zfs(map(), update_location_fsx_open_zfs_request(), list()) ::
+          {:ok, update_location_fsx_open_zfs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_location_fsx_open_zfs_errors()}
+  def update_location_fsx_open_zfs(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateLocationFsxOpenZfs", input, options)
+  end
+
+  @doc """
+  Modifies the following configuration parameters of the Amazon FSx for Windows
+  File Server transfer location that you're using with DataSync.
+
+  For more information, see [Configuring DataSync transfers with FSx for Windows File
+  Server](https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html).
+  """
+  @spec update_location_fsx_windows(map(), update_location_fsx_windows_request(), list()) ::
+          {:ok, update_location_fsx_windows_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_location_fsx_windows_errors()}
+  def update_location_fsx_windows(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateLocationFsxWindows", input, options)
+  end
+
+  @doc """
+  Modifies the following configuration parameters of the Hadoop Distributed File
+  System (HDFS) transfer location that you're using with DataSync.
+
+  For more information, see [Configuring DataSync transfers with an HDFS cluster](https://docs.aws.amazon.com/datasync/latest/userguide/create-hdfs-location.html).
   """
   @spec update_location_hdfs(map(), update_location_hdfs_request(), list()) ::
           {:ok, update_location_hdfs_response(), any()}
@@ -3459,11 +3717,10 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Modifies some configurations of the Network File System (NFS) transfer location
-  that
-  you're using with DataSync.
+  Modifies the following configuration parameters of the Network File System (NFS)
+  transfer location that you're using with DataSync.
 
-  For more information, see [Configuring transfers to or from an NFS file
+  For more information, see [Configuring transfers with an NFS file
   server](https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html).
   """
   @spec update_location_nfs(map(), update_location_nfs_request(), list()) ::
@@ -3477,8 +3734,10 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Updates some parameters of an existing DataSync location for an object
-  storage system.
+  Modifies the following configuration parameters of the object storage transfer
+  location that you're using with DataSync.
+
+  For more information, see [Configuring DataSync transfers with an object storage system](https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html).
   """
   @spec update_location_object_storage(map(), update_location_object_storage_request(), list()) ::
           {:ok, update_location_object_storage_response(), any()}
@@ -3491,8 +3750,35 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Updates some of the parameters of a Server Message Block
-  (SMB) file server location that you can use for DataSync transfers.
+  Modifies the following configuration parameters of the Amazon S3 transfer
+  location that you're using with DataSync.
+
+  Before you begin, make sure that you read the following topics:
+
+    
+
+  [Storage class considerations with Amazon S3
+  locations](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+
+    
+
+  [Evaluating S3 request costs when using DataSync](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-s3-requests)
+  """
+  @spec update_location_s3(map(), update_location_s3_request(), list()) ::
+          {:ok, update_location_s3_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_location_s3_errors()}
+  def update_location_s3(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateLocationS3", input, options)
+  end
+
+  @doc """
+  Modifies the following configuration parameters of the Server Message Block
+  (SMB) transfer location that you're using with DataSync.
+
+  For more information, see [Configuring DataSync transfers with an SMB file server](https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html).
   """
   @spec update_location_smb(map(), update_location_smb_request(), list()) ::
           {:ok, update_location_smb_response(), any()}

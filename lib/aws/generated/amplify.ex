@@ -46,7 +46,9 @@ defmodule AWS.Amplify do
         "repository" => String.t(),
         "repositoryCloneMethod" => list(any()),
         "tags" => map(),
-        "updateTime" => non_neg_integer()
+        "updateTime" => non_neg_integer(),
+        "wafConfiguration" => waf_configuration(),
+        "webhookCreateTime" => non_neg_integer()
       }
 
   """
@@ -705,6 +707,19 @@ defmodule AWS.Amplify do
 
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      waf_configuration() :: %{
+        "statusReason" => String.t(),
+        "wafStatus" => list(any()),
+        "webAclArn" => String.t()
+      }
+
+  """
+  @type waf_configuration() :: %{String.t() => any()}
 
   @typedoc """
 

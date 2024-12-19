@@ -3403,6 +3403,15 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      update_participant_authentication_response() :: %{}
+
+  """
+  @type update_participant_authentication_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_task_templates_response() :: %{
         "NextToken" => String.t(),
         "TaskTemplates" => list(task_template_metadata()())
@@ -6060,6 +6069,7 @@ defmodule AWS.Connect do
         "TotalPauseDurationInSeconds" => integer(),
         "CustomerEndpoint" => endpoint_info(),
         "SystemEndpoint" => endpoint_info(),
+        "CustomerId" => String.t(),
         "QueuePriority" => float(),
         "ScheduledTimestamp" => non_neg_integer(),
         "Arn" => String.t(),
@@ -7819,6 +7829,21 @@ defmodule AWS.Connect do
 
   """
   @type list_default_vocabularies_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_participant_authentication_request() :: %{
+        optional("Code") => String.t(),
+        optional("Error") => String.t(),
+        optional("ErrorDescription") => String.t(),
+        required("InstanceId") => String.t(),
+        required("State") => String.t()
+      }
+
+  """
+  @type update_participant_authentication_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -9665,6 +9690,7 @@ defmodule AWS.Connect do
         optional("Attributes") => map(),
         optional("ChatDurationInMinutes") => integer(),
         optional("ClientToken") => String.t(),
+        optional("CustomerId") => String.t(),
         optional("InitialMessage") => chat_message(),
         optional("PersistentChat") => persistent_chat(),
         optional("RelatedContactId") => String.t(),
@@ -12590,6 +12616,14 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type update_participant_authentication_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | conflict_exception()
+          | internal_service_exception()
+
   @type update_participant_role_config_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
@@ -14281,7 +14315,7 @@ defmodule AWS.Connect do
   notifications.
 
   For more information about push notifications, see [Set up push notifications in Amazon Connect for mobile
-  chat](https://docs.aws.amazon.com/connect/latest/adminguide/set-up-push-notifications-for-mobile-chat.html)
+  chat](https://docs.aws.amazon.com/connect/latest/adminguide/enable-push-notifications-for-mobile-chat.html)
   in the *Amazon Connect
   Administrator Guide*.
   """
@@ -17868,7 +17902,7 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   For the specified version of Amazon Lex, returns a paginated list of all the
-  Amazon Lex bots currently associated with the instance. Use this API to returns
+  Amazon Lex bots currently associated with the instance. Use this API to return
   both Amazon Lex V1 and V2 bots.
   """
   @spec list_bots(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
@@ -22563,6 +22597,56 @@ defmodule AWS.Connect do
         {"ResourceType", "resourceType"}
       ]
       |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Instructs Amazon Connect to resume the authentication process.
+
+  The subsequent actions
+  depend on the request body contents:
+
+    *
+
+  **If a code is provided**: Connect retrieves the identity
+  information from Amazon Cognito and imports it into Connect Customer Profiles.
+
+    *
+
+  **If an error is provided**: The error branch of the
+  Authenticate Customer block is executed.
+
+  The API returns a success response to acknowledge the request. However, the
+  interaction and
+  exchange of identity information occur asynchronously after the response is
+  returned.
+  """
+  @spec update_participant_authentication(
+          map(),
+          update_participant_authentication_request(),
+          list()
+        ) ::
+          {:ok, update_participant_authentication_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_participant_authentication_errors()}
+  def update_participant_authentication(%Client{} = client, input, options \\ []) do
+    url_path = "/contact/update-participant-authentication"
+    headers = []
+    custom_headers = []
+    query_params = []
 
     meta = metadata()
 

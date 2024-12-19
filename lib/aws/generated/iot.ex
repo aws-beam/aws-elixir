@@ -1030,6 +1030,20 @@ defmodule AWS.IoT do
 
   ## Example:
 
+      get_thing_connectivity_data_response() :: %{
+        "connected" => boolean(),
+        "disconnectReason" => list(any()),
+        "thingName" => String.t(),
+        "timestamp" => non_neg_integer()
+      }
+
+  """
+  @type get_thing_connectivity_data_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       ca_certificate_description() :: %{
         "autoRegistrationStatus" => list(any()),
         "certificateArn" => String.t(),
@@ -7667,6 +7681,15 @@ defmodule AWS.IoT do
 
   ## Example:
 
+      get_thing_connectivity_data_request() :: %{}
+
+  """
+  @type get_thing_connectivity_data_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       describe_provisioning_template_version_request() :: %{}
 
   """
@@ -10766,6 +10789,15 @@ defmodule AWS.IoT do
           | invalid_request_exception()
           | resource_not_found_exception()
           | invalid_aggregation_exception()
+          | unauthorized_exception()
+          | internal_failure_exception()
+
+  @type get_thing_connectivity_data_errors() ::
+          throttling_exception()
+          | index_not_ready_exception()
+          | service_unavailable_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
           | unauthorized_exception()
           | internal_failure_exception()
 
@@ -16534,6 +16566,39 @@ defmodule AWS.IoT do
   end
 
   @doc """
+  Retrieves the live connectivity status per device.
+  """
+  @spec get_thing_connectivity_data(
+          map(),
+          String.t(),
+          get_thing_connectivity_data_request(),
+          list()
+        ) ::
+          {:ok, get_thing_connectivity_data_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_thing_connectivity_data_errors()}
+  def get_thing_connectivity_data(%Client{} = client, thing_name, input, options \\ []) do
+    url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/connectivity-data"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Gets information about the rule.
 
   Requires permission to access the
@@ -17367,11 +17432,22 @@ defmodule AWS.IoT do
   @doc """
   List all command executions.
 
-  You must provide only the
-  `startedTimeFilter` or the `completedTimeFilter` information. If you
-  provide both time filters, the API will generate an error.
-  You can use this information to find command executions that started within
-  a specific timeframe.
+    
+  You must provide only the `startedTimeFilter` or
+  the `completedTimeFilter` information. If you provide
+  both time filters, the API will generate an error. You can use
+  this information to retrieve a list of command executions
+  within a specific timeframe.
+
+    
+  You must provide only the `commandArn` or
+  the `thingArn` information depending on whether you want
+  to list executions for a specific command or an IoT thing. If you provide
+  both fields, the API will generate an error.
+
+  For more information about considerations for using this API, see
+  [List command executions in your account
+  (CLI)](https://docs.aws.amazon.com/iot/latest/developerguide/iot-remote-command-execution-start-monitor.html#iot-remote-command-execution-list-cli).
   """
   @spec list_command_executions(map(), list_command_executions_request(), list()) ::
           {:ok, list_command_executions_response(), any()}

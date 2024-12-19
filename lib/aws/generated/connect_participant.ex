@@ -3,6 +3,15 @@
 
 defmodule AWS.ConnectParticipant do
   @moduledoc """
+
+    *
+
+  [Participant Service actions](https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Participant_Service.html)
+
+    *
+
+  [Participant Service data types](https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Participant_Service.html)
+
   Amazon Connect is an easy-to-use omnichannel cloud contact center service that
   enables companies of any size to deliver superior customer service at a lower
   cost.
@@ -27,6 +36,18 @@ defmodule AWS.ConnectParticipant do
 
   ## Example:
 
+      cancel_participant_authentication_request() :: %{
+        required("ConnectionToken") => String.t(),
+        required("SessionId") => String.t()
+      }
+
+  """
+  @type cancel_participant_authentication_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       view() :: %{
         "Arn" => String.t(),
         "Content" => view_content(),
@@ -37,6 +58,17 @@ defmodule AWS.ConnectParticipant do
 
   """
   @type view() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_authentication_url_response() :: %{
+        "AuthenticationUrl" => String.t()
+      }
+
+  """
+  @type get_authentication_url_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -248,6 +280,19 @@ defmodule AWS.ConnectParticipant do
 
   ## Example:
 
+      get_authentication_url_request() :: %{
+        required("ConnectionToken") => String.t(),
+        required("RedirectUri") => String.t(),
+        required("SessionId") => String.t()
+      }
+
+  """
+  @type get_authentication_url_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_view_request() :: %{
         required("ConnectionToken") => String.t()
       }
@@ -260,6 +305,7 @@ defmodule AWS.ConnectParticipant do
   ## Example:
 
       get_attachment_response() :: %{
+        "AttachmentSizeInBytes" => float(),
         "Url" => String.t(),
         "UrlExpiry" => String.t()
       }
@@ -313,6 +359,7 @@ defmodule AWS.ConnectParticipant do
   ## Example:
 
       get_attachment_request() :: %{
+        optional("UrlExpiryInSeconds") => integer(),
         required("AttachmentId") => String.t(),
         required("ConnectionToken") => String.t()
       }
@@ -431,6 +478,15 @@ defmodule AWS.ConnectParticipant do
 
   ## Example:
 
+      cancel_participant_authentication_response() :: %{}
+
+  """
+  @type cancel_participant_authentication_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       send_message_response() :: %{
         "AbsoluteTime" => String.t(),
         "Id" => String.t()
@@ -464,6 +520,12 @@ defmodule AWS.ConnectParticipant do
   """
   @type create_participant_connection_response() :: %{String.t() => any()}
 
+  @type cancel_participant_authentication_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type complete_attachment_upload_errors() ::
           throttling_exception()
           | validation_exception()
@@ -492,6 +554,12 @@ defmodule AWS.ConnectParticipant do
           | internal_server_exception()
 
   @type get_attachment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type get_authentication_url_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -540,12 +608,58 @@ defmodule AWS.ConnectParticipant do
   end
 
   @doc """
+  Cancels the authentication session.
+
+  The opted out branch of the Authenticate Customer
+  flow block will be taken.
+
+  The current supported channel is chat. This API is not supported for Apple
+  Messages for Business, WhatsApp, or SMS chats.
+  """
+  @spec cancel_participant_authentication(
+          map(),
+          cancel_participant_authentication_request(),
+          list()
+        ) ::
+          {:ok, cancel_participant_authentication_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, cancel_participant_authentication_errors()}
+  def cancel_participant_authentication(%Client{} = client, input, options \\ []) do
+    url_path = "/participant/cancel-authentication"
+
+    {headers, input} =
+      [
+        {"ConnectionToken", "X-Amz-Bearer"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Allows you to confirm that the attachment has been uploaded using the pre-signed
   URL
   provided in StartAttachmentUpload API.
 
   A conflict exception is thrown when an attachment
   with that identifier is already being uploaded.
+
+  For security recommendations, see [Amazon Connect Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
 
   `ConnectionToken` is used for invoking this API instead of
   `ParticipantToken`.
@@ -585,6 +699,8 @@ defmodule AWS.ConnectParticipant do
 
   @doc """
   Creates the participant's connection.
+
+  For security recommendations, see [Amazon Connect Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
 
   `ParticipantToken` is used for invoking this API instead of
   `ConnectionToken`.
@@ -660,6 +776,8 @@ defmodule AWS.ConnectParticipant do
 
   @doc """
   Retrieves the view for the specified view token.
+
+  For security recommendations, see [Amazon Connect Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
   """
   @spec describe_view(map(), String.t(), String.t(), list()) ::
           {:ok, describe_view_response(), any()}
@@ -685,6 +803,8 @@ defmodule AWS.ConnectParticipant do
 
   @doc """
   Disconnects a participant.
+
+  For security recommendations, see [Amazon Connect Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
 
   `ConnectionToken` is used for invoking this API instead of
   `ParticipantToken`.
@@ -728,6 +848,8 @@ defmodule AWS.ConnectParticipant do
   This is an
   asynchronous API for use with active contacts.
 
+  For security recommendations, see [Amazon Connect Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
+
   `ConnectionToken` is used for invoking this API instead of
   `ParticipantToken`.
 
@@ -765,6 +887,51 @@ defmodule AWS.ConnectParticipant do
   end
 
   @doc """
+  Retrieves the AuthenticationUrl for the current authentication session for the
+  AuthenticateCustomer flow block.
+
+  For security recommendations, see [Amazon Connect Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
+
+    
+  This API can only be called within one minute of receiving the
+  authenticationInitiated event.
+
+    
+  The current supported channel is chat. This API is not supported for Apple
+  Messages for Business, WhatsApp, or SMS chats.
+  """
+  @spec get_authentication_url(map(), get_authentication_url_request(), list()) ::
+          {:ok, get_authentication_url_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_authentication_url_errors()}
+  def get_authentication_url(%Client{} = client, input, options \\ []) do
+    url_path = "/participant/authentication-url"
+
+    {headers, input} =
+      [
+        {"ConnectionToken", "X-Amz-Bearer"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves a transcript of the session, including details about any attachments.
 
   For
@@ -772,10 +939,12 @@ defmodule AWS.ConnectParticipant do
   see
   [Enable persistent chat](https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html).
 
+  For security recommendations, see [Amazon Connect Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
+
   If you have a process that consumes events in the transcript of an chat that has
-  ended, note that chat
-  transcripts contain the following event content types if the event has occurred
-  during the chat session:
+  ended, note that chat transcripts contain the following event content types if
+  the event
+  has occurred during the chat session:
 
     *
 
@@ -849,11 +1018,13 @@ defmodule AWS.ConnectParticipant do
   supervisor
   is barged-in will result in a conflict exception.
 
+  For security recommendations, see [Amazon Connect Chat security best
+  practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
+
   `ConnectionToken` is used for invoking this API instead of
   `ParticipantToken`.
 
-  The Amazon Connect Participant Service APIs do not use [Signature Version 4
-  authentication](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
+  The Amazon Connect Participant Service APIs do not use [Signature Version 4 authentication](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
   """
   @spec send_event(map(), send_event_request(), list()) ::
           {:ok, send_event_response(), any()}
@@ -888,6 +1059,8 @@ defmodule AWS.ConnectParticipant do
 
   @doc """
   Sends a message.
+
+  For security recommendations, see [Amazon Connect Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
 
   `ConnectionToken` is used for invoking this API instead of
   `ParticipantToken`.
@@ -929,6 +1102,8 @@ defmodule AWS.ConnectParticipant do
   Provides a pre-signed Amazon S3 URL in response for uploading the file directly
   to
   S3.
+
+  For security recommendations, see [Amazon Connect Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
 
   `ConnectionToken` is used for invoking this API instead of
   `ParticipantToken`.

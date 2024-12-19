@@ -404,6 +404,8 @@ defmodule AWS.Transfer do
       
       create_agreement_request() :: %{
         optional("Description") => String.t(),
+        optional("EnforceMessageSigning") => list(any()),
+        optional("PreserveFilename") => list(any()),
         optional("Status") => list(any()),
         optional("Tags") => list(tag()()),
         required("AccessRole") => String.t(),
@@ -969,6 +971,7 @@ defmodule AWS.Transfer do
         "MdnSigningAlgorithm" => list(any()),
         "MessageSubject" => String.t(),
         "PartnerProfileId" => String.t(),
+        "PreserveContentType" => list(any()),
         "SigningAlgorithm" => list(any())
       }
       
@@ -1805,8 +1808,10 @@ defmodule AWS.Transfer do
         optional("AccessRole") => String.t(),
         optional("BaseDirectory") => String.t(),
         optional("Description") => String.t(),
+        optional("EnforceMessageSigning") => list(any()),
         optional("LocalProfileId") => String.t(),
         optional("PartnerProfileId") => String.t(),
+        optional("PreserveFilename") => list(any()),
         optional("Status") => list(any()),
         required("AgreementId") => String.t(),
         required("ServerId") => String.t()
@@ -2238,8 +2243,10 @@ defmodule AWS.Transfer do
         "Arn" => String.t(),
         "BaseDirectory" => String.t(),
         "Description" => String.t(),
+        "EnforceMessageSigning" => list(any()),
         "LocalProfileId" => String.t(),
         "PartnerProfileId" => String.t(),
+        "PreserveFilename" => list(any()),
         "ServerId" => String.t(),
         "Status" => list(any()),
         "Tags" => list(tag()())

@@ -670,6 +670,19 @@ defmodule AWS.SsmSap do
 
   ## Example:
 
+      component_info() :: %{
+        "ComponentType" => list(any()),
+        "Ec2InstanceId" => String.t(),
+        "Sid" => String.t()
+      }
+
+  """
+  @type component_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_application_settings_input() :: %{
         optional("Backint") => backint_config(),
         optional("CredentialsToAddOrUpdate") => list(application_credential()()),
@@ -820,6 +833,7 @@ defmodule AWS.SsmSap do
   ## Example:
 
       register_application_input() :: %{
+        optional("ComponentsInfo") => list(component_info()()),
         optional("Credentials") => list(application_credential()()),
         optional("DatabaseArn") => String.t(),
         optional("SapInstanceNumber") => String.t(),

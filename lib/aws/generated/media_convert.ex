@@ -585,6 +585,7 @@ defmodule AWS.MediaConvert do
         "HexFontColor" => String.t(),
         "OutlineColor" => list(any()),
         "OutlineSize" => integer(),
+        "RemoveRubyReserveAttributes" => list(any()),
         "ShadowColor" => list(any()),
         "ShadowOpacity" => integer(),
         "ShadowXOffset" => integer(),
@@ -1041,6 +1042,7 @@ defmodule AWS.MediaConvert do
         "ScalingBehavior" => list(any()),
         "Sharpness" => integer(),
         "TimecodeInsertion" => list(any()),
+        "TimecodeTrack" => list(any()),
         "VideoPreprocessors" => video_preprocessor(),
         "Width" => integer()
       }

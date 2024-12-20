@@ -793,6 +793,7 @@ defmodule AWS.WorkSpaces do
       
       workspace_properties() :: %{
         "ComputeTypeName" => list(any()),
+        "GlobalAccelerator" => global_accelerator_for_work_space(),
         "OperatingSystemName" => list(any()),
         "Protocols" => list(list(any())()),
         "RootVolumeSizeGib" => integer(),
@@ -1375,6 +1376,18 @@ defmodule AWS.WorkSpaces do
       
   """
   @type stop_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      global_accelerator_for_work_space() :: %{
+        "Mode" => list(any()),
+        "PreferredProtocol" => list(any())
+      }
+      
+  """
+  @type global_accelerator_for_work_space() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2759,6 +2772,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       streaming_properties() :: %{
+        "GlobalAccelerator" => global_accelerator_for_directory(),
         "StorageConnectors" => list(storage_connector()()),
         "StreamingExperiencePreferredProtocol" => list(any()),
         "UserSettings" => list(user_setting()())
@@ -3084,6 +3098,18 @@ defmodule AWS.WorkSpaces do
       
   """
   @type describe_workspace_image_permissions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      global_accelerator_for_directory() :: %{
+        "Mode" => list(any()),
+        "PreferredProtocol" => list(any())
+      }
+      
+  """
+  @type global_accelerator_for_directory() :: %{String.t() => any()}
 
   @typedoc """
 

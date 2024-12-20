@@ -526,11 +526,24 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      channel_engine_version_response() :: %{
+        "ExpirationDate" => non_neg_integer(),
+        "Version" => String.t()
+      }
+
+  """
+  @type channel_engine_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       restart_channel_pipelines_response() :: %{
         "AnywhereSettings" => describe_anywhere_settings(),
         "Arn" => String.t(),
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
+        "ChannelEngineVersion" => channel_engine_version_response(),
         "Destinations" => list(output_destination()()),
         "EgressEndpoints" => list(channel_egress_endpoint()()),
         "EncoderSettings" => encoder_settings(),
@@ -730,6 +743,17 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      channel_engine_version_request() :: %{
+        "Version" => String.t()
+      }
+
+  """
+  @type channel_engine_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_input_device_request() :: %{}
 
   """
@@ -903,6 +927,7 @@ defmodule AWS.MediaLive do
         "Arn" => String.t(),
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
+        "ChannelEngineVersion" => channel_engine_version_response(),
         "Destinations" => list(output_destination()()),
         "EgressEndpoints" => list(channel_egress_endpoint()()),
         "EncoderSettings" => encoder_settings(),
@@ -2665,6 +2690,7 @@ defmodule AWS.MediaLive do
         "Arn" => String.t(),
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
+        "ChannelEngineVersion" => channel_engine_version_response(),
         "Destinations" => list(output_destination()()),
         "EgressEndpoints" => list(channel_egress_endpoint()()),
         "Id" => String.t(),
@@ -2677,6 +2703,7 @@ defmodule AWS.MediaLive do
         "RoleArn" => String.t(),
         "State" => list(any()),
         "Tags" => map(),
+        "UsedChannelEngineVersions" => list(channel_engine_version_response()()),
         "Vpc" => vpc_output_settings_description()
       }
 
@@ -2718,6 +2745,7 @@ defmodule AWS.MediaLive do
         "Arn" => String.t(),
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
+        "ChannelEngineVersion" => channel_engine_version_response(),
         "Destinations" => list(output_destination()()),
         "EgressEndpoints" => list(channel_egress_endpoint()()),
         "EncoderSettings" => encoder_settings(),
@@ -3281,6 +3309,7 @@ defmodule AWS.MediaLive do
         "Arn" => String.t(),
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
+        "ChannelEngineVersion" => channel_engine_version_response(),
         "Destinations" => list(output_destination()()),
         "EgressEndpoints" => list(channel_egress_endpoint()()),
         "EncoderSettings" => encoder_settings(),
@@ -3665,7 +3694,9 @@ defmodule AWS.MediaLive do
         optional("AnywhereSettings") => anywhere_settings(),
         optional("CdiInputSpecification") => cdi_input_specification(),
         optional("ChannelClass") => list(any()),
+        optional("ChannelEngineVersion") => channel_engine_version_request(),
         optional("Destinations") => list(output_destination()()),
+        optional("DryRun") => boolean(),
         optional("EncoderSettings") => encoder_settings(),
         optional("InputAttachments") => list(input_attachment()()),
         optional("InputSpecification") => input_specification(),
@@ -4061,6 +4092,17 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      list_versions_response() :: %{
+        "Versions" => list(channel_engine_version_response()())
+      }
+
+  """
+  @type list_versions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_channel_placement_group_response() :: %{
         "Arn" => String.t(),
         "Channels" => list(String.t()()),
@@ -4389,7 +4431,9 @@ defmodule AWS.MediaLive do
 
       update_channel_request() :: %{
         optional("CdiInputSpecification") => cdi_input_specification(),
+        optional("ChannelEngineVersion") => channel_engine_version_request(),
         optional("Destinations") => list(output_destination()()),
+        optional("DryRun") => boolean(),
         optional("EncoderSettings") => encoder_settings(),
         optional("InputAttachments") => list(input_attachment()()),
         optional("InputSpecification") => input_specification(),
@@ -5817,6 +5861,7 @@ defmodule AWS.MediaLive do
         "Arn" => String.t(),
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
+        "ChannelEngineVersion" => channel_engine_version_response(),
         "Destinations" => list(output_destination()()),
         "EgressEndpoints" => list(channel_egress_endpoint()()),
         "EncoderSettings" => encoder_settings(),
@@ -5836,6 +5881,15 @@ defmodule AWS.MediaLive do
 
   """
   @type channel() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_versions_request() :: %{}
+
+  """
+  @type list_versions_request() :: %{}
 
   @typedoc """
 
@@ -5878,6 +5932,7 @@ defmodule AWS.MediaLive do
         "Arn" => String.t(),
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
+        "ChannelEngineVersion" => channel_engine_version_response(),
         "Destinations" => list(output_destination()()),
         "EgressEndpoints" => list(channel_egress_endpoint()()),
         "EncoderSettings" => encoder_settings(),
@@ -6245,6 +6300,7 @@ defmodule AWS.MediaLive do
         "ActiveInputSwitchActionName" => String.t(),
         "ActiveMotionGraphicsActionName" => String.t(),
         "ActiveMotionGraphicsUri" => String.t(),
+        "ChannelEngineVersion" => channel_engine_version_response(),
         "PipelineId" => String.t()
       }
 
@@ -8242,6 +8298,16 @@ defmodule AWS.MediaLive do
           | internal_server_error_exception()
           | not_found_exception()
           | forbidden_exception()
+
+  @type list_versions_errors() ::
+          bad_request_exception()
+          | gateway_timeout_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | bad_gateway_exception()
 
   @type purchase_offering_errors() ::
           bad_request_exception()
@@ -11247,6 +11313,24 @@ defmodule AWS.MediaLive do
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/prod/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves an array of all the encoder engine versions that are available in this
+  AWS account.
+  """
+  @spec list_versions(map(), list()) ::
+          {:ok, list_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_versions_errors()}
+  def list_versions(%Client{} = client, options \\ []) do
+    url_path = "/prod/versions"
     headers = []
     query_params = []
 

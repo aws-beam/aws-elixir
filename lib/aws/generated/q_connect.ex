@@ -2870,7 +2870,8 @@ defmodule AWS.QConnect do
       manual_search_a_i_agent_configuration() :: %{
         "answerGenerationAIGuardrailId" => String.t(),
         "answerGenerationAIPromptId" => String.t(),
-        "associationConfigurations" => list(association_configuration()())
+        "associationConfigurations" => list(association_configuration()()),
+        "locale" => String.t()
       }
 
   """
@@ -3929,6 +3930,7 @@ defmodule AWS.QConnect do
         "answerGenerationAIPromptId" => String.t(),
         "associationConfigurations" => list(association_configuration()()),
         "intentLabelingGenerationAIPromptId" => String.t(),
+        "locale" => String.t(),
         "queryReformulationAIPromptId" => String.t()
       }
 

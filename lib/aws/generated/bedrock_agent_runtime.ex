@@ -175,6 +175,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      model_not_ready_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type model_not_ready_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       external_source() :: %{
         "byteContent" => byte_content_doc(),
         "s3Location" => s3_object_doc(),
@@ -210,6 +221,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type bad_gateway_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inline_bedrock_model_configurations() :: %{
+        "performanceConfig" => performance_configuration()
+      }
+
+  """
+  @type inline_bedrock_model_configurations() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1087,6 +1109,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      bedrock_model_configurations() :: %{
+        "performanceConfig" => performance_configuration()
+      }
+
+  """
+  @type bedrock_model_configurations() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invoke_inline_agent_response() :: %{
         "completion" => list(),
         "contentType" => String.t(),
@@ -1284,6 +1317,7 @@ defmodule AWS.BedrockAgentRuntime do
         "additionalModelRequestFields" => map(),
         "guardrailConfiguration" => guardrail_configuration(),
         "inferenceConfig" => inference_config(),
+        "performanceConfig" => performance_configuration(),
         "promptTemplate" => prompt_template()
       }
 
@@ -1598,6 +1632,7 @@ defmodule AWS.BedrockAgentRuntime do
       orchestration_configuration() :: %{
         "additionalModelRequestFields" => map(),
         "inferenceConfig" => inference_config(),
+        "performanceConfig" => performance_configuration(),
         "promptTemplate" => prompt_template(),
         "queryTransformationConfiguration" => query_transformation_configuration()
       }
@@ -1657,6 +1692,7 @@ defmodule AWS.BedrockAgentRuntime do
         "additionalModelRequestFields" => map(),
         "guardrailConfiguration" => guardrail_configuration(),
         "inferenceConfig" => inference_config(),
+        "performanceConfig" => performance_configuration(),
         "promptTemplate" => prompt_template()
       }
 
@@ -1883,6 +1919,7 @@ defmodule AWS.BedrockAgentRuntime do
 
       invoke_inline_agent_request() :: %{
         optional("actionGroups") => list(agent_action_group()()),
+        optional("bedrockModelConfigurations") => inline_bedrock_model_configurations(),
         optional("customerEncryptionKeyArn") => String.t(),
         optional("enableTrace") => [boolean()],
         optional("endSession") => [boolean()],
@@ -1975,7 +2012,8 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       delete_agent_memory_request() :: %{
-        optional("memoryId") => String.t()
+        optional("memoryId") => String.t(),
+        optional("sessionId") => String.t()
       }
 
   """
@@ -2071,6 +2109,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       invoke_agent_request() :: %{
+        optional("bedrockModelConfigurations") => bedrock_model_configurations(),
         optional("enableTrace") => [boolean()],
         optional("endSession") => [boolean()],
         optional("inputText") => String.t(),
@@ -2082,6 +2121,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type invoke_agent_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      model_performance_configuration() :: %{
+        "performanceConfig" => performance_configuration()
+      }
+
+  """
+  @type model_performance_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2204,6 +2254,7 @@ defmodule AWS.BedrockAgentRuntime do
 
       invoke_flow_request() :: %{
         optional("enableTrace") => [boolean()],
+        optional("modelPerformanceConfiguration") => model_performance_configuration(),
         required("inputs") => list(flow_input()())
       }
 
@@ -2331,6 +2382,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      performance_configuration() :: %{
+        "latency" => list(any())
+      }
+
+  """
+  @type performance_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       rerank_document() :: %{
         "jsonDocument" => [any()],
         "textDocument" => rerank_text_document(),
@@ -2406,6 +2468,7 @@ defmodule AWS.BedrockAgentRuntime do
           | conflict_exception()
           | dependency_failed_exception()
           | bad_gateway_exception()
+          | model_not_ready_exception()
 
   @type invoke_flow_errors() ::
           throttling_exception()
@@ -2513,7 +2576,8 @@ defmodule AWS.BedrockAgentRuntime do
 
     {query_params, input} =
       [
-        {"memoryId", "memoryId"}
+        {"memoryId", "memoryId"},
+        {"sessionId", "sessionId"}
       ]
       |> Request.build_params(input)
 
@@ -2645,6 +2709,21 @@ defmodule AWS.BedrockAgentRuntime do
   helps you follow the agent's reasoning process that led it to the information it
   processed, the actions it took, and the final result it yielded. For more
   information, see [Trace enablement](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-events).
+
+    *
+  To stream agent responses, make sure that only orchestration prompt is enabled.
+  Agent streaming is not supported for the following steps:
+
+      *
+
+  `Pre-processing`
+
+      *
+
+  `Post-processing`
+
+      *
+  Agent with 1 Knowledge base and `User Input` not enabled
 
     *
   End a conversation by setting `endSession` to `true`.

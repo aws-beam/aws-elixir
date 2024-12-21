@@ -3,7 +3,7 @@
 
 defmodule AWS.BedrockDataAutomation do
   @moduledoc """
-  Amazon Bedrock Keystone Build
+  Amazon Bedrock Data Automation BuildTime
   """
 
   alias AWS.Client
@@ -907,7 +907,7 @@ defmodule AWS.BedrockDataAutomation do
   end
 
   @doc """
-  Creates an Amazon Bedrock Keystone Blueprint
+  Creates an Amazon Bedrock Data Automation Blueprint
   """
   @spec create_blueprint(map(), create_blueprint_request(), list()) ::
           {:ok, create_blueprint_response(), any()}
@@ -935,7 +935,7 @@ defmodule AWS.BedrockDataAutomation do
   end
 
   @doc """
-  Creates a new version of an existing Amazon Bedrock Keystone Blueprint
+  Creates a new version of an existing Amazon Bedrock Data Automation Blueprint
   """
   @spec create_blueprint_version(map(), String.t(), create_blueprint_version_request(), list()) ::
           {:ok, create_blueprint_version_response(), any()}
@@ -963,7 +963,7 @@ defmodule AWS.BedrockDataAutomation do
   end
 
   @doc """
-  Creates an Amazon Bedrock Keystone DataAutomationProject
+  Creates an Amazon Bedrock Data Automation Project
   """
   @spec create_data_automation_project(map(), create_data_automation_project_request(), list()) ::
           {:ok, create_data_automation_project_response(), any()}
@@ -991,7 +991,7 @@ defmodule AWS.BedrockDataAutomation do
   end
 
   @doc """
-  Deletes an existing Amazon Bedrock Keystone Blueprint
+  Deletes an existing Amazon Bedrock Data Automation Blueprint
   """
   @spec delete_blueprint(map(), String.t(), delete_blueprint_request(), list()) ::
           {:ok, delete_blueprint_response(), any()}
@@ -1024,7 +1024,7 @@ defmodule AWS.BedrockDataAutomation do
   end
 
   @doc """
-  Deletes an existing Amazon Bedrock Keystone DataAutomationProject
+  Deletes an existing Amazon Bedrock Data Automation Project
   """
   @spec delete_data_automation_project(
           map(),
@@ -1057,7 +1057,7 @@ defmodule AWS.BedrockDataAutomation do
   end
 
   @doc """
-  Gets an existing Amazon Bedrock Keystone Blueprint
+  Gets an existing Amazon Bedrock Data Automation Blueprint
   """
   @spec get_blueprint(map(), String.t(), get_blueprint_request(), list()) ::
           {:ok, get_blueprint_response(), any()}
@@ -1085,7 +1085,7 @@ defmodule AWS.BedrockDataAutomation do
   end
 
   @doc """
-  Gets an existing Amazon Bedrock Keystone DataAutomationProject
+  Gets an existing Amazon Bedrock Data Automation Project
   """
   @spec get_data_automation_project(
           map(),
@@ -1118,7 +1118,7 @@ defmodule AWS.BedrockDataAutomation do
   end
 
   @doc """
-  Lists all existing Amazon Bedrock Keystone Blueprints
+  Lists all existing Amazon Bedrock Data Automation Blueprints
   """
   @spec list_blueprints(map(), list_blueprints_request(), list()) ::
           {:ok, list_blueprints_response(), any()}
@@ -1146,7 +1146,7 @@ defmodule AWS.BedrockDataAutomation do
   end
 
   @doc """
-  Lists all existing Amazon Bedrock Keystone DataAutomationProjects
+  Lists all existing Amazon Bedrock Data Automation Projects
   """
   @spec list_data_automation_projects(map(), list_data_automation_projects_request(), list()) ::
           {:ok, list_data_automation_projects_response(), any()}
@@ -1174,7 +1174,7 @@ defmodule AWS.BedrockDataAutomation do
   end
 
   @doc """
-  Updates an existing Amazon Bedrock Blueprint
+  Updates an existing Amazon Bedrock Data Automation Blueprint
   """
   @spec update_blueprint(map(), String.t(), update_blueprint_request(), list()) ::
           {:ok, update_blueprint_response(), any()}
@@ -1202,7 +1202,7 @@ defmodule AWS.BedrockDataAutomation do
   end
 
   @doc """
-  Updates an existing Amazon Bedrock DataAutomationProject
+  Updates an existing Amazon Bedrock Data Automation Project
   """
   @spec update_data_automation_project(
           map(),

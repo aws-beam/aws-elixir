@@ -5886,7 +5886,7 @@ defmodule AWS.Macie2 do
   end
 
   @doc """
-  Retrieves a subset of information about all the custom data identifiers for an
+  Retrieves a subset of information about the custom data identifiers for an
   account.
   """
   @spec list_custom_data_identifiers(map(), list_custom_data_identifiers_request(), list()) ::
@@ -6329,7 +6329,7 @@ defmodule AWS.Macie2 do
 
   @doc """
   Retrieves (queries) statistical data and other information about Amazon Web
-  Services resources that Amazon Macie monitors and analyzes.
+  Services resources that Amazon Macie monitors and analyzes for an account.
   """
   @spec search_resources(map(), search_resources_request(), list()) ::
           {:ok, search_resources_response(), any()}

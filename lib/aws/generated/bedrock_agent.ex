@@ -253,6 +253,7 @@ defmodule AWS.BedrockAgent do
 
       memory_configuration() :: %{
         "enabledMemoryTypes" => list(list(any())()),
+        "sessionSummaryConfiguration" => session_summary_configuration(),
         "storageDays" => integer()
       }
 
@@ -639,6 +640,17 @@ defmodule AWS.BedrockAgent do
 
   """
   @type create_agent_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      session_summary_configuration() :: %{
+        "maxRecentSessions" => integer()
+      }
+
+  """
+  @type session_summary_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2062,6 +2074,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       web_crawler_limits() :: %{
+        "maxPages" => [integer()],
         "rateLimit" => [integer()]
       }
 
@@ -2857,7 +2870,8 @@ defmodule AWS.BedrockAgent do
         "crawlerLimits" => web_crawler_limits(),
         "exclusionFilters" => list(String.t()()),
         "inclusionFilters" => list(String.t()()),
-        "scope" => list(any())
+        "scope" => list(any()),
+        "userAgent" => String.t()
       }
 
   """

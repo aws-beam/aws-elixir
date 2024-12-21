@@ -3,7 +3,7 @@
 
 defmodule AWS.BedrockDataAutomationRuntime do
   @moduledoc """
-  Amazon Bedrock Keystone Runtime
+  Amazon Bedrock Data Automation Runtime
   """
 
   alias AWS.Client

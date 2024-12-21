@@ -546,6 +546,18 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      addon_compatibility_detail() :: %{
+        "compatibleVersions" => list(String.t()()),
+        "name" => String.t()
+      }
+
+  """
+  @type addon_compatibility_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       nodegroup() :: %{
         "amiType" => list(any()),
         "capacityType" => list(any()),
@@ -2479,6 +2491,7 @@ defmodule AWS.EKS do
   ## Example:
 
       insight_category_specific_summary() :: %{
+        "addonCompatibilityDetails" => list(addon_compatibility_detail()()),
         "deprecationDetails" => list(deprecation_detail()())
       }
 

@@ -477,6 +477,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      range() :: %{
+        "MaxProficiencyLevel" => float(),
+        "MinProficiencyLevel" => float()
+      }
+
+  """
+  @type range() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_user_hierarchy_structure_request() :: %{}
 
   """
@@ -711,6 +723,7 @@ defmodule AWS.Connect do
         "MatchCriteria" => match_criteria(),
         "Name" => String.t(),
         "ProficiencyLevel" => float(),
+        "Range" => range(),
         "Value" => String.t()
       }
 
@@ -8368,6 +8381,7 @@ defmodule AWS.Connect do
       expression() :: %{
         "AndExpression" => list(expression()()),
         "AttributeCondition" => attribute_condition(),
+        "NotAttributeCondition" => attribute_condition(),
         "OrExpression" => list(expression()())
       }
 

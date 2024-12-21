@@ -2454,7 +2454,7 @@ defmodule AWS.Outposts do
   @doc """
   Starts the specified capacity task.
 
-  You can have one active capacity task per order or Outpost.
+  You can have one active capacity task for each order and each Outpost.
   """
   @spec start_capacity_task(map(), String.t(), start_capacity_task_input(), list()) ::
           {:ok, start_capacity_task_output(), any()}

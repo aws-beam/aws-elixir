@@ -234,6 +234,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       get_tags_request() :: %{
+        optional("BillingViewArn") => String.t(),
         optional("Filter") => expression(),
         optional("MaxResults") => integer(),
         optional("NextPageToken") => String.t(),
@@ -251,6 +252,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       get_cost_and_usage_with_resources_request() :: %{
+        optional("BillingViewArn") => String.t(),
         optional("GroupBy") => list(group_definition()()),
         optional("Metrics") => list(String.t()()),
         optional("NextPageToken") => String.t(),
@@ -795,6 +797,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       get_cost_forecast_request() :: %{
+        optional("BillingViewArn") => String.t(),
         optional("Filter") => expression(),
         optional("PredictionIntervalLevel") => integer(),
         required("Granularity") => list(any()),
@@ -1189,6 +1192,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       get_cost_and_usage_request() :: %{
+        optional("BillingViewArn") => String.t(),
         optional("Filter") => expression(),
         optional("GroupBy") => list(group_definition()()),
         optional("NextPageToken") => String.t(),
@@ -1595,6 +1599,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       get_usage_forecast_request() :: %{
+        optional("BillingViewArn") => String.t(),
         optional("Filter") => expression(),
         optional("PredictionIntervalLevel") => integer(),
         required("Granularity") => list(any()),
@@ -2528,6 +2533,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       get_dimension_values_request() :: %{
+        optional("BillingViewArn") => String.t(),
         optional("Context") => list(any()),
         optional("Filter") => expression(),
         optional("MaxResults") => integer(),
@@ -2663,6 +2669,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       get_cost_categories_request() :: %{
+        optional("BillingViewArn") => String.t(),
         optional("CostCategoryName") => String.t(),
         optional("Filter") => expression(),
         optional("MaxResults") => integer(),
@@ -2810,6 +2817,7 @@ defmodule AWS.CostExplorer do
           | data_unavailable_exception()
           | invalid_next_token_exception()
           | request_changed_exception()
+          | resource_not_found_exception()
 
   @type get_cost_and_usage_with_resources_errors() ::
           limit_exceeded_exception()
@@ -2817,6 +2825,7 @@ defmodule AWS.CostExplorer do
           | data_unavailable_exception()
           | invalid_next_token_exception()
           | request_changed_exception()
+          | resource_not_found_exception()
 
   @type get_cost_categories_errors() ::
           limit_exceeded_exception()
@@ -2824,8 +2833,12 @@ defmodule AWS.CostExplorer do
           | data_unavailable_exception()
           | invalid_next_token_exception()
           | request_changed_exception()
+          | resource_not_found_exception()
 
-  @type get_cost_forecast_errors() :: limit_exceeded_exception() | data_unavailable_exception()
+  @type get_cost_forecast_errors() ::
+          limit_exceeded_exception()
+          | data_unavailable_exception()
+          | resource_not_found_exception()
 
   @type get_dimension_values_errors() ::
           limit_exceeded_exception()
@@ -2833,6 +2846,7 @@ defmodule AWS.CostExplorer do
           | data_unavailable_exception()
           | invalid_next_token_exception()
           | request_changed_exception()
+          | resource_not_found_exception()
 
   @type get_reservation_coverage_errors() ::
           limit_exceeded_exception()
@@ -2877,11 +2891,13 @@ defmodule AWS.CostExplorer do
           | data_unavailable_exception()
           | invalid_next_token_exception()
           | request_changed_exception()
+          | resource_not_found_exception()
 
   @type get_usage_forecast_errors() ::
           limit_exceeded_exception()
           | unresolvable_usage_unit_exception()
           | data_unavailable_exception()
+          | resource_not_found_exception()
 
   @type list_commitment_purchase_analyses_errors() ::
           limit_exceeded_exception()

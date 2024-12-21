@@ -990,6 +990,19 @@ defmodule AWS.DocDB do
 
   ## Example:
       
+      cluster_master_user_secret() :: %{
+        "KmsKeyId" => String.t(),
+        "SecretArn" => String.t(),
+        "SecretStatus" => String.t()
+      }
+      
+  """
+  @type cluster_master_user_secret() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       db_parameter_group_already_exists_fault() :: %{
         "message" => String.t()
       }
@@ -1554,7 +1567,9 @@ defmodule AWS.DocDB do
         optional("EngineVersion") => String.t(),
         optional("GlobalClusterIdentifier") => String.t(),
         optional("KmsKeyId") => String.t(),
+        optional("ManageMasterUserPassword") => boolean(),
         optional("MasterUserPassword") => String.t(),
+        optional("MasterUserSecretKmsKeyId") => String.t(),
         optional("MasterUsername") => String.t(),
         optional("Port") => integer(),
         optional("PreSignedUrl") => String.t(),
@@ -1880,6 +1895,7 @@ defmodule AWS.DocDB do
         "Status" => String.t(),
         "DBClusterParameterGroup" => String.t(),
         "LatestRestorableTime" => non_neg_integer(),
+        "MasterUserSecret" => cluster_master_user_secret(),
         "Engine" => String.t(),
         "VpcSecurityGroups" => list(vpc_security_group_membership()()),
         "MultiAZ" => boolean(),
@@ -2349,11 +2365,14 @@ defmodule AWS.DocDB do
         optional("DBClusterParameterGroupName") => String.t(),
         optional("DeletionProtection") => boolean(),
         optional("EngineVersion") => String.t(),
+        optional("ManageMasterUserPassword") => boolean(),
         optional("MasterUserPassword") => String.t(),
+        optional("MasterUserSecretKmsKeyId") => String.t(),
         optional("NewDBClusterIdentifier") => String.t(),
         optional("Port") => integer(),
         optional("PreferredBackupWindow") => String.t(),
         optional("PreferredMaintenanceWindow") => String.t(),
+        optional("RotateMasterUserPassword") => boolean(),
         optional("StorageType") => String.t(),
         optional("VpcSecurityGroupIds") => list(String.t()()),
         required("DBClusterIdentifier") => String.t()

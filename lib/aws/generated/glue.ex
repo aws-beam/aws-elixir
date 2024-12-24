@@ -4273,6 +4273,7 @@ defmodule AWS.Glue do
   ## Example:
       
       get_catalogs_request() :: %{
+        optional("IncludeRoot") => boolean(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("ParentCatalogId") => String.t(),

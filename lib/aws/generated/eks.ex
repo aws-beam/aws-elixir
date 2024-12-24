@@ -1108,6 +1108,23 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      describe_cluster_versions_request() :: %{
+        optional("clusterType") => String.t(),
+        optional("clusterVersions") => list(String.t()()),
+        optional("defaultOnly") => boolean(),
+        optional("includeAll") => boolean(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("status") => list(any())
+      }
+
+  """
+  @type describe_cluster_versions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       deprecation_detail() :: %{
         "clientStats" => list(client_stat()()),
         "replacedWith" => String.t(),
@@ -1325,6 +1342,18 @@ defmodule AWS.EKS do
 
   """
   @type not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_cluster_versions_response() :: %{
+        "clusterVersions" => list(cluster_version_information()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type describe_cluster_versions_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2696,6 +2725,25 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      cluster_version_information() :: %{
+        "clusterType" => String.t(),
+        "clusterVersion" => String.t(),
+        "defaultPlatformVersion" => String.t(),
+        "defaultVersion" => boolean(),
+        "endOfExtendedSupportDate" => non_neg_integer(),
+        "endOfStandardSupportDate" => non_neg_integer(),
+        "kubernetesPatchVersion" => String.t(),
+        "releaseDate" => non_neg_integer(),
+        "status" => list(any())
+      }
+
+  """
+  @type cluster_version_information() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_pod_identity_association_response() :: %{
         "association" => pod_identity_association()
       }
@@ -2879,6 +2927,9 @@ defmodule AWS.EKS do
           | service_unavailable_exception()
           | resource_not_found_exception()
           | client_exception()
+
+  @type describe_cluster_versions_errors() ::
+          server_exception() | invalid_parameter_exception() | invalid_request_exception()
 
   @type describe_eks_anywhere_subscription_errors() ::
           server_exception()
@@ -4091,6 +4142,92 @@ defmodule AWS.EKS do
     url_path = "/clusters/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists available Kubernetes versions for Amazon EKS clusters.
+  """
+  @spec describe_cluster_versions(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, describe_cluster_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_cluster_versions_errors()}
+  def describe_cluster_versions(
+        %Client{} = client,
+        cluster_type \\ nil,
+        cluster_versions \\ nil,
+        default_only \\ nil,
+        include_all \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/cluster-versions"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(include_all) do
+        [{"includeAll", include_all} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(default_only) do
+        [{"defaultOnly", default_only} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(cluster_versions) do
+        [{"clusterVersions", cluster_versions} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(cluster_type) do
+        [{"clusterType", cluster_type} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 

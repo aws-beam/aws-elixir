@@ -3059,7 +3059,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
-  Retrieves the basic scan type version name.
+  Retrieves the account setting value for the specified setting name.
   """
   @spec get_account_setting(map(), get_account_setting_request(), list()) ::
           {:ok, get_account_setting_response(), any()}
@@ -3247,8 +3247,7 @@ defmodule AWS.ECR do
   end
 
   @doc """
-  Allows you to change the basic scan type version by setting the `name`
-  parameter to either `CLAIR` to `AWS_NATIVE`.
+  Allows you to change the basic scan type version or registry policy scope.
   """
   @spec put_account_setting(map(), put_account_setting_request(), list()) ::
           {:ok, put_account_setting_response(), any()}

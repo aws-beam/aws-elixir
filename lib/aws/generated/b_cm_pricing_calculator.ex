@@ -1826,7 +1826,7 @@ defmodule AWS.BCMPricingCalculator do
   @type create_workload_estimate_errors() ::
           data_unavailable_exception() | service_quota_exceeded_exception() | conflict_exception()
 
-  @type delete_bill_estimate_errors() :: data_unavailable_exception()
+  @type delete_bill_estimate_errors() :: data_unavailable_exception() | conflict_exception()
 
   @type delete_bill_scenario_errors() :: data_unavailable_exception()
 

@@ -1830,6 +1830,7 @@ defmodule AWS.SageMaker do
       
       additional_s3_data_source() :: %{
         "CompressionType" => list(any()),
+        "ETag" => String.t(),
         "S3DataType" => list(any()),
         "S3Uri" => String.t()
       }
@@ -7794,6 +7795,7 @@ defmodule AWS.SageMaker do
       
       source_algorithm() :: %{
         "AlgorithmName" => String.t(),
+        "ModelDataETag" => String.t(),
         "ModelDataSource" => model_data_source(),
         "ModelDataUrl" => String.t()
       }
@@ -13180,7 +13182,9 @@ defmodule AWS.SageMaker do
       
       s3_model_data_source() :: %{
         "CompressionType" => list(any()),
+        "ETag" => String.t(),
         "HubAccessConfig" => inference_hub_access_config(),
+        "ManifestEtag" => String.t(),
         "ManifestS3Uri" => String.t(),
         "ModelAccessConfig" => model_access_config(),
         "S3DataType" => list(any()),
@@ -16158,6 +16162,7 @@ defmodule AWS.SageMaker do
         "FrameworkVersion" => String.t(),
         "Image" => String.t(),
         "ImageDigest" => String.t(),
+        "ModelDataETag" => String.t(),
         "ModelDataSource" => model_data_source(),
         "ModelDataUrl" => String.t(),
         "ModelInput" => model_input(),

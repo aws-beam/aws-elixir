@@ -2246,7 +2246,8 @@ defmodule AWS.Organizations do
           | aws_organizations_not_in_use_exception()
 
   @type enable_all_features_errors() ::
-          concurrent_modification_exception()
+          constraint_violation_exception()
+          | concurrent_modification_exception()
           | access_denied_exception()
           | invalid_input_exception()
           | service_exception()

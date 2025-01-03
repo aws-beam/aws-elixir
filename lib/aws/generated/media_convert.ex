@@ -3805,6 +3805,7 @@ defmodule AWS.MediaConvert do
         "InterlaceMode" => list(any()),
         "HrdBufferInitialFillPercentage" => integer(),
         "ParDenominator" => integer(),
+        "WriteMp4PackagingType" => list(any()),
         "Syntax" => list(any()),
         "GopSize" => float(),
         "GopBReference" => list(any()),

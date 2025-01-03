@@ -422,6 +422,18 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      frozen_frames() :: %{
+        "State" => list(any()),
+        "ThresholdSeconds" => integer()
+      }
+
+  """
+  @type frozen_frames() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       remove_bridge_source_request() :: %{}
 
   """
@@ -1105,6 +1117,18 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      silent_audio() :: %{
+        "State" => list(any()),
+        "ThresholdSeconds" => integer()
+      }
+
+  """
+  @type silent_audio() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       not_found_exception() :: %{
         "Message" => String.t()
       }
@@ -1259,6 +1283,17 @@ defmodule AWS.MediaConnect do
 
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_monitoring_setting() :: %{
+        "SilentAudio" => silent_audio()
+      }
+
+  """
+  @type audio_monitoring_setting() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1871,7 +1906,10 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       monitoring_config() :: %{
-        "ThumbnailState" => list(any())
+        "AudioMonitoringSettings" => list(audio_monitoring_setting()()),
+        "ContentQualityAnalysisState" => list(any()),
+        "ThumbnailState" => list(any()),
+        "VideoMonitoringSettings" => list(video_monitoring_setting()())
       }
 
   """
@@ -1941,6 +1979,18 @@ defmodule AWS.MediaConnect do
 
   """
   @type offering() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      video_monitoring_setting() :: %{
+        "BlackFrames" => black_frames(),
+        "FrozenFrames" => frozen_frames()
+      }
+
+  """
+  @type video_monitoring_setting() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2304,6 +2354,18 @@ defmodule AWS.MediaConnect do
 
   """
   @type add_bridge_network_output_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      black_frames() :: %{
+        "State" => list(any()),
+        "ThresholdSeconds" => integer()
+      }
+
+  """
+  @type black_frames() :: %{String.t() => any()}
 
   @typedoc """
 

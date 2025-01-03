@@ -1792,6 +1792,18 @@ defmodule AWS.GameLift do
 
   ## Example:
       
+      terminate_game_session_input() :: %{
+        required("GameSessionId") => String.t(),
+        required("TerminationMode") => list(any())
+      }
+      
+  """
+  @type terminate_game_session_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_compute_access_output() :: %{
         "ComputeArn" => String.t(),
         "ComputeName" => String.t(),
@@ -3117,6 +3129,17 @@ defmodule AWS.GameLift do
       
   """
   @type instance() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      terminate_game_session_output() :: %{
+        "GameSession" => game_session()
+      }
+      
+  """
+  @type terminate_game_session_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5071,6 +5094,14 @@ defmodule AWS.GameLift do
           | internal_service_exception()
           | tagging_failed_exception()
 
+  @type terminate_game_session_errors() ::
+          invalid_game_session_status_exception()
+          | not_ready_exception()
+          | not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | unauthorized_exception()
+
   @type untag_resource_errors() ::
           unsupported_region_exception()
           | not_found_exception()
@@ -5369,51 +5400,46 @@ defmodule AWS.GameLift do
   end
 
   @doc """
-  Creates an Amazon GameLift build resource for your game server software and
-  stores the software
-  for deployment to hosting resources.
+  Creates a new Amazon GameLift build resource for your game server binary files.
 
-  Combine game server binaries and dependencies into
-  a single .zip file
+  Combine game
+  server binaries into a zip file for use with Amazon GameLift.
 
-  Use the CLI command **
-  [upload-build](https://docs.aws.amazon.com/cli/latest/reference/gamelift/upload-build.html)  ** to quickly and simply create a new build
-  and upload your game build .zip file to Amazon GameLift Amazon S3. This helper
-  command eliminates
-  the need to explicitly manage access permissions.
+  When setting up a new game build for Amazon GameLift, we recommend using the CLI
+  command **
+  [upload-build](https://docs.aws.amazon.com/cli/latest/reference/gamelift/upload-build.html)  **. This helper command combines two tasks: (1) it
+  uploads your build files from a file directory to an Amazon GameLift Amazon S3
+  location, and (2)
+  it creates a new build resource.
 
-  Alternatively, use the `CreateBuild` action for the following
-  scenarios:
+  You can use the `CreateBuild` operation in the following scenarios:
 
     *
-  You want to create a build and upload a game build zip file from in an Amazon S3
-  location that you control. In this scenario, you need to give Amazon GameLift
-  permission
-  to access to the Amazon S3 bucket. With permission in place, call
-  `CreateBuild` and specify a build name, the build's runtime
-  operating system, and the Amazon S3 storage location where the build file is
-  stored.
+  Create a new game build with build files that are in an Amazon S3 location under
+  an
+  Amazon Web Services account that you control. To use this option, you give
+  Amazon GameLift access to
+  the Amazon S3 bucket. With permissions in place, specify a build name, operating
+  system, and the Amazon S3 storage location of your game build.
 
     *
-  You want to create a build and upload a local game build zip file to an Amazon
+  Upload your build files to a Amazon GameLift Amazon S3 location. To use this
+  option,
+  specify a build name and operating system. This operation creates a new build
+  resource and also returns an Amazon S3 location with temporary access
+  credentials.
+  Use the credentials to manually upload your build files to the specified Amazon
   S3
-  location that's controlled by Amazon GameLift. (See the `upload-build` CLI
-  command for this scenario.) In this scenario, you need to request temporary
-  access credentials to the Amazon GameLift Amazon S3 location. Specify a build
-  name and the
-  build's runtime operating system. The response provides an Amazon S3 location
-  and a
-  set of temporary access credentials. Use the credentials to upload your build
-  files to the specified Amazon S3 location (see [Uploading
+  location. For more information, see [Uploading
   Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UploadingObjects.html)
   in
-  the *Amazon S3 Developer Guide*). You can't update build files
-  after uploading them to Amazon GameLift Amazon S3.
+  the *Amazon S3 Developer Guide*. After you upload build files to
+  the Amazon GameLift Amazon S3 location, you can't update them.
 
-  If successful, this action creates a new build resource with a unique build ID
-  and
-  places it in `INITIALIZED` status. When the build reaches `READY`
-  status, you can create fleets with it.
+  If successful, this operation creates a new build resource with a unique build
+  ID and
+  places it in `INITIALIZED` status. A build must be in `READY`
+  status before you can create fleets with it.
 
   ## Learn more
 
@@ -5550,9 +5576,8 @@ defmodule AWS.GameLift do
   An Amazon GameLift container group
   is similar to a container task or pod. Use container group definitions when you
   create a
-  container fleet with `CreateContainerFleet`.
-
-  A container group definition determines how Amazon GameLift deploys your
+  container fleet with
+  [CreateContainerFleet](https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateContainerFleet.html).   A container group definition determines how Amazon GameLift deploys your
   containers to each
   instance in a container fleet. You can maintain multiple versions of a container
   group
@@ -5601,7 +5626,8 @@ defmodule AWS.GameLift do
 
   This operation requires Identity and Access Management (IAM) permissions to
   access container images in
-  Amazon ECR repositories. See [ IAM permissions for Amazon
+  Amazon ECR repositories. See [ IAM permissions
+  for Amazon
   GameLift](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-iam-policy-examples.html)
   for help setting the appropriate permissions.
 
@@ -5695,8 +5721,9 @@ defmodule AWS.GameLift do
   If successful, this request creates a `ContainerGroupDefinition` resource and
   assigns a unique ARN value. You can update most properties of a container group
   definition by
-  calling `UpdateContainerGroupDefinition`, and optionally save the update as a
-  new version.
+  calling
+  [UpdateContainerGroupDefinition](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateContainerGroupDefinition.html),
+  and optionally save the update as a new version.
   """
   @spec create_container_group_definition(
           map(),
@@ -5817,12 +5844,11 @@ defmodule AWS.GameLift do
   end
 
   @doc """
-  Adds remote locations to a managed EC2 fleet or managed container fleet and
-  begins populating the new
-  locations with instances.
+  Adds remote locations to an EC2 and begins populating the new locations with
+  instances.
 
-  The new instances conform to the fleet's instance type,
-  auto-scaling, and other configuration settings.
+  The new instances conform to the fleet's instance type, auto-scaling, and
+  other configuration settings.
 
   You can't add remote locations to a fleet that resides in an Amazon Web Services
   Region that
@@ -5945,7 +5971,7 @@ defmodule AWS.GameLift do
   connection information for the new game session. As an alternative, consider
   using the
   Amazon GameLift game session placement feature with
-  [StartGameSessionPlacement](https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html) , which uses the FleetIQ algorithm and queues to
+  [StartGameSessionPlacement](https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html), which uses the FleetIQ algorithm and queues to
   optimize the placement process.
 
   When creating a game session, you specify exactly where you want to place it and
@@ -6258,20 +6284,20 @@ defmodule AWS.GameLift do
   end
 
   @doc """
-  Creates a script resource for your Realtime Servers script.
+  Creates a new script record for your Realtime Servers script.
 
-  Realtime scripts are JavaScript files
-  that provide configuration settings and optional custom game logic for your
-  game. Script
-  logic is executed during an active game session. To deploy Realtime Servers for
-  hosting, create an
-  Amazon GameLift managed fleet with the script.
+  Realtime scripts are JavaScript that
+  provide configuration settings and optional custom game logic for your game. The
+  script
+  is deployed when you create a Realtime Servers fleet to host your game sessions.
+  Script logic is
+  executed during an active game session.
 
-  To create a script resource, specify a script name and provide the script
-  file(s). The
-  script files and all dependencies must be combined into a single .zip file. You
-  can
-  upload the .zip file from either of these locations:
+  To create a new script record, specify a script name and provide the script
+  file(s).
+  The script files and all dependencies must be zipped into a single file. You can
+  pull
+  the zip file from either of these locations:
 
     *
   A locally available directory. Use the *ZipFile* parameter
@@ -6285,10 +6311,15 @@ defmodule AWS.GameLift do
   service
   to access your S3 bucket.
 
-  If the call is successful, Amazon GameLift creates a new script resource with a
-  unique script
-  ID. The script is uploaded to an Amazon S3 bucket that is owned by Amazon
-  GameLift.
+  If the call is successful, a new script record is created with a unique script
+  ID. If
+  the script file is provided as a local file, the file is uploaded to an Amazon
+  GameLift-owned S3
+  bucket and the script record's storage location reflects this location. If the
+  script
+  file is provided as an S3 bucket, Amazon GameLift accesses the file at this
+  storage location as
+  needed for deployment.
 
   ## Learn more
 
@@ -6501,9 +6532,6 @@ defmodule AWS.GameLift do
   @doc """
   Deletes a container group definition.
 
-  You can delete a container group definition if there
-  are no fleets using the definition.
-
   ## Request options:
 
     *
@@ -6521,6 +6549,23 @@ defmodule AWS.GameLift do
   definition name and the number of versions to retain. For example, set
   `VersionCountToRetain` to 5 to delete all but the five most recent
   versions.
+
+  ## Result
+
+  If successful, Amazon GameLift removes the container group definition versions
+  that you request deletion for.
+  This request will fail for any requested versions if the following is true:
+
+    *
+  If the version is being used in an active fleet
+
+    *
+  If the version is being deployed to a fleet in a deployment that's currently in
+  progress.
+
+    *
+  If the version is designated as a rollback definition in a fleet deployment
+  that's currently in progress.
 
   ## Learn more
 
@@ -6942,7 +6987,8 @@ defmodule AWS.GameLift do
   Retrieves properties for a compute resource in an Amazon GameLift fleet.
 
   To get a list of all
-  computes in a fleet, call `ListCompute`.
+  computes in a fleet, call
+  [https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListCompute.html](https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListCompute.html).
 
   To request information on a specific compute, provide the fleet ID and compute
   name.
@@ -7175,8 +7221,7 @@ defmodule AWS.GameLift do
   With multi-location fleets, this operation retrieves data for the fleet's home
   Region
   only. To retrieve capacity for remote locations, see
-  `DescribeFleetLocationCapacity`.
-
+  [https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html). 
   This operation can be used in the following ways:
 
     *
@@ -7203,7 +7248,8 @@ defmodule AWS.GameLift do
 
   ## Learn more
 
-  [Setting up Amazon GameLift fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
+  [Setting up Amazon GameLift
+  fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
 
   [GameLift metrics for fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html#gamelift-metrics-fleet)
   """
@@ -7405,15 +7451,12 @@ defmodule AWS.GameLift do
   @doc """
   Retrieves a fleet's inbound connection permissions.
 
-  Inbound permissions specify IP
+  Connection permissions specify IP
   addresses and port settings that incoming traffic can use to access server
   processes in
   the fleet. Game server processes that are running in the fleet must use a port
   that
-  falls within this range. To connect to game server processes on a managed
-  container fleet, the
-  port settings should include one or more of the container fleet's connection
-  ports.
+  falls within this range.
 
   Use this operation in the following ways:
 
@@ -7768,7 +7811,9 @@ defmodule AWS.GameLift do
   You can use this operation with a
   multi-location fleet to get location-specific instance information. As an
   alternative,
-  use the operations `ListCompute` and `DescribeCompute`
+  use the operations
+  [https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListCompute](https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListCompute) and
+  [https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeCompute](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeCompute)
   to retrieve information for compute resources, including EC2 and Anywhere
   fleets.
 
@@ -7955,12 +8000,13 @@ defmodule AWS.GameLift do
   Retrieves a fleet's runtime configuration settings.
 
   The runtime configuration
-  determines which server processes run, and how they run, and how many run
-  concurrently
-  on computes in managed EC2 and Anywhere fleets. You can update a fleet's runtime
-  configuration
-  at any time using `UpdateRuntimeConfiguration`.
-
+  determines which server processes run, and how, on computes in the fleet. For
+  managed
+  EC2 fleets, the runtime configuration describes server processes that run on
+  each fleet
+  instance.
+  can update a fleet's runtime configuration at any time using
+  [UpdateRuntimeConfiguration](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateRuntimeConfiguration.html). 
   To get the current runtime configuration for a fleet, provide the fleet ID.
 
   If successful, a `RuntimeConfiguration` object is returned for the
@@ -7969,7 +8015,8 @@ defmodule AWS.GameLift do
 
   ## Learn more
 
-  [Setting up Amazon GameLift fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
+  [Setting up Amazon GameLift
+  fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
 
   [Running multiple processes on a
   fleet](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-multiprocess.html)
@@ -8211,11 +8258,11 @@ defmodule AWS.GameLift do
   GameLift server SDK
   4.x or earlier. To connect to instances with game servers that use server SDK
   5.x or
-  later, call `GetComputeAccess`.
-
-  To request access to an instance, specify IDs for the instance and the fleet it
+  later, call
+  [https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetComputeAccess](https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetComputeAccess).   To request access to an instance, specify IDs for the instance and the fleet it
   belongs to. You can retrieve instance IDs for a fleet by calling
-  [DescribeInstances](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeInstances.html) with the fleet ID.
+  [DescribeInstances](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeInstances.html)
+  with the fleet ID.
 
   If successful, this operation returns an IP address and credentials. The
   returned
@@ -8228,8 +8275,7 @@ defmodule AWS.GameLift do
     *
   For a Linux instance: returns a user name and secret (RSA private key) for use
   with an SSH client. You must save the secret to a `.pem` file. If
-  you're using the CLI, see the example [ Get credentials for a Linux
-  instance](https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetInstanceAccess.html#API_GetInstanceAccess_Examples)
+  you're using the CLI, see the example [ Get credentials for a Linux instance](https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetInstanceAccess.html#API_GetInstanceAccess_Examples)
   for tips on automatically
   saving the secret to a `.pem` file.
 
@@ -8445,7 +8491,7 @@ defmodule AWS.GameLift do
   This operation returns only the latest version of each definition. To retrieve
   all
   versions of a container group definition, use
-  `ListContainerGroupDefinitionVersions`.
+  [ListContainerGroupDefinitionVersions](https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListContainerGroupDefinitionVersions.html).
 
   ## Request options:
 
@@ -8465,12 +8511,6 @@ defmodule AWS.GameLift do
 
   This operation returns the list of container group definitions in no particular
   order.
-
-  ## Learn more
-
-    *
-
-  [Manage a container group definition](https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-create-groups.html)
   """
   @spec list_container_group_definitions(map(), list_container_group_definitions_input(), list()) ::
           {:ok, list_container_group_definitions_output(), any()}
@@ -8486,6 +8526,9 @@ defmodule AWS.GameLift do
   Retrieves a collection of container fleet deployments in an Amazon Web Services
   Region.
 
+  Use the
+  pagination parameters to retrieve results as a set of sequential pages.
+
   ## Request options
 
     *
@@ -8496,13 +8539,6 @@ defmodule AWS.GameLift do
   Get a list of all deployments for a fleet. Specify the container fleet ID or ARN
   value.
 
-    *
-  To get a list of all Realtime Servers fleets with a specific configuration
-  script,
-  provide the script ID.
-
-  Use the pagination parameters to retrieve results as a set of sequential pages.
-
   ## Results
 
   If successful, this operation returns a list of deployments that match the
@@ -8510,7 +8546,7 @@ defmodule AWS.GameLift do
   parameters. A NextToken value is also returned if there are more result pages to
   retrieve.
 
-  Fleet IDs are returned in no particular order.
+  Deployments are returned starting with the latest.
   """
   @spec list_fleet_deployments(map(), list_fleet_deployments_input(), list()) ::
           {:ok, list_fleet_deployments_output(), any()}
@@ -8998,9 +9034,7 @@ defmodule AWS.GameLift do
   If successful, a `GameSession` object is returned for each game session
   that matches the request. Search finds game sessions that are in `ACTIVE`
   status only. To retrieve information on game sessions in other statuses, use
-  [DescribeGameSessions](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessions.html) .
-
-  To set search and sort criteria, create a filter expression using the following
+  [DescribeGameSessions](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessions.html).   To set search and sort criteria, create a filter expression using the following
   game session attributes. For game session search examples, see the Examples
   section of this topic.
 
@@ -9020,16 +9054,16 @@ defmodule AWS.GameLift do
   **gameSessionProperties** -- A set of key-value pairs that can store custom data
   in a game session.
   For example: `{"Key": "difficulty", "Value": "novice"}`.
-  The filter expression must specify the `GameProperty` -- a `Key` and a string
-  `Value` to search for the game sessions.
+  The filter expression must specify the
+  [https://docs.aws.amazon.com/gamelift/latest/apireference/API_GameProperty](https://docs.aws.amazon.com/gamelift/latest/apireference/API_GameProperty)
+  -- a `Key` and a string `Value` to search for the game sessions.
 
   For example, to search for the above key-value pair, specify the following
   search filter: `gameSessionProperties.difficulty = "novice"`.
   All game property values are searched as strings.
 
   For examples of searching game sessions, see the ones below, and also see
-  [Search game sessions by game
-  property](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#game-properties-search).
+  [Search game sessions by game property](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#game-properties-search).
 
     *
 
@@ -9167,9 +9201,9 @@ defmodule AWS.GameLift do
   [DescribeGameSessionPlacement](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessionPlacement.html)
   and check the request's status. If the status
   is `FULFILLED`, a new game session has been created and a game session ARN
-  and Region are referenced. If the placement request times out, submit a new
-  request to the same
-  queue or a different queue.
+  and Region are referenced. If the placement request times out, you can resubmit
+  the
+  request or retry it with a different queue.
   """
   @spec start_game_session_placement(map(), start_game_session_placement_input(), list()) ::
           {:ok, start_game_session_placement_output(), any()}
@@ -9488,6 +9522,65 @@ defmodule AWS.GameLift do
   end
 
   @doc """
+  Ends a game session that's currently in progress.
+
+  You can use this action to terminate
+  any game session that isn't in `TERMINATED` or `TERMINATING`
+  status. Terminating a game session is the most efficient way to free up a server
+  process
+  when it's hosting a game session that's in a bad state or not ending naturally.
+  You can
+  use this action to terminate a game session that's being hosted on any type of
+  Amazon GameLift
+  fleet compute, including computes for managed EC2, managed container, and
+  Anywhere
+  fleets.
+
+  There are two potential methods for terminating a game session:
+
+    *
+  With a graceful termination, the Amazon GameLift service prompts the server
+  process to initiate its
+  normal game session shutdown sequence. This sequence is implemented in the game
+  server code and might involve a variety of actions to gracefully end a game
+  session, such as notifying players, and stop the server process.
+
+    *
+  With a forceful termination, the Amazon GameLift service takes immediate action
+  to terminate the game
+  session by stopping the server process. Termination occurs without the normal
+  game session shutdown sequence.
+
+  ## Request options
+
+    *
+  Request termination for a single game session. Provide the game session ID and
+  the termination method.
+
+  ## Results
+
+  If successful, game session termination is initiated, which includes changing
+  the game
+  session status to `TERMINATING`. As a result of this action, and depending on
+  the implementation of `OnProcessTerminate()`, the server process either
+  becomes available to host a new game session, or it's recycled and a new server
+  process
+  started with availability to host a game session. The game session status is
+  changed to
+  `TERMINATED`, with a status reason that indicates the termination method
+  used.
+  """
+  @spec terminate_game_session(map(), terminate_game_session_input(), list()) ::
+          {:ok, terminate_game_session_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, terminate_game_session_errors()}
+  def terminate_game_session(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "TerminateGameSession", input, options)
+  end
+
+  @doc """
   Removes a tag assigned to a Amazon GameLift resource.
 
   You can use resource tags to organize
@@ -9578,7 +9671,8 @@ defmodule AWS.GameLift do
   Depending on the properties being
   updated, this operation might initiate a fleet deployment. You can track
   deployments for
-  a fleet using `DescribeFleetDeployment`.
+  a fleet using
+  [https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetDeployment.html](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetDeployment.html).
 
   ## Request options
 
@@ -9702,7 +9796,8 @@ defmodule AWS.GameLift do
   update
   automatically initiates a new fleet deployment of the new version. You can track
   a fleet's
-  deployments using `ListFleetDeployments`.
+  deployments using
+  [ListFleetDeployments](https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListFleetDeployments.html).
   """
   @spec update_container_group_definition(
           map(),
@@ -9820,10 +9915,6 @@ defmodule AWS.GameLift do
   `InboundPermissionAuthorizations`, and permissions you want to remove in
   `InboundPermissionRevocations`. Permissions to be removed must match
   existing fleet permissions.
-
-  For a container fleet, inbound permissions must specify port numbers that are
-  defined
-  in the fleet's connection port settings.
 
   If successful, the fleet ID for the updated fleet is returned. For fleets with
   remote

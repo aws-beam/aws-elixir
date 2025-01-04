@@ -4431,10 +4431,10 @@ defmodule AWS.S3 do
   . Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in
   Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -4622,10 +4622,10 @@ defmodule AWS.S3 do
 
   . Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -4847,10 +4847,10 @@ defmodule AWS.S3 do
 
   . Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -5173,10 +5173,10 @@ defmodule AWS.S3 do
 
   . Virtual-hosted-style requests aren't supported.
   For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -5490,10 +5490,10 @@ defmodule AWS.S3 do
 
   . Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -5890,10 +5890,10 @@ defmodule AWS.S3 do
   `https://*bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com`.
   Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -6127,10 +6127,10 @@ defmodule AWS.S3 do
 
   . Virtual-hosted-style requests aren't supported.
   For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -6618,10 +6618,10 @@ defmodule AWS.S3 do
 
   . Virtual-hosted-style requests aren't supported.
   For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -6894,10 +6894,10 @@ defmodule AWS.S3 do
 
   . Virtual-hosted-style requests aren't supported.
   For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -7216,10 +7216,10 @@ defmodule AWS.S3 do
 
   . Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -7475,10 +7475,10 @@ defmodule AWS.S3 do
 
   . Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -8281,10 +8281,10 @@ defmodule AWS.S3 do
 
   . Virtual-hosted-style requests aren't supported.
   For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -8706,10 +8706,10 @@ defmodule AWS.S3 do
 
   . Virtual-hosted-style requests aren't supported.
   For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -9147,10 +9147,10 @@ defmodule AWS.S3 do
 
   . Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -9699,10 +9699,10 @@ defmodule AWS.S3 do
 
   . Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -10535,10 +10535,10 @@ defmodule AWS.S3 do
   `https://*bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com`.
   Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
   """
@@ -10769,10 +10769,10 @@ defmodule AWS.S3 do
 
   . Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -11297,10 +11297,10 @@ defmodule AWS.S3 do
 
   . Virtual-hosted-style requests aren't supported.
   For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -11412,10 +11412,10 @@ defmodule AWS.S3 do
 
   . Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -11936,10 +11936,10 @@ defmodule AWS.S3 do
   . Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in
   Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -12177,10 +12177,10 @@ defmodule AWS.S3 do
 
   . Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -12952,10 +12952,10 @@ defmodule AWS.S3 do
 
   . Virtual-hosted-style requests aren't supported.
   For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -13494,10 +13494,10 @@ defmodule AWS.S3 do
 
   . Virtual-hosted-style requests aren't supported.
   For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -13957,10 +13957,10 @@ defmodule AWS.S3 do
 
   . Virtual-hosted-style requests aren't supported.
   For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -14634,10 +14634,10 @@ defmodule AWS.S3 do
 
   . Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -15994,10 +15994,10 @@ defmodule AWS.S3 do
 
   . Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -16285,10 +16285,10 @@ defmodule AWS.S3 do
 
   . Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 

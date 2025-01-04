@@ -4738,7 +4738,7 @@ defmodule AWS.ECS do
   This operation lists all the service deployments that meet the specified filter
   criteria.
 
-  A service deployment happens when you release a softwre update for the service.
+  A service deployment happens when you release a software update for the service.
   You
   route traffic from the running service revisions to the new service revison and
   control

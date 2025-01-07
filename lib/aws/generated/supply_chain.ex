@@ -513,7 +513,8 @@ defmodule AWS.SupplyChain do
         optional("instanceDescription") => String.t(),
         optional("instanceName") => String.t(),
         optional("kmsKeyArn") => String.t(),
-        optional("tags") => map()
+        optional("tags") => map(),
+        optional("webAppDnsDomain") => String.t()
       }
 
   """
@@ -1215,9 +1216,8 @@ defmodule AWS.SupplyChain do
   This is an asynchronous operation. Upon receiving a DeleteInstance request,
   Amazon Web Services Supply Chain immediately returns a response with the
   instance resource, delete state while cleaning up all Amazon Web Services
-  resources created during
-  the instance creation process. You can use the GetInstance action to check the
-  instance status.
+  resources created during the instance creation process. You can use the
+  GetInstance action to check the instance status.
   """
   @spec delete_instance(map(), String.t(), delete_instance_request(), list()) ::
           {:ok, delete_instance_response(), any()}
@@ -1504,9 +1504,9 @@ defmodule AWS.SupplyChain do
   analysis or monitoring.
 
   The real-time data events are stored in an Amazon Web Services service before
-  being processed and stored in data lake.
-  New data events are synced with data lake at 5 PM GMT everyday. The updated
-  transactional data is available in data lake after ingestion.
+  being processed and stored in data lake. New data events are synced with data
+  lake at 5 PM GMT everyday. The updated transactional data is available in data
+  lake after ingestion.
   """
   @spec send_data_integration_event(
           map(),
@@ -1545,10 +1545,9 @@ defmodule AWS.SupplyChain do
   flow, or dataset in AWS Supply chain.
 
   During the data ingestion process, you can add tags such as dev, test, or prod
-  to data flows
-  created during the data ingestion process in the AWS Supply Chain datasets. You
-  can use these tags to identify a group of resources or a single resource used by
-  the developer.
+  to data flows created during the data ingestion process in the AWS Supply Chain
+  datasets. You can use these tags to identify a group of resources or a single
+  resource used by the developer.
   """
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
@@ -1580,8 +1579,8 @@ defmodule AWS.SupplyChain do
   instance, data flow, or dataset in AWS Supply Chain.
 
   During the data ingestion process, you can delete tags such as dev, test, or
-  prod to data flows
-  created during the data ingestion process in the AWS Supply Chain datasets.
+  prod to data flows created during the data ingestion process in the AWS Supply
+  Chain datasets.
   """
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}

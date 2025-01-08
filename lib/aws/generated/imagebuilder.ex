@@ -1554,6 +1554,18 @@ defmodule AWS.Imagebuilder do
 
   ## Example:
 
+      import_disk_image_response() :: %{
+        "clientToken" => String.t(),
+        "imageBuildVersionArn" => String.t()
+      }
+
+  """
+  @type import_disk_image_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_image_request() :: %{
         optional("containerRecipeArn") => String.t(),
         optional("distributionConfigurationArn") => String.t(),
@@ -3295,6 +3307,26 @@ defmodule AWS.Imagebuilder do
 
   ## Example:
 
+      import_disk_image_request() :: %{
+        optional("description") => String.t(),
+        optional("executionRole") => String.t(),
+        optional("tags") => map(),
+        required("clientToken") => String.t(),
+        required("infrastructureConfigurationArn") => String.t(),
+        required("name") => String.t(),
+        required("osVersion") => String.t(),
+        required("platform") => String.t(),
+        required("semanticVersion") => String.t(),
+        required("uri") => String.t()
+      }
+
+  """
+  @type import_disk_image_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       workflow_state() :: %{
         "reason" => String.t(),
         "status" => list(any())
@@ -4023,6 +4055,9 @@ defmodule AWS.Imagebuilder do
           | forbidden_exception()
           | resource_in_use_exception()
           | invalid_version_number_exception()
+
+  @type import_disk_image_errors() ::
+          service_unavailable_exception() | service_exception() | client_exception()
 
   @type import_vm_image_errors() ::
           service_unavailable_exception() | service_exception() | client_exception()
@@ -5478,6 +5513,40 @@ defmodule AWS.Imagebuilder do
           | {:error, import_component_errors()}
   def import_component(%Client{} = client, input, options \\ []) do
     url_path = "/ImportComponent"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Import a Windows operating system image from a verified Microsoft ISO disk
+  file.
+
+  The following disk images are supported:
+
+    *
+  Windows 11 Enterprise
+  """
+  @spec import_disk_image(map(), import_disk_image_request(), list()) ::
+          {:ok, import_disk_image_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, import_disk_image_errors()}
+  def import_disk_image(%Client{} = client, input, options \\ []) do
+    url_path = "/ImportDiskImage"
     headers = []
     custom_headers = []
     query_params = []

@@ -259,7 +259,8 @@ defmodule AWS.DynamoDB do
       point_in_time_recovery_description() :: %{
         "EarliestRestorableDateTime" => non_neg_integer(),
         "LatestRestorableDateTime" => non_neg_integer(),
-        "PointInTimeRecoveryStatus" => list(any())
+        "PointInTimeRecoveryStatus" => list(any()),
+        "RecoveryPeriodInDays" => integer()
       }
       
   """
@@ -1841,7 +1842,8 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       point_in_time_recovery_specification() :: %{
-        "PointInTimeRecoveryEnabled" => boolean()
+        "PointInTimeRecoveryEnabled" => boolean(),
+        "RecoveryPeriodInDays" => integer()
       }
       
   """
@@ -4276,7 +4278,8 @@ defmodule AWS.DynamoDB do
   `LatestRestorableDateTime`.
 
   `LatestRestorableDateTime` is typically 5 minutes before the current time.
-  You can restore your table to any point in time during the last 35 days.
+  You can restore your table to any point in time in the last 35 days. You can set
+  the recovery period to any value between 1 and 35 days.
 
   You can call `DescribeContinuousBackups` at a maximum rate of 10 times per
   second.
@@ -5098,8 +5101,8 @@ defmodule AWS.DynamoDB do
   Restores the specified table to the specified point in time within
   `EarliestRestorableDateTime` and `LatestRestorableDateTime`.
 
-  You can restore your table to any point in time during the last 35 days. Any
-  number of
+  You can restore your table to any point in time in the last 35 days. You can set
+  the recovery period to any value between 1 and 35 days. Any number of
   users can execute up to 50 concurrent restores (any type of restore) in a given
   account.
 
@@ -5438,7 +5441,8 @@ defmodule AWS.DynamoDB do
   `LatestRestorableDateTime`.
 
   `LatestRestorableDateTime` is typically 5 minutes before the current time.
-  You can restore your table to any point in time during the last 35 days.
+  You can restore your table to any point in time in the last 35 days. You can set
+  the recovery period to any value between 1 and 35 days.
   """
   @spec update_continuous_backups(map(), update_continuous_backups_input(), list()) ::
           {:ok, update_continuous_backups_output(), any()}

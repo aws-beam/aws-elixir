@@ -283,6 +283,7 @@ defmodule AWS.CloudHSMV2 do
         "ClusterId" => String.t(),
         "CreateTimestamp" => non_neg_integer(),
         "HsmType" => String.t(),
+        "HsmTypeRollbackExpiration" => non_neg_integer(),
         "Hsms" => list(hsm()()),
         "Mode" => list(any()),
         "NetworkType" => list(any()),
@@ -363,7 +364,8 @@ defmodule AWS.CloudHSMV2 do
   ## Example:
       
       modify_cluster_request() :: %{
-        required("BackupRetentionPolicy") => backup_retention_policy(),
+        optional("BackupRetentionPolicy") => backup_retention_policy(),
+        optional("HsmType") => String.t(),
         required("ClusterId") => String.t()
       }
       
@@ -462,6 +464,7 @@ defmodule AWS.CloudHSMV2 do
         "EniIp" => String.t(),
         "EniIpV6" => String.t(),
         "HsmId" => String.t(),
+        "HsmType" => String.t(),
         "State" => list(any()),
         "StateMessage" => String.t(),
         "SubnetId" => String.t()

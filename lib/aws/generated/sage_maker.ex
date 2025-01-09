@@ -17635,6 +17635,7 @@ defmodule AWS.SageMaker do
         "Placement" => cluster_instance_placement(),
         "PrivateDnsHostname" => String.t(),
         "PrivatePrimaryIp" => String.t(),
+        "PrivatePrimaryIpv6" => String.t(),
         "ThreadsPerCore" => integer()
       }
       

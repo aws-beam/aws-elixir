@@ -1983,10 +1983,14 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       auto_scaling_group_configuration() :: %{
+        "allocationStrategy" => list(any()),
         "desiredCapacity" => integer(),
+        "estimatedInstanceHourReductionPercentage" => float(),
         "instanceType" => String.t(),
         "maxSize" => integer(),
-        "minSize" => integer()
+        "minSize" => integer(),
+        "mixedInstanceTypes" => list(String.t()()),
+        "type" => list(any())
       }
       
   """

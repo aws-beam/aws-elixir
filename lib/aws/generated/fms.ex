@@ -1633,6 +1633,7 @@ defmodule AWS.FMS do
         "PolicyUpdateToken" => String.t(),
         "RemediationEnabled" => boolean(),
         "ResourceSetIds" => list(String.t()()),
+        "ResourceTagLogicalOperator" => list(any()),
         "ResourceTags" => list(resource_tag()()),
         "ResourceType" => String.t(),
         "ResourceTypeList" => list(String.t()()),

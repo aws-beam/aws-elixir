@@ -1802,6 +1802,7 @@ defmodule AWS.CodeBuild do
       
       batch_restrictions() :: %{
         "computeTypesAllowed" => list(String.t()()),
+        "fleetsAllowed" => list(String.t()()),
         "maximumBuildsAllowed" => integer()
       }
       

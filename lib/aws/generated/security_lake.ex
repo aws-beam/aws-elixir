@@ -1596,6 +1596,12 @@ defmodule AWS.SecurityLake do
   Security Lake is not automatically enabled for any existing member accounts in
   your
   organization.
+
+  This operation merges the new data lake organization configuration with the
+  existing configuration for Security Lake in your organization. If you want to
+  create a new data lake organization configuration, you must delete the existing
+  one using
+  [DeleteDataLakeOrganizationConfiguration](https://docs.aws.amazon.com/security-lake/latest/APIReference/API_DeleteDataLakeOrganizationConfiguration.html).
   """
   @spec create_data_lake_organization_configuration(
           map(),

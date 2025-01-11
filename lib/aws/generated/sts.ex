@@ -989,19 +989,19 @@ defmodule AWS.STS do
 
   @doc """
   Returns a set of short term credentials you can use to perform privileged tasks
-  in a
-  member account.
+  on a
+  member account in your organization.
 
-  Before you can launch a privileged session, you must have enabled centralized
-  root
-  access in your organization. For steps to enable this feature, see [Centralize root access for member
+  Before you can launch a privileged session, you must have centralized root
+  access in
+  your organization. For steps to enable this feature, see [Centralize root access for
+  member
   accounts](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-enable-root-access.html)
-  in the *IAM User
-  Guide*.
+  in the *IAM User Guide*.
 
-  The global endpoint is not supported for AssumeRoot. You must send this request
-  to a
-  Regional STS endpoint. For more information, see
+  The STS global endpoint is not supported for AssumeRoot. You must send this
+  request
+  to a Regional STS endpoint. For more information, see
   [Endpoints](https://docs.aws.amazon.com/STS/latest/APIReference/welcome.html#sts-endpoints). 
 
   You can track AssumeRoot in CloudTrail logs to determine what actions were

@@ -220,7 +220,8 @@ defmodule AWS.KafkaConnect do
   ## Example:
 
       update_connector_request() :: %{
-        required("capacity") => capacity_update(),
+        optional("capacity") => capacity_update(),
+        optional("connectorConfiguration") => map(),
         required("currentVersion") => String.t()
       }
 
@@ -265,6 +266,17 @@ defmodule AWS.KafkaConnect do
 
   """
   @type scale_in_policy_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      worker_setting() :: %{
+        "capacity" => capacity_description()
+      }
+
+  """
+  @type worker_setting() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -350,6 +362,30 @@ defmodule AWS.KafkaConnect do
 
   """
   @type kafka_cluster() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connector_operation_step() :: %{
+        "stepState" => String.t(),
+        "stepType" => String.t()
+      }
+
+  """
+  @type connector_operation_step() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_connector_operations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_connector_operations_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -686,12 +722,49 @@ defmodule AWS.KafkaConnect do
 
   ## Example:
 
+      connector_operation_summary() :: %{
+        "connectorOperationArn" => String.t(),
+        "connectorOperationState" => String.t(),
+        "connectorOperationType" => String.t(),
+        "creationTime" => non_neg_integer(),
+        "endTime" => non_neg_integer()
+      }
+
+  """
+  @type connector_operation_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       scale_in_policy_update() :: %{
         "cpuUtilizationPercentage" => integer()
       }
 
   """
   @type scale_in_policy_update() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_connector_operation_response() :: %{
+        "connectorArn" => String.t(),
+        "connectorOperationArn" => String.t(),
+        "connectorOperationState" => String.t(),
+        "connectorOperationType" => String.t(),
+        "creationTime" => non_neg_integer(),
+        "endTime" => non_neg_integer(),
+        "errorInfo" => state_description(),
+        "operationSteps" => list(connector_operation_step()()),
+        "originConnectorConfiguration" => map(),
+        "originWorkerSetting" => worker_setting(),
+        "targetConnectorConfiguration" => map(),
+        "targetWorkerSetting" => worker_setting()
+      }
+
+  """
+  @type describe_connector_operation_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -886,6 +959,7 @@ defmodule AWS.KafkaConnect do
 
       update_connector_response() :: %{
         optional("connectorArn") => String.t(),
+        optional("connectorOperationArn") => String.t(),
         optional("connectorState") => String.t()
       }
 
@@ -1100,6 +1174,18 @@ defmodule AWS.KafkaConnect do
 
   ## Example:
 
+      list_connector_operations_response() :: %{
+        "connectorOperations" => list(connector_operation_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_connector_operations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       scale_out_policy() :: %{
         "cpuUtilizationPercentage" => integer()
       }
@@ -1133,6 +1219,15 @@ defmodule AWS.KafkaConnect do
 
   """
   @type create_custom_plugin_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_connector_operation_request() :: %{}
+
+  """
+  @type describe_connector_operation_request() :: %{}
 
   @typedoc """
 
@@ -1225,6 +1320,15 @@ defmodule AWS.KafkaConnect do
           | forbidden_exception()
           | unauthorized_exception()
 
+  @type describe_connector_operation_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | unauthorized_exception()
+
   @type describe_custom_plugin_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
@@ -1235,6 +1339,15 @@ defmodule AWS.KafkaConnect do
           | unauthorized_exception()
 
   @type describe_worker_configuration_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | unauthorized_exception()
+
+  @type list_connector_operations_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
           | service_unavailable_exception()
@@ -1524,6 +1637,23 @@ defmodule AWS.KafkaConnect do
   end
 
   @doc """
+  Returns information about the specified connector's operations.
+  """
+  @spec describe_connector_operation(map(), String.t(), list()) ::
+          {:ok, describe_connector_operation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_connector_operation_errors()}
+  def describe_connector_operation(%Client{} = client, connector_operation_arn, options \\ []) do
+    url_path = "/v1/connectorOperations/#{AWS.Util.encode_uri(connector_operation_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   A summary description of the custom plugin.
   """
   @spec describe_custom_plugin(map(), String.t(), list()) ::
@@ -1551,6 +1681,43 @@ defmodule AWS.KafkaConnect do
     url_path = "/v1/worker-configurations/#{AWS.Util.encode_uri(worker_configuration_arn)}"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists information about a connector's operation(s).
+  """
+  @spec list_connector_operations(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_connector_operations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_connector_operations_errors()}
+  def list_connector_operations(
+        %Client{} = client,
+        connector_arn,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/connectors/#{AWS.Util.encode_uri(connector_arn)}/operations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 

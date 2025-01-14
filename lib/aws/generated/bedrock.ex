@@ -2655,7 +2655,8 @@ defmodule AWS.Bedrock do
 
       evaluation_bedrock_model() :: %{
         "inferenceParams" => String.t(),
-        "modelIdentifier" => String.t()
+        "modelIdentifier" => String.t(),
+        "performanceConfig" => performance_configuration()
       }
 
   """
@@ -2758,6 +2759,17 @@ defmodule AWS.Bedrock do
 
   """
   @type human_evaluation_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      performance_configuration() :: %{
+        "latency" => list(any())
+      }
+
+  """
+  @type performance_configuration() :: %{String.t() => any()}
 
   @typedoc """
 

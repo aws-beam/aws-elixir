@@ -467,6 +467,7 @@ defmodule AWS.Transcribe do
         "MediaSampleRateHertz" => integer(),
         "Settings" => call_analytics_job_settings(),
         "StartTime" => non_neg_integer(),
+        "Tags" => list(tag()()),
         "Transcript" => transcript()
       }
       
@@ -670,6 +671,7 @@ defmodule AWS.Transcribe do
         optional("OutputEncryptionKMSKeyId") => String.t(),
         optional("OutputLocation") => String.t(),
         optional("Settings") => call_analytics_job_settings(),
+        optional("Tags") => list(tag()()),
         required("Media") => media()
       }
       
@@ -735,7 +737,8 @@ defmodule AWS.Transcribe do
         "CreateTime" => non_neg_integer(),
         "InputType" => list(any()),
         "LastUpdateTime" => non_neg_integer(),
-        "Rules" => list(list()())
+        "Rules" => list(list()()),
+        "Tags" => list(tag()())
       }
       
   """
@@ -1616,6 +1619,7 @@ defmodule AWS.Transcribe do
       
       create_call_analytics_category_request() :: %{
         optional("InputType") => list(any()),
+        optional("Tags") => list(tag()()),
         required("Rules") => list(list()())
       }
       

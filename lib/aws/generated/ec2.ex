@@ -18468,6 +18468,7 @@ defmodule AWS.EC2 do
         optional("ClientLoginBannerOptions") => client_login_banner_options(),
         optional("ConnectionLogOptions") => connection_log_options(),
         optional("Description") => String.t(),
+        optional("DisconnectOnSessionTimeout") => boolean(),
         optional("DnsServers") => dns_servers_options_modify_structure(),
         optional("DryRun") => boolean(),
         optional("SecurityGroupIds") => list(String.t()()),
@@ -19289,6 +19290,7 @@ defmodule AWS.EC2 do
         "CreationTime" => String.t(),
         "DeletionTime" => String.t(),
         "Description" => String.t(),
+        "DisconnectOnSessionTimeout" => boolean(),
         "DnsName" => String.t(),
         "DnsServers" => list(String.t()()),
         "SecurityGroupIds" => list(String.t()()),
@@ -26450,6 +26452,7 @@ defmodule AWS.EC2 do
         optional("ClientLoginBannerOptions") => client_login_banner_options(),
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
+        optional("DisconnectOnSessionTimeout") => boolean(),
         optional("DnsServers") => list(String.t()()),
         optional("DryRun") => boolean(),
         optional("SecurityGroupIds") => list(String.t()()),
@@ -29734,6 +29737,9 @@ defmodule AWS.EC2 do
   duration has elapsed. You can't cancel a future-dated Capacity Reservation
   during the commitment duration.
 
+  You can't modify or cancel a Capacity Block. For more information, see [Capacity Blocks for
+  ML](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-blocks.html).
+
   If a future-dated Capacity Reservation enters the `delayed` state, the
   commitment
   duration is waived, and you can cancel it as soon as it enters the `active`
@@ -30023,11 +30029,11 @@ defmodule AWS.EC2 do
   used to encrypt the snapshot.
 
   Snapshots copied to an Outpost are encrypted by default using the default
-  encryption key for the Region, or a different key that you specify in the
-  request using
-  **KmsKeyId**. Outposts do not support unencrypted
-  snapshots. For more information, [
-  Amazon EBS local snapshots on
+  encryption key
+  for the Region, or a different key that you specify in the request using
+  **KmsKeyId**. Outposts do not support unencrypted snapshots. For more
+  information,
+  see [Amazon EBS local snapshots on
   Outposts](https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#ami)
   in the *Amazon EBS User Guide*.
 
@@ -31307,7 +31313,8 @@ defmodule AWS.EC2 do
 
     *
   If the source volume is in a Local Zone, you can create the snapshot in the same
-  Local Zone or in parent Amazon Web Services Region.
+  Local
+  Zone or in its parent Amazon Web Services Region.
 
     *
   If the source volume is on an Outpost, you can create the snapshot on the same
@@ -31341,7 +31348,7 @@ defmodule AWS.EC2 do
   Volumes that
   are created from encrypted snapshots are also automatically encrypted. Your
   encrypted volumes
-  and any associated snapshots always remain protected. For more information,
+  and any associated snapshots always remain protected. For more information, see
   [Amazon EBS encryption](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html)
   in the *Amazon EBS User Guide*.
   """
@@ -31376,7 +31383,7 @@ defmodule AWS.EC2 do
     *
   If the source instance is in a Local Zone, you can create the snapshots in the
   same
-  Local Zone or in parent Amazon Web Services Region.
+  Local Zone or in its parent Amazon Web Services Region.
 
     *
   If the source instance is on an Outpost, you can create the snapshots on the
@@ -32939,7 +32946,7 @@ defmodule AWS.EC2 do
 
   You cannot delete a snapshot of the root device of an EBS volume used by a
   registered AMI.
-  You must first de-register the AMI before you can delete the snapshot.
+  You must first deregister the AMI before you can delete the snapshot.
 
   For more information, see [Delete an Amazon EBS snapshot](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-deleting-snapshot.html)
   in the
@@ -33964,6 +33971,18 @@ defmodule AWS.EC2 do
 
   With Capacity Blocks, you purchase a
   specific instance type for a period of time.
+
+  To search for an available Capacity Block offering, you specify a reservation
+  duration
+  and instance count. You must select one of the following options.
+
+    *
+  For reservation durations##  1-day increments
+  up 14 days and 7-day increments up to 182 days total
+
+    *
+  For instance count##  1, 2, 4, 8, 16, 32, or
+  64 instances
   """
   @spec describe_capacity_block_offerings(
           map(),
@@ -34942,7 +34961,8 @@ defmodule AWS.EC2 do
       *
 
   `trn1.2xlarge` | `trn1.32xlarge` |
-  `trn1n.32xlarge`
+  `trn1n.32xlarge` | `trn2.48xlarge` |
+  `trn2u.48xlarge`
 
   For more information, see [Amazon EC2 instance topology](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology.html)
   in the *Amazon EC2 User Guide*.

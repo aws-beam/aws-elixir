@@ -88,6 +88,18 @@ defmodule AWS.PartnerCentralSelling do
 
   ## Example:
       
+      tag_resource_request() :: %{
+        required("ResourceArn") => String.t(),
+        required("Tags") => list(tag()())
+      }
+      
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_engagement_resource_associations_request() :: %{
         optional("CreatedBy") => String.t(),
         optional("EngagementIdentifier") => String.t(),
@@ -249,6 +261,15 @@ defmodule AWS.PartnerCentralSelling do
       
   """
   @type last_modified_date() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
@@ -552,6 +573,18 @@ defmodule AWS.PartnerCentralSelling do
 
   ## Example:
       
+      untag_resource_request() :: %{
+        required("ResourceArn") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+      
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_opportunity_response() :: %{
         "Id" => String.t(),
         "LastModifiedDate" => non_neg_integer(),
@@ -738,6 +771,18 @@ defmodule AWS.PartnerCentralSelling do
       
   """
   @type create_resource_snapshot_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
+  """
+  @type tag() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1000,6 +1045,17 @@ defmodule AWS.PartnerCentralSelling do
       
   """
   @type get_engagement_invitation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag()())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1321,6 +1377,7 @@ defmodule AWS.PartnerCentralSelling do
   ## Example:
       
       start_engagement_from_opportunity_task_request() :: %{
+        optional("Tags") => list(tag()()),
         required("AwsSubmission") => aws_submission(),
         required("Catalog") => String.t(),
         required("ClientToken") => String.t(),
@@ -1368,6 +1425,15 @@ defmodule AWS.PartnerCentralSelling do
       
   """
   @type get_engagement_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
@@ -1486,6 +1552,17 @@ defmodule AWS.PartnerCentralSelling do
 
   ## Example:
       
+      list_tags_for_resource_request() :: %{
+        required("ResourceArn") => String.t()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       customer_projects_context() :: %{
         "Customer" => engagement_customer(),
         "Project" => engagement_customer_project_details()
@@ -1542,6 +1619,7 @@ defmodule AWS.PartnerCentralSelling do
   ## Example:
       
       create_resource_snapshot_job_request() :: %{
+        optional("Tags") => list(tag()()),
         required("Catalog") => String.t(),
         required("ClientToken") => String.t(),
         required("EngagementIdentifier") => String.t(),
@@ -1862,6 +1940,7 @@ defmodule AWS.PartnerCentralSelling do
   ## Example:
       
       start_engagement_by_accepting_invitation_task_request() :: %{
+        optional("Tags") => list(tag()()),
         required("Catalog") => String.t(),
         required("ClientToken") => String.t(),
         required("Identifier") => String.t()
@@ -1876,6 +1955,7 @@ defmodule AWS.PartnerCentralSelling do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | conflict_exception()
 
   @type assign_opportunity_errors() ::
           throttling_exception()
@@ -1936,6 +2016,7 @@ defmodule AWS.PartnerCentralSelling do
           | validation_exception()
           | access_denied_exception()
           | resource_not_found_exception()
+          | conflict_exception()
 
   @type disassociate_opportunity_errors() ::
           throttling_exception()
@@ -2034,7 +2115,10 @@ defmodule AWS.PartnerCentralSelling do
           | resource_not_found_exception()
 
   @type list_resource_snapshot_jobs_errors() ::
-          throttling_exception() | validation_exception() | access_denied_exception()
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
 
   @type list_resource_snapshots_errors() ::
           throttling_exception()
@@ -2044,6 +2128,13 @@ defmodule AWS.PartnerCentralSelling do
 
   @type list_solutions_errors() ::
           validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_tags_for_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
@@ -2060,6 +2151,7 @@ defmodule AWS.PartnerCentralSelling do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | conflict_exception()
 
   @type start_engagement_by_accepting_invitation_task_errors() ::
           throttling_exception()
@@ -2098,6 +2190,22 @@ defmodule AWS.PartnerCentralSelling do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type tag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type untag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type update_opportunity_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2123,13 +2231,12 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
+  Use the `AcceptEngagementInvitation` action to accept an engagement
+  invitation shared by AWS.
 
-  Use the `AcceptEngagementInvitation` action to accept an engagement invitation
-  shared by AWS.
-
-  Accepting the invitation indicates your willingness to participate in the
-  engagement,
-  granting you access to all engagement-related data.
+  Accepting the invitation indicates your willingness to
+  participate in the engagement, granting you access to all engagement-related
+  data.
   """
   @spec accept_engagement_invitation(map(), accept_engagement_invitation_request(), list()) ::
           {:ok, nil, any()}
@@ -2227,13 +2334,13 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
+  The `CreateEngagement` action allows you to create an
+  `Engagement`, which serves as a collaborative space between different
+  parties such as AWS Partners and AWS Sellers.
 
-  The `CreateEngagement` action allows you to create an `Engagement`,
-  which serves as a collaborative space between different parties such as AWS
-  Partners and AWS Sellers.
-
-  This action automatically adds the caller's AWS account as an active member of
-  the newly created `Engagement`.
+  This action automatically adds the
+  caller's AWS account as an active member of the newly created
+  `Engagement`.
   """
   @spec create_engagement(map(), create_engagement_request(), list()) ::
           {:ok, create_engagement_response(), any()}
@@ -2246,7 +2353,6 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
-
   This action creates an invitation from a sender to a single receiver to join an
   engagement.
   """
@@ -2285,8 +2391,8 @@ defmodule AWS.PartnerCentralSelling do
   `AssociateOpportunity`.
 
     3.
-  To submit the opportunity, use
-  `StartEngagementFromOpportunityTask`.
+  To start the engagement with AWS, use
+  `StartEngagementFromOpportunity`.
 
   After submission, you can't edit the opportunity until the review is complete.
   But
@@ -2309,13 +2415,12 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
-
   This action allows you to create an immutable snapshot of a specific resource,
-  such as an opportunity,
-  within the context of an engagement.
+  such
+  as an opportunity, within the context of an engagement.
 
-  The snapshot captures a subset of the resource's data based on the schema
-  defined by the provided template.
+  The snapshot captures a subset
+  of the resource's data based on the schema defined by the provided template.
   """
   @spec create_resource_snapshot(map(), create_resource_snapshot_request(), list()) ::
           {:ok, create_resource_snapshot_response(), any()}
@@ -2328,7 +2433,6 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
-
   Use this action to create a job to generate a snapshot of the specified resource
   within an engagement.
 
@@ -2348,11 +2452,10 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
-
   Use this action to deletes a previously created resource snapshot job.
 
-  The job must be
-  in a stopped state before it can be deleted.
+  The job must
+  be in a stopped state before it can be deleted.
   """
   @spec delete_resource_snapshot_job(map(), delete_resource_snapshot_job_request(), list()) ::
           {:ok, nil, any()}
@@ -2413,7 +2516,6 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
-
   Use this action to retrieve the engagement record for a given
   `EngagementIdentifier`.
   """
@@ -2477,7 +2579,6 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
-
   Use this action to retrieves information about a specific resource snapshot
   job.
   """
@@ -2506,7 +2607,6 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
-
   Lists all in-progress, completed, or failed
   StartEngagementByAcceptingInvitationTask
   tasks that were initiated by the caller's account.
@@ -2526,10 +2626,8 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
-
-  Lists all in-progress, completed, or failed `EngagementFromOpportunity` tasks
-  that were
-  initiated by the caller's account.
+  Lists all in-progress, completed, or failed `EngagementFromOpportunity`
+  tasks that were initiated by the caller's account.
   """
   @spec list_engagement_from_opportunity_tasks(
           map(),
@@ -2564,15 +2662,13 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
-
-  Retrieves the details of member partners in an engagement.
+  Retrieves the details of member partners in an Engagement.
 
   This operation can only be
-  invoked by members of the engagement. The `ListEngagementMembers` operation
-  allows you to
-  fetch information about the members of a specific engagement. This action is
-  restricted
-  to members of the engagement being queried.
+  invoked by members of the Engagement. The `ListEngagementMembers` operation
+  allows you to fetch information about the members of a specific Engagement. This
+  action
+  is restricted to members of the Engagement being queried.
   """
   @spec list_engagement_members(map(), list_engagement_members_request(), list()) ::
           {:ok, list_engagement_members_response(), any()}
@@ -2585,7 +2681,6 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
-
   Lists the associations between resources and engagements where the caller is a
   member
   and has at least one snapshot in the engagement.
@@ -2605,8 +2700,7 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
-
-  This action allows users to retrieve a list of engagement records from Partner
+  This action allows users to retrieve a list of Engagement records from Partner
   Central.
 
   This action can be used to manage and track various engagements across
@@ -2665,7 +2759,6 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
-
   Lists resource snapshot jobs owned by the customer.
 
   This operation supports various
@@ -2684,8 +2777,26 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
-
   Retrieves a list of resource view snapshots based on specified criteria.
+
+  This
+  operation supports various use cases, including:
+
+    *
+  Fetching all snapshots associated with an engagement.
+
+    *
+  Retrieving snapshots of a specific resource type within an engagement.
+
+    *
+  Obtaining snapshots for a particular resource using a specified
+  template.
+
+    *
+  Accessing the latest snapshot of a resource within an engagement.
+
+    *
+  Filtering snapshots by resource owner.
   """
   @spec list_resource_snapshots(map(), list_resource_snapshots_request(), list()) ::
           {:ok, list_resource_snapshots_response(), any()}
@@ -2713,6 +2824,19 @@ defmodule AWS.PartnerCentralSelling do
     meta = metadata()
 
     Request.request_post(client, meta, "ListSolutions", input, options)
+  end
+
+  @doc """
+  Returns a list of tags for a resource.
+  """
+  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_tags_for_resource_errors()}
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
 
   @doc """
@@ -2797,7 +2921,6 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
-
   Starts a resource snapshot job that has been previously created.
   """
   @spec start_resource_snapshot_job(map(), start_resource_snapshot_job_request(), list()) ::
@@ -2811,7 +2934,6 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
-
   Stops a resource snapshot job.
 
   The job must be started prior to being stopped.
@@ -2827,12 +2949,11 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
-
-  Use this action to submit an opportunity that was previously created by partner
+  Use this action to submit an Opportunity that was previously created by partner
   for
   AWS review.
 
-  After you perform this action, the opportunity becomes non-editable until it
+  After you perform this action, the Opportunity becomes non-editable until it
   is reviewed by AWS and has ` LifeCycle.ReviewStatus ` as either
   `Approved` or `Action Required`.
   """
@@ -2844,6 +2965,32 @@ defmodule AWS.PartnerCentralSelling do
     meta = metadata()
 
     Request.request_post(client, meta, "SubmitOpportunity", input, options)
+  end
+
+  @doc """
+  Assigns one or more tags (key-value pairs) to the specified resource.
+  """
+  @spec tag_resource(map(), tag_resource_request(), list()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_resource_errors()}
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
+  end
+
+  @doc """
+  Removes a tag or tags from a resource.
+  """
+  @spec untag_resource(map(), untag_resource_request(), list()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_resource_errors()}
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """

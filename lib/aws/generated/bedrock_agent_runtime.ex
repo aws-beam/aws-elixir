@@ -1929,6 +1929,7 @@ defmodule AWS.BedrockAgentRuntime do
         optional("inputText") => String.t(),
         optional("knowledgeBases") => list(knowledge_base()()),
         optional("promptOverrideConfiguration") => prompt_override_configuration(),
+        optional("streamingConfigurations") => streaming_configurations(),
         required("foundationModel") => String.t(),
         required("instruction") => String.t()
       }
@@ -2694,11 +2695,10 @@ defmodule AWS.BedrockAgentRuntime do
 
   @doc """
 
-  The CLI doesn't support streaming operations in Amazon Bedrock, including
-  `InvokeAgent`.
 
-  Sends a prompt for the agent to process and respond to. Note the following
-  fields for the request:
+  Sends a prompt for the agent to process and respond to.
+
+  Note the following fields for the request:
 
     *
   To continue the same conversation with an agent, use the same `sessionId` value
@@ -2733,7 +2733,10 @@ defmodule AWS.BedrockAgentRuntime do
   prompt or, if you configured an action group to return control, results from
   invocation of the action group.
 
-  The response is returned in the `bytes` field of the `chunk` object.
+  The response contains both **chunk** and **trace** attributes.
+
+  The final response is returned in the `bytes` field of the `chunk` object. The
+  `InvokeAgent` returns one chunk for the entire interaction.
 
     *
   The `attribution` object contains citations for parts of the response.
@@ -2861,9 +2864,6 @@ defmodule AWS.BedrockAgentRuntime do
     *
   The agent instructions will not be honored if your agent has only one knowledge
   base, uses default prompts, has no action group, and user input is disabled.
-
-  The CLI doesn't support streaming operations in Amazon Bedrock, including
-  `InvokeInlineAgent`.
   """
   @spec invoke_inline_agent(map(), String.t(), invoke_inline_agent_request(), list()) ::
           {:ok, invoke_inline_agent_response(), any()}

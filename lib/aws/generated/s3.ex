@@ -246,8 +246,10 @@ defmodule AWS.S3 do
       copy_object_result() :: %{
         "ChecksumCRC32" => String.t(),
         "ChecksumCRC32C" => String.t(),
+        "ChecksumCRC64NVME" => String.t(),
         "ChecksumSHA1" => String.t(),
         "ChecksumSHA256" => String.t(),
+        "ChecksumType" => list(any()),
         "ETag" => String.t(),
         "LastModified" => non_neg_integer()
       }
@@ -314,6 +316,7 @@ defmodule AWS.S3 do
         optional("SSECustomerKeyMD5") => String.t(),
         optional("LastModified") => non_neg_integer(),
         optional("ContentDisposition") => String.t(),
+        optional("ChecksumCRC64NVME") => String.t(),
         optional("ChecksumSHA1") => String.t(),
         optional("ContentLanguage") => String.t(),
         optional("RequestCharged") => list(any()),
@@ -528,6 +531,7 @@ defmodule AWS.S3 do
         "BucketKeyEnabled" => boolean(),
         "ChecksumCRC32" => String.t(),
         "ChecksumCRC32C" => String.t(),
+        "ChecksumCRC64NVME" => String.t(),
         "ChecksumSHA1" => String.t(),
         "ChecksumSHA256" => String.t(),
         "ETag" => String.t(),
@@ -692,6 +696,7 @@ defmodule AWS.S3 do
         "ChecksumSHA1" => String.t(),
         "CacheControl" => String.t(),
         "ObjectLockLegalHoldStatus" => list(any()),
+        "ChecksumType" => list(any()),
         "ContentType" => String.t(),
         "SSECustomerKeyMD5" => String.t(),
         "LastModified" => non_neg_integer(),
@@ -701,6 +706,7 @@ defmodule AWS.S3 do
         "ContentEncoding" => String.t(),
         "ChecksumCRC32C" => String.t(),
         "ChecksumCRC32" => String.t(),
+        "ChecksumCRC64NVME" => String.t(),
         "Metadata" => map(),
         "PartsCount" => integer(),
         "ChecksumSHA256" => String.t(),
@@ -911,6 +917,7 @@ defmodule AWS.S3 do
       copy_part_result() :: %{
         "ChecksumCRC32" => String.t(),
         "ChecksumCRC32C" => String.t(),
+        "ChecksumCRC64NVME" => String.t(),
         "ChecksumSHA1" => String.t(),
         "ChecksumSHA256" => String.t(),
         "ETag" => String.t(),
@@ -996,6 +1003,7 @@ defmodule AWS.S3 do
         optional("ChecksumAlgorithm") => list(any()),
         optional("ChecksumCRC32") => String.t(),
         optional("ChecksumCRC32C") => String.t(),
+        optional("ChecksumCRC64NVME") => String.t(),
         optional("ChecksumSHA1") => String.t(),
         optional("ChecksumSHA256") => String.t(),
         optional("ContentLength") => float(),
@@ -1106,8 +1114,10 @@ defmodule AWS.S3 do
         "BucketKeyEnabled" => boolean(),
         "ChecksumCRC32" => String.t(),
         "ChecksumCRC32C" => String.t(),
+        "ChecksumCRC64NVME" => String.t(),
         "ChecksumSHA1" => String.t(),
         "ChecksumSHA256" => String.t(),
+        "ChecksumType" => list(any()),
         "ETag" => String.t(),
         "Expiration" => String.t(),
         "RequestCharged" => list(any()),
@@ -1228,6 +1238,7 @@ defmodule AWS.S3 do
         "Bucket" => String.t(),
         "BucketKeyEnabled" => boolean(),
         "ChecksumAlgorithm" => list(any()),
+        "ChecksumType" => list(any()),
         "Key" => String.t(),
         "RequestCharged" => list(any()),
         "SSECustomerAlgorithm" => String.t(),
@@ -1436,6 +1447,7 @@ defmodule AWS.S3 do
         optional("BucketKeyEnabled") => boolean(),
         optional("SSECustomerKeyMD5") => String.t(),
         optional("ContentDisposition") => String.t(),
+        optional("ChecksumCRC64NVME") => String.t(),
         optional("ChecksumSHA1") => String.t(),
         optional("ContentLanguage") => String.t(),
         optional("IfMatch") => String.t(),
@@ -1470,6 +1482,7 @@ defmodule AWS.S3 do
 
       object_version() :: %{
         "ChecksumAlgorithm" => list(list(any())()),
+        "ChecksumType" => list(any()),
         "ETag" => String.t(),
         "IsLatest" => boolean(),
         "Key" => String.t(),
@@ -2084,6 +2097,7 @@ defmodule AWS.S3 do
         optional("BucketKeyEnabled") => boolean(),
         optional("CacheControl") => String.t(),
         optional("ChecksumAlgorithm") => list(any()),
+        optional("ChecksumType") => list(any()),
         optional("ContentDisposition") => String.t(),
         optional("ContentEncoding") => String.t(),
         optional("ContentLanguage") => String.t(),
@@ -2244,6 +2258,7 @@ defmodule AWS.S3 do
       completed_part() :: %{
         "ChecksumCRC32" => String.t(),
         "ChecksumCRC32C" => String.t(),
+        "ChecksumCRC64NVME" => String.t(),
         "ChecksumSHA1" => String.t(),
         "ChecksumSHA256" => String.t(),
         "ETag" => String.t(),
@@ -2541,6 +2556,7 @@ defmodule AWS.S3 do
         "ChecksumSHA1" => String.t(),
         "CacheControl" => String.t(),
         "ObjectLockLegalHoldStatus" => list(any()),
+        "ChecksumType" => list(any()),
         "ContentType" => String.t(),
         "SSECustomerKeyMD5" => String.t(),
         "LastModified" => non_neg_integer(),
@@ -2551,6 +2567,7 @@ defmodule AWS.S3 do
         "ContentEncoding" => String.t(),
         "ChecksumCRC32C" => String.t(),
         "ChecksumCRC32" => String.t(),
+        "ChecksumCRC64NVME" => String.t(),
         "Metadata" => map(),
         "PartsCount" => integer(),
         "ChecksumSHA256" => String.t(),
@@ -2589,6 +2606,7 @@ defmodule AWS.S3 do
 
       object() :: %{
         "ChecksumAlgorithm" => list(list(any())()),
+        "ChecksumType" => list(any()),
         "ETag" => String.t(),
         "Key" => String.t(),
         "LastModified" => non_neg_integer(),
@@ -2621,8 +2639,10 @@ defmodule AWS.S3 do
         "BucketKeyEnabled" => boolean(),
         "ChecksumCRC32" => String.t(),
         "ChecksumCRC32C" => String.t(),
+        "ChecksumCRC64NVME" => String.t(),
         "ChecksumSHA1" => String.t(),
         "ChecksumSHA256" => String.t(),
+        "ChecksumType" => list(any()),
         "ETag" => String.t(),
         "Expiration" => String.t(),
         "Key" => String.t(),
@@ -2798,8 +2818,10 @@ defmodule AWS.S3 do
       checksum() :: %{
         "ChecksumCRC32" => String.t(),
         "ChecksumCRC32C" => String.t(),
+        "ChecksumCRC64NVME" => String.t(),
         "ChecksumSHA1" => String.t(),
-        "ChecksumSHA256" => String.t()
+        "ChecksumSHA256" => String.t(),
+        "ChecksumType" => list(any())
       }
 
   """
@@ -3263,6 +3285,7 @@ defmodule AWS.S3 do
       part() :: %{
         "ChecksumCRC32" => String.t(),
         "ChecksumCRC32C" => String.t(),
+        "ChecksumCRC64NVME" => String.t(),
         "ChecksumSHA1" => String.t(),
         "ChecksumSHA256" => String.t(),
         "ETag" => String.t(),
@@ -3292,6 +3315,7 @@ defmodule AWS.S3 do
       object_part() :: %{
         "ChecksumCRC32" => String.t(),
         "ChecksumCRC32C" => String.t(),
+        "ChecksumCRC64NVME" => String.t(),
         "ChecksumSHA1" => String.t(),
         "ChecksumSHA256" => String.t(),
         "PartNumber" => integer(),
@@ -3541,6 +3565,7 @@ defmodule AWS.S3 do
 
       multipart_upload() :: %{
         "ChecksumAlgorithm" => list(any()),
+        "ChecksumType" => list(any()),
         "Initiated" => non_neg_integer(),
         "Initiator" => initiator(),
         "Key" => String.t(),
@@ -3681,6 +3706,7 @@ defmodule AWS.S3 do
         "AbortRuleId" => String.t(),
         "Bucket" => String.t(),
         "ChecksumAlgorithm" => list(any()),
+        "ChecksumType" => list(any()),
         "Initiator" => initiator(),
         "IsTruncated" => boolean(),
         "Key" => String.t(),
@@ -4095,11 +4121,14 @@ defmodule AWS.S3 do
       complete_multipart_upload_request() :: %{
         optional("ChecksumCRC32") => String.t(),
         optional("ChecksumCRC32C") => String.t(),
+        optional("ChecksumCRC64NVME") => String.t(),
         optional("ChecksumSHA1") => String.t(),
         optional("ChecksumSHA256") => String.t(),
+        optional("ChecksumType") => list(any()),
         optional("ExpectedBucketOwner") => String.t(),
         optional("IfMatch") => String.t(),
         optional("IfNoneMatch") => String.t(),
+        optional("MpuObjectSize") => String.t(),
         optional("MultipartUpload") => completed_multipart_upload(),
         optional("RequestPayer") => list(any()),
         optional("SSECustomerAlgorithm") => String.t(),
@@ -4431,10 +4460,10 @@ defmodule AWS.S3 do
   . Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in
   Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -4622,10 +4651,10 @@ defmodule AWS.S3 do
 
   . Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -4765,11 +4794,14 @@ defmodule AWS.S3 do
       [
         {"ChecksumCRC32", "x-amz-checksum-crc32"},
         {"ChecksumCRC32C", "x-amz-checksum-crc32c"},
+        {"ChecksumCRC64NVME", "x-amz-checksum-crc64nvme"},
         {"ChecksumSHA1", "x-amz-checksum-sha1"},
         {"ChecksumSHA256", "x-amz-checksum-sha256"},
+        {"ChecksumType", "x-amz-checksum-type"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"IfMatch", "If-Match"},
         {"IfNoneMatch", "If-None-Match"},
+        {"MpuObjectSize", "x-amz-mp-object-size"},
         {"RequestPayer", "x-amz-request-payer"},
         {"SSECustomerAlgorithm", "x-amz-server-side-encryption-customer-algorithm"},
         {"SSECustomerKey", "x-amz-server-side-encryption-customer-key"},
@@ -4847,10 +4879,10 @@ defmodule AWS.S3 do
 
   . Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -5173,10 +5205,10 @@ defmodule AWS.S3 do
 
   . Virtual-hosted-style requests aren't supported.
   For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -5490,10 +5522,10 @@ defmodule AWS.S3 do
 
   . Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -5769,6 +5801,7 @@ defmodule AWS.S3 do
         {"BucketKeyEnabled", "x-amz-server-side-encryption-bucket-key-enabled"},
         {"CacheControl", "Cache-Control"},
         {"ChecksumAlgorithm", "x-amz-checksum-algorithm"},
+        {"ChecksumType", "x-amz-checksum-type"},
         {"ContentDisposition", "Content-Disposition"},
         {"ContentEncoding", "Content-Encoding"},
         {"ContentLanguage", "Content-Language"},
@@ -5812,6 +5845,7 @@ defmodule AWS.S3 do
           {"x-amz-abort-rule-id", "AbortRuleId"},
           {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
           {"x-amz-checksum-algorithm", "ChecksumAlgorithm"},
+          {"x-amz-checksum-type", "ChecksumType"},
           {"x-amz-request-charged", "RequestCharged"},
           {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
           {"x-amz-server-side-encryption-customer-key-MD5", "SSECustomerKeyMD5"},
@@ -5890,10 +5924,10 @@ defmodule AWS.S3 do
   `https://*bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com`.
   Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -6127,10 +6161,10 @@ defmodule AWS.S3 do
 
   . Virtual-hosted-style requests aren't supported.
   For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -6618,10 +6652,10 @@ defmodule AWS.S3 do
 
   . Virtual-hosted-style requests aren't supported.
   For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -6894,10 +6928,10 @@ defmodule AWS.S3 do
 
   . Virtual-hosted-style requests aren't supported.
   For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -7216,10 +7250,10 @@ defmodule AWS.S3 do
 
   . Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -7475,10 +7509,10 @@ defmodule AWS.S3 do
 
   . Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -8281,10 +8315,10 @@ defmodule AWS.S3 do
 
   . Virtual-hosted-style requests aren't supported.
   For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -8706,10 +8740,10 @@ defmodule AWS.S3 do
 
   . Virtual-hosted-style requests aren't supported.
   For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -9147,10 +9181,10 @@ defmodule AWS.S3 do
 
   . Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -9538,6 +9572,7 @@ defmodule AWS.S3 do
           {"accept-ranges", "AcceptRanges"},
           {"x-amz-website-redirect-location", "WebsiteRedirectLocation"},
           {"Content-Language", "ContentLanguage"},
+          {"x-amz-checksum-crc64nvme", "ChecksumCRC64NVME"},
           {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
           {"Content-Encoding", "ContentEncoding"},
           {"x-amz-checksum-sha256", "ChecksumSHA256"},
@@ -9550,6 +9585,7 @@ defmodule AWS.S3 do
           {"x-amz-replication-status", "ReplicationStatus"},
           {"Cache-Control", "CacheControl"},
           {"x-amz-storage-class", "StorageClass"},
+          {"x-amz-checksum-type", "ChecksumType"},
           {"x-amz-missing-meta", "MissingMeta"},
           {"Content-Length", "ContentLength"},
           {"x-amz-object-lock-mode", "ObjectLockMode"},
@@ -9699,10 +9735,10 @@ defmodule AWS.S3 do
 
   . Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -10535,10 +10571,10 @@ defmodule AWS.S3 do
   `https://*bucket-name*.s3express-*zone-id*.*region-code*.amazonaws.com`.
   Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
   """
@@ -10769,10 +10805,10 @@ defmodule AWS.S3 do
 
   . Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -10841,6 +10877,7 @@ defmodule AWS.S3 do
           {"accept-ranges", "AcceptRanges"},
           {"x-amz-website-redirect-location", "WebsiteRedirectLocation"},
           {"Content-Language", "ContentLanguage"},
+          {"x-amz-checksum-crc64nvme", "ChecksumCRC64NVME"},
           {"x-amz-server-side-encryption-customer-algorithm", "SSECustomerAlgorithm"},
           {"Content-Encoding", "ContentEncoding"},
           {"x-amz-checksum-sha256", "ChecksumSHA256"},
@@ -10852,6 +10889,7 @@ defmodule AWS.S3 do
           {"x-amz-replication-status", "ReplicationStatus"},
           {"Cache-Control", "CacheControl"},
           {"x-amz-storage-class", "StorageClass"},
+          {"x-amz-checksum-type", "ChecksumType"},
           {"x-amz-missing-meta", "MissingMeta"},
           {"Content-Length", "ContentLength"},
           {"x-amz-object-lock-mode", "ObjectLockMode"},
@@ -11297,10 +11335,10 @@ defmodule AWS.S3 do
 
   . Virtual-hosted-style requests aren't supported.
   For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -11412,10 +11450,10 @@ defmodule AWS.S3 do
 
   . Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -11936,10 +11974,10 @@ defmodule AWS.S3 do
   . Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in
   Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -12177,10 +12215,10 @@ defmodule AWS.S3 do
 
   . Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -12952,10 +12990,10 @@ defmodule AWS.S3 do
 
   . Virtual-hosted-style requests aren't supported.
   For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -13494,10 +13532,10 @@ defmodule AWS.S3 do
 
   . Virtual-hosted-style requests aren't supported.
   For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -13957,10 +13995,10 @@ defmodule AWS.S3 do
 
   . Virtual-hosted-style requests aren't supported.
   For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -14365,7 +14403,7 @@ defmodule AWS.S3 do
   When you enable versioning on a bucket for the first time, it might take a short
   amount of time for the change to be fully propagated. While this change is
   propagating,
-  you may encounter intermittent `HTTP 404 NoSuchKey` errors for requests to
+  you might encounter intermittent `HTTP 404 NoSuchKey` errors for requests to
   objects created or updated after enabling versioning. We recommend that you wait
   for 15
   minutes after enabling versioning before issuing write operations (`PUT` or
@@ -14634,10 +14672,10 @@ defmodule AWS.S3 do
 
   . Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -14795,6 +14833,7 @@ defmodule AWS.S3 do
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"WebsiteRedirectLocation", "x-amz-website-redirect-location"},
         {"ContentLanguage", "Content-Language"},
+        {"ChecksumCRC64NVME", "x-amz-checksum-crc64nvme"},
         {"SSECustomerAlgorithm", "x-amz-server-side-encryption-customer-algorithm"},
         {"ContentEncoding", "Content-Encoding"},
         {"ChecksumSHA256", "x-amz-checksum-sha256"},
@@ -14835,8 +14874,10 @@ defmodule AWS.S3 do
           {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
           {"x-amz-checksum-crc32", "ChecksumCRC32"},
           {"x-amz-checksum-crc32c", "ChecksumCRC32C"},
+          {"x-amz-checksum-crc64nvme", "ChecksumCRC64NVME"},
           {"x-amz-checksum-sha1", "ChecksumSHA1"},
           {"x-amz-checksum-sha256", "ChecksumSHA256"},
+          {"x-amz-checksum-type", "ChecksumType"},
           {"ETag", "ETag"},
           {"x-amz-expiration", "Expiration"},
           {"x-amz-request-charged", "RequestCharged"},
@@ -15994,10 +16035,10 @@ defmodule AWS.S3 do
 
   . Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -16181,6 +16222,7 @@ defmodule AWS.S3 do
         {"ChecksumAlgorithm", "x-amz-sdk-checksum-algorithm"},
         {"ChecksumCRC32", "x-amz-checksum-crc32"},
         {"ChecksumCRC32C", "x-amz-checksum-crc32c"},
+        {"ChecksumCRC64NVME", "x-amz-checksum-crc64nvme"},
         {"ChecksumSHA1", "x-amz-checksum-sha1"},
         {"ChecksumSHA256", "x-amz-checksum-sha256"},
         {"ContentLength", "Content-Length"},
@@ -16210,6 +16252,7 @@ defmodule AWS.S3 do
           {"x-amz-server-side-encryption-bucket-key-enabled", "BucketKeyEnabled"},
           {"x-amz-checksum-crc32", "ChecksumCRC32"},
           {"x-amz-checksum-crc32c", "ChecksumCRC32C"},
+          {"x-amz-checksum-crc64nvme", "ChecksumCRC64NVME"},
           {"x-amz-checksum-sha1", "ChecksumSHA1"},
           {"x-amz-checksum-sha256", "ChecksumSHA256"},
           {"ETag", "ETag"},
@@ -16285,10 +16328,10 @@ defmodule AWS.S3 do
 
   . Path-style requests are not supported. For more information about endpoints in
   Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability
-  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html)
+  Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html)
   in the
   *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see
-  [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
+  [Available Local Zone for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
@@ -16646,6 +16689,7 @@ defmodule AWS.S3 do
         {"VersionId", "x-amz-fwd-header-x-amz-version-id"},
         {"AcceptRanges", "x-amz-fwd-header-accept-ranges"},
         {"ContentLanguage", "x-amz-fwd-header-Content-Language"},
+        {"ChecksumCRC64NVME", "x-amz-fwd-header-x-amz-checksum-crc64nvme"},
         {"SSECustomerAlgorithm",
          "x-amz-fwd-header-x-amz-server-side-encryption-customer-algorithm"},
         {"ContentEncoding", "x-amz-fwd-header-Content-Encoding"},

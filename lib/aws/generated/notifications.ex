@@ -3,11 +3,12 @@
 
 defmodule AWS.Notifications do
   @moduledoc """
-  The *AWS User Notifications API Reference* provides descriptions, API request
-  parameters, and the JSON response for each of the User Notification API actions.
+  The *Amazon Web Services User Notifications API Reference* provides
+  descriptions, API request parameters, and the JSON response for each of the User
+  Notification API actions.
 
-  User Notification control APIs are currently available in US East (Virginia) -
-  `us-east-1`.
+  User Notification control plane APIs are currently available in US East
+  (Virginia) - `us-east-1`.
 
   [GetNotificationEvent](https://docs.aws.amazon.com/notifications/latest/APIReference/API_GetNotificationEvent.html)  and
   [ListNotificationEvents](https://docs.aws.amazon.com/notifications/latest/APIReference/API_ListNotificationEvents.html)
@@ -17,12 +18,25 @@ defmodule AWS.Notifications do
 
   The User Notifications console can only be used in US East (Virginia). Your data
   however, is stored in each Region chosen as a
-  [notification hub](https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html>)
+  [notification hub](https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html)
   in addition to US East (Virginia).
   """
 
   alias AWS.Client
   alias AWS.Request
+
+  @typedoc """
+
+  ## Example:
+
+      list_managed_notification_channel_associations_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t(),
+        required("managedNotificationConfigurationArn") => String.t()
+      }
+
+  """
+  @type list_managed_notification_channel_associations_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -47,6 +61,19 @@ defmodule AWS.Notifications do
 
   """
   @type source_event_metadata_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_managed_notification_configurations_request() :: %{
+        optional("channelIdentifier") => String.t(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_managed_notification_configurations_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -95,12 +122,75 @@ defmodule AWS.Notifications do
 
   ## Example:
 
+      associate_managed_notification_additional_channel_response() :: %{}
+
+  """
+  @type associate_managed_notification_additional_channel_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      notifications_access_for_organization() :: %{
+        "accessStatus" => list(any())
+      }
+
+  """
+  @type notifications_access_for_organization() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_managed_notification_child_event_request() :: %{
+        optional("locale") => String.t()
+      }
+
+  """
+  @type get_managed_notification_child_event_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_notification_event_request() :: %{
         optional("locale") => String.t()
       }
 
   """
   @type get_notification_event_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_managed_notification_additional_channel_response() :: %{}
+
+  """
+  @type disassociate_managed_notification_additional_channel_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_managed_notification_child_events_response() :: %{
+        "managedNotificationChildEvents" => list(managed_notification_child_event_overview()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_managed_notification_child_events_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_managed_notification_event_request() :: %{
+        optional("locale") => String.t()
+      }
+
+  """
+  @type get_managed_notification_event_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -162,6 +252,25 @@ defmodule AWS.Notifications do
 
   ## Example:
 
+      managed_notification_event_overview() :: %{
+        "aggregatedNotificationRegions" => list(String.t()()),
+        "aggregationEventType" => String.t(),
+        "aggregationSummary" => aggregation_summary(),
+        "arn" => String.t(),
+        "creationTime" => non_neg_integer(),
+        "managedNotificationConfigurationArn" => String.t(),
+        "notificationEvent" => managed_notification_event_summary(),
+        "organizationalUnitId" => String.t(),
+        "relatedAccount" => String.t()
+      }
+
+  """
+  @type managed_notification_event_overview() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       message_components_summary() :: %{
         "headline" => [String.t()]
       }
@@ -203,6 +312,52 @@ defmodule AWS.Notifications do
 
   ## Example:
 
+      associate_managed_notification_account_contact_response() :: %{}
+
+  """
+  @type associate_managed_notification_account_contact_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_managed_notification_event_response() :: %{
+        "arn" => String.t(),
+        "content" => managed_notification_event(),
+        "creationTime" => non_neg_integer(),
+        "managedNotificationConfigurationArn" => String.t()
+      }
+
+  """
+  @type get_managed_notification_event_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_notification_event() :: %{
+        "aggregationEventType" => String.t(),
+        "aggregationSummary" => aggregation_summary(),
+        "endTime" => [non_neg_integer()],
+        "eventStatus" => String.t(),
+        "id" => String.t(),
+        "messageComponents" => message_components(),
+        "notificationType" => String.t(),
+        "organizationalUnitId" => String.t(),
+        "schemaVersion" => String.t(),
+        "sourceEventDetailUrl" => String.t(),
+        "sourceEventDetailUrlDisplayText" => [String.t()],
+        "startTime" => [non_neg_integer()],
+        "textParts" => map()
+      }
+
+  """
+  @type managed_notification_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_notification_hubs_request() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t()
@@ -224,6 +379,46 @@ defmodule AWS.Notifications do
 
   """
   @type get_notification_event_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aggregation_summary() :: %{
+        "additionalSummarizationDimensions" => list(summarization_dimension_overview()()),
+        "aggregatedAccounts" => summarization_dimension_overview(),
+        "aggregatedBy" => list(aggregation_key()()),
+        "aggregatedOrganizationalUnits" => summarization_dimension_overview(),
+        "aggregatedRegions" => summarization_dimension_overview(),
+        "eventCount" => [integer()]
+      }
+
+  """
+  @type aggregation_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aggregation_key() :: %{
+        "name" => [String.t()],
+        "value" => [String.t()]
+      }
+
+  """
+  @type aggregation_key() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      summarization_dimension_detail() :: %{
+        "name" => [String.t()],
+        "value" => [String.t()]
+      }
+
+  """
+  @type summarization_dimension_detail() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -251,6 +446,15 @@ defmodule AWS.Notifications do
 
   ## Example:
 
+      disable_notifications_access_for_organization_request() :: %{}
+
+  """
+  @type disable_notifications_access_for_organization_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       untag_resource_request() :: %{
         required("tagKeys") => list(String.t()())
       }
@@ -266,6 +470,18 @@ defmodule AWS.Notifications do
 
   """
   @type get_event_rule_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_managed_notification_configurations_response() :: %{
+        "managedNotificationConfigurations" => list(managed_notification_configuration_structure()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_managed_notification_configurations_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -316,6 +532,7 @@ defmodule AWS.Notifications do
       notification_event_schema() :: %{
         "aggregateNotificationEventArn" => String.t(),
         "aggregationEventType" => String.t(),
+        "aggregationSummary" => aggregation_summary(),
         "endTime" => [non_neg_integer()],
         "eventStatus" => String.t(),
         "id" => String.t(),
@@ -350,6 +567,76 @@ defmodule AWS.Notifications do
 
   """
   @type list_notification_events_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_managed_notification_configuration_request() :: %{}
+
+  """
+  @type get_managed_notification_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_managed_notification_account_contact_response() :: %{}
+
+  """
+  @type disassociate_managed_notification_account_contact_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_notification_child_event() :: %{
+        "aggregateManagedNotificationEventArn" => String.t(),
+        "aggregationDetail" => aggregation_detail(),
+        "endTime" => [non_neg_integer()],
+        "eventStatus" => String.t(),
+        "id" => String.t(),
+        "messageComponents" => message_components(),
+        "notificationType" => String.t(),
+        "organizationalUnitId" => String.t(),
+        "schemaVersion" => String.t(),
+        "sourceEventDetailUrl" => String.t(),
+        "sourceEventDetailUrlDisplayText" => [String.t()],
+        "startTime" => [non_neg_integer()],
+        "textParts" => map()
+      }
+
+  """
+  @type managed_notification_child_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_notifications_access_for_organization_request() :: %{}
+
+  """
+  @type get_notifications_access_for_organization_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aggregation_detail() :: %{
+        "summarizationDimensions" => list(summarization_dimension_detail()())
+      }
+
+  """
+  @type aggregation_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enable_notifications_access_for_organization_response() :: %{}
+
+  """
+  @type enable_notifications_access_for_organization_response() :: %{}
 
   @typedoc """
 
@@ -427,10 +714,56 @@ defmodule AWS.Notifications do
 
   ## Example:
 
+      get_notifications_access_for_organization_response() :: %{
+        "notificationsAccessForOrganization" => notifications_access_for_organization()
+      }
+
+  """
+  @type get_notifications_access_for_organization_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_notification_configuration_response() :: %{}
 
   """
   @type delete_notification_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_managed_notification_events_request() :: %{
+        optional("endTime") => [non_neg_integer()],
+        optional("locale") => String.t(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t(),
+        optional("organizationalUnitId") => String.t(),
+        optional("relatedAccount") => String.t(),
+        optional("source") => String.t(),
+        optional("startTime") => [non_neg_integer()]
+      }
+
+  """
+  @type list_managed_notification_events_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_managed_notification_child_events_request() :: %{
+        optional("endTime") => [non_neg_integer()],
+        optional("locale") => String.t(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t(),
+        optional("organizationalUnitId") => String.t(),
+        optional("relatedAccount") => String.t(),
+        optional("startTime") => [non_neg_integer()]
+      }
+
+  """
+  @type list_managed_notification_child_events_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -446,6 +779,32 @@ defmodule AWS.Notifications do
 
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_managed_notification_configuration_response() :: %{
+        "arn" => String.t(),
+        "category" => [String.t()],
+        "description" => String.t(),
+        "name" => String.t(),
+        "subCategory" => [String.t()]
+      }
+
+  """
+  @type get_managed_notification_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_managed_notification_additional_channel_request() :: %{
+        required("managedNotificationConfigurationArn") => String.t()
+      }
+
+  """
+  @type disassociate_managed_notification_additional_channel_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -477,6 +836,20 @@ defmodule AWS.Notifications do
 
   """
   @type list_notification_hubs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_managed_notification_child_event_response() :: %{
+        "arn" => String.t(),
+        "content" => managed_notification_child_event(),
+        "creationTime" => non_neg_integer(),
+        "managedNotificationConfigurationArn" => String.t()
+      }
+
+  """
+  @type get_managed_notification_child_event_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -579,6 +952,33 @@ defmodule AWS.Notifications do
 
   ## Example:
 
+      managed_notification_event_summary() :: %{
+        "eventStatus" => String.t(),
+        "messageComponents" => message_components_summary(),
+        "notificationType" => String.t(),
+        "schemaVersion" => String.t(),
+        "sourceEventMetadata" => managed_source_event_metadata_summary()
+      }
+
+  """
+  @type managed_notification_event_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_managed_notification_channel_associations_response() :: %{
+        "channelAssociations" => list(managed_notification_channel_association_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_managed_notification_channel_associations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       event_rule_status_summary() :: %{
         "reason" => String.t(),
         "status" => String.t()
@@ -618,9 +1018,22 @@ defmodule AWS.Notifications do
 
   ## Example:
 
+      list_managed_notification_events_response() :: %{
+        "managedNotificationEvents" => list(managed_notification_event_overview()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_managed_notification_events_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       notification_event_overview() :: %{
         "aggregateNotificationEventArn" => String.t(),
         "aggregationEventType" => String.t(),
+        "aggregationSummary" => aggregation_summary(),
         "arn" => String.t(),
         "creationTime" => non_neg_integer(),
         "notificationConfigurationArn" => String.t(),
@@ -646,6 +1059,22 @@ defmodule AWS.Notifications do
 
   ## Example:
 
+      managed_notification_child_event_summary() :: %{
+        "aggregationDetail" => aggregation_detail(),
+        "eventStatus" => String.t(),
+        "messageComponents" => message_components_summary(),
+        "notificationType" => String.t(),
+        "schemaVersion" => String.t(),
+        "sourceEventMetadata" => managed_source_event_metadata_summary()
+      }
+
+  """
+  @type managed_notification_child_event_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       disassociate_channel_request() :: %{
         required("notificationConfigurationArn") => String.t()
       }
@@ -666,6 +1095,19 @@ defmodule AWS.Notifications do
 
   """
   @type message_components() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      summarization_dimension_overview() :: %{
+        "count" => [integer()],
+        "name" => [String.t()],
+        "sampleValues" => list([String.t()]())
+      }
+
+  """
+  @type summarization_dimension_overview() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -706,6 +1148,15 @@ defmodule AWS.Notifications do
 
   """
   @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      enable_notifications_access_for_organization_request() :: %{}
+
+  """
+  @type enable_notifications_access_for_organization_request() :: %{}
 
   @typedoc """
 
@@ -774,6 +1225,39 @@ defmodule AWS.Notifications do
 
   ## Example:
 
+      managed_notification_configuration_structure() :: %{
+        "arn" => String.t(),
+        "description" => String.t(),
+        "name" => String.t()
+      }
+
+  """
+  @type managed_notification_configuration_structure() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_managed_notification_account_contact_request() :: %{
+        required("managedNotificationConfigurationArn") => String.t()
+      }
+
+  """
+  @type associate_managed_notification_account_contact_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disable_notifications_access_for_organization_response() :: %{}
+
+  """
+  @type disable_notifications_access_for_organization_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       dimension() :: %{
         "name" => String.t(),
         "value" => String.t()
@@ -781,6 +1265,32 @@ defmodule AWS.Notifications do
 
   """
   @type dimension() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_notification_channel_association_summary() :: %{
+        "channelIdentifier" => [String.t()],
+        "channelType" => String.t(),
+        "overrideOption" => String.t()
+      }
+
+  """
+  @type managed_notification_channel_association_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_source_event_metadata_summary() :: %{
+        "eventOriginRegion" => String.t(),
+        "eventType" => String.t(),
+        "source" => String.t()
+      }
+
+  """
+  @type managed_source_event_metadata_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -800,6 +1310,34 @@ defmodule AWS.Notifications do
 
   """
   @type get_event_rule_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_managed_notification_account_contact_request() :: %{
+        required("managedNotificationConfigurationArn") => String.t()
+      }
+
+  """
+  @type disassociate_managed_notification_account_contact_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_notification_child_event_overview() :: %{
+        "aggregateManagedNotificationEventArn" => String.t(),
+        "arn" => String.t(),
+        "childEvent" => managed_notification_child_event_summary(),
+        "creationTime" => non_neg_integer(),
+        "managedNotificationConfigurationArn" => String.t(),
+        "organizationalUnitId" => String.t(),
+        "relatedAccount" => String.t()
+      }
+
+  """
+  @type managed_notification_child_event_overview() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -847,6 +1385,17 @@ defmodule AWS.Notifications do
 
   ## Example:
 
+      associate_managed_notification_additional_channel_request() :: %{
+        required("managedNotificationConfigurationArn") => String.t()
+      }
+
+  """
+  @type associate_managed_notification_additional_channel_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       resource() :: %{
         "arn" => String.t(),
         "detailUrl" => String.t(),
@@ -858,6 +1407,24 @@ defmodule AWS.Notifications do
   @type resource() :: %{String.t() => any()}
 
   @type associate_channel_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type associate_managed_notification_account_contact_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type associate_managed_notification_additional_channel_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -907,6 +1474,15 @@ defmodule AWS.Notifications do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type disable_notifications_access_for_organization_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type disassociate_channel_errors() ::
           throttling_exception()
           | validation_exception()
@@ -914,7 +1490,52 @@ defmodule AWS.Notifications do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type disassociate_managed_notification_account_contact_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type disassociate_managed_notification_additional_channel_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type enable_notifications_access_for_organization_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type get_event_rule_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_managed_notification_child_event_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_managed_notification_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_managed_notification_event_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -935,6 +1556,12 @@ defmodule AWS.Notifications do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_notifications_access_for_organization_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type list_channels_errors() ::
           throttling_exception()
           | validation_exception()
@@ -948,6 +1575,31 @@ defmodule AWS.Notifications do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type list_managed_notification_channel_associations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_managed_notification_child_events_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_managed_notification_configurations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_managed_notification_events_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
 
   @type list_notification_configurations_errors() ::
           throttling_exception()
@@ -1031,10 +1683,10 @@ defmodule AWS.Notifications do
   @doc """
   Associates a delivery
   [Channel](https://docs.aws.amazon.com/notifications/latest/userguide/managing-delivery-channels.html)
-  with a particular NotificationConfiguration.
+  with a particular `NotificationConfiguration`.
 
-  Supported Channels include AWS Chatbot,
-  the AWS Console Mobile Application, and emails (notifications-contacts).
+  Supported Channels include Chatbot,
+  the Console Mobile Application, and emails (notifications-contacts).
   """
   @spec associate_channel(map(), String.t(), associate_channel_request(), list()) ::
           {:ok, associate_channel_response(), any()}
@@ -1062,9 +1714,93 @@ defmodule AWS.Notifications do
   end
 
   @doc """
-  Creates an
-  [EventRule](https://docs.aws.amazon.com/notifications/latest/userguide/glossary.html)
-  that is associated with a specified Notification Configuration.
+  Associates an Account Contact with a particular
+  `ManagedNotificationConfiguration`.
+  """
+  @spec associate_managed_notification_account_contact(
+          map(),
+          String.t(),
+          associate_managed_notification_account_contact_request(),
+          list()
+        ) ::
+          {:ok, associate_managed_notification_account_contact_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, associate_managed_notification_account_contact_errors()}
+  def associate_managed_notification_account_contact(
+        %Client{} = client,
+        contact_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/contacts/associate-managed-notification/#{AWS.Util.encode_uri(contact_identifier)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Associates an additional Channel with a particular
+  `ManagedNotificationConfiguration`.
+
+  Supported Channels include Chatbot, the Console Mobile Application, and emails
+  (notifications-contacts).
+  """
+  @spec associate_managed_notification_additional_channel(
+          map(),
+          String.t(),
+          associate_managed_notification_additional_channel_request(),
+          list()
+        ) ::
+          {:ok, associate_managed_notification_additional_channel_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, associate_managed_notification_additional_channel_errors()}
+  def associate_managed_notification_additional_channel(
+        %Client{} = client,
+        channel_arn,
+        input,
+        options \\ []
+      ) do
+    url_path = "/channels/associate-managed-notification/#{AWS.Util.encode_uri(channel_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates an [
+  `EventRule`
+  ](https://docs.aws.amazon.com/notifications/latest/userguide/glossary.html) that
+  is associated with a specified `NotificationConfiguration`.
   """
   @spec create_event_rule(map(), create_event_rule_request(), list()) ::
           {:ok, create_event_rule_response(), any()}
@@ -1092,7 +1828,7 @@ defmodule AWS.Notifications do
   end
 
   @doc """
-  Creates a new NotificationConfiguration.
+  Creates a new `NotificationConfiguration`.
   """
   @spec create_notification_configuration(
           map(),
@@ -1124,7 +1860,7 @@ defmodule AWS.Notifications do
   end
 
   @doc """
-  Deletes an EventRule.
+  Deletes an `EventRule`.
   """
   @spec delete_event_rule(map(), String.t(), delete_event_rule_request(), list()) ::
           {:ok, delete_event_rule_response(), any()}
@@ -1152,7 +1888,7 @@ defmodule AWS.Notifications do
   end
 
   @doc """
-  Deletes a NotificationConfiguration.
+  Deletes a `NotificationConfiguration`.
   """
   @spec delete_notification_configuration(
           map(),
@@ -1185,12 +1921,14 @@ defmodule AWS.Notifications do
   end
 
   @doc """
-  Deregisters a NotificationHub in the specified Region.
+  Deregisters a `NotificationConfiguration` in the specified Region.
 
-  You can't deregister the last NotificationHub in the account. NotificationEvents
-  stored in the deregistered NotificationHub are no longer be visible. Recreating
-  a new NotificationHub in the same Region restores access to those
-  NotificationEvents.
+  You can't deregister the last `NotificationHub` in the account.
+  `NotificationEvents` stored in the deregistered `NotificationConfiguration` are
+  no
+  longer be visible. Recreating a new `NotificationConfiguration` in the same
+  Region restores access
+  to those `NotificationEvents`.
   """
   @spec deregister_notification_hub(
           map(),
@@ -1228,10 +1966,43 @@ defmodule AWS.Notifications do
   end
 
   @doc """
-  Disassociates a Channel from a specified NotificationConfiguration.
+  Disables service trust between User Notifications and Amazon Web Services
+  Organizations.
+  """
+  @spec disable_notifications_access_for_organization(
+          map(),
+          disable_notifications_access_for_organization_request(),
+          list()
+        ) ::
+          {:ok, disable_notifications_access_for_organization_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disable_notifications_access_for_organization_errors()}
+  def disable_notifications_access_for_organization(%Client{} = client, input, options \\ []) do
+    url_path = "/organization/access"
+    headers = []
+    custom_headers = []
+    query_params = []
 
-  Supported Channels include AWS Chatbot, the AWS Console Mobile Application, and
-  emails (notifications-contacts).
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Disassociates a Channel from a specified `NotificationConfiguration`.
+
+  Supported Channels include Chatbot, the Console Mobile Application, and emails
+  (notifications-contacts).
   """
   @spec disassociate_channel(map(), String.t(), disassociate_channel_request(), list()) ::
           {:ok, disassociate_channel_response(), any()}
@@ -1259,7 +2030,123 @@ defmodule AWS.Notifications do
   end
 
   @doc """
-  Returns a specified EventRule.
+  Disassociates an Account Contact with a particular
+  `ManagedNotificationConfiguration`.
+  """
+  @spec disassociate_managed_notification_account_contact(
+          map(),
+          String.t(),
+          disassociate_managed_notification_account_contact_request(),
+          list()
+        ) ::
+          {:ok, disassociate_managed_notification_account_contact_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disassociate_managed_notification_account_contact_errors()}
+  def disassociate_managed_notification_account_contact(
+        %Client{} = client,
+        contact_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/contacts/disassociate-managed-notification/#{AWS.Util.encode_uri(contact_identifier)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Disassociates an additional Channel from a particular
+  `ManagedNotificationConfiguration`.
+
+  Supported Channels include Chatbot, the Console Mobile Application, and emails
+  (notifications-contacts).
+  """
+  @spec disassociate_managed_notification_additional_channel(
+          map(),
+          String.t(),
+          disassociate_managed_notification_additional_channel_request(),
+          list()
+        ) ::
+          {:ok, disassociate_managed_notification_additional_channel_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, disassociate_managed_notification_additional_channel_errors()}
+  def disassociate_managed_notification_additional_channel(
+        %Client{} = client,
+        channel_arn,
+        input,
+        options \\ []
+      ) do
+    url_path = "/channels/disassociate-managed-notification/#{AWS.Util.encode_uri(channel_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Enables service trust between User Notifications and Amazon Web Services
+  Organizations.
+  """
+  @spec enable_notifications_access_for_organization(
+          map(),
+          enable_notifications_access_for_organization_request(),
+          list()
+        ) ::
+          {:ok, enable_notifications_access_for_organization_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, enable_notifications_access_for_organization_errors()}
+  def enable_notifications_access_for_organization(%Client{} = client, input, options \\ []) do
+    url_path = "/organization/access"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns a specified `EventRule`.
   """
   @spec get_event_rule(map(), String.t(), list()) ::
           {:ok, get_event_rule_response(), any()}
@@ -1276,7 +2163,72 @@ defmodule AWS.Notifications do
   end
 
   @doc """
-  Returns a specified NotificationConfiguration.
+  Returns the child event of a specific given `ManagedNotificationEvent`.
+  """
+  @spec get_managed_notification_child_event(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_managed_notification_child_event_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_managed_notification_child_event_errors()}
+  def get_managed_notification_child_event(%Client{} = client, arn, locale \\ nil, options \\ []) do
+    url_path = "/managed-notification-child-events/#{AWS.Util.encode_uri(arn)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(locale) do
+        [{"locale", locale} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a specified `ManagedNotificationConfiguration`.
+  """
+  @spec get_managed_notification_configuration(map(), String.t(), list()) ::
+          {:ok, get_managed_notification_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_managed_notification_configuration_errors()}
+  def get_managed_notification_configuration(%Client{} = client, arn, options \\ []) do
+    url_path = "/managed-notification-configurations/#{AWS.Util.encode_uri(arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a specified `ManagedNotificationEvent`.
+  """
+  @spec get_managed_notification_event(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_managed_notification_event_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_managed_notification_event_errors()}
+  def get_managed_notification_event(%Client{} = client, arn, locale \\ nil, options \\ []) do
+    url_path = "/managed-notification-events/#{AWS.Util.encode_uri(arn)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(locale) do
+        [{"locale", locale} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a specified `NotificationConfiguration`.
   """
   @spec get_notification_configuration(map(), String.t(), list()) ::
           {:ok, get_notification_configuration_response(), any()}
@@ -1293,17 +2245,17 @@ defmodule AWS.Notifications do
   end
 
   @doc """
-  Returns a specified NotificationEvent.
+  Returns a specified `NotificationEvent`.
 
   User Notifications stores notifications in the individual Regions you register
   as notification hubs and the Region of the source event rule.
-  GetNotificationEvent only returns notifications stored in the same Region in
+  `GetNotificationEvent` only returns notifications stored in the same Region in
   which the action is called.
   User Notifications doesn't backfill notifications to new Regions selected as
   notification hubs. For this reason, we recommend that you make calls in your
   oldest registered notification hub.
   For more information, see [Notification hubs](https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html)
-  in the *AWS User Notifications User Guide*.
+  in the *Amazon Web Services User Notifications User Guide*.
   """
   @spec get_notification_event(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_notification_event_response(), any()}
@@ -1327,7 +2279,25 @@ defmodule AWS.Notifications do
   end
 
   @doc """
-  Returns a list of Channels for a NotificationConfiguration.
+  Returns the AccessStatus of Service Trust Enablement for User Notifications and
+  Amazon Web Services Organizations.
+  """
+  @spec get_notifications_access_for_organization(map(), list()) ::
+          {:ok, get_notifications_access_for_organization_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_notifications_access_for_organization_errors()}
+  def get_notifications_access_for_organization(%Client{} = client, options \\ []) do
+    url_path = "/organization/access"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of Channels for a `NotificationConfiguration`.
   """
   @spec list_channels(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
           {:ok, list_channels_response(), any()}
@@ -1371,7 +2341,7 @@ defmodule AWS.Notifications do
   end
 
   @doc """
-  Returns a list of EventRules according to specified filters, in reverse
+  Returns a list of `EventRules` according to specified filters, in reverse
   chronological order (newest first).
   """
   @spec list_event_rules(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
@@ -1416,8 +2386,301 @@ defmodule AWS.Notifications do
   end
 
   @doc """
-  Returns a list of abbreviated NotificationConfigurations according to specified
-  filters, in reverse chronological order (newest first).
+  Returns a list of Account contacts and Channels associated with a
+  `ManagedNotificationConfiguration`, in paginated format.
+  """
+  @spec list_managed_notification_channel_associations(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_managed_notification_channel_associations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_managed_notification_channel_associations_errors()}
+  def list_managed_notification_channel_associations(
+        %Client{} = client,
+        managed_notification_configuration_arn,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/channels/list-managed-notification-channel-associations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(managed_notification_configuration_arn) do
+        [
+          {"managedNotificationConfigurationArn", managed_notification_configuration_arn}
+          | query_params
+        ]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of `ManagedNotificationChildEvents` for a specified aggregate
+  `ManagedNotificationEvent`, ordered by creation time in reverse chronological
+  order (newest first).
+  """
+  @spec list_managed_notification_child_events(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_managed_notification_child_events_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_managed_notification_child_events_errors()}
+  def list_managed_notification_child_events(
+        %Client{} = client,
+        aggregate_managed_notification_event_arn,
+        end_time \\ nil,
+        locale \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        organizational_unit_id \\ nil,
+        related_account \\ nil,
+        start_time \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/list-managed-notification-child-events/#{AWS.Util.encode_uri(aggregate_managed_notification_event_arn)}"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(start_time) do
+        [{"startTime", start_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(related_account) do
+        [{"relatedAccount", related_account} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(organizational_unit_id) do
+        [{"organizationalUnitId", organizational_unit_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(locale) do
+        [{"locale", locale} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(end_time) do
+        [{"endTime", end_time} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of Managed Notification Configurations according to specified
+  filters, ordered by creation time in reverse chronological order (newest first).
+  """
+  @spec list_managed_notification_configurations(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_managed_notification_configurations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_managed_notification_configurations_errors()}
+  def list_managed_notification_configurations(
+        %Client{} = client,
+        channel_identifier \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/managed-notification-configurations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(channel_identifier) do
+        [{"channelIdentifier", channel_identifier} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of Managed Notification Events according to specified filters,
+  ordered by creation time in reverse chronological order (newest first).
+  """
+  @spec list_managed_notification_events(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_managed_notification_events_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_managed_notification_events_errors()}
+  def list_managed_notification_events(
+        %Client{} = client,
+        end_time \\ nil,
+        locale \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        organizational_unit_id \\ nil,
+        related_account \\ nil,
+        source \\ nil,
+        start_time \\ nil,
+        options \\ []
+      ) do
+    url_path = "/managed-notification-events"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(start_time) do
+        [{"startTime", start_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(source) do
+        [{"source", source} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(related_account) do
+        [{"relatedAccount", related_account} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(organizational_unit_id) do
+        [{"organizationalUnitId", organizational_unit_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(locale) do
+        [{"locale", locale} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(end_time) do
+        [{"endTime", end_time} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of abbreviated `NotificationConfigurations` according to
+  specified filters, in reverse chronological order (newest first).
   """
   @spec list_notification_configurations(
           map(),
@@ -1485,8 +2748,8 @@ defmodule AWS.Notifications do
   end
 
   @doc """
-  Returns a list of NotificationEvents according to specified filters, in reverse
-  chronological order (newest first).
+  Returns a list of `NotificationEvents` according to specified filters, in
+  reverse chronological order (newest first).
 
   User Notifications stores notifications in the individual Regions you register
   as notification hubs and the Region of the source event rule.
@@ -1496,7 +2759,7 @@ defmodule AWS.Notifications do
   notification hubs. For this reason, we recommend that you make calls in your
   oldest registered notification hub.
   For more information, see [Notification hubs](https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html)
-  in the *AWS User Notifications User Guide*.
+  in the *Amazon Web Services User Notifications User Guide*.
   """
   @spec list_notification_events(
           map(),
@@ -1591,7 +2854,7 @@ defmodule AWS.Notifications do
   end
 
   @doc """
-  Returns a list of NotificationHubs.
+  Returns a list of `NotificationHubs`.
   """
   @spec list_notification_hubs(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_notification_hubs_response(), any()}
@@ -1629,10 +2892,10 @@ defmodule AWS.Notifications do
   @doc """
   Returns a list of tags for a specified Amazon Resource Name (ARN).
 
-  For more information, see [Tagging your AWS resources](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html)
-  in the *Tagging AWS Resources User Guide*.
+  For more information, see [Tagging your Amazon Web Services resources](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html)
+  in the *Tagging Amazon Web Services Resources User Guide*.
 
-  This is only supported for NotificationConfigurations.
+  This is only supported for `NotificationConfigurations`.
   """
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1649,10 +2912,10 @@ defmodule AWS.Notifications do
   end
 
   @doc """
-  Registers a NotificationHub in the specified Region.
+  Registers a `NotificationConfiguration` in the specified Region.
 
-  There is a maximum of one NotificationHub per Region. You can have a maximum of
-  3 NotificationHubs at a time.
+  There is a maximum of one `NotificationConfiguration` per Region. You can have a
+  maximum of 3 `NotificationHub` resources at a time.
   """
   @spec register_notification_hub(map(), register_notification_hub_request(), list()) ::
           {:ok, register_notification_hub_response(), any()}
@@ -1682,10 +2945,10 @@ defmodule AWS.Notifications do
   @doc """
   Tags the resource with a tag key and value.
 
-  For more information, see [Tagging your AWS resources](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html)
-  in the *Tagging AWS Resources User Guide*.
+  For more information, see [Tagging your Amazon Web Services resources](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html)
+  in the *Tagging Amazon Web Services Resources User Guide*.
 
-  This is only supported for NotificationConfigurations.
+  This is only supported for `NotificationConfigurations`.
   """
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
@@ -1715,8 +2978,8 @@ defmodule AWS.Notifications do
   @doc """
   Untags a resource with a specified Amazon Resource Name (ARN).
 
-  For more information, see [Tagging your AWS resources](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html)
-  in the *Tagging AWS Resources User Guide*.
+  For more information, see [Tagging your Amazon Web Services resources](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html)
+  in the *Tagging Amazon Web Services Resources User Guide*.
   """
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
@@ -1749,7 +3012,7 @@ defmodule AWS.Notifications do
   end
 
   @doc """
-  Updates an existing EventRule.
+  Updates an existing `EventRule`.
   """
   @spec update_event_rule(map(), String.t(), update_event_rule_request(), list()) ::
           {:ok, update_event_rule_response(), any()}
@@ -1777,7 +3040,7 @@ defmodule AWS.Notifications do
   end
 
   @doc """
-  Updates a NotificationConfiguration.
+  Updates a `NotificationConfiguration`.
   """
   @spec update_notification_configuration(
           map(),

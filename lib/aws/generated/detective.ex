@@ -90,7 +90,7 @@ defmodule AWS.Detective do
   Remove their account from a behavior graph.
 
   All API actions are logged as CloudTrail events. See [Logging Detective API Calls with
-  CloudTrail](https://docs.aws.amazon.com/detective/latest/adminguide/logging-using-cloudtrail.html).
+  CloudTrail](https://docs.aws.amazon.com/detective/latest/userguide/logging-using-cloudtrail.html).
 
   We replaced the term "master account" with the term "administrator account". An
   administrator account is used to centrally manage multiple accounts. In the case
@@ -2242,7 +2242,7 @@ defmodule AWS.Detective do
   end
 
   @doc """
-  Starts a data source packages for the behavior graph.
+  Starts a data source package for the Detective behavior graph.
   """
   @spec update_datasource_packages(map(), update_datasource_packages_request(), list()) ::
           {:ok, nil, any()}

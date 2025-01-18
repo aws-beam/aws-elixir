@@ -28918,16 +28918,14 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Assigns one or more IPv6 addresses to the specified network interface.
+  Assigns the specified IPv6 addresses to the specified network interface.
 
   You can
-  specify one or more specific IPv6 addresses, or you can specify the number of
-  IPv6
-  addresses to be automatically assigned from within the subnet's IPv6 CIDR block
-  range.
+  specify specific IPv6 addresses, or you can specify the number of IPv6
+  addresses to be automatically assigned from the subnet's IPv6 CIDR block range.
   You can assign as many IPv6 addresses to a network interface as you can assign
   private
-  IPv4 addresses, and the limit varies per instance type.
+  IPv4 addresses, and the limit varies by instance type.
 
   You must specify either the IPv6 addresses or the IPv6 address count in the
   request.
@@ -28951,12 +28949,11 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Assigns one or more secondary private IP addresses to the specified network
+  Assigns the specified secondary private IP addresses to the specified network
   interface.
 
-  You can specify one or more specific secondary IP addresses, or you can specify
-  the number
-  of secondary IP addresses to be automatically assigned within the subnet's CIDR
+  You can specify specific secondary IP addresses, or you can specify the number
+  of secondary IP addresses to be automatically assigned from the subnet's CIDR
   block range.
   The number of secondary IP addresses that you can assign to an instance varies
   by instance type.
@@ -30876,7 +30873,7 @@ defmodule AWS.EC2 do
   @doc """
   Creates a managed prefix list.
 
-  You can specify one or more entries for the prefix list.
+  You can specify entries for the prefix list.
   Each entry consists of a CIDR block and an optional description.
   """
   @spec create_managed_prefix_list(map(), create_managed_prefix_list_request(), list()) ::
@@ -35590,7 +35587,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Describes one or more of your network interfaces.
+  Describes the specified network interfaces or all your network interfaces.
 
   If you have a large number of network interfaces, the operation fails unless
   you use pagination or one of the following filters: `group-id`,
@@ -43227,7 +43224,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Unassigns one or more IPv6 addresses IPv4 Prefix Delegation prefixes from a
+  Unassigns the specified IPv6 addresses or Prefix Delegation prefixes from a
   network interface.
   """
   @spec unassign_ipv6_addresses(map(), unassign_ipv6_addresses_request(), list()) ::
@@ -43240,7 +43237,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Unassigns one or more secondary private IP addresses, or IPv4 Prefix Delegation
+  Unassigns the specified secondary private IP addresses or IPv4 Prefix Delegation
   prefixes from a
   network interface.
   """

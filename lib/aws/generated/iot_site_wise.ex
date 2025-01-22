@@ -646,6 +646,17 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      property_value_null_value() :: %{
+        "valueType" => list(any())
+      }
+
+  """
+  @type property_value_null_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_asset_response() :: %{
         "assetArn" => String.t(),
         "assetCompositeModelSummaries" => list(asset_composite_model_summary()()),
@@ -2240,6 +2251,7 @@ defmodule AWS.IoTSiteWise do
 
       put_storage_configuration_response() :: %{
         "configurationStatus" => configuration_status(),
+        "disallowIngestNullNaN" => boolean(),
         "disassociatedDataStorage" => list(any()),
         "multiLayerStorage" => multi_layer_storage(),
         "retentionPeriod" => retention_period(),
@@ -2413,6 +2425,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       batch_put_asset_property_value_request() :: %{
+        optional("enablePartialEntryProcessing") => boolean(),
         required("entries") => list(put_asset_property_value_entry()())
       }
 
@@ -2519,6 +2532,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       put_storage_configuration_request() :: %{
+        optional("disallowIngestNullNaN") => boolean(),
         optional("disassociatedDataStorage") => list(any()),
         optional("multiLayerStorage") => multi_layer_storage(),
         optional("retentionPeriod") => retention_period(),
@@ -2999,6 +3013,7 @@ defmodule AWS.IoTSiteWise do
 
       describe_storage_configuration_response() :: %{
         "configurationStatus" => configuration_status(),
+        "disallowIngestNullNaN" => boolean(),
         "disassociatedDataStorage" => list(any()),
         "lastUpdateDate" => non_neg_integer(),
         "multiLayerStorage" => multi_layer_storage(),
@@ -4000,6 +4015,7 @@ defmodule AWS.IoTSiteWise do
         "booleanValue" => boolean(),
         "doubleValue" => float(),
         "integerValue" => integer(),
+        "nullValue" => property_value_null_value(),
         "stringValue" => String.t()
       }
 

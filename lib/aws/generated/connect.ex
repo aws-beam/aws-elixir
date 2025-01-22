@@ -1432,6 +1432,15 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      delete_contact_flow_version_request() :: %{}
+
+  """
+  @type delete_contact_flow_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       describe_security_profile_response() :: %{
         "SecurityProfile" => security_profile()
       }
@@ -1570,6 +1579,15 @@ defmodule AWS.Connect do
 
   """
   @type real_time_contact_analysis_point_of_interest() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_contact_flow_version_response() :: %{}
+
+  """
+  @type delete_contact_flow_version_response() :: %{}
 
   @typedoc """
 
@@ -8727,6 +8745,7 @@ defmodule AWS.Connect do
   ## Example:
 
       create_contact_flow_version_request() :: %{
+        optional("ContactFlowVersion") => float(),
         optional("Description") => String.t(),
         optional("FlowContentSha256") => String.t(),
         optional("LastModifiedRegion") => String.t(),
@@ -11250,6 +11269,14 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type delete_contact_flow_version_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type delete_email_address_errors() ::
           resource_conflict_exception()
           | throttling_exception()
@@ -13433,7 +13460,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  >Associates a set of proficiencies with a user.
+  Associates a set of proficiencies with a user.
   """
   @spec associate_user_proficiencies(
           map(),
@@ -13904,13 +13931,9 @@ defmodule AWS.Connect do
   Publishes a new version of the flow provided.
 
   Versions are immutable and monotonically
-  increasing. If a version of the same flow content already exists, no new version
-  is created and
-  instead the existing version number is returned. If the `FlowContentSha256`
-  provided
-  is different from the `FlowContentSha256` of the `$LATEST` published flow
-  content, then an error is returned. This API only supports creating versions for
-  flows of type
+  increasing. If the `FlowContentSha256` provided is different from the
+  `FlowContentSha256` of the `$LATEST` published flow content, then an error
+  is returned. This API only supports creating versions for flows of type
   `Campaign`.
   """
   @spec create_contact_flow_version(
@@ -15038,6 +15061,50 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Deletes the particular version specified in flow version identifier.
+  """
+  @spec delete_contact_flow_version(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          delete_contact_flow_version_request(),
+          list()
+        ) ::
+          {:ok, delete_contact_flow_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_contact_flow_version_errors()}
+  def delete_contact_flow_version(
+        %Client{} = client,
+        contact_flow_id,
+        contact_flow_version,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/contact-flows/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_flow_id)}/version/#{AWS.Util.encode_uri(contact_flow_version)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes email address from the specified Amazon Connect instance.
   """
   @spec delete_email_address(
@@ -15422,8 +15489,6 @@ defmodule AWS.Connect do
 
   @doc """
   Deletes a queue.
-
-  It isn't possible to delete a queue by using the Amazon Connect admin website.
   """
   @spec delete_queue(map(), String.t(), String.t(), delete_queue_request(), list()) ::
           {:ok, nil, any()}
@@ -16061,6 +16126,9 @@ defmodule AWS.Connect do
   of a Flow. For example, `arn:aws:.../contact-flow/{id}:$SAVED`. After a flow is
   published, `$SAVED` needs to be supplied to view saved content that has not been
   published.
+
+  Use `arn:aws:.../contact-flow/{id}:{version}` to retrieve the content of a
+  specific flow version.
 
   In the response, **Status** indicates the flow status as either
   `SAVED` or `PUBLISHED`. The `PUBLISHED` status will initiate

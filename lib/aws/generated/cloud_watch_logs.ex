@@ -3886,7 +3886,7 @@ defmodule AWS.CloudWatchLogs do
   parameters in the same operation.
 
     *
-  Specify the `logGroupName` parameter to cause all log events stored in the log
+  Specify the `logGroupName` parameter to cause log events ingested into that log
   group to
   be encrypted with that key. Only the log events ingested after the key is
   associated are encrypted with that key.
@@ -4054,6 +4054,11 @@ defmodule AWS.CloudWatchLogs do
   bucket. To separate log data for each export task, specify a prefix to be used
   as the Amazon
   S3 key prefix for all exported objects.
+
+  We recommend that you don't regularly export to Amazon S3 as a way to
+  continuously archive your logs. For that use case, we instaed recommend that
+  you use subscriptions. For more information about subscriptions, see
+  [Real-time processing of log data with subscriptions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Subscriptions.html).
 
   Time-based sorting on chunks of log data inside an exported file is not
   guaranteed. You can
@@ -4267,7 +4272,7 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
-  Deletes s *delivery*.
+  Deletes a *delivery*.
 
   A delivery is a connection between a logical *delivery source* and a logical
   *delivery destination*. Deleting a delivery only deletes the connection between
@@ -4561,6 +4566,27 @@ defmodule AWS.CloudWatchLogs do
 
   @doc """
   Returns a list of all CloudWatch Logs account policies in the account.
+
+  To use this operation, you must be signed on with the correct permissions
+  depending on the type of policy that you are retrieving information for.
+
+    *
+  To see data protection policies, you must have the
+  `logs:GetDataProtectionPolicy` and
+  `logs:DescribeAccountPolicies` permissions.
+
+    *
+  To see subscription filter policies, you must have the
+  `logs:DescrubeSubscriptionFilters` and
+  `logs:DescribeAccountPolicies` permissions.
+
+    *
+  To see transformer policies, you must have the `logs:GetTransformer` and
+  `logs:DescribeAccountPolicies` permissions.
+
+    *
+  To see field index policies, you must have the `logs:DescribeIndexPolicies` and
+  `logs:DescribeAccountPolicies` permissions.
   """
   @spec describe_account_policies(map(), describe_account_policies_request(), list()) ::
           {:ok, describe_account_policies_response(), any()}
@@ -4775,7 +4801,7 @@ defmodule AWS.CloudWatchLogs do
   `logGroupName`.
   You must include one of these two parameters, but you can't include both.
 
-  This operation has a limit of five transactions per second, after which
+  This operation has a limit of 25 transactions per second, after which
   transactions are throttled.
 
   If you are using CloudWatch cross-account observability, you can use this
@@ -5334,6 +5360,27 @@ defmodule AWS.CloudWatchLogs do
   that applies to all log groups
   or a subset of log groups in the account.
 
+  To use this operation, you must be signed on with the correct permissions
+  depending on the type of policy that you are creating.
+
+    *
+  To create a data protection policy, you must have the
+  `logs:PutDataProtectionPolicy` and
+  `logs:PutAccountPolicy` permissions.
+
+    *
+  To create a subscription filter policy, you must have the
+  `logs:PutSubscriptionFilter` and
+  `logs:PutccountPolicy` permissions.
+
+    *
+  To create a transformer policy, you must have the `logs:PutTransformer` and
+  `logs:PutAccountPolicy` permissions.
+
+    *
+  To create a field index policy, you must have the `logs:PutIndexPolicy` and
+  `logs:PutAccountPolicy` permissions.
+
   ## Data protection policy
 
   A data protection policy can help safeguard sensitive
@@ -5608,8 +5655,10 @@ defmodule AWS.CloudWatchLogs do
   [PutDeliverySource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html). 
 
     *
-  Use `PutDeliveryDestination` to create a *delivery destination*, which is a
-  logical object that represents the actual
+  Use `PutDeliveryDestination` to create a *delivery destination* in the same
+  account of the actual delivery destination.
+  The delivery destination that you create is a logical object that represents the
+  actual
   delivery destination.
 
     *
@@ -5986,12 +6035,11 @@ defmodule AWS.CloudWatchLogs do
   [PutLogEvents](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html).   The maximum number of metric filters that can be associated with a log group is
   100.
 
-  Using regular expressions to create metric filters is supported. For these
-  filters,
+  Using regular expressions in filter patterns is supported. For these filters,
   there is a quota of two regular expression patterns within a single filter
   pattern. There
   is also a quota of five regular expression patterns per log group.
-  For more information about using regular expressions in metric filters,
+  For more information about using regular expressions in filter patterns,
   see [
   Filter pattern syntax for metric filters, subscription filters, filter log
   events, and Live
@@ -6159,12 +6207,11 @@ defmodule AWS.CloudWatchLogs do
   you are
   updating an existing filter, you must specify the correct name in `filterName`.
 
-  Using regular expressions to create subscription filters is supported. For these
-  filters,
+  Using regular expressions in filter patterns is supported. For these filters,
   there is a quotas of quota of two regular expression patterns within a single
   filter pattern. There
   is also a quota of five regular expression patterns per log group.
-  For more information about using regular expressions in subscription filters,
+  For more information about using regular expressions in filter patterns,
   see [
   Filter pattern syntax for metric filters, subscription filters, filter log
   events, and Live

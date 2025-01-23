@@ -1653,6 +1653,18 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      id3_segment_tagging_schedule_action_settings() :: %{
+        "Id3" => String.t(),
+        "Tag" => String.t()
+      }
+
+  """
+  @type id3_segment_tagging_schedule_action_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       video_selector_pid() :: %{
         "Pid" => integer()
       }
@@ -1962,6 +1974,17 @@ defmodule AWS.MediaLive do
 
   """
   @type input_whitelist_rule_cidr() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      timed_metadata_schedule_action_settings() :: %{
+        "Id3" => String.t()
+      }
+
+  """
+  @type timed_metadata_schedule_action_settings() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2941,6 +2964,7 @@ defmodule AWS.MediaLive do
       schedule_action_settings() :: %{
         "HlsId3SegmentTaggingSettings" => hls_id3_segment_tagging_schedule_action_settings(),
         "HlsTimedMetadataSettings" => hls_timed_metadata_schedule_action_settings(),
+        "Id3SegmentTaggingSettings" => id3_segment_tagging_schedule_action_settings(),
         "InputPrepareSettings" => input_prepare_schedule_action_settings(),
         "InputSwitchSettings" => input_switch_schedule_action_settings(),
         "MotionGraphicsImageActivateSettings" => motion_graphics_activate_schedule_action_settings(),
@@ -2953,7 +2977,8 @@ defmodule AWS.MediaLive do
         "StaticImageActivateSettings" => static_image_activate_schedule_action_settings(),
         "StaticImageDeactivateSettings" => static_image_deactivate_schedule_action_settings(),
         "StaticImageOutputActivateSettings" => static_image_output_activate_schedule_action_settings(),
-        "StaticImageOutputDeactivateSettings" => static_image_output_deactivate_schedule_action_settings()
+        "StaticImageOutputDeactivateSettings" => static_image_output_deactivate_schedule_action_settings(),
+        "TimedMetadataSettings" => timed_metadata_schedule_action_settings()
       }
 
   """
@@ -5542,6 +5567,8 @@ defmodule AWS.MediaLive do
 
       cmaf_ingest_group_settings() :: %{
         "Destination" => output_location_ref(),
+        "Id3Behavior" => list(any()),
+        "Id3NameModifier" => String.t(),
         "KlvBehavior" => list(any()),
         "KlvNameModifier" => String.t(),
         "NielsenId3Behavior" => list(any()),

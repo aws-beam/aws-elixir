@@ -324,6 +324,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      flow_multi_turn_input_request_event() :: %{
+        "content" => list(),
+        "nodeName" => String.t(),
+        "nodeType" => list(any())
+      }
+
+  """
+  @type flow_multi_turn_input_request_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       citation() :: %{
         "generatedResponsePart" => generated_response_part(),
         "retrievedReferences" => list(retrieved_reference()())
@@ -635,6 +648,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       invoke_flow_response() :: %{
+        "executionId" => String.t(),
         "responseStream" => list()
       }
 
@@ -1716,6 +1730,7 @@ defmodule AWS.BedrockAgentRuntime do
 
       flow_input() :: %{
         "content" => list(),
+        "nodeInputName" => String.t(),
         "nodeName" => String.t(),
         "nodeOutputName" => String.t()
       }
@@ -2255,6 +2270,7 @@ defmodule AWS.BedrockAgentRuntime do
 
       invoke_flow_request() :: %{
         optional("enableTrace") => [boolean()],
+        optional("executionId") => String.t(),
         optional("modelPerformanceConfiguration") => model_performance_configuration(),
         required("inputs") => list(flow_input()())
       }
@@ -2823,6 +2839,13 @@ defmodule AWS.BedrockAgentRuntime do
     headers = []
     custom_headers = []
     query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"x-amz-bedrock-flow-execution-id", "executionId"}]
+      )
 
     meta = metadata()
 

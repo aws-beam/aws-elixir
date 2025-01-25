@@ -16,19 +16,20 @@ defmodule AWS.SSM do
   ## Related resources
 
     *
-  For information about each of the capabilities that comprise Systems Manager,
-  see [Systems Manager capabilities](https://docs.aws.amazon.com/systems-manager/latest/userguide/what-is-systems-manager.html#systems-manager-capabilities)
+  For information about each of the tools that comprise Systems Manager, see
+  [Using Systems Manager
+  tools](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-tools.html)
   in the *Amazon Web Services Systems Manager User Guide*.
 
     *
-  For details about predefined runbooks for Automation, a capability of Amazon Web
+  For details about predefined runbooks for Automation, a tool in Amazon Web
   Services Systems Manager, see the
   *
   [Systems Manager Automation runbook reference](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-runbook-reference.html)
   *.
 
     *
-  For information about AppConfig, a capability of Systems Manager, see the *
+  For information about AppConfig, a tool in Systems Manager, see the *
   [AppConfig User Guide](https://docs.aws.amazon.com/appconfig/latest/userguide/) *
   and the *
   [AppConfig
@@ -36,8 +37,7 @@ defmodule AWS.SSM do
   *.
 
     *
-  For information about Incident Manager, a capability of Systems Manager, see the
-  *
+  For information about Incident Manager, a tool in Systems Manager, see the *
   [Systems Manager Incident Manager User Guide](https://docs.aws.amazon.com/incident-manager/latest/userguide/)
   * and the *
   [Systems Manager Incident Manager API Reference](https://docs.aws.amazon.com/incident-manager/latest/APIReference/)
@@ -8831,7 +8831,7 @@ defmodule AWS.SSM do
 
   For example, you can associate an
   Incident Manager incident or analysis with an OpsItem. Incident Manager and
-  OpsCenter are capabilities of
+  OpsCenter are tools in
   Amazon Web Services Systems Manager.
   """
   @spec associate_ops_item_related_item(map(), associate_ops_item_related_item_request(), list()) ::
@@ -8889,9 +8889,9 @@ defmodule AWS.SSM do
   Manager.
 
   Registering these machines with
-  Systems Manager makes it possible to manage them using Systems Manager
-  capabilities. You use the activation code and
-  ID when installing SSM Agent on machines in your hybrid environment. For more
+  Systems Manager makes it possible to manage them using Systems Manager tools.
+  You use the activation code and ID when
+  installing SSM Agent on machines in your hybrid environment. For more
   information about
   requirements for managing on-premises machines using Systems Manager, see [Using Amazon Web Services Systems Manager in
   hybrid and multicloud
@@ -8924,16 +8924,16 @@ defmodule AWS.SSM do
   association specifies a schedule for when the configuration is reapplied. For
   dynamic targets,
   such as an Amazon Web Services resource group or an Amazon Web Services
-  autoscaling group, State Manager, a capability of
-  Amazon Web Services Systems Manager applies the configuration when new managed
-  nodes are added to the group. The
-  association also specifies actions to take when applying the configuration. For
-  example, an
-  association for anti-virus software might run once a day. If the software isn't
-  installed, then
-  State Manager installs it. If the software is installed, but the service isn't
-  running, then the
-  association might instruct State Manager to start the service.
+  autoscaling group, State Manager, a tool in Amazon Web Services Systems Manager
+  applies the configuration when new managed nodes are added to the group. The
+  association also
+  specifies actions to take when applying the configuration. For example, an
+  association for
+  anti-virus software might run once a day. If the software isn't installed, then
+  State Manager
+  installs it. If the software is installed, but the service isn't running, then
+  the association
+  might instruct State Manager to start the service.
   """
   @spec create_association(map(), create_association_request(), list()) ::
           {:ok, create_association_result(), any()}
@@ -10096,7 +10096,7 @@ defmodule AWS.SSM do
 
   For example, this API
   operation can delete an Incident Manager incident from an OpsItem. Incident
-  Manager is a capability of
+  Manager is a tool in
   Amazon Web Services Systems Manager.
   """
   @spec disassociate_ops_item_related_item(
@@ -10143,7 +10143,7 @@ defmodule AWS.SSM do
   in the
   request are closed, the status returned is `CLOSED`.
 
-  For more information about Change Calendar, a capability of Amazon Web Services
+  For more information about Change Calendar, a tool in Amazon Web Services
   Systems Manager, see [Amazon Web Services Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar.html)
   in the *Amazon Web Services Systems Manager User Guide*.
   """
@@ -10236,11 +10236,10 @@ defmodule AWS.SSM do
   the system attempts to use your local Amazon Web Services credentials and the
   operation fails. To avoid
   this, you can run the command in the Amazon Web Services Systems Manager
-  console. Use Run Command, a capability of
-  Amazon Web Services Systems Manager, with an SSM document that enables you to
-  target a managed node with a script or
-  command. For example, run the command using the `AWS-RunShellScript` document or
-  the
+  console. Use Run Command, a tool in Amazon Web Services Systems Manager,
+  with an SSM document that enables you to target a managed node with a script or
+  command. For
+  example, run the command using the `AWS-RunShellScript` document or the
   `AWS-RunPowerShellScript` document.
   """
   @spec get_deployable_patch_snapshot_for_instance(
@@ -10523,7 +10522,8 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Retrieve information about one or more parameters in a specific hierarchy.
+  Retrieve information about one or more parameters under a specified level in a
+  hierarchy.
 
   Request results are returned on a best-effort basis. If you specify `MaxResults`
   in the request, the response includes information up to the limit specified. The
@@ -10703,8 +10703,8 @@ defmodule AWS.SSM do
   You
   can limit the results to a specific State Manager association document or
   managed node by
-  specifying a filter. State Manager is a capability of Amazon Web Services
-  Systems Manager.
+  specifying a filter. State Manager is a tool in Amazon Web Services Systems
+  Manager.
   """
   @spec list_associations(map(), list_associations_request(), list()) ::
           {:ok, list_associations_result(), any()}
@@ -10899,7 +10899,7 @@ defmodule AWS.SSM do
   OpsItem.
 
   OpsCenter is a
-  capability of Amazon Web Services Systems Manager.
+  tool in Amazon Web Services Systems Manager.
   """
   @spec list_ops_item_related_items(map(), list_ops_item_related_items_request(), list()) ::
           {:ok, list_ops_item_related_items_response(), any()}

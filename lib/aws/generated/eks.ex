@@ -20,7 +20,8 @@ defmodule AWS.EKS do
   standard Kubernetes environment, whether running in on-premises data centers or
   public
   clouds. This means that you can easily migrate any standard Kubernetes
-  application to Amazon EKS without any code modification required.
+  application to Amazon EKS
+  without any code modification required.
   """
 
   alias AWS.Client
@@ -478,7 +479,8 @@ defmodule AWS.EKS do
 
       nodegroup_update_config() :: %{
         "maxUnavailable" => integer(),
-        "maxUnavailablePercentage" => integer()
+        "maxUnavailablePercentage" => integer(),
+        "updateStrategy" => list(any())
       }
 
   """
@@ -3360,7 +3362,8 @@ defmodule AWS.EKS do
   Kubernetes software, such as `etcd` and the API server. The control plane runs
   in
   an account managed by Amazon Web Services, and the Kubernetes API is exposed by
-  the Amazon EKS API server endpoint. Each Amazon EKS cluster control plane is
+  the Amazon EKS
+  API server endpoint. Each Amazon EKS cluster control plane is
   single tenant and unique. It runs on its own set of Amazon EC2 instances.
 
   The cluster control plane is provisioned across multiple Availability Zones and
@@ -3482,7 +3485,7 @@ defmodule AWS.EKS do
 
   The Fargate profile allows an administrator to declare which pods run
   on Fargate and specify which pods run on which Fargate
-  profile. This declaration is done through the profile’s selectors. Each profile
+  profile. This declaration is done through the profile's selectors. Each profile
   can have
   up to five selectors that contain a namespace and labels. A namespace is
   required for
@@ -4891,7 +4894,8 @@ defmodule AWS.EKS do
 
   @doc """
   Lists the managed node groups associated with the specified cluster in your
-  Amazon Web Services account in the specified Amazon Web Services Region.
+  Amazon Web Services
+  account in the specified Amazon Web Services Region.
 
   Self-managed node
   groups aren't listed.
@@ -5013,7 +5017,8 @@ defmodule AWS.EKS do
 
   @doc """
   Lists the updates associated with an Amazon EKS resource in your Amazon Web
-  Services account, in the specified Amazon Web Services Region.
+  Services
+  account, in the specified Amazon Web Services Region.
   """
   @spec list_updates(
           map(),
@@ -5354,9 +5359,9 @@ defmodule AWS.EKS do
   eventually consistent). When the update is complete (either `Failed` or
   `Successful`), the cluster status moves to `Active`.
 
-  If your cluster has managed node groups attached to it, all of your node groups’
+  If your cluster has managed node groups attached to it, all of your node groups'
   Kubernetes
-  versions must match the cluster’s Kubernetes version in order to update the
+  versions must match the cluster's Kubernetes version in order to update the
   cluster to a new
   Kubernetes version.
   """
@@ -5428,8 +5433,8 @@ defmodule AWS.EKS do
   continues to function during the update. The response output includes an update
   ID that
   you can use to track the status of your node group update with the
-  `DescribeUpdate` API operation. Currently you can update the Kubernetes labels
-  for a node group or the scaling configuration.
+  `DescribeUpdate` API operation. You can update the Kubernetes labels and taints
+  for a node group and the scaling and version update configuration.
   """
   @spec update_nodegroup_config(
           map(),

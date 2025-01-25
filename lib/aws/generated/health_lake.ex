@@ -89,8 +89,8 @@ defmodule AWS.HealthLake do
   ## Example:
       
       start_fhir_import_job_request() :: %{
+        optional("ClientToken") => String.t(),
         optional("JobName") => String.t(),
-        required("ClientToken") => String.t(),
         required("DataAccessRoleArn") => String.t(),
         required("DatastoreId") => String.t(),
         required("InputDataConfig") => list(),
@@ -561,8 +561,8 @@ defmodule AWS.HealthLake do
   ## Example:
       
       start_fhir_export_job_request() :: %{
+        optional("ClientToken") => String.t(),
         optional("JobName") => String.t(),
-        required("ClientToken") => String.t(),
         required("DataAccessRoleArn") => String.t(),
         required("DatastoreId") => String.t(),
         required("OutputDataConfig") => list()

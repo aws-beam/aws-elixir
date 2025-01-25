@@ -4,17 +4,20 @@
 defmodule AWS.SSOOIDC do
   @moduledoc """
   IAM Identity Center OpenID Connect (OIDC) is a web service that enables a client
-  (such as CLI
-  or a native application) to register with IAM Identity Center.
+  (such as CLI or a
+  native application) to register with IAM Identity Center.
 
-  The service also enables the client to
-  fetch the user’s access token upon successful authentication and authorization
-  with
-  IAM Identity Center.
+  The service also enables the client to fetch the
+  user’s access token upon successful authentication and authorization with IAM
+  Identity Center.
 
-  IAM Identity Center uses the `sso` and `identitystore` API namespaces.
+  ## API namespaces
 
-  ## Considerations for Using This Guide
+  IAM Identity Center uses the `sso` and `identitystore` API namespaces. IAM
+  Identity Center
+  OpenID Connect uses the `sso-oidc` namespace.
+
+  ## Considerations for using this guide
 
   Before you begin using this guide, we recommend that you first review the
   following
@@ -34,9 +37,9 @@ defmodule AWS.SSOOIDC do
   supports token refresh and doesn’t require re-authentication, update to the
   latest CLI
   version (1.27.10 for CLI V1 and 2.9.0 for CLI V2) with support for OIDC token
-  refresh and
-  configurable IAM Identity Center session durations. For more information, see
-  [Configure Amazon Web Services access portal session duration
+  refresh
+  and configurable IAM Identity Center session durations. For more information,
+  see [Configure Amazon Web Services access portal session duration
   ](https://docs.aws.amazon.com/singlesignon/latest/userguide/configure-user-session.html).
 
     *
@@ -430,7 +433,7 @@ defmodule AWS.SSOOIDC do
   using
   client secrets.
 
-  The access token can be used to fetch short-term credentials for the assigned
+  The access token can be used to fetch short-lived credentials for the assigned
   AWS accounts or to access application APIs using `bearer` authentication.
   """
   @spec create_token(map(), create_token_request(), list()) ::
@@ -463,10 +466,10 @@ defmodule AWS.SSOOIDC do
   are
   authenticated using IAM entities.
 
-  The access token can be used to fetch short-term credentials
-  for the assigned Amazon Web Services accounts or to access application APIs
-  using `bearer`
-  authentication.
+  The access token can be used to fetch short-lived
+  credentials for the assigned Amazon Web Services accounts or to access
+  application APIs using
+  `bearer` authentication.
   """
   @spec create_token_with_iam(map(), create_token_with_iam_request(), list()) ::
           {:ok, create_token_with_iam_response(), any()}
@@ -494,10 +497,12 @@ defmodule AWS.SSOOIDC do
   end
 
   @doc """
-  Registers a client with IAM Identity Center.
+  Registers a public client with IAM Identity Center.
 
-  This allows clients to initiate device authorization.
-  The output should be persisted for reuse through many authentication requests.
+  This allows clients to perform authorization using
+  the authorization code grant with Proof Key for Code Exchange (PKCE)
+  or the device
+  code grant.
   """
   @spec register_client(map(), register_client_request(), list()) ::
           {:ok, register_client_response(), any()}

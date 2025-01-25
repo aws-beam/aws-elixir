@@ -376,6 +376,21 @@ defmodule AWS.Transfer do
 
   ## Example:
       
+      custom_directories_type() :: %{
+        "FailedFilesDirectory" => String.t(),
+        "MdnFilesDirectory" => String.t(),
+        "PayloadFilesDirectory" => String.t(),
+        "StatusFilesDirectory" => String.t(),
+        "TemporaryFilesDirectory" => String.t()
+      }
+      
+  """
+  @type custom_directories_type() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       identity_provider_details() :: %{
         "DirectoryId" => String.t(),
         "Function" => String.t(),
@@ -403,13 +418,14 @@ defmodule AWS.Transfer do
   ## Example:
       
       create_agreement_request() :: %{
+        optional("BaseDirectory") => String.t(),
+        optional("CustomDirectories") => custom_directories_type(),
         optional("Description") => String.t(),
         optional("EnforceMessageSigning") => list(any()),
         optional("PreserveFilename") => list(any()),
         optional("Status") => list(any()),
         optional("Tags") => list(tag()()),
         required("AccessRole") => String.t(),
-        required("BaseDirectory") => String.t(),
         required("LocalProfileId") => String.t(),
         required("PartnerProfileId") => String.t(),
         required("ServerId") => String.t()
@@ -1807,6 +1823,7 @@ defmodule AWS.Transfer do
       update_agreement_request() :: %{
         optional("AccessRole") => String.t(),
         optional("BaseDirectory") => String.t(),
+        optional("CustomDirectories") => custom_directories_type(),
         optional("Description") => String.t(),
         optional("EnforceMessageSigning") => list(any()),
         optional("LocalProfileId") => String.t(),
@@ -2242,6 +2259,7 @@ defmodule AWS.Transfer do
         "AgreementId" => String.t(),
         "Arn" => String.t(),
         "BaseDirectory" => String.t(),
+        "CustomDirectories" => custom_directories_type(),
         "Description" => String.t(),
         "EnforceMessageSigning" => list(any()),
         "LocalProfileId" => String.t(),
@@ -3077,6 +3095,10 @@ defmodule AWS.Transfer do
 
   The partner is identified with the `PartnerProfileId`, and the AS2 process is
   identified with the `LocalProfileId`.
+
+  Specify *either*
+  `BaseDirectory` or `CustomDirectories`, but not both. Specifying both causes the
+  command to fail.
   """
   @spec create_agreement(map(), create_agreement_request(), list()) ::
           {:ok, create_agreement_response(), any()}
@@ -4173,6 +4195,14 @@ defmodule AWS.Transfer do
   Provide the
   `AgreementId` and the `ServerId` for the agreement that you want to
   update, along with the new values for the parameters to update.
+
+  Specify *either*
+  `BaseDirectory` or `CustomDirectories`, but not both. Specifying both causes the
+  command to fail.
+
+  If you update an agreement from using base directory to custom directories, the
+  base directory is no longer used. Similarly, if you change from custom
+  directories to a base directory, the custom directories are no longer used.
   """
   @spec update_agreement(map(), update_agreement_request(), list()) ::
           {:ok, update_agreement_response(), any()}

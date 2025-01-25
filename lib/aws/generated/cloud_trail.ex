@@ -173,6 +173,19 @@ defmodule AWS.CloudTrail do
 
   ## Example:
       
+      search_sample_queries_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("SearchPhrase") => String.t()
+      }
+      
+  """
+  @type search_sample_queries_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_trail_request() :: %{
         required("Name") => String.t()
       }
@@ -2126,6 +2139,18 @@ defmodule AWS.CloudTrail do
 
   ## Example:
       
+      search_sample_queries_response() :: %{
+        "NextToken" => String.t(),
+        "SearchResults" => list(search_sample_queries_search_result()())
+      }
+      
+  """
+  @type search_sample_queries_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       event_data_store() :: %{
         "AdvancedEventSelectors" => list(advanced_event_selector()()),
         "CreatedTimestamp" => non_neg_integer(),
@@ -2707,6 +2732,20 @@ defmodule AWS.CloudTrail do
       
   """
   @type list_dashboards_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_sample_queries_search_result() :: %{
+        "Description" => String.t(),
+        "Name" => String.t(),
+        "Relevance" => float(),
+        "SQL" => String.t()
+      }
+      
+  """
+  @type search_sample_queries_search_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3404,6 +3443,11 @@ defmodule AWS.CloudTrail do
           | event_data_store_arn_invalid_exception()
           | unsupported_operation_exception()
 
+  @type search_sample_queries_errors() ::
+          invalid_parameter_exception()
+          | operation_not_permitted_exception()
+          | unsupported_operation_exception()
+
   @type start_dashboard_refresh_errors() ::
           event_data_store_not_found_exception()
           | inactive_event_data_store_exception()
@@ -4087,7 +4131,7 @@ defmodule AWS.CloudTrail do
   or the `TrailName` parameter to the get Insights event selectors for a trail.
   You cannot specify these parameters together.
 
-  For more information, see [Logging CloudTrail Insights events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html)
+  For more information, see [Working with CloudTrail Insights](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html)
   in the *CloudTrail User Guide*.
   """
   @spec get_insight_selectors(map(), get_insight_selectors_request(), list()) ::
@@ -4443,7 +4487,7 @@ defmodule AWS.CloudTrail do
   If you want your trail to log Insights events, be sure the event selector or
   advanced event selector enables
   logging of the Insights event types you want configured for your trail. For more
-  information about logging Insights events, see [Logging Insights events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html)
+  information about logging Insights events, see [Working with CloudTrail Insights](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html)
   in the *CloudTrail User Guide*.
   By default, trails created without specific event selectors are configured to
   log all read and write management events, and no data events or network activity
@@ -4541,7 +4585,7 @@ defmodule AWS.CloudTrail do
   `GetEventDataStore` on an
   event data store to check whether the event data store logs management events.
 
-  For more information, see [Logging CloudTrail Insights events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html)
+  For more information, see [Working with CloudTrail Insights](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html)
   in the *CloudTrail User Guide*.
   """
   @spec put_insight_selectors(map(), put_insight_selectors_request(), list()) ::
@@ -4621,6 +4665,24 @@ defmodule AWS.CloudTrail do
     meta = metadata()
 
     Request.request_post(client, meta, "RestoreEventDataStore", input, options)
+  end
+
+  @doc """
+
+  Searches sample queries and returns a list of sample queries that are sorted by
+  relevance.
+
+  To search for sample queries, provide a natural language `SearchPhrase` in
+  English.
+  """
+  @spec search_sample_queries(map(), search_sample_queries_request(), list()) ::
+          {:ok, search_sample_queries_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, search_sample_queries_errors()}
+  def search_sample_queries(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "SearchSampleQueries", input, options)
   end
 
   @doc """

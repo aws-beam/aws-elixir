@@ -61,6 +61,18 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      unknown_node_output_flow_validation_details() :: %{
+        "node" => String.t(),
+        "output" => String.t()
+      }
+
+  """
+  @type unknown_node_output_flow_validation_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       prepare_agent_request() :: %{}
 
   """
@@ -200,6 +212,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       text_prompt_template_configuration() :: %{
+        "cachePoint" => cache_point_block(),
         "inputVariables" => list(prompt_input_variable()()),
         "text" => String.t()
       }
@@ -2421,6 +2434,17 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      cache_point_block() :: %{
+        "type" => list(any())
+      }
+
+  """
+  @type cache_point_block() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_knowledge_base_request() :: %{}
 
   """
@@ -3070,6 +3094,18 @@ defmodule AWS.BedrockAgent do
 
   """
   @type update_prompt_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unknown_node_input_flow_validation_details() :: %{
+        "input" => String.t(),
+        "node" => String.t()
+      }
+
+  """
+  @type unknown_node_input_flow_validation_details() :: %{String.t() => any()}
 
   @typedoc """
 

@@ -1064,6 +1064,7 @@ defmodule AWS.MediaConvert do
         "DeblockFilter" => list(any()),
         "DenoiseFilter" => list(any()),
         "DolbyVisionMetadataXml" => String.t(),
+        "DynamicAudioSelectors" => map(),
         "FilterEnable" => list(any()),
         "FilterStrength" => integer(),
         "ImageInserter" => image_inserter(),
@@ -1237,6 +1238,21 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
+      dynamic_audio_selector() :: %{
+        "AudioDurationCorrection" => list(any()),
+        "ExternalAudioFileInput" => String.t(),
+        "LanguageCode" => list(any()),
+        "Offset" => integer(),
+        "SelectorType" => list(any())
+      }
+
+  """
+  @type dynamic_audio_selector() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       image_inserter() :: %{
         "InsertableImages" => list(insertable_image()()),
         "SdrReferenceWhiteLevel" => integer()
@@ -1381,6 +1397,7 @@ defmodule AWS.MediaConvert do
         "DecryptionSettings" => input_decryption_settings(),
         "DenoiseFilter" => list(any()),
         "DolbyVisionMetadataXml" => String.t(),
+        "DynamicAudioSelectors" => map(),
         "FileInput" => String.t(),
         "FilterEnable" => list(any()),
         "FilterStrength" => integer(),
@@ -1798,6 +1815,7 @@ defmodule AWS.MediaConvert do
         "TemporalIds" => list(any()),
         "UnregisteredSeiTimecode" => list(any()),
         "ScanTypeConversionMode" => list(any()),
+        "Deblocking" => list(any()),
         "ParNumerator" => integer(),
         "GopClosedCadence" => integer(),
         "FramerateNumerator" => integer(),

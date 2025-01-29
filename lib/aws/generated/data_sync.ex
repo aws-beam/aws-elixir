@@ -923,7 +923,12 @@ defmodule AWS.DataSync do
       
       update_location_smb_request() :: %{
         optional("AgentArns") => list(String.t()()),
+        optional("AuthenticationType") => list(any()),
+        optional("DnsIpAddresses") => list(String.t()()),
         optional("Domain") => String.t(),
+        optional("KerberosKeytab") => binary(),
+        optional("KerberosKrb5Conf") => binary(),
+        optional("KerberosPrincipal") => String.t(),
         optional("MountOptions") => smb_mount_options(),
         optional("Password") => String.t(),
         optional("Subdirectory") => String.t(),
@@ -1672,14 +1677,19 @@ defmodule AWS.DataSync do
   ## Example:
       
       create_location_smb_request() :: %{
+        optional("AuthenticationType") => list(any()),
+        optional("DnsIpAddresses") => list(String.t()()),
         optional("Domain") => String.t(),
+        optional("KerberosKeytab") => binary(),
+        optional("KerberosKrb5Conf") => binary(),
+        optional("KerberosPrincipal") => String.t(),
         optional("MountOptions") => smb_mount_options(),
+        optional("Password") => String.t(),
         optional("Tags") => list(tag_list_entry()()),
+        optional("User") => String.t(),
         required("AgentArns") => list(String.t()()),
-        required("Password") => String.t(),
         required("ServerHostname") => String.t(),
-        required("Subdirectory") => String.t(),
-        required("User") => String.t()
+        required("Subdirectory") => String.t()
       }
       
   """
@@ -2430,8 +2440,11 @@ defmodule AWS.DataSync do
       
       describe_location_smb_response() :: %{
         "AgentArns" => list(String.t()()),
+        "AuthenticationType" => list(any()),
         "CreationTime" => non_neg_integer(),
+        "DnsIpAddresses" => list(String.t()()),
         "Domain" => String.t(),
+        "KerberosPrincipal" => String.t(),
         "LocationArn" => String.t(),
         "LocationUri" => String.t(),
         "MountOptions" => smb_mount_options(),
@@ -2958,9 +2971,8 @@ defmodule AWS.DataSync do
   DataSync can use this location as a source or destination for
   transferring data.
 
-  Before you begin, make sure that you understand how DataSync
-  [accesses SMB file
-  servers](https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb).
+  Before you begin, make sure that you understand how DataSync accesses SMB
+  file servers. For more information, see [Providing DataSync access to SMB file servers](https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions).
   """
   @spec create_location_smb(map(), create_location_smb_request(), list()) ::
           {:ok, create_location_smb_response(), any()}

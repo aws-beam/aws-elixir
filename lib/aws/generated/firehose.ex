@@ -211,6 +211,17 @@ defmodule AWS.Firehose do
 
   ## Example:
       
+      direct_put_source_configuration() :: %{
+        "ThroughputHintInMBs" => integer()
+      }
+      
+  """
+  @type direct_put_source_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       extended_s3_destination_description() :: %{
         "BucketARN" => String.t(),
         "BufferingHints" => buffering_hints(),
@@ -278,6 +289,7 @@ defmodule AWS.Firehose do
   ## Example:
       
       iceberg_destination_update() :: %{
+        "AppendOnly" => boolean(),
         "BufferingHints" => buffering_hints(),
         "CatalogConfiguration" => catalog_configuration(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
@@ -354,6 +366,7 @@ defmodule AWS.Firehose do
         optional("DatabaseSourceConfiguration") => database_source_configuration(),
         optional("DeliveryStreamEncryptionConfigurationInput") => delivery_stream_encryption_configuration_input(),
         optional("DeliveryStreamType") => list(any()),
+        optional("DirectPutSourceConfiguration") => direct_put_source_configuration(),
         optional("ElasticsearchDestinationConfiguration") => elasticsearch_destination_configuration(),
         optional("ExtendedS3DestinationConfiguration") => extended_s3_destination_configuration(),
         optional("HttpEndpointDestinationConfiguration") => http_endpoint_destination_configuration(),
@@ -391,6 +404,7 @@ defmodule AWS.Firehose do
       
       source_description() :: %{
         "DatabaseSourceDescription" => database_source_description(),
+        "DirectPutSourceDescription" => direct_put_source_description(),
         "KinesisStreamSourceDescription" => kinesis_stream_source_description(),
         "MSKSourceDescription" => m_s_k_source_description()
       }
@@ -688,6 +702,17 @@ defmodule AWS.Firehose do
 
   ## Example:
       
+      direct_put_source_description() :: %{
+        "ThroughputHintInMBs" => integer()
+      }
+      
+  """
+  @type direct_put_source_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       database_column_list() :: %{
         "Exclude" => list(String.t()()),
         "Include" => list(String.t()())
@@ -726,6 +751,7 @@ defmodule AWS.Firehose do
   ## Example:
       
       iceberg_destination_configuration() :: %{
+        "AppendOnly" => boolean(),
         "BufferingHints" => buffering_hints(),
         "CatalogConfiguration" => catalog_configuration(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
@@ -1286,6 +1312,7 @@ defmodule AWS.Firehose do
   ## Example:
       
       iceberg_destination_description() :: %{
+        "AppendOnly" => boolean(),
         "BufferingHints" => buffering_hints(),
         "CatalogConfiguration" => catalog_configuration(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),

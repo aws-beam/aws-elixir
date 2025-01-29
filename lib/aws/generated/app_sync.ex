@@ -72,7 +72,9 @@ defmodule AWS.AppSync do
       evaluate_code_response() :: %{
         "error" => evaluate_code_error_detail(),
         "evaluationResult" => String.t(),
-        "logs" => list(String.t()())
+        "logs" => list(String.t()()),
+        "outErrors" => String.t(),
+        "stash" => String.t()
       }
 
   """
@@ -697,7 +699,9 @@ defmodule AWS.AppSync do
       evaluate_mapping_template_response() :: %{
         "error" => error_detail(),
         "evaluationResult" => String.t(),
-        "logs" => list(String.t()())
+        "logs" => list(String.t()()),
+        "outErrors" => String.t(),
+        "stash" => String.t()
       }
 
   """

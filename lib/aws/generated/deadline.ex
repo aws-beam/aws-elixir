@@ -388,6 +388,17 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      update_queue_limit_association_request() :: %{
+        required("status") => list(any())
+      }
+
+  """
+  @type update_queue_limit_association_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_job_response() :: %{
         "jobId" => String.t()
       }
@@ -527,6 +538,15 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      get_limit_request() :: %{}
+
+  """
+  @type get_limit_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_task_request() :: %{}
 
   """
@@ -614,6 +634,23 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      queue_limit_association_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
+        "limitId" => String.t(),
+        "queueId" => String.t(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t()
+      }
+
+  """
+  @type queue_limit_association_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_storage_profile_request() :: %{
         optional("clientToken") => String.t(),
         optional("displayName") => String.t(),
@@ -636,6 +673,15 @@ defmodule AWS.Deadline do
 
   """
   @type v_cpu_count_range() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_limit_response() :: %{}
+
+  """
+  @type update_limit_response() :: %{}
 
   @typedoc """
 
@@ -1064,6 +1110,7 @@ defmodule AWS.Deadline do
         optional("clientToken") => String.t(),
         optional("maxFailedTasksCount") => integer(),
         optional("maxRetriesPerTask") => integer(),
+        optional("maxWorkerCount") => integer(),
         optional("parameters") => map(),
         optional("sourceJobId") => String.t(),
         optional("storageProfileId") => String.t(),
@@ -1075,6 +1122,18 @@ defmodule AWS.Deadline do
 
   """
   @type create_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_limits_response() :: %{
+        "limits" => list(limit_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_limits_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1207,6 +1266,18 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      create_queue_limit_association_request() :: %{
+        required("limitId") => String.t(),
+        required("queueId") => String.t()
+      }
+
+  """
+  @type create_queue_limit_association_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_monitor_response() :: %{}
 
   """
@@ -1254,6 +1325,15 @@ defmodule AWS.Deadline do
 
   """
   @type get_session_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_queue_limit_association_response() :: %{}
+
+  """
+  @type delete_queue_limit_association_response() :: %{}
 
   @typedoc """
 
@@ -1373,6 +1453,23 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      get_queue_limit_association_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
+        "limitId" => String.t(),
+        "queueId" => String.t(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t()
+      }
+
+  """
+  @type get_queue_limit_association_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       step_details_entity() :: %{
         "dependencies" => list(String.t()()),
         "jobId" => String.t(),
@@ -1448,6 +1545,20 @@ defmodule AWS.Deadline do
 
   """
   @type delete_storage_profile_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_queue_limit_associations_request() :: %{
+        optional("limitId") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("queueId") => String.t()
+      }
+
+  """
+  @type list_queue_limit_associations_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1569,6 +1680,7 @@ defmodule AWS.Deadline do
         "lifecycleStatusMessage" => String.t(),
         "maxFailedTasksCount" => integer(),
         "maxRetriesPerTask" => integer(),
+        "maxWorkerCount" => integer(),
         "name" => String.t(),
         "priority" => integer(),
         "sourceJobId" => String.t(),
@@ -1814,6 +1926,7 @@ defmodule AWS.Deadline do
         optional("lifecycleStatus") => list(any()),
         optional("maxFailedTasksCount") => integer(),
         optional("maxRetriesPerTask") => integer(),
+        optional("maxWorkerCount") => integer(),
         optional("priority") => integer(),
         optional("targetTaskRunStatus") => list(any())
       }
@@ -1849,6 +1962,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       get_session_action_response() :: %{
+        "acquiredLimits" => list(acquired_limit()()),
         "definition" => list(),
         "endedAt" => non_neg_integer(),
         "processExitCode" => integer(),
@@ -2072,6 +2186,27 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      get_limit_response() :: %{
+        "amountRequirementName" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
+        "currentCount" => integer(),
+        "description" => String.t(),
+        "displayName" => String.t(),
+        "farmId" => String.t(),
+        "limitId" => String.t(),
+        "maxCount" => integer(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t()
+      }
+
+  """
+  @type get_limit_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       assume_queue_role_for_worker_request() :: %{
         required("queueId") => String.t()
       }
@@ -2140,6 +2275,18 @@ defmodule AWS.Deadline do
 
   """
   @type update_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_queue_limit_associations_response() :: %{
+        "nextToken" => String.t(),
+        "queueLimitAssociations" => list(queue_limit_association_summary()())
+      }
+
+  """
+  @type list_queue_limit_associations_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2307,6 +2454,26 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      limit_summary() :: %{
+        "amountRequirementName" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
+        "currentCount" => integer(),
+        "displayName" => String.t(),
+        "farmId" => String.t(),
+        "limitId" => String.t(),
+        "maxCount" => integer(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t()
+      }
+
+  """
+  @type limit_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       environment_exit_session_action_definition_summary() :: %{
         "environmentId" => String.t()
       }
@@ -2325,6 +2492,18 @@ defmodule AWS.Deadline do
 
   """
   @type update_task_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      acquired_limit() :: %{
+        "count" => integer(),
+        "limitId" => String.t()
+      }
+
+  """
+  @type acquired_limit() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2659,6 +2838,15 @@ defmodule AWS.Deadline do
 
   """
   @type put_metered_product_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_limit_response() :: %{}
+
+  """
+  @type delete_limit_response() :: %{}
 
   @typedoc """
 
@@ -3043,6 +3231,7 @@ defmodule AWS.Deadline do
         "lifecycleStatusMessage" => String.t(),
         "maxFailedTasksCount" => integer(),
         "maxRetriesPerTask" => integer(),
+        "maxWorkerCount" => integer(),
         "name" => String.t(),
         "parameters" => map(),
         "priority" => integer(),
@@ -3072,6 +3261,21 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      create_limit_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("description") => String.t(),
+        required("amountRequirementName") => String.t(),
+        required("displayName") => String.t(),
+        required("maxCount") => integer()
+      }
+
+  """
+  @type create_limit_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_queue_environment_response() :: %{}
 
   """
@@ -3093,6 +3297,15 @@ defmodule AWS.Deadline do
 
   """
   @type queue_fleet_association_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_limit_request() :: %{}
+
+  """
+  @type delete_limit_request() :: %{}
 
   @typedoc """
 
@@ -3405,6 +3618,19 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      update_limit_request() :: %{
+        optional("description") => String.t(),
+        optional("displayName") => String.t(),
+        optional("maxCount") => integer()
+      }
+
+  """
+  @type update_limit_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_queue_fleet_association_request() :: %{
         required("status") => list(any())
       }
@@ -3504,6 +3730,17 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      create_limit_response() :: %{
+        "limitId" => String.t()
+      }
+
+  """
+  @type create_limit_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       job_search_summary() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
@@ -3514,6 +3751,7 @@ defmodule AWS.Deadline do
         "lifecycleStatusMessage" => String.t(),
         "maxFailedTasksCount" => integer(),
         "maxRetriesPerTask" => integer(),
+        "maxWorkerCount" => integer(),
         "name" => String.t(),
         "priority" => integer(),
         "queueId" => String.t(),
@@ -3765,6 +4003,15 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      update_queue_limit_association_response() :: %{}
+
+  """
+  @type update_queue_limit_association_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_fleet_members_response() :: %{
         "members" => list(fleet_member()()),
         "nextToken" => String.t()
@@ -3799,12 +4046,33 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      list_limits_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_limits_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_fleet_response() :: %{
         "fleetId" => String.t()
       }
 
   """
   @type create_fleet_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_queue_limit_association_response() :: %{}
+
+  """
+  @type create_queue_limit_association_response() :: %{}
 
   @typedoc """
 
@@ -3906,6 +4174,24 @@ defmodule AWS.Deadline do
 
   """
   @type list_queue_members_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_queue_limit_association_request() :: %{}
+
+  """
+  @type get_queue_limit_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_queue_limit_association_request() :: %{}
+
+  """
+  @type delete_queue_limit_association_request() :: %{}
 
   @typedoc """
 
@@ -4279,6 +4565,14 @@ defmodule AWS.Deadline do
           | service_quota_exceeded_exception()
           | conflict_exception()
 
+  @type create_limit_errors() ::
+          throttling_exception()
+          | internal_server_error_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
   @type create_monitor_errors() ::
           throttling_exception()
           | internal_server_error_exception()
@@ -4303,6 +4597,13 @@ defmodule AWS.Deadline do
           | resource_not_found_exception()
 
   @type create_queue_fleet_association_errors() ::
+          throttling_exception()
+          | internal_server_error_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type create_queue_limit_association_errors() ::
           throttling_exception()
           | internal_server_error_exception()
           | validation_exception()
@@ -4355,6 +4656,12 @@ defmodule AWS.Deadline do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type delete_limit_errors() ::
+          throttling_exception()
+          | internal_server_error_exception()
+          | validation_exception()
+          | access_denied_exception()
+
   @type delete_metered_product_errors() ::
           throttling_exception()
           | internal_server_error_exception()
@@ -4384,6 +4691,14 @@ defmodule AWS.Deadline do
           | access_denied_exception()
 
   @type delete_queue_fleet_association_errors() ::
+          throttling_exception()
+          | internal_server_error_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_queue_limit_association_errors() ::
           throttling_exception()
           | internal_server_error_exception()
           | validation_exception()
@@ -4470,6 +4785,13 @@ defmodule AWS.Deadline do
           | access_denied_exception()
           | resource_not_found_exception()
 
+  @type get_limit_errors() ::
+          throttling_exception()
+          | internal_server_error_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
   @type get_monitor_errors() ::
           throttling_exception()
           | internal_server_error_exception()
@@ -4492,6 +4814,13 @@ defmodule AWS.Deadline do
           | resource_not_found_exception()
 
   @type get_queue_fleet_association_errors() ::
+          throttling_exception()
+          | internal_server_error_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type get_queue_limit_association_errors() ::
           throttling_exception()
           | internal_server_error_exception()
           | validation_exception()
@@ -4619,6 +4948,13 @@ defmodule AWS.Deadline do
           | access_denied_exception()
           | resource_not_found_exception()
 
+  @type list_limits_errors() ::
+          throttling_exception()
+          | internal_server_error_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
   @type list_metered_products_errors() ::
           throttling_exception()
           | internal_server_error_exception()
@@ -4640,6 +4976,12 @@ defmodule AWS.Deadline do
           | resource_not_found_exception()
 
   @type list_queue_fleet_associations_errors() ::
+          throttling_exception()
+          | internal_server_error_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type list_queue_limit_associations_errors() ::
           throttling_exception()
           | internal_server_error_exception()
           | access_denied_exception()
@@ -4824,6 +5166,13 @@ defmodule AWS.Deadline do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type update_limit_errors() ::
+          throttling_exception()
+          | internal_server_error_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
   @type update_monitor_errors() ::
           throttling_exception()
           | internal_server_error_exception()
@@ -4846,6 +5195,13 @@ defmodule AWS.Deadline do
           | resource_not_found_exception()
 
   @type update_queue_fleet_association_errors() ::
+          throttling_exception()
+          | internal_server_error_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type update_queue_limit_association_errors() ::
           throttling_exception()
           | internal_server_error_exception()
           | validation_exception()
@@ -5404,7 +5760,7 @@ defmodule AWS.Deadline do
   @doc """
   Creates a job.
 
-  A job is a set of instructions that AWS Deadline Cloud uses to schedule
+  A job is a set of instructions that Deadline Cloud uses to schedule
   and run work on available workers. For more information, see [Deadline Cloud jobs](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/deadline-cloud-jobs.html).
   """
   @spec create_job(map(), String.t(), String.t(), create_job_request(), list()) ::
@@ -5449,6 +5805,49 @@ defmodule AWS.Deadline do
           | {:error, create_license_endpoint_errors()}
   def create_license_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/2023-10-12/license-endpoints"
+
+    {headers, input} =
+      [
+        {"clientToken", "X-Amz-Client-Token"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a limit that manages the distribution of shared resources, such as
+  floating
+  licenses.
+
+  A limit can throttle work assignments, help manage workloads, and track current
+  usage. Before you use a limit, you must associate the limit with one or more
+  queues.
+
+  You must add the `amountRequirementName` to a step in a job template to
+  declare the limit requirement.
+  """
+  @spec create_limit(map(), String.t(), create_limit_request(), list()) ::
+          {:ok, create_limit_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_limit_errors()}
+  def create_limit(%Client{} = client, farm_id, input, options \\ []) do
+    url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/limits"
 
     {headers, input} =
       [
@@ -5606,6 +6005,45 @@ defmodule AWS.Deadline do
           | {:error, create_queue_fleet_association_errors()}
   def create_queue_fleet_association(%Client{} = client, farm_id, input, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queue-fleet-associations"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Associates a limit with a particular queue.
+
+  After the limit is associated, all workers
+  for jobs that specify the limit associated with the queue are subject to the
+  limit. You
+  can't associate two limits with the same `amountRequirementName` to the same
+  queue.
+  """
+  @spec create_queue_limit_association(
+          map(),
+          String.t(),
+          create_queue_limit_association_request(),
+          list()
+        ) ::
+          {:ok, create_queue_limit_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_queue_limit_association_errors()}
+  def create_queue_limit_association(%Client{} = client, farm_id, input, options \\ []) do
+    url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queue-limit-associations"
     headers = []
     custom_headers = []
     query_params = []
@@ -5825,6 +6263,40 @@ defmodule AWS.Deadline do
   end
 
   @doc """
+  Removes a limit from the specified farm.
+
+  Before you delete a limit you must use the
+  `DeleteQueueLimitAssociation` operation to remove the association with any
+  queues.
+  """
+  @spec delete_limit(map(), String.t(), String.t(), delete_limit_request(), list()) ::
+          {:ok, delete_limit_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_limit_errors()}
+  def delete_limit(%Client{} = client, farm_id, limit_id, input, options \\ []) do
+    url_path =
+      "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/limits/#{AWS.Util.encode_uri(limit_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes a metered product.
   """
   @spec delete_metered_product(
@@ -5999,6 +6471,57 @@ defmodule AWS.Deadline do
       ) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queue-fleet-associations/#{AWS.Util.encode_uri(queue_id)}/#{AWS.Util.encode_uri(fleet_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Removes the association between a queue and a limit.
+
+  You must use the
+  `UpdateQueueLimitAssociation` operation to set the status to
+  `STOP_LIMIT_USAGE_AND_COMPLETE_TASKS` or
+  `STOP_LIMIT_USAGE_AND_CANCEL_TASKS`. The status does not change immediately.
+  Use the `GetQueueLimitAssociation` operation to see if the status changed to
+  `STOPPED` before deleting the association.
+  """
+  @spec delete_queue_limit_association(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          delete_queue_limit_association_request(),
+          list()
+        ) ::
+          {:ok, delete_queue_limit_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_queue_limit_association_errors()}
+  def delete_queue_limit_association(
+        %Client{} = client,
+        farm_id,
+        limit_id,
+        queue_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queue-limit-associations/#{AWS.Util.encode_uri(queue_id)}/#{AWS.Util.encode_uri(limit_id)}"
 
     headers = []
     custom_headers = []
@@ -6359,6 +6882,25 @@ defmodule AWS.Deadline do
   end
 
   @doc """
+  Gets information about a specific limit.
+  """
+  @spec get_limit(map(), String.t(), String.t(), list()) ::
+          {:ok, get_limit_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_limit_errors()}
+  def get_limit(%Client{} = client, farm_id, limit_id, options \\ []) do
+    url_path =
+      "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/limits/#{AWS.Util.encode_uri(limit_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets information about the specified monitor.
   """
   @spec get_monitor(map(), String.t(), list()) ::
@@ -6429,6 +6971,25 @@ defmodule AWS.Deadline do
   def get_queue_fleet_association(%Client{} = client, farm_id, fleet_id, queue_id, options \\ []) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queue-fleet-associations/#{AWS.Util.encode_uri(queue_id)}/#{AWS.Util.encode_uri(fleet_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets information about a specific association between a queue and a limit.
+  """
+  @spec get_queue_limit_association(map(), String.t(), String.t(), String.t(), list()) ::
+          {:ok, get_queue_limit_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_queue_limit_association_errors()}
+  def get_queue_limit_association(%Client{} = client, farm_id, limit_id, queue_id, options \\ []) do
+    url_path =
+      "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queue-limit-associations/#{AWS.Util.encode_uri(queue_id)}/#{AWS.Util.encode_uri(limit_id)}"
 
     headers = []
     query_params = []
@@ -7118,6 +7679,43 @@ defmodule AWS.Deadline do
   end
 
   @doc """
+  Gets a list of limits defined in the specified farm.
+  """
+  @spec list_limits(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_limits_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_limits_errors()}
+  def list_limits(
+        %Client{} = client,
+        farm_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/limits"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists metered products.
   """
   @spec list_metered_products(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
@@ -7286,6 +7884,67 @@ defmodule AWS.Deadline do
     query_params =
       if !is_nil(fleet_id) do
         [{"fleetId", fleet_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets a list of the associations between queues and limits defined in a farm.
+  """
+  @spec list_queue_limit_associations(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_queue_limit_associations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_queue_limit_associations_errors()}
+  def list_queue_limit_associations(
+        %Client{} = client,
+        farm_id,
+        limit_id \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        queue_id \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queue-limit-associations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(queue_id) do
+        [{"queueId", queue_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(limit_id) do
+        [{"limitId", limit_id} | query_params]
       else
         query_params
       end
@@ -8302,6 +8961,36 @@ defmodule AWS.Deadline do
   end
 
   @doc """
+  Updates the properties of the specified limit.
+  """
+  @spec update_limit(map(), String.t(), String.t(), update_limit_request(), list()) ::
+          {:ok, update_limit_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_limit_errors()}
+  def update_limit(%Client{} = client, farm_id, limit_id, input, options \\ []) do
+    url_path =
+      "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/limits/#{AWS.Util.encode_uri(limit_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Modifies the settings for a Deadline Cloud monitor.
 
   You can modify one or all of the settings
@@ -8440,6 +9129,54 @@ defmodule AWS.Deadline do
       ) do
     url_path =
       "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queue-fleet-associations/#{AWS.Util.encode_uri(queue_id)}/#{AWS.Util.encode_uri(fleet_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "management.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the status of the queue.
+
+  If you set the status to one of the
+  `STOP_LIMIT_USAGE*` values, there will be a delay before the status
+  transitions to the `STOPPED` state.
+  """
+  @spec update_queue_limit_association(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          update_queue_limit_association_request(),
+          list()
+        ) ::
+          {:ok, update_queue_limit_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_queue_limit_association_errors()}
+  def update_queue_limit_association(
+        %Client{} = client,
+        farm_id,
+        limit_id,
+        queue_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queue-limit-associations/#{AWS.Util.encode_uri(queue_id)}/#{AWS.Util.encode_uri(limit_id)}"
 
     headers = []
     custom_headers = []

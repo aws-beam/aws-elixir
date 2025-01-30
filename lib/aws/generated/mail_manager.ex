@@ -35,6 +35,17 @@ defmodule AWS.MailManager do
 
   ## Example:
       
+      import_data_format() :: %{
+        "ImportDataType" => list(any())
+      }
+      
+  """
+  @type import_data_format() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_traffic_policies_request() :: %{
         optional("NextToken") => String.t(),
         optional("PageSize") => integer()
@@ -78,6 +89,37 @@ defmodule AWS.MailManager do
       
   """
   @type ingress_point_password_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_address_list_import_job_response() :: %{
+        "AddressListId" => String.t(),
+        "CompletedTimestamp" => [non_neg_integer()],
+        "CreatedTimestamp" => [non_neg_integer()],
+        "Error" => String.t(),
+        "FailedItemsCount" => integer(),
+        "ImportDataFormat" => import_data_format(),
+        "ImportedItemsCount" => integer(),
+        "JobId" => String.t(),
+        "Name" => String.t(),
+        "PreSignedUrl" => String.t(),
+        "StartTimestamp" => [non_neg_integer()],
+        "Status" => list(any())
+      }
+      
+  """
+  @type get_address_list_import_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_address_list_import_job_response() :: %{}
+      
+  """
+  @type start_address_list_import_job_response() :: %{}
 
   @typedoc """
 
@@ -226,6 +268,18 @@ defmodule AWS.MailManager do
 
   ## Example:
       
+      list_address_lists_request() :: %{
+        optional("NextToken") => String.t(),
+        optional("PageSize") => integer()
+      }
+      
+  """
+  @type list_address_lists_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_addon_instance_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Tags") => list(tag()()),
@@ -268,6 +322,19 @@ defmodule AWS.MailManager do
 
   ## Example:
       
+      create_address_list_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("AddressListName") => String.t()
+      }
+      
+  """
+  @type create_address_list_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       rule_number_expression() :: %{
         "Evaluate" => list(),
         "Operator" => list(any()),
@@ -295,6 +362,15 @@ defmodule AWS.MailManager do
 
   ## Example:
       
+      delete_address_list_response() :: %{}
+      
+  """
+  @type delete_address_list_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       get_archive_search_response() :: %{
         "ArchiveId" => String.t(),
         "Filters" => archive_filters(),
@@ -315,6 +391,20 @@ defmodule AWS.MailManager do
       
   """
   @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_members_of_address_list_request() :: %{
+        optional("Filter") => address_filter(),
+        optional("NextToken") => String.t(),
+        optional("PageSize") => integer(),
+        required("AddressListId") => String.t()
+      }
+      
+  """
+  @type list_members_of_address_list_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -348,6 +438,17 @@ defmodule AWS.MailManager do
       
   """
   @type s3_action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_address_list_import_job_request() :: %{
+        required("JobId") => String.t()
+      }
+      
+  """
+  @type stop_address_list_import_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -483,6 +584,17 @@ defmodule AWS.MailManager do
 
   ## Example:
       
+      get_address_list_import_job_request() :: %{
+        required("JobId") => String.t()
+      }
+      
+  """
+  @type get_address_list_import_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_rule_set_response() :: %{}
       
   """
@@ -583,6 +695,21 @@ defmodule AWS.MailManager do
 
   ## Example:
       
+      get_address_list_response() :: %{
+        "AddressListArn" => String.t(),
+        "AddressListId" => String.t(),
+        "AddressListName" => String.t(),
+        "CreatedTimestamp" => [non_neg_integer()],
+        "LastUpdatedTimestamp" => [non_neg_integer()]
+      }
+      
+  """
+  @type get_address_list_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_archive_message_request() :: %{
         required("ArchivedMessageId") => String.t()
       }
@@ -601,6 +728,17 @@ defmodule AWS.MailManager do
       
   """
   @type rule_boolean_expression() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_address_list_import_job_request() :: %{
+        required("JobId") => String.t()
+      }
+      
+  """
+  @type start_address_list_import_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -671,6 +809,15 @@ defmodule AWS.MailManager do
 
   ## Example:
       
+      register_member_to_address_list_response() :: %{}
+      
+  """
+  @type register_member_to_address_list_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_archive_response() :: %{}
       
   """
@@ -701,6 +848,20 @@ defmodule AWS.MailManager do
       
   """
   @type ingress_boolean_expression() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_address_list_import_job_request() :: %{
+        optional("ClientToken") => String.t(),
+        required("AddressListId") => String.t(),
+        required("ImportDataFormat") => import_data_format(),
+        required("Name") => String.t()
+      }
+      
+  """
+  @type create_address_list_import_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -763,6 +924,30 @@ defmodule AWS.MailManager do
       
   """
   @type delete_addon_instance_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_address_list_import_job_response() :: %{
+        "JobId" => String.t(),
+        "PreSignedUrl" => String.t()
+      }
+      
+  """
+  @type create_address_list_import_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ingress_is_in_address_list() :: %{
+        "AddressLists" => list(String.t()()),
+        "Attribute" => list(any())
+      }
+      
+  """
+  @type ingress_is_in_address_list() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -841,6 +1026,19 @@ defmodule AWS.MailManager do
       
   """
   @type ingress_ipv4_expression() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_address_list_import_jobs_request() :: %{
+        optional("NextToken") => String.t(),
+        optional("PageSize") => integer(),
+        required("AddressListId") => String.t()
+      }
+      
+  """
+  @type list_address_list_import_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1015,6 +1213,18 @@ defmodule AWS.MailManager do
 
   ## Example:
       
+      saved_address() :: %{
+        "Address" => String.t(),
+        "CreatedTimestamp" => [non_neg_integer()]
+      }
+      
+  """
+  @type saved_address() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_rule_set_response() :: %{
         "RuleSetId" => String.t()
       }
@@ -1049,6 +1259,17 @@ defmodule AWS.MailManager do
 
   ## Example:
       
+      address_filter() :: %{
+        "AddressPrefix" => String.t()
+      }
+      
+  """
+  @type address_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_traffic_policy_request() :: %{
         optional("DefaultAction") => list(any()),
         optional("MaxMessageSizeBytes") => integer(),
@@ -1059,6 +1280,28 @@ defmodule AWS.MailManager do
       
   """
   @type update_traffic_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_address_list_request() :: %{
+        required("AddressListId") => String.t()
+      }
+      
+  """
+  @type delete_address_list_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_address_list_request() :: %{
+        required("AddressListId") => String.t()
+      }
+      
+  """
+  @type get_address_list_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1084,10 +1327,34 @@ defmodule AWS.MailManager do
 
   ## Example:
       
+      deregister_member_from_address_list_request() :: %{
+        required("Address") => String.t(),
+        required("AddressListId") => String.t()
+      }
+      
+  """
+  @type deregister_member_from_address_list_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_ingress_point_response() :: %{}
       
   """
   @type update_ingress_point_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_member_of_address_list_response() :: %{
+        "Address" => String.t(),
+        "CreatedTimestamp" => [non_neg_integer()]
+      }
+      
+  """
+  @type get_member_of_address_list_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1195,6 +1462,28 @@ defmodule AWS.MailManager do
       
   """
   @type list_archive_searches_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_job() :: %{
+        "AddressListId" => String.t(),
+        "CompletedTimestamp" => [non_neg_integer()],
+        "CreatedTimestamp" => [non_neg_integer()],
+        "Error" => String.t(),
+        "FailedItemsCount" => integer(),
+        "ImportDataFormat" => import_data_format(),
+        "ImportedItemsCount" => integer(),
+        "JobId" => String.t(),
+        "Name" => String.t(),
+        "PreSignedUrl" => String.t(),
+        "StartTimestamp" => [non_neg_integer()],
+        "Status" => list(any())
+      }
+      
+  """
+  @type import_job() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1341,6 +1630,27 @@ defmodule AWS.MailManager do
 
   ## Example:
       
+      list_address_list_import_jobs_response() :: %{
+        "ImportJobs" => list(import_job()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type list_address_list_import_jobs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_address_list_import_job_response() :: %{}
+      
+  """
+  @type stop_address_list_import_job_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       tag_resource_response() :: %{}
       
   """
@@ -1368,6 +1678,18 @@ defmodule AWS.MailManager do
       
   """
   @type deliver_to_q_business_action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      register_member_to_address_list_request() :: %{
+        required("Address") => String.t(),
+        required("AddressListId") => String.t()
+      }
+      
+  """
+  @type register_member_to_address_list_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1526,6 +1848,18 @@ defmodule AWS.MailManager do
 
   ## Example:
       
+      rule_is_in_address_list() :: %{
+        "AddressLists" => list(String.t()()),
+        "Attribute" => list(any())
+      }
+      
+  """
+  @type rule_is_in_address_list() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       ingress_string_expression() :: %{
         "Evaluate" => list(),
         "Operator" => list(any()),
@@ -1657,6 +1991,33 @@ defmodule AWS.MailManager do
 
   ## Example:
       
+      address_list() :: %{
+        "AddressListArn" => String.t(),
+        "AddressListId" => String.t(),
+        "AddressListName" => String.t(),
+        "CreatedTimestamp" => [non_neg_integer()],
+        "LastUpdatedTimestamp" => [non_neg_integer()]
+      }
+      
+  """
+  @type address_list() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_members_of_address_list_response() :: %{
+        "Addresses" => list(saved_address()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type list_members_of_address_list_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_archive_exports_request() :: %{
         optional("NextToken") => String.t(),
         optional("PageSize") => integer(),
@@ -1722,6 +2083,27 @@ defmodule AWS.MailManager do
       
   """
   @type ingress_point_auth_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deregister_member_from_address_list_response() :: %{}
+      
+  """
+  @type deregister_member_from_address_list_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_address_lists_response() :: %{
+        "AddressLists" => list(address_list()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type list_address_lists_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1801,6 +2183,18 @@ defmodule AWS.MailManager do
 
   ## Example:
       
+      get_member_of_address_list_request() :: %{
+        required("Address") => String.t(),
+        required("AddressListId") => String.t()
+      }
+      
+  """
+  @type get_member_of_address_list_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       add_header_action() :: %{
         "HeaderName" => String.t(),
         "HeaderValue" => String.t()
@@ -1821,6 +2215,17 @@ defmodule AWS.MailManager do
   """
   @type archive_filters() :: %{String.t() => any()}
 
+  @typedoc """
+
+  ## Example:
+      
+      create_address_list_response() :: %{
+        "AddressListId" => String.t()
+      }
+      
+  """
+  @type create_address_list_response() :: %{String.t() => any()}
+
   @type create_addon_instance_errors() ::
           validation_exception()
           | service_quota_exceeded_exception()
@@ -1829,6 +2234,19 @@ defmodule AWS.MailManager do
 
   @type create_addon_subscription_errors() ::
           validation_exception() | service_quota_exceeded_exception() | conflict_exception()
+
+  @type create_address_list_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_address_list_import_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
 
   @type create_archive_errors() ::
           throttling_exception()
@@ -1853,6 +2271,9 @@ defmodule AWS.MailManager do
 
   @type delete_addon_subscription_errors() :: validation_exception() | conflict_exception()
 
+  @type delete_address_list_errors() ::
+          throttling_exception() | access_denied_exception() | conflict_exception()
+
   @type delete_archive_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1870,9 +2291,27 @@ defmodule AWS.MailManager do
   @type delete_traffic_policy_errors() ::
           validation_exception() | resource_not_found_exception() | conflict_exception()
 
+  @type deregister_member_from_address_list_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
   @type get_addon_instance_errors() :: validation_exception() | resource_not_found_exception()
 
   @type get_addon_subscription_errors() :: validation_exception() | resource_not_found_exception()
+
+  @type get_address_list_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type get_address_list_import_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
 
   @type get_archive_errors() ::
           throttling_exception()
@@ -1900,6 +2339,12 @@ defmodule AWS.MailManager do
 
   @type get_ingress_point_errors() :: validation_exception() | resource_not_found_exception()
 
+  @type get_member_of_address_list_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
   @type get_relay_errors() :: validation_exception() | resource_not_found_exception()
 
   @type get_rule_set_errors() :: validation_exception() | resource_not_found_exception()
@@ -1909,6 +2354,15 @@ defmodule AWS.MailManager do
   @type list_addon_instances_errors() :: validation_exception()
 
   @type list_addon_subscriptions_errors() :: validation_exception()
+
+  @type list_address_list_import_jobs_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type list_address_lists_errors() ::
+          throttling_exception() | validation_exception() | access_denied_exception()
 
   @type list_archive_exports_errors() ::
           throttling_exception()
@@ -1927,6 +2381,12 @@ defmodule AWS.MailManager do
 
   @type list_ingress_points_errors() :: validation_exception()
 
+  @type list_members_of_address_list_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
   @type list_relays_errors() :: validation_exception()
 
   @type list_rule_sets_errors() :: validation_exception()
@@ -1934,6 +2394,21 @@ defmodule AWS.MailManager do
   @type list_tags_for_resource_errors() :: validation_exception() | resource_not_found_exception()
 
   @type list_traffic_policies_errors() :: validation_exception()
+
+  @type register_member_to_address_list_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type start_address_list_import_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type start_archive_export_errors() ::
           throttling_exception()
@@ -1947,6 +2422,13 @@ defmodule AWS.MailManager do
           | validation_exception()
           | access_denied_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type stop_address_list_import_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -2034,6 +2516,32 @@ defmodule AWS.MailManager do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateAddonSubscription", input, options)
+  end
+
+  @doc """
+  Creates a new address list.
+  """
+  @spec create_address_list(map(), create_address_list_request(), list()) ::
+          {:ok, create_address_list_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_address_list_errors()}
+  def create_address_list(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAddressList", input, options)
+  end
+
+  @doc """
+  Creates an import job for an address list.
+  """
+  @spec create_address_list_import_job(map(), create_address_list_import_job_request(), list()) ::
+          {:ok, create_address_list_import_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_address_list_import_job_errors()}
+  def create_address_list_import_job(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAddressListImportJob", input, options)
   end
 
   @doc """
@@ -2129,6 +2637,19 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+  Deletes an address list.
+  """
+  @spec delete_address_list(map(), delete_address_list_request(), list()) ::
+          {:ok, delete_address_list_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_address_list_errors()}
+  def delete_address_list(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteAddressList", input, options)
+  end
+
+  @doc """
   Initiates deletion of an email archive.
 
   This changes the archive state to pending
@@ -2203,6 +2724,23 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+  Removes a member from an address list.
+  """
+  @spec deregister_member_from_address_list(
+          map(),
+          deregister_member_from_address_list_request(),
+          list()
+        ) ::
+          {:ok, deregister_member_from_address_list_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, deregister_member_from_address_list_errors()}
+  def deregister_member_from_address_list(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeregisterMemberFromAddressList", input, options)
+  end
+
+  @doc """
   Gets detailed information about an Add On instance.
   """
   @spec get_addon_instance(map(), get_addon_instance_request(), list()) ::
@@ -2226,6 +2764,32 @@ defmodule AWS.MailManager do
     meta = metadata()
 
     Request.request_post(client, meta, "GetAddonSubscription", input, options)
+  end
+
+  @doc """
+  Fetch attributes of an address list.
+  """
+  @spec get_address_list(map(), get_address_list_request(), list()) ::
+          {:ok, get_address_list_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_address_list_errors()}
+  def get_address_list(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAddressList", input, options)
+  end
+
+  @doc """
+  Fetch attributes of an import job.
+  """
+  @spec get_address_list_import_job(map(), get_address_list_import_job_request(), list()) ::
+          {:ok, get_address_list_import_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_address_list_import_job_errors()}
+  def get_address_list_import_job(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAddressListImportJob", input, options)
   end
 
   @doc """
@@ -2325,6 +2889,19 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+  Fetch attributes of a member in an address list.
+  """
+  @spec get_member_of_address_list(map(), get_member_of_address_list_request(), list()) ::
+          {:ok, get_member_of_address_list_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_member_of_address_list_errors()}
+  def get_member_of_address_list(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetMemberOfAddressList", input, options)
+  end
+
+  @doc """
   Fetch the relay resource and it's attributes.
   """
   @spec get_relay(map(), get_relay_request(), list()) ::
@@ -2390,6 +2967,32 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+  Lists jobs for an address list.
+  """
+  @spec list_address_list_import_jobs(map(), list_address_list_import_jobs_request(), list()) ::
+          {:ok, list_address_list_import_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_address_list_import_jobs_errors()}
+  def list_address_list_import_jobs(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAddressListImportJobs", input, options)
+  end
+
+  @doc """
+  Lists address lists for this account.
+  """
+  @spec list_address_lists(map(), list_address_lists_request(), list()) ::
+          {:ok, list_address_lists_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_address_lists_errors()}
+  def list_address_lists(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAddressLists", input, options)
+  end
+
+  @doc """
   Returns a list of email archive export jobs.
   """
   @spec list_archive_exports(map(), list_archive_exports_request(), list()) ::
@@ -2439,6 +3042,19 @@ defmodule AWS.MailManager do
     meta = metadata()
 
     Request.request_post(client, meta, "ListIngressPoints", input, options)
+  end
+
+  @doc """
+  Lists members of an address list.
+  """
+  @spec list_members_of_address_list(map(), list_members_of_address_list_request(), list()) ::
+          {:ok, list_members_of_address_list_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_members_of_address_list_errors()}
+  def list_members_of_address_list(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListMembersOfAddressList", input, options)
   end
 
   @doc """
@@ -2494,6 +3110,32 @@ defmodule AWS.MailManager do
   end
 
   @doc """
+  Adds a member to an address list.
+  """
+  @spec register_member_to_address_list(map(), register_member_to_address_list_request(), list()) ::
+          {:ok, register_member_to_address_list_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, register_member_to_address_list_errors()}
+  def register_member_to_address_list(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "RegisterMemberToAddressList", input, options)
+  end
+
+  @doc """
+  Starts an import job for an address list.
+  """
+  @spec start_address_list_import_job(map(), start_address_list_import_job_request(), list()) ::
+          {:ok, start_address_list_import_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_address_list_import_job_errors()}
+  def start_address_list_import_job(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartAddressListImportJob", input, options)
+  end
+
+  @doc """
   Initiates an export of emails from the specified archive.
   """
   @spec start_archive_export(map(), start_archive_export_request(), list()) ::
@@ -2517,6 +3159,19 @@ defmodule AWS.MailManager do
     meta = metadata()
 
     Request.request_post(client, meta, "StartArchiveSearch", input, options)
+  end
+
+  @doc """
+  Stops an ongoing import job for an address list.
+  """
+  @spec stop_address_list_import_job(map(), stop_address_list_import_job_request(), list()) ::
+          {:ok, stop_address_list_import_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, stop_address_list_import_job_errors()}
+  def stop_address_list_import_job(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopAddressListImportJob", input, options)
   end
 
   @doc """

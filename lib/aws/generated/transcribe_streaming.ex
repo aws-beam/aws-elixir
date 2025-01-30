@@ -3,9 +3,10 @@
 
 defmodule AWS.TranscribeStreaming do
   @moduledoc """
-  Amazon Transcribe streaming offers three main types of real-time transcription:
-  **Standard**, **Medical**, and
-  **Call Analytics**.
+  Amazon Transcribe streaming offers four main types of real-time transcription:
+  **Standard**, **Medical**,
+  **Call Analytics**,
+  and **Health Scribe**.
 
     *
 
@@ -27,6 +28,13 @@ defmodule AWS.TranscribeStreaming do
   center audio on two different channels; if you're looking for insight into
   customer service calls, use this
   option. Refer to for details.
+
+    *
+
+  **HealthScribe transcriptions** are designed to
+  automatically create clinical notes from patient-clinician conversations using
+  generative AI.
+  Refer to [here] for details.
   """
 
   alias AWS.Client
@@ -69,6 +77,34 @@ defmodule AWS.TranscribeStreaming do
 
   ## Example:
 
+      medical_scribe_encryption_settings() :: %{
+        "KmsEncryptionContext" => map(),
+        "KmsKeyId" => String.t()
+      }
+
+  """
+  @type medical_scribe_encryption_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_medical_scribe_stream_response() :: %{
+        "LanguageCode" => list(any()),
+        "MediaEncoding" => list(any()),
+        "MediaSampleRateHertz" => integer(),
+        "RequestId" => String.t(),
+        "ResultStream" => list(),
+        "SessionId" => String.t()
+      }
+
+  """
+  @type start_medical_scribe_stream_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       internal_failure_exception() :: %{
         "Message" => String.t()
       }
@@ -86,6 +122,53 @@ defmodule AWS.TranscribeStreaming do
 
   """
   @type points_of_interest() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_scribe_stream_details() :: %{
+        "ChannelDefinitions" => list(medical_scribe_channel_definition()()),
+        "EncryptionSettings" => medical_scribe_encryption_settings(),
+        "LanguageCode" => list(any()),
+        "MediaEncoding" => list(any()),
+        "MediaSampleRateHertz" => integer(),
+        "PostStreamAnalyticsResult" => medical_scribe_post_stream_analytics_result(),
+        "PostStreamAnalyticsSettings" => medical_scribe_post_stream_analytics_settings(),
+        "ResourceAccessRoleArn" => String.t(),
+        "SessionId" => String.t(),
+        "StreamCreatedAt" => non_neg_integer(),
+        "StreamEndedAt" => non_neg_integer(),
+        "StreamStatus" => list(any()),
+        "VocabularyFilterMethod" => list(any()),
+        "VocabularyFilterName" => String.t(),
+        "VocabularyName" => String.t()
+      }
+
+  """
+  @type medical_scribe_stream_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_scribe_audio_event() :: %{
+        "AudioChunk" => binary()
+      }
+
+  """
+  @type medical_scribe_audio_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_scribe_post_stream_analytics_settings() :: %{
+        "ClinicalNoteGenerationSettings" => clinical_note_generation_settings()
+      }
+
+  """
+  @type medical_scribe_post_stream_analytics_settings() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -130,6 +213,17 @@ defmodule AWS.TranscribeStreaming do
 
   ## Example:
 
+      clinical_note_generation_settings() :: %{
+        "OutputBucketName" => String.t()
+      }
+
+  """
+  @type clinical_note_generation_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       medical_alternative() :: %{
         "Entities" => list(medical_entity()()),
         "Items" => list(medical_item()()),
@@ -150,6 +244,34 @@ defmodule AWS.TranscribeStreaming do
 
   """
   @type category_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_scribe_post_stream_analytics_result() :: %{
+        "ClinicalNoteGenerationResult" => clinical_note_generation_result()
+      }
+
+  """
+  @type medical_scribe_post_stream_analytics_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_scribe_configuration_event() :: %{
+        "ChannelDefinitions" => list(medical_scribe_channel_definition()()),
+        "EncryptionSettings" => medical_scribe_encryption_settings(),
+        "PostStreamAnalyticsSettings" => medical_scribe_post_stream_analytics_settings(),
+        "ResourceAccessRoleArn" => String.t(),
+        "VocabularyFilterMethod" => list(any()),
+        "VocabularyFilterName" => String.t(),
+        "VocabularyName" => String.t()
+      }
+
+  """
+  @type medical_scribe_configuration_event() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -178,6 +300,17 @@ defmodule AWS.TranscribeStreaming do
 
   ## Example:
 
+      medical_scribe_transcript_event() :: %{
+        "TranscriptSegment" => medical_scribe_transcript_segment()
+      }
+
+  """
+  @type medical_scribe_transcript_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       medical_entity() :: %{
         "Category" => String.t(),
         "Confidence" => float(),
@@ -199,6 +332,17 @@ defmodule AWS.TranscribeStreaming do
 
   """
   @type medical_transcript() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_medical_scribe_stream_response() :: %{
+        "MedicalScribeStreamDetails" => medical_scribe_stream_details()
+      }
+
+  """
+  @type get_medical_scribe_stream_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -276,6 +420,17 @@ defmodule AWS.TranscribeStreaming do
 
   """
   @type start_medical_stream_transcription_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -511,6 +666,30 @@ defmodule AWS.TranscribeStreaming do
 
   ## Example:
 
+      start_medical_scribe_stream_request() :: %{
+        optional("SessionId") => String.t(),
+        required("InputStream") => list(),
+        required("LanguageCode") => list(any()),
+        required("MediaEncoding") => list(any()),
+        required("MediaSampleRateHertz") => integer()
+      }
+
+  """
+  @type start_medical_scribe_stream_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_medical_scribe_stream_request() :: %{}
+
+  """
+  @type get_medical_scribe_stream_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       utterance_event() :: %{
         "BeginOffsetMillis" => float(),
         "EndOffsetMillis" => float(),
@@ -531,6 +710,22 @@ defmodule AWS.TranscribeStreaming do
 
   ## Example:
 
+      medical_scribe_transcript_item() :: %{
+        "BeginAudioTime" => float(),
+        "Confidence" => float(),
+        "Content" => String.t(),
+        "EndAudioTime" => float(),
+        "Type" => list(any()),
+        "VocabularyFilterMatch" => boolean()
+      }
+
+  """
+  @type medical_scribe_transcript_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       limit_exceeded_exception() :: %{
         "Message" => String.t()
       }
@@ -542,12 +737,40 @@ defmodule AWS.TranscribeStreaming do
 
   ## Example:
 
+      medical_scribe_session_control_event() :: %{
+        "Type" => list(any())
+      }
+
+  """
+  @type medical_scribe_session_control_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       bad_request_exception() :: %{
         "Message" => String.t()
       }
 
   """
   @type bad_request_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_scribe_transcript_segment() :: %{
+        "BeginAudioTime" => float(),
+        "ChannelId" => String.t(),
+        "Content" => String.t(),
+        "EndAudioTime" => float(),
+        "IsPartial" => boolean(),
+        "Items" => list(medical_scribe_transcript_item()()),
+        "SegmentId" => String.t()
+      }
+
+  """
+  @type medical_scribe_transcript_segment() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -569,12 +792,38 @@ defmodule AWS.TranscribeStreaming do
 
   ## Example:
 
+      medical_scribe_channel_definition() :: %{
+        "ChannelId" => integer(),
+        "ParticipantRole" => list(any())
+      }
+
+  """
+  @type medical_scribe_channel_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       transcript_event() :: %{
         "Transcript" => transcript()
       }
 
   """
   @type transcript_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      clinical_note_generation_result() :: %{
+        "ClinicalNoteOutputLocation" => String.t(),
+        "FailureReason" => String.t(),
+        "Status" => list(any()),
+        "TranscriptOutputLocation" => String.t()
+      }
+
+  """
+  @type clinical_note_generation_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -589,7 +838,20 @@ defmodule AWS.TranscribeStreaming do
   """
   @type alternative() :: %{String.t() => any()}
 
+  @type get_medical_scribe_stream_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
   @type start_call_analytics_stream_transcription_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | service_unavailable_exception()
+          | conflict_exception()
+          | internal_failure_exception()
+
+  @type start_medical_scribe_stream_errors() ::
           bad_request_exception()
           | limit_exceeded_exception()
           | service_unavailable_exception()
@@ -624,6 +886,29 @@ defmodule AWS.TranscribeStreaming do
       signing_name: "transcribe",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Provides details about the specified Amazon Web Services HealthScribe streaming
+  session.
+
+  To view the status of the streaming session, check the `StreamStatus` field in
+  the response. To get the
+  details of post-stream analytics, including its status, check the
+  `PostStreamAnalyticsResult` field in the response.
+  """
+  @spec get_medical_scribe_stream(map(), String.t(), list()) ::
+          {:ok, get_medical_scribe_stream_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_medical_scribe_stream_errors()}
+  def get_medical_scribe_stream(%Client{} = client, session_id, options \\ []) do
+    url_path = "/medical-scribe-stream/#{AWS.Util.encode_uri(session_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -705,6 +990,99 @@ defmodule AWS.TranscribeStreaming do
           {"x-amzn-transcribe-vocabulary-filter-method", "VocabularyFilterMethod"},
           {"x-amzn-transcribe-vocabulary-filter-name", "VocabularyFilterName"},
           {"x-amzn-transcribe-vocabulary-name", "VocabularyName"}
+        ]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Starts a bidirectional HTTP/2 stream, where audio is streamed to
+  Amazon Web Services HealthScribe
+  and the transcription results are streamed to your application.
+
+  When you start a stream, you first specify the stream configuration in a
+  `MedicalScribeConfigurationEvent`.
+  This event includes channel definitions, encryption settings, and post-stream
+  analytics settings, such as the output configuration for aggregated transcript
+  and clinical note generation. These are additional
+  streaming session configurations beyond those provided in your initial start
+  request headers. Whether you are starting a new session or resuming an existing
+  session,
+  your first event must be a `MedicalScribeConfigurationEvent`.
+
+  After you send a `MedicalScribeConfigurationEvent`, you start `AudioEvents` and
+  Amazon Web Services HealthScribe
+  responds with real-time transcription results. When you are finished, to start
+  processing the results with the post-stream analytics, send a
+  `MedicalScribeSessionControlEvent` with a `Type` of
+  `END_OF_SESSION` and Amazon Web Services HealthScribe starts the analytics.
+
+  You can pause or resume streaming.
+  To pause streaming, complete the input stream without sending the
+  `MedicalScribeSessionControlEvent`.
+  To resume streaming, call the `StartMedicalScribeStream` and specify the same
+  SessionId you used to start the stream.
+
+  The following parameters are required:
+
+    *
+
+  `language-code`
+
+    *
+
+  `media-encoding`
+
+    *
+
+  `media-sample-rate-hertz`
+
+  For more information on streaming with
+  Amazon Web Services HealthScribe,
+  see [Amazon Web Services HealthScribe](https://docs.aws.amazon.com/transcribe/latest/dg/health-scribe-streaming.html).
+  """
+  @spec start_medical_scribe_stream(map(), start_medical_scribe_stream_request(), list()) ::
+          {:ok, start_medical_scribe_stream_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_medical_scribe_stream_errors()}
+  def start_medical_scribe_stream(%Client{} = client, input, options \\ []) do
+    url_path = "/medical-scribe-stream"
+
+    {headers, input} =
+      [
+        {"LanguageCode", "x-amzn-transcribe-language-code"},
+        {"MediaEncoding", "x-amzn-transcribe-media-encoding"},
+        {"MediaSampleRateHertz", "x-amzn-transcribe-sample-rate"},
+        {"SessionId", "x-amzn-transcribe-session-id"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"x-amzn-transcribe-language-code", "LanguageCode"},
+          {"x-amzn-transcribe-media-encoding", "MediaEncoding"},
+          {"x-amzn-transcribe-sample-rate", "MediaSampleRateHertz"},
+          {"x-amzn-request-id", "RequestId"},
+          {"x-amzn-transcribe-session-id", "SessionId"}
         ]
       )
 

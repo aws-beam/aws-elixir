@@ -4128,7 +4128,7 @@ defmodule AWS.S3 do
         optional("ExpectedBucketOwner") => String.t(),
         optional("IfMatch") => String.t(),
         optional("IfNoneMatch") => String.t(),
-        optional("MpuObjectSize") => String.t(),
+        optional("MpuObjectSize") => float(),
         optional("MultipartUpload") => completed_multipart_upload(),
         optional("RequestPayer") => list(any()),
         optional("SSECustomerAlgorithm") => String.t(),

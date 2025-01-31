@@ -99,6 +99,19 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      create_subscription_request() :: %{
+        optional("clientToken") => String.t(),
+        required("principal") => list(),
+        required("type") => list(any())
+      }
+
+  """
+  @type create_subscription_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_feedback_request() :: %{
         optional("messageCopiedAt") => non_neg_integer(),
         optional("messageUsefulness") => message_usefulness_feedback(),
@@ -792,6 +805,17 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      subscription_details() :: %{
+        "type" => list(any())
+      }
+
+  """
+  @type subscription_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_data_source_response() :: %{}
 
   """
@@ -1020,6 +1044,19 @@ defmodule AWS.QBusiness do
 
   """
   @type chat_sync_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_subscription_response() :: %{
+        "currentSubscription" => subscription_details(),
+        "nextSubscription" => subscription_details(),
+        "subscriptionArn" => String.t()
+      }
+
+  """
+  @type cancel_subscription_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1662,6 +1699,19 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      update_subscription_response() :: %{
+        "currentSubscription" => subscription_details(),
+        "nextSubscription" => subscription_details(),
+        "subscriptionArn" => String.t()
+      }
+
+  """
+  @type update_subscription_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception_field() :: %{
         "message" => String.t(),
         "name" => String.t()
@@ -1794,6 +1844,20 @@ defmodule AWS.QBusiness do
 
   """
   @type delete_user_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_subscription_response() :: %{
+        "currentSubscription" => subscription_details(),
+        "nextSubscription" => subscription_details(),
+        "subscriptionArn" => String.t(),
+        "subscriptionId" => String.t()
+      }
+
+  """
+  @type create_subscription_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2426,6 +2490,15 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      cancel_subscription_request() :: %{}
+
+  """
+  @type cancel_subscription_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception() :: %{
         "fields" => list(validation_exception_field()()),
         "message" => String.t(),
@@ -2521,6 +2594,17 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      update_subscription_request() :: %{
+        required("type") => list(any())
+      }
+
+  """
+  @type update_subscription_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       action_review_payload_field_allowed_value() :: %{
         "displayValue" => any(),
         "value" => any()
@@ -2540,6 +2624,21 @@ defmodule AWS.QBusiness do
 
   """
   @type get_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subscription() :: %{
+        "currentSubscription" => subscription_details(),
+        "nextSubscription" => subscription_details(),
+        "principal" => list(),
+        "subscriptionArn" => String.t(),
+        "subscriptionId" => String.t()
+      }
+
+  """
+  @type subscription() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2576,6 +2675,18 @@ defmodule AWS.QBusiness do
 
   """
   @type quick_sight_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_subscriptions_response() :: %{
+        "nextToken" => String.t(),
+        "subscriptions" => list(subscription()())
+      }
+
+  """
+  @type list_subscriptions_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3115,6 +3226,18 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      list_subscriptions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_subscriptions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       document() :: %{
         "accessConfiguration" => access_configuration(),
         "attributes" => list(document_attribute()()),
@@ -3334,6 +3457,13 @@ defmodule AWS.QBusiness do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type cancel_subscription_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type chat_errors() ::
           external_resource_exception()
           | throttling_exception()
@@ -3405,6 +3535,14 @@ defmodule AWS.QBusiness do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_subscription_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -3716,6 +3854,14 @@ defmodule AWS.QBusiness do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type list_subscriptions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type list_tags_for_resource_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3846,6 +3992,14 @@ defmodule AWS.QBusiness do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type update_subscription_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type update_user_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3879,13 +4033,13 @@ defmodule AWS.QBusiness do
   end
 
   @doc """
-  Adds or updates a permission policy for a Q Business application, allowing
-  cross-account access for an ISV.
+  Adds or updates a permission policy for a Amazon Q Business application,
+  allowing cross-account access for an ISV.
 
-  This operation creates a new policy statement for the specified Q Business
-  application.
+  This operation creates a new policy statement for the specified Amazon Q
+  Business application.
   The policy statement defines the IAM actions that the ISV is allowed to perform
-  on the Q Business application's resources.
+  on the Amazon Q Business application's resources.
   """
   @spec associate_permission(map(), String.t(), associate_permission_request(), list()) ::
           {:ok, associate_permission_response(), any()}
@@ -3989,6 +4143,46 @@ defmodule AWS.QBusiness do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Unsubscribes a user or a group from their pricing tier in an Amazon Q Business
+  application.
+
+  An unsubscribed user or group loses all Amazon Q Business feature access at the
+  start of next month.
+  """
+  @spec cancel_subscription(map(), String.t(), String.t(), cancel_subscription_request(), list()) ::
+          {:ok, cancel_subscription_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, cancel_subscription_errors()}
+  def cancel_subscription(
+        %Client{} = client,
+        application_id,
+        subscription_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/applications/#{AWS.Util.encode_uri(application_id)}/subscriptions/#{AWS.Util.encode_uri(subscription_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -4117,18 +4311,18 @@ defmodule AWS.QBusiness do
   end
 
   @doc """
-  Creates a new data accessor for an ISV to access data from a Q Business
+  Creates a new data accessor for an ISV to access data from a Amazon Q Business
   application.
 
-  The data accessor is an entity that represents the ISV's access to the Q
+  The data accessor is an entity that represents the ISV's access to the Amazon Q
   Business application's data.
   It includes the IAM role ARN for the ISV, a friendly name, and a set of action
   configurations that define the
   specific actions the ISV is allowed to perform and any associated data filters.
   When the data accessor is created,
-  an AWS IAM Identity Center application is also created to manage the ISV's
-  identity and authentication for
-  accessing the Q Business application.
+  an IAM Identity Center application is also created to manage the ISV's identity
+  and authentication for
+  accessing the Amazon Q Business application.
   """
   @spec create_data_accessor(map(), String.t(), create_data_accessor_request(), list()) ::
           {:ok, create_data_accessor_response(), any()}
@@ -4265,6 +4459,39 @@ defmodule AWS.QBusiness do
           | {:error, create_retriever_errors()}
   def create_retriever(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/retrievers"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Subscribes an IAM Identity Center user or a group to a pricing tier for an
+  Amazon Q Business application.
+
+  Amazon Q Business offers two subscription tiers: `Q_LITE` and
+  `Q_BUSINESS`. Subscription tier determines feature access for the user.
+  For more information on subscriptions and pricing tiers, see [Amazon Q Business pricing](https://aws.amazon.com/q/business/pricing/).
+  """
+  @spec create_subscription(map(), String.t(), create_subscription_request(), list()) ::
+          {:ok, create_subscription_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_subscription_errors()}
+  def create_subscription(%Client{} = client, application_id, input, options \\ []) do
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/subscriptions"
     headers = []
     custom_headers = []
     query_params = []
@@ -4448,8 +4675,8 @@ defmodule AWS.QBusiness do
   Deletes a specified data accessor.
 
   This operation permanently removes the data accessor
-  and its associated AWS IAM Identity Center application. Any access granted to
-  the ISV through this data accessor will be revoked
+  and its associated IAM Identity Center application. Any access granted to the
+  ISV through this data accessor will be revoked.
   """
   @spec delete_data_accessor(
           map(),
@@ -4751,7 +4978,7 @@ defmodule AWS.QBusiness do
   end
 
   @doc """
-  Removes a permission policy from a Q Business application, revoking the
+  Removes a permission policy from a Amazon Q Business application, revoking the
   cross-account access that was
   previously granted to an ISV.
 
@@ -4865,8 +5092,8 @@ defmodule AWS.QBusiness do
   This operation returns details about the
   data accessor, including its display name, unique identifier, Amazon Resource
   Name (ARN), the associated
-  Q Business application and AWS IAM Identity Center application, the IAM role for
-  the ISV, the
+  Amazon Q Business application and IAM Identity Center application, the IAM role
+  for the ISV, the
   action configurations, and the timestamps for when the data accessor was created
   and last updated.
   """
@@ -5011,7 +5238,7 @@ defmodule AWS.QBusiness do
   end
 
   @doc """
-  Retrieves the current permission policy for a Q Business application.
+  Retrieves the current permission policy for a Amazon Q Business application.
 
   The policy is
   returned as a JSON-formatted string and defines the IAM actions that are allowed
@@ -5243,7 +5470,7 @@ defmodule AWS.QBusiness do
   end
 
   @doc """
-  Lists the data accessors for a Q Business application.
+  Lists the data accessors for a Amazon Q Business application.
 
   This operation returns a paginated
   list of data accessor summaries, including the friendly name, unique identifier,
@@ -5819,6 +6046,43 @@ defmodule AWS.QBusiness do
   end
 
   @doc """
+  Lists all subscriptions created in an Amazon Q Business application.
+  """
+  @spec list_subscriptions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_subscriptions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_subscriptions_errors()}
+  def list_subscriptions(
+        %Client{} = client,
+        application_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/subscriptions"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets a list of tags associated with a specified resource.
 
   Amazon Q Business applications
@@ -5932,6 +6196,14 @@ defmodule AWS.QBusiness do
   in research and engineering, and therefore belong in the intellectual property
   group,
   can see top-secret company documents in their Amazon Q Business chat results.
+
+  There are two options for creating groups, either passing group members inline
+  or using an S3 file via the
+  S3PathForGroupMembers field. For inline groups, there is a limit of 1000 members
+  per group and for provided S3 files
+  there is a limit of 100 thousand members. When creating a group using an S3
+  file, you provide both
+  an S3 file and a `RoleArn` for Amazon Q Buisness to access the file.
   """
   @spec put_group(map(), String.t(), String.t(), put_group_request(), list()) ::
           {:ok, put_group_response(), any()}
@@ -5961,10 +6233,12 @@ defmodule AWS.QBusiness do
   end
 
   @doc """
-  Searches for relevant content in a Q Business application based on a query.
+  Searches for relevant content in a Amazon Q Business application based on a
+  query.
 
   This operation takes a
-  search query text, the Q Business application identifier, and optional filters
+  search query text, the Amazon Q Business application identifier, and optional
+  filters
   (such as content source and maximum results) as input. It returns a list of
   relevant content items, where each item includes the content text, the unique
   document identifier,
@@ -6389,6 +6663,48 @@ defmodule AWS.QBusiness do
   def update_retriever(%Client{} = client, application_id, retriever_id, input, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/retrievers/#{AWS.Util.encode_uri(retriever_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the pricing tier for an Amazon Q Business subscription.
+
+  Upgrades are instant.
+  Downgrades apply at the start of the next month. Subscription tier determines
+  feature
+  access for the user. For more information on subscriptions and pricing tiers,
+  see [Amazon Q Business pricing](https://aws.amazon.com/q/business/pricing/).
+  """
+  @spec update_subscription(map(), String.t(), String.t(), update_subscription_request(), list()) ::
+          {:ok, update_subscription_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_subscription_errors()}
+  def update_subscription(
+        %Client{} = client,
+        application_id,
+        subscription_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/applications/#{AWS.Util.encode_uri(application_id)}/subscriptions/#{AWS.Util.encode_uri(subscription_id)}"
 
     headers = []
     custom_headers = []

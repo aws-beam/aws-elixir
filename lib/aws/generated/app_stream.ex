@@ -1449,6 +1449,7 @@ defmodule AWS.AppStream do
       storage_connector() :: %{
         "ConnectorType" => list(any()),
         "Domains" => list(String.t()()),
+        "DomainsRequireAdminConsent" => list(String.t()()),
         "ResourceIdentifier" => String.t()
       }
       

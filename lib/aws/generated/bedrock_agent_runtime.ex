@@ -1509,7 +1509,8 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => String.t()
+        "message" => String.t(),
+        "reason" => [String.t()]
       }
 
   """
@@ -3050,6 +3051,9 @@ defmodule AWS.BedrockAgentRuntime do
 
   The CLI doesn't support streaming operations in Amazon Bedrock, including
   `InvokeModelWithResponseStream`.
+
+  This operation requires permission for the ` bedrock:RetrieveAndGenerate`
+  action.
   """
   @spec retrieve_and_generate_stream(map(), retrieve_and_generate_stream_request(), list()) ::
           {:ok, retrieve_and_generate_stream_response(), any()}

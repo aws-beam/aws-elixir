@@ -211,6 +211,7 @@ defmodule AWS.S3Tables do
   ## Example:
 
       create_table_request() :: %{
+        optional("metadata") => list(),
         required("format") => list(any()),
         required("name") => String.t()
       }
@@ -319,6 +320,17 @@ defmodule AWS.S3Tables do
 
   """
   @type create_namespace_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      iceberg_metadata() :: %{
+        "schema" => iceberg_schema()
+      }
+
+  """
+  @type iceberg_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -507,6 +519,19 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      schema_field() :: %{
+        "name" => [String.t()],
+        "required" => [boolean()],
+        "type" => [String.t()]
+      }
+
+  """
+  @type schema_field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_namespace_response() :: %{
         "namespace" => list(String.t()()),
         "tableBucketARN" => String.t()
@@ -595,6 +620,17 @@ defmodule AWS.S3Tables do
 
   """
   @type get_table_metadata_location_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      iceberg_schema() :: %{
+        "fields" => list(schema_field()())
+      }
+
+  """
+  @type iceberg_schema() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -923,7 +959,14 @@ defmodule AWS.S3Tables do
   Creates a namespace.
 
   A namespace is a logical grouping of tables within your table bucket, which you
-  can use to organize tables. For more information, see [Table namespaces](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-namespace.html).
+  can use to organize tables. For more information, see [Create a namespace](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-namespace-create.html)
+  in the *Amazon Simple Storage Service User Guide*.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:CreateNamespace` permission to use this operation.
   """
   @spec create_namespace(map(), String.t(), create_namespace_request(), list()) ::
           {:ok, create_namespace_response(), any()}
@@ -952,6 +995,18 @@ defmodule AWS.S3Tables do
 
   @doc """
   Creates a new table associated with the given namespace in a table bucket.
+
+  For more information, see [Creating an Amazon S3 table](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-create.html)
+  in the *Amazon Simple Storage Service User Guide*.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:CreateTable` permission to use this operation.
+
+  Additionally, you must have the `s3tables:PutTableData` permission to use this
+  operation with the optional `metadata` request parameter.
   """
   @spec create_table(map(), String.t(), String.t(), create_table_request(), list()) ::
           {:ok, create_table_response(), any()}
@@ -982,6 +1037,15 @@ defmodule AWS.S3Tables do
 
   @doc """
   Creates a table bucket.
+
+  For more information, see [Creating a table bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-create.html)
+  in the *Amazon Simple Storage Service User Guide*.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:CreateTableBucket` permission to use this operation.
   """
   @spec create_table_bucket(map(), create_table_bucket_request(), list()) ::
           {:ok, create_table_bucket_response(), any()}
@@ -1010,6 +1074,15 @@ defmodule AWS.S3Tables do
 
   @doc """
   Deletes a namespace.
+
+  For more information, see [Delete a namespace](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-namespace-delete.html)
+  in the *Amazon Simple Storage Service User Guide*.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:DeleteNamespace` permission to use this operation.
   """
   @spec delete_namespace(map(), String.t(), String.t(), delete_namespace_request(), list()) ::
           {:ok, nil, any()}
@@ -1040,6 +1113,15 @@ defmodule AWS.S3Tables do
 
   @doc """
   Deletes a table.
+
+  For more information, see [Deleting an Amazon S3 table](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-delete.html)
+  in the *Amazon Simple Storage Service User Guide*.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:DeleteTable` permission to use this operation.
   """
   @spec delete_table(map(), String.t(), String.t(), String.t(), delete_table_request(), list()) ::
           {:ok, nil, any()}
@@ -1075,6 +1157,15 @@ defmodule AWS.S3Tables do
 
   @doc """
   Deletes a table bucket.
+
+  For more information, see [Deleting a table bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-delete.html)
+  in the *Amazon Simple Storage Service User Guide*.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:DeleteTableBucket` permission to use this operation.
   """
   @spec delete_table_bucket(map(), String.t(), delete_table_bucket_request(), list()) ::
           {:ok, nil, any()}
@@ -1103,6 +1194,16 @@ defmodule AWS.S3Tables do
 
   @doc """
   Deletes a table bucket policy.
+
+  For more information, see [Deleting a table bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-bucket-policy.html#table-bucket-policy-delete)
+  in the *Amazon Simple Storage Service User Guide*.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:DeleteTableBucketPolicy` permission to use this
+  operation.
   """
   @spec delete_table_bucket_policy(
           map(),
@@ -1136,6 +1237,15 @@ defmodule AWS.S3Tables do
 
   @doc """
   Deletes a table policy.
+
+  For more information, see [Deleting a table policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-table-policy.html#table-policy-delete)
+  in the *Amazon Simple Storage Service User Guide*.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:DeleteTablePolicy` permission to use this operation.
   """
   @spec delete_table_policy(
           map(),
@@ -1180,6 +1290,15 @@ defmodule AWS.S3Tables do
 
   @doc """
   Gets details about a namespace.
+
+  For more information, see [Table namespaces](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-namespace.html)
+  in the *Amazon Simple Storage Service User Guide*.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:GetNamespace` permission to use this operation.
   """
   @spec get_namespace(map(), String.t(), String.t(), list()) ::
           {:ok, get_namespace_response(), any()}
@@ -1199,6 +1318,15 @@ defmodule AWS.S3Tables do
 
   @doc """
   Gets details about a table.
+
+  For more information, see [S3 Tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-tables.html)
+  in the *Amazon Simple Storage Service User Guide*.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:GetTable` permission to use this operation.
   """
   @spec get_table(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_table_response(), any()}
@@ -1218,6 +1346,15 @@ defmodule AWS.S3Tables do
 
   @doc """
   Gets details on a table bucket.
+
+  For more information, see [Viewing details about an Amazon S3 table bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-details.html)
+  in the *Amazon Simple Storage Service User Guide*.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:GetTableBucket` permission to use this operation.
   """
   @spec get_table_bucket(map(), String.t(), list()) ::
           {:ok, get_table_bucket_response(), any()}
@@ -1235,6 +1372,16 @@ defmodule AWS.S3Tables do
 
   @doc """
   Gets details about a maintenance configuration for a given table bucket.
+
+  For more information, see [Amazon S3 table bucket maintenance](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html)
+  in the *Amazon Simple Storage Service User Guide*.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:GetTableBucketMaintenanceConfiguration` permission
+  to use this operation.
   """
   @spec get_table_bucket_maintenance_configuration(map(), String.t(), list()) ::
           {:ok, get_table_bucket_maintenance_configuration_response(), any()}
@@ -1256,6 +1403,16 @@ defmodule AWS.S3Tables do
 
   @doc """
   Gets details about a table bucket policy.
+
+  For more information, see [Viewing a table bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-bucket-policy.html#table-bucket-policy-get)
+  in the *Amazon Simple Storage Service User Guide*.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:GetTableBucketPolicy` permission to use this
+  operation.
   """
   @spec get_table_bucket_policy(map(), String.t(), list()) ::
           {:ok, get_table_bucket_policy_response(), any()}
@@ -1273,6 +1430,16 @@ defmodule AWS.S3Tables do
 
   @doc """
   Gets details about the maintenance configuration of a table.
+
+  For more information, see [S3 Tables maintenance](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-maintenance.html)
+  in the *Amazon Simple Storage Service User Guide*.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:GetTableMaintenanceConfiguration` permission to use
+  this operation.
   """
   @spec get_table_maintenance_configuration(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_table_maintenance_configuration_response(), any()}
@@ -1298,6 +1465,16 @@ defmodule AWS.S3Tables do
 
   @doc """
   Gets the status of a maintenance job for a table.
+
+  For more information, see [S3 Tables maintenance](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-maintenance.html)
+  in the *Amazon Simple Storage Service User Guide*.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:GetTableMaintenanceJobStatus` permission to use this
+  operation.
   """
   @spec get_table_maintenance_job_status(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_table_maintenance_job_status_response(), any()}
@@ -1323,6 +1500,13 @@ defmodule AWS.S3Tables do
 
   @doc """
   Gets the location of the table metadata.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:GetTableMetadataLocation` permission to use this
+  operation.
   """
   @spec get_table_metadata_location(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_table_metadata_location_response(), any()}
@@ -1348,6 +1532,15 @@ defmodule AWS.S3Tables do
 
   @doc """
   Gets details about a table policy.
+
+  For more information, see [Viewing a table policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-table-policy.html#table-policy-get)
+  in the *Amazon Simple Storage Service User Guide*.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:GetTablePolicy` permission to use this operation.
   """
   @spec get_table_policy(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_table_policy_response(), any()}
@@ -1367,6 +1560,15 @@ defmodule AWS.S3Tables do
 
   @doc """
   Lists the namespaces within a table bucket.
+
+  For more information, see [Table namespaces](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-namespace.html)
+  in the *Amazon Simple Storage Service User Guide*.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:ListNamespaces` permission to use this operation.
   """
   @spec list_namespaces(
           map(),
@@ -1419,6 +1621,15 @@ defmodule AWS.S3Tables do
 
   @doc """
   Lists table buckets for your account.
+
+  For more information, see [S3 Table buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets.html)
+  in the *Amazon Simple Storage Service User Guide*.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:ListTableBuckets` permission to use this operation.
   """
   @spec list_table_buckets(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_table_buckets_response(), any()}
@@ -1463,6 +1674,15 @@ defmodule AWS.S3Tables do
 
   @doc """
   List tables in the given table bucket.
+
+  For more information, see [S3 Tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-tables.html)
+  in the *Amazon Simple Storage Service User Guide*.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:ListTables` permission to use this operation.
   """
   @spec list_tables(
           map(),
@@ -1526,6 +1746,16 @@ defmodule AWS.S3Tables do
   Creates a new maintenance configuration or replaces an existing maintenance
   configuration
   for a table bucket.
+
+  For more information, see [Amazon S3 table bucket maintenance](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html)
+  in the *Amazon Simple Storage Service User Guide*.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:PutTableBucketMaintenanceConfiguration` permission
+  to use this operation.
   """
   @spec put_table_bucket_maintenance_configuration(
           map(),
@@ -1570,6 +1800,16 @@ defmodule AWS.S3Tables do
   Creates a new maintenance configuration or replaces an existing table bucket
   policy for a
   table bucket.
+
+  For more information, see [Adding a table bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-bucket-policy.html#table-bucket-policy-add)
+  in the *Amazon Simple Storage Service User Guide*.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:PutTableBucketPolicy` permission to use this
+  operation.
   """
   @spec put_table_bucket_policy(map(), String.t(), put_table_bucket_policy_request(), list()) ::
           {:ok, nil, any()}
@@ -1600,6 +1840,16 @@ defmodule AWS.S3Tables do
   Creates a new maintenance configuration or replaces an existing maintenance
   configuration
   for a table.
+
+  For more information, see [S3 Tables maintenance](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-maintenance.html)
+  in the *Amazon Simple Storage Service User Guide*.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:PutTableMaintenanceConfiguration` permission to use
+  this operation.
   """
   @spec put_table_maintenance_configuration(
           map(),
@@ -1647,6 +1897,15 @@ defmodule AWS.S3Tables do
   @doc """
   Creates a new maintenance configuration or replaces an existing table policy for
   a table.
+
+  For more information, see [Adding a table policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-table-policy.html#table-policy-add)
+  in the *Amazon Simple Storage Service User Guide*.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:PutTablePolicy` permission to use this operation.
   """
   @spec put_table_policy(
           map(),
@@ -1691,6 +1950,15 @@ defmodule AWS.S3Tables do
 
   @doc """
   Renames a table or a namespace.
+
+  For more information, see [S3 Tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-tables.html)
+  in the *Amazon Simple Storage Service User Guide*.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:RenameTable` permission to use this operation.
   """
   @spec rename_table(map(), String.t(), String.t(), String.t(), rename_table_request(), list()) ::
           {:ok, nil, any()}
@@ -1721,6 +1989,18 @@ defmodule AWS.S3Tables do
 
   @doc """
   Updates the metadata location for a table.
+
+  The metadata location of a table must be an S3 URI that begins with the table's
+  warehouse location. The metadata location for an Apache Iceberg table must end
+  with `.metadata.json`, or if the metadata file is Gzip-compressed,
+  `.metadata.json.gz`.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:UpdateTableMetadataLocation` permission to use this
+  operation.
   """
   @spec update_table_metadata_location(
           map(),

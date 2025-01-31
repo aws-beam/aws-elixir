@@ -245,6 +245,7 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       playback_configuration() :: %{
+        "AdConditioningConfiguration" => ad_conditioning_configuration(),
         "AdDecisionServerUrl" => String.t(),
         "AvailSuppression" => avail_suppression(),
         "Bumper" => bumper(),
@@ -330,6 +331,17 @@ defmodule AWS.MediaTailor do
 
   """
   @type delete_channel_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      ad_conditioning_configuration() :: %{
+        "StreamingMediaFileConditioning" => list(any())
+      }
+
+  """
+  @type ad_conditioning_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1162,6 +1174,7 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       get_playback_configuration_response() :: %{
+        optional("AdConditioningConfiguration") => ad_conditioning_configuration(),
         optional("AdDecisionServerUrl") => String.t(),
         optional("AvailSuppression") => avail_suppression(),
         optional("Bumper") => bumper(),
@@ -1397,6 +1410,7 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       put_playback_configuration_request() :: %{
+        optional("AdConditioningConfiguration") => ad_conditioning_configuration(),
         optional("AdDecisionServerUrl") => String.t(),
         optional("AvailSuppression") => avail_suppression(),
         optional("Bumper") => bumper(),
@@ -1568,6 +1582,7 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       put_playback_configuration_response() :: %{
+        optional("AdConditioningConfiguration") => ad_conditioning_configuration(),
         optional("AdDecisionServerUrl") => String.t(),
         optional("AvailSuppression") => avail_suppression(),
         optional("Bumper") => bumper(),
@@ -1872,7 +1887,8 @@ defmodule AWS.MediaTailor do
   end
 
   @doc """
-  Amazon CloudWatch log settings for a playback configuration.
+  Defines where AWS Elemental MediaTailor sends logs for the playback
+  configuration.
   """
   @spec configure_logs_for_playback_configuration(
           map(),

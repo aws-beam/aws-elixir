@@ -67,6 +67,7 @@ defmodule AWS.Amp do
         optional("alias") => String.t(),
         optional("clientToken") => String.t(),
         optional("destination") => list(),
+        optional("roleConfiguration") => role_configuration(),
         optional("scrapeConfiguration") => list()
       }
 
@@ -627,6 +628,7 @@ defmodule AWS.Amp do
         "destination" => list(),
         "lastModifiedAt" => [non_neg_integer()],
         "roleArn" => String.t(),
+        "roleConfiguration" => role_configuration(),
         "scrapeConfiguration" => list(),
         "scraperId" => String.t(),
         "source" => list(),
@@ -657,6 +659,18 @@ defmodule AWS.Amp do
 
   """
   @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      role_configuration() :: %{
+        "sourceRoleArn" => String.t(),
+        "targetRoleArn" => String.t()
+      }
+
+  """
+  @type role_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -773,6 +787,7 @@ defmodule AWS.Amp do
       create_scraper_request() :: %{
         optional("alias") => String.t(),
         optional("clientToken") => String.t(),
+        optional("roleConfiguration") => role_configuration(),
         optional("tags") => map(),
         required("destination") => list(),
         required("scrapeConfiguration") => list(),
@@ -918,6 +933,7 @@ defmodule AWS.Amp do
         "destination" => list(),
         "lastModifiedAt" => [non_neg_integer()],
         "roleArn" => String.t(),
+        "roleConfiguration" => role_configuration(),
         "scraperId" => String.t(),
         "source" => list(),
         "status" => scraper_status(),

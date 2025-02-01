@@ -3,12 +3,13 @@
 
 defmodule AWS.GeoRoutes do
   @moduledoc """
-  With the Amazon Location Routes API you can calculate
-  routes and estimate travel time based on up-to-date road network and live
-  traffic information.
+  With the Amazon Location Routes API you can calculate routes and estimate travel
+  time
+  based on up-to-date road network and live traffic information.
 
   Calculate optimal travel routes and estimate travel times using up-to-date road
-  network and traffic data. Key features include:
+  network
+  and traffic data. Key features include:
 
     *
   Point-to-point routing with estimated travel time, distance, and turn-by-turn
@@ -445,6 +446,18 @@ defmodule AWS.GeoRoutes do
 
   ## Example:
 
+      waypoint_optimization_clustering_options() :: %{
+        "Algorithm" => String.t(),
+        "DrivingDistanceOptions" => waypoint_optimization_driving_distance_options()
+      }
+
+  """
+  @type waypoint_optimization_clustering_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       route_roundabout_exit_step_details() :: %{
         "Intersection" => list(localized_string()()),
         "RelativeExit" => [integer()],
@@ -687,6 +700,7 @@ defmodule AWS.GeoRoutes do
 
       optimize_waypoints_request() :: %{
         optional("Avoid") => waypoint_optimization_avoidance_options(),
+        optional("Clustering") => waypoint_optimization_clustering_options(),
         optional("DepartureTime") => String.t(),
         optional("Destination") => list([float()]()),
         optional("DestinationOptions") => waypoint_optimization_destination_options(),
@@ -2014,6 +2028,7 @@ defmodule AWS.GeoRoutes do
 
       waypoint_optimization_optimized_waypoint() :: %{
         "ArrivalTime" => String.t(),
+        "ClusterIndex" => integer(),
         "DepartureTime" => String.t(),
         "Id" => String.t(),
         "Position" => list([float()]())
@@ -2622,6 +2637,17 @@ defmodule AWS.GeoRoutes do
 
   ## Example:
 
+      waypoint_optimization_driving_distance_options() :: %{
+        "DrivingDistance" => float()
+      }
+
+  """
+  @type waypoint_optimization_driving_distance_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       isoline_truck_options() :: %{
         "AxleCount" => [integer()],
         "EngineType" => String.t(),
@@ -2846,12 +2872,12 @@ defmodule AWS.GeoRoutes do
   end
 
   @doc """
-  Calculates route matrix containing the results for all pairs of
-  Origins to Destinations.
+  Use `CalculateRouteMatrix` to compute results for all pairs of Origins to
+  Destinations.
 
-  Each row corresponds to one entry in Origins.
-  Each entry in the row corresponds to the route from that entry in Origins to an
-  entry in Destinations positions.
+  Each row corresponds to one entry in Origins. Each entry in the row
+  corresponds to the route from that entry in Origins to an entry in Destinations
+  positions.
   """
   @spec calculate_route_matrix(map(), calculate_route_matrix_request(), list()) ::
           {:ok, calculate_route_matrix_response(), any()}
@@ -2891,7 +2917,8 @@ defmodule AWS.GeoRoutes do
   end
 
   @doc """
-  Calculates a route given the following required parameters:
+
+  `CalculateRoutes` computes routes given the following required parameters:
   `Origin` and `Destination`.
   """
   @spec calculate_routes(map(), calculate_routes_request(), list()) ::
@@ -2932,10 +2959,11 @@ defmodule AWS.GeoRoutes do
   end
 
   @doc """
-  Calculates the optimal order to travel between a set of waypoints to minimize
-  either the
-  travel time or the distance travelled during the journey, based on road network
-  restrictions and the traffic pattern data.
+
+  `OptimizeWaypoints` calculates the optimal order to travel between a set of
+  waypoints to minimize either the travel time or the distance travelled during
+  the journey,
+  based on road network restrictions and the traffic pattern data.
   """
   @spec optimize_waypoints(map(), optimize_waypoints_request(), list()) ::
           {:ok, optimize_waypoints_response(), any()}
@@ -2975,7 +3003,8 @@ defmodule AWS.GeoRoutes do
   end
 
   @doc """
-  The SnapToRoads action matches GPS trace to roads most likely traveled on.
+
+  `SnapToRoads` matches GPS trace to roads most likely traveled on.
   """
   @spec snap_to_roads(map(), snap_to_roads_request(), list()) ::
           {:ok, snap_to_roads_response(), any()}

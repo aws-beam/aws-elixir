@@ -12696,13 +12696,14 @@ defmodule AWS.RDS do
   end
 
   @doc """
-  Stops an Amazon RDS DB instance.
+  Stops an Amazon RDS DB instance temporarily.
 
   When you stop a DB instance, Amazon RDS retains the DB instance's metadata,
-  including its endpoint,
-  DB parameter group, and option group membership. Amazon RDS also retains the
-  transaction logs so you can do a point-in-time restore if
-  necessary.
+  including its endpoint, DB parameter group, and option group membership. Amazon
+  RDS also retains
+  the transaction logs so you can do a point-in-time restore if necessary. The
+  instance restarts automatically
+  after 7 days.
 
   For more information, see
   [

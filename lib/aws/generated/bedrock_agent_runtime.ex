@@ -1910,7 +1910,9 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       citation_event() :: %{
-        "citation" => citation()
+        "citation" => citation(),
+        "generatedResponsePart" => generated_response_part(),
+        "retrievedReferences" => list(retrieved_reference()())
       }
 
   """

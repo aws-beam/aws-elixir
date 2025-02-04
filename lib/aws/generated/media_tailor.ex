@@ -128,6 +128,7 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       configure_logs_for_playback_configuration_response() :: %{
+        optional("EnabledLoggingStrategies") => list(list(any())()),
         optional("PlaybackConfigurationName") => String.t(),
         required("PercentEnabled") => integer()
       }
@@ -360,6 +361,7 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       configure_logs_for_playback_configuration_request() :: %{
+        "EnabledLoggingStrategies" => list(list(any())()),
         "PercentEnabled" => integer(),
         "PlaybackConfigurationName" => String.t()
       }
@@ -1678,6 +1680,7 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       log_configuration() :: %{
+        "EnabledLoggingStrategies" => list(list(any())()),
         "PercentEnabled" => integer()
       }
 

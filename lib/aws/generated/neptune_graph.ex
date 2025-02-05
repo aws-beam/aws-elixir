@@ -712,6 +712,7 @@ defmodule AWS.NeptuneGraph do
   ## Example:
 
       list_export_tasks_input() :: %{
+        optional("graphIdentifier") => String.t(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -2012,11 +2013,17 @@ defmodule AWS.NeptuneGraph do
   @doc """
   Retrieves a list of export tasks.
   """
-  @spec list_export_tasks(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_export_tasks(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_export_tasks_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_export_tasks_errors()}
-  def list_export_tasks(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+  def list_export_tasks(
+        %Client{} = client,
+        graph_identifier \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
     url_path = "/exporttasks"
     headers = []
     query_params = []
@@ -2031,6 +2038,13 @@ defmodule AWS.NeptuneGraph do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(graph_identifier) do
+        [{"graphIdentifier", graph_identifier} | query_params]
       else
         query_params
       end

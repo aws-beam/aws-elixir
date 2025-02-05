@@ -1577,6 +1577,7 @@ defmodule AWS.DatabaseMigration do
         optional("SelectionRules") => String.t(),
         optional("ServiceAccessRoleArn") => String.t(),
         optional("SourceDataSettings") => list(source_data_setting()()),
+        optional("TargetDataSettings") => list(target_data_setting()()),
         required("DataMigrationIdentifier") => String.t()
       }
       
@@ -2371,6 +2372,17 @@ defmodule AWS.DatabaseMigration do
 
   ## Example:
       
+      target_data_setting() :: %{
+        "TablePreparationMode" => list(any())
+      }
+      
+  """
+  @type target_data_setting() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       recommendation() :: %{
         "CreatedDate" => String.t(),
         "Data" => recommendation_data(),
@@ -2982,7 +2994,8 @@ defmodule AWS.DatabaseMigration do
         "PublicIpAddresses" => list(String.t()()),
         "ServiceAccessRoleArn" => String.t(),
         "SourceDataSettings" => list(source_data_setting()()),
-        "StopReason" => String.t()
+        "StopReason" => String.t(),
+        "TargetDataSettings" => list(target_data_setting()())
       }
       
   """
@@ -3871,6 +3884,7 @@ defmodule AWS.DatabaseMigration do
         optional("SelectionRules") => String.t(),
         optional("SourceDataSettings") => list(source_data_setting()()),
         optional("Tags") => list(tag()()),
+        optional("TargetDataSettings") => list(target_data_setting()()),
         required("DataMigrationType") => list(any()),
         required("MigrationProjectIdentifier") => String.t(),
         required("ServiceAccessRoleArn") => String.t()

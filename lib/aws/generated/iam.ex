@@ -134,6 +134,8 @@ defmodule AWS.IAM do
   ## Example:
       
       create_saml_provider_request() :: %{
+        optional("AddPrivateKey") => String.t(),
+        optional("AssertionEncryptionMode") => list(any()),
         optional("Tags") => list(tag()()),
         required("Name") => String.t(),
         required("SAMLMetadataDocument") => String.t()
@@ -960,8 +962,11 @@ defmodule AWS.IAM do
   ## Example:
       
       get_saml_provider_response() :: %{
+        "AssertionEncryptionMode" => list(any()),
         "CreateDate" => non_neg_integer(),
+        "PrivateKeyList" => list(saml_private_key()()),
         "SAMLMetadataDocument" => String.t(),
+        "SAMLProviderUUID" => String.t(),
         "Tags" => list(tag()()),
         "ValidUntil" => non_neg_integer()
       }
@@ -2821,7 +2826,10 @@ defmodule AWS.IAM do
   ## Example:
       
       update_saml_provider_request() :: %{
-        required("SAMLMetadataDocument") => String.t(),
+        optional("AddPrivateKey") => String.t(),
+        optional("AssertionEncryptionMode") => list(any()),
+        optional("RemovePrivateKey") => String.t(),
+        optional("SAMLMetadataDocument") => String.t(),
         required("SAMLProviderArn") => String.t()
       }
       
@@ -3094,6 +3102,18 @@ defmodule AWS.IAM do
       
   """
   @type list_attached_group_policies_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      saml_private_key() :: %{
+        "KeyId" => String.t(),
+        "Timestamp" => non_neg_integer()
+      }
+      
+  """
+  @type saml_private_key() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4998,6 +5018,16 @@ defmodule AWS.IAM do
   The caller of this operation must be granted the `PassRole` permission
   on the IAM role by a permissions policy.
 
+  When using the
+  [iam:AssociatedResourceArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#available-keys-for-iam) condition in a policy to restrict the
+  [PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)
+  IAM action, special considerations apply if the policy is
+  intended to define access for the `AddRoleToInstanceProfile` action. In
+  this case, you cannot specify a Region or instance ID in the EC2 instance ARN.
+  The
+  ARN value must be `arn:aws:ec2:*:CallerAccountId:instance/*`. Using any
+  other ARN value may lead to unexpected evaluation results.
+
   For more information about roles, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the
   *IAM User Guide*. For more information about instance profiles,
   see [Using instance
@@ -6219,7 +6249,7 @@ defmodule AWS.IAM do
   your organization.
 
   When you disable this feature, the management account and the
-  delegated admininstrator for IAM can no longer manage root user credentials for
+  delegated administrator for IAM can no longer manage root user credentials for
   member
   accounts in your organization.
   """
@@ -6248,7 +6278,7 @@ defmodule AWS.IAM do
   organization.
 
   When you disable this feature, the management account and the delegated
-  admininstrator for IAM can no longer perform privileged tasks on member accounts
+  administrator for IAM can no longer perform privileged tasks on member accounts
   in
   your organization.
   """
@@ -6290,7 +6320,7 @@ defmodule AWS.IAM do
 
   When you enable root credentials management for [centralized root access](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user-access-management),
   the management account and the delegated
-  admininstrator for IAM can manage root user credentials for member accounts in
+  administrator for IAM can manage root user credentials for member accounts in
   your
   organization.
 
@@ -6306,7 +6336,7 @@ defmodule AWS.IAM do
   Enable trusted access for Identity and Access Management in Organizations. For
   details, see
   [IAM and
-  Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-ra.html)
+  Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-iam.html)
   in the *Organizations User
   Guide*.
   """
@@ -7466,9 +7496,9 @@ defmodule AWS.IAM do
   one).
 
   For information about using an Amazon Web Services account alias, see [Creating, deleting, and listing an Amazon Web Services account
-  alias](https://docs.aws.amazon.com/signin/latest/userguide/CreateAccountAlias.html)
-  in the *Amazon Web Services Sign-In
-  User Guide*.
+  alias](https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html#CreateAccountAlias)
+  in the
+  *IAM User Guide*.
   """
   @spec list_account_aliases(map(), list_account_aliases_request(), list()) ::
           {:ok, list_account_aliases_response(), any()}
@@ -9593,9 +9623,11 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Updates the metadata document for an existing SAML provider resource object.
+  Updates the metadata document, SAML encryption settings, and private keys for an
+  existing SAML provider.
 
-  This operation requires [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
+  To rotate private keys, add your new private key and then remove
+  the old key in a separate request.
   """
   @spec update_saml_provider(map(), update_saml_provider_request(), list()) ::
           {:ok, update_saml_provider_response(), any()}

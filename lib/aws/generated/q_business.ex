@@ -252,6 +252,17 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      applied_orchestration_configuration() :: %{
+        "control" => list(any())
+      }
+
+  """
+  @type applied_orchestration_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       index_capacity_configuration() :: %{
         "units" => integer()
       }
@@ -2327,6 +2338,17 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      orchestration_configuration() :: %{
+        "control" => list(any())
+      }
+
+  """
+  @type orchestration_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_group_response() :: %{}
 
   """
@@ -2478,6 +2500,7 @@ defmodule AWS.QBusiness do
         optional("blockedPhrasesConfigurationUpdate") => blocked_phrases_configuration_update(),
         optional("clientToken") => String.t(),
         optional("creatorModeConfiguration") => creator_mode_configuration(),
+        optional("orchestrationConfiguration") => orchestration_configuration(),
         optional("responseScope") => list(any()),
         optional("topicConfigurationsToCreateOrUpdate") => list(topic_configuration()()),
         optional("topicConfigurationsToDelete") => list(topic_configuration()())
@@ -2874,6 +2897,7 @@ defmodule AWS.QBusiness do
         "blockedPhrases" => blocked_phrases_configuration(),
         "creatorModeConfiguration" => applied_creator_mode_configuration(),
         "nextToken" => String.t(),
+        "orchestrationConfiguration" => applied_orchestration_configuration(),
         "responseScope" => list(any()),
         "topicConfigurations" => list(topic_configuration()())
       }
@@ -5042,7 +5066,7 @@ defmodule AWS.QBusiness do
   end
 
   @doc """
-  Gets information about an chat controls configured for an existing Amazon Q
+  Gets information about chat controls configured for an existing Amazon Q
   Business
   application.
   """
@@ -6468,7 +6492,7 @@ defmodule AWS.QBusiness do
   end
 
   @doc """
-  Updates an set of chat controls configured for an existing Amazon Q Business
+  Updates a set of chat controls configured for an existing Amazon Q Business
   application.
   """
   @spec update_chat_controls_configuration(

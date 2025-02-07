@@ -3,6 +3,15 @@
 
 defmodule AWS.ConnectCases do
   @moduledoc """
+
+    *
+
+  [Cases actions](https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Cases.html)
+
+    *
+
+  [Cases data types](https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Cases.html)
+
   With Amazon Connect Cases, your agents can track and manage customer issues that
   require
   multiple interactions, follow-up tasks, and teams in your contact center.
@@ -42,10 +51,28 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
+      delete_case_rule_request() :: %{}
+
+  """
+  @type delete_case_rule_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_domain_response() :: %{}
 
   """
   @type delete_domain_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_case_rule_response() :: %{}
+
+  """
+  @type update_case_rule_response() :: %{}
 
   @typedoc """
 
@@ -69,6 +96,18 @@ defmodule AWS.ConnectCases do
 
   """
   @type update_layout_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      template_rule() :: %{
+        "caseRuleId" => String.t(),
+        "fieldId" => String.t()
+      }
+
+  """
+  @type template_rule() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -133,6 +172,18 @@ defmodule AWS.ConnectCases do
 
   """
   @type get_case_audit_events_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_case_rule_response() :: %{
+        "caseRuleArn" => String.t(),
+        "caseRuleId" => String.t()
+      }
+
+  """
+  @type create_case_rule_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -207,6 +258,7 @@ defmodule AWS.ConnectCases do
         optional("description") => String.t(),
         optional("layoutConfiguration") => layout_configuration(),
         optional("requiredFields") => list(required_field()()),
+        optional("rules") => list(template_rule()()),
         optional("status") => String.t(),
         required("name") => String.t()
       }
@@ -225,6 +277,7 @@ defmodule AWS.ConnectCases do
         optional("lastModifiedTime") => non_neg_integer(),
         optional("layoutConfiguration") => layout_configuration(),
         optional("requiredFields") => list(required_field()()),
+        optional("rules") => list(template_rule()()),
         optional("tags") => map(),
         required("name") => String.t(),
         required("status") => String.t(),
@@ -321,6 +374,7 @@ defmodule AWS.ConnectCases do
         optional("layoutConfiguration") => layout_configuration(),
         optional("name") => String.t(),
         optional("requiredFields") => list(required_field()()),
+        optional("rules") => list(template_rule()()),
         optional("status") => String.t()
       }
 
@@ -398,6 +452,25 @@ defmodule AWS.ConnectCases do
 
   """
   @type required_field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_case_rule_response() :: %{
+        "caseRuleArn" => String.t(),
+        "caseRuleId" => String.t(),
+        "createdTime" => non_neg_integer(),
+        "deleted" => boolean(),
+        "description" => String.t(),
+        "lastModifiedTime" => non_neg_integer(),
+        "name" => String.t(),
+        "rule" => list(),
+        "tags" => map()
+      }
+
+  """
+  @type get_case_rule_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -608,6 +681,18 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
+      list_case_rules_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_case_rules_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_field_response() :: %{}
 
   """
@@ -626,6 +711,19 @@ defmodule AWS.ConnectCases do
 
   """
   @type template_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_case_rule_request() :: %{
+        optional("description") => String.t(),
+        required("name") => String.t(),
+        required("rule") => list()
+      }
+
+  """
+  @type create_case_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -656,6 +754,27 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
+      list_case_rules_response() :: %{
+        "caseRules" => list(case_rule_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_case_rules_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_case_rule_response() :: %{}
+
+  """
+  @type delete_case_rule_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_tags_for_resource_response() :: %{
         optional("tags") => map()
       }
@@ -674,6 +793,15 @@ defmodule AWS.ConnectCases do
 
   """
   @type create_layout_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      empty_operand_value() :: %{}
+
+  """
+  @type empty_operand_value() :: %{}
 
   @typedoc """
 
@@ -880,10 +1008,38 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
+      update_case_rule_request() :: %{
+        optional("description") => String.t(),
+        optional("name") => String.t(),
+        optional("rule") => list()
+      }
+
+  """
+  @type update_case_rule_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_layout_request() :: %{}
 
   """
   @type get_layout_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      case_rule_summary() :: %{
+        "caseRuleArn" => String.t(),
+        "caseRuleId" => String.t(),
+        "description" => String.t(),
+        "name" => String.t(),
+        "ruleType" => String.t()
+      }
+
+  """
+  @type case_rule_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -895,6 +1051,18 @@ defmodule AWS.ConnectCases do
 
   """
   @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_case_rule_response() :: %{
+        "caseRules" => list(get_case_rule_response()()),
+        "errors" => list(case_rule_error()())
+      }
+
+  """
+  @type batch_get_case_rule_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1087,6 +1255,19 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
+      case_rule_error() :: %{
+        "errorCode" => [String.t()],
+        "id" => String.t(),
+        "message" => [String.t()]
+      }
+
+  """
+  @type case_rule_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_template_response() :: %{
         required("templateArn") => String.t(),
         required("templateId") => String.t()
@@ -1139,10 +1320,35 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
+      boolean_operands() :: %{
+        "operandOne" => list(),
+        "operandTwo" => list(),
+        "result" => [boolean()]
+      }
+
+  """
+  @type boolean_operands() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_layout_request() :: %{}
 
   """
   @type delete_layout_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      required_case_rule() :: %{
+        "conditions" => list(list()()),
+        "defaultValue" => [boolean()]
+      }
+
+  """
+  @type required_case_rule() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1155,6 +1361,17 @@ defmodule AWS.ConnectCases do
 
   """
   @type list_field_options_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      case_rule_identifier() :: %{
+        "id" => String.t()
+      }
+
+  """
+  @type case_rule_identifier() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1300,6 +1517,24 @@ defmodule AWS.ConnectCases do
   """
   @type audit_event_performed_by() :: %{String.t() => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      batch_get_case_rule_request() :: %{
+        required("caseRules") => list(case_rule_identifier()())
+      }
+
+  """
+  @type batch_get_case_rule_request() :: %{String.t() => any()}
+
+  @type batch_get_case_rule_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type batch_get_field_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1320,6 +1555,15 @@ defmodule AWS.ConnectCases do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_case_rule_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -1363,6 +1607,13 @@ defmodule AWS.ConnectCases do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type delete_case_rule_errors() ::
+          throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -1435,6 +1686,13 @@ defmodule AWS.ConnectCases do
           | resource_not_found_exception()
 
   @type get_template_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_case_rules_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -1531,6 +1789,14 @@ defmodule AWS.ConnectCases do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type update_case_rule_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type update_field_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1570,6 +1836,39 @@ defmodule AWS.ConnectCases do
       signing_name: "cases",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Gets a batch of case rules.
+
+  In the Amazon Connect admin website, case rules are known as *case field
+  conditions*. For more
+  information about case field conditions, see [Add case field conditions to a case
+  template](https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html).
+  """
+  @spec batch_get_case_rule(map(), String.t(), batch_get_case_rule_request(), list()) ::
+          {:ok, batch_get_case_rule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, batch_get_case_rule_errors()}
+  def batch_get_case_rule(%Client{} = client, domain_id, input, options \\ []) do
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/rules-batch"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1669,6 +1968,39 @@ defmodule AWS.ConnectCases do
           | {:error, create_case_errors()}
   def create_case(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/cases"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a new case rule.
+
+  In the Amazon Connect admin website, case rules are known as *case field
+  conditions*. For more
+  information about case field conditions, see [Add case field conditions to a case
+  template](https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html).
+  """
+  @spec create_case_rule(map(), String.t(), create_case_rule_request(), list()) ::
+          {:ok, create_case_rule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_case_rule_errors()}
+  def create_case_rule(%Client{} = client, domain_id, input, options \\ []) do
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/case-rules"
     headers = []
     custom_headers = []
     query_params = []
@@ -1816,6 +2148,9 @@ defmodule AWS.ConnectCases do
   If you provide a value for `performedBy.userArn` you must also have
   [DescribeUser](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html)
   permission on the ARN of the user that you provide.
+
+    
+  The `type` field is reserved for internal use only.
   """
   @spec create_related_item(map(), String.t(), String.t(), create_related_item_request(), list()) ::
           {:ok, create_related_item_response(), any()}
@@ -1857,6 +2192,24 @@ defmodule AWS.ConnectCases do
   template can be either Active or Inactive, as indicated by its status. Inactive
   templates
   cannot be used to create cases.
+
+  Other template APIs are:
+
+    *
+
+  [DeleteTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_DeleteTemplate.html) 
+
+    *
+
+  [GetTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_GetTemplate.html)
+
+    *
+
+  [ListTemplates](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_ListTemplates.html) 
+
+    *
+
+  [UpdateTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_UpdateTemplate.html)
   """
   @spec create_template(map(), String.t(), create_template_request(), list()) ::
           {:ok, create_template_response(), any()}
@@ -1874,6 +2227,41 @@ defmodule AWS.ConnectCases do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a case rule.
+
+  In the Amazon Connect admin website, case rules are known as *case field
+  conditions*. For more
+  information about case field conditions, see [Add case field conditions to a case
+  template](https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html).
+  """
+  @spec delete_case_rule(map(), String.t(), String.t(), delete_case_rule_request(), list()) ::
+          {:ok, delete_case_rule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_case_rule_errors()}
+  def delete_case_rule(%Client{} = client, case_rule_id, domain_id, input, options \\ []) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_id)}/case-rules/#{AWS.Util.encode_uri(case_rule_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -1935,23 +2323,19 @@ defmodule AWS.ConnectCases do
   Deleted fields are not included in the `ListFields` response.
 
     *
-  Calling `CreateCase` with a deleted field throws a `ValidationException`
-  denoting
-  which field IDs in the request have been deleted.
+  Calling `CreateCase` with a deleted field throws a
+  `ValidationException` denoting which field IDs in the request have been
+  deleted.
 
     *
-  Calling `GetCase` with a deleted field ID returns the deleted field's value if
-  one
-  exists.
+  Calling `GetCase` with a deleted field ID returns the deleted field's value
+  if one exists.
 
     *
-  Calling `UpdateCase` with a deleted field ID throws a `ValidationException` if
-  the
-  case does not already contain a value for the deleted field. Otherwise it
-  succeeds,
-  allowing you to update or remove (using `emptyValue: {}`) the field's value from
-  the
-  case.
+  Calling `UpdateCase` with a deleted field ID throws a
+  `ValidationException` if the case does not already contain a value for the
+  deleted field. Otherwise it succeeds, allowing you to update or remove (using
+  `emptyValue: {}`) the field's value from the case.
 
     *
 
@@ -1962,14 +2346,12 @@ defmodule AWS.ConnectCases do
   `GetLayout` does not return field IDs for deleted fields.
 
     *
-  Calling `SearchCases` with the deleted field ID as a filter returns any cases
-  that
-  have a value for the deleted field that matches the filter criteria.
+  Calling `SearchCases` with the deleted field ID as a filter returns any
+  cases that have a value for the deleted field that matches the filter criteria.
 
     *
-  Calling `SearchCases` with a `searchTerm` value that matches a deleted field's
-  value on a
-  case returns the case in the response.
+  Calling `SearchCases` with a `searchTerm` value that matches a
+  deleted field's value on a case returns the case in the response.
 
     *
   Calling `BatchPutFieldOptions` with a deleted field ID throw a
@@ -2009,7 +2391,8 @@ defmodule AWS.ConnectCases do
   @doc """
   Deletes a layout from a cases template.
 
-  You can delete up to 100 layouts per domain.
+  You can delete up to 100 layouts per
+  domain.
 
   After a layout is deleted:
 
@@ -2253,6 +2636,24 @@ defmodule AWS.ConnectCases do
 
   @doc """
   Returns the details for the requested template.
+
+  Other template APIs are:
+
+    *
+
+  [CreateTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateTemplate.html) 
+
+    *
+
+  [DeleteTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_DeleteTemplate.html)
+
+    *
+
+  [ListTemplates](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_ListTemplates.html) 
+
+    *
+
+  [UpdateTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_UpdateTemplate.html)
   """
   @spec get_template(map(), String.t(), String.t(), get_template_request(), list()) ::
           {:ok, get_template_response(), any()}
@@ -2265,6 +2666,45 @@ defmodule AWS.ConnectCases do
     headers = []
     custom_headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all case rules in a Cases domain.
+
+  In the Amazon Connect admin website, case rules are known as *case field
+  conditions*. For more
+  information about case field conditions, see [Add case field conditions to a case
+  template](https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html).
+  """
+  @spec list_case_rules(map(), String.t(), list_case_rules_request(), list()) ::
+          {:ok, list_case_rules_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_case_rules_errors()}
+  def list_case_rules(%Client{} = client, domain_id, input, options \\ []) do
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/rules-list/"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"maxResults", "maxResults"},
+        {"nextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 
@@ -2476,6 +2916,24 @@ defmodule AWS.ConnectCases do
 
   Each list item is a condensed summary
   object of the template.
+
+  Other template APIs are:
+
+    *
+
+  [CreateTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateTemplate.html) 
+
+    *
+
+  [DeleteTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_DeleteTemplate.html)
+
+    *
+
+  [GetTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_GetTemplate.html) 
+
+    *
+
+  [UpdateTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_UpdateTemplate.html)
   """
   @spec list_templates(map(), String.t(), list_templates_request(), list()) ::
           {:ok, list_templates_response(), any()}
@@ -2729,6 +3187,41 @@ defmodule AWS.ConnectCases do
   end
 
   @doc """
+  Updates a case rule.
+
+  In the Amazon Connect admin website, case rules are known as *case field
+  conditions*. For more
+  information about case field conditions, see [Add case field conditions to a case
+  template](https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html).
+  """
+  @spec update_case_rule(map(), String.t(), String.t(), update_case_rule_request(), list()) ::
+          {:ok, update_case_rule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_case_rule_errors()}
+  def update_case_rule(%Client{} = client, case_rule_id, domain_id, input, options \\ []) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_id)}/case-rules/#{AWS.Util.encode_uri(case_rule_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates the properties of an existing field.
   """
   @spec update_field(map(), String.t(), String.t(), update_field_request(), list()) ::
@@ -2807,6 +3300,24 @@ defmodule AWS.ConnectCases do
   least one of these attributes must not be null. If a null value is provided for
   a given
   attribute, that attribute is ignored and its current value is preserved.
+
+  Other template APIs are:
+
+    *
+
+  [CreateTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateTemplate.html) 
+
+    *
+
+  [DeleteTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_DeleteTemplate.html)
+
+    *
+
+  [GetTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_GetTemplate.html) 
+
+    *
+
+  [ListTemplates](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_ListTemplates.html)
   """
   @spec update_template(map(), String.t(), String.t(), update_template_request(), list()) ::
           {:ok, update_template_response(), any()}

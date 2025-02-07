@@ -599,6 +599,17 @@ defmodule AWS.CostOptimizationHub do
 
   ## Example:
       
+      mixed_instance_configuration() :: %{
+        "type" => [String.t()]
+      }
+      
+  """
+  @type mixed_instance_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       elasti_cache_reserved_instances_configuration() :: %{
         "accountScope" => [String.t()],
         "currentGeneration" => [String.t()],
@@ -679,7 +690,10 @@ defmodule AWS.CostOptimizationHub do
   ## Example:
       
       ec2_auto_scaling_group_configuration() :: %{
-        "instance" => instance_configuration()
+        "allocationStrategy" => list(any()),
+        "instance" => instance_configuration(),
+        "mixedInstances" => list(mixed_instance_configuration()()),
+        "type" => list(any())
       }
       
   """

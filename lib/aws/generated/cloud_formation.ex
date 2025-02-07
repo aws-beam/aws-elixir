@@ -110,6 +110,17 @@ defmodule AWS.CloudFormation do
 
   ## Example:
       
+      create_stack_refactor_output() :: %{
+        "StackRefactorId" => String.t()
+      }
+      
+  """
+  @type create_stack_refactor_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_stack_policy_input() :: %{
         required("StackName") => String.t()
       }
@@ -136,6 +147,22 @@ defmodule AWS.CloudFormation do
       
   """
   @type activate_type_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stack_refactor_summary() :: %{
+        "Description" => String.t(),
+        "ExecutionStatus" => list(any()),
+        "ExecutionStatusReason" => String.t(),
+        "StackRefactorId" => String.t(),
+        "Status" => list(any()),
+        "StatusReason" => String.t()
+      }
+      
+  """
+  @type stack_refactor_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -474,6 +501,32 @@ defmodule AWS.CloudFormation do
 
   ## Example:
       
+      resource_mapping() :: %{
+        "Destination" => resource_location(),
+        "Source" => resource_location()
+      }
+      
+  """
+  @type resource_mapping() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_stack_refactor_input() :: %{
+        optional("Description") => String.t(),
+        optional("EnableStackCreation") => boolean(),
+        optional("ResourceMappings") => list(resource_mapping()()),
+        required("StackDefinitions") => list(stack_definition()())
+      }
+      
+  """
+  @type create_stack_refactor_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       physical_resource_id_context_key_value_pair() :: %{
         "Key" => String.t(),
         "Value" => String.t()
@@ -630,6 +683,17 @@ defmodule AWS.CloudFormation do
       
   """
   @type concurrent_resources_limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stack_refactor_not_found_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type stack_refactor_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -802,6 +866,26 @@ defmodule AWS.CloudFormation do
       
   """
   @type stack_resource_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stack_refactor_action() :: %{
+        "Action" => list(any()),
+        "Description" => String.t(),
+        "Detection" => list(any()),
+        "DetectionReason" => String.t(),
+        "Entity" => list(any()),
+        "PhysicalResourceId" => String.t(),
+        "ResourceIdentifier" => String.t(),
+        "ResourceMapping" => resource_mapping(),
+        "TagResources" => list(tag()()),
+        "UntagResources" => list(String.t()())
+      }
+      
+  """
+  @type stack_refactor_action() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1120,6 +1204,18 @@ defmodule AWS.CloudFormation do
       
   """
   @type describe_type_registration_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_location() :: %{
+        "LogicalResourceId" => String.t(),
+        "StackName" => String.t()
+      }
+      
+  """
+  @type resource_location() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1593,6 +1689,18 @@ defmodule AWS.CloudFormation do
 
   ## Example:
       
+      list_stack_refactors_output() :: %{
+        "NextToken" => String.t(),
+        "StackRefactorSummaries" => list(stack_refactor_summary()())
+      }
+      
+  """
+  @type list_stack_refactors_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       activate_type_output() :: %{
         "Arn" => String.t()
       }
@@ -1886,6 +1994,19 @@ defmodule AWS.CloudFormation do
       
   """
   @type resource_scan_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stack_definition() :: %{
+        "StackName" => String.t(),
+        "TemplateBody" => String.t(),
+        "TemplateURL" => String.t()
+      }
+      
+  """
+  @type stack_definition() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3065,12 +3186,35 @@ defmodule AWS.CloudFormation do
 
   ## Example:
       
+      list_stack_refactor_actions_output() :: %{
+        "NextToken" => String.t(),
+        "StackRefactorActions" => list(stack_refactor_action()())
+      }
+      
+  """
+  @type list_stack_refactor_actions_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       token_already_exists_exception() :: %{
         "Message" => String.t()
       }
       
   """
   @type token_already_exists_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_stack_refactor_input() :: %{
+        required("StackRefactorId") => String.t()
+      }
+      
+  """
+  @type describe_stack_refactor_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3353,6 +3497,47 @@ defmodule AWS.CloudFormation do
       
   """
   @type operation_result_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      execute_stack_refactor_input() :: %{
+        required("StackRefactorId") => String.t()
+      }
+      
+  """
+  @type execute_stack_refactor_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_stack_refactor_output() :: %{
+        "Description" => String.t(),
+        "ExecutionStatus" => list(any()),
+        "ExecutionStatusReason" => String.t(),
+        "StackIds" => list(String.t()()),
+        "StackRefactorId" => String.t(),
+        "Status" => list(any()),
+        "StatusReason" => String.t()
+      }
+      
+  """
+  @type describe_stack_refactor_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_stack_refactors_input() :: %{
+        optional("ExecutionStatusFilter") => list(list(any())()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type list_stack_refactors_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3645,6 +3830,19 @@ defmodule AWS.CloudFormation do
   """
   @type auto_deployment() :: %{String.t() => any()}
 
+  @typedoc """
+
+  ## Example:
+      
+      list_stack_refactor_actions_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("StackRefactorId") => String.t()
+      }
+      
+  """
+  @type list_stack_refactor_actions_input() :: %{String.t() => any()}
+
   @type activate_organizations_access_errors() ::
           operation_not_found_exception() | invalid_operation_exception()
 
@@ -3726,6 +3924,8 @@ defmodule AWS.CloudFormation do
 
   @type describe_stack_instance_errors() ::
           stack_instance_not_found_exception() | stack_set_not_found_exception()
+
+  @type describe_stack_refactor_errors() :: stack_refactor_not_found_exception()
 
   @type describe_stack_set_errors() :: stack_set_not_found_exception()
 
@@ -4071,6 +4271,19 @@ defmodule AWS.CloudFormation do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateStackInstances", input, options)
+  end
+
+  @doc """
+  Creates a refactor across multiple stacks, with the list of stacks and resources
+  that are affected.
+  """
+  @spec create_stack_refactor(map(), create_stack_refactor_input(), list()) ::
+          {:ok, create_stack_refactor_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def create_stack_refactor(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateStackRefactor", input, options)
   end
 
   @doc """
@@ -4461,6 +4674,19 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
+  Describes the stack refactor status.
+  """
+  @spec describe_stack_refactor(map(), describe_stack_refactor_input(), list()) ::
+          {:ok, describe_stack_refactor_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_stack_refactor_errors()}
+  def describe_stack_refactor(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeStackRefactor", input, options)
+  end
+
+  @doc """
   Returns a description of the specified resource in the specified stack.
 
   For deleted stacks, DescribeStackResource returns resource information for up to
@@ -4711,8 +4937,8 @@ defmodule AWS.CloudFormation do
   When CloudFormation performs drift detection on a stack set, it
   performs drift detection on the stack associated with each stack instance in the
   stack set.
-  For more information, see [How CloudFormation performs drift detection on a stack
-  set](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html).
+  For more information, see [Performing drift detection on CloudFormation
+  StackSets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html).
 
   `DetectStackSetDrift` returns the `OperationId` of the stack set
   drift detection operation. Use this operation id with
@@ -4741,10 +4967,6 @@ defmodule AWS.CloudFormation do
     *
   Use `DescribeStackInstance` to return detailed information about a
   specific stack instance, including its drift status and last drift time checked.
-
-  For more information about performing a drift detection operation on a stack
-  set, see
-  [Detecting unmanaged changes in stack sets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html).
 
   You can only run a single drift detection operation on a given stack set at one
   time.
@@ -4806,6 +5028,18 @@ defmodule AWS.CloudFormation do
     meta = metadata()
 
     Request.request_post(client, meta, "ExecuteChangeSet", input, options)
+  end
+
+  @doc """
+  Executes the stack refactor operation.
+  """
+  @spec execute_stack_refactor(map(), execute_stack_refactor_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+  def execute_stack_refactor(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ExecuteStackRefactor", input, options)
   end
 
   @doc """
@@ -5084,6 +5318,31 @@ defmodule AWS.CloudFormation do
     meta = metadata()
 
     Request.request_post(client, meta, "ListStackInstances", input, options)
+  end
+
+  @doc """
+  Lists the stack refactor actions that will be taken after calling the
+  `ExecuteStackRefactor` action.
+  """
+  @spec list_stack_refactor_actions(map(), list_stack_refactor_actions_input(), list()) ::
+          {:ok, list_stack_refactor_actions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def list_stack_refactor_actions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListStackRefactorActions", input, options)
+  end
+
+  @doc """
+  Lists all account stack refactor operations and their statuses.
+  """
+  @spec list_stack_refactors(map(), list_stack_refactors_input(), list()) ::
+          {:ok, list_stack_refactors_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+  def list_stack_refactors(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListStackRefactors", input, options)
   end
 
   @doc """
@@ -5494,8 +5753,9 @@ defmodule AWS.CloudFormation do
   Stops an in-progress operation on a stack set and its associated stack
   instances.
 
-  StackSets will cancel all the
-  unstarted stack instance deployments and wait for those are in-progress to
+  StackSets
+  will cancel all the unstarted stack instance deployments and wait for those are
+  in-progress to
   complete.
   """
   @spec stop_stack_set_operation(map(), stop_stack_set_operation_input(), list()) ::

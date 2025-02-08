@@ -309,6 +309,17 @@ defmodule AWS.Transcribe do
 
   ## Example:
       
+      clinical_note_generation_settings() :: %{
+        "NoteTemplate" => list(any())
+      }
+      
+  """
+  @type clinical_note_generation_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       start_medical_transcription_job_response() :: %{
         "MedicalTranscriptionJob" => medical_transcription_job()
       }
@@ -792,6 +803,7 @@ defmodule AWS.Transcribe do
       
       medical_scribe_settings() :: %{
         "ChannelIdentification" => boolean(),
+        "ClinicalNoteGenerationSettings" => clinical_note_generation_settings(),
         "MaxSpeakerLabels" => integer(),
         "ShowSpeakerLabels" => boolean(),
         "VocabularyFilterMethod" => list(any()),

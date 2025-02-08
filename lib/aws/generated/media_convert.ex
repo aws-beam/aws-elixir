@@ -1031,6 +1031,7 @@ defmodule AWS.MediaConvert do
       video_description() :: %{
         "AfdSignaling" => list(any()),
         "AntiAlias" => list(any()),
+        "ChromaPositionMode" => list(any()),
         "CodecSettings" => video_codec_settings(),
         "ColorMetadata" => list(any()),
         "Crop" => rectangle(),
@@ -1589,6 +1590,7 @@ defmodule AWS.MediaConvert do
         "AvcIntraSettings" => avc_intra_settings(),
         "Codec" => list(any()),
         "FrameCaptureSettings" => frame_capture_settings(),
+        "GifSettings" => gif_settings(),
         "H264Settings" => h264_settings(),
         "H265Settings" => h265_settings(),
         "Mpeg2Settings" => mpeg2_settings(),
@@ -3466,6 +3468,20 @@ defmodule AWS.MediaConvert do
 
   """
   @type create_preset_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gif_settings() :: %{
+        "FramerateControl" => list(any()),
+        "FramerateConversionAlgorithm" => list(any()),
+        "FramerateDenominator" => integer(),
+        "FramerateNumerator" => integer()
+      }
+
+  """
+  @type gif_settings() :: %{String.t() => any()}
 
   @typedoc """
 

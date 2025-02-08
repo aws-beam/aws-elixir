@@ -3421,12 +3421,14 @@ defmodule AWS.ECR do
   end
 
   @doc """
-  Starts an image vulnerability scan.
+  Starts a basic image vulnerability scan.
 
-  An image scan can only be started once per 24
+  A basic image scan can only be started once per 24
   hours on an individual image. This limit includes if an image was scanned on
   initial
-  push. For more information, see [Image scanning](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html)
+  push. You can start up to 100,000 basic scans per 24 hours. This limit includes
+  both scans on initial push
+  and scans initiated by the StartImageScan API. For more information, see [Basic scanning](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning-basic.html)
   in the
   *Amazon Elastic Container Registry User Guide*.
   """

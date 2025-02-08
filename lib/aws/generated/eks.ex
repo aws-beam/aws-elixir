@@ -1117,7 +1117,8 @@ defmodule AWS.EKS do
         optional("includeAll") => boolean(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        optional("status") => list(any())
+        optional("status") => list(any()),
+        optional("versionStatus") => list(any())
       }
 
   """
@@ -2736,7 +2737,8 @@ defmodule AWS.EKS do
         "endOfStandardSupportDate" => non_neg_integer(),
         "kubernetesPatchVersion" => String.t(),
         "releaseDate" => non_neg_integer(),
-        "status" => list(any())
+        "status" => list(any()),
+        "versionStatus" => list(any())
       }
 
   """
@@ -4163,6 +4165,7 @@ defmodule AWS.EKS do
           String.t() | nil,
           String.t() | nil,
           String.t() | nil,
+          String.t() | nil,
           list()
         ) ::
           {:ok, describe_cluster_versions_response(), any()}
@@ -4177,11 +4180,19 @@ defmodule AWS.EKS do
         max_results \\ nil,
         next_token \\ nil,
         status \\ nil,
+        version_status \\ nil,
         options \\ []
       ) do
     url_path = "/cluster-versions"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(version_status) do
+        [{"versionStatus", version_status} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(status) do
@@ -4382,7 +4393,7 @@ defmodule AWS.EKS do
   @doc """
   Describes an update to an Amazon EKS resource.
 
-  When the status of the update is `Succeeded`, the update is complete. If an
+  When the status of the update is `Successful`, the update is complete. If an
   update fails, the status is `Failed`, and an error detail explains the reason
   for the failure.
   """
@@ -5084,14 +5095,9 @@ defmodule AWS.EKS do
   Any Kubernetes cluster can be connected to the Amazon EKS control plane to view
   current information about the cluster and its nodes.
 
-  Cluster connection requires two steps. First, send a
-
-  ```
-
+  Cluster connection requires two steps. First, send a [
   `RegisterClusterRequest`
-
-  ```
-
+  ](https://docs.aws.amazon.com/eks/latest/APIReference/API_RegisterClusterRequest.html)
   to add it to the Amazon EKS
   control plane.
 
@@ -5350,7 +5356,10 @@ defmodule AWS.EKS do
   Your cluster
   continues to function during the update. The response output includes an update
   ID that
-  you can use to track the status of your cluster update with the `DescribeUpdate`
+  you can use to track the status of your cluster update with the
+  [
+  `DescribeUpdate`
+  ](https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeUpdate.html)
   API operation.
 
   Cluster updates are asynchronous, and they should finish within a few minutes.
@@ -5433,7 +5442,10 @@ defmodule AWS.EKS do
   continues to function during the update. The response output includes an update
   ID that
   you can use to track the status of your node group update with the
-  `DescribeUpdate` API operation. You can update the Kubernetes labels and taints
+  [
+  `DescribeUpdate`
+  ](https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeUpdate.html)
+  API operation. You can update the Kubernetes labels and taints
   for a node group and the scaling and version update configuration.
   """
   @spec update_nodegroup_config(

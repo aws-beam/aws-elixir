@@ -214,6 +214,7 @@ defmodule AWS.TranscribeStreaming do
   ## Example:
 
       clinical_note_generation_settings() :: %{
+        "NoteTemplate" => list(any()),
         "OutputBucketName" => String.t()
       }
 

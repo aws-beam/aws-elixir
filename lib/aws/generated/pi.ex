@@ -84,6 +84,7 @@ defmodule AWS.PI do
       performance_insights_metric() :: %{
         "Dimensions" => map(),
         "DisplayName" => String.t(),
+        "Filter" => map(),
         "Metric" => String.t(),
         "Value" => float()
       }
@@ -804,7 +805,7 @@ defmodule AWS.PI do
   `db.sql.statement` associated with this ID.
   This operation is useful because `GetResourceMetrics` and
   `DescribeDimensionKeys` don't support retrieval of large
-  SQL statement text.
+  SQL statement text, lock snapshots, and execution plans.
   """
   @spec get_dimension_key_details(map(), get_dimension_key_details_request(), list()) ::
           {:ok, get_dimension_key_details_response(), any()}

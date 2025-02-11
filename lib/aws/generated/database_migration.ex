@@ -1116,6 +1116,21 @@ defmodule AWS.DatabaseMigration do
 
   ## Example:
       
+      ibm_db2z_os_data_provider_settings() :: %{
+        "CertificateArn" => String.t(),
+        "DatabaseName" => String.t(),
+        "Port" => integer(),
+        "ServerName" => String.t(),
+        "SslMode" => list(any())
+      }
+      
+  """
+  @type ibm_db2z_os_data_provider_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       subnet() :: %{
         "SubnetAvailabilityZone" => availability_zone(),
         "SubnetIdentifier" => String.t(),
@@ -1886,6 +1901,21 @@ defmodule AWS.DatabaseMigration do
       
   """
   @type failed_dependency_fault() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ibm_db2_luw_data_provider_settings() :: %{
+        "CertificateArn" => String.t(),
+        "DatabaseName" => String.t(),
+        "Port" => integer(),
+        "ServerName" => String.t(),
+        "SslMode" => list(any())
+      }
+      
+  """
+  @type ibm_db2_luw_data_provider_settings() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6496,7 +6526,8 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
-  For internal use only
+  Returns a list of upcoming maintenance events for replication instances in your
+  account in the current Region.
   """
   @spec describe_pending_maintenance_actions(
           map(),

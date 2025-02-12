@@ -18824,6 +18824,7 @@ defmodule AWS.EC2 do
         "DataEncryptionKeyId" => String.t(),
         "Description" => String.t(),
         "Encrypted" => boolean(),
+        "FullSnapshotSizeInBytes" => float(),
         "KmsKeyId" => String.t(),
         "OutpostArn" => String.t(),
         "OwnerAlias" => String.t(),
@@ -28918,16 +28919,14 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Assigns one or more IPv6 addresses to the specified network interface.
+  Assigns the specified IPv6 addresses to the specified network interface.
 
   You can
-  specify one or more specific IPv6 addresses, or you can specify the number of
-  IPv6
-  addresses to be automatically assigned from within the subnet's IPv6 CIDR block
-  range.
+  specify specific IPv6 addresses, or you can specify the number of IPv6
+  addresses to be automatically assigned from the subnet's IPv6 CIDR block range.
   You can assign as many IPv6 addresses to a network interface as you can assign
   private
-  IPv4 addresses, and the limit varies per instance type.
+  IPv4 addresses, and the limit varies by instance type.
 
   You must specify either the IPv6 addresses or the IPv6 address count in the
   request.
@@ -28951,12 +28950,11 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Assigns one or more secondary private IP addresses to the specified network
+  Assigns the specified secondary private IP addresses to the specified network
   interface.
 
-  You can specify one or more specific secondary IP addresses, or you can specify
-  the number
-  of secondary IP addresses to be automatically assigned within the subnet's CIDR
+  You can specify specific secondary IP addresses, or you can specify the number
+  of secondary IP addresses to be automatically assigned from the subnet's CIDR
   block range.
   The number of secondary IP addresses that you can assign to an instance varies
   by instance type.
@@ -30029,11 +30027,11 @@ defmodule AWS.EC2 do
   used to encrypt the snapshot.
 
   Snapshots copied to an Outpost are encrypted by default using the default
-  encryption key for the Region, or a different key that you specify in the
-  request using
-  **KmsKeyId**. Outposts do not support unencrypted
-  snapshots. For more information, [
-  Amazon EBS local snapshots on
+  encryption key
+  for the Region, or a different key that you specify in the request using
+  **KmsKeyId**. Outposts do not support unencrypted snapshots. For more
+  information,
+  see [Amazon EBS local snapshots on
   Outposts](https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#ami)
   in the *Amazon EBS User Guide*.
 
@@ -30876,7 +30874,7 @@ defmodule AWS.EC2 do
   @doc """
   Creates a managed prefix list.
 
-  You can specify one or more entries for the prefix list.
+  You can specify entries for the prefix list.
   Each entry consists of a CIDR block and an optional description.
   """
   @spec create_managed_prefix_list(map(), create_managed_prefix_list_request(), list()) ::
@@ -31313,7 +31311,8 @@ defmodule AWS.EC2 do
 
     *
   If the source volume is in a Local Zone, you can create the snapshot in the same
-  Local Zone or in parent Amazon Web Services Region.
+  Local
+  Zone or in its parent Amazon Web Services Region.
 
     *
   If the source volume is on an Outpost, you can create the snapshot on the same
@@ -31347,7 +31346,7 @@ defmodule AWS.EC2 do
   Volumes that
   are created from encrypted snapshots are also automatically encrypted. Your
   encrypted volumes
-  and any associated snapshots always remain protected. For more information,
+  and any associated snapshots always remain protected. For more information, see
   [Amazon EBS encryption](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html)
   in the *Amazon EBS User Guide*.
   """
@@ -31382,7 +31381,7 @@ defmodule AWS.EC2 do
     *
   If the source instance is in a Local Zone, you can create the snapshots in the
   same
-  Local Zone or in parent Amazon Web Services Region.
+  Local Zone or in its parent Amazon Web Services Region.
 
     *
   If the source instance is on an Outpost, you can create the snapshots on the
@@ -32945,7 +32944,7 @@ defmodule AWS.EC2 do
 
   You cannot delete a snapshot of the root device of an EBS volume used by a
   registered AMI.
-  You must first de-register the AMI before you can delete the snapshot.
+  You must first deregister the AMI before you can delete the snapshot.
 
   For more information, see [Delete an Amazon EBS snapshot](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-deleting-snapshot.html)
   in the
@@ -34690,12 +34689,7 @@ defmodule AWS.EC2 do
   Describes the specified attribute of the specified instance.
 
   You can specify only one
-  attribute at a time. Valid attribute values are: `instanceType` |
-  `kernel` | `ramdisk` | `userData` |
-  `disableApiTermination` | `instanceInitiatedShutdownBehavior`
-  | `rootDeviceName` | `blockDeviceMapping` |
-  `productCodes` | `sourceDestCheck` | `groupSet` |
-  `ebsOptimized` | `sriovNetSupport`
+  attribute at a time.
   """
   @spec describe_instance_attribute(map(), describe_instance_attribute_request(), list()) ::
           {:ok, instance_attribute(), any()}
@@ -35589,7 +35583,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Describes one or more of your network interfaces.
+  Describes the specified network interfaces or all your network interfaces.
 
   If you have a large number of network interfaces, the operation fails unless
   you use pagination or one of the following filters: `group-id`,
@@ -43226,7 +43220,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Unassigns one or more IPv6 addresses IPv4 Prefix Delegation prefixes from a
+  Unassigns the specified IPv6 addresses or Prefix Delegation prefixes from a
   network interface.
   """
   @spec unassign_ipv6_addresses(map(), unassign_ipv6_addresses_request(), list()) ::
@@ -43239,7 +43233,7 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Unassigns one or more secondary private IP addresses, or IPv4 Prefix Delegation
+  Unassigns the specified secondary private IP addresses or IPv4 Prefix Delegation
   prefixes from a
   network interface.
   """

@@ -771,7 +771,9 @@ defmodule AWS.ACMPCA do
       
       crl_configuration() :: %{
         "CrlDistributionPointExtensionConfiguration" => crl_distribution_point_extension_configuration(),
+        "CrlType" => list(any()),
         "CustomCname" => String.t(),
+        "CustomPath" => String.t(),
         "Enabled" => boolean(),
         "ExpirationInDays" => integer(),
         "S3BucketName" => String.t(),

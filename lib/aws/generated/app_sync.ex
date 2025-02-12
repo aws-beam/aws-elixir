@@ -4475,8 +4475,7 @@ defmodule AWS.AppSync do
   Lists the channel namespaces for a specified `Api`.
 
   `ListChannelNamespaces` returns only high level details for the channel
-  namespace. To retrieve code handlers, use
-  `GetChannelNamespace`.
+  namespace. To retrieve code handlers, use `GetChannelNamespace`.
   """
   @spec list_channel_namespaces(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_channel_namespaces_response(), any()}

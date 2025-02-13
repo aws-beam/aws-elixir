@@ -4286,6 +4286,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       prompt_configuration() :: %{
+        "additionalModelRequestFields" => [any()],
         "basePromptTemplate" => String.t(),
         "foundationModel" => String.t(),
         "inferenceConfiguration" => inference_configuration(),
@@ -5762,7 +5763,7 @@ defmodule AWS.BedrockAgent do
   Deletes documents from a data source and syncs the changes to the knowledge base
   that is connected to it.
 
-  For more information, see [Ingest documents into a knowledge base in real-time](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-real-time-ingestion.html)
+  For more information, see [Ingest changes directly into a knowledge base](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-direct-ingestion.html)
   in the Amazon Bedrock User Guide.
   """
   @spec delete_knowledge_base_documents(
@@ -6192,7 +6193,7 @@ defmodule AWS.BedrockAgent do
   Retrieves specific documents from a data source that is connected to a knowledge
   base.
 
-  For more information, see [Ingest documents into a knowledge base in real-time](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-real-time-ingestion.html)
+  For more information, see [Ingest changes directly into a knowledge base](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-direct-ingestion.html)
   in the Amazon Bedrock User Guide.
   """
   @spec get_knowledge_base_documents(
@@ -6270,7 +6271,7 @@ defmodule AWS.BedrockAgent do
 
   The `dataSourceType` specified in the content for each document must match the
   type of the data source that you specify in the header. For more information,
-  see [Ingest documents into a knowledge base in real-time](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-real-time-ingestion.html)
+  see [Ingest changes directly into a knowledge base](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-direct-ingestion.html)
   in the Amazon Bedrock User Guide.
   """
   @spec ingest_knowledge_base_documents(
@@ -6691,7 +6692,7 @@ defmodule AWS.BedrockAgent do
   Retrieves all the documents contained in a data source that is connected to a
   knowledge base.
 
-  For more information, see [Ingest documents into a knowledge base in real-time](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-real-time-ingestion.html)
+  For more information, see [Ingest changes directly into a knowledge base](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-direct-ingestion.html)
   in the Amazon Bedrock User Guide.
   """
   @spec list_knowledge_base_documents(

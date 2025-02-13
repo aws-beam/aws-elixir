@@ -1264,6 +1264,7 @@ defmodule AWS.FSx do
       
       update_file_system_request() :: %{
         optional("ClientRequestToken") => String.t(),
+        optional("FileSystemTypeVersion") => String.t(),
         optional("LustreConfiguration") => update_file_system_lustre_configuration(),
         optional("OntapConfiguration") => update_file_system_ontap_configuration(),
         optional("OpenZFSConfiguration") => update_file_system_open_z_f_s_configuration(),
@@ -3481,7 +3482,7 @@ defmodule AWS.FSx do
   in either the
   `PENDING` or `EXECUTING` state.
 
-  When you cancel am export task, Amazon FSx
+  When you cancel an export task, Amazon FSx
   does the following.
 
     *
@@ -3737,7 +3738,7 @@ defmodule AWS.FSx do
   `CreateFileCache` does the following:
 
     *
-  Creates a new, empty Amazon File Cache resourcewith an assigned ID, and
+  Creates a new, empty Amazon File Cache resource with an assigned ID, and
   an initial lifecycle state of `CREATING`.
 
     *
@@ -4727,6 +4728,10 @@ defmodule AWS.FSx do
     *
 
   `DataCompressionType`
+
+    *
+
+  `FileSystemTypeVersion`
 
     *
 

@@ -2387,6 +2387,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       prompt_configuration() :: %{
+        "additionalModelRequestFields" => [any()],
         "basePromptTemplate" => String.t(),
         "inferenceConfiguration" => inference_configuration(),
         "parserMode" => list(any()),

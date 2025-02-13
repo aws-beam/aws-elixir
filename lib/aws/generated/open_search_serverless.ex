@@ -1467,6 +1467,7 @@ defmodule AWS.OpenSearchServerless do
       saml_config_options() :: %{
         "groupAttribute" => String.t(),
         "metadata" => String.t(),
+        "openSearchServerlessEntityId" => String.t(),
         "sessionTimeout" => [integer()],
         "userAttribute" => String.t()
       }

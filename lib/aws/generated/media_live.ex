@@ -1805,6 +1805,7 @@ defmodule AWS.MediaLive do
 
       create_event_bridge_rule_template_group_request() :: %{
         optional("Description") => String.t(),
+        optional("RequestId") => String.t(),
         optional("Tags") => map(),
         required("Name") => String.t()
       }
@@ -2178,7 +2179,8 @@ defmodule AWS.MediaLive do
   ## Example:
 
       start_monitor_deployment_request() :: %{
-        optional("DryRun") => boolean()
+        optional("DryRun") => boolean(),
+        optional("RequestId") => String.t()
       }
 
   """
@@ -4901,6 +4903,7 @@ defmodule AWS.MediaLive do
         optional("CloudWatchAlarmTemplateGroupIdentifiers") => list(String.t()()),
         optional("Description") => String.t(),
         optional("EventBridgeRuleTemplateGroupIdentifiers") => list(String.t()()),
+        optional("RequestId") => String.t(),
         optional("Tags") => map(),
         required("DiscoveryEntryPointArn") => String.t(),
         required("Name") => String.t()
@@ -5863,6 +5866,7 @@ defmodule AWS.MediaLive do
       create_cloud_watch_alarm_template_request() :: %{
         optional("DatapointsToAlarm") => integer(),
         optional("Description") => String.t(),
+        optional("RequestId") => String.t(),
         optional("Tags") => map(),
         required("ComparisonOperator") => list(any()),
         required("EvaluationPeriods") => integer(),
@@ -6856,6 +6860,7 @@ defmodule AWS.MediaLive do
       create_event_bridge_rule_template_request() :: %{
         optional("Description") => String.t(),
         optional("EventTargets") => list(event_bridge_rule_template_target()()),
+        optional("RequestId") => String.t(),
         optional("Tags") => map(),
         required("EventType") => list(any()),
         required("GroupIdentifier") => String.t(),
@@ -7285,6 +7290,7 @@ defmodule AWS.MediaLive do
 
       create_cloud_watch_alarm_template_group_request() :: %{
         optional("Description") => String.t(),
+        optional("RequestId") => String.t(),
         optional("Tags") => map(),
         required("Name") => String.t()
       }

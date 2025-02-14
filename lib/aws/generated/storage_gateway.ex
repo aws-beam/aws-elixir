@@ -87,6 +87,17 @@ defmodule AWS.StorageGateway do
 
   ## Example:
       
+      describe_cache_report_output() :: %{
+        "CacheReportInfo" => cache_report_info()
+      }
+      
+  """
+  @type describe_cache_report_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       join_domain_output() :: %{
         "ActiveDirectoryStatus" => list(any()),
         "GatewayARN" => String.t()
@@ -244,6 +255,25 @@ defmodule AWS.StorageGateway do
       
   """
   @type describe_cache_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_cache_report_input() :: %{
+        optional("ExclusionFilters") => list(cache_report_filter()()),
+        optional("InclusionFilters") => list(cache_report_filter()()),
+        optional("Tags") => list(tag()()),
+        optional("VPCEndpointDNSName") => String.t(),
+        required("BucketRegion") => String.t(),
+        required("ClientToken") => String.t(),
+        required("FileShareARN") => String.t(),
+        required("LocationARN") => String.t(),
+        required("Role") => String.t()
+      }
+      
+  """
+  @type start_cache_report_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -480,6 +510,17 @@ defmodule AWS.StorageGateway do
 
   ## Example:
       
+      start_cache_report_output() :: %{
+        "CacheReportARN" => String.t()
+      }
+      
+  """
+  @type start_cache_report_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       volume_recovery_point_info() :: %{
         "VolumeARN" => String.t(),
         "VolumeRecoveryPointTime" => String.t(),
@@ -505,6 +546,17 @@ defmodule AWS.StorageGateway do
       
   """
   @type pool_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_cache_report_input() :: %{
+        required("CacheReportARN") => String.t()
+      }
+      
+  """
+  @type describe_cache_report_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1028,6 +1080,18 @@ defmodule AWS.StorageGateway do
 
   ## Example:
       
+      cache_report_filter() :: %{
+        "Name" => list(any()),
+        "Values" => list(String.t()())
+      }
+      
+  """
+  @type cache_report_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_vtl_device_type_input() :: %{
         required("DeviceType") => String.t(),
         required("VTLDeviceARN") => String.t()
@@ -1104,6 +1168,17 @@ defmodule AWS.StorageGateway do
 
   ## Example:
       
+      cancel_cache_report_input() :: %{
+        required("CacheReportARN") => String.t()
+      }
+      
+  """
+  @type cancel_cache_report_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_bandwidth_rate_limit_output() :: %{
         "GatewayARN" => String.t()
       }
@@ -1137,6 +1212,28 @@ defmodule AWS.StorageGateway do
       
   """
   @type describe_vtl_devices_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cache_report_info() :: %{
+        "CacheReportARN" => String.t(),
+        "CacheReportStatus" => list(any()),
+        "EndTime" => non_neg_integer(),
+        "ExclusionFilters" => list(cache_report_filter()()),
+        "FileShareARN" => String.t(),
+        "InclusionFilters" => list(cache_report_filter()()),
+        "LocationARN" => String.t(),
+        "ReportCompletionPercent" => integer(),
+        "ReportName" => String.t(),
+        "Role" => String.t(),
+        "StartTime" => non_neg_integer(),
+        "Tags" => list(tag()())
+      }
+      
+  """
+  @type cache_report_info() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1216,6 +1313,29 @@ defmodule AWS.StorageGateway do
       
   """
   @type start_gateway_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_cache_reports_input() :: %{
+        optional("Marker") => String.t()
+      }
+      
+  """
+  @type list_cache_reports_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_cache_reports_output() :: %{
+        "CacheReportList" => list(cache_report_info()()),
+        "Marker" => String.t()
+      }
+      
+  """
+  @type list_cache_reports_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1499,6 +1619,17 @@ defmodule AWS.StorageGateway do
       
   """
   @type create_tape_pool_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_cache_report_input() :: %{
+        required("CacheReportARN") => String.t()
+      }
+      
+  """
+  @type delete_cache_report_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2386,6 +2517,17 @@ defmodule AWS.StorageGateway do
 
   ## Example:
       
+      delete_cache_report_output() :: %{
+        "CacheReportARN" => String.t()
+      }
+      
+  """
+  @type delete_cache_report_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_stored_iscsi_volume_output() :: %{
         "TargetARN" => String.t(),
         "VolumeARN" => String.t(),
@@ -2906,6 +3048,17 @@ defmodule AWS.StorageGateway do
 
   ## Example:
       
+      cancel_cache_report_output() :: %{
+        "CacheReportARN" => String.t()
+      }
+      
+  """
+  @type cancel_cache_report_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       add_working_storage_input() :: %{
         required("DiskIds") => list(String.t()()),
         required("GatewayARN") => String.t()
@@ -2972,6 +3125,9 @@ defmodule AWS.StorageGateway do
 
   @type cancel_archival_errors() :: invalid_gateway_request_exception() | internal_server_error()
 
+  @type cancel_cache_report_errors() ::
+          invalid_gateway_request_exception() | internal_server_error()
+
   @type cancel_retrieval_errors() :: invalid_gateway_request_exception() | internal_server_error()
 
   @type create_cached_iscsi_volume_errors() ::
@@ -3009,6 +3165,9 @@ defmodule AWS.StorageGateway do
   @type delete_bandwidth_rate_limit_errors() ::
           invalid_gateway_request_exception() | internal_server_error()
 
+  @type delete_cache_report_errors() ::
+          invalid_gateway_request_exception() | internal_server_error()
+
   @type delete_chap_credentials_errors() ::
           invalid_gateway_request_exception() | internal_server_error()
 
@@ -3039,6 +3198,9 @@ defmodule AWS.StorageGateway do
           invalid_gateway_request_exception() | internal_server_error()
 
   @type describe_cache_errors() :: invalid_gateway_request_exception() | internal_server_error()
+
+  @type describe_cache_report_errors() ::
+          invalid_gateway_request_exception() | internal_server_error()
 
   @type describe_cached_iscsi_volumes_errors() ::
           invalid_gateway_request_exception() | internal_server_error()
@@ -3099,6 +3261,9 @@ defmodule AWS.StorageGateway do
   @type list_automatic_tape_creation_policies_errors() ::
           invalid_gateway_request_exception() | internal_server_error()
 
+  @type list_cache_reports_errors() ::
+          invalid_gateway_request_exception() | internal_server_error()
+
   @type list_file_shares_errors() :: invalid_gateway_request_exception() | internal_server_error()
 
   @type list_file_system_associations_errors() ::
@@ -3148,6 +3313,9 @@ defmodule AWS.StorageGateway do
   @type shutdown_gateway_errors() :: invalid_gateway_request_exception() | internal_server_error()
 
   @type start_availability_monitor_test_errors() ::
+          invalid_gateway_request_exception() | internal_server_error()
+
+  @type start_cache_report_errors() ::
           invalid_gateway_request_exception() | internal_server_error()
 
   @type start_gateway_errors() :: invalid_gateway_request_exception() | internal_server_error()
@@ -3427,6 +3595,28 @@ defmodule AWS.StorageGateway do
     meta = metadata()
 
     Request.request_post(client, meta, "CancelArchival", input, options)
+  end
+
+  @doc """
+  Cancels generation of a specified cache report.
+
+  You can use this operation to manually
+  cancel an IN-PROGRESS report for any reason. This action changes the report
+  status from
+  IN-PROGRESS to CANCELLED. You can only cancel in-progress reports. If the the
+  report you
+  attempt to cancel is in FAILED, ERROR, or COMPLETED state, the cancel operation
+  returns an
+  error.
+  """
+  @spec cancel_cache_report(map(), cancel_cache_report_input(), list()) ::
+          {:ok, cancel_cache_report_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, cancel_cache_report_errors()}
+  def cancel_cache_report(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CancelCacheReport", input, options)
   end
 
   @doc """
@@ -3782,6 +3972,28 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+  Deletes the specified cache report and any associated tags from the Storage
+  Gateway database.
+
+  You can only delete completed reports. If the status of the
+  report you attempt to delete still IN-PROGRESS, the delete operation returns an
+  error. You
+  can use `CancelCacheReport` to cancel an IN-PROGRESS report.
+
+  `DeleteCacheReport` does not delete the report object from your Amazon S3
+  bucket.
+  """
+  @spec delete_cache_report(map(), delete_cache_report_input(), list()) ::
+          {:ok, delete_cache_report_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_cache_report_errors()}
+  def delete_cache_report(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteCacheReport", input, options)
+  end
+
+  @doc """
   Deletes Challenge-Handshake Authentication Protocol (CHAP) credentials for a
   specified
   iSCSI target and initiator pair.
@@ -4078,6 +4290,21 @@ defmodule AWS.StorageGateway do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeCache", input, options)
+  end
+
+  @doc """
+  Returns information about the specified cache report, including completion
+  status and
+  generation progress.
+  """
+  @spec describe_cache_report(map(), describe_cache_report_input(), list()) ::
+          {:ok, describe_cache_report_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_cache_report_errors()}
+  def describe_cache_report(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCacheReport", input, options)
   end
 
   @doc """
@@ -4513,6 +4740,25 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
+  Returns a list of existing cache reports for all file shares associated with
+  your
+  Amazon Web Services account.
+
+  This list includes all information provided by the
+  `DescribeCacheReport` action, such as report name, status, completion
+  progress, start time, end time, filters, and tags.
+  """
+  @spec list_cache_reports(map(), list_cache_reports_input(), list()) ::
+          {:ok, list_cache_reports_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_cache_reports_errors()}
+  def list_cache_reports(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListCacheReports", input, options)
+  end
+
+  @doc """
   Gets a list of the file shares for a specific S3 File Gateway, or the list of
   file
   shares that belong to the calling Amazon Web Services account.
@@ -4750,20 +4996,18 @@ defmodule AWS.StorageGateway do
   end
 
   @doc """
-  Sends you notification through CloudWatch Events when all files written to your
+  Sends you notification through Amazon EventBridge when all files written to your
   file
   share have been uploaded to Amazon S3.
 
-  Storage Gateway can send a notification through Amazon CloudWatch Events when
-  all
+  Storage Gateway can send a notification through Amazon EventBridge when all
   files written to your file share up to that point in time have been uploaded to
   Amazon S3. These files include files written to the file share up to the time
   that you
   make a request for notification. When the upload is done, Storage Gateway sends
   you
-  notification through an Amazon CloudWatch Event. You can configure CloudWatch
-  Events to
-  send the notification through event targets such as Amazon SNS or Lambda
+  notification through EventBridge. You can configure EventBridge to send the
+  notification through event targets such as Amazon SNS or Lambda
   function. This operation is only supported for S3 File Gateways.
 
   For more information, see [Getting file upload
@@ -5044,6 +5288,58 @@ defmodule AWS.StorageGateway do
     meta = metadata()
 
     Request.request_post(client, meta, "StartAvailabilityMonitorTest", input, options)
+  end
+
+  @doc """
+  Starts generating a report of the file metadata currently cached by an S3 File
+  Gateway for a specific file share.
+
+  You can use this report to identify and resolve
+  issues if you have files failing upload from your gateway to Amazon S3. The
+  report
+  is a CSV file containing a list of files which match the set of filter
+  parameters you
+  specify in the request.
+
+  The **Files Failing Upload** flag is reset every 24
+  hours and during gateway reboot. If this report captures the files after the
+  reset, but
+  before they become flagged again, they will not be reported as **Files Failing
+  Upload**.
+
+  The following requirements must be met to successfully generate a cache report:
+
+    *
+  You must have permissions to list the entire Amazon S3 bucket associated
+  with the specified file share.
+
+    *
+  No other cache reports can currently be in-progress for the specified file
+  share.
+
+    *
+  There must be fewer than 10 existing cache reports for the specified file
+  share.
+
+    *
+  The gateway must be online and connected to Amazon Web Services.
+
+    *
+  The root disk must have at least 20GB of free space when report generation
+  starts.
+
+    *
+  You must specify at least one value for `InclusionFilters` or
+  `ExclusionFilters` in the request.
+  """
+  @spec start_cache_report(map(), start_cache_report_input(), list()) ::
+          {:ok, start_cache_report_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_cache_report_errors()}
+  def start_cache_report(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartCacheReport", input, options)
   end
 
   @doc """

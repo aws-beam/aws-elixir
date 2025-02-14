@@ -128,6 +128,17 @@ defmodule AWS.AccessAnalyzer do
 
   ## Example:
 
+      get_findings_statistics_request() :: %{
+        required("analyzerArn") => String.t()
+      }
+
+  """
+  @type get_findings_statistics_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       status_reason() :: %{
         "code" => String.t()
       }
@@ -161,6 +172,18 @@ defmodule AWS.AccessAnalyzer do
 
   ## Example:
 
+      unused_access_type_statistics() :: %{
+        "total" => [integer()],
+        "unusedAccessType" => [String.t()]
+      }
+
+  """
+  @type unused_access_type_statistics() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       check_no_public_access_response() :: %{
         "message" => [String.t()],
         "reasons" => list(reason_summary()()),
@@ -180,6 +203,19 @@ defmodule AWS.AccessAnalyzer do
 
   """
   @type delete_archive_rule_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      finding_aggregation_account_details() :: %{
+        "account" => [String.t()],
+        "details" => map(),
+        "numberOfActiveFindings" => [integer()]
+      }
+
+  """
+  @type finding_aggregation_account_details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -311,6 +347,18 @@ defmodule AWS.AccessAnalyzer do
 
   """
   @type s3_bucket_acl_grant_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_findings_statistics_response() :: %{
+        "findingsStatistics" => list(list()()),
+        "lastUpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_findings_statistics_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -701,6 +749,20 @@ defmodule AWS.AccessAnalyzer do
 
   ## Example:
 
+      external_access_findings_statistics() :: %{
+        "resourceTypeStatistics" => map(),
+        "totalActiveFindings" => [integer()],
+        "totalArchivedFindings" => [integer()],
+        "totalResolvedFindings" => [integer()]
+      }
+
+  """
+  @type external_access_findings_statistics() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_access_preview_request() :: %{
         optional("clientToken") => [String.t()],
         required("analyzerArn") => String.t(),
@@ -986,6 +1048,18 @@ defmodule AWS.AccessAnalyzer do
 
   """
   @type policy_generation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_type_details() :: %{
+        "totalActiveCrossAccount" => [integer()],
+        "totalActivePublic" => [integer()]
+      }
+
+  """
+  @type resource_type_details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1361,6 +1435,21 @@ defmodule AWS.AccessAnalyzer do
 
   """
   @type get_analyzed_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unused_access_findings_statistics() :: %{
+        "topAccounts" => list(finding_aggregation_account_details()()),
+        "totalActiveFindings" => [integer()],
+        "totalArchivedFindings" => [integer()],
+        "totalResolvedFindings" => [integer()],
+        "unusedAccessTypeStatistics" => list(unused_access_type_statistics()())
+      }
+
+  """
+  @type unused_access_findings_statistics() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1972,6 +2061,13 @@ defmodule AWS.AccessAnalyzer do
           | resource_not_found_exception()
 
   @type get_finding_v2_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_findings_statistics_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -2699,6 +2795,36 @@ defmodule AWS.AccessAnalyzer do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves a list of aggregated finding statistics for an external access or
+  unused
+  access analyzer.
+  """
+  @spec get_findings_statistics(map(), get_findings_statistics_request(), list()) ::
+          {:ok, get_findings_statistics_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_findings_statistics_errors()}
+  def get_findings_statistics(%Client{} = client, input, options \\ []) do
+    url_path = "/analyzer/findings/statistics"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

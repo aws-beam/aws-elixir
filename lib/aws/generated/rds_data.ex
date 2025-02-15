@@ -308,6 +308,17 @@ defmodule AWS.RDSData do
 
   ## Example:
 
+      invalid_resource_state_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type invalid_resource_state_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       secrets_error_exception() :: %{
         "message" => String.t()
       }
@@ -487,6 +498,7 @@ defmodule AWS.RDSData do
           | database_not_found_exception()
           | http_endpoint_not_enabled_exception()
           | secrets_error_exception()
+          | invalid_resource_state_exception()
           | database_unavailable_exception()
           | invalid_secret_exception()
           | service_unavailable_error()
@@ -503,6 +515,7 @@ defmodule AWS.RDSData do
           | database_not_found_exception()
           | http_endpoint_not_enabled_exception()
           | secrets_error_exception()
+          | invalid_resource_state_exception()
           | database_unavailable_exception()
           | invalid_secret_exception()
           | service_unavailable_error()
@@ -519,6 +532,7 @@ defmodule AWS.RDSData do
           | database_not_found_exception()
           | http_endpoint_not_enabled_exception()
           | secrets_error_exception()
+          | invalid_resource_state_exception()
           | database_unavailable_exception()
           | not_found_exception()
           | invalid_secret_exception()
@@ -542,6 +556,7 @@ defmodule AWS.RDSData do
           | database_not_found_exception()
           | http_endpoint_not_enabled_exception()
           | secrets_error_exception()
+          | invalid_resource_state_exception()
           | database_unavailable_exception()
           | invalid_secret_exception()
           | service_unavailable_error()
@@ -559,6 +574,7 @@ defmodule AWS.RDSData do
           | database_not_found_exception()
           | http_endpoint_not_enabled_exception()
           | secrets_error_exception()
+          | invalid_resource_state_exception()
           | database_unavailable_exception()
           | not_found_exception()
           | invalid_secret_exception()

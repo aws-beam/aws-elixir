@@ -713,6 +713,7 @@ defmodule AWS.S3 do
         "RequestCharged" => list(any()),
         "MissingMeta" => integer(),
         "Restore" => String.t(),
+        "ContentRange" => String.t(),
         "SSECustomerAlgorithm" => String.t(),
         "ContentLanguage" => String.t()
       }
@@ -10899,6 +10900,7 @@ defmodule AWS.S3 do
           {"ETag", "ETag"},
           {"x-amz-archive-status", "ArchiveStatus"},
           {"Last-Modified", "LastModified"},
+          {"Content-Range", "ContentRange"},
           {"Expires", "Expires"},
           {"x-amz-expiration", "Expiration"},
           {"x-amz-replication-status", "ReplicationStatus"},

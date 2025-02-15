@@ -766,7 +766,8 @@ defmodule AWS.CodeBuild do
         "prefix" => String.t(),
         "reportArn" => String.t(),
         "status" => String.t(),
-        "testRawDataPath" => String.t()
+        "testRawDataPath" => String.t(),
+        "testSuiteName" => String.t()
       }
       
   """

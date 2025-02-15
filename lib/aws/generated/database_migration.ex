@@ -1066,6 +1066,27 @@ defmodule AWS.DatabaseMigration do
 
   ## Example:
       
+      premigration_assessment_status() :: %{
+        "AssessmentProgress" => replication_task_assessment_run_progress(),
+        "FailOnAssessmentFailure" => boolean(),
+        "LastFailureMessage" => String.t(),
+        "PremigrationAssessmentRunArn" => String.t(),
+        "PremigrationAssessmentRunCreationDate" => non_neg_integer(),
+        "ResultEncryptionMode" => String.t(),
+        "ResultKmsKeyArn" => String.t(),
+        "ResultLocationBucket" => String.t(),
+        "ResultLocationFolder" => String.t(),
+        "ResultStatistic" => replication_task_assessment_run_result_statistic(),
+        "Status" => String.t()
+      }
+      
+  """
+  @type premigration_assessment_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_replication_task_assessment_results_response() :: %{
         "BucketName" => String.t(),
         "Marker" => String.t(),
@@ -1199,6 +1220,7 @@ defmodule AWS.DatabaseMigration do
         optional("CdcStartPosition") => String.t(),
         optional("CdcStartTime") => non_neg_integer(),
         optional("CdcStopPosition") => String.t(),
+        optional("PremigrationAssessmentSettings") => String.t(),
         required("ReplicationConfigArn") => String.t(),
         required("StartReplicationType") => String.t()
       }
@@ -2102,6 +2124,7 @@ defmodule AWS.DatabaseMigration do
         "CdcStartTime" => non_neg_integer(),
         "CdcStopPosition" => String.t(),
         "FailureMessages" => list(String.t()()),
+        "PremigrationAssessmentStatuses" => list(premigration_assessment_status()()),
         "ProvisionData" => provision_data(),
         "RecoveryCheckpoint" => String.t(),
         "ReplicationConfigArn" => String.t(),
@@ -5532,7 +5555,8 @@ defmodule AWS.DatabaseMigration do
 
   @doc """
   Applies a pending maintenance action to a resource (for example, to a
-  replication instance).
+  replication
+  instance).
   """
   @spec apply_pending_maintenance_action(
           map(),
@@ -5612,8 +5636,8 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Creates a data provider using the provided settings.
 
-  A data provider stores
-  a data store type and location information about your database.
+  A data provider stores a data store
+  type and location information about your database.
   """
   @spec create_data_provider(map(), create_data_provider_message(), list()) ::
           {:ok, create_data_provider_response(), any()}
@@ -5630,11 +5654,12 @@ defmodule AWS.DatabaseMigration do
 
   For a MySQL source or target endpoint, don't explicitly specify the database
   using
-  the `DatabaseName` request parameter on the `CreateEndpoint` API call.
-  Specifying `DatabaseName` when you create a MySQL endpoint replicates all the
-  task tables to this single database. For MySQL endpoints, you specify the
-  database only when
-  you specify the schema in the table-mapping rules of the DMS task.
+  the `DatabaseName` request parameter on the `CreateEndpoint` API
+  call. Specifying `DatabaseName` when you create a MySQL endpoint replicates
+  all the task tables to this single database. For MySQL endpoints, you specify
+  the
+  database only when you specify the schema in the table-mapping rules of the DMS
+  task.
   """
   @spec create_endpoint(map(), create_endpoint_message(), list()) ::
           {:ok, create_endpoint_response(), any()}
@@ -5668,8 +5693,7 @@ defmodule AWS.DatabaseMigration do
   sources belonging to your customer account.
 
   For more information about DMS events, see [Working with Events and Notifications](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html)
-  in the *Database Migration Service User
-  Guide.*
+  in the *Database Migration Service User Guide.*
   """
   @spec create_event_subscription(map(), create_event_subscription_message(), list()) ::
           {:ok, create_event_subscription_response(), any()}
@@ -5728,12 +5752,10 @@ defmodule AWS.DatabaseMigration do
 
   @doc """
   Creates a configuration that you can later provide to configure and start an DMS
-  Serverless
-  replication.
+  Serverless replication.
 
-  You can also provide options to validate the configuration inputs before you
-  start the
-  replication.
+  You can also provide options to validate the configuration inputs
+  before you start the replication.
   """
   @spec create_replication_config(map(), create_replication_config_message(), list()) ::
           {:ok, create_replication_config_response(), any()}
@@ -5749,17 +5771,17 @@ defmodule AWS.DatabaseMigration do
   Creates the replication instance using the specified parameters.
 
   DMS requires that your account have certain roles with appropriate permissions
-  before you can create a replication instance. For information on the required
-  roles, see
-  [Creating the IAM Roles to Use With the CLI and DMS API](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.APIRole).
-  For
-  information on the required permissions, see
-  [IAM Permissions Needed to Use DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.IAMPermissions).
+  before
+  you can create a replication instance. For information on the required roles,
+  see [Creating the IAM Roles to Use With the CLI and DMS API](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.APIRole).
+  For information on
+  the required permissions, see [IAM Permissions Needed to Use
+  DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.IAMPermissions).
 
   If you don't specify a version when creating a replication instance, DMS will
-  create the instance using the
-  default engine version. For information about the default engine version, see
-  [Release Notes](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReleaseNotes.html).
+  create the instance using the default engine version. For information about the
+  default
+  engine version, see [Release Notes](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReleaseNotes.html).
   """
   @spec create_replication_instance(map(), create_replication_instance_message(), list()) ::
           {:ok, create_replication_instance_response(), any()}
@@ -5775,17 +5797,19 @@ defmodule AWS.DatabaseMigration do
   Creates a replication subnet group given a list of the subnet IDs in a VPC.
 
   The VPC needs to have at least one subnet in at least two availability zones in
-  the Amazon Web Services Region, otherwise the
-  service will throw a `ReplicationSubnetGroupDoesNotCoverEnoughAZs` exception.
+  the
+  Amazon Web Services Region, otherwise the service will throw a
+  `ReplicationSubnetGroupDoesNotCoverEnoughAZs` exception.
 
   If a replication subnet group exists in your Amazon Web Services account, the
-  CreateReplicationSubnetGroup action
-  returns the following error message: The Replication Subnet Group already
-  exists. In this case, delete
-  the existing replication subnet group. To do so, use the
+  CreateReplicationSubnetGroup action returns the following error message: The
+  Replication
+  Subnet Group already exists. In this case, delete the existing replication
+  subnet group. To
+  do so, use the
   [DeleteReplicationSubnetGroup](https://docs.aws.amazon.com/en_us/dms/latest/APIReference/API_DeleteReplicationSubnetGroup.html)
-  action. Optionally, choose Subnet groups in the DMS console,
-  then choose your subnet group. Next, choose Delete from Actions.
+  action. Optionally, choose Subnet groups in the
+  DMS console, then choose your subnet group. Next, choose Delete from Actions.
   """
   @spec create_replication_subnet_group(map(), create_replication_subnet_group_message(), list()) ::
           {:ok, create_replication_subnet_group_response(), any()}
@@ -5925,8 +5949,7 @@ defmodule AWS.DatabaseMigration do
   Deletes the specified instance profile.
 
   All migration projects associated with the instance profile must be deleted or
-  modified
-  before you can delete the instance profile.
+  modified before you can delete the instance profile.
   """
   @spec delete_instance_profile(map(), delete_instance_profile_message(), list()) ::
           {:ok, delete_instance_profile_response(), any()}
@@ -5956,11 +5979,12 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Deletes an DMS Serverless replication configuration.
 
-  This effectively deprovisions any and all
-  replications that use this configuration. You can't delete the configuration for
-  an DMS Serverless replication
-  that is ongoing. You can delete the configuration when the replication is in a
-  non-RUNNING and non-STARTING state.
+  This effectively deprovisions any
+  and all replications that use this configuration. You can't delete the
+  configuration for an
+  DMS Serverless replication that is ongoing. You can delete the configuration
+  when the
+  replication is in a non-RUNNING and non-STARTING state.
   """
   @spec delete_replication_config(map(), delete_replication_config_message(), list()) ::
           {:ok, delete_replication_config_response(), any()}
@@ -6069,30 +6093,30 @@ defmodule AWS.DatabaseMigration do
   assessment run, given one or more parameters.
 
   If you specify an existing migration task, this operation provides the default
-  individual
-  assessments you can specify for that task. Otherwise, the specified parameters
-  model elements
-  of a possible migration task on which to base a premigration assessment run.
+  individual assessments you can specify for that task. Otherwise, the specified
+  parameters
+  model elements of a possible migration task on which to base a premigration
+  assessment
+  run.
 
   To use these migration task modeling parameters, you must specify an existing
-  replication instance,
-  a source database engine, a target database engine, and a migration type. This
-  combination of
-  parameters potentially limits the default individual assessments available for
-  an assessment run
-  created for a corresponding migration task.
+  replication instance, a source database engine, a target database engine, and a
+  migration
+  type. This combination of parameters potentially limits the default individual
+  assessments
+  available for an assessment run created for a corresponding migration task.
 
   If you specify no parameters, this operation provides a list of all possible
-  individual assessments
-  that you can specify for an assessment run. If you specify any one of the task
-  modeling parameters, you must
-  specify all of them or the operation cannot provide a list of individual
-  assessments.
-  The only parameter that you can specify alone is for an existing migration task.
-  The specified task
-  definition then determines the default list of individual assessments that you
-  can specify in an
-  assessment run for the task.
+  individual
+  assessments that you can specify for an assessment run. If you specify any one
+  of the task
+  modeling parameters, you must specify all of them or the operation cannot
+  provide a list of
+  individual assessments. The only parameter that you can specify alone is for an
+  existing
+  migration task. The specified task definition then determines the default list
+  of
+  individual assessments that you can specify in an assessment run for the task.
   """
   @spec describe_applicable_individual_assessments(
           map(),
@@ -6183,8 +6207,9 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
-  Returns information about the possible endpoint settings available
-  when you create an endpoint for a specific database engine.
+  Returns information about the possible endpoint settings available when you
+  create an
+  endpoint for a specific database engine.
   """
   @spec describe_endpoint_settings(map(), describe_endpoint_settings_message(), list()) ::
           {:ok, describe_endpoint_settings_response(), any()}
@@ -6240,8 +6265,7 @@ defmodule AWS.DatabaseMigration do
   You can see a list of the event categories and source types in [Working with Events
   and
   Notifications](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html)
-  in the *Database Migration Service User
-  Guide.*
+  in the *Database Migration Service User Guide.*
   """
   @spec describe_event_categories(map(), describe_event_categories_message(), list()) ::
           {:ok, describe_event_categories_response(), any()}
@@ -6279,8 +6303,7 @@ defmodule AWS.DatabaseMigration do
   You can also specify a
   start and end time. For more information on DMS events, see [Working with Events and
   Notifications](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html)
-  in the *Database Migration Service User
-  Guide.*
+  in the *Database Migration Service User Guide.*
   """
   @spec describe_events(map(), describe_events_message(), list()) ::
           {:ok, describe_events_response(), any()}
@@ -6293,12 +6316,12 @@ defmodule AWS.DatabaseMigration do
 
   @doc """
   Returns a paginated list of extension pack associations for the specified
-  migration project.
+  migration
+  project.
 
-  An extension pack is an add-on module
-  that emulates functions present in a source database that are required when
-  converting objects
-  to the target database.
+  An extension pack is an add-on module that emulates functions present in a
+  source
+  database that are required when converting objects to the target database.
   """
   @spec describe_extension_pack_associations(
           map(),
@@ -6413,7 +6436,8 @@ defmodule AWS.DatabaseMigration do
 
   @doc """
   Returns a paginated list of metadata model assessments for your account in the
-  current region.
+  current
+  region.
   """
   @spec describe_metadata_model_assessments(
           map(),
@@ -6527,7 +6551,8 @@ defmodule AWS.DatabaseMigration do
 
   @doc """
   Returns a list of upcoming maintenance events for replication instances in your
-  account in the current Region.
+  account
+  in the current Region.
   """
   @spec describe_pending_maintenance_actions(
           map(),
@@ -6591,7 +6616,8 @@ defmodule AWS.DatabaseMigration do
 
   @doc """
   Returns one or more existing DMS Serverless replication configurations as a list
-  of structures.
+  of
+  structures.
   """
   @spec describe_replication_configs(map(), describe_replication_configs_message(), list()) ::
           {:ok, describe_replication_configs_response(), any()}
@@ -6675,11 +6701,9 @@ defmodule AWS.DatabaseMigration do
   in your
   Amazon Web Services account.
 
-  This action always returns the
-  latest results.
+  This action always returns the latest results.
 
-  For more information about DMS task assessments, see
-  [Creating a task assessment report](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html)
+  For more information about DMS task assessments, see [Creating a task assessment report](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html)
   in the *Database Migration Service User Guide*.
   """
   @spec describe_replication_task_assessment_results(
@@ -6813,8 +6837,8 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Saves a copy of a database migration assessment report to your Amazon S3 bucket.
 
-  DMS can save
-  your assessment report as a comma-separated value (CSV) or a PDF file.
+  DMS can
+  save your assessment report as a comma-separated value (CSV) or a PDF file.
   """
   @spec export_metadata_model_assessment(
           map(),
@@ -6844,13 +6868,14 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
-  Lists all metadata tags attached to an DMS resource, including
-  replication instance, endpoint, subnet group, and migration task.
+  Lists all metadata tags attached to an DMS resource, including replication
+  instance,
+  endpoint, subnet group, and migration task.
 
   For more information, see [
   `Tag`
-  ](https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html) data type
-  description.
+  ](https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html)
+  data type description.
   """
   @spec list_tags_for_resource(map(), list_tags_for_resource_message(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -6893,7 +6918,8 @@ defmodule AWS.DatabaseMigration do
   Modifies the specified data provider using the provided settings.
 
   You must remove the data provider from all migration projects before you can
-  modify it.
+  modify
+  it.
   """
   @spec modify_data_provider(map(), modify_data_provider_message(), list()) ::
           {:ok, modify_data_provider_response(), any()}
@@ -6910,11 +6936,12 @@ defmodule AWS.DatabaseMigration do
 
   For a MySQL source or target endpoint, don't explicitly specify the database
   using
-  the `DatabaseName` request parameter on the `ModifyEndpoint` API call.
-  Specifying `DatabaseName` when you modify a MySQL endpoint replicates all the
-  task tables to this single database. For MySQL endpoints, you specify the
-  database only when
-  you specify the schema in the table-mapping rules of the DMS task.
+  the `DatabaseName` request parameter on the `ModifyEndpoint` API
+  call. Specifying `DatabaseName` when you modify a MySQL endpoint replicates
+  all the task tables to this single database. For MySQL endpoints, you specify
+  the
+  database only when you specify the schema in the table-mapping rules of the DMS
+  task.
   """
   @spec modify_endpoint(map(), modify_endpoint_message(), list()) ::
           {:ok, modify_endpoint_response(), any()}
@@ -6942,8 +6969,8 @@ defmodule AWS.DatabaseMigration do
   @doc """
   Modifies the specified instance profile using the provided parameters.
 
-  All migration projects associated with the instance profile must be deleted
-  or modified before you can modify the instance profile.
+  All migration projects associated with the instance profile must be deleted or
+  modified before you can modify the instance profile.
   """
   @spec modify_instance_profile(map(), modify_instance_profile_message(), list()) ::
           {:ok, modify_instance_profile_response(), any()}
@@ -6972,20 +6999,20 @@ defmodule AWS.DatabaseMigration do
 
   @doc """
   Modifies an existing DMS Serverless replication configuration that you can use
-  to start a replication.
+  to
+  start a replication.
 
-  This command includes input validation and logic to check
-  the state of any replication that uses this configuration. You can only modify a
-  replication
+  This command includes input validation and logic to check the state of
+  any replication that uses this configuration. You can only modify a replication
   configuration before any replication that uses it has started. As soon as you
-  have initially
-  started a replication with a given configuiration, you can't modify that
-  configuration,
-  even if you stop it.
+  have
+  initially started a replication with a given configuiration, you can't modify
+  that
+  configuration, even if you stop it.
 
   Other run statuses that allow you to run this command include FAILED and
-  CREATED.
-  A provisioning state that allows you to run this command is FAILED_PROVISION.
+  CREATED. A
+  provisioning state that allows you to run this command is FAILED_PROVISION.
   """
   @spec modify_replication_config(map(), modify_replication_config_message(), list()) ::
           {:ok, modify_replication_config_response(), any()}
@@ -7123,8 +7150,7 @@ defmodule AWS.DatabaseMigration do
   Reloads the target database table with the source data.
 
   You can only use this operation with a task in the `RUNNING` state, otherwise
-  the service
-  will throw an `InvalidResourceStateFault` exception.
+  the service will throw an `InvalidResourceStateFault` exception.
   """
   @spec reload_tables(map(), reload_tables_message(), list()) ::
           {:ok, reload_tables_response(), any()}
@@ -7138,13 +7164,13 @@ defmodule AWS.DatabaseMigration do
 
   @doc """
   Removes metadata tags from an DMS resource, including replication instance,
-  endpoint, subnet group, and migration task.
+  endpoint,
+  subnet group, and migration task.
 
-  For more information, see
-  [
+  For more information, see [
   `Tag`
-  ](https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html)
-  data type description.
+  ](https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html) data type
+  description.
   """
   @spec remove_tags_from_resource(map(), remove_tags_from_resource_message(), list()) ::
           {:ok, remove_tags_from_resource_response(), any()}
@@ -7212,8 +7238,8 @@ defmodule AWS.DatabaseMigration do
 
   A database migration assessment report summarizes all of the schema
   conversion tasks. It also details the action items for database objects that
-  can't be converted
-  to the database engine of your target database instance.
+  can't be
+  converted to the database engine of your target database instance.
   """
   @spec start_metadata_model_assessment(map(), start_metadata_model_assessment_message(), list()) ::
           {:ok, start_metadata_model_assessment_response(), any()}
@@ -7241,7 +7267,8 @@ defmodule AWS.DatabaseMigration do
 
   @doc """
   Saves your converted code to a file as a SQL script, and stores this file on
-  your Amazon S3 bucket.
+  your Amazon S3
+  bucket.
   """
   @spec start_metadata_model_export_as_script(
           map(),
@@ -7278,7 +7305,8 @@ defmodule AWS.DatabaseMigration do
   Loads the metadata for all the dependent database objects of the parent object.
 
   This operation uses your project's Amazon S3 bucket as a metadata cache to
-  improve performance.
+  improve
+  performance.
   """
   @spec start_metadata_model_import(map(), start_metadata_model_import_message(), list()) ::
           {:ok, start_metadata_model_import_response(), any()}
@@ -7309,14 +7337,14 @@ defmodule AWS.DatabaseMigration do
 
   @doc """
   For a given DMS Serverless replication configuration, DMS connects to the source
-  endpoint and
-  collects the metadata to analyze the replication workload.
+  endpoint and collects the metadata to analyze the replication workload.
 
-  Using this metadata, DMS then
-  computes and provisions the required capacity and starts replicating to the
-  target endpoint
-  using the server resources that DMS has provisioned for the DMS Serverless
-  replication.
+  Using this
+  metadata, DMS then computes and provisions the required capacity and starts
+  replicating
+  to the target endpoint using the server resources that DMS has provisioned for
+  the DMS
+  Serverless replication.
   """
   @spec start_replication(map(), start_replication_message(), list()) ::
           {:ok, start_replication_response(), any()}
@@ -7357,12 +7385,12 @@ defmodule AWS.DatabaseMigration do
     *
   The task must have successful connections to the source and target.
 
-  If either of these conditions are not met, an `InvalidResourceStateFault` error
-  will result.
+  If either of these conditions are not met, an `InvalidResourceStateFault`
+  error will result.
 
-  For information about DMS task assessments, see
-  [Creating a task assessment report](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html)
-  in the *Database Migration Service User Guide*.
+  For information about DMS task assessments, see [Creating a task assessment report](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html)
+  in the *Database Migration Service User
+  Guide*.
   """
   @spec start_replication_task_assessment(
           map(),
@@ -7380,7 +7408,8 @@ defmodule AWS.DatabaseMigration do
 
   @doc """
   Starts a new premigration assessment run for one or more individual assessments
-  of a migration task.
+  of a
+  migration task.
 
   The assessments that you can specify depend on the source and target database
   engine and
@@ -7421,9 +7450,11 @@ defmodule AWS.DatabaseMigration do
 
   @doc """
   For a given DMS Serverless replication configuration, DMS stops any and all
-  ongoing DMS Serverless replications.
+  ongoing
+  DMS Serverless replications.
 
-  This command doesn't deprovision the stopped replications.
+  This command doesn't deprovision the stopped
+  replications.
   """
   @spec stop_replication(map(), stop_replication_message(), list()) ::
           {:ok, stop_replication_response(), any()}
@@ -7463,22 +7494,26 @@ defmodule AWS.DatabaseMigration do
 
   @doc """
   Migrates 10 active and enabled Amazon SNS subscriptions at a time and converts
-  them to corresponding Amazon EventBridge rules.
+  them to
+  corresponding Amazon EventBridge rules.
 
-  By default, this operation migrates subscriptions only when all your replication
-  instance versions are 3.4.5 or higher.
-  If any replication instances are from versions earlier than 3.4.5, the operation
-  raises an error and tells you
+  By default, this operation migrates subscriptions
+  only when all your replication instance versions are 3.4.5 or higher. If any
+  replication
+  instances are from versions earlier than 3.4.5, the operation raises an error
+  and tells you
   to upgrade these instances to version 3.4.5 or higher. To enable migration
-  regardless of version, set the `Force`
-  option to true. However, if you don't upgrade instances earlier than version
-  3.4.5, some types of events might not be
-  available when you use Amazon EventBridge.
+  regardless of
+  version, set the `Force` option to true. However, if you don't upgrade instances
+  earlier than version 3.4.5, some types of events might not be available when you
+  use Amazon
+  EventBridge.
 
   To call this operation, make sure that you have certain permissions added to
-  your user account.
-  For more information, see [Migrating event subscriptions to Amazon EventBridge](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html#CHAP_Events-migrate-to-eventbridge)
-  in the *Amazon Web Services Database Migration Service User Guide*.
+  your user
+  account. For more information, see [Migrating event subscriptions to Amazon EventBridge](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html#CHAP_Events-migrate-to-eventbridge)
+  in the
+  *Amazon Web Services Database Migration Service User Guide*.
   """
   @spec update_subscriptions_to_event_bridge(
           map(),

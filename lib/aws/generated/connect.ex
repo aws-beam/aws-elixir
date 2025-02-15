@@ -45,6 +45,7 @@ defmodule AWS.Connect do
   ## Example:
 
       associate_instance_storage_config_request() :: %{
+        optional("ClientToken") => String.t(),
         required("ResourceType") => list(any()),
         required("StorageConfig") => instance_storage_config()
       }
@@ -1603,6 +1604,7 @@ defmodule AWS.Connect do
   ## Example:
 
       disassociate_lex_bot_request() :: %{
+        optional("ClientToken") => String.t(),
         required("BotName") => String.t(),
         required("LexRegion") => String.t()
       }
@@ -1721,6 +1723,7 @@ defmodule AWS.Connect do
   ## Example:
 
       update_instance_storage_config_request() :: %{
+        optional("ClientToken") => String.t(),
         required("ResourceType") => list(any()),
         required("StorageConfig") => instance_storage_config()
       }
@@ -2376,6 +2379,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      analytics_data_sets_result() :: %{
+        "DataSetId" => String.t(),
+        "DataSetName" => String.t()
+      }
+
+  """
+  @type analytics_data_sets_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       stop_contact_request() :: %{
         optional("DisconnectReason") => disconnect_reason(),
         required("ContactId") => String.t(),
@@ -2767,6 +2782,7 @@ defmodule AWS.Connect do
   ## Example:
 
       disassociate_approved_origin_request() :: %{
+        optional("ClientToken") => String.t(),
         required("Origin") => String.t()
       }
 
@@ -2802,6 +2818,7 @@ defmodule AWS.Connect do
   ## Example:
 
       associate_lambda_function_request() :: %{
+        optional("ClientToken") => String.t(),
         required("FunctionArn") => String.t()
       }
 
@@ -3193,6 +3210,7 @@ defmodule AWS.Connect do
   ## Example:
 
       associate_approved_origin_request() :: %{
+        optional("ClientToken") => String.t(),
         required("Origin") => String.t()
       }
 
@@ -3514,6 +3532,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      list_analytics_data_lake_data_sets_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_analytics_data_lake_data_sets_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_lex_bots_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
@@ -3773,6 +3803,7 @@ defmodule AWS.Connect do
   ## Example:
 
       update_instance_attribute_request() :: %{
+        optional("ClientToken") => String.t(),
         required("Value") => String.t()
       }
 
@@ -4373,6 +4404,7 @@ defmodule AWS.Connect do
   ## Example:
 
       disassociate_bot_request() :: %{
+        optional("ClientToken") => String.t(),
         optional("LexBot") => lex_bot(),
         optional("LexV2Bot") => lex_v2_bot()
       }
@@ -5239,6 +5271,7 @@ defmodule AWS.Connect do
   ## Example:
 
       disassociate_lambda_function_request() :: %{
+        optional("ClientToken") => String.t(),
         required("FunctionArn") => String.t()
       }
 
@@ -5250,6 +5283,7 @@ defmodule AWS.Connect do
   ## Example:
 
       disassociate_instance_storage_config_request() :: %{
+        optional("ClientToken") => String.t(),
         required("ResourceType") => list(any())
       }
 
@@ -6581,6 +6615,7 @@ defmodule AWS.Connect do
   ## Example:
 
       associate_security_key_request() :: %{
+        optional("ClientToken") => String.t(),
         required("Key") => String.t()
       }
 
@@ -6647,6 +6682,18 @@ defmodule AWS.Connect do
 
   """
   @type hours_of_operation_override() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_analytics_data_lake_data_sets_response() :: %{
+        "NextToken" => String.t(),
+        "Results" => list(analytics_data_sets_result()())
+      }
+
+  """
+  @type list_analytics_data_lake_data_sets_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6744,6 +6791,7 @@ defmodule AWS.Connect do
   ## Example:
 
       associate_bot_request() :: %{
+        optional("ClientToken") => String.t(),
         optional("LexBot") => lex_bot(),
         optional("LexV2Bot") => lex_v2_bot()
       }
@@ -6756,6 +6804,7 @@ defmodule AWS.Connect do
   ## Example:
 
       associate_lex_bot_request() :: %{
+        optional("ClientToken") => String.t(),
         required("LexBot") => lex_bot()
       }
 
@@ -8256,10 +8305,12 @@ defmodule AWS.Connect do
 
   ## Example:
 
-      disassociate_security_key_request() :: %{}
+      disassociate_security_key_request() :: %{
+        optional("ClientToken") => String.t()
+      }
 
   """
-  @type disassociate_security_key_request() :: %{}
+  @type disassociate_security_key_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -8332,10 +8383,12 @@ defmodule AWS.Connect do
 
   ## Example:
 
-      delete_instance_request() :: %{}
+      delete_instance_request() :: %{
+        optional("ClientToken") => String.t()
+      }
 
   """
-  @type delete_instance_request() :: %{}
+  @type delete_instance_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -8637,6 +8690,7 @@ defmodule AWS.Connect do
         "DataSetId" => String.t(),
         "ResourceShareArn" => String.t(),
         "ResourceShareId" => String.t(),
+        "ResourceShareStatus" => String.t(),
         "TargetAccountId" => String.t()
       }
 
@@ -11835,6 +11889,13 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | internal_service_exception()
 
+  @type list_analytics_data_lake_data_sets_errors() ::
+          throttling_exception()
+          | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+
   @type list_approved_origins_errors() ::
           throttling_exception()
           | invalid_parameter_exception()
@@ -13839,8 +13900,8 @@ defmodule AWS.Connect do
 
   Only the EMAIL channel is supported.
 
-  The supported initiation
-  methods are: OUTBOUND, AGENT_REPLY, and FLOW.
+  The supported initiation methods are: OUTBOUND,
+  AGENT_REPLY, and FLOW.
 
   Creates a new EMAIL contact.
   """
@@ -15319,7 +15380,12 @@ defmodule AWS.Connect do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     custom_headers = []
-    query_params = []
+
+    {query_params, input} =
+      [
+        {"ClientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 
@@ -16054,7 +16120,7 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   To
-  request access to this API, contact Amazon Web Services Support.
+  request access to this API, contact Amazon Web ServicesSupport.
 
   Describes the target authentication profile.
   """
@@ -16084,10 +16150,15 @@ defmodule AWS.Connect do
 
   Describes the specified contact.
 
+    
+
+  `CustomerEndpoint` and `SystemEndpoint` are only populated for EMAIL contacts.
+
+    
   Contact information remains available in Amazon Connect for 24 months from the
-  InitiationTimestamp, and then it is deleted. Only contact information that is
+  `InitiationTimestamp`, and then it is deleted. Only contact information that is
   available in
-  Amazon Connect is returned by this API
+  Amazon Connect is returned by this API.
   """
   @spec describe_contact(map(), String.t(), String.t(), list()) ::
           {:ok, describe_contact_response(), any()}
@@ -16741,6 +16812,7 @@ defmodule AWS.Connect do
 
     {query_params, input} =
       [
+        {"ClientToken", "clientToken"},
         {"Origin", "origin"}
       ]
       |> Request.build_params(input)
@@ -16868,6 +16940,7 @@ defmodule AWS.Connect do
 
     {query_params, input} =
       [
+        {"ClientToken", "clientToken"},
         {"ResourceType", "resourceType"}
       ]
       |> Request.build_params(input)
@@ -16909,6 +16982,7 @@ defmodule AWS.Connect do
 
     {query_params, input} =
       [
+        {"ClientToken", "clientToken"},
         {"FunctionArn", "functionArn"}
       ]
       |> Request.build_params(input)
@@ -16947,6 +17021,7 @@ defmodule AWS.Connect do
     {query_params, input} =
       [
         {"BotName", "botName"},
+        {"ClientToken", "clientToken"},
         {"LexRegion", "lexRegion"}
       ]
       |> Request.build_params(input)
@@ -17135,7 +17210,12 @@ defmodule AWS.Connect do
 
     headers = []
     custom_headers = []
-    query_params = []
+
+    {query_params, input} =
+      [
+        {"ClientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 
@@ -17710,7 +17790,7 @@ defmodule AWS.Connect do
   release 99, you
   will have exceeded the 200% limit. At that point you are blocked from claiming
   any more numbers
-  until you open an Amazon Web Services Support ticket.
+  until you open an Amazon Web ServicesSupport ticket.
   """
   @spec import_phone_number(map(), import_phone_number_request(), list()) ::
           {:ok, import_phone_number_response(), any()}
@@ -17845,6 +17925,51 @@ defmodule AWS.Connect do
   end
 
   @doc """
+  Lists the data lake datasets available to associate with for a given Amazon
+  Connect
+  instance.
+  """
+  @spec list_analytics_data_lake_data_sets(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_analytics_data_lake_data_sets_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_analytics_data_lake_data_sets_errors()}
+  def list_analytics_data_lake_data_sets(
+        %Client{} = client,
+        instance_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/analytics-data/instance/#{AWS.Util.encode_uri(instance_id)}/datasets"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   This API is in preview release for Amazon Connect and is subject to change.
 
   Returns a paginated list of all approved origins associated with the instance.
@@ -17941,7 +18066,7 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   To
-  request access to this API, contact Amazon Web Services Support.
+  request access to this API, contact Amazon Web ServicesSupport.
 
   Provides summary information about the authentication profiles in a specified
   Amazon Connect instance.
@@ -20135,7 +20260,7 @@ defmodule AWS.Connect do
   for up to
   180 days. It cannot be searched for or claimed again until the period has ended.
   If you
-  accidentally release a phone number, contact Amazon Web Services Support.
+  accidentally release a phone number, contact Amazon Web ServicesSupport.
 
   If you plan to claim and release numbers frequently,
   contact us for a service quota exception. Otherwise, it is possible you will be
@@ -20983,7 +21108,7 @@ defmodule AWS.Connect do
   If you use the `ChatDurationInMinutes` parameter and receive a 400 error, your
   account may not support the ability to configure custom chat durations. For more
   information,
-  contact Amazon Web Services Support.
+  contact Amazon Web ServicesSupport.
 
   For more information about chat, see the following topics in the *Amazon Connect
   Administrator Guide*:
@@ -21929,7 +22054,7 @@ defmodule AWS.Connect do
   This API is in preview release for Amazon Connect and is subject to change.
 
   To
-  request access to this API, contact Amazon Web Services Support.
+  request access to this API, contact Amazon Web ServicesSupport.
 
   Updates the selected authentication profile.
   """

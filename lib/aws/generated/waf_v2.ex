@@ -25,9 +25,10 @@ defmodule AWS.WAFV2 do
   see the [WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
 
   WAF is a web application firewall that lets you monitor the HTTP and HTTPS
-  requests that are forwarded to an Amazon CloudFront distribution, Amazon API
-  Gateway REST API, Application Load Balancer, AppSync
-  GraphQL API, Amazon Cognito user pool, App Runner service, or Amazon Web
+  requests that are forwarded to a protected resource. Protected resource types
+  include Amazon CloudFront distribution, Amazon API Gateway REST API, Application
+  Load Balancer, AppSync
+  GraphQL API, Amazon Cognito user pool, App Runner service, and Amazon Web
   Services Verified Access instance. WAF also lets you control access to your
   content,
   to protect the Amazon Web Services resource that WAF is monitoring. Based on
@@ -47,13 +48,13 @@ defmodule AWS.WAFV2 do
   You can make calls using the endpoints listed in [WAF endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/waf.html).
 
     *
-  For regional applications, you can use any of the endpoints in the list.
+  For regional resources, you can use any of the endpoints in the list.
   A regional application can be an Application Load Balancer (ALB), an Amazon API
   Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App
   Runner service, or an Amazon Web Services Verified Access instance.
 
     *
-  For Amazon CloudFront applications, you must use the API endpoint listed for
+  For Amazon CloudFront, you must use the API endpoint listed for
   US East (N. Virginia): us-east-1.
 
   Alternatively, you can use one of the Amazon Web Services SDKs to access an API
@@ -1121,6 +1122,7 @@ defmodule AWS.WAFV2 do
         "CaptchaConfig" => captcha_config(),
         "ChallengeConfig" => challenge_config(),
         "CustomResponseBodies" => map(),
+        "DataProtectionConfig" => data_protection_config(),
         "DefaultAction" => default_action(),
         "Description" => String.t(),
         "Id" => String.t(),
@@ -1311,6 +1313,20 @@ defmodule AWS.WAFV2 do
 
   ## Example:
       
+      data_protection() :: %{
+        "Action" => list(any()),
+        "ExcludeRateBasedDetails" => boolean(),
+        "ExcludeRuleMatchDetails" => boolean(),
+        "Field" => field_to_protect()
+      }
+      
+  """
+  @type data_protection() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       none_action() :: %{}
       
   """
@@ -1351,6 +1367,17 @@ defmodule AWS.WAFV2 do
       
   """
   @type username_field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_protection_config() :: %{
+        "DataProtections" => list(data_protection()())
+      }
+      
+  """
+  @type data_protection_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1442,6 +1469,18 @@ defmodule AWS.WAFV2 do
       
   """
   @type list_mobile_sdk_releases_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      field_to_protect() :: %{
+        "FieldKeys" => list(String.t()()),
+        "FieldType" => list(any())
+      }
+      
+  """
+  @type field_to_protect() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1617,6 +1656,7 @@ defmodule AWS.WAFV2 do
         optional("CaptchaConfig") => captcha_config(),
         optional("ChallengeConfig") => challenge_config(),
         optional("CustomResponseBodies") => map(),
+        optional("DataProtectionConfig") => data_protection_config(),
         optional("Description") => String.t(),
         optional("Rules") => list(rule()()),
         optional("TokenDomains") => list(String.t()()),
@@ -2169,6 +2209,7 @@ defmodule AWS.WAFV2 do
         optional("CaptchaConfig") => captcha_config(),
         optional("ChallengeConfig") => challenge_config(),
         optional("CustomResponseBodies") => map(),
+        optional("DataProtectionConfig") => data_protection_config(),
         optional("Description") => String.t(),
         optional("Rules") => list(rule()()),
         optional("Tags") => list(tag()()),
@@ -3626,18 +3667,12 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  Associates a web ACL with a regional application resource, to protect the
-  resource.
+  Associates a web ACL with a resource, to protect the resource.
 
-  A regional application can be an Application Load Balancer (ALB), an Amazon API
-  Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App
-  Runner service, or an Amazon Web Services Verified Access instance.
-
-  For Amazon CloudFront, don't use this call. Instead, use your CloudFront
-  distribution configuration. To
-  associate a web ACL, in the CloudFront call `UpdateDistribution`, set the web
-  ACL ID
-  to the Amazon Resource Name (ARN) of the web ACL. For information, see
+  Use this for all resource types except for Amazon CloudFront distributions. For
+  Amazon CloudFront, call `UpdateDistribution` for the distribution and provide
+  the Amazon Resource Name (ARN) of the web ACL in the web ACL ID. For
+  information, see
   [UpdateDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html) in the *Amazon CloudFront Developer Guide*.
 
   ## Required permissions for customer-managed IAM policies
@@ -3799,10 +3834,9 @@ defmodule AWS.WAFV2 do
   that does not match any of the rules. The rules in a web ACL can be a
   combination of the types `Rule`, `RuleGroup`, and managed rule group. You can
   associate a web ACL with one or more Amazon Web Services resources to protect.
-  The resources can be an Amazon CloudFront distribution, an Amazon API Gateway
-  REST API, an Application Load Balancer, an AppSync GraphQL API, an Amazon
-  Cognito user pool, an App Runner service, or an Amazon Web Services Verified
-  Access instance.
+  The resource types include Amazon CloudFront distribution, Amazon API Gateway
+  REST API, Application Load Balancer, AppSync GraphQL API, Amazon Cognito user
+  pool, App Runner service, and Amazon Web Services Verified Access instance.
   """
   @spec create_web_acl(map(), create_web_acl_request(), list()) ::
           {:ok, create_web_acl_response(), any()}
@@ -3930,18 +3964,15 @@ defmodule AWS.WAFV2 do
   following calls:
 
       
-  For regional resources, call `ListResourcesForWebACL`.
-
-      
   For Amazon CloudFront distributions, use the CloudFront call
   `ListDistributionsByWebACLId`. For information, see
   [ListDistributionsByWebACLId](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListDistributionsByWebACLId.html) in the *Amazon CloudFront API Reference*.
 
+      
+  For all other resources, call `ListResourcesForWebACL`.
+
     
   To disassociate a resource from a web ACL, use the following calls:
-
-      
-  For regional resources, call `DisassociateWebACL`.
 
       
   For Amazon CloudFront distributions, provide an empty web ACL ID in the
@@ -3949,6 +3980,9 @@ defmodule AWS.WAFV2 do
   `UpdateDistribution`. For information, see
   [UpdateDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html)
   in the *Amazon CloudFront API Reference*.
+
+      
+  For all other resources, call `DisassociateWebACL`.
   """
   @spec delete_web_acl(map(), delete_web_acl_request(), list()) ::
           {:ok, delete_web_acl_response(), any()}
@@ -4007,19 +4041,12 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  Disassociates the specified regional application resource from any existing web
-  ACL
-  association.
+  Disassociates the specified resource from its web ACL
+  association, if it has one.
 
-  A resource can have at most one web ACL association. A regional application can
-  be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an
-  AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an
-  Amazon Web Services Verified Access instance.
-
-  For Amazon CloudFront, don't use this call. Instead, use your CloudFront
-  distribution configuration. To
-  disassociate a web ACL, provide an empty web ACL ID in the CloudFront call
-  `UpdateDistribution`. For information, see
+  Use this for all resource types except for Amazon CloudFront distributions. For
+  Amazon CloudFront, call `UpdateDistribution` for the distribution and provide an
+  empty web ACL ID. For information, see
   [UpdateDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html) in the *Amazon CloudFront API Reference*.
 
   ## Required permissions for customer-managed IAM policies
@@ -4455,8 +4482,7 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
-  Retrieves an array of the Amazon Resource Names (ARNs) for the regional
-  resources that
+  Retrieves an array of the Amazon Resource Names (ARNs) for the resources that
   are associated with the specified web ACL.
 
   For Amazon CloudFront, don't use this call. Instead, use the CloudFront call
@@ -4539,6 +4565,9 @@ defmodule AWS.WAFV2 do
   @doc """
   Enables the specified `LoggingConfiguration`, to start logging from a
   web ACL, according to the configuration provided.
+
+  If you configure data protection for the web ACL, the protection applies to the
+  data that WAF sends to the logs.
 
   This operation completely replaces any mutable specifications that you already
   have for a logging configuration with the ones that you provide to this call.
@@ -4939,10 +4968,9 @@ defmodule AWS.WAFV2 do
   that does not match any of the rules. The rules in a web ACL can be a
   combination of the types `Rule`, `RuleGroup`, and managed rule group. You can
   associate a web ACL with one or more Amazon Web Services resources to protect.
-  The resources can be an Amazon CloudFront distribution, an Amazon API Gateway
-  REST API, an Application Load Balancer, an AppSync GraphQL API, an Amazon
-  Cognito user pool, an App Runner service, or an Amazon Web Services Verified
-  Access instance.
+  The resource types include Amazon CloudFront distribution, Amazon API Gateway
+  REST API, Application Load Balancer, AppSync GraphQL API, Amazon Cognito user
+  pool, App Runner service, and Amazon Web Services Verified Access instance.
 
   ## Temporary inconsistencies during updates
 

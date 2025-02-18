@@ -32,6 +32,19 @@ defmodule AWS.TimestreamInfluxDB do
 
   ## Example:
       
+      list_db_instances_for_cluster_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("dbClusterId") => String.t()
+      }
+      
+  """
+  @type list_db_instances_for_cluster_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_db_parameter_groups_input() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
@@ -44,10 +57,27 @@ defmodule AWS.TimestreamInfluxDB do
 
   ## Example:
       
+      update_db_cluster_input() :: %{
+        optional("dbInstanceType") => list(any()),
+        optional("dbParameterGroupIdentifier") => String.t(),
+        optional("failoverMode") => list(any()),
+        optional("logDeliveryConfiguration") => log_delivery_configuration(),
+        optional("port") => integer(),
+        required("dbClusterId") => String.t()
+      }
+      
+  """
+  @type update_db_cluster_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_db_instance_output() :: %{
         "allocatedStorage" => integer(),
         "arn" => String.t(),
         "availabilityZone" => [String.t()],
+        "dbClusterId" => String.t(),
         "dbInstanceType" => list(any()),
         "dbParameterGroupIdentifier" => String.t(),
         "dbStorageType" => list(any()),
@@ -55,6 +85,7 @@ defmodule AWS.TimestreamInfluxDB do
         "endpoint" => [String.t()],
         "id" => String.t(),
         "influxAuthParametersSecretArn" => [String.t()],
+        "instanceMode" => list(any()),
         "logDeliveryConfiguration" => log_delivery_configuration(),
         "name" => String.t(),
         "networkType" => list(any()),
@@ -68,6 +99,18 @@ defmodule AWS.TimestreamInfluxDB do
       
   """
   @type delete_db_instance_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_db_clusters_output() :: %{
+        "items" => list(db_cluster_summary()()),
+        "nextToken" => String.t()
+      }
+      
+  """
+  @type list_db_clusters_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -104,6 +147,18 @@ defmodule AWS.TimestreamInfluxDB do
       
   """
   @type delete_db_instance_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_db_instances_for_cluster_output() :: %{
+        "items" => list(db_instance_for_cluster_summary()()),
+        "nextToken" => String.t()
+      }
+      
+  """
+  @type list_db_instances_for_cluster_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -157,6 +212,7 @@ defmodule AWS.TimestreamInfluxDB do
         "allocatedStorage" => integer(),
         "arn" => String.t(),
         "availabilityZone" => [String.t()],
+        "dbClusterId" => String.t(),
         "dbInstanceType" => list(any()),
         "dbParameterGroupIdentifier" => String.t(),
         "dbStorageType" => list(any()),
@@ -164,6 +220,7 @@ defmodule AWS.TimestreamInfluxDB do
         "endpoint" => [String.t()],
         "id" => String.t(),
         "influxAuthParametersSecretArn" => [String.t()],
+        "instanceMode" => list(any()),
         "logDeliveryConfiguration" => log_delivery_configuration(),
         "name" => String.t(),
         "networkType" => list(any()),
@@ -229,6 +286,34 @@ defmodule AWS.TimestreamInfluxDB do
 
   ## Example:
       
+      create_db_cluster_input() :: %{
+        optional("bucket") => String.t(),
+        optional("dbParameterGroupIdentifier") => String.t(),
+        optional("dbStorageType") => list(any()),
+        optional("failoverMode") => list(any()),
+        optional("logDeliveryConfiguration") => log_delivery_configuration(),
+        optional("networkType") => list(any()),
+        optional("organization") => String.t(),
+        optional("port") => integer(),
+        optional("publiclyAccessible") => [boolean()],
+        optional("tags") => map(),
+        optional("username") => String.t(),
+        required("allocatedStorage") => integer(),
+        required("dbInstanceType") => list(any()),
+        required("deploymentType") => list(any()),
+        required("name") => String.t(),
+        required("password") => String.t(),
+        required("vpcSecurityGroupIds") => list(String.t()()),
+        required("vpcSubnetIds") => list(String.t()())
+      }
+      
+  """
+  @type create_db_cluster_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_db_parameter_group_output() :: %{
         "arn" => String.t(),
         "description" => [String.t()],
@@ -239,6 +324,18 @@ defmodule AWS.TimestreamInfluxDB do
       
   """
   @type get_db_parameter_group_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_db_clusters_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+      
+  """
+  @type list_db_clusters_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -273,12 +370,53 @@ defmodule AWS.TimestreamInfluxDB do
 
   ## Example:
       
+      create_db_cluster_output() :: %{
+        "dbClusterId" => String.t(),
+        "dbClusterStatus" => list(any())
+      }
+      
+  """
+  @type create_db_cluster_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       log_delivery_configuration() :: %{
         "s3Configuration" => s3_configuration()
       }
       
   """
   @type log_delivery_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_db_cluster_output() :: %{
+        "allocatedStorage" => integer(),
+        "arn" => String.t(),
+        "dbInstanceType" => list(any()),
+        "dbParameterGroupIdentifier" => String.t(),
+        "dbStorageType" => list(any()),
+        "deploymentType" => list(any()),
+        "endpoint" => [String.t()],
+        "failoverMode" => list(any()),
+        "id" => String.t(),
+        "influxAuthParametersSecretArn" => [String.t()],
+        "logDeliveryConfiguration" => log_delivery_configuration(),
+        "name" => String.t(),
+        "networkType" => list(any()),
+        "port" => integer(),
+        "publiclyAccessible" => [boolean()],
+        "readerEndpoint" => [String.t()],
+        "status" => list(any()),
+        "vpcSecurityGroupIds" => list(String.t()()),
+        "vpcSubnetIds" => list(String.t()())
+      }
+      
+  """
+  @type get_db_cluster_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -322,6 +460,7 @@ defmodule AWS.TimestreamInfluxDB do
         "allocatedStorage" => integer(),
         "arn" => String.t(),
         "availabilityZone" => [String.t()],
+        "dbClusterId" => String.t(),
         "dbInstanceType" => list(any()),
         "dbParameterGroupIdentifier" => String.t(),
         "dbStorageType" => list(any()),
@@ -329,6 +468,7 @@ defmodule AWS.TimestreamInfluxDB do
         "endpoint" => [String.t()],
         "id" => String.t(),
         "influxAuthParametersSecretArn" => [String.t()],
+        "instanceMode" => list(any()),
         "logDeliveryConfiguration" => log_delivery_configuration(),
         "name" => String.t(),
         "networkType" => list(any()),
@@ -342,6 +482,39 @@ defmodule AWS.TimestreamInfluxDB do
       
   """
   @type create_db_instance_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_instance_for_cluster_summary() :: %{
+        "allocatedStorage" => integer(),
+        "arn" => String.t(),
+        "dbInstanceType" => list(any()),
+        "dbStorageType" => list(any()),
+        "deploymentType" => list(any()),
+        "endpoint" => [String.t()],
+        "id" => String.t(),
+        "instanceMode" => list(any()),
+        "name" => String.t(),
+        "networkType" => list(any()),
+        "port" => integer(),
+        "status" => list(any())
+      }
+      
+  """
+  @type db_instance_for_cluster_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_db_cluster_input() :: %{
+        required("dbClusterId") => String.t()
+      }
+      
+  """
+  @type get_db_cluster_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -411,6 +584,7 @@ defmodule AWS.TimestreamInfluxDB do
         "allocatedStorage" => integer(),
         "arn" => String.t(),
         "availabilityZone" => [String.t()],
+        "dbClusterId" => String.t(),
         "dbInstanceType" => list(any()),
         "dbParameterGroupIdentifier" => String.t(),
         "dbStorageType" => list(any()),
@@ -418,6 +592,7 @@ defmodule AWS.TimestreamInfluxDB do
         "endpoint" => [String.t()],
         "id" => String.t(),
         "influxAuthParametersSecretArn" => [String.t()],
+        "instanceMode" => list(any()),
         "logDeliveryConfiguration" => log_delivery_configuration(),
         "name" => String.t(),
         "networkType" => list(any()),
@@ -448,6 +623,17 @@ defmodule AWS.TimestreamInfluxDB do
 
   ## Example:
       
+      update_db_cluster_output() :: %{
+        "dbClusterStatus" => list(any())
+      }
+      
+  """
+  @type update_db_cluster_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       validation_exception() :: %{
         "message" => [String.t()],
         "reason" => list(any())
@@ -466,6 +652,17 @@ defmodule AWS.TimestreamInfluxDB do
       
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_db_cluster_input() :: %{
+        required("dbClusterId") => String.t()
+      }
+      
+  """
+  @type delete_db_cluster_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -501,6 +698,39 @@ defmodule AWS.TimestreamInfluxDB do
       
   """
   @type get_db_instance_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_db_cluster_output() :: %{
+        "dbClusterStatus" => list(any())
+      }
+      
+  """
+  @type delete_db_cluster_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      db_cluster_summary() :: %{
+        "allocatedStorage" => integer(),
+        "arn" => String.t(),
+        "dbInstanceType" => list(any()),
+        "dbStorageType" => list(any()),
+        "deploymentType" => list(any()),
+        "endpoint" => [String.t()],
+        "id" => String.t(),
+        "name" => String.t(),
+        "networkType" => list(any()),
+        "port" => integer(),
+        "readerEndpoint" => [String.t()],
+        "status" => list(any())
+      }
+      
+  """
+  @type db_cluster_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -544,6 +774,15 @@ defmodule AWS.TimestreamInfluxDB do
   """
   @type create_db_instance_input() :: %{String.t() => any()}
 
+  @type create_db_cluster_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type create_db_instance_errors() ::
           throttling_exception()
           | validation_exception()
@@ -562,6 +801,14 @@ defmodule AWS.TimestreamInfluxDB do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type delete_db_cluster_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type delete_db_instance_errors() ::
           throttling_exception()
           | validation_exception()
@@ -569,6 +816,13 @@ defmodule AWS.TimestreamInfluxDB do
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type get_db_cluster_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type get_db_instance_errors() ::
           throttling_exception()
@@ -584,7 +838,21 @@ defmodule AWS.TimestreamInfluxDB do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type list_db_clusters_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type list_db_instances_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_db_instances_for_cluster_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -604,6 +872,14 @@ defmodule AWS.TimestreamInfluxDB do
           service_quota_exceeded_exception() | resource_not_found_exception()
 
   @type untag_resource_errors() :: resource_not_found_exception()
+
+  @type update_db_cluster_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type update_db_instance_errors() ::
           throttling_exception()
@@ -627,6 +903,19 @@ defmodule AWS.TimestreamInfluxDB do
       signing_name: "timestream-influxdb",
       target_prefix: "AmazonTimestreamInfluxDB"
     }
+  end
+
+  @doc """
+  Creates a new Timestream for InfluxDB cluster.
+  """
+  @spec create_db_cluster(map(), create_db_cluster_input(), list()) ::
+          {:ok, create_db_cluster_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_db_cluster_errors()}
+  def create_db_cluster(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateDbCluster", input, options)
   end
 
   @doc """
@@ -657,6 +946,19 @@ defmodule AWS.TimestreamInfluxDB do
   end
 
   @doc """
+  Deletes a Timestream for InfluxDB cluster.
+  """
+  @spec delete_db_cluster(map(), delete_db_cluster_input(), list()) ::
+          {:ok, delete_db_cluster_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_db_cluster_errors()}
+  def delete_db_cluster(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteDbCluster", input, options)
+  end
+
+  @doc """
   Deletes a Timestream for InfluxDB DB instance.
   """
   @spec delete_db_instance(map(), delete_db_instance_input(), list()) ::
@@ -667,6 +969,19 @@ defmodule AWS.TimestreamInfluxDB do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteDbInstance", input, options)
+  end
+
+  @doc """
+  Retrieves information about a Timestream for InfluxDB cluster.
+  """
+  @spec get_db_cluster(map(), get_db_cluster_input(), list()) ::
+          {:ok, get_db_cluster_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_db_cluster_errors()}
+  def get_db_cluster(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetDbCluster", input, options)
   end
 
   @doc """
@@ -696,6 +1011,19 @@ defmodule AWS.TimestreamInfluxDB do
   end
 
   @doc """
+  Returns a list of Timestream for InfluxDB DB clusters.
+  """
+  @spec list_db_clusters(map(), list_db_clusters_input(), list()) ::
+          {:ok, list_db_clusters_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_db_clusters_errors()}
+  def list_db_clusters(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDbClusters", input, options)
+  end
+
+  @doc """
   Returns a list of Timestream for InfluxDB DB instances.
   """
   @spec list_db_instances(map(), list_db_instances_input(), list()) ::
@@ -706,6 +1034,19 @@ defmodule AWS.TimestreamInfluxDB do
     meta = metadata()
 
     Request.request_post(client, meta, "ListDbInstances", input, options)
+  end
+
+  @doc """
+  Returns a list of Timestream for InfluxDB clusters.
+  """
+  @spec list_db_instances_for_cluster(map(), list_db_instances_for_cluster_input(), list()) ::
+          {:ok, list_db_instances_for_cluster_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_db_instances_for_cluster_errors()}
+  def list_db_instances_for_cluster(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDbInstancesForCluster", input, options)
   end
 
   @doc """
@@ -760,6 +1101,19 @@ defmodule AWS.TimestreamInfluxDB do
     meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
+  end
+
+  @doc """
+  Updates a Timestream for InfluxDB cluster.
+  """
+  @spec update_db_cluster(map(), update_db_cluster_input(), list()) ::
+          {:ok, update_db_cluster_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_db_cluster_errors()}
+  def update_db_cluster(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateDbCluster", input, options)
   end
 
   @doc """

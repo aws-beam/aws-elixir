@@ -2498,6 +2498,7 @@ defmodule AWS.DatabaseMigration do
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("MigrationType") => list(any()),
+        optional("ReplicationConfigArn") => String.t(),
         optional("ReplicationInstanceArn") => String.t(),
         optional("ReplicationTaskArn") => String.t(),
         optional("SourceEngineName") => String.t(),

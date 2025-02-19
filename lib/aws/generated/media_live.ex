@@ -2179,8 +2179,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       start_monitor_deployment_request() :: %{
-        optional("DryRun") => boolean(),
-        optional("RequestId") => String.t()
+        optional("DryRun") => boolean()
       }
 
   """

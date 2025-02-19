@@ -2848,8 +2848,8 @@ defmodule AWS.Batch do
   parameters in a `resourceRequirements` object that's included in the
   `containerOverrides` parameter.
 
-  Job queues with a scheduling policy are limited to 500 active fair share
-  identifiers at
+  Job queues with a scheduling policy are limited to 500 active share identifiers
+  at
   a time.
 
   Jobs that run on Fargate resources can't be guaranteed to run for more than 14

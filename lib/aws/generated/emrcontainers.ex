@@ -259,6 +259,7 @@ defmodule AWS.EMRcontainers do
       monitoring_configuration() :: %{
         "cloudWatchMonitoringConfiguration" => cloud_watch_monitoring_configuration(),
         "containerLogRotationConfiguration" => container_log_rotation_configuration(),
+        "managedLogs" => managed_logs(),
         "persistentAppUI" => list(any()),
         "s3MonitoringConfiguration" => s3_monitoring_configuration()
       }
@@ -440,6 +441,18 @@ defmodule AWS.EMRcontainers do
 
   """
   @type describe_job_template_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_logs() :: %{
+        "allowAWSToRetainLogs" => list(any()),
+        "encryptionKeyArn" => String.t()
+      }
+
+  """
+  @type managed_logs() :: %{String.t() => any()}
 
   @typedoc """
 

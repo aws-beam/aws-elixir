@@ -542,10 +542,15 @@ defmodule AWS.MailManager do
   ## Example:
       
       metadata() :: %{
+        "ConfigurationSet" => [String.t()],
         "IngressPointId" => String.t(),
         "RuleSetId" => String.t(),
         "SenderHostname" => [String.t()],
         "SenderIpAddress" => String.t(),
+        "SendingMethod" => [String.t()],
+        "SendingPool" => [String.t()],
+        "SourceArn" => [String.t()],
+        "SourceIdentity" => [String.t()],
         "Timestamp" => [non_neg_integer()],
         "TlsCipherSuite" => [String.t()],
         "TlsProtocol" => [String.t()],
@@ -1166,6 +1171,7 @@ defmodule AWS.MailManager do
         "ReceivedTimestamp" => [non_neg_integer()],
         "SenderHostname" => [String.t()],
         "SenderIpAddress" => String.t(),
+        "SourceArn" => [String.t()],
         "Subject" => [String.t()],
         "To" => [String.t()],
         "XMailer" => [String.t()],

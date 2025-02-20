@@ -46,6 +46,9 @@ defmodule AWS.NetworkFirewall do
   gateway, NAT gateway, or over VPN or Direct Connect. Network Firewall uses rules
   that are compatible
   with Suricata, a free, open source network analysis and threat detection engine.
+  Network Firewall supports Suricata version 7.0.3. For information about
+  Suricata,
+  see the [Suricata website](https://suricata.io/) and the [Suricata User Guide](https://suricata.readthedocs.io/en/suricata-7.0.3/).
 
   You can use Network Firewall to monitor and protect your VPC traffic in a number
   of ways.
@@ -393,6 +396,23 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      get_analysis_report_results_response() :: %{
+        "AnalysisReportResults" => list(analysis_type_report_result()()),
+        "AnalysisType" => list(any()),
+        "EndTime" => non_neg_integer(),
+        "NextToken" => String.t(),
+        "ReportTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer(),
+        "Status" => String.t()
+      }
+      
+  """
+  @type get_analysis_report_results_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_rule_group_request() :: %{
         optional("AnalyzeRuleGroup") => boolean(),
         optional("RuleGroupArn") => String.t(),
@@ -441,6 +461,20 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type attachment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_firewall_analysis_settings_request() :: %{
+        optional("EnabledAnalysisTypes") => list(list(any())()),
+        optional("FirewallArn") => String.t(),
+        optional("FirewallName") => String.t(),
+        optional("UpdateToken") => String.t()
+      }
+      
+  """
+  @type update_firewall_analysis_settings_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -609,6 +643,21 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      get_analysis_report_results_request() :: %{
+        optional("FirewallArn") => String.t(),
+        optional("FirewallName") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("AnalysisReportId") => String.t()
+      }
+      
+  """
+  @type get_analysis_report_results_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_firewall_policy_request() :: %{
         optional("Description") => String.t(),
         optional("DryRun") => boolean(),
@@ -676,6 +725,18 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type insufficient_capacity_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_analysis_reports_response() :: %{
+        "AnalysisReports" => list(analysis_report()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type list_analysis_reports_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -817,6 +878,17 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      hits() :: %{
+        "Count" => integer()
+      }
+      
+  """
+  @type hits() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_firewall_response() :: %{
         "Firewall" => firewall(),
         "FirewallStatus" => firewall_status()
@@ -885,6 +957,20 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type rule_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      analysis_report() :: %{
+        "AnalysisReportId" => String.t(),
+        "AnalysisType" => list(any()),
+        "ReportTime" => non_neg_integer(),
+        "Status" => String.t()
+      }
+      
+  """
+  @type analysis_report() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -966,6 +1052,20 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      list_analysis_reports_request() :: %{
+        optional("FirewallArn") => String.t(),
+        optional("FirewallName") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type list_analysis_reports_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       firewall_policy_response() :: %{
         "ConsumedStatefulRuleCapacity" => integer(),
         "ConsumedStatelessRuleCapacity" => integer(),
@@ -1029,6 +1129,7 @@ defmodule AWS.NetworkFirewall do
       firewall() :: %{
         "DeleteProtection" => boolean(),
         "Description" => String.t(),
+        "EnabledAnalysisTypes" => list(list(any())()),
         "EncryptionConfiguration" => encryption_configuration(),
         "FirewallArn" => String.t(),
         "FirewallId" => String.t(),
@@ -1062,18 +1163,35 @@ defmodule AWS.NetworkFirewall do
       create_firewall_request() :: %{
         optional("DeleteProtection") => boolean(),
         optional("Description") => String.t(),
+        optional("EnabledAnalysisTypes") => list(list(any())()),
         optional("EncryptionConfiguration") => encryption_configuration(),
         optional("FirewallPolicyChangeProtection") => boolean(),
         optional("SubnetChangeProtection") => boolean(),
+        optional("SubnetMappings") => list(subnet_mapping()()),
         optional("Tags") => list(tag()()),
+        optional("VpcId") => String.t(),
         required("FirewallName") => String.t(),
-        required("FirewallPolicyArn") => String.t(),
-        required("SubnetMappings") => list(subnet_mapping()()),
-        required("VpcId") => String.t()
+        required("FirewallPolicyArn") => String.t()
       }
       
   """
   @type create_firewall_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      analysis_type_report_result() :: %{
+        "Domain" => String.t(),
+        "FirstAccessed" => non_neg_integer(),
+        "Hits" => hits(),
+        "LastAccessed" => non_neg_integer(),
+        "Protocol" => String.t(),
+        "UniqueSources" => unique_sources()
+      }
+      
+  """
+  @type analysis_type_report_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1433,6 +1551,17 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      unique_sources() :: %{
+        "Count" => integer()
+      }
+      
+  """
+  @type unique_sources() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_tags_for_resource_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -1465,6 +1594,20 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type rule_variables() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_firewall_analysis_settings_response() :: %{
+        "EnabledAnalysisTypes" => list(list(any())()),
+        "FirewallArn" => String.t(),
+        "FirewallName" => String.t(),
+        "UpdateToken" => String.t()
+      }
+      
+  """
+  @type update_firewall_analysis_settings_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1556,6 +1699,19 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_analysis_report_request() :: %{
+        optional("FirewallArn") => String.t(),
+        optional("FirewallName") => String.t(),
+        required("AnalysisType") => list(any())
+      }
+      
+  """
+  @type start_analysis_report_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1858,6 +2014,17 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      start_analysis_report_response() :: %{
+        "AnalysisReportId" => String.t()
+      }
+      
+  """
+  @type start_analysis_report_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       ip_set_reference() :: %{
         "ReferenceArn" => String.t()
       }
@@ -2072,6 +2239,18 @@ defmodule AWS.NetworkFirewall do
           | resource_not_found_exception()
           | invalid_operation_exception()
 
+  @type get_analysis_report_results_errors() ::
+          throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
+  @type list_analysis_reports_errors() ::
+          throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
   @type list_firewall_policies_errors() ::
           throttling_exception() | internal_server_error() | invalid_request_exception()
 
@@ -2097,6 +2276,12 @@ defmodule AWS.NetworkFirewall do
           | invalid_request_exception()
           | resource_not_found_exception()
 
+  @type start_analysis_report_errors() ::
+          throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
   @type tag_resource_errors() ::
           throttling_exception()
           | internal_server_error()
@@ -2104,6 +2289,12 @@ defmodule AWS.NetworkFirewall do
           | resource_not_found_exception()
 
   @type untag_resource_errors() ::
+          throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
+  @type update_firewall_analysis_settings_errors() ::
           throttling_exception()
           | internal_server_error()
           | invalid_request_exception()
@@ -2260,6 +2451,9 @@ defmodule AWS.NetworkFirewall do
 
   To retrieve information about firewalls, use `ListFirewalls` and
   `DescribeFirewall`.
+
+  To generate a report on the last 30 days of traffic monitored by a firewall, use
+  `StartAnalysisReport`.
   """
   @spec create_firewall(map(), create_firewall_request(), list()) ::
           {:ok, create_firewall_response(), any()}
@@ -2555,6 +2749,36 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+  The results of a `COMPLETED` analysis report generated with
+  `StartAnalysisReport`.
+
+  For more information, see `AnalysisTypeReportResult`.
+  """
+  @spec get_analysis_report_results(map(), get_analysis_report_results_request(), list()) ::
+          {:ok, get_analysis_report_results_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_analysis_report_results_errors()}
+  def get_analysis_report_results(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAnalysisReportResults", input, options)
+  end
+
+  @doc """
+  Returns a list of all traffic analysis reports generated within the last 30
+  days.
+  """
+  @spec list_analysis_reports(map(), list_analysis_reports_request(), list()) ::
+          {:ok, list_analysis_reports_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_analysis_reports_errors()}
+  def list_analysis_reports(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAnalysisReports", input, options)
+  end
+
+  @doc """
   Retrieves the metadata for the firewall policies that you have defined.
 
   Depending on
@@ -2697,6 +2921,23 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+  Generates a traffic analysis report for the timeframe and traffic type you
+  specify.
+
+  For information on the contents of a traffic analysis report, see
+  `AnalysisReport`.
+  """
+  @spec start_analysis_report(map(), start_analysis_report_request(), list()) ::
+          {:ok, start_analysis_report_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_analysis_report_errors()}
+  def start_analysis_report(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartAnalysisReport", input, options)
+  end
+
+  @doc """
   Adds the specified tags to the specified resource.
 
   Tags are key:value pairs that you can
@@ -2745,6 +2986,23 @@ defmodule AWS.NetworkFirewall do
     meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
+  end
+
+  @doc """
+  Enables specific types of firewall analysis on a specific firewall you define.
+  """
+  @spec update_firewall_analysis_settings(
+          map(),
+          update_firewall_analysis_settings_request(),
+          list()
+        ) ::
+          {:ok, update_firewall_analysis_settings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_firewall_analysis_settings_errors()}
+  def update_firewall_analysis_settings(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateFirewallAnalysisSettings", input, options)
   end
 
   @doc """

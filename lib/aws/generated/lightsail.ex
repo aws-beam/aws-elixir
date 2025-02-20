@@ -21,7 +21,7 @@ defmodule AWS.Lightsail do
   You can manage your Lightsail resources using the Lightsail console, Lightsail
   API,
   Command Line Interface (CLI), or SDKs. For more information about Lightsail
-  concepts and tasks, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli).
+  concepts and tasks, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli).
 
   This API Reference provides detailed information about the actions, data types,
   parameters, and errors of the Lightsail service. For more information about the
@@ -7267,7 +7267,7 @@ defmodule AWS.Lightsail do
 
   The `attach disk` operation supports tag-based access control via resource tags
   applied to the resource identified by `disk name`. For more information, see the
-  [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec attach_disk(map(), attach_disk_request(), list()) ::
           {:ok, attach_disk_result(), any()}
@@ -7294,7 +7294,7 @@ defmodule AWS.Lightsail do
   name
   ```
 
-  . For more information, see the [Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  . For more information, see the [Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec attach_instances_to_load_balancer(
           map(),
@@ -7330,7 +7330,7 @@ defmodule AWS.Lightsail do
   name
   ```
 
-  . For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  . For more information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec attach_load_balancer_tls_certificate(
           map(),
@@ -7364,7 +7364,7 @@ defmodule AWS.Lightsail do
 
   The `CloseInstancePublicPorts` action supports tag-based access control via
   resource tags applied to the resource identified by `instanceName`. For more
-  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec close_instance_public_ports(map(), close_instance_public_ports_request(), list()) ::
           {:ok, close_instance_public_ports_result(), any()}
@@ -7429,7 +7429,7 @@ defmodule AWS.Lightsail do
   service.
   Use buckets to store objects such as data and its descriptive metadata. For more
   information
-  about buckets, see [Buckets in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/buckets-in-amazon-lightsail)
+  about buckets, see [Buckets in Amazon Lightsail](https://docs.aws.amazon.com/lightsail/latest/userguide/buckets-in-amazon-lightsail)
   in the *Amazon Lightsail Developer
   Guide*.
   """
@@ -7454,7 +7454,7 @@ defmodule AWS.Lightsail do
   can have a maximum of two access keys per bucket. Use the
   [GetBucketAccessKeys](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketAccessKeys.html) action to get a list of current access keys for a specific bucket. For more
   information about access keys, see [Creating access keys for a bucket in Amazon
-  Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-bucket-access-keys)
+  Lightsail](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-creating-bucket-access-keys)
   in the
   *Amazon Lightsail Developer Guide*.
 
@@ -7546,7 +7546,7 @@ defmodule AWS.Lightsail do
   Amazon Web Services
   Regions, and SMS text messages cannot be sent to some countries/regions. For
   more information,
-  see [Notifications in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications).
+  see [Notifications in Amazon Lightsail](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-notifications).
   """
   @spec create_contact_method(map(), create_contact_method_request(), list()) ::
           {:ok, create_contact_method_result(), any()}
@@ -7563,7 +7563,7 @@ defmodule AWS.Lightsail do
 
   A Lightsail container service is a compute resource to which you can deploy
   containers.
-  For more information, see [Container services in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-services)
+  For more information, see [Container services in Amazon Lightsail](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-container-services)
   in the *Lightsail Dev
   Guide*.
   """
@@ -7594,7 +7594,7 @@ defmodule AWS.Lightsail do
   a public
   registry such as Amazon ECR Public, or from your local machine. For more
   information, see
-  [Creating container images for your Amazon Lightsail container services](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-container-images)
+  [Creating container images for your Amazon Lightsail container services](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-creating-container-images)
   in the
   *Amazon Lightsail Developer Guide*.
   """
@@ -7642,7 +7642,7 @@ defmodule AWS.Lightsail do
   (lightsailctl) plugin to push container images to your Lightsail container
   service. For
   more information, see [Pushing and managing container images on your Amazon Lightsail container
-  services](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-pushing-container-images)
+  services](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-pushing-container-images)
   in the *Amazon Lightsail Developer Guide*.
   """
   @spec create_container_service_registry_login(
@@ -7665,7 +7665,7 @@ defmodule AWS.Lightsail do
   same Availability Zone (`us-east-2a`).
 
   The `create disk` operation supports tag-based access control via request tags.
-  For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  For more information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec create_disk(map(), create_disk_request(), list()) ::
           {:ok, create_disk_result(), any()}
@@ -7693,7 +7693,7 @@ defmodule AWS.Lightsail do
   name
   ```
 
-  . For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  . For more information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec create_disk_from_snapshot(map(), create_disk_from_snapshot_request(), list()) ::
           {:ok, create_disk_from_snapshot_result(), any()}
@@ -7742,7 +7742,7 @@ defmodule AWS.Lightsail do
   snapshot and attach it to a running instance to access the data on the disk.
 
   The `create disk snapshot` operation supports tag-based access control via
-  request tags. For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  request tags. For more information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec create_disk_snapshot(map(), create_disk_snapshot_request(), list()) ::
           {:ok, create_disk_snapshot_result(), any()}
@@ -7761,7 +7761,7 @@ defmodule AWS.Lightsail do
   the
   performance of your website or web application hosted on a Lightsail instance.
   For more
-  information, see [Content delivery networks in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-content-delivery-network-distributions).
+  information, see [Content delivery networks in Amazon Lightsail](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-content-delivery-network-distributions).
   """
   @spec create_distribution(map(), create_distribution_request(), list()) ::
           {:ok, create_distribution_result(), any()}
@@ -7777,7 +7777,7 @@ defmodule AWS.Lightsail do
   Creates a domain resource for the specified domain (example.com).
 
   The `create domain` operation supports tag-based access control via request
-  tags. For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  tags. For more information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec create_domain(map(), create_domain_request(), list()) ::
           {:ok, create_domain_result(), any()}
@@ -7798,7 +7798,7 @@ defmodule AWS.Lightsail do
 
   The `create domain entry` operation supports tag-based access control via
   resource tags applied to the resource identified by `domain name`. For more
-  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec create_domain_entry(map(), create_domain_entry_request(), list()) ::
           {:ok, create_domain_entry_result(), any()}
@@ -7815,9 +7815,9 @@ defmodule AWS.Lightsail do
   interface
   (GUI) session.
 
-  The primary URL initiates a web-based NICE DCV session to the virtual
-  computer's application. The secondary URL initiates a web-based NICE DCV session
-  to the
+  The primary URL initiates a web-based Amazon DCV session to the virtual
+  computer's application. The secondary URL initiates a web-based Amazon DCV
+  session to the
   virtual computer's operating session.
 
   Use `StartGUISession` to open the session.
@@ -7842,7 +7842,7 @@ defmodule AWS.Lightsail do
   You can use a snapshot to create a new instance that is based on that snapshot.
 
   The `create instance snapshot` operation supports tag-based access control via
-  request tags. For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  request tags. For more information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec create_instance_snapshot(map(), create_instance_snapshot_request(), list()) ::
           {:ok, create_instance_snapshot_result(), any()}
@@ -7858,7 +7858,7 @@ defmodule AWS.Lightsail do
   Creates one or more Amazon Lightsail instances.
 
   The `create instances` operation supports tag-based access control via request
-  tags. For more information, see the [Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  tags. For more information, see the [Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec create_instances(map(), create_instances_request(), list()) ::
           {:ok, create_instances_result(), any()}
@@ -7877,7 +7877,7 @@ defmodule AWS.Lightsail do
   The `create instances from snapshot` operation supports tag-based access
   control via request tags and resource tags applied to the resource identified by
   `instance snapshot name`. For more information, see the [Amazon Lightsail Developer
-  Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec create_instances_from_snapshot(map(), create_instances_from_snapshot_request(), list()) ::
           {:ok, create_instances_from_snapshot_result(), any()}
@@ -7901,7 +7901,7 @@ defmodule AWS.Lightsail do
 
   The `create key pair` operation supports tag-based access control via request
   tags. For more information, see the [Amazon Lightsail Developer
-  Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec create_key_pair(map(), create_key_pair_request(), list()) ::
           {:ok, create_key_pair_result(), any()}
@@ -7917,7 +7917,7 @@ defmodule AWS.Lightsail do
   Creates a Lightsail load balancer.
 
   To learn more about deciding whether to load balance
-  your application, see [Configure your Lightsail instances for load balancing](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/configure-lightsail-instances-for-load-balancing).
+  your application, see [Configure your Lightsail instances for load balancing](https://docs.aws.amazon.com/lightsail/latest/userguide/configure-lightsail-instances-for-load-balancing).
   You can create up to 5
   load balancers per AWS Region in your account.
 
@@ -7927,7 +7927,7 @@ defmodule AWS.Lightsail do
   operation.
 
   The `create load balancer` operation supports tag-based access control via
-  request tags. For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  request tags. For more information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec create_load_balancer(map(), create_load_balancer_request(), list()) ::
           {:ok, create_load_balancer_result(), any()}
@@ -7952,7 +7952,7 @@ defmodule AWS.Lightsail do
   name
   ```
 
-  . For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  . For more information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec create_load_balancer_tls_certificate(
           map(),
@@ -7972,7 +7972,7 @@ defmodule AWS.Lightsail do
   Creates a new database in Amazon Lightsail.
 
   The `create relational database` operation supports tag-based access control
-  via request tags. For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  via request tags. For more information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec create_relational_database(map(), create_relational_database_request(), list()) ::
           {:ok, create_relational_database_result(), any()}
@@ -7997,7 +7997,7 @@ defmodule AWS.Lightsail do
   access control via request tags and resource tags applied to the resource
   identified by
   relationalDatabaseSnapshotName. For more information, see the [Amazon Lightsail Developer
-  Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec create_relational_database_from_snapshot(
           map(),
@@ -8021,7 +8021,7 @@ defmodule AWS.Lightsail do
 
   The `create relational database snapshot` operation supports tag-based access
   control via request tags. For more information, see the [Amazon Lightsail Developer
-  Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec create_relational_database_snapshot(
           map(),
@@ -8045,7 +8045,7 @@ defmodule AWS.Lightsail do
   condition is met, the alarm can notify you by email, SMS text message, and a
   banner displayed
   on the Amazon Lightsail console. For more information, see [Alarms in Amazon
-  Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms).
+  Lightsail](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-alarms).
   """
   @spec delete_alarm(map(), delete_alarm_request(), list()) ::
           {:ok, delete_alarm_result(), any()}
@@ -8060,7 +8060,7 @@ defmodule AWS.Lightsail do
   @doc """
   Deletes an automatic snapshot of an instance or disk.
 
-  For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
+  For more information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-automatic-snapshots).
   """
   @spec delete_auto_snapshot(map(), delete_auto_snapshot_request(), list()) ::
           {:ok, delete_auto_snapshot_result(), any()}
@@ -8096,7 +8096,7 @@ defmodule AWS.Lightsail do
   compromised.
 
   For more information about access keys, see [Creating access keys for a bucket in Amazon
-  Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-bucket-access-keys)
+  Lightsail](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-creating-bucket-access-keys)
   in the
   *Amazon Lightsail Developer Guide*.
   """
@@ -8140,7 +8140,7 @@ defmodule AWS.Lightsail do
   Amazon Web Services
   Regions, and SMS text messages cannot be sent to some countries/regions. For
   more information,
-  see [Notifications in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications).
+  see [Notifications in Amazon Lightsail](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-notifications).
   """
   @spec delete_contact_method(map(), delete_contact_method_request(), list()) ::
           {:ok, delete_contact_method_result(), any()}
@@ -8189,7 +8189,7 @@ defmodule AWS.Lightsail do
 
   The `delete disk` operation supports tag-based access control via resource tags
   applied to the resource identified by `disk name`. For more information, see the
-  [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec delete_disk(map(), delete_disk_request(), list()) ::
           {:ok, delete_disk_result(), any()}
@@ -8217,7 +8217,7 @@ defmodule AWS.Lightsail do
   The `delete disk snapshot` operation supports tag-based access control via
   resource tags applied to the resource identified by `disk snapshot name`. For
   more
-  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec delete_disk_snapshot(map(), delete_disk_snapshot_request(), list()) ::
           {:ok, delete_disk_snapshot_result(), any()}
@@ -8248,7 +8248,7 @@ defmodule AWS.Lightsail do
   The `delete domain` operation supports tag-based access control via resource
   tags applied to the resource identified by `domain name`. For more information,
   see
-  the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec delete_domain(map(), delete_domain_request(), list()) ::
           {:ok, delete_domain_result(), any()}
@@ -8265,7 +8265,7 @@ defmodule AWS.Lightsail do
 
   The `delete domain entry` operation supports tag-based access control via
   resource tags applied to the resource identified by `domain name`. For more
-  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec delete_domain_entry(map(), delete_domain_entry_request(), list()) ::
           {:ok, delete_domain_entry_result(), any()}
@@ -8283,7 +8283,7 @@ defmodule AWS.Lightsail do
   The `delete instance` operation supports tag-based access control via resource
   tags applied to the resource identified by `instance name`. For more
   information,
-  see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec delete_instance(map(), delete_instance_request(), list()) ::
           {:ok, delete_instance_result(), any()}
@@ -8302,7 +8302,7 @@ defmodule AWS.Lightsail do
   The `delete instance snapshot` operation supports tag-based access control via
   resource tags applied to the resource identified by `instance snapshot name`.
   For
-  more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  more information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec delete_instance_snapshot(map(), delete_instance_snapshot_request(), list()) ::
           {:ok, delete_instance_snapshot_result(), any()}
@@ -8330,7 +8330,7 @@ defmodule AWS.Lightsail do
   tags applied to the resource identified by `key pair name`. For more
   information,
   see the [Amazon Lightsail Developer
-  Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec delete_key_pair(map(), delete_key_pair_request(), list()) ::
           {:ok, delete_key_pair_result(), any()}
@@ -8355,7 +8355,7 @@ defmodule AWS.Lightsail do
   or if you are familiar with the new host key or certificate on the instance. For
   more
   information, see [Troubleshooting connection issues when using the Amazon Lightsail browser-based SSH or RDP
-  client](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-troubleshooting-browser-based-ssh-rdp-client-connection).
+  client](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-troubleshooting-browser-based-ssh-rdp-client-connection).
   """
   @spec delete_known_host_keys(map(), delete_known_host_keys_request(), list()) ::
           {:ok, delete_known_host_keys_result(), any()}
@@ -8378,7 +8378,7 @@ defmodule AWS.Lightsail do
   The `delete load balancer` operation supports tag-based access control via
   resource tags applied to the resource identified by `load balancer name`. For
   more
-  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec delete_load_balancer(map(), delete_load_balancer_request(), list()) ::
           {:ok, delete_load_balancer_result(), any()}
@@ -8401,7 +8401,7 @@ defmodule AWS.Lightsail do
   name
   ```
 
-  . For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  . For more information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec delete_load_balancer_tls_certificate(
           map(),
@@ -8423,7 +8423,7 @@ defmodule AWS.Lightsail do
   The `delete relational database` operation supports tag-based access control
   via resource tags applied to the resource identified by relationalDatabaseName.
   For more
-  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec delete_relational_database(map(), delete_relational_database_request(), list()) ::
           {:ok, delete_relational_database_result(), any()}
@@ -8441,7 +8441,7 @@ defmodule AWS.Lightsail do
   The `delete relational database snapshot` operation supports tag-based access
   control via resource tags applied to the resource identified by
   relationalDatabaseName. For
-  more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  more information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec delete_relational_database_snapshot(
           map(),
@@ -8490,7 +8490,7 @@ defmodule AWS.Lightsail do
 
   The `detach disk` operation supports tag-based access control via resource tags
   applied to the resource identified by `disk name`. For more information, see the
-  [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec detach_disk(map(), detach_disk_request(), list()) ::
           {:ok, detach_disk_result(), any()}
@@ -8517,7 +8517,7 @@ defmodule AWS.Lightsail do
   name
   ```
 
-  . For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  . For more information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec detach_instances_from_load_balancer(
           map(),
@@ -8549,7 +8549,7 @@ defmodule AWS.Lightsail do
   @doc """
   Disables an add-on for an Amazon Lightsail resource.
 
-  For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
+  For more information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-automatic-snapshots).
   """
   @spec disable_add_on(map(), disable_add_on_request(), list()) ::
           {:ok, disable_add_on_result(), any()}
@@ -8581,7 +8581,7 @@ defmodule AWS.Lightsail do
   Enables or modifies an add-on for an Amazon Lightsail resource.
 
   For more information, see
-  the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
+  the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-automatic-snapshots).
   """
   @spec enable_add_on(map(), enable_add_on_request(), list()) ::
           {:ok, enable_add_on_result(), any()}
@@ -8616,7 +8616,7 @@ defmodule AWS.Lightsail do
 
   The `export snapshot` operation supports tag-based access control via resource
   tags applied to the resource identified by `source snapshot name`. For more
-  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
 
   Use the `get instance snapshots` or `get disk snapshots`
   operations to get a list of snapshots that you can export to Amazon EC2.
@@ -8657,7 +8657,7 @@ defmodule AWS.Lightsail do
   condition is met, the alarm can notify you by email, SMS text message, and a
   banner displayed
   on the Amazon Lightsail console. For more information, see [Alarms in Amazon
-  Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms).
+  Lightsail](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-alarms).
   """
   @spec get_alarms(map(), get_alarms_request(), list()) ::
           {:ok, get_alarms_result(), any()}
@@ -8673,7 +8673,7 @@ defmodule AWS.Lightsail do
   Returns the available automatic snapshots for an instance or disk.
 
   For more information,
-  see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots).
+  see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-automatic-snapshots).
   """
   @spec get_auto_snapshots(map(), get_auto_snapshots_request(), list()) ::
           {:ok, get_auto_snapshots_result(), any()}
@@ -8782,7 +8782,7 @@ defmodule AWS.Lightsail do
   S3)
   account-level block public access feature for your Lightsail buckets.
 
-  For more information about buckets, see [Buckets in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/buckets-in-amazon-lightsail)
+  For more information about buckets, see [Buckets in Amazon Lightsail](https://docs.aws.amazon.com/lightsail/latest/userguide/buckets-in-amazon-lightsail)
   in the *Amazon Lightsail Developer
   Guide*.
   """
@@ -8879,7 +8879,7 @@ defmodule AWS.Lightsail do
   Amazon Web Services
   Regions, and SMS text messages cannot be sent to some countries/regions. For
   more information,
-  see [Notifications in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications).
+  see [Notifications in Amazon Lightsail](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-notifications).
   """
   @spec get_contact_methods(map(), get_contact_methods_request(), list()) ::
           {:ok, get_contact_methods_result(), any()}
@@ -9262,7 +9262,7 @@ defmodule AWS.Lightsail do
   The `get instance access details` operation supports tag-based access control
   via resource tags applied to the resource identified by `instance name`. For
   more
-  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec get_instance_access_details(map(), get_instance_access_details_request(), list()) ::
           {:ok, get_instance_access_details_result(), any()}
@@ -9453,7 +9453,7 @@ defmodule AWS.Lightsail do
   balancers.
 
   For more information about load balancer TLS security policies, see [Configuring TLS security policies on your Amazon Lightsail load
-  balancers](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configure-load-balancer-tls-security-policy)
+  balancers](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configure-load-balancer-tls-security-policy)
   in the *Amazon Lightsail Developer Guide*.
   """
   @spec get_load_balancer_tls_policies(map(), get_load_balancer_tls_policies_request(), list()) ::
@@ -9845,7 +9845,7 @@ defmodule AWS.Lightsail do
 
   The `OpenInstancePublicPorts` action supports tag-based access control via
   resource tags applied to the resource identified by `instanceName`. For more
-  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec open_instance_public_ports(map(), open_instance_public_ports_request(), list()) ::
           {:ok, open_instance_public_ports_result(), any()}
@@ -9878,7 +9878,7 @@ defmodule AWS.Lightsail do
   condition is met, the alarm can notify you by email, SMS text message, and a
   banner displayed
   on the Amazon Lightsail console. For more information, see [Alarms in Amazon
-  Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms).
+  Lightsail](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-alarms).
 
   When this action creates an alarm, the alarm state is immediately set to
   `INSUFFICIENT_DATA`. The alarm is then evaluated and its state is set
@@ -9916,7 +9916,7 @@ defmodule AWS.Lightsail do
 
   The `PutInstancePublicPorts` action supports tag-based access control via
   resource tags applied to the resource identified by `instanceName`. For more
-  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec put_instance_public_ports(map(), put_instance_public_ports_request(), list()) ::
           {:ok, put_instance_public_ports_result(), any()}
@@ -9934,7 +9934,7 @@ defmodule AWS.Lightsail do
   The `reboot instance` operation supports tag-based access control via resource
   tags applied to the resource identified by `instance name`. For more
   information,
-  see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec reboot_instance(map(), reboot_instance_request(), list()) ::
           {:ok, reboot_instance_result(), any()}
@@ -9952,7 +9952,7 @@ defmodule AWS.Lightsail do
   The `reboot relational database` operation supports tag-based access control
   via resource tags applied to the resource identified by relationalDatabaseName.
   For more
-  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec reboot_relational_database(map(), reboot_relational_database_request(), list()) ::
           {:ok, reboot_relational_database_result(), any()}
@@ -9971,7 +9971,7 @@ defmodule AWS.Lightsail do
   (lightsailctl) plugin to push container images to your Lightsail container
   service. For
   more information, see [Pushing and managing container images on your Amazon Lightsail container
-  services](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-pushing-container-images)
+  services](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-pushing-container-images)
   in the *Amazon Lightsail Developer Guide*.
   """
   @spec register_container_image(map(), register_container_image_request(), list()) ::
@@ -10030,7 +10030,7 @@ defmodule AWS.Lightsail do
   Amazon Web Services
   Regions, and SMS text messages cannot be sent to some countries/regions. For
   more information,
-  see [Notifications in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications).
+  see [Notifications in Amazon Lightsail](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-notifications).
 
   A verification request is sent to the contact method when you initially create
   it. Use
@@ -10142,12 +10142,12 @@ defmodule AWS.Lightsail do
   instance. To use the same IP address after stopping and starting an instance,
   create a
   static IP address and attach it to the instance. For more information, see the
-  [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-create-static-ip).
+  [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/lightsail-create-static-ip).
 
   The `start instance` operation supports tag-based access control via resource
   tags applied to the resource identified by `instance name`. For more
   information,
-  see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec start_instance(map(), start_instance_request(), list()) ::
           {:ok, start_instance_result(), any()}
@@ -10168,7 +10168,7 @@ defmodule AWS.Lightsail do
   The `start relational database` operation supports tag-based access control via
   resource tags applied to the resource identified by relationalDatabaseName. For
   more
-  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec start_relational_database(map(), start_relational_database_request(), list()) ::
           {:ok, start_relational_database_result(), any()}
@@ -10181,7 +10181,7 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
-  Terminates a web-based NICE DCV session that’s used to access a virtual
+  Terminates a web-based Amazon DCV session that’s used to access a virtual
   computer’s
   operating system or application.
 
@@ -10206,12 +10206,12 @@ defmodule AWS.Lightsail do
   instance. To use the same IP address after stopping and starting an instance,
   create a
   static IP address and attach it to the instance. For more information, see the
-  [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-create-static-ip).
+  [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/lightsail-create-static-ip).
 
   The `stop instance` operation supports tag-based access control via resource
   tags applied to the resource identified by `instance name`. For more
   information,
-  see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec stop_instance(map(), stop_instance_request(), list()) ::
           {:ok, stop_instance_result(), any()}
@@ -10226,10 +10226,17 @@ defmodule AWS.Lightsail do
   @doc """
   Stops a specific database that is currently running in Amazon Lightsail.
 
+  If you don't manually start your database instance after it has been stopped for
+  seven
+  consecutive days, Amazon Lightsail automatically starts it for you. This action
+  helps ensure
+  that your database instance doesn't fall behind on any required maintenance
+  updates.
+
   The `stop relational database` operation supports tag-based access control via
   resource tags applied to the resource identified by relationalDatabaseName. For
   more
-  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec stop_relational_database(map(), stop_relational_database_request(), list()) ::
           {:ok, stop_relational_database_result(), any()}
@@ -10248,12 +10255,12 @@ defmodule AWS.Lightsail do
   maximum of 50 tags. Each tag consists of a key and an optional value. Tag keys
   must be unique
   per resource. For more information about tags, see the [Amazon Lightsail Developer
-  Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags).
+  Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags).
 
   The `tag resource` operation supports tag-based access control via request tags
   and resource tags applied to the resource identified by `resource name`. For
   more
-  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_result(), any()}
@@ -10279,7 +10286,7 @@ defmodule AWS.Lightsail do
   condition is met, the alarm can notify you by email, SMS text message, and a
   banner displayed
   on the Amazon Lightsail console. For more information, see [Alarms in Amazon
-  Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms).
+  Lightsail](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-alarms).
   """
   @spec test_alarm(map(), test_alarm_request(), list()) ::
           {:ok, test_alarm_result(), any()}
@@ -10312,7 +10319,7 @@ defmodule AWS.Lightsail do
   The `untag resource` operation supports tag-based access control via request
   tags and resource tags applied to the resource identified by `resource name`.
   For
-  more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  more information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_result(), any()}
@@ -10444,7 +10451,7 @@ defmodule AWS.Lightsail do
 
   The `update domain entry` operation supports tag-based access control via
   resource tags applied to the resource identified by `domain name`. For more
-  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec update_domain_entry(map(), update_domain_entry_request(), list()) ::
           {:ok, update_domain_entry_result(), any()}
@@ -10466,7 +10473,7 @@ defmodule AWS.Lightsail do
   `pending`. After the parameter modifications are successfully applied, the state
   changes to `applied` in subsequent `GetInstance` or
   `GetInstances` API calls. For more information, see [Use IMDSv2 with an Amazon Lightsail
-  instance](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-instance-metadata-service)
+  instance](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-instance-metadata-service)
   in the *Amazon Lightsail Developer Guide*.
   """
   @spec update_instance_metadata_options(
@@ -10497,7 +10504,7 @@ defmodule AWS.Lightsail do
   name
   ```
 
-  . For more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  . For more information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec update_load_balancer_attribute(map(), update_load_balancer_attribute_request(), list()) ::
           {:ok, update_load_balancer_attribute_result(), any()}
@@ -10519,7 +10526,7 @@ defmodule AWS.Lightsail do
   The `update relational database` operation supports tag-based access control
   via resource tags applied to the resource identified by relationalDatabaseName.
   For more
-  information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec update_relational_database(map(), update_relational_database_request(), list()) ::
           {:ok, update_relational_database_result(), any()}
@@ -10547,7 +10554,7 @@ defmodule AWS.Lightsail do
   The `update relational database parameters` operation supports tag-based access
   control via resource tags applied to the resource identified by
   relationalDatabaseName. For
-  more information, see the [Amazon Lightsail Developer Guide](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags).
+  more information, see the [Amazon Lightsail Developer Guide](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags).
   """
   @spec update_relational_database_parameters(
           map(),

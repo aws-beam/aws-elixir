@@ -153,6 +153,17 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      put_configuration_set_archiving_options_request() :: %{
+        optional("ArchiveArn") => String.t()
+      }
+
+  """
+  @type put_configuration_set_archiving_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_deliverability_test_reports_request() :: %{
         optional("NextToken") => String.t(),
         optional("PageSize") => integer()
@@ -915,6 +926,15 @@ defmodule AWS.SESv2 do
 
   """
   @type cloud_watch_dimension_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_configuration_set_archiving_options_response() :: %{}
+
+  """
+  @type put_configuration_set_archiving_options_response() :: %{}
 
   @typedoc """
 
@@ -2542,6 +2562,17 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      archiving_options() :: %{
+        "ArchiveArn" => String.t()
+      }
+
+  """
+  @type archiving_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       suppression_options() :: %{
         "SuppressedReasons" => list(list(any())())
       }
@@ -3031,6 +3062,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       get_configuration_set_response() :: %{
+        "ArchivingOptions" => archiving_options(),
         "ConfigurationSetName" => String.t(),
         "DeliveryOptions" => delivery_options(),
         "ReputationOptions" => reputation_options(),
@@ -3347,6 +3379,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       create_configuration_set_request() :: %{
+        optional("ArchivingOptions") => archiving_options(),
         optional("DeliveryOptions") => delivery_options(),
         optional("ReputationOptions") => reputation_options(),
         optional("SendingOptions") => sending_options(),
@@ -3841,6 +3874,9 @@ defmodule AWS.SESv2 do
 
   @type put_account_vdm_attributes_errors() ::
           bad_request_exception() | too_many_requests_exception()
+
+  @type put_configuration_set_archiving_options_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
 
   @type put_configuration_set_delivery_options_errors() ::
           bad_request_exception() | not_found_exception() | too_many_requests_exception()
@@ -6231,6 +6267,51 @@ defmodule AWS.SESv2 do
           | {:error, put_account_vdm_attributes_errors()}
   def put_account_vdm_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/account/vdm"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Associate the configuration set with a MailManager archive.
+
+  When you send email using the
+  `SendEmail` or `SendBulkEmail` operations the message as it will be given
+  to the receiving SMTP server will be archived, along with the recipient
+  information.
+  """
+  @spec put_configuration_set_archiving_options(
+          map(),
+          String.t(),
+          put_configuration_set_archiving_options_request(),
+          list()
+        ) ::
+          {:ok, put_configuration_set_archiving_options_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_configuration_set_archiving_options_errors()}
+  def put_configuration_set_archiving_options(
+        %Client{} = client,
+        configuration_set_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}/archiving-options"
+
     headers = []
     custom_headers = []
     query_params = []

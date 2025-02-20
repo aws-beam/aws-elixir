@@ -687,6 +687,18 @@ defmodule AWS.CodePipeline do
 
   ## Example:
       
+      environment_variable() :: %{
+        "name" => String.t(),
+        "value" => String.t()
+      }
+      
+  """
+  @type environment_variable() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       third_party_job() :: %{
         "clientId" => String.t(),
         "jobId" => String.t()
@@ -1254,6 +1266,7 @@ defmodule AWS.CodePipeline do
         "actionTypeId" => action_type_id(),
         "commands" => list(String.t()()),
         "configuration" => map(),
+        "environmentVariables" => list(environment_variable()()),
         "inputArtifacts" => list(input_artifact()()),
         "name" => String.t(),
         "namespace" => String.t(),
@@ -3635,8 +3648,9 @@ defmodule AWS.CodePipeline do
   @doc """
   Lists the rules for the condition.
 
-  For more information about conditions, see [Stage conditions](https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html).
-  For more information about rules, see the [CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+  For more information about conditions, see [Stage conditions](https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html)
+  and [How do stage conditions work?](https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html).For
+  more information about rules, see the [CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
   """
   @spec list_rule_types(map(), list_rule_types_input(), list()) ::
           {:ok, list_rule_types_output(), any()}
@@ -3683,6 +3697,9 @@ defmodule AWS.CodePipeline do
 
   @doc """
   Used to override a stage condition.
+
+  For more information about conditions, see [Stage conditions](https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html)
+  and [How do stage conditions work?](https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html).
   """
   @spec override_stage_condition(map(), override_stage_condition_input(), list()) ::
           {:ok, nil, any()}

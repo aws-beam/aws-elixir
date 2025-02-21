@@ -5183,6 +5183,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       update_cluster_request() :: %{
+        optional("InstanceGroupsToDelete") => list(String.t()()),
         optional("NodeRecovery") => list(any()),
         required("ClusterName") => String.t(),
         required("InstanceGroups") => list(cluster_instance_group_specification()())

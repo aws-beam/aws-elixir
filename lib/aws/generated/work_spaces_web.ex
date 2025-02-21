@@ -624,6 +624,7 @@ defmodule AWS.WorkSpacesWeb do
         "idleDisconnectTimeoutInMinutes" => integer(),
         "pasteAllowed" => String.t(),
         "printAllowed" => String.t(),
+        "toolbarConfiguration" => toolbar_configuration(),
         "uploadAllowed" => String.t(),
         "userSettingsArn" => String.t()
       }
@@ -1316,6 +1317,7 @@ defmodule AWS.WorkSpacesWeb do
         optional("idleDisconnectTimeoutInMinutes") => integer(),
         optional("pasteAllowed") => String.t(),
         optional("printAllowed") => String.t(),
+        optional("toolbarConfiguration") => toolbar_configuration(),
         optional("uploadAllowed") => String.t()
       }
 
@@ -1561,6 +1563,7 @@ defmodule AWS.WorkSpacesWeb do
         optional("disconnectTimeoutInMinutes") => integer(),
         optional("idleDisconnectTimeoutInMinutes") => integer(),
         optional("tags") => list(tag()()),
+        optional("toolbarConfiguration") => toolbar_configuration(),
         required("copyAllowed") => String.t(),
         required("downloadAllowed") => String.t(),
         required("pasteAllowed") => String.t(),
@@ -1754,6 +1757,20 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
+      toolbar_configuration() :: %{
+        "hiddenToolbarItems" => list(String.t()()),
+        "maxDisplayResolution" => String.t(),
+        "toolbarType" => String.t(),
+        "visualMode" => String.t()
+      }
+
+  """
+  @type toolbar_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_data_protection_settings_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
@@ -1838,6 +1855,7 @@ defmodule AWS.WorkSpacesWeb do
         "idleDisconnectTimeoutInMinutes" => integer(),
         "pasteAllowed" => String.t(),
         "printAllowed" => String.t(),
+        "toolbarConfiguration" => toolbar_configuration(),
         "uploadAllowed" => String.t(),
         "userSettingsArn" => String.t()
       }

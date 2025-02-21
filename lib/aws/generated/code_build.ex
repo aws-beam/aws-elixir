@@ -2164,6 +2164,8 @@ defmodule AWS.CodeBuild do
         "payloadUrl" => String.t(),
         "scopeConfiguration" => scope_configuration(),
         "secret" => String.t(),
+        "status" => list(any()),
+        "statusMessage" => String.t(),
         "url" => String.t()
       }
       

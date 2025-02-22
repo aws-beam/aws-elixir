@@ -2895,7 +2895,8 @@ defmodule AWS.BedrockAgent do
         "exclusionFilters" => list(String.t()()),
         "inclusionFilters" => list(String.t()()),
         "scope" => list(any()),
-        "userAgent" => String.t()
+        "userAgent" => String.t(),
+        "userAgentHeader" => String.t()
       }
 
   """

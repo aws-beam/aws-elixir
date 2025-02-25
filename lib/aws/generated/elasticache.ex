@@ -4878,8 +4878,7 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  For Valkey engine version 7.2 onwards and Redis OSS 6.0 and onwards: Creates a
-  user.
+  For Valkey engine version 7.2 onwards and Redis OSS 6.0 to 7.1: Creates a user.
 
   For more information, see
   [Using Role Based Access Control (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Clusters.RBAC.html).
@@ -4895,7 +4894,7 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  For Valkey engine version 7.2 onwards and Redis OSS 6.0 onwards: Creates a user
+  For Valkey engine version 7.2 onwards and Redis OSS 6.0 to 7.1: Creates a user
   group.
 
   For more

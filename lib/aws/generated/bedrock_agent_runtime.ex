@@ -913,6 +913,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      reasoning_text_block() :: %{
+        "signature" => [String.t()],
+        "text" => [String.t()]
+      }
+
+  """
+  @type reasoning_text_block() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       function_result() :: %{
         "actionGroup" => [String.t()],
         "agentId" => [String.t()],
@@ -1162,6 +1174,7 @@ defmodule AWS.BedrockAgentRuntime do
         "metadata" => metadata(),
         "parsedResponse" => pre_processing_parsed_response(),
         "rawResponse" => raw_response(),
+        "reasoningContent" => list(),
         "traceId" => String.t()
       }
 
@@ -2235,6 +2248,7 @@ defmodule AWS.BedrockAgentRuntime do
         "metadata" => metadata(),
         "parsedResponse" => post_processing_parsed_response(),
         "rawResponse" => raw_response(),
+        "reasoningContent" => list(),
         "traceId" => String.t()
       }
 
@@ -2261,6 +2275,7 @@ defmodule AWS.BedrockAgentRuntime do
       orchestration_model_invocation_output() :: %{
         "metadata" => metadata(),
         "rawResponse" => raw_response(),
+        "reasoningContent" => list(),
         "traceId" => String.t()
       }
 

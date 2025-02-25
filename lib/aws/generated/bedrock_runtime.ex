@@ -436,6 +436,18 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      reasoning_text_block() :: %{
+        "signature" => [String.t()],
+        "text" => [String.t()]
+      }
+
+  """
+  @type reasoning_text_block() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       conflict_exception() :: %{
         "message" => String.t()
       }

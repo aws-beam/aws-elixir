@@ -7777,6 +7777,7 @@ defmodule AWS.IoT do
   ## Example:
 
       audit_check_configuration() :: %{
+        "configuration" => map(),
         "enabled" => boolean()
       }
 

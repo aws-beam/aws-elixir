@@ -92,8 +92,10 @@ defmodule AWS.TaxSettings do
       additional_info_response() :: %{
         "brazilAdditionalInfo" => brazil_additional_info(),
         "canadaAdditionalInfo" => canada_additional_info(),
+        "egyptAdditionalInfo" => egypt_additional_info(),
         "estoniaAdditionalInfo" => estonia_additional_info(),
         "georgiaAdditionalInfo" => georgia_additional_info(),
+        "greeceAdditionalInfo" => greece_additional_info(),
         "indiaAdditionalInfo" => india_additional_info(),
         "israelAdditionalInfo" => israel_additional_info(),
         "italyAdditionalInfo" => italy_additional_info(),
@@ -105,7 +107,8 @@ defmodule AWS.TaxSettings do
         "southKoreaAdditionalInfo" => south_korea_additional_info(),
         "spainAdditionalInfo" => spain_additional_info(),
         "turkeyAdditionalInfo" => turkey_additional_info(),
-        "ukraineAdditionalInfo" => ukraine_additional_info()
+        "ukraineAdditionalInfo" => ukraine_additional_info(),
+        "vietnamAdditionalInfo" => vietnam_additional_info()
       }
 
   """
@@ -203,6 +206,17 @@ defmodule AWS.TaxSettings do
 
   ## Example:
 
+      greece_additional_info() :: %{
+        "contractingAuthorityCode" => String.t()
+      }
+
+  """
+  @type greece_additional_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_tax_registration_response() :: %{
         "taxRegistration" => tax_registration()
       }
@@ -279,6 +293,18 @@ defmodule AWS.TaxSettings do
 
   """
   @type batch_put_tax_registration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      egypt_additional_info() :: %{
+        "uniqueIdentificationNumber" => String.t(),
+        "uniqueIdentificationNumberExpirationDate" => String.t()
+      }
+
+  """
+  @type egypt_additional_info() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -362,8 +388,10 @@ defmodule AWS.TaxSettings do
 
       additional_info_request() :: %{
         "canadaAdditionalInfo" => canada_additional_info(),
+        "egyptAdditionalInfo" => egypt_additional_info(),
         "estoniaAdditionalInfo" => estonia_additional_info(),
         "georgiaAdditionalInfo" => georgia_additional_info(),
+        "greeceAdditionalInfo" => greece_additional_info(),
         "israelAdditionalInfo" => israel_additional_info(),
         "italyAdditionalInfo" => italy_additional_info(),
         "kenyaAdditionalInfo" => kenya_additional_info(),
@@ -374,7 +402,8 @@ defmodule AWS.TaxSettings do
         "southKoreaAdditionalInfo" => south_korea_additional_info(),
         "spainAdditionalInfo" => spain_additional_info(),
         "turkeyAdditionalInfo" => turkey_additional_info(),
-        "ukraineAdditionalInfo" => ukraine_additional_info()
+        "ukraineAdditionalInfo" => ukraine_additional_info(),
+        "vietnamAdditionalInfo" => vietnam_additional_info()
       }
 
   """
@@ -754,6 +783,20 @@ defmodule AWS.TaxSettings do
 
   """
   @type turkey_additional_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vietnam_additional_info() :: %{
+        "electronicTransactionCodeNumber" => String.t(),
+        "enterpriseIdentificationNumber" => String.t(),
+        "paymentVoucherNumber" => String.t(),
+        "paymentVoucherNumberDate" => String.t()
+      }
+
+  """
+  @type vietnam_additional_info() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1155,6 +1198,8 @@ defmodule AWS.TaxSettings do
 
   @doc """
   Get the active tax exemptions for a given list of accounts.
+
+  The IAM action is `tax:GetExemptions`.
   """
   @spec batch_get_tax_exemptions(map(), batch_get_tax_exemptions_request(), list()) ::
           {:ok, batch_get_tax_exemptions_response(), any()}
@@ -1451,6 +1496,8 @@ defmodule AWS.TaxSettings do
 
   @doc """
   Get supported tax exemption types.
+
+  The IAM action is `tax:GetExemptions`.
   """
   @spec get_tax_exemption_types(map(), get_tax_exemption_types_request(), list()) ::
           {:ok, get_tax_exemption_types_response(), any()}
@@ -1597,6 +1644,8 @@ defmodule AWS.TaxSettings do
 
   @doc """
   Retrieves the tax exemption of accounts listed in a consolidated billing family.
+
+  The IAM action is `tax:GetExemptions`.
   """
   @spec list_tax_exemptions(map(), list_tax_exemptions_request(), list()) ::
           {:ok, list_tax_exemptions_response(), any()}
@@ -1692,6 +1741,8 @@ defmodule AWS.TaxSettings do
   @doc """
   Adds the tax exemption for a single account or all accounts listed in a
   consolidated billing family.
+
+  The IAM action is `tax:UpdateExemptions`.
   """
   @spec put_tax_exemption(map(), put_tax_exemption_request(), list()) ::
           {:ok, put_tax_exemption_response(), any()}

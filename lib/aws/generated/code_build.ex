@@ -1659,6 +1659,7 @@ defmodule AWS.CodeBuild do
         "phases" => list(build_batch_phase()()),
         "projectName" => String.t(),
         "queuedTimeoutInMinutes" => integer(),
+        "reportArns" => list(String.t()()),
         "resolvedSourceVersion" => String.t(),
         "secondaryArtifacts" => list(build_artifacts()()),
         "secondarySourceVersions" => list(project_source_version()()),

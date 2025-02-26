@@ -4858,6 +4858,7 @@ defmodule AWS.EC2 do
         optional("DryRun") => boolean(),
         optional("Encrypted") => boolean(),
         optional("KmsKeyId") => String.t(),
+        optional("SnapshotCopyCompletionDurationMinutes") => float(),
         optional("TagSpecifications") => list(tag_specification()()),
         required("Name") => String.t(),
         required("SourceImageId") => String.t(),

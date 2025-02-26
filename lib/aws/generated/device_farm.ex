@@ -74,6 +74,7 @@ defmodule AWS.DeviceFarm do
       
       create_remote_access_session_configuration() :: %{
         "billingMethod" => list(any()),
+        "deviceProxy" => device_proxy(),
         "vpceConfigurationArns" => list(String.t()())
       }
       
@@ -962,6 +963,7 @@ defmodule AWS.DeviceFarm do
         "auxiliaryApps" => list(String.t()()),
         "billingMethod" => list(any()),
         "customerArtifactPaths" => customer_artifact_paths(),
+        "deviceProxy" => device_proxy(),
         "extraDataPackageArn" => String.t(),
         "locale" => String.t(),
         "location" => location(),
@@ -1944,6 +1946,7 @@ defmodule AWS.DeviceFarm do
         "created" => non_neg_integer(),
         "device" => device(),
         "deviceMinutes" => device_minutes(),
+        "deviceProxy" => device_proxy(),
         "deviceUdid" => String.t(),
         "endpoint" => String.t(),
         "hostAddress" => String.t(),
@@ -2592,6 +2595,18 @@ defmodule AWS.DeviceFarm do
 
   ## Example:
       
+      device_proxy() :: %{
+        "host" => String.t(),
+        "port" => integer()
+      }
+      
+  """
+  @type device_proxy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       stop_job_result() :: %{
         "job" => job()
       }
@@ -2717,38 +2732,39 @@ defmodule AWS.DeviceFarm do
   ## Example:
       
       run() :: %{
-        "appUpload" => String.t(),
-        "arn" => String.t(),
+        "resultCode" => list(any()),
+        "testSpecArn" => String.t(),
+        "seed" => integer(),
+        "message" => String.t(),
         "billingMethod" => list(any()),
-        "completedJobs" => integer(),
-        "counters" => counters(),
-        "created" => non_neg_integer(),
+        "name" => String.t(),
+        "eventCount" => integer(),
+        "networkProfile" => network_profile(),
+        "jobTimeoutMinutes" => integer(),
+        "deviceSelectionResult" => device_selection_result(),
+        "started" => non_neg_integer(),
+        "location" => location(),
+        "webUrl" => String.t(),
+        "radios" => radios(),
+        "locale" => String.t(),
+        "platform" => list(any()),
+        "type" => list(any()),
         "customerArtifactPaths" => customer_artifact_paths(),
+        "deviceProxy" => device_proxy(),
         "deviceMinutes" => device_minutes(),
         "devicePoolArn" => String.t(),
-        "deviceSelectionResult" => device_selection_result(),
-        "eventCount" => integer(),
-        "jobTimeoutMinutes" => integer(),
-        "locale" => String.t(),
-        "location" => location(),
-        "message" => String.t(),
-        "name" => String.t(),
-        "networkProfile" => network_profile(),
+        "arn" => String.t(),
         "parsingResultUrl" => String.t(),
-        "platform" => list(any()),
-        "radios" => radios(),
-        "result" => list(any()),
-        "resultCode" => list(any()),
-        "seed" => integer(),
-        "skipAppResign" => boolean(),
-        "started" => non_neg_integer(),
-        "status" => list(any()),
-        "stopped" => non_neg_integer(),
-        "testSpecArn" => String.t(),
+        "counters" => counters(),
         "totalJobs" => integer(),
-        "type" => list(any()),
+        "appUpload" => String.t(),
+        "created" => non_neg_integer(),
+        "result" => list(any()),
+        "status" => list(any()),
         "vpcConfig" => vpc_config(),
-        "webUrl" => String.t()
+        "skipAppResign" => boolean(),
+        "stopped" => non_neg_integer(),
+        "completedJobs" => integer()
       }
       
   """

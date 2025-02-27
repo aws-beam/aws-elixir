@@ -288,6 +288,7 @@ defmodule AWS.IoTFleetWise do
       list_vehicles_request() :: %{
         optional("attributeNames") => list(String.t()()),
         optional("attributeValues") => list(String.t()()),
+        optional("listResponseScope") => list(any()),
         optional("maxResults") => integer(),
         optional("modelManifestArn") => String.t(),
         optional("nextToken") => String.t()
@@ -571,6 +572,7 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       list_model_manifests_request() :: %{
+        optional("listResponseScope") => list(any()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("signalCatalogArn") => String.t()
@@ -625,6 +627,7 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       list_fleets_request() :: %{
+        optional("listResponseScope") => list(any()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -637,6 +640,7 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       list_decoder_manifests_request() :: %{
+        optional("listResponseScope") => list(any()),
         optional("maxResults") => integer(),
         optional("modelManifestArn") => String.t(),
         optional("nextToken") => String.t()
@@ -842,6 +846,7 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       list_campaigns_request() :: %{
+        optional("listResponseScope") => list(any()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("status") => String.t()
@@ -2101,6 +2106,7 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       list_state_templates_request() :: %{
+        optional("listResponseScope") => list(any()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }

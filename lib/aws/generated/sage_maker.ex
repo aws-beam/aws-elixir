@@ -568,6 +568,7 @@ defmodule AWS.SageMaker do
         "InferenceComponentArn" => String.t(),
         "InferenceComponentName" => String.t(),
         "InferenceComponentStatus" => list(any()),
+        "LastDeploymentConfig" => inference_component_deployment_config(),
         "LastModifiedTime" => non_neg_integer(),
         "RuntimeConfig" => inference_component_runtime_config_summary(),
         "Specification" => inference_component_specification_summary(),
@@ -5419,6 +5420,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      inference_component_capacity_size() :: %{
+        "Type" => list(any()),
+        "Value" => integer()
+      }
+      
+  """
+  @type inference_component_capacity_size() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       image_version() :: %{
         "CreationTime" => non_neg_integer(),
         "FailureReason" => String.t(),
@@ -6092,6 +6105,18 @@ defmodule AWS.SageMaker do
       
   """
   @type renderable_task() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      inference_component_deployment_config() :: %{
+        "AutoRollbackConfiguration" => auto_rollback_config(),
+        "RollingUpdatePolicy" => inference_component_rolling_update_policy()
+      }
+      
+  """
+  @type inference_component_deployment_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -12609,6 +12634,20 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      inference_component_rolling_update_policy() :: %{
+        "MaximumBatchSize" => inference_component_capacity_size(),
+        "MaximumExecutionTimeoutInSeconds" => integer(),
+        "RollbackMaximumBatchSize" => inference_component_capacity_size(),
+        "WaitIntervalInSeconds" => integer()
+      }
+      
+  """
+  @type inference_component_rolling_update_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_model_input() :: %{
         required("ModelName") => String.t()
       }
@@ -14622,6 +14661,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       update_inference_component_input() :: %{
+        optional("DeploymentConfig") => inference_component_deployment_config(),
         optional("RuntimeConfig") => inference_component_runtime_config(),
         optional("Specification") => inference_component_specification(),
         required("InferenceComponentName") => String.t()
@@ -19863,12 +19903,13 @@ defmodule AWS.SageMaker do
 
   @doc """
   Creates a model package that you can use to create SageMaker models or list on
-  Amazon Web Services
-  Marketplace, or a versioned model that is part of a model group.
+  Amazon Web Services Marketplace, or a versioned model that is part of a model
+  group.
 
-  Buyers can subscribe to
-  model packages listed on Amazon Web Services Marketplace to create models in
-  SageMaker.
+  Buyers
+  can subscribe to model packages listed on Amazon Web Services Marketplace to
+  create
+  models in SageMaker.
 
   To create a model package by specifying a Docker container that contains your
   inference code and the Amazon S3 location of your model artifacts, provide
@@ -21254,9 +21295,10 @@ defmodule AWS.SageMaker do
   Deletes a model package.
 
   A model package is used to create SageMaker models or list on Amazon Web
-  Services Marketplace. Buyers can
-  subscribe to model packages listed on Amazon Web Services Marketplace to create
-  models in SageMaker.
+  Services
+  Marketplace. Buyers can subscribe to model packages listed on Amazon Web
+  Services
+  Marketplace to create models in SageMaker.
   """
   @spec delete_model_package(map(), delete_model_package_input(), list()) ::
           {:ok, nil, any()}
@@ -22208,11 +22250,11 @@ defmodule AWS.SageMaker do
 
   If you provided a KMS Key ID when you created your model package,
   you will see the [KMS Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html)
-  API call in your CloudTrail logs when you use this API.
+  API call in
+  your CloudTrail logs when you use this API.
 
   To create models in SageMaker, buyers can subscribe to model packages listed on
-  Amazon Web Services
-  Marketplace.
+  Amazon Web Services Marketplace.
   """
   @spec describe_model_package(map(), describe_model_package_input(), list()) ::
           {:ok, describe_model_package_output(), any()}
@@ -22655,8 +22697,8 @@ defmodule AWS.SageMaker do
   For information about
   resource policies, see [Identity-based policies and resource-based
   policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html)
-  in the *Amazon Web Services Identity and
-  Access Management User Guide.*.
+  in the *Amazon Web Services
+  Identity and Access Management User Guide.*.
   """
   @spec get_model_package_group_policy(map(), get_model_package_group_policy_input(), list()) ::
           {:ok, get_model_package_group_policy_output(), any()}
@@ -23894,7 +23936,8 @@ defmodule AWS.SageMaker do
   For information about
   resoure policies, see [Identity-based policies and resource-based
   policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html)
-  in the *Amazon Web Services Identity and Access Management User Guide.*.
+  in the *Amazon Web Services
+  Identity and Access Management User Guide.*.
   """
   @spec put_model_package_group_policy(map(), put_model_package_group_policy_input(), list()) ::
           {:ok, put_model_package_group_policy_output(), any()}

@@ -226,10 +226,12 @@ defmodule AWS.ApplicationSignals do
   ## Example:
 
       list_service_level_objectives_input() :: %{
+        optional("IncludeLinkedAccounts") => [boolean()],
         optional("KeyAttributes") => map(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("OperationName") => String.t()
+        optional("OperationName") => String.t(),
+        optional("SloOwnerAwsAccountId") => String.t()
       }
 
   """
@@ -240,6 +242,7 @@ defmodule AWS.ApplicationSignals do
   ## Example:
 
       metric_reference() :: %{
+        "AccountId" => String.t(),
         "Dimensions" => list(dimension()()),
         "MetricName" => String.t(),
         "MetricType" => String.t(),
@@ -831,6 +834,8 @@ defmodule AWS.ApplicationSignals do
   ## Example:
 
       list_services_input() :: %{
+        optional("AwsAccountId") => String.t(),
+        optional("IncludeLinkedAccounts") => [boolean()],
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("EndTime") => [non_neg_integer()],
@@ -982,6 +987,10 @@ defmodule AWS.ApplicationSignals do
   Signals, using critical metrics such as latency and availability.
   You can also set SLOs against any CloudWatch metric or math expression that
   produces a time series.
+
+  You can't create an SLO for a service operation that was discovered by
+  Application Signals until after that operation has reported standard
+  metrics to Application Signals.
 
   When you create an SLO, you specify whether it is a *period-based SLO*
   or a *request-based SLO*. Each type of SLO has a different way of evaluating
@@ -1269,9 +1278,11 @@ defmodule AWS.ApplicationSignals do
 
     {query_params, input} =
       [
+        {"IncludeLinkedAccounts", "IncludeLinkedAccounts"},
         {"MaxResults", "MaxResults"},
         {"NextToken", "NextToken"},
-        {"OperationName", "OperationName"}
+        {"OperationName", "OperationName"},
+        {"SloOwnerAwsAccountId", "SloOwnerAwsAccountId"}
       ]
       |> Request.build_params(input)
 
@@ -1337,13 +1348,24 @@ defmodule AWS.ApplicationSignals do
   business function. Services
   are discovered through Application Signals instrumentation.
   """
-  @spec list_services(map(), String.t(), String.t() | nil, String.t() | nil, String.t(), list()) ::
+  @spec list_services(
+          map(),
+          String.t() | nil,
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t(),
+          list()
+        ) ::
           {:ok, list_services_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_services_errors()}
   def list_services(
         %Client{} = client,
+        aws_account_id \\ nil,
         end_time,
+        include_linked_accounts \\ nil,
         max_results \\ nil,
         next_token \\ nil,
         start_time,
@@ -1375,8 +1397,22 @@ defmodule AWS.ApplicationSignals do
       end
 
     query_params =
+      if !is_nil(include_linked_accounts) do
+        [{"IncludeLinkedAccounts", include_linked_accounts} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
       if !is_nil(end_time) do
         [{"EndTime", end_time} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(aws_account_id) do
+        [{"AwsAccountId", aws_account_id} | query_params]
       else
         query_params
       end

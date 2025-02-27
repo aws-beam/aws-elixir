@@ -1342,6 +1342,20 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      fleet_block_device_mapping_request() :: %{
+        "DeviceName" => String.t(),
+        "Ebs" => fleet_ebs_block_device_request(),
+        "NoDevice" => String.t(),
+        "VirtualName" => String.t()
+      }
+      
+  """
+  @type fleet_block_device_mapping_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_spot_instance_requests_result() :: %{
         "NextToken" => String.t(),
         "SpotInstanceRequests" => list(spot_instance_request()())
@@ -3871,6 +3885,24 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      fleet_ebs_block_device_request() :: %{
+        "DeleteOnTermination" => boolean(),
+        "Encrypted" => boolean(),
+        "Iops" => integer(),
+        "KmsKeyId" => String.t(),
+        "SnapshotId" => String.t(),
+        "Throughput" => integer(),
+        "VolumeSize" => integer(),
+        "VolumeType" => list(any())
+      }
+      
+  """
+  @type fleet_ebs_block_device_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       associate_enclave_certificate_iam_role_request() :: %{
         optional("DryRun") => boolean(),
         required("CertificateArn") => String.t(),
@@ -5985,6 +6017,15 @@ defmodule AWS.EC2 do
       
   """
   @type disable_image_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deregister_image_result() :: %{}
+      
+  """
+  @type deregister_image_result() :: %{}
 
   @typedoc """
 
@@ -11437,6 +11478,7 @@ defmodule AWS.EC2 do
       
       fleet_launch_template_overrides() :: %{
         "AvailabilityZone" => String.t(),
+        "BlockDeviceMappings" => list(block_device_mapping_response()()),
         "ImageId" => String.t(),
         "InstanceRequirements" => instance_requirements(),
         "InstanceType" => list(any()),
@@ -13590,6 +13632,20 @@ defmodule AWS.EC2 do
       
   """
   @type describe_volumes_modifications_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      block_device_mapping_response() :: %{
+        "DeviceName" => String.t(),
+        "Ebs" => ebs_block_device_response(),
+        "NoDevice" => String.t(),
+        "VirtualName" => String.t()
+      }
+      
+  """
+  @type block_device_mapping_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -17002,6 +17058,24 @@ defmodule AWS.EC2 do
       
   """
   @type attach_vpn_gateway_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ebs_block_device_response() :: %{
+        "DeleteOnTermination" => boolean(),
+        "Encrypted" => boolean(),
+        "Iops" => integer(),
+        "KmsKeyId" => String.t(),
+        "SnapshotId" => String.t(),
+        "Throughput" => integer(),
+        "VolumeSize" => integer(),
+        "VolumeType" => list(any())
+      }
+      
+  """
+  @type ebs_block_device_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -24802,6 +24876,7 @@ defmodule AWS.EC2 do
       
       fleet_launch_template_overrides_request() :: %{
         "AvailabilityZone" => String.t(),
+        "BlockDeviceMappings" => list(fleet_block_device_mapping_request()()),
         "ImageId" => String.t(),
         "InstanceRequirements" => instance_requirements_request(),
         "InstanceType" => list(any()),
@@ -30729,8 +30804,8 @@ defmodule AWS.EC2 do
   an
   instance using `RunInstances`, you can specify a launch template instead
   of providing the launch parameters in the request. For more information, see
-  [Launch an instance from a launch
-  template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html)
+  [Store instance launch parameters in Amazon EC2 launch
+  templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html)
   in the
   *Amazon EC2 User Guide*.
 
@@ -30738,7 +30813,7 @@ defmodule AWS.EC2 do
   the
   Amazon EC2 console. The API, SDKs, and CLI do not support cloning a template.
   For more
-  information, see [Create a launch template from an existing launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template-from-existing-launch-template)
+  information, see [Create a launch template from an existing launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#create-launch-template-from-existing-launch-template)
   in the
   *Amazon EC2 User Guide*.
   """
@@ -30769,7 +30844,7 @@ defmodule AWS.EC2 do
   the
   changes that you require.
 
-  For more information, see [Modify a launch template (manage launch template versions)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions)
+  For more information, see [Modify a launch template (manage launch template versions)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-launch-template-versions.html)
   in the
   *Amazon EC2 User Guide*.
   """
@@ -32330,22 +32405,26 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Deletes the specified EC2 Fleets.
+  Deletes the specified EC2 Fleet request.
 
-  After you delete an EC2 Fleet, it launches no new instances.
+  After you delete an EC2 Fleet request, it launches no new instances.
 
-  You must also specify whether a deleted EC2 Fleet should terminate its
-  instances. If you
-  choose to terminate the instances, the EC2 Fleet enters the
-  `deleted_terminating`
-  state. Otherwise, the EC2 Fleet enters the `deleted_running` state, and the
-  instances
-  continue to run until they are interrupted or you terminate them manually.
+  You must also specify whether a deleted EC2 Fleet request should terminate its
+  instances. If
+  you choose to terminate the instances, the EC2 Fleet request enters the
+  `deleted_terminating` state. Otherwise, it enters the
+  `deleted_running` state, and the instances continue to run until they are
+  interrupted or you terminate them manually.
 
-  For `instant` fleets, EC2 Fleet must terminate the instances when the fleet is
-  deleted. Up to 1000 instances can be terminated in a single request to delete
-  `instant` fleets. A deleted `instant` fleet with running instances
-  is not supported.
+  A deleted `instant` fleet with running instances is not supported. When you
+  delete an `instant` fleet, Amazon EC2 automatically terminates all its
+  instances. For
+  fleets with more than 1000 instances, the deletion request might fail. If your
+  fleet has
+  more than 1000 instances, first terminate most of the instances manually,
+  leaving 1000 or
+  fewer. Then delete the fleet, and the remaining instances will be terminated
+  automatically.
 
   ## Restrictions
 
@@ -32365,8 +32444,9 @@ defmodule AWS.EC2 do
   If you exceed the specified number of fleets to delete, no fleets are
   deleted.
 
-  For more information, see [Delete an EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#delete-fleet)
-  in the *Amazon EC2 User Guide*.
+  For more information, see [Delete an EC2 Fleet request and the instances in the
+  fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/delete-fleet.html) in
+  the *Amazon EC2 User Guide*.
   """
   @spec delete_fleets(map(), delete_fleets_request(), list()) ::
           {:ok, delete_fleets_result(), any()}
@@ -32588,7 +32668,7 @@ defmodule AWS.EC2 do
   than 200 versions in a single request, use `DeleteLaunchTemplate`, which
   deletes the launch template and all of its versions.
 
-  For more information, see [Delete a launch template version](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-launch-template-versions.html#delete-launch-template-version)
+  For more information, see [Delete a launch template version](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/delete-launch-template.html#delete-launch-template-version)
   in the
   *Amazon EC2 User Guide*.
   """
@@ -33622,7 +33702,7 @@ defmodule AWS.EC2 do
   created the AMI.
   """
   @spec deregister_image(map(), deregister_image_request(), list()) ::
-          {:ok, nil, any()}
+          {:ok, deregister_image_result(), any()}
           | {:error, {:unexpected_response, any()}}
   def deregister_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -35589,7 +35669,7 @@ defmodule AWS.EC2 do
   If you have a large number of network interfaces, the operation fails unless
   you use pagination or one of the following filters: `group-id`,
   `mac-address`, `private-dns-name`, `private-ip-address`,
-  `private-dns-name`, `subnet-id`, or `vpc-id`.
+  `subnet-id`, or `vpc-id`.
 
   We strongly recommend using only paginated requests. Unpaginated requests are
   susceptible to throttling and timeouts.

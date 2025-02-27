@@ -117,6 +117,27 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      list_jobs_by_consumable_resource_summary() :: %{
+        "consumableResourceProperties" => consumable_resource_properties(),
+        "createdAt" => float(),
+        "jobArn" => String.t(),
+        "jobDefinitionArn" => String.t(),
+        "jobName" => String.t(),
+        "jobQueueArn" => String.t(),
+        "jobStatus" => String.t(),
+        "quantity" => float(),
+        "shareIdentifier" => String.t(),
+        "startedAt" => float(),
+        "statusReason" => String.t()
+      }
+
+  """
+  @type list_jobs_by_consumable_resource_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       deregister_job_definition_request() :: %{
         required("jobDefinition") => String.t()
       }
@@ -356,6 +377,7 @@ defmodule AWS.Batch do
   ## Example:
 
       node_property_override() :: %{
+        "consumableResourcePropertiesOverride" => consumable_resource_properties(),
         "containerOverrides" => container_overrides(),
         "ecsPropertiesOverride" => ecs_properties_override(),
         "eksPropertiesOverride" => eks_properties_override(),
@@ -464,6 +486,20 @@ defmodule AWS.Batch do
 
   """
   @type job_queue_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_consumable_resource_request() :: %{
+        optional("resourceType") => String.t(),
+        optional("tags") => map(),
+        optional("totalQuantity") => float(),
+        required("consumableResourceName") => String.t()
+      }
+
+  """
+  @type create_consumable_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -631,6 +667,20 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      list_jobs_by_consumable_resource_request() :: %{
+        optional("filters") => list(key_values_pair()()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("consumableResource") => String.t()
+      }
+
+  """
+  @type list_jobs_by_consumable_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       job_summary() :: %{
         "arrayProperties" => array_properties_summary(),
         "container" => container_summary(),
@@ -792,6 +842,7 @@ defmodule AWS.Batch do
   ## Example:
 
       register_job_definition_request() :: %{
+        optional("consumableResourceProperties") => consumable_resource_properties(),
         optional("containerProperties") => container_properties(),
         optional("ecsProperties") => ecs_properties(),
         optional("eksProperties") => eks_properties(),
@@ -825,6 +876,7 @@ defmodule AWS.Batch do
 
       submit_job_request() :: %{
         optional("arrayProperties") => array_properties(),
+        optional("consumableResourcePropertiesOverride") => consumable_resource_properties(),
         optional("containerOverrides") => container_overrides(),
         optional("dependsOn") => list(job_dependency()()),
         optional("ecsPropertiesOverride") => ecs_properties_override(),
@@ -872,6 +924,18 @@ defmodule AWS.Batch do
 
   """
   @type attempt_container_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_consumable_resources_response() :: %{
+        "consumableResources" => list(consumable_resource_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_consumable_resources_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1004,6 +1068,7 @@ defmodule AWS.Batch do
   ## Example:
 
       job_definition() :: %{
+        "consumableResourceProperties" => consumable_resource_properties(),
         "containerOrchestrationType" => list(any()),
         "containerProperties" => container_properties(),
         "ecsProperties" => ecs_properties(),
@@ -1065,12 +1130,36 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      delete_consumable_resource_request() :: %{
+        required("consumableResource") => String.t()
+      }
+
+  """
+  @type delete_consumable_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       ephemeral_storage() :: %{
         "sizeInGiB" => integer()
       }
 
   """
   @type ephemeral_storage() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_consumable_resource_response() :: %{
+        "consumableResourceArn" => String.t(),
+        "consumableResourceName" => String.t(),
+        "totalQuantity" => float()
+      }
+
+  """
+  @type update_consumable_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1325,12 +1414,35 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      update_consumable_resource_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("operation") => String.t(),
+        optional("quantity") => float(),
+        required("consumableResource") => String.t()
+      }
+
+  """
+  @type update_consumable_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       scheduling_policy_listing_detail() :: %{
         "arn" => String.t()
       }
 
   """
   @type scheduling_policy_listing_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_consumable_resource_response() :: %{}
+
+  """
+  @type delete_consumable_resource_response() :: %{}
 
   @typedoc """
 
@@ -1344,6 +1456,18 @@ defmodule AWS.Batch do
 
   """
   @type describe_compute_environments_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      consumable_resource_requirement() :: %{
+        "consumableResource" => String.t(),
+        "quantity" => float()
+      }
+
+  """
+  @type consumable_resource_requirement() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1369,6 +1493,24 @@ defmodule AWS.Batch do
 
   """
   @type volume() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_consumable_resource_response() :: %{
+        "availableQuantity" => float(),
+        "consumableResourceArn" => String.t(),
+        "consumableResourceName" => String.t(),
+        "createdAt" => float(),
+        "inUseQuantity" => float(),
+        "resourceType" => String.t(),
+        "tags" => map(),
+        "totalQuantity" => float()
+      }
+
+  """
+  @type describe_consumable_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1407,6 +1549,7 @@ defmodule AWS.Batch do
   ## Example:
 
       node_range_property() :: %{
+        "consumableResourceProperties" => consumable_resource_properties(),
         "container" => container_properties(),
         "ecsProperties" => ecs_properties(),
         "eksProperties" => eks_properties(),
@@ -1591,6 +1734,30 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      create_consumable_resource_response() :: %{
+        "consumableResourceArn" => String.t(),
+        "consumableResourceName" => String.t()
+      }
+
+  """
+  @type create_consumable_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_jobs_by_consumable_resource_response() :: %{
+        "jobs" => list(list_jobs_by_consumable_resource_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_jobs_by_consumable_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       eks_pod_properties() :: %{
         "containers" => list(eks_container()()),
         "dnsPolicy" => String.t(),
@@ -1683,6 +1850,19 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      list_consumable_resources_request() :: %{
+        optional("filters") => list(key_values_pair()()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_consumable_resources_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       compute_environment_detail() :: %{
         "computeEnvironmentArn" => String.t(),
         "computeEnvironmentName" => String.t(),
@@ -1768,6 +1948,7 @@ defmodule AWS.Batch do
       job_detail() :: %{
         "arrayProperties" => array_properties_detail(),
         "attempts" => list(attempt_detail()()),
+        "consumableResourceProperties" => consumable_resource_properties(),
         "container" => container_detail(),
         "createdAt" => float(),
         "dependsOn" => list(job_dependency()()),
@@ -1851,6 +2032,21 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      consumable_resource_summary() :: %{
+        "consumableResourceArn" => String.t(),
+        "consumableResourceName" => String.t(),
+        "inUseQuantity" => float(),
+        "resourceType" => String.t(),
+        "totalQuantity" => float()
+      }
+
+  """
+  @type consumable_resource_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_job_queue_request() :: %{
         optional("jobStateTimeLimitActions") => list(job_state_time_limit_action()()),
         optional("schedulingPolicyArn") => String.t(),
@@ -1876,6 +2072,17 @@ defmodule AWS.Batch do
 
   """
   @type log_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_consumable_resource_request() :: %{
+        required("consumableResource") => String.t()
+      }
+
+  """
+  @type describe_consumable_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2002,6 +2209,17 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      consumable_resource_properties() :: %{
+        "consumableResourceList" => list(consumable_resource_requirement()())
+      }
+
+  """
+  @type consumable_resource_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       repository_credentials() :: %{
         "credentialsParameter" => String.t()
       }
@@ -2082,11 +2300,15 @@ defmodule AWS.Batch do
 
   @type create_compute_environment_errors() :: server_exception() | client_exception()
 
+  @type create_consumable_resource_errors() :: server_exception() | client_exception()
+
   @type create_job_queue_errors() :: server_exception() | client_exception()
 
   @type create_scheduling_policy_errors() :: server_exception() | client_exception()
 
   @type delete_compute_environment_errors() :: server_exception() | client_exception()
+
+  @type delete_consumable_resource_errors() :: server_exception() | client_exception()
 
   @type delete_job_queue_errors() :: server_exception() | client_exception()
 
@@ -2095,6 +2317,8 @@ defmodule AWS.Batch do
   @type deregister_job_definition_errors() :: server_exception() | client_exception()
 
   @type describe_compute_environments_errors() :: server_exception() | client_exception()
+
+  @type describe_consumable_resource_errors() :: server_exception() | client_exception()
 
   @type describe_job_definitions_errors() :: server_exception() | client_exception()
 
@@ -2106,7 +2330,11 @@ defmodule AWS.Batch do
 
   @type get_job_queue_snapshot_errors() :: server_exception() | client_exception()
 
+  @type list_consumable_resources_errors() :: server_exception() | client_exception()
+
   @type list_jobs_errors() :: server_exception() | client_exception()
+
+  @type list_jobs_by_consumable_resource_errors() :: server_exception() | client_exception()
 
   @type list_scheduling_policies_errors() :: server_exception() | client_exception()
 
@@ -2123,6 +2351,8 @@ defmodule AWS.Batch do
   @type untag_resource_errors() :: server_exception() | client_exception()
 
   @type update_compute_environment_errors() :: server_exception() | client_exception()
+
+  @type update_consumable_resource_errors() :: server_exception() | client_exception()
 
   @type update_job_queue_errors() :: server_exception() | client_exception()
 
@@ -2336,6 +2566,34 @@ defmodule AWS.Batch do
   end
 
   @doc """
+  Creates an Batch consumable resource.
+  """
+  @spec create_consumable_resource(map(), create_consumable_resource_request(), list()) ::
+          {:ok, create_consumable_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_consumable_resource_errors()}
+  def create_consumable_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/createconsumableresource"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates an Batch job queue.
 
   When you create a job queue, you associate one or more
@@ -2422,6 +2680,34 @@ defmodule AWS.Batch do
           | {:error, delete_compute_environment_errors()}
   def delete_compute_environment(%Client{} = client, input, options \\ []) do
     url_path = "/v1/deletecomputeenvironment"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes the specified consumable resource.
+  """
+  @spec delete_consumable_resource(map(), delete_consumable_resource_request(), list()) ::
+          {:ok, delete_consumable_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_consumable_resource_errors()}
+  def delete_consumable_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/deleteconsumableresource"
     headers = []
     custom_headers = []
     query_params = []
@@ -2553,6 +2839,34 @@ defmodule AWS.Batch do
           | {:error, describe_compute_environments_errors()}
   def describe_compute_environments(%Client{} = client, input, options \\ []) do
     url_path = "/v1/describecomputeenvironments"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns a description of the specified consumable resource.
+  """
+  @spec describe_consumable_resource(map(), describe_consumable_resource_request(), list()) ::
+          {:ok, describe_consumable_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_consumable_resource_errors()}
+  def describe_consumable_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/describeconsumableresource"
     headers = []
     custom_headers = []
     query_params = []
@@ -2717,6 +3031,34 @@ defmodule AWS.Batch do
   end
 
   @doc """
+  Returns a list of Batch consumable resources.
+  """
+  @spec list_consumable_resources(map(), list_consumable_resources_request(), list()) ::
+          {:ok, list_consumable_resources_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_consumable_resources_errors()}
+  def list_consumable_resources(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/listconsumableresources"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Returns a list of Batch jobs.
 
   You must specify only one of the following items:
@@ -2739,6 +3081,38 @@ defmodule AWS.Batch do
           | {:error, list_jobs_errors()}
   def list_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/v1/listjobs"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns a list of Batch jobs that require a specific consumable resource.
+  """
+  @spec list_jobs_by_consumable_resource(
+          map(),
+          list_jobs_by_consumable_resource_request(),
+          list()
+        ) ::
+          {:ok, list_jobs_by_consumable_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_jobs_by_consumable_resource_errors()}
+  def list_jobs_by_consumable_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/listjobsbyconsumableresource"
     headers = []
     custom_headers = []
     query_params = []
@@ -2848,8 +3222,8 @@ defmodule AWS.Batch do
   parameters in a `resourceRequirements` object that's included in the
   `containerOverrides` parameter.
 
-  Job queues with a scheduling policy are limited to 500 active share identifiers
-  at
+  Job queues with a scheduling policy are limited to 500 active fair share
+  identifiers at
   a time.
 
   Jobs that run on Fargate resources can't be guaranteed to run for more than 14
@@ -2995,6 +3369,34 @@ defmodule AWS.Batch do
           | {:error, update_compute_environment_errors()}
   def update_compute_environment(%Client{} = client, input, options \\ []) do
     url_path = "/v1/updatecomputeenvironment"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a consumable resource.
+  """
+  @spec update_consumable_resource(map(), update_consumable_resource_request(), list()) ::
+          {:ok, update_consumable_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_consumable_resource_errors()}
+  def update_consumable_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/updateconsumableresource"
     headers = []
     custom_headers = []
     query_params = []

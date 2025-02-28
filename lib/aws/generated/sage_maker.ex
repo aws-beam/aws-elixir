@@ -451,6 +451,25 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      update_hub_content_request() :: %{
+        optional("HubContentDescription") => String.t(),
+        optional("HubContentDisplayName") => String.t(),
+        optional("HubContentMarkdown") => String.t(),
+        optional("HubContentSearchKeywords") => list(String.t()()),
+        optional("SupportStatus") => list(any()),
+        required("HubContentName") => String.t(),
+        required("HubContentType") => list(any()),
+        required("HubContentVersion") => String.t(),
+        required("HubName") => String.t()
+      }
+      
+  """
+  @type update_hub_content_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       hub_content_dependency() :: %{
         "DependencyCopyPath" => String.t(),
         "DependencyOriginPath" => String.t()
@@ -1428,6 +1447,7 @@ defmodule AWS.SageMaker do
         "HubContentType" => list(any()),
         "HubContentVersion" => String.t(),
         "HubName" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
         "ReferenceMinVersion" => String.t(),
         "SageMakerPublicHubContentArn" => String.t(),
         "SupportStatus" => list(any())
@@ -4746,6 +4766,7 @@ defmodule AWS.SageMaker do
         optional("HubContentMarkdown") => String.t(),
         optional("HubContentSearchKeywords") => list(String.t()()),
         optional("HubContentVersion") => String.t(),
+        optional("SupportStatus") => list(any()),
         optional("Tags") => list(tag()()),
         required("DocumentSchemaVersion") => String.t(),
         required("HubContentDocument") => String.t(),
@@ -9587,6 +9608,20 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      update_hub_content_reference_request() :: %{
+        optional("MinVersion") => String.t(),
+        required("HubContentName") => String.t(),
+        required("HubContentType") => list(any()),
+        required("HubName") => String.t()
+      }
+      
+  """
+  @type update_hub_content_reference_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       monitoring_csv_dataset_format() :: %{
         "Header" => boolean()
       }
@@ -11637,6 +11672,17 @@ defmodule AWS.SageMaker do
       
   """
   @type describe_model_card_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      hub_access_config() :: %{
+        "HubContentArn" => String.t()
+      }
+      
+  """
+  @type hub_access_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -15986,6 +16032,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      update_hub_content_response() :: %{
+        "HubArn" => String.t(),
+        "HubContentArn" => String.t()
+      }
+      
+  """
+  @type update_hub_content_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       final_hyper_parameter_tuning_job_objective_metric() :: %{
         "MetricName" => String.t(),
         "Type" => list(any()),
@@ -17040,6 +17098,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      update_hub_content_reference_response() :: %{
+        "HubArn" => String.t(),
+        "HubContentArn" => String.t()
+      }
+      
+  """
+  @type update_hub_content_reference_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       autotune() :: %{
         "Mode" => list(any())
       }
@@ -18018,7 +18088,9 @@ defmodule AWS.SageMaker do
       
       s3_data_source() :: %{
         "AttributeNames" => list(String.t()()),
+        "HubAccessConfig" => hub_access_config(),
         "InstanceGroupNames" => list(String.t()()),
+        "ModelAccessConfig" => model_access_config(),
         "S3DataDistributionType" => list(any()),
         "S3DataType" => list(any()),
         "S3Uri" => String.t()
@@ -18557,6 +18629,10 @@ defmodule AWS.SageMaker do
   @type update_feature_metadata_errors() :: resource_not_found()
 
   @type update_hub_errors() :: resource_not_found()
+
+  @type update_hub_content_errors() :: resource_in_use() | resource_not_found()
+
+  @type update_hub_content_reference_errors() :: resource_in_use() | resource_not_found()
 
   @type update_image_errors() :: resource_in_use() | resource_not_found()
 
@@ -24784,6 +24860,81 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateHub", input, options)
+  end
+
+  @doc """
+  Updates SageMaker hub content (either a `Model` or `Notebook`
+  resource).
+
+  You can update the metadata that describes the resource. In addition to the
+  required request
+  fields, specify at least one of the following fields to update:
+
+    *
+
+  `HubContentDescription`
+
+    *
+
+  `HubContentDisplayName`
+
+    *
+
+  `HubContentMarkdown`
+
+    *
+
+  `HubContentSearchKeywords`
+
+    *
+
+  `SupportStatus`
+
+  For more information about hubs, see [Private curated hubs for foundation model access control in
+  JumpStart](https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-curated-hubs.html).
+
+  If you want to update a `ModelReference` resource in your hub, use the
+  `UpdateHubContentResource` API instead.
+  """
+  @spec update_hub_content(map(), update_hub_content_request(), list()) ::
+          {:ok, update_hub_content_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_hub_content_errors()}
+  def update_hub_content(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateHubContent", input, options)
+  end
+
+  @doc """
+  Updates the contents of a SageMaker hub for a `ModelReference` resource.
+
+  A `ModelReference` allows you to access public SageMaker JumpStart
+  models from within your private hub.
+
+  When using this API, you can update the
+  `MinVersion` field for additional flexibility in the model version. You
+  shouldn't update
+  any additional fields when using this API, because the metadata in your private
+  hub
+  should match the public JumpStart model's metadata.
+
+  If you want to update a `Model` or `Notebook`
+  resource in your hub, use the `UpdateHubContent` API instead.
+
+  For more information about adding model references to your hub, see
+  [
+  Add models to a private
+  hub](https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-curated-hubs-admin-guide-add-models.html).
+  """
+  @spec update_hub_content_reference(map(), update_hub_content_reference_request(), list()) ::
+          {:ok, update_hub_content_reference_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_hub_content_reference_errors()}
+  def update_hub_content_reference(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateHubContentReference", input, options)
   end
 
   @doc """

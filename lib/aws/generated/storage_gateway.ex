@@ -129,6 +129,17 @@ defmodule AWS.StorageGateway do
 
   ## Example:
       
+      evict_files_failing_upload_output() :: %{
+        "NotificationId" => String.t()
+      }
+      
+  """
+  @type evict_files_failing_upload_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       associate_file_system_output() :: %{
         "FileSystemAssociationARN" => String.t()
       }
@@ -1566,6 +1577,18 @@ defmodule AWS.StorageGateway do
       
   """
   @type remove_tags_from_resource_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      evict_files_failing_upload_input() :: %{
+        optional("ForceRemove") => boolean(),
+        required("FileShareARN") => String.t()
+      }
+      
+  """
+  @type evict_files_failing_upload_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3256,6 +3279,9 @@ defmodule AWS.StorageGateway do
   @type disassociate_file_system_errors() ::
           invalid_gateway_request_exception() | internal_server_error()
 
+  @type evict_files_failing_upload_errors() ::
+          invalid_gateway_request_exception() | internal_server_error()
+
   @type join_domain_errors() :: invalid_gateway_request_exception() | internal_server_error()
 
   @type list_automatic_tape_creation_policies_errors() ::
@@ -4687,6 +4713,37 @@ defmodule AWS.StorageGateway do
     meta = metadata()
 
     Request.request_post(client, meta, "DisassociateFileSystem", input, options)
+  end
+
+  @doc """
+  Starts a process that cleans the specified file share's cache of file entries
+  that are
+  failing upload to Amazon S3.
+
+  This API operation reports success if the request is
+  received with valid arguments, and there are no other cache clean operations
+  currently
+  in-progress for the specified file share. After a successful request, the cache
+  clean
+  operation occurs asynchronously and reports progress using CloudWatch logs and
+  notifications.
+
+  If `ForceRemove` is set to `True`, the cache clean operation
+  will delete file data from the gateway which might otherwise be recoverable. We
+  recommend using this operation only after all other methods to clear files
+  failing
+  upload have been exhausted, and if your business need outweighs the potential
+  data
+  loss.
+  """
+  @spec evict_files_failing_upload(map(), evict_files_failing_upload_input(), list()) ::
+          {:ok, evict_files_failing_upload_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, evict_files_failing_upload_errors()}
+  def evict_files_failing_upload(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "EvictFilesFailingUpload", input, options)
   end
 
   @doc """

@@ -1424,6 +1424,17 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      delete_attachment_request() :: %{
+        optional("userId") => String.t()
+      }
+
+  """
+  @type delete_attachment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       service_quota_exceeded_exception() :: %{
         "message" => String.t(),
         "resourceId" => String.t(),
@@ -3250,6 +3261,15 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      delete_attachment_response() :: %{}
+
+  """
+  @type delete_attachment_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_subscriptions_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
@@ -3595,6 +3615,14 @@ defmodule AWS.QBusiness do
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type delete_attachment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | license_not_found_exception()
 
   @type delete_chat_controls_configuration_errors() ::
           throttling_exception()
@@ -4605,6 +4633,55 @@ defmodule AWS.QBusiness do
     headers = []
     custom_headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes an attachment associated with a specific Amazon Q Business conversation.
+  """
+  @spec delete_attachment(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          delete_attachment_request(),
+          list()
+        ) ::
+          {:ok, delete_attachment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_attachment_errors()}
+  def delete_attachment(
+        %Client{} = client,
+        application_id,
+        attachment_id,
+        conversation_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/applications/#{AWS.Util.encode_uri(application_id)}/conversations/#{AWS.Util.encode_uri(conversation_id)}/attachments/#{AWS.Util.encode_uri(attachment_id)}"
+
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"userId", "userId"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 

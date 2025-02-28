@@ -100,6 +100,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       agent_collaborator_input_payload() :: %{
         "returnControlResults" => return_control_results(),
         "text" => String.t(),
@@ -108,6 +119,38 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type agent_collaborator_input_payload() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      session_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "sessionArn" => String.t(),
+        "sessionId" => String.t(),
+        "sessionStatus" => list(any())
+      }
+
+  """
+  @type session_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_session_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "encryptionKeyArn" => String.t(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "sessionArn" => String.t(),
+        "sessionId" => String.t(),
+        "sessionMetadata" => map(),
+        "sessionStatus" => list(any())
+      }
+
+  """
+  @type get_session_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -186,6 +229,15 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       external_source() :: %{
         "byteContent" => byte_content_doc(),
         "s3Location" => s3_object_doc(),
@@ -247,6 +299,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type inline_session_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_invocations_response() :: %{
+        "invocationSummaries" => list(invocation_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_invocations_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -520,6 +584,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      list_invocation_steps_request() :: %{
+        optional("invocationIdentifier") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_invocation_steps_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       retrieval_result_location() :: %{
         "confluenceLocation" => retrieval_result_confluence_location(),
         "customDocumentLocation" => retrieval_result_custom_document_location(),
@@ -586,12 +663,35 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      image_block() :: %{
+        "format" => list(any()),
+        "source" => list()
+      }
+
+  """
+  @type image_block() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       generate_query_response() :: %{
         "queries" => list(generated_query()())
       }
 
   """
   @type generate_query_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t()())
+      }
+
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -624,6 +724,15 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      get_session_request() :: %{}
+
+  """
+  @type get_session_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       retrieval_result_s3_location() :: %{
         "uri" => [String.t()]
       }
@@ -642,6 +751,21 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type bedrock_reranking_model_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invocation_step() :: %{
+        "invocationId" => String.t(),
+        "invocationStepId" => String.t(),
+        "invocationStepTime" => non_neg_integer(),
+        "payload" => list(),
+        "sessionId" => String.t()
+      }
+
+  """
+  @type invocation_step() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -815,6 +939,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      create_session_request() :: %{
+        optional("encryptionKeyArn") => String.t(),
+        optional("sessionMetadata") => map(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_word_policy_assessment() :: %{
         "customWords" => list(guardrail_custom_word()()),
         "managedWordLists" => list(guardrail_managed_word()())
@@ -901,6 +1038,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      list_sessions_response() :: %{
+        "nextToken" => String.t(),
+        "sessionSummaries" => list(session_summary()())
+      }
+
+  """
+  @type list_sessions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       pre_processing_parsed_response() :: %{
         "isValid" => [boolean()],
         "rationale" => String.t()
@@ -980,6 +1129,27 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type post_processing_parsed_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_invocation_steps_response() :: %{
+        "invocationStepSummaries" => list(invocation_step_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_invocation_steps_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_session_response() :: %{}
+
+  """
+  @type delete_session_response() :: %{}
 
   @typedoc """
 
@@ -1185,6 +1355,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      update_session_request() :: %{
+        optional("sessionMetadata") => map()
+      }
+
+  """
+  @type update_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       generate_query_request() :: %{
         required("queryGenerationInput") => query_generation_input(),
         required("transformationConfiguration") => transformation_configuration()
@@ -1297,6 +1478,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       api_result() :: %{
         "actionGroup" => [String.t()],
         "agentId" => [String.t()],
@@ -1310,6 +1502,29 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type api_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_invocation_step_response() :: %{
+        "invocationStep" => invocation_step()
+      }
+
+  """
+  @type get_invocation_step_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sessions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_sessions_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1350,6 +1565,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type external_sources_generation_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_location() :: %{
+        "uri" => String.t()
+      }
+
+  """
+  @type s3_location() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1397,6 +1623,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      create_invocation_request() :: %{
+        optional("description") => String.t(),
+        optional("invocationId") => String.t()
+      }
+
+  """
+  @type create_invocation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       filter_attribute() :: %{
         "key" => String.t(),
         "value" => any()
@@ -1416,6 +1654,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type flow_trace_node_output_field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_invocations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_invocations_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1466,6 +1716,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type implicit_filter_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      end_session_response() :: %{
+        "sessionArn" => String.t(),
+        "sessionId" => String.t(),
+        "sessionStatus" => list(any())
+      }
+
+  """
+  @type end_session_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1556,6 +1819,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type retrieve_and_generate_stream_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_invocation_step_request() :: %{
+        required("invocationIdentifier") => String.t()
+      }
+
+  """
+  @type get_invocation_step_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1731,6 +2005,15 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       property_parameters() :: %{
         "properties" => list(parameter()())
       }
@@ -1780,6 +2063,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      put_invocation_step_response() :: %{
+        "invocationStepId" => String.t()
+      }
+
+  """
+  @type put_invocation_step_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       retrieval_result_custom_document_location() :: %{
         "id" => [String.t()]
       }
@@ -1824,6 +2118,15 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
@@ -1905,6 +2208,21 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type retrieve_and_generate_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_session_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "sessionArn" => String.t(),
+        "sessionId" => String.t(),
+        "sessionStatus" => list(any())
+      }
+
+  """
+  @type update_session_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2018,6 +2336,20 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      invocation_step_summary() :: %{
+        "invocationId" => String.t(),
+        "invocationStepId" => String.t(),
+        "invocationStepTime" => non_neg_integer(),
+        "sessionId" => String.t()
+      }
+
+  """
+  @type invocation_step_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_regex_filter() :: %{
         "action" => list(any()),
         "match" => [String.t()],
@@ -2032,12 +2364,35 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      put_invocation_step_request() :: %{
+        optional("invocationStepId") => String.t(),
+        required("invocationIdentifier") => String.t(),
+        required("invocationStepTime") => non_neg_integer(),
+        required("payload") => list()
+      }
+
+  """
+  @type put_invocation_step_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       retrieval_result_web_location() :: %{
         "url" => [String.t()]
       }
 
   """
   @type retrieval_result_web_location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      end_session_request() :: %{}
+
+  """
+  @type end_session_request() :: %{}
 
   @typedoc """
 
@@ -2072,6 +2427,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type retrieval_result_kendra_document_location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invocation_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "invocationId" => String.t(),
+        "sessionId" => String.t()
+      }
+
+  """
+  @type invocation_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2272,6 +2640,29 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      create_session_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "sessionArn" => String.t(),
+        "sessionId" => String.t(),
+        "sessionStatus" => list(any())
+      }
+
+  """
+  @type create_session_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_session_request() :: %{}
+
+  """
+  @type delete_session_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       orchestration_model_invocation_output() :: %{
         "metadata" => metadata(),
         "rawResponse" => raw_response(),
@@ -2429,6 +2820,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      create_invocation_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "invocationId" => String.t(),
+        "sessionId" => String.t()
+      }
+
+  """
+  @type create_invocation_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       rerank_document() :: %{
         "jsonDocument" => [any()],
         "textDocument" => rerank_text_document(),
@@ -2461,6 +2865,23 @@ defmodule AWS.BedrockAgentRuntime do
   """
   @type guardrail_event() :: %{String.t() => any()}
 
+  @type create_invocation_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_session_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
   @type delete_agent_memory_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2471,6 +2892,22 @@ defmodule AWS.BedrockAgentRuntime do
           | conflict_exception()
           | dependency_failed_exception()
           | bad_gateway_exception()
+
+  @type delete_session_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type end_session_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type generate_query_errors() ::
           throttling_exception()
@@ -2493,6 +2930,20 @@ defmodule AWS.BedrockAgentRuntime do
           | conflict_exception()
           | dependency_failed_exception()
           | bad_gateway_exception()
+
+  @type get_invocation_step_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_session_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type invoke_agent_errors() ::
           throttling_exception()
@@ -2528,6 +2979,33 @@ defmodule AWS.BedrockAgentRuntime do
           | dependency_failed_exception()
           | bad_gateway_exception()
 
+  @type list_invocation_steps_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_invocations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_sessions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_tags_for_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type optimize_prompt_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2535,6 +3013,15 @@ defmodule AWS.BedrockAgentRuntime do
           | internal_server_exception()
           | dependency_failed_exception()
           | bad_gateway_exception()
+
+  @type put_invocation_step_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type rerank_errors() ::
           throttling_exception()
@@ -2580,6 +3067,29 @@ defmodule AWS.BedrockAgentRuntime do
           | dependency_failed_exception()
           | bad_gateway_exception()
 
+  @type tag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type untag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_session_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   def metadata do
     %{
       api_version: "2023-07-26",
@@ -2594,6 +3104,116 @@ defmodule AWS.BedrockAgentRuntime do
       signing_name: "bedrock",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Creates a new invocation within a session.
+
+  An invocation groups the related invocation steps that store the content from
+  a conversation. For more information about sessions, see [Store and retrieve conversation history and context with Amazon Bedrock
+  sessions](https://docs.aws.amazon.com/bedrock/latest/userguide/sessions.html).
+
+  Related APIs
+
+    *
+
+  [ListInvocations](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_ListInvocations.html) 
+
+    *
+
+  [ListSessions](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_ListSessions.html)
+
+    *
+
+  [GetSession](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_GetSession.html)
+  """
+  @spec create_invocation(map(), String.t(), create_invocation_request(), list()) ::
+          {:ok, create_invocation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_invocation_errors()}
+  def create_invocation(%Client{} = client, session_identifier, input, options \\ []) do
+    url_path = "/sessions/#{AWS.Util.encode_uri(session_identifier)}/invocations/"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a session to temporarily store conversations for generative AI (GenAI)
+  applications built with open-source
+  frameworks such as LangGraph and LlamaIndex.
+
+  Sessions enable you to save the state of
+  conversations at checkpoints, with the added security and infrastructure of
+  Amazon Web Services. For more information, see
+  [Store and retrieve conversation history and context with Amazon Bedrock sessions](https://docs.aws.amazon.com/bedrock/latest/userguide/sessions.html).
+
+  By default, Amazon Bedrock uses Amazon Web Services-managed keys for session
+  encryption, including session metadata,
+  or you can use your own KMS key. For more information, see [Amazon Bedrock session
+  encryption](https://docs.aws.amazon.com/bedrock/latest/userguide/session-encryption.html).
+
+  You use a session to store state and conversation history for generative AI
+  applications built with open-source frameworks.
+  For Amazon Bedrock Agents, the service automatically manages conversation
+  context and associates them with the agent-specific sessionId you specify in the
+  [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/API_agent-runtime_InvokeAgent.html) API operation.
+
+  Related APIs:
+
+    *
+
+  [ListSessions](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_ListSessions.html)
+
+    *
+
+  [GetSession](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_GetSession.html) 
+
+    *
+
+  [EndSession](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_EndSession.html)
+
+    *
+
+  [DeleteSession](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_DeleteSession.html)
+  """
+  @spec create_session(map(), create_session_request(), list()) ::
+          {:ok, create_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_session_errors()}
+  def create_session(%Client{} = client, input, options \\ []) do
+    url_path = "/sessions/"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -2629,6 +3249,75 @@ defmodule AWS.BedrockAgentRuntime do
       input,
       options,
       202
+    )
+  end
+
+  @doc """
+  Deletes a session that you ended.
+
+  You can't delete a session with an `ACTIVE` status. To delete an active session,
+  you must first end it with the
+  [EndSession](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_EndSession.html) API operation.
+  For more information about sessions, see [Store and retrieve conversation
+  history and context with Amazon Bedrock
+  sessions](https://docs.aws.amazon.com/bedrock/latest/userguide/sessions.html).
+  """
+  @spec delete_session(map(), String.t(), delete_session_request(), list()) ::
+          {:ok, delete_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_session_errors()}
+  def delete_session(%Client{} = client, session_identifier, input, options \\ []) do
+    url_path = "/sessions/#{AWS.Util.encode_uri(session_identifier)}/"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Ends the session.
+
+  After you end a session, you can still access its content but you can’t add to
+  it. To delete the session and it's content, you use the DeleteSession API
+  operation.
+  For more information about sessions, see [Store and retrieve conversation history and context with Amazon Bedrock
+  sessions](https://docs.aws.amazon.com/bedrock/latest/userguide/sessions.html).
+  """
+  @spec end_session(map(), String.t(), end_session_request(), list()) ::
+          {:ok, end_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, end_session_errors()}
+  def end_session(%Client{} = client, session_identifier, input, options \\ []) do
+    url_path = "/sessions/#{AWS.Util.encode_uri(session_identifier)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 
@@ -2722,6 +3411,66 @@ defmodule AWS.BedrockAgentRuntime do
       else
         query_params
       end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the details of a specific invocation step within an invocation in a
+  session.
+
+  For more information about sessions, see [Store and retrieve conversation history and context with Amazon Bedrock
+  sessions](https://docs.aws.amazon.com/bedrock/latest/userguide/sessions.html).
+  """
+  @spec get_invocation_step(map(), String.t(), String.t(), get_invocation_step_request(), list()) ::
+          {:ok, get_invocation_step_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_invocation_step_errors()}
+  def get_invocation_step(
+        %Client{} = client,
+        invocation_step_id,
+        session_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/sessions/#{AWS.Util.encode_uri(session_identifier)}/invocationSteps/#{AWS.Util.encode_uri(invocation_step_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves details about a specific session.
+
+  For more information about sessions, see [Store and retrieve conversation history and context with Amazon Bedrock
+  sessions](https://docs.aws.amazon.com/bedrock/latest/userguide/sessions.html).
+  """
+  @spec get_session(map(), String.t(), list()) ::
+          {:ok, get_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_session_errors()}
+  def get_session(%Client{} = client, session_identifier, options \\ []) do
+    url_path = "/sessions/#{AWS.Util.encode_uri(session_identifier)}/"
+    headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -2943,6 +3692,135 @@ defmodule AWS.BedrockAgentRuntime do
   end
 
   @doc """
+  Lists all invocation steps associated with a session and optionally, an
+  invocation within the session.
+
+  For more information about sessions, see [Store and retrieve conversation history and context with Amazon Bedrock
+  sessions](https://docs.aws.amazon.com/bedrock/latest/userguide/sessions.html).
+  """
+  @spec list_invocation_steps(map(), String.t(), list_invocation_steps_request(), list()) ::
+          {:ok, list_invocation_steps_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_invocation_steps_errors()}
+  def list_invocation_steps(%Client{} = client, session_identifier, input, options \\ []) do
+    url_path = "/sessions/#{AWS.Util.encode_uri(session_identifier)}/invocationSteps/"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"maxResults", "maxResults"},
+        {"nextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all invocations associated with a specific session.
+
+  For more information about sessions, see [Store and retrieve conversation history and context with Amazon Bedrock
+  sessions](https://docs.aws.amazon.com/bedrock/latest/userguide/sessions.html).
+  """
+  @spec list_invocations(map(), String.t(), list_invocations_request(), list()) ::
+          {:ok, list_invocations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_invocations_errors()}
+  def list_invocations(%Client{} = client, session_identifier, input, options \\ []) do
+    url_path = "/sessions/#{AWS.Util.encode_uri(session_identifier)}/invocations/"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"maxResults", "maxResults"},
+        {"nextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all sessions in your Amazon Web Services account.
+
+  For more information about sessions, see [Store and retrieve conversation history and context with Amazon Bedrock
+  sessions](https://docs.aws.amazon.com/bedrock/latest/userguide/sessions.html).
+  """
+  @spec list_sessions(map(), list_sessions_request(), list()) ::
+          {:ok, list_sessions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_sessions_errors()}
+  def list_sessions(%Client{} = client, input, options \\ []) do
+    url_path = "/sessions/"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"maxResults", "maxResults"},
+        {"nextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  List all the tags for the resource you specify.
+  """
+  @spec list_tags_for_resource(map(), String.t(), list()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_tags_for_resource_errors()}
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Optimizes a prompt for the task that you specify.
 
   For more information, see [Optimize a prompt](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-optimize.html)
@@ -2970,6 +3848,56 @@ defmodule AWS.BedrockAgentRuntime do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Add an invocation step to an invocation in a session.
+
+  An invocation step stores fine-grained state checkpoints, including text and
+  images, for each interaction. For more information about sessions, see [Store and retrieve conversation history and context with Amazon Bedrock
+  sessions](https://docs.aws.amazon.com/bedrock/latest/userguide/sessions.html).
+
+  Related APIs:
+
+    *
+
+  [GetInvocationStep](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_GetInvocationStep.html) 
+
+    *
+
+  [ListInvocationSteps](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_ListInvocationSteps.html)
+
+    *
+
+  [ListInvocations](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_ListInvocations.html) 
+
+    *
+
+  [ListSessions](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_ListInvocations.html)
+  """
+  @spec put_invocation_step(map(), String.t(), put_invocation_step_request(), list()) ::
+          {:ok, put_invocation_step_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_invocation_step_errors()}
+  def put_invocation_step(%Client{} = client, session_identifier, input, options \\ []) do
+    url_path = "/sessions/#{AWS.Util.encode_uri(session_identifier)}/invocationSteps/"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
     )
   end
 
@@ -3096,6 +4024,101 @@ defmodule AWS.BedrockAgentRuntime do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Associate tags with a resource.
+
+  For more information, see [Tagging resources](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html)
+  in the Amazon Bedrock User Guide.
+  """
+  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_resource_errors()}
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Remove tags from a resource.
+  """
+  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_resource_errors()}
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"tagKeys", "tagKeys"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the metadata or encryption settings of a session.
+
+  For more information about sessions, see [Store and retrieve conversation history and context with Amazon Bedrock
+  sessions](https://docs.aws.amazon.com/bedrock/latest/userguide/sessions.html).
+  """
+  @spec update_session(map(), String.t(), update_session_request(), list()) ::
+          {:ok, update_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_session_errors()}
+  def update_session(%Client{} = client, session_identifier, input, options \\ []) do
+    url_path = "/sessions/#{AWS.Util.encode_uri(session_identifier)}/"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
       url_path,
       query_params,
       custom_headers ++ headers,

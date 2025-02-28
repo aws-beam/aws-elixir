@@ -64,6 +64,17 @@ defmodule AWS.RedshiftServerless do
 
   ## Example:
       
+      get_track_response() :: %{
+        "track" => serverless_track()
+      }
+      
+  """
+  @type get_track_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_endpoint_access_request() :: %{
         optional("vpcSecurityGroupIds") => list(String.t()()),
         required("endpointName") => [String.t()]
@@ -560,6 +571,17 @@ defmodule AWS.RedshiftServerless do
 
   ## Example:
       
+      get_track_request() :: %{
+        required("trackName") => String.t()
+      }
+      
+  """
+  @type get_track_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       restore_table_from_recovery_point_request() :: %{
         optional("activateCaseSensitiveIdentifier") => [boolean()],
         optional("sourceSchemaName") => [String.t()],
@@ -635,6 +657,19 @@ defmodule AWS.RedshiftServerless do
 
   ## Example:
       
+      serverless_track() :: %{
+        "trackName" => String.t(),
+        "updateTargets" => list(update_target()()),
+        "workgroupVersion" => [String.t()]
+      }
+      
+  """
+  @type serverless_track() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_scheduled_actions_request() :: %{
         optional("maxResults") => [integer()],
         optional("namespaceName") => String.t(),
@@ -698,6 +733,18 @@ defmodule AWS.RedshiftServerless do
       
   """
   @type create_namespace_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tracks_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t()
+      }
+      
+  """
+  @type list_tracks_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -770,12 +817,14 @@ defmodule AWS.RedshiftServerless do
         "maxCapacity" => [integer()],
         "namespaceName" => [String.t()],
         "patchVersion" => [String.t()],
+        "pendingTrackName" => String.t(),
         "port" => [integer()],
         "pricePerformanceTarget" => performance_target(),
         "publiclyAccessible" => [boolean()],
         "securityGroupIds" => list(String.t()()),
         "status" => String.t(),
         "subnetIds" => list(String.t()()),
+        "trackName" => String.t(),
         "workgroupArn" => [String.t()],
         "workgroupId" => [String.t()],
         "workgroupName" => String.t(),
@@ -1106,6 +1155,7 @@ defmodule AWS.RedshiftServerless do
         optional("securityGroupIds") => list(String.t()()),
         optional("subnetIds") => list(String.t()()),
         optional("tags") => list(tag()()),
+        optional("trackName") => String.t(),
         required("namespaceName") => String.t(),
         required("workgroupName") => String.t()
       }
@@ -1510,6 +1560,18 @@ defmodule AWS.RedshiftServerless do
 
   ## Example:
       
+      update_target() :: %{
+        "trackName" => String.t(),
+        "workgroupVersion" => [String.t()]
+      }
+      
+  """
+  @type update_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_custom_domain_association_request() :: %{
         required("customDomainCertificateArn") => String.t(),
         required("customDomainName") => String.t(),
@@ -1692,6 +1754,7 @@ defmodule AWS.RedshiftServerless do
         optional("publiclyAccessible") => [boolean()],
         optional("securityGroupIds") => list(String.t()()),
         optional("subnetIds") => list(String.t()()),
+        optional("trackName") => String.t(),
         required("workgroupName") => String.t()
       }
       
@@ -1762,6 +1825,18 @@ defmodule AWS.RedshiftServerless do
       
   """
   @type performance_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tracks_response() :: %{
+        "nextToken" => String.t(),
+        "tracks" => list(serverless_track()())
+      }
+      
+  """
+  @type list_tracks_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2068,6 +2143,14 @@ defmodule AWS.RedshiftServerless do
   @type get_table_restore_status_errors() ::
           validation_exception() | resource_not_found_exception()
 
+  @type get_track_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type get_usage_limit_errors() ::
           validation_exception()
           | internal_server_exception()
@@ -2121,6 +2204,13 @@ defmodule AWS.RedshiftServerless do
           | validation_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type list_tracks_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | invalid_pagination_exception()
 
   @type list_usage_limits_errors() ::
           validation_exception()
@@ -2669,6 +2759,19 @@ defmodule AWS.RedshiftServerless do
   end
 
   @doc """
+  Get the Redshift Serverless version for a specified track.
+  """
+  @spec get_track(map(), get_track_request(), list()) ::
+          {:ok, get_track_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_track_errors()}
+  def get_track(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetTrack", input, options)
+  end
+
+  @doc """
   Returns information about a usage limit.
   """
   @spec get_usage_limit(map(), get_usage_limit_request(), list()) ::
@@ -2829,6 +2932,19 @@ defmodule AWS.RedshiftServerless do
     meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
+  end
+
+  @doc """
+  List the Amazon Redshift Serverless versions.
+  """
+  @spec list_tracks(map(), list_tracks_request(), list()) ::
+          {:ok, list_tracks_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_tracks_errors()}
+  def list_tracks(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTracks", input, options)
   end
 
   @doc """

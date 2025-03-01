@@ -259,6 +259,19 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
+      container() :: %{
+        "Duration" => float(),
+        "Format" => list(any()),
+        "Tracks" => list(track()())
+      }
+
+  """
+  @type container() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       rectangle() :: %{
         "Height" => integer(),
         "Width" => integer(),
@@ -686,6 +699,20 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
+      metadata() :: %{
+        "ETag" => String.t(),
+        "FileSize" => float(),
+        "LastModified" => non_neg_integer(),
+        "MimeType" => String.t()
+      }
+
+  """
+  @type metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       input_video_generator() :: %{
         "Channels" => integer(),
         "Duration" => integer(),
@@ -1007,6 +1034,36 @@ defmodule AWS.MediaConvert do
 
   """
   @type job_template_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      track() :: %{
+        "AudioProperties" => audio_properties(),
+        "Codec" => list(any()),
+        "DataProperties" => data_properties(),
+        "Duration" => float(),
+        "Index" => integer(),
+        "TrackType" => list(any()),
+        "VideoProperties" => video_properties()
+      }
+
+  """
+  @type track() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      track_mapping() :: %{
+        "AudioTrackIndexes" => list(integer()()),
+        "DataTrackIndexes" => list(integer()()),
+        "VideoTrackIndexes" => list(integer()())
+      }
+
+  """
+  @type track_mapping() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1621,6 +1678,22 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
+      audio_properties() :: %{
+        "BitDepth" => integer(),
+        "BitRate" => integer(),
+        "Channels" => integer(),
+        "FrameRate" => frame_rate(),
+        "LanguageCode" => String.t(),
+        "SampleRate" => integer()
+      }
+
+  """
+  @type audio_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_policy_response() :: %{
         "Policy" => policy()
       }
@@ -1770,6 +1843,18 @@ defmodule AWS.MediaConvert do
 
   """
   @type speke_key_provider() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      frame_rate() :: %{
+        "Denominator" => integer(),
+        "Numerator" => integer()
+      }
+
+  """
+  @type frame_rate() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2484,6 +2569,24 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
+      video_properties() :: %{
+        "BitDepth" => integer(),
+        "BitRate" => integer(),
+        "ColorPrimaries" => list(any()),
+        "FrameRate" => frame_rate(),
+        "Height" => integer(),
+        "MatrixCoefficients" => list(any()),
+        "TransferCharacteristics" => list(any()),
+        "Width" => integer()
+      }
+
+  """
+  @type video_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_preset_request() :: %{}
 
   """
@@ -2540,6 +2643,19 @@ defmodule AWS.MediaConvert do
 
   """
   @type policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      probe_result() :: %{
+        "Container" => container(),
+        "Metadata" => metadata(),
+        "TrackMappings" => list(track_mapping()())
+      }
+
+  """
+  @type probe_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2867,6 +2983,17 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
+      probe_response() :: %{
+        "ProbeResults" => list(probe_result()())
+      }
+
+  """
+  @type probe_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       ac3_settings() :: %{
         "Bitrate" => integer(),
         "BitstreamMode" => list(any()),
@@ -3004,6 +3131,17 @@ defmodule AWS.MediaConvert do
 
   """
   @type video_overlay_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      probe_input_file() :: %{
+        "FileUrl" => String.t()
+      }
+
+  """
+  @type probe_input_file() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3198,6 +3336,17 @@ defmodule AWS.MediaConvert do
 
   """
   @type list_queues_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_properties() :: %{
+        "LanguageCode" => String.t()
+      }
+
+  """
+  @type data_properties() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3536,6 +3685,17 @@ defmodule AWS.MediaConvert do
 
   """
   @type output_channel_mapping() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      probe_request() :: %{
+        optional("InputFiles") => list(probe_input_file()())
+      }
+
+  """
+  @type probe_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4077,6 +4237,14 @@ defmodule AWS.MediaConvert do
           | forbidden_exception()
 
   @type list_versions_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type probe_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
@@ -4921,6 +5089,35 @@ defmodule AWS.MediaConvert do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  The Probe operation analyzes the provided media file and returns comprehensive
+  metadata about its container format, tracks, and any encountered errors.
+  """
+  @spec probe(map(), probe_request(), list()) ::
+          {:ok, probe_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, probe_errors()}
+  def probe(%Client{} = client, input, options \\ []) do
+    url_path = "/2017-08-29/probe"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

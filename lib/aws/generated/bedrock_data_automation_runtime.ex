@@ -38,7 +38,7 @@ defmodule AWS.BedrockDataAutomationRuntime do
   ## Example:
       
       data_automation_configuration() :: %{
-        "dataAutomationArn" => String.t(),
+        "dataAutomationProjectArn" => String.t(),
         "stage" => list(any())
       }
       
@@ -123,6 +123,8 @@ defmodule AWS.BedrockDataAutomationRuntime do
         optional("dataAutomationConfiguration") => data_automation_configuration(),
         optional("encryptionConfiguration") => encryption_configuration(),
         optional("notificationConfiguration") => notification_configuration(),
+        optional("tags") => list(tag()()),
+        required("dataAutomationProfileArn") => String.t(),
         required("inputConfiguration") => input_configuration(),
         required("outputConfiguration") => output_configuration()
       }
@@ -140,6 +142,28 @@ defmodule AWS.BedrockDataAutomationRuntime do
       
   """
   @type invoke_data_automation_async_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("resourceARN") => String.t()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "tags" => list(tag()())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -189,12 +213,66 @@ defmodule AWS.BedrockDataAutomationRuntime do
 
   ## Example:
       
+      tag() :: %{
+        "key" => String.t(),
+        "value" => String.t()
+      }
+      
+  """
+  @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("resourceARN") => String.t(),
+        required("tags") => list(tag()())
+      }
+      
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       throttling_exception() :: %{
         "message" => String.t()
       }
       
   """
   @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("resourceARN") => String.t(),
+        required("tagKeys") => list(String.t()())
+      }
+      
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
@@ -218,6 +296,28 @@ defmodule AWS.BedrockDataAutomationRuntime do
           validation_exception()
           | throttling_exception()
           | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_tags_for_resource_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type tag_resource_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type untag_resource_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
           | access_denied_exception()
 
@@ -261,5 +361,44 @@ defmodule AWS.BedrockDataAutomationRuntime do
     meta = metadata()
 
     Request.request_post(client, meta, "InvokeDataAutomationAsync", input, options)
+  end
+
+  @doc """
+  List tags for an Amazon Bedrock Data Automation resource
+  """
+  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_tags_for_resource_errors()}
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
+  end
+
+  @doc """
+  Tag an Amazon Bedrock Data Automation resource
+  """
+  @spec tag_resource(map(), tag_resource_request(), list()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_resource_errors()}
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
+  end
+
+  @doc """
+  Untag an Amazon Bedrock Data Automation resource
+  """
+  @spec untag_resource(map(), untag_resource_request(), list()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_resource_errors()}
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 end

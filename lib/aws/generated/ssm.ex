@@ -9370,10 +9370,17 @@ defmodule AWS.SSM do
   @doc """
   Removes the server or virtual machine from the list of registered servers.
 
-  You can
-  reregister the node again at any time. If you don't plan to use Run Command on
-  the server, we
-  suggest uninstalling SSM Agent first.
+  If you want to reregister an on-premises server, edge device, or VM, you must
+  use a
+  different Activation Code and Activation ID than used to register the machine
+  previously. The
+  Activation Code and Activation ID must not have already been used on the maximum
+  number of
+  activations specified when they were created. For more information, see
+  [Deregistering managed nodes in a hybrid and multicloud
+  environment](https://docs.aws.amazon.com/systems-manager/latest/userguide/fleet-manager-deregister-hybrid-nodes.html)
+  in the
+  *Amazon Web Services Systems Manager User Guide*.
   """
   @spec deregister_managed_instance(map(), deregister_managed_instance_request(), list()) ::
           {:ok, deregister_managed_instance_result(), any()}
@@ -11108,7 +11115,7 @@ defmodule AWS.SSM do
   end
 
   @doc """
-  Add a parameter to the system.
+  Create or update a parameter in Parameter Store.
   """
   @spec put_parameter(map(), put_parameter_request(), list()) ::
           {:ok, put_parameter_result(), any()}

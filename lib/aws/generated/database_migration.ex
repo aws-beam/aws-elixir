@@ -3231,6 +3231,7 @@ defmodule AWS.DatabaseMigration do
         "Error" => integer(),
         "Failed" => integer(),
         "Passed" => integer(),
+        "Skipped" => integer(),
         "Warning" => integer()
       }
       

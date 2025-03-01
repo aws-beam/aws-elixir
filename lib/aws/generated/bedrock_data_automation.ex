@@ -64,6 +64,18 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
+      tag_resource_request() :: %{
+        required("resourceARN") => String.t(),
+        required("tags") => list(tag()())
+      }
+
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       video_standard_output_configuration() :: %{
         "extraction" => video_standard_extraction(),
         "generativeField" => video_standard_generative_field()
@@ -99,6 +111,15 @@ defmodule AWS.BedrockDataAutomation do
 
   """
   @type data_automation_project_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
@@ -152,6 +173,7 @@ defmodule AWS.BedrockDataAutomation do
 
       update_data_automation_project_request() :: %{
         optional("customOutputConfiguration") => custom_output_configuration(),
+        optional("encryptionConfiguration") => encryption_configuration(),
         optional("overrideConfiguration") => override_configuration(),
         optional("projectDescription") => String.t(),
         optional("projectStage") => list(any()),
@@ -263,6 +285,18 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
+      untag_resource_request() :: %{
+        required("resourceARN") => String.t(),
+        required("tagKeys") => list(String.t()())
+      }
+
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_blueprint_version_request() :: %{
         optional("clientToken") => String.t()
       }
@@ -355,6 +389,18 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
+      tag() :: %{
+        "key" => String.t(),
+        "value" => String.t()
+      }
+
+  """
+  @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       service_quota_exceeded_exception() :: %{
         "message" => String.t()
       }
@@ -395,12 +441,24 @@ defmodule AWS.BedrockDataAutomation do
         optional("overrideConfiguration") => override_configuration(),
         optional("projectDescription") => String.t(),
         optional("projectStage") => list(any()),
+        optional("tags") => list(tag()()),
         required("projectName") => String.t(),
         required("standardOutputConfiguration") => standard_output_configuration()
       }
 
   """
   @type create_data_automation_project_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => list(tag()())
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -543,6 +601,7 @@ defmodule AWS.BedrockDataAutomation do
 
       update_blueprint_request() :: %{
         optional("blueprintStage") => list(any()),
+        optional("encryptionConfiguration") => encryption_configuration(),
         required("schema") => String.t()
       }
 
@@ -598,6 +657,15 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       document_standard_output_configuration() :: %{
         "extraction" => document_standard_extraction(),
         "generativeField" => document_standard_generative_field(),
@@ -631,6 +699,17 @@ defmodule AWS.BedrockDataAutomation do
 
   """
   @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{
+        required("resourceARN") => String.t()
+      }
+
+  """
+  @type list_tags_for_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -685,6 +764,7 @@ defmodule AWS.BedrockDataAutomation do
         optional("blueprintStage") => list(any()),
         optional("clientToken") => String.t(),
         optional("encryptionConfiguration") => encryption_configuration(),
+        optional("tags") => list(tag()()),
         required("blueprintName") => String.t(),
         required("schema") => String.t(),
         required("type") => list(any())
@@ -874,6 +954,28 @@ defmodule AWS.BedrockDataAutomation do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type list_tags_for_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type tag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
+  @type untag_resource_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type update_blueprint_errors() ::
           throttling_exception()
           | validation_exception()
@@ -887,6 +989,7 @@ defmodule AWS.BedrockDataAutomation do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -1019,7 +1122,7 @@ defmodule AWS.BedrockDataAutomation do
       custom_headers ++ headers,
       input,
       options,
-      204
+      200
     )
   end
 
@@ -1052,7 +1155,7 @@ defmodule AWS.BedrockDataAutomation do
       custom_headers ++ headers,
       input,
       options,
-      204
+      200
     )
   end
 
@@ -1154,6 +1257,90 @@ defmodule AWS.BedrockDataAutomation do
           | {:error, list_data_automation_projects_errors()}
   def list_data_automation_projects(%Client{} = client, input, options \\ []) do
     url_path = "/data-automation-projects/"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  List tags for an Amazon Bedrock Data Automation resource
+  """
+  @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_tags_for_resource_errors()}
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/listTagsForResource"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Tag an Amazon Bedrock Data Automation resource
+  """
+  @spec tag_resource(map(), tag_resource_request(), list()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, tag_resource_errors()}
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/tagResource"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Untag an Amazon Bedrock Data Automation resource
+  """
+  @spec untag_resource(map(), untag_resource_request(), list()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, untag_resource_errors()}
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/untagResource"
     headers = []
     custom_headers = []
     query_params = []

@@ -12,7 +12,8 @@ defmodule AWS.HTTPClient.Hackney do
   def request(method, url, body, headers, options) do
     ensure_hackney_running!()
 
-    options = [:with_body | options] |> Keyword.put_new(:pool, @hackney_pool_name)
+    options = Keyword.put_new(options, :pool, @hackney_pool_name)
+    options = [:with_body | options]
 
     case :hackney.request(method, url, headers, body, options) do
       {:ok, status_code, response_headers, body} ->

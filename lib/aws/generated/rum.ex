@@ -71,7 +71,19 @@ defmodule AWS.RUM do
 
   ## Example:
 
+      delete_resource_policy_response() :: %{
+        "PolicyRevisionId" => String.t()
+      }
+
+  """
+  @type delete_resource_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_rum_events_request() :: %{
+        optional("Alias") => String.t(),
         required("AppMonitorDetails") => app_monitor_details(),
         required("BatchId") => [String.t()],
         required("RumEvents") => list(rum_event()()),
@@ -202,6 +214,18 @@ defmodule AWS.RUM do
 
   ## Example:
 
+      get_resource_policy_response() :: %{
+        "PolicyDocument" => [String.t()],
+        "PolicyRevisionId" => String.t()
+      }
+
+  """
+  @type get_resource_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_app_monitor_request() :: %{
         optional("AppMonitorConfiguration") => app_monitor_configuration(),
         optional("CustomEvents") => custom_events(),
@@ -242,6 +266,17 @@ defmodule AWS.RUM do
 
   """
   @type metric_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_size_limit_exceeded_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type policy_size_limit_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -362,6 +397,17 @@ defmodule AWS.RUM do
 
   ## Example:
 
+      policy_not_found_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type policy_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_create_rum_metric_definitions_error() :: %{
         "ErrorCode" => [String.t()],
         "ErrorMessage" => [String.t()],
@@ -383,6 +429,17 @@ defmodule AWS.RUM do
 
   """
   @type batch_create_rum_metric_definitions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_policy_revision_id_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type invalid_policy_revision_id_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -531,6 +588,15 @@ defmodule AWS.RUM do
 
   ## Example:
 
+      get_resource_policy_request() :: %{}
+
+  """
+  @type get_resource_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_rum_metrics_destination_response() :: %{}
 
   """
@@ -573,6 +639,18 @@ defmodule AWS.RUM do
 
   """
   @type batch_get_rum_metric_definitions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_resource_policy_request() :: %{
+        optional("PolicyRevisionId") => String.t(),
+        required("PolicyDocument") => [String.t()]
+      }
+
+  """
+  @type put_resource_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -665,6 +743,17 @@ defmodule AWS.RUM do
 
   ## Example:
 
+      malformed_policy_document_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type malformed_policy_document_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       metric_definition_request() :: %{
         "DimensionKeys" => map(),
         "EventPattern" => String.t(),
@@ -685,6 +774,29 @@ defmodule AWS.RUM do
 
   """
   @type update_rum_metric_definition_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_resource_policy_response() :: %{
+        "PolicyDocument" => [String.t()],
+        "PolicyRevisionId" => String.t()
+      }
+
+  """
+  @type put_resource_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_policy_request() :: %{
+        optional("PolicyRevisionId") => String.t()
+      }
+
+  """
+  @type delete_resource_policy_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -761,6 +873,16 @@ defmodule AWS.RUM do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type delete_resource_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | invalid_policy_revision_id_exception()
+          | policy_not_found_exception()
+
   @type delete_rum_metrics_destination_errors() ::
           throttling_exception()
           | validation_exception()
@@ -783,6 +905,15 @@ defmodule AWS.RUM do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_resource_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | policy_not_found_exception()
+
   @type list_app_monitors_errors() ::
           throttling_exception()
           | validation_exception()
@@ -797,6 +928,17 @@ defmodule AWS.RUM do
 
   @type list_tags_for_resource_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type put_resource_policy_errors() ::
+          malformed_policy_document_exception()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | invalid_policy_revision_id_exception()
+          | policy_size_limit_exceeded_exception()
 
   @type put_rum_events_errors() ::
           throttling_exception()
@@ -1150,6 +1292,39 @@ defmodule AWS.RUM do
   end
 
   @doc """
+  Removes the association of a resource-based policy from an app monitor.
+  """
+  @spec delete_resource_policy(map(), String.t(), delete_resource_policy_request(), list()) ::
+          {:ok, delete_resource_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_resource_policy_errors()}
+  def delete_resource_policy(%Client{} = client, name, input, options \\ []) do
+    url_path = "/appmonitor/#{AWS.Util.encode_uri(name)}/policy"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"PolicyRevisionId", "policyRevisionId"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes a destination for CloudWatch RUM extended metrics, so that the specified
   app monitor stops
   sending extended metrics to that destination.
@@ -1235,6 +1410,24 @@ defmodule AWS.RUM do
       options,
       200
     )
+  end
+
+  @doc """
+  Use this operation to retrieve information about a resource-based policy that is
+  attached to an app monitor.
+  """
+  @spec get_resource_policy(map(), String.t(), list()) ::
+          {:ok, get_resource_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_resource_policy_errors()}
+  def get_resource_policy(%Client{} = client, name, options \\ []) do
+    url_path = "/appmonitor/#{AWS.Util.encode_uri(name)}/policy"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -1334,6 +1527,40 @@ defmodule AWS.RUM do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Use this operation to assign a resource-based policy to a CloudWatch RUM app
+  monitor to control access to it.
+
+  Each app monitor can
+  have one resource-based policy. The maximum size of the policy is 4 KB. To learn
+  more about using resource policies with RUM, see [Using resource-based policies with CloudWatch
+  RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html).
+  """
+  @spec put_resource_policy(map(), String.t(), put_resource_policy_request(), list()) ::
+          {:ok, put_resource_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, put_resource_policy_errors()}
+  def put_resource_policy(%Client{} = client, name, input, options \\ []) do
+    url_path = "/appmonitor/#{AWS.Util.encode_uri(name)}/policy"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

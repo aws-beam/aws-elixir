@@ -4068,6 +4068,7 @@ defmodule AWS.EC2 do
         "CidrBlock" => String.t(),
         "CidrBlockAssociationSet" => list(vpc_cidr_block_association()()),
         "DhcpOptionsId" => String.t(),
+        "EncryptionControl" => vpc_encryption_control(),
         "InstanceTenancy" => list(any()),
         "Ipv6CidrBlockAssociationSet" => list(vpc_ipv6_cidr_block_association()()),
         "IsDefault" => boolean(),
@@ -5865,6 +5866,18 @@ defmodule AWS.EC2 do
       
   """
   @type analysis_load_balancer_listener() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      vpc_encryption_control_exclusion() :: %{
+        optional("State") => list(any()),
+        optional("StateMessage") => String.t()
+      }
+      
+  """
+  @type vpc_encryption_control_exclusion() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -21181,6 +21194,21 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      vpc_encryption_control_exclusions() :: %{
+        optional("EgressOnlyInternetGateway") => vpc_encryption_control_exclusion(),
+        optional("InternetGateway") => vpc_encryption_control_exclusion(),
+        optional("NatGateway") => vpc_encryption_control_exclusion(),
+        optional("VirtualPrivateGateway") => vpc_encryption_control_exclusion(),
+        optional("VpcPeering") => vpc_encryption_control_exclusion()
+      }
+      
+  """
+  @type vpc_encryption_control_exclusions() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       stale_security_group() :: %{
         "Description" => String.t(),
         "GroupId" => String.t(),
@@ -27937,6 +27965,23 @@ defmodule AWS.EC2 do
       
   """
   @type monitor_instances_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      vpc_encryption_control() :: %{
+        optional("Mode") => list(any()),
+        optional("ResourceExclusions") => vpc_encryption_control_exclusions(),
+        optional("State") => list(any()),
+        optional("StateMessage") => String.t(),
+        optional("Tags") => list(tag()()),
+        optional("VpcEncryptionControlId") => String.t(),
+        optional("VpcId") => String.t()
+      }
+      
+  """
+  @type vpc_encryption_control() :: %{String.t() => any()}
 
   @typedoc """
 

@@ -14199,6 +14199,7 @@ defmodule AWS.SageMaker do
       
       create_domain_response() :: %{
         "DomainArn" => String.t(),
+        "DomainId" => String.t(),
         "Url" => String.t()
       }
       

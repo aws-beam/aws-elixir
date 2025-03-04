@@ -138,7 +138,9 @@ defmodule AWS.QBusiness do
   ## Example:
 
       media_extraction_configuration() :: %{
-        "imageExtractionConfiguration" => image_extraction_configuration()
+        "audioExtractionConfiguration" => audio_extraction_configuration(),
+        "imageExtractionConfiguration" => image_extraction_configuration(),
+        "videoExtractionConfiguration" => video_extraction_configuration()
       }
 
   """
@@ -790,6 +792,17 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      video_extraction_configuration() :: %{
+        "videoExtractionStatus" => list(any())
+      }
+
+  """
+  @type video_extraction_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_plugin_actions_response() :: %{
         "items" => list(action_summary()()),
         "nextToken" => String.t()
@@ -1131,6 +1144,17 @@ defmodule AWS.QBusiness do
 
   """
   @type index() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_extraction_configuration() :: %{
+        "audioExtractionStatus" => list(any())
+      }
+
+  """
+  @type audio_extraction_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1675,7 +1699,8 @@ defmodule AWS.QBusiness do
         "endOffset" => integer(),
         "mediaId" => String.t(),
         "mediaMimeType" => String.t(),
-        "snippetExcerpt" => snippet_excerpt()
+        "snippetExcerpt" => snippet_excerpt(),
+        "sourceDetails" => list()
       }
 
   """
@@ -2122,6 +2147,18 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      image_source_details() :: %{
+        "mediaId" => String.t(),
+        "mediaMimeType" => String.t()
+      }
+
+  """
+  @type image_source_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_data_source_response() :: %{
         "dataSourceArn" => String.t(),
         "dataSourceId" => String.t()
@@ -2458,6 +2495,21 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      video_source_details() :: %{
+        "endTimeMilliseconds" => float(),
+        "mediaId" => String.t(),
+        "mediaMimeType" => String.t(),
+        "startTimeMilliseconds" => float(),
+        "videoExtractionType" => list(any())
+      }
+
+  """
+  @type video_source_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_conversations_response() :: %{
         "conversations" => list(conversation()()),
         "nextToken" => String.t()
@@ -2768,6 +2820,21 @@ defmodule AWS.QBusiness do
 
   """
   @type delete_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_source_details() :: %{
+        "audioExtractionType" => list(any()),
+        "endTimeMilliseconds" => float(),
+        "mediaId" => String.t(),
+        "mediaMimeType" => String.t(),
+        "startTimeMilliseconds" => float()
+      }
+
+  """
+  @type audio_source_details() :: %{String.t() => any()}
 
   @typedoc """
 

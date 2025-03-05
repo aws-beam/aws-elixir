@@ -12601,7 +12601,11 @@ defmodule AWS.RDS do
 
   The provided IAM role must have access to the S3 bucket.
 
-  You can't export snapshot data from Db2 or RDS Custom DB instances.
+  You can't export snapshot data from RDS Custom DB instances. For more
+  information,
+  see [
+  Supported Regions and DB engines for exporting snapshots to S3 in Amazon
+  RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RDS_Fea_Regions_DB-eng.Feature.ExportSnapshotToS3.html).
 
   For more information on exporting DB snapshot data, see
   [Exporting DB snapshot data to Amazon

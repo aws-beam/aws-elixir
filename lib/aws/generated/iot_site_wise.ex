@@ -1393,6 +1393,7 @@ defmodule AWS.IoTSiteWise do
         "gatewayId" => String.t(),
         "gatewayName" => String.t(),
         "gatewayPlatform" => gateway_platform(),
+        "gatewayVersion" => String.t(),
         "lastUpdateDate" => non_neg_integer()
       }
 
@@ -2607,6 +2608,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       create_gateway_request() :: %{
+        optional("gatewayVersion") => String.t(),
         optional("tags") => map(),
         required("gatewayName") => String.t(),
         required("gatewayPlatform") => gateway_platform()
@@ -3266,6 +3268,7 @@ defmodule AWS.IoTSiteWise do
         "gatewayId" => String.t(),
         "gatewayName" => String.t(),
         "gatewayPlatform" => gateway_platform(),
+        "gatewayVersion" => String.t(),
         "lastUpdateDate" => non_neg_integer()
       }
 
@@ -3962,6 +3965,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       greengrass_v2() :: %{
+        "coreDeviceOperatingSystem" => list(any()),
         "coreDeviceThingName" => String.t()
       }
 

@@ -1716,6 +1716,7 @@ defmodule AWS.WorkSpaces do
         "DeviceTypeOsx" => list(any()),
         "DeviceTypeWeb" => list(any()),
         "DeviceTypeWindows" => list(any()),
+        "DeviceTypeWorkSpacesThinClient" => list(any()),
         "DeviceTypeZeroClient" => list(any())
       }
       

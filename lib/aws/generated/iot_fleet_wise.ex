@@ -1388,6 +1388,7 @@ defmodule AWS.IoTFleetWise do
         "messageId" => integer(),
         "name" => String.t(),
         "offset" => float(),
+        "signalValueType" => list(any()),
         "startBit" => integer()
       }
       
@@ -1718,11 +1719,13 @@ defmodule AWS.IoTFleetWise do
         "bitMaskLength" => integer(),
         "bitRightShift" => integer(),
         "byteLength" => integer(),
+        "isSigned" => [boolean()],
         "offset" => float(),
         "pid" => integer(),
         "pidResponseLength" => integer(),
         "scaling" => float(),
         "serviceMode" => integer(),
+        "signalValueType" => list(any()),
         "startByte" => integer()
       }
       

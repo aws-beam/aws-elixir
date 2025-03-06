@@ -931,6 +931,7 @@ defmodule AWS.DataSync do
         optional("KerberosPrincipal") => String.t(),
         optional("MountOptions") => smb_mount_options(),
         optional("Password") => String.t(),
+        optional("ServerHostname") => String.t(),
         optional("Subdirectory") => String.t(),
         optional("User") => String.t(),
         required("LocationArn") => String.t()
@@ -1947,6 +1948,7 @@ defmodule AWS.DataSync do
       update_location_nfs_request() :: %{
         optional("MountOptions") => nfs_mount_options(),
         optional("OnPremConfig") => on_prem_config(),
+        optional("ServerHostname") => String.t(),
         optional("Subdirectory") => String.t(),
         required("LocationArn") => String.t()
       }
@@ -2095,6 +2097,7 @@ defmodule AWS.DataSync do
         optional("AgentArns") => list(String.t()()),
         optional("SecretKey") => String.t(),
         optional("ServerCertificate") => binary(),
+        optional("ServerHostname") => String.t(),
         optional("ServerPort") => integer(),
         optional("ServerProtocol") => list(any()),
         optional("Subdirectory") => String.t(),

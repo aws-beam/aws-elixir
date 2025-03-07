@@ -540,7 +540,7 @@ defmodule AWS.NetworkFlowMonitor do
   ## Example:
 
       update_monitor_input() :: %{
-        optional("clientToken") => [String.t()],
+        optional("clientToken") => String.t(),
         optional("localResourcesToAdd") => list(monitor_local_resource()()),
         optional("localResourcesToRemove") => list(monitor_local_resource()()),
         optional("remoteResourcesToAdd") => list(monitor_remote_resource()()),
@@ -570,7 +570,7 @@ defmodule AWS.NetworkFlowMonitor do
   ## Example:
 
       create_scope_input() :: %{
-        optional("clientToken") => [String.t()],
+        optional("clientToken") => String.t(),
         optional("tags") => map(),
         required("targets") => list(target_resource()())
       }
@@ -848,7 +848,7 @@ defmodule AWS.NetworkFlowMonitor do
   ## Example:
 
       create_monitor_input() :: %{
-        optional("clientToken") => [String.t()],
+        optional("clientToken") => String.t(),
         optional("remoteResources") => list(monitor_remote_resource()()),
         optional("tags") => map(),
         required("localResources") => list(monitor_local_resource()()),
@@ -897,6 +897,7 @@ defmodule AWS.NetworkFlowMonitor do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
 
   @type get_monitor_errors() ::
           throttling_exception()
@@ -956,6 +957,7 @@ defmodule AWS.NetworkFlowMonitor do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
 
   @type list_monitors_errors() ::
           throttling_exception()
@@ -1049,6 +1051,7 @@ defmodule AWS.NetworkFlowMonitor do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
 
   def metadata do
     %{
@@ -1283,8 +1286,14 @@ defmodule AWS.NetworkFlowMonitor do
 
   You specify the query that you want to return results for by providing a query
   ID
-  and a monitor name. This query returns the top contributors for a specific
-  monitor.
+  and a monitor name.
+
+  This query returns the top contributors for a scope for workload insights.
+  Workload
+  insights provide a high level view of network flow performance data collected by
+  agents.
+  To return the data for the top contributors, see
+  `GetQueryResultsWorkloadInsightsTopContributorsData`.
 
   Create a query ID for this call by calling the corresponding API call to start
   the query,
@@ -1343,11 +1352,14 @@ defmodule AWS.NetworkFlowMonitor do
   Return the data for a query with the Network Flow Monitor query interface.
 
   Specify the query that you want to return results for by providing a query ID
-  and a scope ID. This query returns data for the top contributors for workload
-  insights.
+  and a scope ID.
+
+  This query returns the data for top contributors for workload insights for a
+  specific scope.
   Workload insights provide a high level view of network flow performance data
   collected by agents
-  for a scope.
+  for a scope. To return just the top contributors, see
+  `GetQueryResultsWorkloadInsightsTopContributors`.
 
   Create a query ID for this call by calling the corresponding API call to start
   the query,
@@ -1415,8 +1427,8 @@ defmodule AWS.NetworkFlowMonitor do
 
   When you start a query, use this call to check the status of the query to make
   sure that it has
-  has `SUCCEEDED` before you review the results. Use the same query ID that you
-  used for
+  has `SUCCEEDED` before you reviewStartQueryWorkloadInsightsTopContributorsData
+  the results. Use the same query ID that you used for
   the corresponding API call to start the query,
   `StartQueryMonitorTopContributors`.
 
@@ -1735,25 +1747,15 @@ defmodule AWS.NetworkFlowMonitor do
   end
 
   @doc """
-  Return the data for a query with the Network Flow Monitor query interface.
+  Start a query to return the with the Network Flow Monitor query interface.
 
-  Specify the query that you want to return results for by providing a query ID
-  and a scope ID. This query returns data for the top contributors for workload
-  insights.
-  Workload insights provide a high level view of network flow performance data
-  collected by agents
-  for a scope.
-
-  A query ID is returned from an API call to start a query of a specific type; for
-  example
+  Specify the query that you want to start by providing a query ID
+  and a monitor name. This query returns the data for top contributors for
+  workload insights.
 
   Top contributors in Network Flow Monitor are network flows with the highest
   values for a specific
   metric type, related to a scope (for workload insights) or a monitor.
-
-  The top contributor network flows overall for a specific metric type, for
-  example, the
-  number of retransmissions.
   """
   @spec start_query_workload_insights_top_contributors_data(
           map(),

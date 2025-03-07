@@ -694,7 +694,15 @@ defmodule AWS.IVSRealTime do
   ## Example:
 
       conflict_exception() :: %{
-        "exceptionMessage" => String.t()
+        "accessControlAllowOrigin" => String.t(),
+        "accessControlExposeHeaders" => String.t(),
+        "cacheControl" => String.t(),
+        "contentSecurityPolicy" => String.t(),
+        "exceptionMessage" => String.t(),
+        "strictTransportSecurity" => String.t(),
+        "xAmznErrorType" => String.t(),
+        "xContentTypeOptions" => String.t(),
+        "xFrameOptions" => String.t()
       }
 
   """
@@ -705,7 +713,15 @@ defmodule AWS.IVSRealTime do
   ## Example:
 
       resource_not_found_exception() :: %{
-        "exceptionMessage" => String.t()
+        "accessControlAllowOrigin" => String.t(),
+        "accessControlExposeHeaders" => String.t(),
+        "cacheControl" => String.t(),
+        "contentSecurityPolicy" => String.t(),
+        "exceptionMessage" => String.t(),
+        "strictTransportSecurity" => String.t(),
+        "xAmznErrorType" => String.t(),
+        "xContentTypeOptions" => String.t(),
+        "xFrameOptions" => String.t()
       }
 
   """
@@ -795,7 +811,15 @@ defmodule AWS.IVSRealTime do
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "exceptionMessage" => String.t()
+        "accessControlAllowOrigin" => String.t(),
+        "accessControlExposeHeaders" => String.t(),
+        "cacheControl" => String.t(),
+        "contentSecurityPolicy" => String.t(),
+        "exceptionMessage" => String.t(),
+        "strictTransportSecurity" => String.t(),
+        "xAmznErrorType" => String.t(),
+        "xContentTypeOptions" => String.t(),
+        "xFrameOptions" => String.t()
       }
 
   """
@@ -831,6 +855,7 @@ defmodule AWS.IVSRealTime do
 
       auto_participant_recording_configuration() :: %{
         "mediaTypes" => list(list(any())()),
+        "recordingReconnectWindowSeconds" => integer(),
         "storageConfigurationArn" => String.t(),
         "thumbnailConfiguration" => participant_thumbnail_configuration()
       }
@@ -1032,7 +1057,15 @@ defmodule AWS.IVSRealTime do
   ## Example:
 
       internal_server_exception() :: %{
-        "exceptionMessage" => String.t()
+        "accessControlAllowOrigin" => String.t(),
+        "accessControlExposeHeaders" => String.t(),
+        "cacheControl" => String.t(),
+        "contentSecurityPolicy" => String.t(),
+        "exceptionMessage" => String.t(),
+        "strictTransportSecurity" => String.t(),
+        "xAmznErrorType" => String.t(),
+        "xContentTypeOptions" => String.t(),
+        "xFrameOptions" => String.t()
       }
 
   """
@@ -1171,7 +1204,15 @@ defmodule AWS.IVSRealTime do
   ## Example:
 
       access_denied_exception() :: %{
-        "exceptionMessage" => String.t()
+        "accessControlAllowOrigin" => String.t(),
+        "accessControlExposeHeaders" => String.t(),
+        "cacheControl" => String.t(),
+        "contentSecurityPolicy" => String.t(),
+        "exceptionMessage" => String.t(),
+        "strictTransportSecurity" => String.t(),
+        "xAmznErrorType" => String.t(),
+        "xContentTypeOptions" => String.t(),
+        "xFrameOptions" => String.t()
       }
 
   """
@@ -1253,7 +1294,15 @@ defmodule AWS.IVSRealTime do
   ## Example:
 
       validation_exception() :: %{
-        "exceptionMessage" => String.t()
+        "accessControlAllowOrigin" => String.t(),
+        "accessControlExposeHeaders" => String.t(),
+        "cacheControl" => String.t(),
+        "contentSecurityPolicy" => String.t(),
+        "exceptionMessage" => String.t(),
+        "strictTransportSecurity" => String.t(),
+        "xAmznErrorType" => String.t(),
+        "xContentTypeOptions" => String.t(),
+        "xFrameOptions" => String.t()
       }
 
   """
@@ -1474,7 +1523,15 @@ defmodule AWS.IVSRealTime do
   ## Example:
 
       pending_verification() :: %{
-        "exceptionMessage" => String.t()
+        "accessControlAllowOrigin" => String.t(),
+        "accessControlExposeHeaders" => String.t(),
+        "cacheControl" => String.t(),
+        "contentSecurityPolicy" => String.t(),
+        "exceptionMessage" => String.t(),
+        "strictTransportSecurity" => String.t(),
+        "xAmznErrorType" => String.t(),
+        "xContentTypeOptions" => String.t(),
+        "xFrameOptions" => String.t()
       }
 
   """

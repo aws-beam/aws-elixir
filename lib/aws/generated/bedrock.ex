@@ -728,6 +728,15 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      delete_prompt_router_request() :: %{}
+
+  """
+  @type delete_prompt_router_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       cloud_watch_config() :: %{
         "largeDataDeliveryS3Config" => s3_config(),
         "logGroupName" => String.t(),
@@ -1408,6 +1417,15 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      delete_prompt_router_response() :: %{}
+
+  """
+  @type delete_prompt_router_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       teacher_model_config() :: %{
         "maxResponseLengthForInference" => [integer()],
         "teacherModelIdentifier" => String.t()
@@ -1703,6 +1721,23 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      create_prompt_router_request() :: %{
+        optional("clientRequestToken") => String.t(),
+        optional("description") => String.t(),
+        optional("tags") => list(tag()()),
+        required("fallbackModel") => prompt_router_target_model(),
+        required("models") => list(prompt_router_target_model()()),
+        required("promptRouterName") => String.t(),
+        required("routingCriteria") => routing_criteria()
+      }
+
+  """
+  @type create_prompt_router_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       knowledge_base_vector_search_configuration() :: %{
         "filter" => list(),
         "numberOfResults" => [integer()],
@@ -1911,7 +1946,8 @@ defmodule AWS.Bedrock do
 
       list_prompt_routers_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t(),
+        optional("type") => list(any())
       }
 
   """
@@ -2082,6 +2118,17 @@ defmodule AWS.Bedrock do
 
   """
   @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_prompt_router_response() :: %{
+        "promptRouterArn" => String.t()
+      }
+
+  """
+  @type create_prompt_router_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2918,6 +2965,16 @@ defmodule AWS.Bedrock do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type create_prompt_router_errors() ::
+          too_many_tags_exception()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type create_provisioned_model_throughput_errors() ::
           too_many_tags_exception()
           | throttling_exception()
@@ -2968,6 +3025,13 @@ defmodule AWS.Bedrock do
 
   @type delete_model_invocation_logging_configuration_errors() ::
           throttling_exception() | access_denied_exception() | internal_server_exception()
+
+  @type delete_prompt_router_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type delete_provisioned_model_throughput_errors() ::
           throttling_exception()
@@ -3636,6 +3700,35 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Creates a prompt router that manages the routing of requests between multiple
+  foundation models based on the routing criteria.
+  """
+  @spec create_prompt_router(map(), create_prompt_router_request(), list()) ::
+          {:ok, create_prompt_router_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_prompt_router_errors()}
+  def create_prompt_router(%Client{} = client, input, options \\ []) do
+    url_path = "/prompt-routers"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates dedicated throughput for a base or custom model with the model units and
   for the duration that you specify.
 
@@ -3860,6 +3953,36 @@ defmodule AWS.Bedrock do
           | {:error, delete_model_invocation_logging_configuration_errors()}
   def delete_model_invocation_logging_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/logging/modelinvocations"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a specified prompt router.
+
+  This action cannot be undone.
+  """
+  @spec delete_prompt_router(map(), String.t(), delete_prompt_router_request(), list()) ::
+          {:ok, delete_prompt_router_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_prompt_router_errors()}
+  def delete_prompt_router(%Client{} = client, prompt_router_arn, input, options \\ []) do
+    url_path = "/prompt-routers/#{AWS.Util.encode_uri(prompt_router_arn)}"
     headers = []
     custom_headers = []
     query_params = []
@@ -5194,7 +5317,7 @@ defmodule AWS.Bedrock do
   @doc """
   Retrieves a list of prompt routers.
   """
-  @spec list_prompt_routers(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_prompt_routers(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_prompt_routers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_prompt_routers_errors()}
@@ -5202,11 +5325,19 @@ defmodule AWS.Bedrock do
         %Client{} = client,
         max_results \\ nil,
         next_token \\ nil,
+        type \\ nil,
         options \\ []
       ) do
     url_path = "/prompt-routers"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(type) do
+        [{"type", type} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(next_token) do

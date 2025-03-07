@@ -1829,6 +1829,18 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      modify_endpoint_encryption_mode_request() :: %{
+        required("DirectoryId") => String.t(),
+        required("EndpointEncryptionMode") => list(any())
+      }
+      
+  """
+  @type modify_endpoint_encryption_mode_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_connection_alias_result() :: %{
         "AliasId" => String.t()
       }
@@ -2422,6 +2434,15 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      modify_endpoint_encryption_mode_response() :: %{}
+      
+  """
+  @type modify_endpoint_encryption_mode_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       application_settings_request() :: %{
         "SettingsGroup" => String.t(),
         "Status" => list(any())
@@ -2571,6 +2592,7 @@ defmodule AWS.WorkSpaces do
         "DirectoryName" => String.t(),
         "DirectoryType" => list(any()),
         "DnsIpAddresses" => list(String.t()()),
+        "EndpointEncryptionMode" => list(any()),
         "ErrorMessage" => String.t(),
         "IDCConfig" => id_c_config(),
         "IamRoleId" => String.t(),
@@ -3776,6 +3798,11 @@ defmodule AWS.WorkSpaces do
           | invalid_parameter_values_exception()
           | resource_not_found_exception()
 
+  @type modify_endpoint_encryption_mode_errors() ::
+          operation_not_supported_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
   @type modify_saml_properties_errors() ::
           operation_not_supported_exception()
           | access_denied_exception()
@@ -4032,7 +4059,7 @@ defmodule AWS.WorkSpaces do
   In the China (Ningxia) Region, you can copy images only within the same Region.
 
   In Amazon Web Services GovCloud (US), to copy images to and from other Regions,
-  contact Amazon Web Services Support.
+  contact Amazon Web ServicesSupport.
 
   Before copying a shared image, be sure to verify that it has been shared from
   the
@@ -5068,6 +5095,20 @@ defmodule AWS.WorkSpaces do
   end
 
   @doc """
+  Modifies the endpoint encryption mode that allows you to configure the specified
+  directory between Standard TLS and FIPS 140-2 validated mode.
+  """
+  @spec modify_endpoint_encryption_mode(map(), modify_endpoint_encryption_mode_request(), list()) ::
+          {:ok, modify_endpoint_encryption_mode_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, modify_endpoint_encryption_mode_errors()}
+  def modify_endpoint_encryption_mode(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyEndpointEncryptionMode", input, options)
+  end
+
+  @doc """
   Modifies multiple properties related to SAML 2.0 authentication, including the
   enablement status,
   user access URL, and relay state parameter name that are used for configuring
@@ -5376,8 +5417,8 @@ defmodule AWS.WorkSpaces do
 
   Terminating a WorkSpace is a permanent action and cannot be undone. The user's
   data
-  is destroyed. If you need to archive any user data, contact Amazon Web Services
-  Support before
+  is destroyed. If you need to archive any user data, contact Amazon Web
+  ServicesSupport before
   terminating the WorkSpace.
 
   You can terminate a WorkSpace that is in any state except `SUSPENDED`.
@@ -5561,7 +5602,7 @@ defmodule AWS.WorkSpaces do
   In the China (Ningxia) Region, you can copy images only within the same Region.
 
   In Amazon Web Services GovCloud (US), to copy images to and from other Regions,
-  contact Amazon Web Services Support.
+  contact Amazon Web ServicesSupport.
 
   For more information about sharing images, see [ Share or Unshare a Custom WorkSpaces
   Image](https://docs.aws.amazon.com/workspaces/latest/adminguide/share-custom-image.html).
@@ -5575,7 +5616,7 @@ defmodule AWS.WorkSpaces do
   isn't supported at this time in Amazon Web Services GovCloud (US). To share BYOL
   images
   across accounts in Amazon Web Services GovCloud (US), contact Amazon Web
-  Services Support.
+  ServicesSupport.
   """
   @spec update_workspace_image_permission(
           map(),

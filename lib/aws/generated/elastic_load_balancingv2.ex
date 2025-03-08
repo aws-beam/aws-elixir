@@ -1453,6 +1453,17 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
+      modify_ip_pools_output() :: %{
+        "IpamPools" => ipam_pools()
+      }
+      
+  """
+  @type modify_ip_pools_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       capacity_reservation_pending_exception() :: %{
         "Message" => String.t()
       }
@@ -1769,6 +1780,19 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
+      modify_ip_pools_input() :: %{
+        optional("IpamPools") => ipam_pools(),
+        optional("RemoveIpamPools") => list(list(any())()),
+        required("LoadBalancerArn") => String.t()
+      }
+      
+  """
+  @type modify_ip_pools_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       capacity_decrease_requests_limit_exceeded_exception() :: %{
         "Message" => String.t()
       }
@@ -1807,6 +1831,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
         optional("CustomerOwnedIpv4Pool") => String.t(),
         optional("EnablePrefixForIpv6SourceNat") => list(any()),
         optional("IpAddressType") => list(any()),
+        optional("IpamPools") => ipam_pools(),
         optional("Scheme") => list(any()),
         optional("SecurityGroups") => list(String.t()()),
         optional("SubnetMappings") => list(subnet_mapping()()),
@@ -1893,6 +1918,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
         "EnablePrefixForIpv6SourceNat" => list(any()),
         "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic" => String.t(),
         "IpAddressType" => list(any()),
+        "IpamPools" => ipam_pools(),
         "LoadBalancerArn" => String.t(),
         "LoadBalancerName" => String.t(),
         "Scheme" => list(any()),
@@ -2153,6 +2179,17 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
   """
   @type describe_capacity_reservation_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ipam_pools() :: %{
+        "Ipv4IpamPoolId" => String.t()
+      }
+      
+  """
+  @type ipam_pools() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2729,6 +2766,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | prior_request_not_complete_exception()
           | insufficient_capacity_exception()
           | invalid_configuration_request_exception()
+
+  @type modify_ip_pools_errors() :: load_balancer_not_found_exception()
 
   @type modify_listener_errors() ::
           unsupported_protocol_exception()
@@ -3583,6 +3622,19 @@ defmodule AWS.ElasticLoadBalancingv2 do
     meta = metadata()
 
     Request.request_post(client, meta, "ModifyCapacityReservation", input, options)
+  end
+
+  @doc """
+  [Application Load Balancers] Modify the IP pool associated to a load balancer.
+  """
+  @spec modify_ip_pools(map(), modify_ip_pools_input(), list()) ::
+          {:ok, modify_ip_pools_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, modify_ip_pools_errors()}
+  def modify_ip_pools(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyIpPools", input, options)
   end
 
   @doc """

@@ -290,6 +290,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       inline_session_state() :: %{
+        "conversationHistory" => conversation_history(),
         "files" => list(input_file()()),
         "invocationId" => [String.t()],
         "promptSessionAttributes" => map(),
@@ -1433,6 +1434,20 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      collaborator_configuration() :: %{
+        "agentAliasArn" => String.t(),
+        "collaboratorInstruction" => String.t(),
+        "collaboratorName" => String.t(),
+        "relayConversationHistory" => list(any())
+      }
+
+  """
+  @type collaborator_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       retrieval_result_confluence_location() :: %{
         "url" => [String.t()]
       }
@@ -1893,6 +1908,7 @@ defmodule AWS.BedrockAgentRuntime do
         "agentVersion" => String.t(),
         "callerChain" => list(list()()),
         "collaboratorName" => String.t(),
+        "eventTime" => non_neg_integer(),
         "sessionId" => String.t(),
         "trace" => list()
       }
@@ -2132,6 +2148,27 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      collaborator() :: %{
+        "actionGroups" => list(agent_action_group()()),
+        "agentCollaboration" => list(any()),
+        "agentName" => String.t(),
+        "collaboratorConfigurations" => list(collaborator_configuration()()),
+        "customerEncryptionKeyArn" => String.t(),
+        "foundationModel" => String.t(),
+        "guardrailConfiguration" => guardrail_configuration_with_arn(),
+        "idleSessionTTLInSeconds" => integer(),
+        "instruction" => String.t(),
+        "knowledgeBases" => list(knowledge_base()()),
+        "promptOverrideConfiguration" => prompt_override_configuration()
+      }
+
+  """
+  @type collaborator() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       generated_query() :: %{
         "sql" => [String.t()],
         "type" => list(any())
@@ -2268,7 +2305,10 @@ defmodule AWS.BedrockAgentRuntime do
 
       invoke_inline_agent_request() :: %{
         optional("actionGroups") => list(agent_action_group()()),
+        optional("agentCollaboration") => list(any()),
         optional("bedrockModelConfigurations") => inline_bedrock_model_configurations(),
+        optional("collaboratorConfigurations") => list(collaborator_configuration()()),
+        optional("collaborators") => list(collaborator()()),
         optional("customerEncryptionKeyArn") => String.t(),
         optional("enableTrace") => [boolean()],
         optional("endSession") => [boolean()],
@@ -2795,6 +2835,7 @@ defmodule AWS.BedrockAgentRuntime do
       prompt_configuration() :: %{
         "additionalModelRequestFields" => [any()],
         "basePromptTemplate" => String.t(),
+        "foundationModel" => String.t(),
         "inferenceConfiguration" => inference_configuration(),
         "parserMode" => list(any()),
         "promptCreationMode" => list(any()),

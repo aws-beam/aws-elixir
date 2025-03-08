@@ -300,6 +300,18 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      context_enrichment_configuration() :: %{
+        "bedrockFoundationModelConfiguration" => bedrock_foundation_model_context_enrichment_configuration(),
+        "type" => list(any())
+      }
+
+  """
+  @type context_enrichment_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       missing_connection_configuration_flow_validation_details() :: %{
         "connection" => String.t()
       }
@@ -1309,6 +1321,18 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      bedrock_foundation_model_context_enrichment_configuration() :: %{
+        "enrichmentStrategyConfiguration" => enrichment_strategy_configuration(),
+        "modelArn" => String.t()
+      }
+
+  """
+  @type bedrock_foundation_model_context_enrichment_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       redshift_provisioned_auth_configuration() :: %{
         "databaseUser" => [String.t()],
         "type" => list(any()),
@@ -2218,6 +2242,7 @@ defmodule AWS.BedrockAgent do
 
       storage_configuration() :: %{
         "mongoDbAtlasConfiguration" => mongo_db_atlas_configuration(),
+        "neptuneAnalyticsConfiguration" => neptune_analytics_configuration(),
         "opensearchServerlessConfiguration" => open_search_serverless_configuration(),
         "pineconeConfiguration" => pinecone_configuration(),
         "rdsConfiguration" => rds_configuration(),
@@ -2689,6 +2714,18 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      neptune_analytics_configuration() :: %{
+        "fieldMapping" => neptune_analytics_field_mapping(),
+        "graphArn" => String.t()
+      }
+
+  """
+  @type neptune_analytics_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       missing_ending_nodes_flow_validation_details() :: %{}
 
   """
@@ -3068,6 +3105,17 @@ defmodule AWS.BedrockAgent do
 
   """
   @type agent_descriptor() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enrichment_strategy_configuration() :: %{
+        "method" => list(any())
+      }
+
+  """
+  @type enrichment_strategy_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3908,6 +3956,18 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      neptune_analytics_field_mapping() :: %{
+        "metadataField" => String.t(),
+        "textField" => String.t()
+      }
+
+  """
+  @type neptune_analytics_field_mapping() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       redshift_query_engine_redshift_storage_configuration() :: %{
         "databaseName" => String.t()
       }
@@ -4056,6 +4116,7 @@ defmodule AWS.BedrockAgent do
 
       vector_ingestion_configuration() :: %{
         "chunkingConfiguration" => chunking_configuration(),
+        "contextEnrichmentConfiguration" => context_enrichment_configuration(),
         "customTransformationConfiguration" => custom_transformation_configuration(),
         "parsingConfiguration" => parsing_configuration()
       }

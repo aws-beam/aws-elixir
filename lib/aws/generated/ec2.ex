@@ -25723,6 +25723,7 @@ defmodule AWS.EC2 do
         "PrivateIpAddress" => String.t(),
         "PublicIp" => String.t(),
         "PublicIpv4Pool" => String.t(),
+        "ServiceManaged" => list(any()),
         "Tags" => list(tag()())
       }
       

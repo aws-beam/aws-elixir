@@ -8219,7 +8219,8 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
-  Enables additional CloudWatch metrics for the specified CloudFront distribution.
+  Enables or disables additional Amazon CloudWatch metrics for the specified
+  CloudFront distribution.
 
   The
   additional metrics incur an additional cost.

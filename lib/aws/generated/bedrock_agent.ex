@@ -166,6 +166,7 @@ defmodule AWS.BedrockAgent do
         optional("description") => String.t(),
         optional("functionSchema") => list(),
         optional("parentActionGroupSignature") => list(any()),
+        optional("parentActionGroupSignatureParams") => map(),
         required("actionGroupName") => String.t()
       }
 
@@ -2962,6 +2963,7 @@ defmodule AWS.BedrockAgent do
         optional("description") => String.t(),
         optional("functionSchema") => list(),
         optional("parentActionGroupSignature") => list(any()),
+        optional("parentActionGroupSignatureParams") => map(),
         required("actionGroupName") => String.t()
       }
 
@@ -3172,6 +3174,7 @@ defmodule AWS.BedrockAgent do
         "createdAt" => non_neg_integer(),
         "description" => String.t(),
         "functionSchema" => list(),
+        "parentActionGroupSignatureParams" => map(),
         "parentActionSignature" => list(any()),
         "updatedAt" => non_neg_integer()
       }

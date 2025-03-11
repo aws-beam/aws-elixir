@@ -11299,6 +11299,7 @@ defmodule AWS.SecurityHub do
 
       standards_subscription() :: %{
         "StandardsArn" => String.t(),
+        "StandardsControlsUpdatable" => list(any()),
         "StandardsInput" => map(),
         "StandardsStatus" => list(any()),
         "StandardsStatusReason" => standards_status_reason(),
@@ -13051,6 +13052,10 @@ defmodule AWS.SecurityHub do
 
   For a batch of security controls and standards, identifies whether each control
   is currently enabled or disabled in a standard.
+
+  Calls to this operation return a `RESOURCE_NOT_FOUND_EXCEPTION` error when the
+  standard subscription for the association has a `NOT_READY_FOR_UPDATES` value
+  for `StandardsControlsUpdatable`.
   """
   @spec batch_get_standards_control_associations(
           map(),
@@ -13997,6 +14002,9 @@ defmodule AWS.SecurityHub do
   For each control, the results include information about whether it is currently
   enabled,
   the severity, and a link to remediation information.
+
+  This operation returns an empty list for standard subscriptions where
+  `StandardsControlsUpdatable` has value `NOT_READY_FOR_UPDATES`.
   """
   @spec describe_standards_controls(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, describe_standards_controls_response(), any()}
@@ -15212,6 +15220,9 @@ defmodule AWS.SecurityHub do
 
   Specifies whether a control is currently enabled or disabled in each enabled
   standard in the calling account.
+
+  This operation omits standards control associations for standard subscriptions
+  where `StandardsControlsUpdatable` has value `NOT_READY_FOR_UPDATES`.
   """
   @spec list_standards_control_associations(
           map(),
@@ -15692,6 +15703,10 @@ defmodule AWS.SecurityHub do
   @doc """
   Used to control whether an individual security standard control is enabled or
   disabled.
+
+  Calls to this operation return a `RESOURCE_NOT_FOUND_EXCEPTION` error when the
+  standard subscription for the control has `StandardsControlsUpdatable` value
+  `NOT_READY_FOR_UPDATES`.
   """
   @spec update_standards_control(map(), String.t(), update_standards_control_request(), list()) ::
           {:ok, update_standards_control_response(), any()}

@@ -6833,6 +6833,8 @@ defmodule AWS.MediaLive do
 
       ebu_tt_d_destination_settings() :: %{
         "CopyrightHolder" => String.t(),
+        "DefaultFontSize" => integer(),
+        "DefaultLineHeight" => integer(),
         "FillLineGap" => list(any()),
         "FontFamily" => String.t(),
         "StyleControl" => list(any())

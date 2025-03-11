@@ -1084,6 +1084,7 @@ defmodule AWS.PcaConnectorAd do
   ## Example:
 
       vpc_information() :: %{
+        "IpAddressType" => list(any()),
         "SecurityGroupIds" => list(String.t()())
       }
 

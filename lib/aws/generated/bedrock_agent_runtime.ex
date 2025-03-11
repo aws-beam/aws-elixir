@@ -757,6 +757,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      image_input() :: %{
+        "format" => list(any()),
+        "source" => list()
+      }
+
+  """
+  @type image_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invocation_step() :: %{
         "invocationId" => String.t(),
         "invocationStepId" => String.t(),
@@ -885,7 +897,8 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       content_body() :: %{
-        "body" => [String.t()]
+        "body" => [String.t()],
+        "images" => list(image_input()())
       }
 
   """
@@ -1926,7 +1939,8 @@ defmodule AWS.BedrockAgentRuntime do
         "apiSchema" => list(),
         "description" => String.t(),
         "functionSchema" => list(),
-        "parentActionGroupSignature" => list(any())
+        "parentActionGroupSignature" => list(any()),
+        "parentActionGroupSignatureParams" => map()
       }
 
   """
@@ -3212,7 +3226,7 @@ defmodule AWS.BedrockAgentRuntime do
   applications built with open-source frameworks.
   For Amazon Bedrock Agents, the service automatically manages conversation
   context and associates them with the agent-specific sessionId you specify in the
-  [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/API_agent-runtime_InvokeAgent.html) API operation.
+  [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) API operation.
 
   Related APIs:
 

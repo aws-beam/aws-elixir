@@ -8530,6 +8530,7 @@ defmodule AWS.Connect do
         optional("ExpiryDurationInMinutes") => integer(),
         optional("InitiateAs") => list(any()),
         optional("Name") => String.t(),
+        optional("PreviousContactId") => String.t(),
         optional("References") => map(),
         optional("RelatedContactId") => String.t(),
         optional("SegmentAttributes") => map(),
@@ -16152,13 +16153,13 @@ defmodule AWS.Connect do
 
     
 
-  `CustomerEndpoint` and `SystemEndpoint` are only populated for EMAIL contacts.
+  `CustomerEndpoint` and `SystemEndpoint` are only populated for
+  EMAIL contacts.
 
     
   Contact information remains available in Amazon Connect for 24 months from the
   `InitiationTimestamp`, and then it is deleted. Only contact information that is
-  available in
-  Amazon Connect is returned by this API.
+  available in Amazon Connect is returned by this API.
   """
   @spec describe_contact(map(), String.t(), String.t(), list()) ::
           {:ok, describe_contact_response(), any()}
@@ -19323,7 +19324,13 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Provides a list of analysis segments for a real-time analysis session.
+  Provides a list of analysis segments for a real-time chat analysis session.
+
+  This API
+  supports CHAT channels only.
+
+  This API does not support VOICE. If you attempt to use it for VOICE, an
+  `InvalidRequestException` occurs.
   """
   @spec list_realtime_contact_analysis_segments_v2(
           map(),
@@ -21891,13 +21898,13 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Transfers contacts from one agent or queue to another agent or queue at any
-  point after a
-  contact is created.
+  Transfers `TASK` or `EMAIL`
+  contacts from one agent or queue to another agent or queue at any point
+  after a contact is created.
 
-  You can transfer a contact to another queue by providing the flow which
-  orchestrates the contact to the destination queue. This gives you more control
-  over contact
+  You can transfer a contact to another queue by providing the flow
+  which orchestrates the contact to the destination queue. This gives you more
+  control over contact
   handling and helps you adhere to the service level agreement (SLA) guaranteed to
   your
   customers.
@@ -21905,7 +21912,7 @@ defmodule AWS.Connect do
   Note the following requirements:
 
     *
-  Transfer is supported for only `TASK` contacts.
+  Transfer is supported for only `TASK` and `EMAIL` contacts.
 
     *
   Do not use both `QueueId` and `UserId` in the same call.

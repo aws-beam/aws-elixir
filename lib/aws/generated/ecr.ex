@@ -106,10 +106,12 @@ defmodule AWS.ECR do
       create_pull_through_cache_rule_response() :: %{
         "createdAt" => non_neg_integer(),
         "credentialArn" => String.t(),
+        "customRoleArn" => String.t(),
         "ecrRepositoryPrefix" => String.t(),
         "registryId" => String.t(),
         "upstreamRegistry" => list(any()),
-        "upstreamRegistryUrl" => String.t()
+        "upstreamRegistryUrl" => String.t(),
+        "upstreamRepositoryPrefix" => String.t()
       }
       
   """
@@ -409,8 +411,9 @@ defmodule AWS.ECR do
   ## Example:
       
       update_pull_through_cache_rule_request() :: %{
+        optional("credentialArn") => String.t(),
+        optional("customRoleArn") => String.t(),
         optional("registryId") => String.t(),
-        required("credentialArn") => String.t(),
         required("ecrRepositoryPrefix") => String.t()
       }
       
@@ -985,8 +988,10 @@ defmodule AWS.ECR do
       
       create_pull_through_cache_rule_request() :: %{
         optional("credentialArn") => String.t(),
+        optional("customRoleArn") => String.t(),
         optional("registryId") => String.t(),
         optional("upstreamRegistry") => list(any()),
+        optional("upstreamRepositoryPrefix") => String.t(),
         required("ecrRepositoryPrefix") => String.t(),
         required("upstreamRegistryUrl") => String.t()
       }
@@ -1258,11 +1263,13 @@ defmodule AWS.ECR do
       
       validate_pull_through_cache_rule_response() :: %{
         "credentialArn" => String.t(),
+        "customRoleArn" => String.t(),
         "ecrRepositoryPrefix" => String.t(),
         "failure" => String.t(),
         "isValid" => boolean(),
         "registryId" => String.t(),
-        "upstreamRegistryUrl" => String.t()
+        "upstreamRegistryUrl" => String.t(),
+        "upstreamRepositoryPrefix" => String.t()
       }
       
   """
@@ -1741,9 +1748,11 @@ defmodule AWS.ECR do
       delete_pull_through_cache_rule_response() :: %{
         "createdAt" => non_neg_integer(),
         "credentialArn" => String.t(),
+        "customRoleArn" => String.t(),
         "ecrRepositoryPrefix" => String.t(),
         "registryId" => String.t(),
-        "upstreamRegistryUrl" => String.t()
+        "upstreamRegistryUrl" => String.t(),
+        "upstreamRepositoryPrefix" => String.t()
       }
       
   """
@@ -1828,9 +1837,11 @@ defmodule AWS.ECR do
       
       update_pull_through_cache_rule_response() :: %{
         "credentialArn" => String.t(),
+        "customRoleArn" => String.t(),
         "ecrRepositoryPrefix" => String.t(),
         "registryId" => String.t(),
-        "updatedAt" => non_neg_integer()
+        "updatedAt" => non_neg_integer(),
+        "upstreamRepositoryPrefix" => String.t()
       }
       
   """
@@ -2017,11 +2028,13 @@ defmodule AWS.ECR do
       pull_through_cache_rule() :: %{
         "createdAt" => non_neg_integer(),
         "credentialArn" => String.t(),
+        "customRoleArn" => String.t(),
         "ecrRepositoryPrefix" => String.t(),
         "registryId" => String.t(),
         "updatedAt" => non_neg_integer(),
         "upstreamRegistry" => list(any()),
-        "upstreamRegistryUrl" => String.t()
+        "upstreamRegistryUrl" => String.t(),
+        "upstreamRepositoryPrefix" => String.t()
       }
       
   """

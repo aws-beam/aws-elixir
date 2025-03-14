@@ -36,11 +36,11 @@ defmodule AWS.Util do
 
       iex> input = %{"Action" => "OperationName", "Bar" => ["val1", "val2"], "Foo" => 42}
       iex> AWS.Util.encode_query(input)
-      "Action=OperationName&Bar.1=val1&Bar.2=val2&Foo=42"
+      "Action=OperationName&Bar.member.1=val1&Bar.member.2=val2&Foo=42"
 
       iex> input = %{"Action" => "OperationName", "Bar" => %{"Baz" => ["val1", "val2"]}, "Foo" => 42}
       iex> AWS.Util.encode_query(input)
-      "Action=OperationName&Bar.Baz.1=val1&Bar.Baz.2=val2&Foo=42"
+      "Action=OperationName&Bar.Baz.member.1=val1&Bar.Baz.member.2=val2&Foo=42"
 
   """
   def encode_query(input) do
@@ -54,7 +54,7 @@ defmodule AWS.Util do
     value
     |> Enum.with_index(1)
     |> Enum.map(fn {inner_value, idx} ->
-      encode_query_value({[key, ?., to_string(idx)], inner_value})
+      encode_query_value({[key, ?., "member", ?., to_string(idx)], inner_value})
     end)
   end
 

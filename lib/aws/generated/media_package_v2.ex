@@ -262,7 +262,8 @@ defmodule AWS.MediaPackageV2 do
         "ManifestWindowSeconds" => [integer()],
         "ProgramDateTimeIntervalSeconds" => [integer()],
         "ScteHls" => scte_hls(),
-        "StartTag" => start_tag()
+        "StartTag" => start_tag(),
+        "UrlEncodeChildManifest" => [boolean()]
       }
 
   """
@@ -396,7 +397,8 @@ defmodule AWS.MediaPackageV2 do
         "ProgramDateTimeIntervalSeconds" => [integer()],
         "ScteHls" => scte_hls(),
         "StartTag" => start_tag(),
-        "Url" => [String.t()]
+        "Url" => [String.t()],
+        "UrlEncodeChildManifest" => [boolean()]
       }
 
   """
@@ -414,7 +416,8 @@ defmodule AWS.MediaPackageV2 do
         "ProgramDateTimeIntervalSeconds" => [integer()],
         "ScteHls" => scte_hls(),
         "StartTag" => start_tag(),
-        "Url" => [String.t()]
+        "Url" => [String.t()],
+        "UrlEncodeChildManifest" => [boolean()]
       }
 
   """
@@ -627,6 +630,21 @@ defmodule AWS.MediaPackageV2 do
 
   """
   @type delete_channel_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      reset_origin_endpoint_state_response() :: %{
+        "Arn" => [String.t()],
+        "ChannelGroupName" => String.t(),
+        "ChannelName" => String.t(),
+        "OriginEndpointName" => String.t(),
+        "ResetAt" => [non_neg_integer()]
+      }
+
+  """
+  @type reset_origin_endpoint_state_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -927,6 +945,15 @@ defmodule AWS.MediaPackageV2 do
 
   ## Example:
 
+      reset_origin_endpoint_state_request() :: %{}
+
+  """
+  @type reset_origin_endpoint_state_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_harvest_job_request() :: %{}
 
   """
@@ -1073,11 +1100,21 @@ defmodule AWS.MediaPackageV2 do
         "InputType" => list(any()),
         "ModifiedAt" => [non_neg_integer()],
         "OutputHeaderConfiguration" => output_header_configuration(),
+        "ResetAt" => [non_neg_integer()],
         "Tags" => map()
       }
 
   """
   @type get_channel_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reset_channel_state_request() :: %{}
+
+  """
+  @type reset_channel_state_request() :: %{}
 
   @typedoc """
 
@@ -1182,6 +1219,20 @@ defmodule AWS.MediaPackageV2 do
 
   ## Example:
 
+      reset_channel_state_response() :: %{
+        "Arn" => [String.t()],
+        "ChannelGroupName" => [String.t()],
+        "ChannelName" => [String.t()],
+        "ResetAt" => [non_neg_integer()]
+      }
+
+  """
+  @type reset_channel_state_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_channel_group_response() :: %{
         "Arn" => [String.t()],
         "ChannelGroupName" => [String.t()],
@@ -1207,7 +1258,8 @@ defmodule AWS.MediaPackageV2 do
         "ManifestWindowSeconds" => [integer()],
         "ProgramDateTimeIntervalSeconds" => [integer()],
         "ScteHls" => scte_hls(),
-        "StartTag" => start_tag()
+        "StartTag" => start_tag(),
+        "UrlEncodeChildManifest" => [boolean()]
       }
 
   """
@@ -1338,6 +1390,7 @@ defmodule AWS.MediaPackageV2 do
         "LowLatencyHlsManifests" => list(get_low_latency_hls_manifest_configuration()()),
         "ModifiedAt" => [non_neg_integer()],
         "OriginEndpointName" => String.t(),
+        "ResetAt" => [non_neg_integer()],
         "Segment" => segment(),
         "StartoverWindowSeconds" => [integer()],
         "Tags" => map()
@@ -1504,6 +1557,22 @@ defmodule AWS.MediaPackageV2 do
           | conflict_exception()
 
   @type put_origin_endpoint_policy_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type reset_channel_state_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type reset_origin_endpoint_state_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -2133,8 +2202,7 @@ defmodule AWS.MediaPackageV2 do
   end
 
   @doc """
-  Retrieves all channel groups that are configured in AWS Elemental MediaPackage,
-  including the channels and origin endpoints that are associated with it.
+  Retrieves all channel groups that are configured in Elemental MediaPackage.
   """
   @spec list_channel_groups(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_channel_groups_response(), any()}
@@ -2409,6 +2477,101 @@ defmodule AWS.MediaPackageV2 do
       ) do
     url_path =
       "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}/channel/#{AWS.Util.encode_uri(channel_name)}/originEndpoint/#{AWS.Util.encode_uri(origin_endpoint_name)}/policy"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Resetting the channel can help to clear errors from misconfigurations in the
+  encoder.
+
+  A reset refreshes the ingest stream and removes previous content.
+
+  Be sure to stop the encoder before you reset the channel, and wait at least 30
+  seconds before you restart the encoder.
+  """
+  @spec reset_channel_state(map(), String.t(), String.t(), reset_channel_state_request(), list()) ::
+          {:ok, reset_channel_state_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, reset_channel_state_errors()}
+  def reset_channel_state(
+        %Client{} = client,
+        channel_group_name,
+        channel_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}/channel/#{AWS.Util.encode_uri(channel_name)}/reset"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Resetting the origin endpoint can help to resolve unexpected behavior and other
+  content packaging issues.
+
+  It also helps to preserve special events when you don't want the previous
+  content to be available for viewing. A reset clears out all previous content
+  from the origin endpoint.
+
+  MediaPackage might return old content from this endpoint in the first 30 seconds
+  after the endpoint reset. For best results, when possible, wait 30 seconds from
+  endpoint reset to send playback requests to this endpoint.
+  """
+  @spec reset_origin_endpoint_state(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          reset_origin_endpoint_state_request(),
+          list()
+        ) ::
+          {:ok, reset_origin_endpoint_state_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, reset_origin_endpoint_state_errors()}
+  def reset_origin_endpoint_state(
+        %Client{} = client,
+        channel_group_name,
+        channel_name,
+        origin_endpoint_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/channelGroup/#{AWS.Util.encode_uri(channel_group_name)}/channel/#{AWS.Util.encode_uri(channel_name)}/originEndpoint/#{AWS.Util.encode_uri(origin_endpoint_name)}/reset"
 
     headers = []
     custom_headers = []

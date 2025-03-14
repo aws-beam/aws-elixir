@@ -29306,8 +29306,8 @@ defmodule AWS.EC2 do
   @doc """
   Associates one or more targets with an event window.
 
-  Only one type of target (instance
-  IDs, Dedicated Host IDs, or tags) can be specified with an event window.
+  Only one type of target (instance IDs,
+  Dedicated Host IDs, or tags) can be specified with an event window.
 
   For more information, see [Define event windows for scheduled events](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html)
   in the *Amazon EC2 User Guide*.
@@ -33759,7 +33759,8 @@ defmodule AWS.EC2 do
 
   @doc """
   Deregisters tag keys to prevent tags that have the specified tag keys from being
-  included in scheduled event notifications for resources in the Region.
+  included
+  in scheduled event notifications for resources in the Region.
   """
   @spec deregister_instance_event_notification_attributes(
           map(),
@@ -33965,10 +33966,6 @@ defmodule AWS.EC2 do
   Describes the Availability Zones, Local Zones, and Wavelength Zones that are
   available to
   you.
-
-  If there is an event impacting a zone, you can use this request to view the
-  state and any
-  provided messages for that zone.
 
   For more information about Availability Zones, Local Zones, and Wavelength
   Zones, see
@@ -34892,8 +34889,8 @@ defmodule AWS.EC2 do
 
   @doc """
   Describes the tag keys that are registered to appear in scheduled event
-  notifications
-  for resources in the current Region.
+  notifications for
+  resources in the current Region.
   """
   @spec describe_instance_event_notification_attributes(
           map(),

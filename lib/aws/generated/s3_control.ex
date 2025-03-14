@@ -2602,6 +2602,7 @@ defmodule AWS.S3Control do
 
       get_data_access_result() :: %{
         "Credentials" => credentials(),
+        "Grantee" => grantee(),
         "MatchedGrantTarget" => String.t()
       }
 

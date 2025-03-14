@@ -218,7 +218,8 @@ defmodule AWS.IVSRealTime do
   ## Example:
 
       recording_configuration() :: %{
-        "format" => String.t()
+        "format" => String.t(),
+        "hlsConfiguration" => composition_recording_hls_configuration()
       }
 
   """
@@ -810,6 +811,17 @@ defmodule AWS.IVSRealTime do
 
   ## Example:
 
+      participant_recording_hls_configuration() :: %{
+        "targetSegmentDurationSeconds" => integer()
+      }
+
+  """
+  @type participant_recording_hls_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       service_quota_exceeded_exception() :: %{
         "accessControlAllowOrigin" => String.t(),
         "accessControlExposeHeaders" => String.t(),
@@ -854,6 +866,7 @@ defmodule AWS.IVSRealTime do
   ## Example:
 
       auto_participant_recording_configuration() :: %{
+        "hlsConfiguration" => participant_recording_hls_configuration(),
         "mediaTypes" => list(list(any())()),
         "recordingReconnectWindowSeconds" => integer(),
         "storageConfigurationArn" => String.t(),
@@ -1250,6 +1263,17 @@ defmodule AWS.IVSRealTime do
 
   """
   @type list_participant_events_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      composition_recording_hls_configuration() :: %{
+        "targetSegmentDurationSeconds" => integer()
+      }
+
+  """
+  @type composition_recording_hls_configuration() :: %{String.t() => any()}
 
   @typedoc """
 

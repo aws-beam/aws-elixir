@@ -743,6 +743,7 @@ defmodule AWS.DataZone do
         "domainId" => String.t(),
         "environmentActions" => list(configurable_environment_action()()),
         "environmentBlueprintId" => String.t(),
+        "environmentConfigurationId" => String.t(),
         "environmentProfileId" => String.t(),
         "glossaryTerms" => list(String.t()()),
         "id" => String.t(),
@@ -768,7 +769,9 @@ defmodule AWS.DataZone do
         optional("description") => String.t(),
         optional("environmentDeploymentDetails") => environment_deployment_details(),
         optional("glossaryTerms") => list(String.t()()),
-        optional("name") => String.t()
+        optional("name") => String.t(),
+        optional("projectProfileVersion") => [String.t()],
+        optional("userParameters") => list(environment_configuration_user_parameter()())
       }
 
   """
@@ -1306,6 +1309,7 @@ defmodule AWS.DataZone do
         "createdBy" => [String.t()],
         "description" => String.t(),
         "domainId" => String.t(),
+        "environmentConfigurationId" => String.t(),
         "environmentProfileId" => String.t(),
         "id" => String.t(),
         "name" => String.t(),
@@ -1439,6 +1443,7 @@ defmodule AWS.DataZone do
 
       environment_configuration_user_parameter() :: %{
         "environmentConfigurationName" => String.t(),
+        "environmentId" => String.t(),
         "environmentParameters" => list(environment_parameter()())
       }
 
@@ -2822,6 +2827,7 @@ defmodule AWS.DataZone do
         "domainId" => String.t(),
         "environmentActions" => list(configurable_environment_action()()),
         "environmentBlueprintId" => String.t(),
+        "environmentConfigurationId" => String.t(),
         "environmentProfileId" => String.t(),
         "glossaryTerms" => list(String.t()()),
         "id" => String.t(),
@@ -3327,6 +3333,7 @@ defmodule AWS.DataZone do
         "domainId" => String.t(),
         "environmentActions" => list(configurable_environment_action()()),
         "environmentBlueprintId" => String.t(),
+        "environmentConfigurationId" => String.t(),
         "environmentProfileId" => String.t(),
         "glossaryTerms" => list(String.t()()),
         "id" => String.t(),
@@ -3937,9 +3944,11 @@ defmodule AWS.DataZone do
   ## Example:
 
       update_environment_input() :: %{
+        optional("blueprintVersion") => [String.t()],
         optional("description") => [String.t()],
         optional("glossaryTerms") => list(String.t()()),
-        optional("name") => [String.t()]
+        optional("name") => [String.t()],
+        optional("userParameters") => list(environment_parameter()())
       }
 
   """

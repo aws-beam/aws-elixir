@@ -1131,7 +1131,10 @@ defmodule AWS.ACMPCA do
           | request_failed_exception()
 
   @type list_tags_errors() ::
-          resource_not_found_exception() | invalid_arn_exception() | invalid_state_exception()
+          resource_not_found_exception()
+          | invalid_arn_exception()
+          | invalid_state_exception()
+          | request_failed_exception()
 
   @type put_policy_errors() ::
           concurrent_modification_exception()

@@ -7023,6 +7023,7 @@ defmodule AWS.Glue do
   ## Example:
       
       catalog_input() :: %{
+        "AllowFullTableExternalDataAccess" => list(any()),
         "CatalogProperties" => catalog_properties(),
         "CreateDatabaseDefaultPermissions" => list(principal_permissions()()),
         "CreateTableDefaultPermissions" => list(principal_permissions()()),
@@ -8859,6 +8860,7 @@ defmodule AWS.Glue do
   ## Example:
       
       catalog() :: %{
+        "AllowFullTableExternalDataAccess" => list(any()),
         "CatalogId" => String.t(),
         "CatalogProperties" => catalog_properties_output(),
         "CreateDatabaseDefaultPermissions" => list(principal_permissions()()),

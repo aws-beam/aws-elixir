@@ -7472,7 +7472,7 @@ defmodule AWS.CognitoIdentityProvider do
   inactive state for 14
   days, then begins a cleanup process that fully removes them from Amazon Web
   Services systems. In case
-  of accidental deletion, contact Amazon Web Services Support within 14 days for
+  of accidental deletion, contact Amazon Web ServicesSupport within 14 days for
   restoration
   assistance.
 
@@ -8773,7 +8773,8 @@ defmodule AWS.CognitoIdentityProvider do
   User pools can export
   user notification logs and, when threat protection is active, user-activity
   logs. For
-  more information, see [Exporting user pool logs](cognito/latest/developerguide/exporting-quotas-and-usage.html).
+  more information, see [Exporting user pool
+  logs](https://docs.aws.amazon.com/cognito/latest/developerguide/exporting-quotas-and-usage.html).
   """
   @spec set_log_delivery_configuration(map(), set_log_delivery_configuration_request(), list()) ::
           {:ok, set_log_delivery_configuration_response(), any()}

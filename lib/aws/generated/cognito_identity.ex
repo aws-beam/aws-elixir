@@ -21,9 +21,8 @@ defmodule AWS.CognitoIdentity do
   from your app.
   Cognito delivers a unique identifier for each user and acts as an OpenID token
   provider
-  trusted by AWS Security Token Service (STS) to access temporary,
-  limited-privilege AWS
-  credentials.
+  trusted by Security Token Service (STS) to access temporary, limited-privilege
+  Amazon Web Services credentials.
 
   For a description of the authentication flow from the Amazon Cognito Developer
   Guide
@@ -940,7 +939,7 @@ defmodule AWS.CognitoIdentity do
   Creates a new identity pool.
 
   The identity pool is a store of user identity
-  information that is specific to your AWS account. The keys for
+  information that is specific to your Amazon Web Services account. The keys for
   `SupportedLoginProviders` are as follows:
 
     *
@@ -948,6 +947,9 @@ defmodule AWS.CognitoIdentity do
 
     *
   Google: `accounts.google.com`
+
+    *
+  Sign in With Apple: `appleid.apple.com`
 
     *
   Amazon: `www.amazon.com`
@@ -958,7 +960,11 @@ defmodule AWS.CognitoIdentity do
     *
   Digits: `www.digits.com`
 
-  You must use AWS Developer credentials to call this API.
+  If you don't provide a value for a parameter, Amazon Cognito sets it to its
+  default value.
+
+  You must use Amazon Web Services developer credentials to call this
+  operation.
   """
   @spec create_identity_pool(map(), create_identity_pool_input(), list()) ::
           {:ok, identity_pool(), any()}
@@ -976,7 +982,8 @@ defmodule AWS.CognitoIdentity do
   You can specify a list of 1-60 identities
   that you want to delete.
 
-  You must use AWS Developer credentials to call this API.
+  You must use Amazon Web Services developer credentials to call this
+  operation.
   """
   @spec delete_identities(map(), delete_identities_input(), list()) ::
           {:ok, delete_identities_response(), any()}
@@ -994,7 +1001,8 @@ defmodule AWS.CognitoIdentity do
   Once a pool is deleted, users will not be able to
   authenticate with the pool.
 
-  You must use AWS Developer credentials to call this API.
+  You must use Amazon Web Services developer credentials to call this
+  operation.
   """
   @spec delete_identity_pool(map(), delete_identity_pool_input(), list()) ::
           {:ok, nil, any()}
@@ -1010,7 +1018,8 @@ defmodule AWS.CognitoIdentity do
   Returns metadata related to the given identity, including when the identity was
   created and any associated linked logins.
 
-  You must use AWS Developer credentials to call this API.
+  You must use Amazon Web Services developer credentials to call this
+  operation.
   """
   @spec describe_identity(map(), describe_identity_input(), list()) ::
           {:ok, identity_description(), any()}
@@ -1026,7 +1035,8 @@ defmodule AWS.CognitoIdentity do
   Gets details about a particular identity pool, including the pool name, ID
   description, creation date, and current number of users.
 
-  You must use AWS Developer credentials to call this API.
+  You must use Amazon Web Services developer credentials to call this
+  operation.
   """
   @spec describe_identity_pool(map(), describe_identity_pool_input(), list()) ::
           {:ok, identity_pool(), any()}
@@ -1043,9 +1053,8 @@ defmodule AWS.CognitoIdentity do
 
   Any provided logins will be
   validated against supported login providers. If the token is for
-  cognito-identity.amazonaws.com, it will be passed through to AWS Security Token
-  Service
-  with the appropriate role for the token.
+  `cognito-identity.amazonaws.com`, it will be passed through to Security Token
+  Service with the appropriate role for the token.
 
   This is a public API. You do not need any credentials to call this API.
   """
@@ -1060,7 +1069,7 @@ defmodule AWS.CognitoIdentity do
   end
 
   @doc """
-  Generates (or retrieves) a Cognito ID.
+  Generates (or retrieves) IdentityID.
 
   Supplying multiple logins will create an
   implicit linked account.
@@ -1080,7 +1089,8 @@ defmodule AWS.CognitoIdentity do
   @doc """
   Gets the roles for an identity pool.
 
-  You must use AWS Developer credentials to call this API.
+  You must use Amazon Web Services developer credentials to call this
+  operation.
   """
   @spec get_identity_pool_roles(map(), get_identity_pool_roles_input(), list()) ::
           {:ok, get_identity_pool_roles_response(), any()}
@@ -1133,7 +1143,8 @@ defmodule AWS.CognitoIdentity do
   `IdentityId`. This API will create the identity in the specified
   `IdentityPoolId`.
 
-  You must use AWS Developer credentials to call this API.
+  You must use Amazon Web Services developer credentials to call this
+  operation.
   """
   @spec get_open_id_token_for_developer_identity(
           map(),
@@ -1150,8 +1161,8 @@ defmodule AWS.CognitoIdentity do
   end
 
   @doc """
-  Use `GetPrincipalTagAttributeMap` to list all mappings between `PrincipalTags`
-  and user attributes.
+  Use `GetPrincipalTagAttributeMap` to list all mappings between
+  `PrincipalTags` and user attributes.
   """
   @spec get_principal_tag_attribute_map(map(), get_principal_tag_attribute_map_input(), list()) ::
           {:ok, get_principal_tag_attribute_map_response(), any()}
@@ -1166,7 +1177,8 @@ defmodule AWS.CognitoIdentity do
   @doc """
   Lists the identities in an identity pool.
 
-  You must use AWS Developer credentials to call this API.
+  You must use Amazon Web Services developer credentials to call this
+  operation.
   """
   @spec list_identities(map(), list_identities_input(), list()) ::
           {:ok, list_identities_response(), any()}
@@ -1181,7 +1193,8 @@ defmodule AWS.CognitoIdentity do
   @doc """
   Lists all of the Cognito identity pools registered for your account.
 
-  You must use AWS Developer credentials to call this API.
+  You must use Amazon Web Services developer credentials to call this
+  operation.
   """
   @spec list_identity_pools(map(), list_identity_pools_input(), list()) ::
           {:ok, list_identity_pools_response(), any()}
@@ -1225,7 +1238,7 @@ defmodule AWS.CognitoIdentity do
   `DeveloperUserIdentifier` will be matched against `IdentityID`. If
   the values are verified against the database, the response returns both values
   and is the
-  same as the request. Otherwise a `ResourceConflictException` is
+  same as the request. Otherwise, a `ResourceConflictException` is
   thrown.
 
   `LookupDeveloperIdentity` is intended for low-throughput control plane
@@ -1236,7 +1249,8 @@ defmodule AWS.CognitoIdentity do
   are likely to be throttled. `GetOpenIdTokenForDeveloperIdentity` is a
   better option for higher-volume operations for user authentication.
 
-  You must use AWS Developer credentials to call this API.
+  You must use Amazon Web Services developer credentials to call this
+  operation.
   """
   @spec lookup_developer_identity(map(), lookup_developer_identity_input(), list()) ::
           {:ok, lookup_developer_identity_response(), any()}
@@ -1268,7 +1282,8 @@ defmodule AWS.CognitoIdentity do
   `DestinationUserIdentifier`, together should not be larger than 20.
   Otherwise, an exception will be thrown.
 
-  You must use AWS Developer credentials to call this API.
+  You must use Amazon Web Services developer credentials to call this
+  operation.
   """
   @spec merge_developer_identities(map(), merge_developer_identities_input(), list()) ::
           {:ok, merge_developer_identities_response(), any()}
@@ -1285,7 +1300,8 @@ defmodule AWS.CognitoIdentity do
 
   These roles are used when making calls to `GetCredentialsForIdentity` action.
 
-  You must use AWS Developer credentials to call this API.
+  You must use Amazon Web Services developer credentials to call this
+  operation.
   """
   @spec set_identity_pool_roles(map(), set_identity_pool_roles_input(), list()) ::
           {:ok, nil, any()}
@@ -1299,7 +1315,8 @@ defmodule AWS.CognitoIdentity do
 
   @doc """
   You can use this operation to use default (username and clientID) attribute or
-  custom attribute mappings.
+  custom
+  attribute mappings.
   """
   @spec set_principal_tag_attribute_map(map(), set_principal_tag_attribute_map_input(), list()) ::
           {:ok, set_principal_tag_attribute_map_response(), any()}
@@ -1333,8 +1350,7 @@ defmodule AWS.CognitoIdentity do
   they appear on the Billing and Cost Management console, where you can track the
   costs
   associated with your identity pools. In an IAM policy, you can constrain
-  permissions for
-  identity pools based on specific tags or tag values.
+  permissions for identity pools based on specific tags or tag values.
 
   You can use this action up to 5 times per second, per account. An identity pool
   can have
@@ -1360,7 +1376,8 @@ defmodule AWS.CognitoIdentity do
   user
   identifier, the Cognito identity becomes inaccessible.
 
-  You must use AWS Developer credentials to call this API.
+  You must use Amazon Web Services developer credentials to call this
+  operation.
   """
   @spec unlink_developer_identity(map(), unlink_developer_identity_input(), list()) ::
           {:ok, nil, any()}
@@ -1409,9 +1426,13 @@ defmodule AWS.CognitoIdentity do
   end
 
   @doc """
-  Updates an identity pool.
+  Updates the configuration of an identity pool.
 
-  You must use AWS Developer credentials to call this API.
+  If you don't provide a value for a parameter, Amazon Cognito sets it to its
+  default value.
+
+  You must use Amazon Web Services developer credentials to call this
+  operation.
   """
   @spec update_identity_pool(map(), identity_pool(), list()) ::
           {:ok, identity_pool(), any()}

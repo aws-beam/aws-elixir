@@ -30,6 +30,7 @@ defmodule AWS.LakeFormation do
 
       grant_permissions_request() :: %{
         optional("CatalogId") => String.t(),
+        optional("Condition") => condition(),
         optional("PermissionsWithGrantOption") => list(list(any())()),
         required("Permissions") => list(list(any())()),
         required("Principal") => data_lake_principal(),
@@ -478,6 +479,7 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       delete_lake_formation_opt_in_request() :: %{
+        optional("Condition") => condition(),
         required("Principal") => data_lake_principal(),
         required("Resource") => resource()
       }
@@ -785,6 +787,7 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       create_lake_formation_opt_in_request() :: %{
+        optional("Condition") => condition(),
         required("Principal") => data_lake_principal(),
         required("Resource") => resource()
       }
@@ -1047,6 +1050,7 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       batch_permissions_request_entry() :: %{
+        "Condition" => condition(),
         "Id" => String.t(),
         "Permissions" => list(list(any())()),
         "PermissionsWithGrantOption" => list(list(any())()),
@@ -1601,6 +1605,7 @@ defmodule AWS.LakeFormation do
         optional("RoleArn") => String.t(),
         optional("UseServiceLinkedRole") => boolean(),
         optional("WithFederation") => boolean(),
+        optional("WithPrivilegedAccess") => boolean(),
         required("ResourceArn") => String.t()
       }
 
@@ -1904,7 +1909,8 @@ defmodule AWS.LakeFormation do
         "LastModified" => non_neg_integer(),
         "ResourceArn" => String.t(),
         "RoleArn" => String.t(),
-        "WithFederation" => boolean()
+        "WithFederation" => boolean(),
+        "WithPrivilegedAccess" => boolean()
       }
 
   """
@@ -1990,6 +1996,7 @@ defmodule AWS.LakeFormation do
 
       revoke_permissions_request() :: %{
         optional("CatalogId") => String.t(),
+        optional("Condition") => condition(),
         optional("PermissionsWithGrantOption") => list(list(any())()),
         required("Permissions") => list(list(any())()),
         required("Principal") => data_lake_principal(),
@@ -2378,6 +2385,7 @@ defmodule AWS.LakeFormation do
           concurrent_modification_exception()
           | access_denied_exception()
           | invalid_input_exception()
+          | resource_number_limit_exceeded_exception()
           | internal_service_exception()
           | operation_timeout_exception()
           | entity_not_found_exception()
@@ -4174,13 +4182,13 @@ defmodule AWS.LakeFormation do
   @doc """
   Registers the resource as managed by the Data Catalog.
 
-  To add or update data, Lake Formation needs read/write access to the chosen
-  Amazon S3 path. Choose a role that you know has permission to do this, or choose
-  the AWSServiceRoleForLakeFormationDataAccess service-linked role. When you
-  register the first Amazon S3 path, the service-linked role and a new inline
-  policy are created on your behalf. Lake Formation adds the first path to the
-  inline policy and attaches it to the service-linked role. When you register
-  subsequent paths, Lake Formation adds the path to the existing policy.
+  To add or update data, Lake Formation needs read/write access to the chosen data
+  location. Choose a role that you know has permission to do this, or choose the
+  AWSServiceRoleForLakeFormationDataAccess service-linked role. When you register
+  the first Amazon S3 path, the service-linked role and a new inline policy are
+  created on your behalf. Lake Formation adds the first path to the inline policy
+  and attaches it to the service-linked role. When you register subsequent paths,
+  Lake Formation adds the path to the existing policy.
 
   The following request registers a new location and gives Lake Formation
   permission to use the service-linked role to access that location.

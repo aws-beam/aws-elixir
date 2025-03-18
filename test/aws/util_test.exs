@@ -35,7 +35,7 @@ defmodule AWS.UtilTest do
       }
 
       assert Util.encode_query(input) ==
-               "Action=OperationName&Operations.1=foo&Operations.2=bar"
+               "Action=OperationName&Operations.member.1=foo&Operations.member.2=bar"
     end
 
     test "with a map with string values" do
@@ -59,7 +59,7 @@ defmodule AWS.UtilTest do
       }
 
       assert Util.encode_query(input) ==
-               "Action=OperationName&Operation.1.name=foo&Operation.1.state=bar&Operation.2.name=baz&Operation.2.state=full&Operation.3.other.1=a&Operation.3.other.2=b&Operation.3.other.3=c"
+               "Action=OperationName&Operation.member.1.name=foo&Operation.member.1.state=bar&Operation.member.2.name=baz&Operation.member.2.state=full&Operation.member.3.other.member.1=a&Operation.member.3.other.member.2=b&Operation.member.3.other.member.3=c"
     end
   end
 end
